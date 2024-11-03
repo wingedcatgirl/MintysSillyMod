@@ -1,0 +1,19 @@
+{
+	"id": "MintysSillyMod",
+	"name": "Minty's Silly Little Mod",
+	"display_name": "Minty's Mod",
+	"author": ["wingedcatgirl"],
+	"description": "A silly little mod that adds some silly little jokers",
+	"prefix": "Minty",
+	"main_file": "MintysSillyMod.lua",
+	"priority": 35,
+	"badge_colour": "CA7CA7",
+	"badge_text_colour": "FFFFFF",
+	"version": "0.0.1",
+	"dependencies": [
+		{
+			"id": "Steamodded",
+			"min_version": "1.0.0~ALPHA-1030e"
+		}
+	],
+}
