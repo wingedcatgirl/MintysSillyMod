@@ -1,6 +1,6 @@
 SMODS.Joker {
     key = "froyo",
-    name = "Froyo",
+    name = "Frozen Yogurt",
     atlas = 'mintyjokerplaceholder',
     pos = {
         x = 0,
@@ -11,7 +11,7 @@ SMODS.Joker {
         y = 0
     },
     rarity = 1,
-    cost = 3,
+    cost = 1,
     unlocked = true,
     discovered = false,
     eternal_compat = false,
@@ -24,7 +24,7 @@ SMODS.Joker {
         }
     },
     loc_txt = {
-        name = "Froyo",
+        name = "Frozen Yogurt",
         text = {"{C:chips}+#1#{} Chips, {C:chips}-#2#{} Chips",
                 "for every hand played",
                 "{C:inactive}(But it's so much cheaper!)"}
