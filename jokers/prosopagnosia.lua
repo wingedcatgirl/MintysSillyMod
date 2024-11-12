@@ -17,11 +17,17 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {card.ability.extra.Xmult}
+        }
+    end,
+    config = {extra = {Xmult = 5}},
     loc_txt = {
         name = "Prosopagnosia",
         text = {"{C:attention}No{} cards are considered",
-                "{C:attention}face{} cards. {C:inactive}(Instead",
-                "{C:inactive}they're 10s.)"}
+                "{C:attention}face{} cards. {C:inactive}(K = 13,",
+                "{C:inactive}Q = 12, J = 11)"}
     },
     calculate = function(self, card, context)
         

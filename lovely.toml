@@ -1,0 +1,33 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+position = "at"
+pattern = '''
+function Card:is_face(from_boss)
+    if self.debuff and not from_boss then return end
+    local id = self:get_id()
+    if id == 11 or id == 12 or id == 13 or next(find_joker("Pareidolia")) then
+        return true
+    end
+end
+'''
+payload = '''
+function Card:is_face(from_boss)
+    if self.debuff and not from_boss then return end
+    local id = self:get_id()
+    if next(find_joker("Pareidolia")) then 
+        return true 
+    end
+    if next(find_joker("Prosopagnosia")) then 
+        return false 
+    end
+    if id == 11 or id == 12 or id == 13 then
+        return true
+    end
+end
+'''
+match_indent = true

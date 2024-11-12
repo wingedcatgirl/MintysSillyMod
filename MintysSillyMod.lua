@@ -36,12 +36,12 @@ SMODS.Atlas {
 SMODS.Atlas {
     key = '3sicon',
     path = "3sicon.png",
-    px = 71,
-    py = 95
+    px = 18,
+    py = 18
 }
 
 -- Debug message
-local function say(message)
+function say(message)
     sendDebugMessage('[Minty\'s Silly Mod] - '..(message or '???'))
 end
 
@@ -63,8 +63,14 @@ end
 NFS.load(SMODS.current_mod.path .. 'suits/3suit.lua')()
 
 -- NFS.load(SMODS.current_mod.path .. 'jokers/JOKER.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/froyo.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/hedonist.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/claw.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/threecats.lua')()
+
+
+
+NFS.load(SMODS.current_mod.path .. 'jokers/froyo.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/prosopagnosia.lua')()
 
 
 NFS.load(SMODS.current_mod.path .. 'seals/cementseal.lua')()

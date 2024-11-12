@@ -8,7 +8,7 @@ SMODS.Consumable{ -- The Cat
                 ['text'] = {
                     [1] = 'Converts up to',
                     [2] = '{C:attention}#1#{} selected cards',
-                    [3] = 'to {C:Minty_3s}3s{}',
+                    [3] = 'to {C:minty_3s}3s{}',
                 }
             },
         },
@@ -16,7 +16,7 @@ SMODS.Consumable{ -- The Cat
         badges[1] = create_badge("Tarot?", get_type_colour(self or card.config, card), nil, 1.2)
     end,
 
-    config = {max_highlighted = 3, suit_conv = 'Minty_3s'},
+    config = {max_highlighted = 3, suit_conv = 'minty_3s'},
     pos = {
         x = 0,
         y = 0

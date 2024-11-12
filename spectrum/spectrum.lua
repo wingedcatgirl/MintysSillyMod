@@ -44,12 +44,12 @@ SMODS.PokerHand{ -- Spectrum (Referenced from SixSuits)
         { 'S_2',    true },
         { 'D_7',    true },
         { 'C_3', true },
-        { 'Minty_THREE_5', true },
+        { 'minty_THREE_5', true },
         { 'D_K',    true },
     },
     loc_txt = loc.spectrum,
     evaluate = function(parts)
-        return parts.Minty_spectrum
+        return parts.minty_spectrum
     end
 }
 
@@ -62,7 +62,7 @@ SMODS.PokerHand{ -- Straight Spectrum (Referenced from SixSuits)
     l_mult = 5,
     example = {
         { 'S_Q',    true },
-        { 'Minty_THREE_J', true },
+        { 'minty_THREE_J', true },
         { 'C_T',    true },
         { 'D_9', true },
         { 'H_8',    true }
@@ -73,8 +73,8 @@ SMODS.PokerHand{ -- Straight Spectrum (Referenced from SixSuits)
         SMODS.process_loc_text(G.localization.misc.poker_hands, self.key..'_2', self.loc_txt, 'extra')
     end,
     evaluate = function(parts)
-        if not next(parts.Minty_spectrum) or not next(parts._straight) then return {} end
-        return { SMODS.merge_lists (parts.Minty_spectrum, parts._straight) }
+        if not next(parts.minty_spectrum) or not next(parts._straight) then return {} end
+        return { SMODS.merge_lists (parts.minty_spectrum, parts._straight) }
     end,
     modify_display_text = function(self, _cards, scoring_hand)
         local royal = true
@@ -98,15 +98,15 @@ SMODS.PokerHand{ -- Spectrum House (Referenced from SixSuits)
     l_mult = 5,
     example = {
         { 'S_Q',    true },
-        { 'Minty_THREE_Q', true },
+        { 'minty_THREE_Q', true },
         { 'C_Q',    true },
         { 'D_8',    true },
         { 'H_8',    true }
     },
     loc_txt = loc.spectrum_house,
     evaluate = function(parts)
-        if #parts._3 < 1 or #parts._2 < 2 or not next(parts.Minty_spectrum) then return {} end
-        return {SMODS.merge_lists (parts._all_pairs, parts.Minty_spectrum)}
+        if #parts._3 < 1 or #parts._2 < 2 or not next(parts.minty_spectrum) then return {} end
+        return {SMODS.merge_lists (parts._all_pairs, parts.minty_spectrum)}
     end
 }
 
@@ -121,13 +121,13 @@ SMODS.PokerHand{ -- Spectrum Five (Referenced from SixSuits)
     example = {
         { 'S_7',    true },
         { 'D_7', true },
-        { 'Minty_THREE_7',    true },
+        { 'minty_THREE_7',    true },
         { 'H_7',    true },
         { 'C_7',    true }
     },
     loc_txt = loc.spectrum_five,
     evaluate = function(parts)
-        if not next(parts._5) or not next(parts.Minty_spectrum) then return {} end
-        return {SMODS.merge_lists (parts._5, parts.Minty_spectrum)}
+        if not next(parts._5) or not next(parts.minty_spectrum) then return {} end
+        return {SMODS.merge_lists (parts._5, parts.minty_spectrum)}
     end
 }
