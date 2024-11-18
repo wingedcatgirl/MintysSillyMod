@@ -6,6 +6,7 @@ Current features:
 - A funny suit
 - Some jokers
 - A fusion (if [Fusion Jokers](https://github.com/lshtech/Fusion-Jokers) is also installed)
+- Cement
 - Placeholder art
 - A little 3, as a treat
 - More ambition than sense
@@ -13,6 +14,5 @@ Current features:
 Planned features:
 - Cats
 - Cubes
-- Cement
 - Injokes
 - MOOOOOORE fusions 
