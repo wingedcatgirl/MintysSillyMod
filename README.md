@@ -14,6 +14,7 @@ Current features:
 Planned features:
 - Cats
 - Cubes
+- A deck
 - Injokes
 - MOOOOOORE fusions 
 
