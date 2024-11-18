@@ -2,6 +2,7 @@
 version = "1.0.0"
 priority = 0
 
+# Prosopagnosia. There is probably a more elegant way to do this, but I don't know it :shrug:
 [[patches]]
 [patches.pattern]
 target = "card.lua"

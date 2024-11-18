@@ -76,15 +76,13 @@ NFS.load(SMODS.current_mod.path .. 'suits/3suit.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/hedonist.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/claw.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/threecats.lua')()
-
-
-
 NFS.load(SMODS.current_mod.path .. 'jokers/froyo.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/prosopagnosia.lua')()
-
-
-NFS.load(SMODS.current_mod.path .. 'seals/cementseal.lua')()
 
 NFS.load(SMODS.current_mod.path .. 'consumables/tarots.lua')()
 
 NFS.load(SMODS.current_mod.path .. 'blinds/thenip.lua')()
+
+NFS.load(SMODS.current_mod.path .. 'seals/cementseal.lua')()
+
+
