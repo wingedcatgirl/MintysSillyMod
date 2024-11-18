@@ -8,7 +8,7 @@ SMODS.Joker {
         },
     soul_pos = {
         x = 1,
-        y = 0
+        y = 1
         },
     rarity = 2,
     cost = 7,
@@ -32,17 +32,19 @@ SMODS.Joker {
                 }
         },
     calculate = function(self, card, context)
-        if (context.other_card:is_suit("minty_3s") or context.other_card:get_id() == 3) and pseudorandom('claw') < G.GAME.probabilities.normal/self.ability.extra.odds then
-            if (context.other_card:is_suit("minty_3s") and context.other_card:get_id() == 3) and pseudorandom('claw') < G.GAME.probabilities.normal/self.ability.extra.odds then
-                return {
-                    x_mult = card.ability.extra.Xmult,
-                    card = card
-                    }
-            else 
-                return {
-                    x_mult = card.ability.extra.Xmult,
-                    card = card
-                    }
+        if context.cardarea == G.play then    
+            if (context.other_card:is_suit("minty_3s") or context.other_card:get_id() == 3) and pseudorandom('claw') < G.GAME.probabilities.normal/card.ability.extra.odds then
+                if (context.other_card:is_suit("minty_3s") and context.other_card:get_id() == 3) and pseudorandom('claw') < G.GAME.probabilities.normal/card.ability.extra.odds then
+                    return {
+                        x_mult = card.ability.extra.Xmult,
+                        card = card
+                        }
+                else 
+                    return {
+                        x_mult = card.ability.extra.Xmult,
+                        card = card
+                        }
+                    end
                 end
             end
         end

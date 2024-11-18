@@ -13,8 +13,8 @@ SMODS.Joker {
         y = 0
         },
     soul_pos = {
-        x = 1,
-        y = 0
+        x = 2,
+        y = 1
         },
     rarity = 'fusion',
     cost = 12,
@@ -38,23 +38,25 @@ SMODS.Joker {
                 }
         },
     calculate = function(self, card, context)
-        if context.other_card:is_suit("minty_3s") or context.other_card:get_id() == 3 then
-                local roll = pseudorandom_element({'amult', 'chips', 'xmult'})
-                if roll == 'amult' then
-                    return {
-                        mult = card.ability.extra.mult,
-                        card = card
-                    }
-                elseif roll == 'chips' then
-                    return {
-                        chips = card.ability.extra.chips,
-                        card = card
-                    }
-                elseif roll == 'xmult' then
-                    return {
-                        x_mult = card.ability.extra.Xmult,
-                        card = card
-                    }
+        if context.cardarea == G.play then   
+            if context.other_card:is_suit("minty_3s") or context.other_card:get_id() == 3 then
+                    local roll = pseudorandom_element({'amult', 'chips', 'xmult'})
+                    if roll == 'amult' then
+                        return {
+                            mult = card.ability.extra.mult,
+                            card = card
+                        }
+                    elseif roll == 'chips' then
+                        return {
+                            chips = card.ability.extra.chips,
+                            card = card
+                        }
+                    elseif roll == 'xmult' then
+                        return {
+                            x_mult = card.ability.extra.Xmult,
+                            card = card
+                        }
+                    end
                 end
             end
         end

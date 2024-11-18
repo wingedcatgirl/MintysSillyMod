@@ -40,6 +40,16 @@ SMODS.Atlas {
     py = 18
 }
 
+
+SMODS.Atlas {
+    key = 'mintyblinds',
+    path = "blinds.png",
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 21,
+    px = 34,
+    py = 34
+}
+
 -- Debug message
 function say(message)
     sendDebugMessage('[Minty\'s Silly Mod] - '..(message or '???'))
@@ -76,3 +86,5 @@ NFS.load(SMODS.current_mod.path .. 'jokers/prosopagnosia.lua')()
 NFS.load(SMODS.current_mod.path .. 'seals/cementseal.lua')()
 
 NFS.load(SMODS.current_mod.path .. 'consumables/tarots.lua')()
+
+NFS.load(SMODS.current_mod.path .. 'blinds/thenip.lua')()

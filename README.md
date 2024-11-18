@@ -1,6 +1,6 @@
 ## Minty's Silly Little Mod
 
-A silly little mod that adds some silly little jokers.
+A silly little mod that adds some silly little jokers. [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) is recommended, but not strictly required.
 
 Current features:
 - A funny suit
@@ -13,5 +13,6 @@ Current features:
 Planned features:
 - Cats
 - Cubes
+- Cement
 - Injokes
 - MOOOOOORE fusions 
