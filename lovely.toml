@@ -32,3 +32,23 @@ function Card:is_face(from_boss)
 end
 '''
 match_indent = true
+
+# Cement Seal: Block debuffing
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+position = "after"
+pattern = "function Card:set_debuff(should_debuff)"
+payload = '''
+    if self.seal == "minty_cement" then self.debuff = false return end
+'''
+match_indent = true
+
+# Cement Seal: Always scores
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+position = "at"
+pattern = "            if G.play.cards[i].ability.effect == 'Stone Card' then"
+payload = "            if G.play.cards[i].ability.effect == 'Stone Card' or G.play.cards[i].seal == 'minty_cement' then"
+match_indent = true

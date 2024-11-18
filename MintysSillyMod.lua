@@ -80,6 +80,7 @@ NFS.load(SMODS.current_mod.path .. 'jokers/froyo.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/prosopagnosia.lua')()
 
 NFS.load(SMODS.current_mod.path .. 'consumables/tarots.lua')()
+NFS.load(SMODS.current_mod.path .. 'consumables/spectrals.lua')()
 
 NFS.load(SMODS.current_mod.path .. 'blinds/thenip.lua')()
 
