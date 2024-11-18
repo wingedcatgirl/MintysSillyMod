@@ -5,7 +5,7 @@ A silly little mod that adds some silly little jokers. [Spectrum Framework](http
 Current features:
 - A funny suit
 - Some jokers
-- A fusion (if [Fusion Jokers](https://github.com/itayfeder/Fusion-Jokers) is also installed)
+- A fusion (if [Fusion Jokers](https://github.com/lshtech/Fusion-Jokers) is also installed)
 - Placeholder art
 - A little 3, as a treat
 - More ambition than sense
