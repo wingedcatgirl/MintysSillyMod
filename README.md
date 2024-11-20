@@ -2,11 +2,14 @@
 
 A silly little mod that adds some silly little jokers. [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) is recommended, but not strictly required.
 
+[Mod main page on Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Minty%27s_Silly_Little_Mod) (Beware of SPOILERS!)
+
 Current features:
 - A funny suit
 - Some jokers
 - A fusion (if [Fusion Jokers](https://github.com/lshtech/Fusion-Jokers) is also installed)
 - Cement
+- Injokes
 - Placeholder art
 - A little 3, as a treat
 - More ambition than sense
@@ -15,7 +18,7 @@ Planned features:
 - Cats
 - Cubes
 - A deck
-- Injokes
+- More injokes
 - MOOOOOORE fusions 
 
 ## Installation Instructions
