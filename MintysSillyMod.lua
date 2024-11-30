@@ -34,6 +34,20 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = 'mintybacks',
+    path = "backs.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = 'mintysleeves',
+    path = "sleeves.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
     key = '3sicon',
     path = "3sicon.png",
     px = 18,
@@ -70,17 +84,25 @@ exotic_in_pool = function()
     return G.GAME and G.GAME.Exotic
 end
 
+to_big = to_big or function(x) 
+    return x
+end
+
 NFS.load(SMODS.current_mod.path .. 'suits/3suit.lua')()
 
 -- NFS.load(SMODS.current_mod.path .. 'jokers/JOKER.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/hedonist.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/claw.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/threecats.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/froyo.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/prosopagnosia.lua')()
 
+if FusionJokers then
+    NFS.load(SMODS.current_mod.path .. 'jokers/threecats.lua')()
+end
+
 NFS.load(SMODS.current_mod.path .. 'consumables/tarots.lua')()
 NFS.load(SMODS.current_mod.path .. 'consumables/spectrals.lua')()
+--NFS.load(SMODS.current_mod.path .. 'backs/backs.lua')()
 
 NFS.load(SMODS.current_mod.path .. 'blinds/thenip.lua')()
 
