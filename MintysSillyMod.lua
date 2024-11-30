@@ -84,6 +84,7 @@ exotic_in_pool = function()
     return G.GAME and G.GAME.Exotic
 end
 
+--Talisman compatibility (or rather, make sure implementing Talisman compatibility elsewhere doesn't cause the mod to crash without Talisman)
 to_big = to_big or function(x) 
     return x
 end
