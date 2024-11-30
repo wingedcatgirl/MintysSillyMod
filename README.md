@@ -10,7 +10,7 @@ Current features:
 - A fusion (if [Fusion Jokers](https://github.com/lshtech/Fusion-Jokers) is also installed)
 - Cement
 - Injokes
-- A deck (two, if [Cryptid](https://github.com/MathIsFun0/Cryptid) is also installed)
+- A deck (three, if [Cryptid](https://github.com/MathIsFun0/Cryptid) is also installed)
 - Placeholder art
 - A little 3, as a treat
 - More ambition than sense
