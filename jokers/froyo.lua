@@ -83,3 +83,7 @@ SMODS.Joker {
         end
     end
 }
+
+if Cryptid then
+    table.insert(Cryptid.food, "j_minty_froyo")
+end
