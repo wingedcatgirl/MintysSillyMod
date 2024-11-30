@@ -18,7 +18,7 @@ Current features:
 Planned features:
 - Cats
 - Cubes
-- At least one more deck (for Cryptid), maybe more-er (possibly even without Cryptid)
+- Maybe more decks (possibly even without Cryptid)
 - More injokes
 - MOOOOOORE fusions 
 
