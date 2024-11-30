@@ -24,8 +24,8 @@ SMODS.Suit{ -- 3s
     },
 
     in_pool = function(self, args)
-        if args and args.initial_deck then
-            return false
+        if G.GAME.starting_params.treat_Deck then
+            return true
         end
         return exotic_in_pool()
     end

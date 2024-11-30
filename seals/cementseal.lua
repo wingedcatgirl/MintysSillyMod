@@ -8,10 +8,9 @@ SMODS.Seal {
     name = "Cement Seal",
     label = "Cement Seal",
     text = {
-      "Acts like a {C:attention}Stone Card",
-      "({C:chips}+#1# Chips{}, scores even if",
-      "not part of played hand,",
-      "resistant to debuffs)"
+      "{C:chips}+#1# Chips{}",
+      "always scores",
+      "resists debuffs"
     }
   },
   loc_vars = function(self, info_queue)

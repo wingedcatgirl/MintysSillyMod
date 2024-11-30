@@ -5,6 +5,9 @@
 --    py = 95
 --}
 
+minty_config = SMODS.current_mod.config
+NFS.load(SMODS.current_mod.path .. 'configui.lua')()
+
 SMODS.Atlas {
     key = 'cementseal',
     path = "cementseal.png",
@@ -84,7 +87,7 @@ exotic_in_pool = function()
     return G.GAME and G.GAME.Exotic
 end
 
---Talisman compatibility (or rather, make sure implementing Talisman compatibility elsewhere doesn't cause the mod to crash without Talisman)
+--Talisman compatibility compatibility
 to_big = to_big or function(x) 
     return x
 end
@@ -103,7 +106,7 @@ end
 
 NFS.load(SMODS.current_mod.path .. 'consumables/tarots.lua')()
 NFS.load(SMODS.current_mod.path .. 'consumables/spectrals.lua')()
---NFS.load(SMODS.current_mod.path .. 'backs/backs.lua')()
+NFS.load(SMODS.current_mod.path .. 'backs/backs.lua')()
 
 NFS.load(SMODS.current_mod.path .. 'blinds/thenip.lua')()
 
