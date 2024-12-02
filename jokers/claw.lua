@@ -4,7 +4,7 @@ SMODS.Joker {
     atlas = 'mintyjokerplaceholder',
     pos = {
         x = 0,
-        y = 0
+        y = 7
         },
     soul_pos = {
         x = 1,
