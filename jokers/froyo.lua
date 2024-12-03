@@ -84,6 +84,6 @@ SMODS.Joker {
     end
 }
 
-if Cryptid then
+if (SMODS.Mods["Cryptid"] or {}).can_load then
     table.insert(Cryptid.food, "j_minty_froyo")
 end

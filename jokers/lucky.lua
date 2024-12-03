@@ -18,12 +18,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
-    loc_vars = function(self, info_queue, card)
-        return {
-            vars = {card.ability.extra.Xmult}
-        }
-    end,
-    config = {extra = {temp = 0}},
+    config = {extra = {temp = 0, kity = 1}},
     loc_txt = {
         name = "Lucky",
         text = {"Multiplies all {C:attention}listed",

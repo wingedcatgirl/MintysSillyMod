@@ -55,3 +55,38 @@ SMODS.Consumable {
 		end
 	end,
 }
+
+--[[
+if minty_config.dev_mode then
+	SMODS.Consumable {
+		object_type = "Consumable",
+		set = "Spectral",
+		name = "The Wand",
+		key = "wand",
+		config = {},
+		loc_txt = {
+			name = "The Wand",
+			text = {"Summon a {C:legendary,E:1}Legendary",
+			"{C:legendary,E:1}Kity{} Joker",
+			"{C:inactive}(Must have room)}
+		},
+		cost = 4,
+		hidden = true,
+		soul_set = 'Tarot',
+		soul_rate = 0.003,
+		atlas = "mintyjokerplaceholder",
+		pos = { x = 0, y = 4 },
+		use = function(self, card, area, copier)
+			G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+				play_sound('timpani')
+				local card = create_card('Joker', G.jokers, true, nil, nil, nil, nil, nil)
+				card:add_to_deck()
+				G.jokers:emplace(card)
+				check_for_unlock{type = 'spawn_legendary'}
+				used_tarot:juice_up(0.3, 0.5)
+				return true end }))
+			delay(0.6)
+		end,
+	}
+end
+]]
