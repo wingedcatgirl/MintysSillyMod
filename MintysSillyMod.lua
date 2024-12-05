@@ -101,6 +101,7 @@ NFS.load(SMODS.current_mod.path .. 'jokers/froyo.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/prosopagnosia.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/lucky.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/phasebus.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/slowtiger.lua')()
 
 if (SMODS.Mods["FusionJokers"] or {}).can_load then
     NFS.load(SMODS.current_mod.path .. 'jokers/threecats.lua')()
