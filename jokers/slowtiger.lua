@@ -17,9 +17,9 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
-    config = { extra = {mult = 0, lastround = 0, multgain = 1} },
+    config = { extra = {mult = 1, lastround = 0, multgain = 1} },
     set_ability = function(self, card, initial, delay_sprites)
-        card.ability.extra.mult = G.GAME.round or 0
+        card.ability.extra.mult = G.GAME.round or 1
     end,
     loc_vars = function(self, info_queue, card)
         return { vars = {card.ability.extra.mult, card.ability.extra.multgain} }
