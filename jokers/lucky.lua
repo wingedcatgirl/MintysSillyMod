@@ -2,14 +2,14 @@
 SMODS.Joker {
     key = "lucky",
     name = "Lucky",
-    atlas = 'mintyjokerplaceholder',
+    atlas = 'mintylegends',
     pos = {
         x = 0,
-        y = 8
+        y = 0
     },
     soul_pos = {
-        x = 1,
-        y = 8
+        x = 0,
+        y = 1
     },
     rarity = 4,
     cost = 20,
