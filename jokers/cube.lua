@@ -24,7 +24,7 @@ SMODS.Joker {
         name = "Cube Joker",
         text = {
             "{X:mult,C:white}X#1#{} Mult",
-            "Hands must contain",
+            "Played hand must contain",
             "exactly {C:attention}4{} cards"
         }
     },
