@@ -48,20 +48,19 @@ if (SMODS.Mods["Cryptid"] or {}).can_load then
         unlocked = true,
     })
 
-    if minty_config.dev_mode then
-        SMODS.Back({
-            name = "Deck of 6 Years",
-            key = "cementdeck",
-            pos = { x = 0, y = 0 },
-            atlas = "mintybacks",
-            config = { cry_force_seal = "minty_cement" },
-            loc_txt = {
-                name = 'Deck of the 6th Year',
-                text ={ 					
-                "All cards have a {C:minty_cement}Cement Seal{}",
-                "Cards cannot change seals"}
-            },
-            unlocked = true,
-        })
-    end
+    SMODS.Back({
+        name = "Deck of 6 Years",
+        key = "cementdeck",
+        pos = { x = 0, y = 0 },
+        atlas = "mintybacks",
+        config = { cry_force_seal = "minty_cement" },
+        loc_txt = {
+            name = 'Deck of the 6th Year',
+            text ={ 					
+            "All cards have a {C:minty_cement}Cement Seal{}",
+            "Cards cannot change seals"}
+        },
+        unlocked = true,
+    })
+
 end
