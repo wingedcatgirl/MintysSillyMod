@@ -13,19 +13,20 @@ SMODS.Joker {
     },
     rarity = 4,
     cost = 20,
-    unlocked = true,
+    unlocked = false,
+    unlock_condition = {type = '', extra = '', hidden = true},
     discovered = false,
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
-    config = {extra = {temp = 0, kity = 1}},
+    config = {extra = {temp = 0, kity = true}},
     loc_txt = {
         name = "Lucky",
         text = {"Multiplies all {C:attention}listed",
                 "{C:green,E:1,S:1.1}probabilities{} by {C:mult}33{}",
-                "{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}33 in 3{C:inactive})",
-                "{C:inactive}(Still functionally{}",
-                "{C:inactive}capped at 100%, though.){}"}
+                "{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}33 in 3{C:inactive})"},
+        unlock = {"Find this Joker",
+                  "from the {C:spectral}Soul{} card"}
     },
     add_to_deck = function(self, from_debuff)
         self.added_to_deck = true
