@@ -161,6 +161,21 @@ return {
 					"played cards of other ranks.",
 				},
 			},
+			["j_minty_churutreat"] = {
+				["name"] = "Churu Treat",
+				["text"] = {            
+					"Scored {C:minty_3s}3s{} give {C:mult}+#1#{} Mult",
+					"{C:green}#2# in #3#{} chance this card is",
+					"eaten at end of round",
+				},
+			},
+			["j_minty_plastic_stick"] = {
+				["name"] = "Plastic \"Stick\"",
+				["text"] = {
+					"Gives {X:mult,C:white}X#1#{} Mult for every",
+					"other {C:attention}\"Stick\"{} Joker you have..."
+				},
+			},
 		},
 		["Tarot"] = {
 			["c_minty_cat"] = {

@@ -1,4 +1,3 @@
-
 SMODS.Joker {
     key = "eaten",
     name = "Eaten Joker",
@@ -8,8 +7,8 @@ SMODS.Joker {
         y = 0
     },
     soul_pos = {
-        x = 1,
-        y = 0
+        x = 5,
+        y = 1
     },
     rarity = 3,
     cost = 7,
@@ -34,18 +33,8 @@ SMODS.Joker {
                 }
             end
         end
-        if context.after then  --pseudorandom('eaten') < G.GAME.probabilities.normal/card.ability.extra.odds
-            for index,thecard in ipairs(G.play.cards) do
-
-
-            return {
-                message = localize('k_drowned_ex'),
-                colour = G.C.RED,
-                delay = 0.45, 
-                remove = true,
-                card = card
-            }
-            end
+        if context.destroying_card and not context.destroying_card.ability.eternal and context.destroying_card:get_id() ~= 7 and pseudorandom('eaten') < G.GAME.probabilities.normal/card.ability.extra.odds then
+            return true
         end
     end
 }
