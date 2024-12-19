@@ -21,17 +21,6 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return { vars = {card.ability.extra.status} }
     end,
-    loc_txt = {
-        name = "Phase Bus",
-        text = {
-            "At end of round,",
-            "create a {C:spectral}Spectral{} card",
-            "if no {C:attention}face cards{}",
-            "were played that round.",
-            "{C:inactive}(Must have room){}",
-            " ",
-            "{C:inactive}(Currently: #1#!){}"}
-    },
     calculate = function(self, card, context)
         if context.joker_main and context.scoring_hand and card.ability.extra.status == 'Active' and not context.blueprint and not context.end_of_round then
             local faces = 0
@@ -48,7 +37,7 @@ SMODS.Joker {
             if faces == 1 then
                 card.ability.extra.status = 'Inactive'
                 return {
-                    message = 'Stopped!',
+                    message = localize('k_stopped_ex'),
                     colour = G.C.MONEY,
                     card = card,
                 } 

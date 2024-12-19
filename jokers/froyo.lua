@@ -23,12 +23,6 @@ SMODS.Joker {
             chip_mod = 5
         }
     },
-    loc_txt = {
-        name = "Frozen Yogurt",
-        text = {"{C:chips}+#1#{} Chips, {C:chips}-#2#{} Chips",
-                "for every hand played",
-                "{C:inactive}(But it's so much cheaper!)"}
-    },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {card.ability.extra.chips, card.ability.extra.chip_mod}

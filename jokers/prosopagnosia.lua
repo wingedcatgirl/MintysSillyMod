@@ -23,17 +23,6 @@ SMODS.Joker {
         }
     end,
     config = {extra = {Xmult = 5}},
-    loc_txt = {
-        name = "Prosopagnosia",
-        text = {"{X:mult,C:white} X#1# {} Mult if hand",
-                "contains {C:attention}face{} cards,",
-                "but {C:attention}no{} cards are",
-                "considered face cards.",
-                " ",
-                "{C:inactive}You don't know what it's",
-                "{C:inactive}like to spend every day",
-                "{C:inactive}surrounded by monkeys."}
-    },
     calculate = function(self, card, context)
         if context.joker_main and context.scoring_hand then
             local faces = 0

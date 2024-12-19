@@ -14,12 +14,6 @@ SMODS.Consumable {
 			{ set = "Other", key = "minty_cement_seal", specific_vars = { self.config.seal.extra.chips } }
 		return { vars = { center.ability.max_highlighted } }
 	end,
-    loc_txt = {
-        name = "6 years",
-        text = {"Add a {C:cement}Cement Seal{}",
-                "to {C:attention}1{} selected",
-                "card in your hand"}
-    },
 	cost = 4,
 	atlas = "mintyjokerplaceholder",
 	pos = { x = 0, y = 4 },
@@ -64,12 +58,6 @@ if minty_config.dev_mode then
 		name = "The Wand",
 		key = "wand",
 		config = {},
-		loc_txt = {
-			name = "The Wand",
-			text = {"Summon a {C:legendary,E:1}Legendary",
-			"{C:legendary,E:1}Kity{} Joker",
-			"{C:inactive}(Must have room)}
-		},
 		cost = 4,
 		hidden = true,
 		soul_set = 'Tarot',

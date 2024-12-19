@@ -24,13 +24,6 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return { vars = {card.ability.extra.mult, card.ability.extra.multgain} }
     end,
-    loc_txt = {
-        name = "Slow Tiger",
-        text = {
-            "{C:mult}+#2#{} Mult",
-            "per round",
-            "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult){}"}
-    },
     calculate = function(self, card, context)
         if context.joker_main and context.scoring_hand then
             return {

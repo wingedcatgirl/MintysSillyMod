@@ -15,14 +15,6 @@ SMODS.Suit{ -- 3s
     lc_colour = HEX('86B723'),
     hc_colour = HEX('86B723'),
 
-    loc_txt = 
-         {
-            ['en-us'] = {
-                singular = '3',
-                plural = '3s',
-         }
-    },
-
     in_pool = function(self, args)
         if G.GAME.starting_params.treat_Deck then
             return true

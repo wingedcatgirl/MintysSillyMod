@@ -27,14 +27,6 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
-    loc_txt = {
-        name = "Three Cats!",
-        text = {
-            "{C:minty_3s}3s{} give one of",
-            "{C:chips}+#2#{} chips, {C:mult}+#3#{} Mult, or",
-            "{X:mult,C:white}X#4#{} Mult when scored."
-                }
-        },
     calculate = function(self, card, context)
         if context.cardarea == G.play then   
             if context.other_card:is_suit("minty_3s") or context.other_card:get_id() == 3 then

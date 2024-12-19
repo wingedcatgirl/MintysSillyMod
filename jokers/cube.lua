@@ -20,14 +20,6 @@ SMODS.Joker {
             vars = {card.ability.extra.Xmult}
         }
     end,
-    loc_txt = {
-        name = "Cube Joker",
-        text = {
-            "{X:mult,C:white}X#1#{} Mult",
-            "Played hand must contain",
-            "exactly {C:attention}4{} cards"
-        }
-    },
 
     calculate = function(self, card, context)
         if context.joker_main and context.scoring_hand then

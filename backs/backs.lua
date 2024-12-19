@@ -3,11 +3,6 @@ SMODS.Back({
     key = "treat",
     pos = { x = 0, y = 0 },
     atlas = "mintybacks",
-    loc_txt = {
-        name = 'Deck With a Treat',
-        text = { 'Starts with a',
-                 'full set of 13 {C:minty_3s}3s{}'},
-    },
     unlocked = true,
     config = {treat_Deck = true},
 
@@ -37,14 +32,6 @@ if (SMODS.Mods["Cryptid"] or {}).can_load then
         pos = { x = 1, y = 0 },
         atlas = "mintybacks",
         config = { cry_force_suit = "minty_3s", cry_boss_blocked = {"bl_minty_thenip"} },
-        loc_txt = {
-            name = 'Deck of the Cat',
-            text = { 'All playing cards are {C:minty_3s}3s{}',
-                    'and cannot change suits.',
-                    '{C:attention}The Nip{} cannot appear',
-                    ' ',
-                    '{C:inactive}The suit, not the rank!' },
-        },
         unlocked = true,
     })
 
@@ -54,12 +41,6 @@ if (SMODS.Mods["Cryptid"] or {}).can_load then
         pos = { x = 0, y = 0 },
         atlas = "mintybacks",
         config = { cry_force_seal = "minty_cement" },
-        loc_txt = {
-            name = 'Deck of the 6th Year',
-            text ={ 					
-            "All cards have a {C:minty_cement}Cement Seal{}",
-            "Cards cannot change seals"}
-        },
         unlocked = true,
     })
 

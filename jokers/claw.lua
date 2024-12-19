@@ -23,14 +23,6 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
-    loc_txt = {
-        name = "Fossilized Claw",
-        text = {
-            "{C:green}#1# in #2#{} chance for",
-            "played {C:minty_3s}3s{} to give",
-            "{X:mult,C:white} X#3# {} Mult when scored",
-                }
-        },
     calculate = function(self, card, context)
         if context.cardarea == G.play then    
             if context.other_card:is_suit("minty_3s") or context.other_card:get_id() == 3 then

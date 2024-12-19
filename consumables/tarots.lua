@@ -1,17 +1,6 @@
 SMODS.Consumable{ -- The Cat
     set = 'Tarot', atlas = 'mintyjokerplaceholder',
     key = 'cat', 
-    loc_txt = 
-        {
-            ['en-us'] = {
-                ['name'] = 'The Cat',
-                ['text'] = {
-                    [1] = 'Converts up to',
-                    [2] = '{C:attention}#1#{} selected cards',
-                    [3] = 'to {C:minty_3s}3s{}',
-                }
-            },
-        },
     set_card_type_badge = function(self, card, badges)
         badges[1] = create_badge("Tarot?", get_type_colour(self or card.config, card), nil, 1.2)
     end,

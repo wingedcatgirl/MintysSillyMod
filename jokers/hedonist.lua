@@ -26,16 +26,6 @@ SMODS.Joker {
             suit = 'minty_3s'
         }
     },
-    loc_txt = 
-    {
-        ['en-us'] = {
-            ['name'] = 'Hedonist Joker',
-            ['text'] = {
-                [1] = 'Played {C:minty_3s}3s{} give',
-                [2] = '{C:mult}+#1#{} Mult when scored',
-            }
-        },
-    },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {card.ability.extra.s_mult, card.ability.extra.suit}

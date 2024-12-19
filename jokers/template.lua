@@ -23,12 +23,9 @@ SMODS.Joker {
             vars = {card.ability.extra.mult}
         }
     end,
-    loc_txt = {
-        name = "New Joker",
-        text = {"Joker Text",
-                "Another Line"}
-    },
     calculate = function(self, card, context)
         -- Calculation goes here
     end
 }
+
+-- See localization/en-us.lua to create joker text

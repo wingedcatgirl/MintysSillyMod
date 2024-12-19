@@ -1,9 +1,5 @@
 SMODS.Blind {
     key = "thenip",
-    loc_txt = {
-        name = 'The Nip',
-        text = { 'All 3s are debuffed' },
-    },
     dollars = 5,
     mult = 2,
     boss = { min = 3, max = 10 },
