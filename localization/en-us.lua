@@ -157,7 +157,7 @@ return {
 				["text"] = {
 					"Played cards with rank {C:attention}7{}",
 					"give {C:chips}+#2#{} Chips and {C:mult}+#1#{} Mult",
-					"when scored. Destroy {C:attention}#4# in #3#{}",
+					"when scored. Destroy {C:green}#4# in #3#{}",
 					"played cards of other ranks.",
 				},
 			},

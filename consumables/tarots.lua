@@ -8,7 +8,7 @@ SMODS.Consumable{ -- The Cat
     config = {max_highlighted = 3, suit_conv = 'minty_3s'},
     pos = {
         x = 0,
-        y = 2
+        y = 9
     },
     soul_pos = {
         x = 3,

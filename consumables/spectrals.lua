@@ -16,7 +16,7 @@ SMODS.Consumable {
 	end,
 	cost = 4,
 	atlas = "mintyjokerplaceholder",
-	pos = { x = 0, y = 4 },
+	pos = { x = 2, y = 9 },
 	use = function(self, card, area, copier) --Good enough
 		for i = 1, #G.hand.highlighted do
 			local highlighted = G.hand.highlighted[i]
