@@ -53,4 +53,5 @@ function Blind:debuff_hand(cards, hand, handname, check)
             return true
         end
     end
+	return debuff_hand_ref(self, cards, hand, handname, check)
 end

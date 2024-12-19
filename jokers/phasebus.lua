@@ -17,7 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
-    config = { extra = {status = 'Active', lastround = 0} },
+    config = { extra = {status = 'Active'} },
     loc_vars = function(self, info_queue, card)
         return { vars = {card.ability.extra.status} }
     end,
@@ -57,8 +57,7 @@ SMODS.Joker {
         end
 
 
-        if context.end_of_round and not context.blueprint and card.ability.extra.lastround ~= G.GAME.round then
-            card.ability.extra.lastround = G.GAME.round
+        if context.end_of_round and not context.blueprint and not context.repetition and not context.individual then
             if card.ability.extra.status == 'Active' then
                 if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                     G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1

@@ -30,6 +30,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = 'mintyortalabplaceholder',
+    path = "ortalab placeholders.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
     key = 'mintylegends',
     path = "legendaries.png",
     px = 71,

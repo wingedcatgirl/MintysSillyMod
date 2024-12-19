@@ -17,7 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
-    config = { extra = {mult = 1, lastround = 0, multgain = 1} },
+    config = { extra = {mult = 1, multgain = 1} },
     set_ability = function(self, card, initial, delay_sprites)
         card.ability.extra.mult = G.GAME.round or 1
     end,
@@ -45,8 +45,7 @@ SMODS.Joker {
         end
 
 
-        if context.end_of_round and not context.blueprint and card.ability.extra.lastround ~= G.GAME.round then
-            card.ability.extra.lastround = G.GAME.round
+        if context.end_of_round and not context.blueprint and not context.repetition and not context.individual then
             card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multgain
             return {
                 message = localize {

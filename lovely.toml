@@ -2,49 +2,7 @@
 version = "1.0.0"
 priority = 0
 
-# Prosopagnosia. There is probably a more elegant way to do this, but I don't know it :shrug:
-[[patches]]
-[patches.pattern]
-target = "card.lua"
-position = "at"
-pattern = '''
-function Card:is_face(from_boss)
-    if self.debuff and not from_boss then return end
-    local id = self:get_id()
-    if id == 11 or id == 12 or id == 13 or next(find_joker("Pareidolia")) then
-        return true
-    end
-end
-'''
-payload = '''
-function Card:is_face(from_boss)
-    if self.debuff and not from_boss then return end
-    local id = self:get_id()
-    if next(find_joker("Pareidolia")) then 
-        return true 
-    end
-    if next(find_joker("Prosopagnosia")) then 
-        return false 
-    end
-    if id == 11 or id == 12 or id == 13 then
-        return true
-    end
-end
-'''
-match_indent = true
-
-# Cement Seal: Block debuffing
-[[patches]]
-[patches.pattern]
-target = "card.lua"
-position = "after"
-pattern = "function Card:set_debuff(should_debuff)"
-payload = '''
-    if self.seal == "minty_cement" then self.debuff = false return end
-'''
-match_indent = true
-
-# Cement Seal: Always scores
+# Cement Seal: Always scores. (this doesn't seem to be elegantly hookable rip in pepperonis)
 [[patches]]
 [patches.pattern]
 target = "functions/state_events.lua"
