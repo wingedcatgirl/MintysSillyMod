@@ -104,8 +104,9 @@ return {
 			["j_minty_threecats"] = {
 				["name"] = "Three Cats!",
 				["text"] = {
-					"{C:minty_3s}3s{} give one of",
-					"{C:chips}+#2#{} chips, {C:mult}+#3#{} Mult, or",
+					"{C:green}#1# in #5#{} chance for",
+					"played {C:minty_3s}3s{} to give each of",
+					"{C:chips}+#2#{} chips, {C:mult}+#3#{} Mult, and",
 					"{X:mult,C:white}X#4#{} Mult when scored.",
 				},
 			},

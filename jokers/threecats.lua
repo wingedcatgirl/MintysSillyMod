@@ -19,7 +19,7 @@ SMODS.Joker {
     config = {extra = {chips = 33, mult = 13, odds = 3, Xmult = 3}},
     loc_vars = function(self, info_queue, card)
         return {
-            vars = {''..(G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.chips, card.ability.extra.mult, card.ability.extra.Xmult}
+            vars = {''..(G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.chips, card.ability.extra.mult, card.ability.extra.Xmult, card.ability.extra.odds}
         }
     end,
     unlocked = true,
@@ -28,51 +28,30 @@ SMODS.Joker {
     perishable_compat = true,
     blueprint_compat = true,
     calculate = function(self, card, context)
-        if context.cardarea == G.play then   
-            if context.other_card:is_suit("minty_3s") or context.other_card:get_id() == 3 then
-                    local roll = pseudorandom_element({'amult', 'chips', 'xmult'})
-                    if context.other_card:is_suit("minty_3s") and context.other_card:get_id() == 3 then
-                        if roll == 'amult' then
-                            return {
-                                mult = card.ability.extra.mult,
-                                card = card,
-                                message = localize('k_again_ex'),
-                                repetitions = 1
-                            }
-                        elseif roll == 'chips' then
-                            return {
-                                chips = card.ability.extra.chips,
-                                card = card,
-                                message = localize('k_again_ex'),
-                                repetitions = 1
-                            }
-                        elseif roll == 'xmult' then
-                            return {
-                                x_mult = card.ability.extra.Xmult,
-                                card = card,
-                                message = localize('k_again_ex'),
-                                repetitions = 1
-                            }
-                        end
-                    else
-                        if roll == 'amult' then
-                            return {
-                                mult = card.ability.extra.mult,
-                                card = card
-                            }
-                        elseif roll == 'chips' then
-                            return {
-                                chips = card.ability.extra.chips,
-                                card = card
-                            }
-                        elseif roll == 'xmult' then
-                            return {
-                                x_mult = card.ability.extra.Xmult,
-                                card = card
-                            }
-                        end
-                    end
-                end
+        if context.cardarea == G.play and context.individual and (context.other_card:is_suit('minty_3s') or context.other_card:get_id() == 3) then  
+            local result = {card = card}
+            local roll = pseudorandom('threecats')
+            sendDebugMessage("Playing "..#context.full_hand.." cards.")
+            sendDebugMessage("Roll value is: " .. tostring(roll))
+
+            if (roll < G.GAME.probabilities.normal/card.ability.extra.odds) then 
+                sendDebugMessage('[Minty] +Mult rolled for Three Cats'..roll)
+                result["mult"] = card.ability.extra.mult
             end
+            if (roll > (1 - G.GAME.probabilities.normal/card.ability.extra.odds)) then 
+                sendDebugMessage('[Minty] +Chips rolled for Three Cats'..roll)
+                result["chips"] = card.ability.extra.chips
+            end
+            if ((.5 - (G.GAME.probabilities.normal/card.ability.extra.odds)/2) < roll and roll < (.5 + (G.GAME.probabilities.normal/card.ability.extra.odds)/2)) then
+                sendDebugMessage('[Minty] xMult rolled for Three Cats'..roll)
+                result["x_mult"] = card.ability.extra.Xmult
+            end
+            if context.other_card:is_suit('minty_3s') and context.other_card:get_id() == 3 then
+                result["message"] = localize('k_again_ex')
+                result["repetitions"] = 1
+            end
+
+            return result
         end
+    end
 }
