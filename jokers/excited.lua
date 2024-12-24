@@ -56,10 +56,12 @@ SMODS.Joker {
             return result
         end
         if
-			(-- Mostly copied from Cryptid's "sob"
+			(-- Mostly copied from Cryptid's "sob" and "Duplicare"
 				context.selling_self 
                 or context.before
                 or context.after
+                or (context.post_trigger and context.other_joker ~= card)
+                or (context.individual and context.cardarea == G.play)
                 or context.joker_main
 				or context.discard 
 				or context.pre_discard 
