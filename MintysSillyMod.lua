@@ -118,6 +118,7 @@ NFS.load(SMODS.current_mod.path .. 'jokers/phasebus.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/slowtiger.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/cube.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/eaten.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/excited.lua')()
 
 if (SMODS.Mods["ortalab"] or {}).can_load then
     NFS.load(SMODS.current_mod.path .. 'jokers/ascetic.lua')()
@@ -138,4 +139,5 @@ NFS.load(SMODS.current_mod.path .. 'backs/backs.lua')()
 NFS.load(SMODS.current_mod.path .. 'blinds/thenip.lua')()
 
 NFS.load(SMODS.current_mod.path .. 'seals/cementseal.lua')()
+
 

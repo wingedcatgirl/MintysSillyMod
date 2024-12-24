@@ -4,6 +4,11 @@ return {
 			["k_drowned_ex"] = "Drowned!",
 			["k_stopped_ex"] = "Stopped!",
 		},
+		["v_dictionary"] = {
+			["a_chipgain"] = "+#1# Chips",
+			["a_multandchips"] = "+#1# Mult, +#2# Chips",
+			["a_chipsandmult"] = "+#1# Chips, +#2# Mult",
+		},
 		["suits_plural"] = {
 			["minty_3s"] = "3s",
 		},
@@ -160,6 +165,16 @@ return {
 					"give {C:chips}+#2#{} Chips and {C:mult}+#1#{} Mult",
 					"when scored. Destroy {C:green}#4# in #3#{}",
 					"played cards of other ranks.",
+				},
+			},
+			["j_minty_excited"] = {
+				["name"] = "Overly Excited",
+				["text"] = {
+					"{C:chips}+#1#{} Chips, {C:mult}+#3#{} Mult",
+					"Gain {C:chips}#2#{} Chips when",
+					"anything happens, or",
+					"{C:green}#6# in #5#{} chance to",
+					"gain {C:mult}#4#{} Mult instead"
 				},
 			},
 			["j_minty_churutreat"] = {
