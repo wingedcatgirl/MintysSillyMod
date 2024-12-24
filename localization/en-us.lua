@@ -3,6 +3,7 @@ return {
 		["dictionary"] = {
 			["k_drowned_ex"] = "Drowned!",
 			["k_stopped_ex"] = "Stopped!",
+			["k_cube"] = "Hand must contain exactly 4 cards",
 		},
 		["v_dictionary"] = {
 			["a_chipgain"] = "+#1# Chips",

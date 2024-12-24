@@ -36,14 +36,24 @@ SMODS.Joker {
     end
 }
 
+local forbidden = false
 local debuff_hand_ref = Blind.debuff_hand
 
 function Blind:debuff_hand(cards, hand, handname, check)
-    debuff_hand_ref(self, cards, hand, handname, check)
-    if next(find_joker('Cube Joker')) then
-        if #cards ~= 4 then
+	if next(SMODS.find_card('j_minty_cube')) then
+		if #cards ~= 4 then
+			forbidden = true
             return true
-        end
-    end
+		end
+		forbidden = false
+	end
 	return debuff_hand_ref(self, cards, hand, handname, check)
+end
+
+local get_loc_debuff_textref = Blind.get_loc_debuff_text
+function Blind:get_loc_debuff_text()
+	if forbidden then
+		return localize("k_cube")
+	end
+	return get_loc_debuff_textref(self)
 end
