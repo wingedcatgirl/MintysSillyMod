@@ -128,6 +128,13 @@ return {
 					"gain a {C:cement}Cement Seal{}",
 				},
 			},
+			["j_minty_bucket"] = {
+				["name"] = "Bucket of Cement",
+				["text"] = {
+					"All scored cards",
+					"become {C:attention}Stone{} cards"
+				},
+			},
 			["j_minty_threecats"] = {
 				["name"] = "Three Cats!",
 				["text"] = {

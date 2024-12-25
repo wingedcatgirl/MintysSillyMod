@@ -119,6 +119,7 @@ NFS.load(SMODS.current_mod.path .. 'jokers/cube.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/eaten.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/excited.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/chisel.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/bucket.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/lucky.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/stormy.lua')()
 
