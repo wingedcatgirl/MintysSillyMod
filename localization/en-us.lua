@@ -3,6 +3,7 @@ return {
 		["dictionary"] = {
 			["k_drowned_ex"] = "Drowned!",
 			["k_stopped_ex"] = "Stopped!",
+			["k_storm_ex"] = "Storm!",
 			["k_cube"] = "Hand must contain exactly 4 cards",
 		},
 		["v_dictionary"] = {
@@ -97,6 +98,18 @@ return {
 					"Multiplies all {C:attention}listed",
 					"{C:green,E:1,S:1.1}probabilities{} by {C:mult}33{}",
 					"{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}33 in 3{C:inactive})",
+				},
+			},
+			["j_minty_stormy"] = {
+				["unlock"] = {
+					"Find this Joker",
+					"from the {C:spectral}Soul{} card",
+				},
+				["name"] = "Stormy",
+				["text"] = {
+					"{X:mult,C:white}X#1#{} Mult, then retrigger",
+					"once for each time a previous",
+					"Joker triggered this hand"
 				},
 			},
 			["j_minty_claw"] = {

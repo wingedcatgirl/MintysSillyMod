@@ -9,7 +9,6 @@ SMODS.Back({
     apply = function()
         enable_exotics()
         G.GAME.starting_params.easy_spectra = true
-        sendDebugMessage('[Minty\'s Silly Little Mod] Defining Spectra as easy')
     end,
 })
 
