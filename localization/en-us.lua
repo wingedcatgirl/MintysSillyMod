@@ -82,7 +82,7 @@ return {
 					"At end of round,",
 					"create a {C:spectral}Spectral{} card",
 					"if no {C:attention}face cards{}",
-					"were played that round.",
+					"were scored that round.",
 					"{C:inactive}(Must have room){}",
 					" ",
 					"{C:inactive}(Currently: #1#!){}",
@@ -123,7 +123,7 @@ return {
 			["j_minty_chisel"] = {
 				["name"] = "Chisel",
 				["text"] = {
-					"Played {C:attention}Stone{} cards lose",
+					"Scored {C:attention}Stone{} cards lose",
 					"their enhancement and",
 					"gain a {C:cement}Cement Seal{}",
 				},
@@ -193,7 +193,7 @@ return {
 					"Played cards with rank {C:attention}7{}",
 					"give {C:chips}+#2#{} Chips and {C:mult}+#1#{} Mult",
 					"when scored. Destroy {C:green}#4# in #3#{}",
-					"played cards of other ranks.",
+					"scored cards of other ranks.",
 				},
 			},
 			["j_minty_excited"] = {
