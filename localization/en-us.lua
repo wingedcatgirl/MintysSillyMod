@@ -120,6 +120,14 @@ return {
 					"{X:mult,C:white} X#3# {} Mult when scored",
 				},
 			},
+			["j_minty_chisel"] = {
+				["name"] = "Chisel",
+				["text"] = {
+					"Played {C:attention}Stone{} cards lose",
+					"their enhancement and",
+					"gain a {C:cement}Cement Seal{}",
+				},
+			},
 			["j_minty_threecats"] = {
 				["name"] = "Three Cats!",
 				["text"] = {

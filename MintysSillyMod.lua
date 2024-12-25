@@ -109,17 +109,18 @@ end
 NFS.load(SMODS.current_mod.path .. 'suits/3suit.lua')()
 
 -- NFS.load(SMODS.current_mod.path .. 'jokers/JOKER.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/froyo.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/hedonist.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/claw.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/froyo.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/prosopagnosia.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/lucky.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/stormy.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/phasebus.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/slowtiger.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/cube.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/eaten.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/excited.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/chisel.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/lucky.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/stormy.lua')()
 
 if (SMODS.Mods["ortalab"] or {}).can_load then
     NFS.load(SMODS.current_mod.path .. 'jokers/ascetic.lua')()
