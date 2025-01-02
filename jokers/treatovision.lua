@@ -42,7 +42,7 @@ function reset_treat_card()
     G.GAME.treatovision_suit = 'Spades'
     local valid_treat_cards = {}
     for k, v in ipairs(G.playing_cards) do
-        if v.ability.effect ~= 'Stone Card' then
+        if v.ability.effect ~= 'Stone Card' and v.base.suit ~= 'minty_3s' then
             valid_treat_cards[#valid_treat_cards+1] = v
         end
     end
