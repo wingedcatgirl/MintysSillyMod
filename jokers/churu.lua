@@ -110,6 +110,12 @@ SMODS.Joker {
     end
 }
 
+--[[ Leaving this commented til main PB does the thing
+if (SMODS.Mods["Cryptid"] or {}).can_load then
+    table.insert(Cryptid.food, "j_minty_churutreat")
+end
+]]
+
 SMODS.Joker {
     key = 'plastic_stick',
     config = {

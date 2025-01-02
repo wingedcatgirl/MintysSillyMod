@@ -15,6 +15,7 @@ Current features:
 - Cross-mod content with the following mods:
   - [Cryptid](https://github.com/MathIsFun0/Cryptid)
   - [Fusion Jokers](https://github.com/lshtech/Fusion-Jokers)
+  - [Ortalab](https://github.com/Eremel/Ortalab)
   - [Paperback](https://github.com/GitNether/paperback)
 - Far more ambition than sense
 
