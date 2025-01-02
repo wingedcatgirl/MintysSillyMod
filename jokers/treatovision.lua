@@ -19,14 +19,14 @@ SMODS.Joker {
             vars = {
 				localize(
 					G.GAME.treatovision_suit or "Spades",
-					"suits_plural"
+					"suits_singular"
 				),
 				colours = {
 					G.C.SUITS[G.GAME.treatovision_suit or "Spades"],
 				},
 				localize(
 					"minty_3s",
-					"suits_plural"
+					"suits_singular"
 				),
 			},
         }
