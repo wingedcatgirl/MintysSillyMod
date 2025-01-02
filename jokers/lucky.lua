@@ -14,7 +14,6 @@ SMODS.Joker {
     rarity = 4,
     cost = 20,
     unlocked = false,
-    unlock_condition = {type = '', extra = '', hidden = true},
     discovered = false,
     eternal_compat = true,
     perishable_compat = true,

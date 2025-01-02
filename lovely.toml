@@ -10,3 +10,12 @@ position = "at"
 pattern = "            if G.play.cards[i].ability.effect == 'Stone Card' then"
 payload = "            if G.play.cards[i].ability.effect == 'Stone Card' or G.play.cards[i].seal == 'minty_cement' then"
 match_indent = true
+
+# Treat-o-vision resets on game start
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+position = "after"
+pattern = "        reset_castle_card()"
+payload = "        reset_treat_card()"
+match_indent = true

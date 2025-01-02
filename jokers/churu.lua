@@ -2,7 +2,7 @@ SMODS.Joker {
     key = "churutreat",
     config = {
         extra = {
-            mult = 5,
+            s_mult = 5,
             odds = 6
         }
     },
@@ -26,7 +26,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.mult,
+                card.ability.extra.s_mult,
                 G.GAME.probabilities.normal,
                 card.ability.extra.odds
             }
@@ -35,20 +35,17 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         -- Give the mult during play if card is a 3, and retrigger if it's a 3 of 3s
-        if context.cardarea == G.play then
-            if context.other_card:is_suit("minty_3s") and context.other_card:get_id() == 3 then
-                return {
-                    mult = card.ability.extra.mult,
-                    card = card,
-                    message = localize('k_again_ex'),
-                    repetitions = 1
-                }
-            elseif context.other_card:is_suit("minty_3s") or context.other_card:get_id() == 3 then
-                return {
-                    mult = card.ability.extra.mult,
-                    card = card
-                }
+        if context.cardarea == G.play and context.other_card:is_3() then
+            local count = context.other_card:is_3()
+            local result = {
+                mult = card.ability.extra.s_mult,
+                card = card
+            }
+            if count > 1 then
+                result["message"] = localize('k_again_ex')
+                result["repetitions"] = count - 1
             end
+            return result
         end
 
         -- Check if the Joker needs to be eaten
@@ -138,28 +135,27 @@ SMODS.Joker {
     yes_pool_flag = "sticks_can_spawn",
 
     loc_vars = function(self, info_queue, card)
+        local xMult = PB_UTIL.calculate_stick_xMult(card)
+        
         return {
             vars = {
-                card.ability.extra.xMult
+                card.ability.extra.xMult,
+                xMult
             }
         }
     end,
 
     calculate = function(self, card, context)
         if context.joker_main then
-            local xMult = card.ability.extra.xMult
-            for i = 1, #G.jokers.cards do
-                local current_card = G.jokers.cards[i]
-                if current_card ~= card and string.match(string.lower(current_card.ability.name), "%f[%w]stick%f[%W]") then
-                    xMult = xMult + card.ability.extra.xMult
-                end
-            end
+            local xMult = PB_UTIL.calculate_stick_xMult(card)
 
-            return {
-                message = localize{ type = 'variable', key = 'a_xmult', vars = { xMult } },
-                Xmult_mod = xMult,
-                card = card
-            }
+            if xMult ~= 1 then
+                return {
+                    message = localize { type = 'variable', key = 'a_xmult', vars = { xMult } },
+                    Xmult_mod = xMult,
+                    card = card
+                }
+            end
         end
     end
 }

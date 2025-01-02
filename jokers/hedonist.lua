@@ -1,4 +1,3 @@
-
 SMODS.Joker {
     key = "hedonist",
     name = "Hedonist Joker",
@@ -32,18 +31,17 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.cardarea == G.play then
-            if context.other_card:is_suit('minty_3s') or context.other_card:get_id() == 3 then
-                local result = {
-                    mult = card.ability.extra.s_mult,
-                    card = card
-                }
-                if context.other_card:is_suit('minty_3s') and context.other_card:get_id() == 3 then
-                    result["message"] = localize('k_again_ex')
-                    result["repetitions"] = 1
-                end
-                return result
+        if context.cardarea == G.play and context.other_card:is_3() then
+            local count = context.other_card:is_3()
+            local result = {
+                mult = card.ability.extra.s_mult,
+                card = card
+            }
+            if count > 1 then
+                result["message"] = localize('k_again_ex')
+                result["repetitions"] = count - 1
             end
+            return result
         end
     end
 }

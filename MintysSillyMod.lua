@@ -1,9 +1,9 @@
---SMODS.Atlas {
---    key = 'mintyjokeratlas',
---    path = "jokers.png",
---    px = 71,
---    py = 95
---}
+SMODS.Atlas {
+    key = 'mintyjokeratlas',
+    path = "jokers.png",
+    px = 71,
+    py = 95
+}
 
 minty_config = SMODS.current_mod.config
 NFS.load(SMODS.current_mod.path .. 'configui.lua')()
@@ -83,7 +83,7 @@ SMODS.Atlas {
 
 -- Debug message
 function say(message)
-    sendDebugMessage('[Minty\'s Silly Mod] - '..(message or '???'))
+    sendDebugMessage('[Minty] - '..(message or '???'))
 end
 
 -- Exotic system toggle logic (copied from Bunco)
@@ -99,6 +99,37 @@ end
 
 exotic_in_pool = function()
     return G.GAME and G.GAME.Exotic
+end
+
+function Card:is_3(bypass_debuff)
+    local count = 0
+        if self.debuff and not bypass_debuff then return false end
+        if self.ability.name == "Wild Card" or self.base.suit == 'minty_3s' then
+            count = count + 1
+        end
+        if next(find_joker("Treat-o-Vision")) and self.base.suit == G.GAME.treatovision_suit then
+            count = count + 1
+        end
+        if self:get_id() == 3 then
+            count = count + 1
+        end
+        --[[if self.ability.name == "fuzzy enhancement" then
+            count = count + 1
+        end]]
+        --[[if (is feline edition) then
+            count = count + 1
+        end]]
+        --[[if (has kity seal) then
+            count = count + 1
+        end]]
+
+        --[[if (SMODS.Mods["Gemstone"] or {}).can_load then
+            if (has cat gem) then
+                count = count + 1
+            end
+        end]]
+
+        if count == 0 then return false else return count end
 end
 
 --Talisman compatibility compatibility
@@ -120,8 +151,12 @@ NFS.load(SMODS.current_mod.path .. 'jokers/eaten.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/excited.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/chisel.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/bucket.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/treatovision.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/lucky.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/stormy.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/patchy.lua')()
+
+NFS.load(SMODS.current_mod.path .. 'jokers/vanillatweaks.lua')()
 
 if (SMODS.Mods["ortalab"] or {}).can_load then
     NFS.load(SMODS.current_mod.path .. 'jokers/ascetic.lua')()
@@ -142,6 +177,7 @@ NFS.load(SMODS.current_mod.path .. 'backs/backs.lua')()
 NFS.load(SMODS.current_mod.path .. 'blinds/thenip.lua')()
 
 NFS.load(SMODS.current_mod.path .. 'seals/cementseal.lua')()
+
 
 
 

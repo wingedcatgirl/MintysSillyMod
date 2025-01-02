@@ -28,27 +28,28 @@ SMODS.Joker {
     perishable_compat = true,
     blueprint_compat = true,
     calculate = function(self, card, context)
-        if context.cardarea == G.play and context.individual and (context.other_card:is_suit('minty_3s') or context.other_card:get_id() == 3) then  
+        if context.cardarea == G.play and context.individual and context.other_card:is_3() then  
+            local count = context.other_card:is_3()
             local result = {card = card}
             local roll = pseudorandom('threecats')
-            sendDebugMessage("Playing "..#context.full_hand.." cards.")
-            sendDebugMessage("Roll value is: " .. tostring(roll))
+            --sendDebugMessage("Playing "..#context.full_hand.." cards.")
+            --sendDebugMessage("Roll value is: " .. tostring(roll))
 
             if (roll < G.GAME.probabilities.normal/card.ability.extra.odds) then 
-                sendDebugMessage('[Minty] +Mult rolled for Three Cats'..roll)
+                --sendDebugMessage('[Minty] +Mult rolled for Three Cats'..roll)
                 result["mult"] = card.ability.extra.mult
             end
             if (roll > (1 - G.GAME.probabilities.normal/card.ability.extra.odds)) then 
-                sendDebugMessage('[Minty] +Chips rolled for Three Cats'..roll)
+                --sendDebugMessage('[Minty] +Chips rolled for Three Cats'..roll)
                 result["chips"] = card.ability.extra.chips
             end
             if ((.5 - (G.GAME.probabilities.normal/card.ability.extra.odds)/2) < roll and roll < (.5 + (G.GAME.probabilities.normal/card.ability.extra.odds)/2)) then
-                sendDebugMessage('[Minty] xMult rolled for Three Cats'..roll)
+                --sendDebugMessage('[Minty] xMult rolled for Three Cats'..roll)
                 result["x_mult"] = card.ability.extra.Xmult
             end
-            if context.other_card:is_suit('minty_3s') and context.other_card:get_id() == 3 then
+            if count > 1 then
                 result["message"] = localize('k_again_ex')
-                result["repetitions"] = 1
+                result["repetitions"] = count - 1
             end
 
             return result

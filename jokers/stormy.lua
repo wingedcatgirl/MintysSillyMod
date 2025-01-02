@@ -27,7 +27,7 @@ SMODS.Joker {
 
         if (context.post_trigger and context.other_joker ~= card) then
             card.ability.extra.stormcount = card.ability.extra.stormcount + 1
-            sendDebugMessage('[Minty] Storm count: '..card.ability.extra.stormcount)
+            --sendDebugMessage('[Minty] Storm count: '..card.ability.extra.stormcount)
         end
 
         if context.retrigger_joker_check and not context.retrigger_joker and context.other_card == card and card.ability.extra.stormcount >= 1 then
@@ -57,7 +57,7 @@ SMODS.Joker {
 
         if context.after then
             card.ability.extra.stormcount = 0
-            sendDebugMessage('[Minty] Storm count cleared (end of hand)')
+            --sendDebugMessage('[Minty] Storm count cleared (end of hand)')
         end
     end
 }
