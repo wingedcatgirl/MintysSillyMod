@@ -16,7 +16,7 @@ SMODS.Suit{ -- 3s
     hc_colour = HEX('86B723'),
 
     in_pool = function(self, args)
-        if G.GAME.starting_params.treat_Deck then
+        if G.GAME.starting_params.start_with_3s then
             return true
         end
         return exotic_in_pool()

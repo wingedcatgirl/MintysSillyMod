@@ -19,6 +19,7 @@ return {
 		},
 		["labels"] = {
 			["minty_cement_seal"] = "Cement Seal",
+			["gemslot_catseye"] = "Cat's Eye",
 		},
 	},
 	["descriptions"] = {
@@ -64,6 +65,23 @@ return {
 					"{C:chips}+#1# Chips{}",
 					"always scores",
 					"resists debuffs",
+				},
+			},
+			["gemslot_catseye"] = {
+				["name"] = "Cat's Eye",
+				["text"] = {
+					"Attached card",
+					"counts as a {C:minty_3s}3{}",
+				},
+			},
+		},
+		["Gemstone"] = {
+			["c_minty_catseye"] = {
+				["name"] = "Cat's Eye",
+				["text"]  = {
+                    "Attach a {C:minty_3s}Cat's Eye",
+                    "{}Gemstone to {C:green}#1#{} selected {C:attention}card{}",
+                    "{C:inactive}(Must have a Gem Slot){}",
 				},
 			},
 		},

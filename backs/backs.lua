@@ -4,7 +4,7 @@ SMODS.Back({
     pos = { x = 0, y = 0 },
     atlas = "mintybacks",
     unlocked = true,
-    config = {treat_Deck = true},
+    config = {start_with_3s = true},
 
     apply = function()
         enable_exotics()
@@ -16,10 +16,10 @@ local BackApply_to_run_ref = Back.apply_to_run
 function Back.apply_to_run(self)
     BackApply_to_run_ref(self)
 
-    if self.effect.config.treat_Deck then
+    if self.effect.config.start_with_3s then
         G.E_MANAGER:add_event(Event({
             func = function()
-                G.GAME.starting_params.treat_Deck = true
+                G.GAME.starting_params.start_with_3s = true
                 return true
             end
         }))
@@ -32,7 +32,7 @@ if (SMODS.Mods["Cryptid"] or {}).can_load then
         key = "catdeck",
         pos = { x = 1, y = 0 },
         atlas = "mintybacks",
-        config = { cry_force_suit = "minty_3s", cry_boss_blocked = {"bl_minty_thenip"} },
+        config = { cry_force_suit = "minty_3s", cry_boss_blocked = {"bl_minty_thenip"}, start_with_3s = true },
         unlocked = true,
     })
 
