@@ -255,8 +255,8 @@ return {
 			["j_minty_treatovision"] = {
 				["name"] = "Treat-o-vision",
 				["text"] = {
-					"{V:1}#1#{} and {C:minty_3s}#2#{} suits count",
-					"as the same suit",
+					"{V:1}#1#{} and {C:minty_3s}#2#{} suits",
+					"count as the same suit",
 					"{C:inactive}(First suit changes each round){}"
 				},
 			},
