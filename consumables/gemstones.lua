@@ -46,18 +46,35 @@ SMODS.Consumable{
 
 SMODS.Sticker{
     key = "gemslot_catseye",
-    badge_colour = HEX("e3394f"),
+    badge_colour = HEX("86B723"),
     prefix_config = { key = false },
     rate = 0.0,
     atlas = "mintygemslots",
     pos = { x = 0, y = 0 },
+    discovered = true,
     config = {  },
 
     loc_vars = function(self, info_queue, card)
         return { vars = { } }
     end,
-	draw = function(self, card) --don't draw shine
-		G.shared_stickers[self.key].role.draw_major = card
-		G.shared_stickers[self.key]:draw_shader("dissolve", nil, nil, nil, card.children.center)
-	end
+    draw = function(self, card) --don't draw shine
+        G.shared_stickers[self.key].role.draw_major = card
+        G.shared_stickers[self.key]:draw_shader("dissolve", nil, nil, nil, card.children.center)
+    end,
+    added = function(self, card) end,
+    removed = function(self, card) end,
 }
+
+-- Gem Slots Collection Tab
+SMODS.current_mod.custom_collection_tabs = function()
+    return {
+        UIBox_button({
+            button = 'your_collection_gemslot', 
+            label = {'Gem Slots'}, 
+            minw = 5,
+            minh = 1, 
+            id = 'your_collection_gemslot', 
+            focus_args = {snap_to = true}
+        })
+    }
+end
