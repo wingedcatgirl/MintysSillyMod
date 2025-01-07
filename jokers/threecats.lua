@@ -28,7 +28,8 @@ SMODS.Joker {
     perishable_compat = true,
     blueprint_compat = true,
     calculate = function(self, card, context)
-        if context.cardarea == G.play and context.individual and context.other_card:is_3() then  
+        if context.cardarea == G.play and context.other_card:is_3() then
+            --this is a horrible mess oopsie! the intended outcome is that you get exactly 1 result without odds-fixing and exactly 2 with oops all 6s but i can't make it do that because i'm apparently bad at math
             local count = context.other_card:is_3()
             local result = {card = card}
             local roll = pseudorandom('threecats')
@@ -39,14 +40,15 @@ SMODS.Joker {
                 --sendDebugMessage('[Minty] +Mult rolled for Three Cats'..roll)
                 result["mult"] = card.ability.extra.mult
             end
-            if (roll > (1 - G.GAME.probabilities.normal/card.ability.extra.odds)) then 
+            if (roll > 2/3 and roll < (2/3 + G.GAME.probabilities.normal/card.ability.extra.odds)) or (roll < (G.GAME.probabilities.normal/card.ability.extra.odds - 1/3)) then 
                 --sendDebugMessage('[Minty] +Chips rolled for Three Cats'..roll)
                 result["chips"] = card.ability.extra.chips
             end
-            if ((.5 - (G.GAME.probabilities.normal/card.ability.extra.odds)/2) < roll and roll < (.5 + (G.GAME.probabilities.normal/card.ability.extra.odds)/2)) then
+            if ((roll > 1/3) and roll < (1/3 + G.GAME.probabilities.normal/card.ability.extra.odds)) or (roll < (G.GAME.probabilities.normal/card.ability.extra.odds - 2/3)) then
                 --sendDebugMessage('[Minty] xMult rolled for Three Cats'..roll)
                 result["x_mult"] = card.ability.extra.Xmult
             end
+            --sendDebugMessage('[Minty] This card is a 3 '..count..' times')
             if count > 1 then
                 result["message"] = localize('k_again_ex')
                 result["repetitions"] = count - 1

@@ -1,12 +1,12 @@
+minty_config = SMODS.current_mod.config
+NFS.load(SMODS.current_mod.path .. 'configui.lua')()
+
 SMODS.Atlas {
     key = 'mintyjokeratlas',
     path = "jokers.png",
     px = 71,
     py = 95
 }
-
-minty_config = SMODS.current_mod.config
-NFS.load(SMODS.current_mod.path .. 'configui.lua')()
 
 SMODS.Atlas {
     key = 'cementseal',
@@ -60,7 +60,7 @@ SMODS.Atlas {
 SMODS.Atlas {
     key = 'mintysleeves',
     path = "sleeves.png",
-    px = 71,
+    px = 73,
     py = 95
 }
 
@@ -181,3 +181,4 @@ NFS.load(SMODS.current_mod.path .. 'backs/backs.lua')()
 NFS.load(SMODS.current_mod.path .. 'blinds/thenip.lua')()
 
 NFS.load(SMODS.current_mod.path .. 'seals/cementseal.lua')()
+

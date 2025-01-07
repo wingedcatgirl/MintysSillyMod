@@ -25,7 +25,7 @@ return {
 	["descriptions"] = {
 		["Back"] = {
 			["b_minty_treat"] = {
-				["name"] = "Deck With a Treat",
+				["name"] = "Deck with a Treat",
 				["text"] = {
 					"Starts with a",
 					"full set of 13 {C:minty_3s}3s{}",
@@ -289,5 +289,23 @@ return {
 				},
 			},
 		},
+		["Sleeve"] = {
+			["sleeve_minty_treatsleeve"] = {
+				["name"] = "Sleeve with a Treat",
+				["text"] = {
+					"Starts with a",
+					"full set of 13 {C:minty_3s}3s{}",
+				},
+			},
+			["sleeve_minty_treatsleeve_alt"] = {
+				["name"] = "Sleeve with a Treat",
+				["text"] = {
+					"Starts with a full set of 13 {C:minty_3s}3s{}",
+					"All 3s become 3s of {C:minty_3s}3s{}",
+					"{C:green}1 in 3{} other cards change rank to 3",
+					"{C:green}1 in 3{} other cards change suit to {C:minty_3s}3s{}",
+				},
+			},
+		}
 	},
 }
