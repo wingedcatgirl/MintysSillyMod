@@ -7,8 +7,12 @@ SMODS.Blind {
     atlas = 'mintyblinds',
     pos = { x=0, y=0 },
     discovered = false,
-    debuff = {
-        suit = 'minty_3s',
-        value = '3'
-    },
+    recalc_debuff = function(self, card, from_blind)
+        local k = card:is_3()
+        if k and k > 0 then
+            return true
+        end
+
+        return false
+    end
 }
