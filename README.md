@@ -40,6 +40,12 @@ Planned features:
 2. Delete all files from your `Mods/MintysSillyMod` folder. (There's no save data in there, so you won't lose any progress.)
 3. Unzip all the new files into the now-empty folder. Check again to make sure it's not nested.
 
+## Contributing
+- Yes, feel free to contribute if you have a contribution!
+- If you find a bug or plausibly-different-than-intended behavior, you can [file an issue](https://github.com/wingedcatgirl/MintysSillyMod/issues) (_please_ test thoroughly to confirm the exact conditions that do _and don't_ cause the problem) 
+- If you have a code contribution you can [do a pull request](https://github.com/wingedcatgirl/MintysSillyMod/pulls)
+- If you have an art contribution... you can also do a pull request but if atlases make that too much a pain you can just send the art via one of the methods below:
+
 ## Contacting me (Minty wingedcatgirl)
 - [Mod thread on the Balatro Discord](https://discord.com/channels/1116389027176787968/1308185262664450068) is the most obvious choice for mod-related communication.
 - There's also [my Discord server](https://discord.gg/V5Kbh8Q) <small>or well, one of them, i start so many things and never follow through lol</small>
