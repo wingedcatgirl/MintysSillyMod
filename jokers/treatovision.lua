@@ -60,5 +60,11 @@ function Card:is_suit(suit, bypass_debuff, flush_calc)
             return true
         end
     end
+    if suit == "minty_3s" and self.base.suit ~= "minty_3s" and self.base.suit ~= "spectrum_fakewild" then
+        return false
+    end
+    if suit ~= "minty_3s" and self.base.suit == "minty_3s" then
+        return false
+    end
     return issuitref(self, suit, bypass_debuff, flush_calc)
 end
