@@ -30,7 +30,7 @@ Planned features:
 
 ## Installation Instructions
 1. Install [Lovely](https://github.com/ethangreen-dev/lovely-injector), if you haven't already.
-2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already. (Due to breaking changes, release **1204a** is the minimum requirement for Minty's Silly Little Mod, and until Steamodded finishes Better Calc, [**1304a aka old-calc**](https://github.com/Steamodded/smods/releases/tag/old-calc) is the maximum compatible version.)
+2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already. (Due to breaking changes, release **1204a** is the minimum requirement for Minty's Silly Little Mod. I have not yet _actively_ updated to Better Calc, so you may also need to downgrade to [**1304a aka old-calc**](https://github.com/Steamodded/smods/releases/tag/old-calc) -- though based on [the discussion of what it actually changes](https://github.com/Steamodded/smods/discussions/372), it might be fine anyway.)
 3. Download the code as a ZIP file, either from the latest release in Releases or from the "Code" button up above. (The "Code" button gets you the most recent commit, which will probably have both more features and more bugs. Release versions may lack new features, but should be reasonably bug-free.)
 4. Inside the zip file is the mod code in a folder, `MintysSillyMod-SOMEVERSION`. Put that folder in your Mods folder. The file structure should look like `Mods/MintysSillyMod-SOMEVERSION/MintysSillyMod.json`. In particular, there should _not_ be a second `MintysSillyMod` folder nested inside the first one. (You might prefer to remove the version number suffix from the folder name; it doesn't actually matter.)
 5. Have a little 3 as a treat! :3
