@@ -42,7 +42,7 @@ Planned features:
 
 ## Contributing
 - Yes, feel free to contribute if you have a contribution!
-- If you find a bug or plausibly-different-than-intended behavior, you can [file an issue](https://github.com/wingedcatgirl/MintysSillyMod/issues) (_please_ test thoroughly to confirm the exact conditions that do _and don't_ cause the problem) 
+- If you find a bug or plausibly-different-than-intended behavior, you can [file an issue](https://github.com/wingedcatgirl/MintysSillyMod/issues) (_please_ test thoroughly to confirm the exact conditions that do _and don't_ cause the problem - you may find [DebugPlus](https://github.com/WilsontheWolf/DebugPlus) to be helpful with this) 
 - If you have a code contribution you can [do a pull request](https://github.com/wingedcatgirl/MintysSillyMod/pulls)
 - If you have an art contribution... you can also do a pull request but if atlases make that too much a pain you can just send the art via one of the methods below:
 
