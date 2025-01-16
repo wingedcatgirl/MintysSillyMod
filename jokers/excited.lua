@@ -57,14 +57,9 @@ SMODS.Joker {
         end
         if
 			(-- Mostly copied from Cryptid's "sob" and "Duplicare"
-				context.selling_self 
-                or context.before
-                or context.after
-                or (context.post_trigger and context.other_joker ~= card)
-                or (context.individual and context.cardarea == G.play)
-                or context.joker_main
+                (context.post_trigger and context.other_joker ~= self)
+                or (context.cardarea == G.play and context.individual)
 				or context.discard 
-				or context.pre_discard 
 				or context.reroll_shop 
 				or context.buying_card 
 				or context.skip_blind 
@@ -86,8 +81,9 @@ SMODS.Joker {
                     message = localize {
                         type = 'variable',
                         key = 'a_chipgain',
-                        vars = { card.ability.extra.chipgain }
+                        vars = { card.ability.extra.chipgain },
                     },
+                    card = card
                 }
             else
                 card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multgain
@@ -97,8 +93,9 @@ SMODS.Joker {
                     message = localize {
                         type = 'variable',
                         key = 'a_mult',
-                        vars = { card.ability.extra.multgain }
+                        vars = { card.ability.extra.multgain },
                     },
+                    card = card
                 }
             end
 		end
