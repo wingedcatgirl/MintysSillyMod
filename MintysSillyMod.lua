@@ -71,7 +71,6 @@ SMODS.Atlas {
     py = 18
 }
 
-
 SMODS.Atlas {
     key = 'mintyblinds',
     path = "blinds.png",
@@ -80,6 +79,10 @@ SMODS.Atlas {
     px = 34,
     py = 34
 }
+
+function SMODS.current_mod.reset_game_globals()
+    reset_treat_card()
+end
 
 -- Debug message
 function say(message)
