@@ -5,6 +5,7 @@ SMODS.Seal {
 	badge_colour = HEX("545454"), --a cement-y grey, hopefully
   config = {extra = {chips = 50}},
   discovered = true,
+  always_scores = true,
   loc_vars = function(self, info_queue)
     return { vars = {self.config.extra.chips, } }
   end,
