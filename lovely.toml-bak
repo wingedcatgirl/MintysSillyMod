@@ -1,0 +1,12 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+# Cement Seal: Always scores. (This doesn't work actually but it's unclear why)
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+position = "at"
+pattern = "            if SMODS.always_scores(G.play.cards[i]) then"
+payload = "            if SMODS.always_scores(G.play.cards[i]) or G.play.cards[i].seal == 'minty_cement' then"
+match_indent = true
