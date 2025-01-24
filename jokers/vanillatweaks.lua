@@ -26,30 +26,36 @@ if not (SMODS.Mods["UnStable"] or {}).can_load then --UnStable tweaks all these 
 
     SMODS.Joker:take_ownership('fibonacci', {
         calculate = function(self, card, context)
-            if context.cardarea == G.play and context.individual then
-                local count = 0
-                local result = {
-                    mult = card.ability.extra,
-                    card = card
-                }
-                if context.other_card:is_3() then
-                    count = context.other_card:is_3()
+            if context.cardarea == G.play then
+                if context.repetition then 
+                    local count = 0
+                    if context.other_card:is_3() then
+                        count = context.other_card:is_3()
+                    else return end
+                    if (context.other_card:get_id() == 2 or 
+                    context.other_card:get_id() == 5 or 
+                    context.other_card:get_id() == 8 or 
+                    context.other_card:get_id() == 14) then
+                        count = count + 1
+                    end
+                    if count > 1 then
+                        --sendDebugMessage('Count (repetitions): '..count)
+                        return {
+                            message = localize('k_again_ex'),
+                            repetitions = count - 1
+                        }
+                    end
                 end
-
-                if (context.other_card:get_id() == 2 or 
-                context.other_card:get_id() == 5 or 
-                context.other_card:get_id() == 8 or 
-                context.other_card:get_id() == 14) then
-                    count = count + 1
-                end
-
-                if count > 1 then 
-                    result["message"] = localize('k_again_ex')
-                    result["repetitions"] = count - 1 
-                end
-
-                if count >= 1 then
-                    return result
+                if context.individual then
+                    if (context.other_card:get_id() == 2 or 
+                    context.other_card:get_id() == 5 or 
+                    context.other_card:get_id() == 8 or 
+                    context.other_card:get_id() == 14) or context.other_card:is_3() then
+                        return {
+                            mult = card.ability.extra,
+                            card = card
+                        }
+                    end
                 end
             end
         end
@@ -74,19 +80,26 @@ if not (SMODS.Mods["UnStable"] or {}).can_load then --UnStable tweaks all these 
             if context.cardarea == G.play and context.individual then
                 if context.other_card:is_odd() or context.other_card:is_3()
                 then
-                    local result = {
+                    return {
                         chips = card.ability.extra,
                         card = card
                     }
-                    local count = 0
-                    if context.other_card:is_3() then
-                        count = context.other_card:is_3() - 1
-                    end
-                    if count > 1 then 
-                        result["message"] = localize('k_again_ex')
-                        result["repetitions"] = count - 1 
-                    end
-                    return result
+                end
+            end
+            if context.repetition then 
+                local count = 0
+                if context.other_card:is_3() then
+                    count = context.other_card:is_3()
+                else return end
+                if context.other_card:is_odd() and not (context.other_card:get_id() == 3) then
+                    count = count + 1
+                end
+                if count > 1 then
+                    --sendDebugMessage('Count (repetitions): '..count)
+                    return {
+                        message = localize('k_again_ex'),
+                        repetitions = count - 1
+                    }
                 end
             end
         end
