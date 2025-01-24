@@ -25,7 +25,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
 
-        if (context.post_trigger and context.other_joker ~= card) then
+        if (context.post_trigger and context.other_card ~= card) then
             card.ability.extra.stormcount = card.ability.extra.stormcount + 1
             --sendDebugMessage('[Minty] Storm count: '..card.ability.extra.stormcount)
         end

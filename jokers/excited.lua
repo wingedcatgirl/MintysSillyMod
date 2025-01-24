@@ -26,38 +26,22 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.joker_main and context.scoring_hand then
             local result = {
-                    mult_mod = card.ability.extra.mult,
-                    chip_mod = card.ability.extra.chips,
-                    colour = G.C.PURPLE,
-                    message = localize {
-                        type = 'variable',
-                        key = 'a_chipsandmult',
-                        vars = { card.ability.extra.chips, card.ability.extra.mult }
-                    },
                     card = card
                    }
             if (card.ability.extra.mult == 0 and card.ability.extra.chips == 0) then --Is this even possible?
                 return
-            elseif card.ability.extra.mult == 0 then
-                result["colour"] = G.C.CHIPS
-                result["message"] = localize {
-                    type = 'variable',
-                    key = 'a_chipgain',
-                    vars = { card.ability.extra.chips }
-                }
-            elseif card.ability.extra.chips == 0 then -- Even this seems unlikely
-                result["colour"] = G.C.RED
-                result["message"] =  localize {
-                    type = 'variable',
-                    key = 'a_mult',
-                    vars = { card.ability.extra.mult }
-                }
+            end
+            if card.ability.extra.mult ~= 0 then 
+                result["mult"] = card.ability.extra.mult
+            end
+            if card.ability.extra.chips ~= 0 then 
+                result["chips"] = card.ability.extra.chips
             end
             return result
         end
         if
 			(-- Mostly copied from Cryptid's "sob" and "Duplicare"
-                (context.post_trigger and context.other_joker ~= self)
+                (context.post_trigger and context.other_card ~= card)
                 or (context.cardarea == G.play and context.individual)
 				or context.discard 
 				or context.reroll_shop 
@@ -83,7 +67,7 @@ SMODS.Joker {
                         key = 'a_chipgain',
                         vars = { card.ability.extra.chipgain },
                     },
-                    card = card
+                    message_card = card
                 }
             else
                 card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multgain
@@ -95,7 +79,7 @@ SMODS.Joker {
                         key = 'a_mult',
                         vars = { card.ability.extra.multgain },
                     },
-                    card = card
+                    message_card = card
                 }
             end
 		end
