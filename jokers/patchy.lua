@@ -24,11 +24,16 @@ SMODS.Joker {
     perishable_compat = true,
     blueprint_compat = true,
     calculate = function(self, card, context)
-        if context.cardarea == G.play and context.other_card:is_3() then
-            if context.cardarea == G.play and context.other_card:is_3() then
+        if context.cardarea == G.play then
+            if context.individual and context.other_card:is_3() then
+                return {
+                    xmult = card.ability.extra.xmult,
+                    card = card
+                }
+            end
+            if context.repetition and context.other_card:is_3() then
                 local count = context.other_card:is_3()
                 return {
-                    x_mult = card.ability.extra.xmult,
                     message = localize('k_again_ex'),
                     repetitions = count,
                     card = card
