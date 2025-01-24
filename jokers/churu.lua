@@ -35,17 +35,35 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         -- Give the mult during play if card is a 3, and retrigger if it's a 3 of 3s
-        if context.cardarea == G.play and context.other_card:is_3() then
-            local count = context.other_card:is_3()
-            local result = {
-                mult = card.ability.extra.s_mult,
-                card = card
-            }
-            if count > 1 then
-                result["message"] = localize('k_again_ex')
-                result["repetitions"] = count - 1
+        if context.cardarea == G.play then
+            if context.individual then
+                if context.other_card:is_3() then
+                    local count = context.other_card:is_3()
+                    --sendDebugMessage('Count (individual): '..count)
+                    return {
+                        mult_mod = card.ability.extra.s_mult,
+                        message = localize {
+                            type = 'variable',
+                            key = 'a_mult',
+                            vars = { card.ability.extra.s_mult }
+                        },
+                        card = card
+                    }
+                end
             end
-            return result
+            if context.repetition then 
+                local count = 0
+                if context.other_card:is_3() then
+                    count = context.other_card:is_3()
+                else return end
+                if count > 1 then
+                    --sendDebugMessage('Count (repetitions): '..count)
+                    return {
+                        message = localize('k_again_ex'),
+                        repetitions = count - 1
+                    }
+                end
+            end
         end
 
         -- Check if the Joker needs to be eaten
@@ -110,11 +128,9 @@ SMODS.Joker {
     end
 }
 
---[[ Leaving this commented til main PB does the thing
 if (SMODS.Mods["Cryptid"] or {}).can_load then
     table.insert(Cryptid.food, "j_minty_churutreat")
 end
-]]
 
 SMODS.Joker {
     key = 'plastic_stick',

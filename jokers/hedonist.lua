@@ -32,19 +32,6 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.cardarea == G.play then
-            if context.repetition then 
-                local count = 0
-                if context.other_card:is_3() then
-                    count = context.other_card:is_3()
-                else return end
-                if count > 1 then
-                    --sendDebugMessage('Count (repetitions): '..count)
-                    return {
-                        message = localize('k_again_ex'),
-                        repetitions = count - 1
-                    }
-                end
-            end
             if context.individual then
                 if context.other_card:is_3() then
                     local count = context.other_card:is_3()
@@ -57,6 +44,19 @@ SMODS.Joker {
                             vars = { card.ability.extra.s_mult }
                         },
                         card = card
+                    }
+                end
+            end
+            if context.repetition then 
+                local count = 0
+                if context.other_card:is_3() then
+                    count = context.other_card:is_3()
+                else return end
+                if count > 1 then
+                    --sendDebugMessage('Count (repetitions): '..count)
+                    return {
+                        message = localize('k_again_ex'),
+                        repetitions = count - 1
                     }
                 end
             end
