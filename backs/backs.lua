@@ -33,8 +33,8 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         atlas = "mintysleeves",
         pos = { x = 0, y = 0 },
         config = {start_with_3s = true},
-        unlocked = true,
-        unlock_condition = { name = "Deck With A Treat", stake = 1 },
+        unlocked = false,
+        unlock_condition = { deck = "b_minty_treat", stake = 1 },
         loc_vars = function(self)
             local key, vars
 
@@ -130,8 +130,8 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         atlas = "mintysleeves",
         pos = { x = 0, y = 1 },
         config = {},
-        unlocked = true,
-        unlock_condition = { name = "Deck of the Heart", stake = 1 },
+        unlocked = false,
+        unlock_condition = { deck = "b_minty_hearts", stake = 1 },
         loc_vars = function(self)
             local key, vars
 
@@ -252,8 +252,8 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         atlas = "mintysleeves",
         pos = { x = 1, y = 1 },
         config = {},
-        unlocked = true,
-        unlock_condition = { name = "Deck of the Diamond", stake = 1 },
+        unlocked = false,
+        unlock_condition = { deck = "b_minty_diamonds", stake = 1 },
         loc_vars = function(self)
             local key, vars
 
@@ -373,8 +373,8 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         atlas = "mintysleeves",
         pos = { x = 2, y = 1 },
         config = {},
-        unlocked = true,
-        unlock_condition = { name = "Deck of the Club", stake = 1 },
+        unlocked = false,
+        unlock_condition = { deck = "b_minty_clubs", stake = 1 },
         loc_vars = function(self)
             local key, vars
 
@@ -494,8 +494,8 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         atlas = "mintysleeves",
         pos = { x = 3, y = 1 },
         config = {},
-        unlocked = true,
-        unlock_condition = { name = "Deck of the Spade", stake = 1 },
+        unlocked = false,
+        unlock_condition = { deck = "b_minty_spades", stake = 1 },
         loc_vars = function(self)
             local key, vars
 
@@ -615,8 +615,8 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         atlas = "mintysleeves",
         pos = { x = 4, y = 1 },
         config = {},
-        unlocked = true,
-        unlock_condition = { name = "Deck of the 3", stake = 1 },
+        unlocked = false,
+        unlock_condition = { deck = "b_minty_3suit", stake = 1 },
         loc_vars = function(self)
             local key, vars
 
