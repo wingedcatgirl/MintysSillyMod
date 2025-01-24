@@ -31,49 +31,44 @@ return {
 					"full set of 13 {C:minty_3s}3s{}",
 				},
 			},
-			["b_minty_heart"] = {
+			["b_minty_hearts"] = {
 				["name"] = "Deck of the Heart",
 				["text"] = {
-					"Start with a {C:hearts}Lusty Joker",
+					"Start with an", 
+					"{C:attention}eternal{} {C:hearts}Lusty Joker{}",
 					"and {C:attention}The Sun{} tarot",
-					" ",
-					"{C:mult}(Dev Mode){}",
 				},
 			},
-			["b_minty_diamond"] = {
+			["b_minty_diamonds"] = {
 				["name"] = "Deck of the Diamond",
 				["text"] = {
-					"Start with a {C:hearts}Greedy Joker",
+					"Start with an", 
+					"{C:attention}eternal{} {C:diamonds}Greedy Joker{}",
 					"and {C:attention}The Star{} tarot",
-					" ",
-					"{C:mult}(Dev Mode){}",
 				},
 			},
-			["b_minty_club"] = {
+			["b_minty_clubs"] = {
 				["name"] = "Deck of the Club",
 				["text"] = {
-					"Start with a {C:hearts}Gluttonous Joker",
+					"Start with an", 
+					"{C:attention}eternal{} {C:clubs}Gluttonous Joker{}",
 					"and {C:attention}The Moon{} tarot",
-					" ",
-					"{C:mult}(Dev Mode){}",
 				},
 			},
-			["b_minty_spade"] = {
+			["b_minty_spades"] = {
 				["name"] = "Deck of the Spade",
 				["text"] = {
-					"Start with a {C:hearts}Wrathful Joker",
+					"Start with an", 
+					"{C:attention}eternal{} {C:spades}Wrathful Joker{}",
 					"and {C:attention}The World{} tarot",
-					" ",
-					"{C:mult}(Dev Mode){}",
 				},
 			},
 			["b_minty_3suit"] = {
 				["name"] = "Deck of the 3",
 				["text"] = {
-					"Start with a {C:hearts}Hedonist Joker",
+					"Start with an", 
+					"{C:attention}eternal{} {C:minty_3s}Hedonist Joker{}",
 					"and {C:attention}The Cat{} tarot",
-					" ",
-					"{C:mult}(Dev Mode){}",
 				},
 			},
 			["b_minty_catdeck"] = {
@@ -354,136 +349,111 @@ return {
 			["sleeve_minty_heartsleeve"] = {
 				["name"] = "Sleeve of the Heart",
 				["text"] = {
-					"Start with a {C:hearts}Lusty Joker",
+					"Start with an",
+					"{C:attention}eternal{} {C:hearts}Lusty Joker{}",
 					"and {C:attention}The Sun{} tarot",
-					" ",
-					"{C:mult}(Dev Mode){}",
 				},
 			},
 			["sleeve_minty_heartsleeve_alt"] = {
 				["name"] = "Sleeve of the Heart",
 				["text"] = {
-					"Also start with a",
-					"{C:hearts}Bloodstone",
-					" ",
-					"{C:mult}(Dev Mode){}",
+					"Also start with",
+					"an {C:attention}eternal{} {C:hearts}Bloodstone{}",
 				},
 			},
 			["sleeve_minty_heartsleeve_fusionalt"] = {
 				["name"] = "Sleeve of the Heart",
 				["text"] = {
-					"Instead start with a",
-					"{C:hearts}Heart Paladin",
-					" ",
-					"{C:mult}(Dev Mode){}",
+					"Instead start with an",
+					"{C:attention}eternal{} {C:hearts}Heart Paladin{}",
 				},
 			},
 			["sleeve_minty_diamondsleeve"] = {
 				["name"] = "Sleeve of the Diamond",
 				["text"] = {
-					"Start with a {C:diamonds}Greedy Joker",
+					"Start with an",
+					"{C:attention}eternal{} {C:diamonds}Greedy Joker{}",
 					"and {C:attention}The Star{} tarot",
-					" ",
-					"{C:mult}(Dev Mode){}",
 				},
 			},
 			["sleeve_minty_diamondsleeve_alt"] = {
 				["name"] = "Sleeve of the Diamond",
 				["text"] = {
-					"Also start with a",
-					"{C:diamonds}Rough Gem",
-					" ",
-					"{C:mult}(Dev Mode){}",
+					"Also start with",
+					"an {C:attention}eternal{} {C:diamonds}Rough Gem{}",
 				},
 			},
 			["sleeve_minty_diamondsleeve_fusionalt"] = {
 				["name"] = "Sleeve of the Diamond",
 				["text"] = {
-					"Instead start with a",
-					"{C:diamonds}Diamond Bard",
-					" ",
-					"{C:mult}(Dev Mode){}",
+					"Instead start with an",
+					"{C:attention}eternal{} {C:diamonds}Diamond Bard{}",
 				},
 			},
-			["sleeve_minty_clubsleeve"] = {
+			["sleeve_minty_clubssleeve"] = {
 				["name"] = "Sleeve of the Club",
 				["text"] = {
-					"Start with a {C:clubs}Gluttonous Joker",
+					"Start with an",
+					"{C:attention}eternal{} {C:clubs}Gluttonous Joker{}",
 					"and {C:attention}The Moon{} tarot",
-					" ",
-					"{C:mult}(Dev Mode){}",
 				},
 			},
-			["sleeve_minty_clubsleeve_alt"] = {
+			["sleeve_minty_clubssleeve_alt"] = {
 				["name"] = "Sleeve of the Club",
 				["text"] = {
-					"Also start with an",
-					"{C:clubs}Onyx Agate",
-					" ",
-					"{C:mult}(Dev Mode){}",
+					"Also start with",
+					"an {C:attention}eternal{} {C:clubs}Onyx Agate{}",
 				},
 			},
-			["sleeve_minty_clubsleeve_fusionalt"] = {
+			["sleeve_minty_clubssleeve_fusionalt"] = {
 				["name"] = "Sleeve of the Club",
 				["text"] = {
-					"Instead start with a",
-					"{C:clubs}Club Wizard",
-					" ",
-					"{C:mult}(Dev Mode){}",
+					"Instead start with an",
+					"{C:attention}eternal{} {C:clubs}Club Wizard{}",
 				},
 			},
-			["sleeve_minty_spadesleeve"] = {
+			["sleeve_minty_spadessleeve"] = {
 				["name"] = "Sleeve of the Spade",
 				["text"] = {
-					"Start with a {C:spades}Wrathful Joker",
+					"Start with an",
+					"{C:attention}eternal{} {C:spades}Wrathful Joker{}",
 					"and {C:attention}The World{} tarot",
-					" ",
-					"{C:mult}(Dev Mode){}",
 				},
 			},
-			["sleeve_minty_spadesleeve_alt"] = {
+			["sleeve_minty_spadessleeve_alt"] = {
 				["name"] = "Sleeve of the Spade",
 				["text"] = {
-					"Also start with an",
-					"{C:spades}Arrowhead",
-					" ",
-					"{C:mult}(Dev Mode){}",
+					"Also start with",
+					"an {C:attention}eternal{} {C:spades}Arrowhead{}",
 				},
 			},
-			["sleeve_minty_spadesleeve_fusionalt"] = {
+			["sleeve_minty_spadessleeve_fusionalt"] = {
 				["name"] = "Sleeve of the Spade",
 				["text"] = {
-					"Instead start with a",
-					"{C:spades}Spade Archer",
-					" ",
-					"{C:mult}(Dev Mode){}",
+					"Instead start with an",
+					"{C:attention}eternal{} {C:spades}Spade Archer{}",
 				},
 			},
 			["sleeve_minty_3suitsleeve"] = {
 				["name"] = "Sleeve of the 3",
 				["text"] = {
-					"Start with a {C:spades}Hedonist Joker",
+					"Start with an",
+					"{C:attention}eternal{} {C:minty_3s}Hedonist Joker{}",
 					"and {C:attention}The Cat{} tarot",
-					" ",
-					"{C:mult}(Dev Mode){}",
 				},
 			},
 			["sleeve_minty_3suitsleeve_alt"] = {
 				["name"] = "Sleeve of the 3",
 				["text"] = {
-					"Also start with a",
-					"{C:minty_3s}Fossilized Claw",
-					" ",
-					"{C:mult}(Dev Mode){}",
+					"Also start with",
+					"an {C:attention}eternal{} {C:minty_3s}Fossilized Claw{}",
 				},
 			},
 			["sleeve_minty_3suitsleeve_fusionalt"] = {
 				["name"] = "Sleeve of the 3",
 				["text"] = {
 					"Instead start with",
-					"{C:minty_3s}Three Cats!",
-					" ",
-					"{C:mult}(Dev Mode){}",
+					"{C:minty_3s}Three{} {C:attention}eternal{} {C:minty_3s}Cats!{}",
 				},
 			},
 		}

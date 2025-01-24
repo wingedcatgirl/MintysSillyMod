@@ -80,6 +80,613 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
     })
 end
 
+SMODS.Back({
+    name = "Deck of the Heart",
+    key = "hearts",
+    pos = { x = 0, y = 1 },
+    atlas = "mintybacks",
+    unlocked = true,
+    config = {},
+
+    apply = function()
+        local sleeveexist = (SMODS.Mods["CardSleeves"] or {}).can_load
+        local fusionexist = (SMODS.Mods["FusionJokers"] or {}).can_load
+        local heartsleeve = ((G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_heartsleeve")
+        if not (sleeveexist and fusionexist and heartsleeve) then
+            --sendDebugMessage('[Minty] Heart Deck creating Lusty')
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local card = SMODS.create_card({
+                      set = 'Joker',
+                      area = G.jokers,
+                      key = 'j_lusty_joker',
+                      stickers = {'eternal'},
+                    })
+                    card:add_to_deck()
+                    G.jokers:emplace(card)
+                  return true
+                end
+              }))
+        end
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                local tarot = SMODS.create_card({
+                    set = 'Tarot',
+                    area = G.consumeables,
+                    key = 'c_sun',
+                })
+                tarot:add_to_deck()
+                G.consumeables:emplace(tarot)
+              return true
+            end
+          }))
+    end,
+})
+
+if (SMODS.Mods["CardSleeves"] or {}).can_load then
+    CardSleeves.Sleeve({
+        key = "heartsleeve",
+        name = "Sleeve of the Heart",
+        atlas = "mintysleeves",
+        pos = { x = 0, y = 1 },
+        config = {},
+        unlocked = true,
+        unlock_condition = { name = "Deck of the Heart", stake = 1 },
+        loc_vars = function(self)
+            local key, vars
+
+            if self.get_current_deck_key() ~= "b_minty_hearts" then
+                key = self.key
+            else
+                if (SMODS.Mods["FusionJokers"] or {}).can_load then
+                    key = self.key.."_fusionalt"
+                else
+                    key = self.key.."_alt"
+                end
+            end
+
+            return { key = key, vars = vars }
+        end,
+        apply = function(self)
+            if self.get_current_deck_key() ~= "b_minty_hearts" then
+                --sendDebugMessage('[Minty] Heart Sleeve creating Lusty')
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local card = SMODS.create_card({
+                          set = 'Joker',
+                          area = G.jokers,
+                          key = 'j_lusty_joker',
+                          stickers = {'eternal'},
+                        })
+                        card:add_to_deck()
+                        G.jokers:emplace(card)
+                        local tarot = SMODS.create_card({
+                            set = 'Tarot',
+                            area = G.consumeables,
+                            key = 'c_sun',
+                        })
+                        tarot:add_to_deck()
+                        G.consumeables:emplace(tarot)
+                      return true
+                    end
+                  }))
+            elseif (SMODS.Mods["FusionJokers"] or {}).can_load then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local card = SMODS.create_card({
+                      set = 'Joker',
+                      area = G.jokers,
+                      key = 'j_heart_paladin',
+                      stickers = {'eternal'},
+                    })
+                    card:add_to_deck()
+                    G.jokers:emplace(card)
+                  return true
+                end
+              }))
+            else
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local card = SMODS.create_card({
+                          set = 'Joker',
+                          area = G.jokers,
+                          key = 'j_bloodstone',
+                          stickers = {'eternal'},
+                        })
+                        card:add_to_deck()
+                        G.jokers:emplace(card)
+                      return true
+                    end
+                  }))
+            end
+        end,
+    })
+end
+
+SMODS.Back({
+    name = "Deck of the Diamond",
+    key = "diamonds",
+    pos = { x = 1, y = 1 },
+    atlas = "mintybacks",
+    unlocked = true,
+    config = {},
+
+    apply = function()
+        local sleeveexist = (SMODS.Mods["CardSleeves"] or {}).can_load
+        local fusionexist = (SMODS.Mods["FusionJokers"] or {}).can_load
+        local diamondsleeve = ((G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_diamondsleeve")
+        if not (sleeveexist and fusionexist and diamondsleeve) then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local card = SMODS.create_card({
+                      set = 'Joker',
+                      area = G.jokers,
+                      key = 'j_greedy_joker',
+                      stickers = {'eternal'},
+                    })
+                    card:add_to_deck()
+                    G.jokers:emplace(card)
+                  return true
+                end
+              }))
+        end
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                local tarot = SMODS.create_card({
+                    set = 'Tarot',
+                    area = G.consumeables,
+                    key = 'c_star',
+                })
+                tarot:add_to_deck()
+                G.consumeables:emplace(tarot)
+              return true
+            end
+          }))
+    end,
+})
+
+if (SMODS.Mods["CardSleeves"] or {}).can_load then
+    CardSleeves.Sleeve({
+        key = "diamondsleeve",
+        name = "Sleeve of the Diamond",
+        atlas = "mintysleeves",
+        pos = { x = 1, y = 1 },
+        config = {},
+        unlocked = true,
+        unlock_condition = { name = "Deck of the Diamond", stake = 1 },
+        loc_vars = function(self)
+            local key, vars
+
+            if self.get_current_deck_key() ~= "b_minty_diamonds" then
+                key = self.key
+            else
+                if (SMODS.Mods["FusionJokers"] or {}).can_load then
+                    key = self.key.."_fusionalt"
+                else
+                    key = self.key.."_alt"
+                end
+            end
+
+            return { key = key, vars = vars }
+        end,
+        apply = function(self)
+            if self.get_current_deck_key() ~= "b_minty_diamonds" then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local card = SMODS.create_card({
+                          set = 'Joker',
+                          area = G.jokers,
+                          key = 'j_greedy_joker',
+                          stickers = {'eternal'},
+                        })
+                        card:add_to_deck()
+                        G.jokers:emplace(card)
+                        local tarot = SMODS.create_card({
+                            set = 'Tarot',
+                            area = G.consumeables,
+                            key = 'c_star',
+                        })
+                        tarot:add_to_deck()
+                        G.consumeables:emplace(tarot)
+                      return true
+                    end
+                  }))
+            elseif (SMODS.Mods["FusionJokers"] or {}).can_load then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local card = SMODS.create_card({
+                      set = 'Joker',
+                      area = G.jokers,
+                      key = 'j_diamond_bard',
+                      stickers = {'eternal'},
+                    })
+                    card:add_to_deck()
+                    G.jokers:emplace(card)
+                  return true
+                end
+              }))
+            else
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local card = SMODS.create_card({
+                          set = 'Joker',
+                          area = G.jokers,
+                          key = 'j_rough_gem',
+                          stickers = {'eternal'},
+                        })
+                        card:add_to_deck()
+                        G.jokers:emplace(card)
+                      return true
+                    end
+                  }))
+            end
+        end,
+    })
+end
+
+SMODS.Back({
+    name = "Deck of the Club",
+    key = "clubs",
+    pos = { x = 2, y = 1 },
+    atlas = "mintybacks",
+    unlocked = true,
+    config = {},
+
+    apply = function()
+        local sleeveexist = (SMODS.Mods["CardSleeves"] or {}).can_load
+        local fusionexist = (SMODS.Mods["FusionJokers"] or {}).can_load
+        local clubssleeve = ((G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_clubssleeve")
+        if not (sleeveexist and fusionexist and clubssleeve) then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local card = SMODS.create_card({
+                      set = 'Joker',
+                      area = G.jokers,
+                      key = 'j_gluttenous_joker',
+                      stickers = {'eternal'},
+                    })
+                    card:add_to_deck()
+                    G.jokers:emplace(card)
+                  return true
+                end
+              }))
+        end
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                local tarot = SMODS.create_card({
+                    set = 'Tarot',
+                    area = G.consumeables,
+                    key = 'c_moon',
+                })
+                tarot:add_to_deck()
+                G.consumeables:emplace(tarot)
+              return true
+            end
+          }))
+    end,
+})
+
+if (SMODS.Mods["CardSleeves"] or {}).can_load then
+    CardSleeves.Sleeve({
+        key = "clubssleeve",
+        name = "Sleeve of the Club",
+        atlas = "mintysleeves",
+        pos = { x = 2, y = 1 },
+        config = {},
+        unlocked = true,
+        unlock_condition = { name = "Deck of the Club", stake = 1 },
+        loc_vars = function(self)
+            local key, vars
+
+            if self.get_current_deck_key() ~= "b_minty_clubs" then
+                key = self.key
+            else
+                if (SMODS.Mods["FusionJokers"] or {}).can_load then
+                    key = self.key.."_fusionalt"
+                else
+                    key = self.key.."_alt"
+                end
+            end
+
+            return { key = key, vars = vars }
+        end,
+        apply = function(self)
+            if self.get_current_deck_key() ~= "b_minty_clubs" then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local card = SMODS.create_card({
+                          set = 'Joker',
+                          area = G.jokers,
+                          key = 'j_gluttenous_joker',
+                          stickers = {'eternal'},
+                        })
+                        card:add_to_deck()
+                        G.jokers:emplace(card)
+                        local tarot = SMODS.create_card({
+                            set = 'Tarot',
+                            area = G.consumeables,
+                            key = 'c_moon',
+                        })
+                        tarot:add_to_deck()
+                        G.consumeables:emplace(tarot)
+                      return true
+                    end
+                  }))
+            elseif (SMODS.Mods["FusionJokers"] or {}).can_load then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local card = SMODS.create_card({
+                      set = 'Joker',
+                      area = G.jokers,
+                      key = 'j_club_wizard',
+                      stickers = {'eternal'},
+                    })
+                    card:add_to_deck()
+                    G.jokers:emplace(card)
+                  return true
+                end
+              }))
+            else
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local card = SMODS.create_card({
+                          set = 'Joker',
+                          area = G.jokers,
+                          key = 'j_onyx_agate',
+                          stickers = {'eternal'},
+                        })
+                        card:add_to_deck()
+                        G.jokers:emplace(card)
+                      return true
+                    end
+                  }))
+            end
+        end,
+    })
+end
+
+SMODS.Back({
+    name = "Deck of the Spade",
+    key = "spades",
+    pos = { x = 3, y = 1 },
+    atlas = "mintybacks",
+    unlocked = true,
+    config = {},
+
+    apply = function()
+        local sleeveexist = (SMODS.Mods["CardSleeves"] or {}).can_load
+        local fusionexist = (SMODS.Mods["FusionJokers"] or {}).can_load
+        local spadessleeve = ((G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_spadessleeve")
+        if not (sleeveexist and fusionexist and spadessleeve) then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local card = SMODS.create_card({
+                      set = 'Joker',
+                      area = G.jokers,
+                      key = 'j_wrathful_joker',
+                      stickers = {'eternal'},
+                    })
+                    card:add_to_deck()
+                    G.jokers:emplace(card)
+                  return true
+                end
+              }))
+        end
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                local tarot = SMODS.create_card({
+                    set = 'Tarot',
+                    area = G.consumeables,
+                    key = 'c_world',
+                })
+                tarot:add_to_deck()
+                G.consumeables:emplace(tarot)
+              return true
+            end
+          }))
+    end,
+})
+
+if (SMODS.Mods["CardSleeves"] or {}).can_load then
+    CardSleeves.Sleeve({
+        key = "spadessleeve",
+        name = "Sleeve of the Spade",
+        atlas = "mintysleeves",
+        pos = { x = 3, y = 1 },
+        config = {},
+        unlocked = true,
+        unlock_condition = { name = "Deck of the Spade", stake = 1 },
+        loc_vars = function(self)
+            local key, vars
+
+            if self.get_current_deck_key() ~= "b_minty_spades" then
+                key = self.key
+            else
+                if (SMODS.Mods["FusionJokers"] or {}).can_load then
+                    key = self.key.."_fusionalt"
+                else
+                    key = self.key.."_alt"
+                end
+            end
+
+            return { key = key, vars = vars }
+        end,
+        apply = function(self)
+            if self.get_current_deck_key() ~= "b_minty_spades" then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local card = SMODS.create_card({
+                          set = 'Joker',
+                          area = G.jokers,
+                          key = 'j_wrathful_joker',
+                          stickers = {'eternal'},
+                        })
+                        card:add_to_deck()
+                        G.jokers:emplace(card)
+                        local tarot = SMODS.create_card({
+                            set = 'Tarot',
+                            area = G.consumeables,
+                            key = 'c_world',
+                        })
+                        tarot:add_to_deck()
+                        G.consumeables:emplace(tarot)
+                      return true
+                    end
+                  }))
+            elseif (SMODS.Mods["FusionJokers"] or {}).can_load then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local card = SMODS.create_card({
+                      set = 'Joker',
+                      area = G.jokers,
+                      key = 'j_spade_archer',
+                      stickers = {'eternal'},
+                    })
+                    card:add_to_deck()
+                    G.jokers:emplace(card)
+                  return true
+                end
+              }))
+            else
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local card = SMODS.create_card({
+                          set = 'Joker',
+                          area = G.jokers,
+                          key = 'j_arrowhead',
+                          stickers = {'eternal'},
+                        })
+                        card:add_to_deck()
+                        G.jokers:emplace(card)
+                      return true
+                    end
+                  }))
+            end
+        end,
+    })
+end
+
+SMODS.Back({
+    name = "Deck of the 3",
+    key = "3suit",
+    pos = { x = 4, y = 1 },
+    atlas = "mintybacks",
+    unlocked = true,
+    config = {},
+
+    apply = function()
+        local sleeveexist = (SMODS.Mods["CardSleeves"] or {}).can_load
+        local fusionexist = (SMODS.Mods["FusionJokers"] or {}).can_load
+        local threesleeve = ((G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_3suitsleeve")
+        if not (sleeveexist and fusionexist and threesleeve) then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local card = SMODS.create_card({
+                      set = 'Joker',
+                      area = G.jokers,
+                      key = 'j_minty_hedonist',
+                      stickers = {'eternal'},
+                    })
+                    card:add_to_deck()
+                    G.jokers:emplace(card)
+                  return true
+                end
+              }))
+        end
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                local tarot = SMODS.create_card({
+                    set = 'Tarot',
+                    area = G.consumeables,
+                    key = 'c_minty_cat',
+                })
+                tarot:add_to_deck()
+                G.consumeables:emplace(tarot)
+              return true
+            end
+          }))
+    end,
+})
+
+if (SMODS.Mods["CardSleeves"] or {}).can_load then
+    CardSleeves.Sleeve({
+        key = "3suitsleeve",
+        name = "Sleeve of the 3",
+        atlas = "mintysleeves",
+        pos = { x = 4, y = 1 },
+        config = {},
+        unlocked = true,
+        unlock_condition = { name = "Deck of the 3", stake = 1 },
+        loc_vars = function(self)
+            local key, vars
+
+            if self.get_current_deck_key() ~= "b_minty_3suit" then
+                key = self.key
+            else
+                if (SMODS.Mods["FusionJokers"] or {}).can_load then
+                    key = self.key.."_fusionalt"
+                else
+                    key = self.key.."_alt"
+                end
+            end
+
+            return { key = key, vars = vars }
+        end,
+        apply = function(self)
+            if self.get_current_deck_key() ~= "b_minty_3suit" then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local card = SMODS.create_card({
+                          set = 'Joker',
+                          area = G.jokers,
+                          key = 'j_minty_hedonist',
+                          stickers = {'eternal'},
+                        })
+                        card:add_to_deck()
+                        G.jokers:emplace(card)
+                        local tarot = SMODS.create_card({
+                            set = 'Tarot',
+                            area = G.consumeables,
+                            key = 'c_minty_cat',
+                        })
+                        tarot:add_to_deck()
+                        G.consumeables:emplace(tarot)
+                      return true
+                    end
+                  }))
+            elseif (SMODS.Mods["FusionJokers"] or {}).can_load then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local card = SMODS.create_card({
+                      set = 'Joker',
+                      area = G.jokers,
+                      key = 'j_minty_threecats',
+                      stickers = {'eternal'},
+                    })
+                    card:add_to_deck()
+                    G.jokers:emplace(card)
+                  return true
+                end
+              }))
+            else
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local card = SMODS.create_card({
+                          set = 'Joker',
+                          area = G.jokers,
+                          key = 'j_minty_claw',
+                          stickers = {'eternal'},
+                        })
+                        card:add_to_deck()
+                        G.jokers:emplace(card)
+                      return true
+                    end
+                  }))
+            end
+        end,
+    })
+end
+
 if (SMODS.Mods["Cryptid"] or {}).can_load then
     SMODS.Back({
         name = "Deck of the Cat",
@@ -100,296 +707,3 @@ if (SMODS.Mods["Cryptid"] or {}).can_load then
     })
 end
 
---[[if minty_config.dev_mode then
-    SMODS.Back({
-        name = "Deck of the Heart",
-        key = "heart",
-        pos = { x = 0, y = 1 },
-        atlas = "mintybacks",
-        unlocked = true,
-        config = {},
-
-        apply = function()
-            if not ((SMODS.Mods["Cardsleeves"] or {}).can_load and (SMODS.Mods["FusionJokers"] or {}).can_load and (G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_heartsleeve") then
-                G.E_MANAGER:add_event(Event({
-                  func = function()
-                    local card = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_lusty', nil)
-                    card:add_to_deck()
-                    G.jokers:emplace(card)
-                    return true
-                  end
-                }))
-            end
-        end,
-    })
-
-    SMODS.Back({
-        name = "Deck of the Diamond",
-        key = "diamond",
-        pos = { x = 1, y = 1 },
-        atlas = "mintybacks",
-        unlocked = true,
-        config = {},
-
-        apply = function()
-            if not ((SMODS.Mods["Cardsleeves"] or {}).can_load and (SMODS.Mods["FusionJokers"] or {}).can_load and (G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_diamondsleeve") then
-                G.E_MANAGER:add_event(Event({
-                  func = function()
-                    local card = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_greedy', nil)
-                    card:add_to_deck()
-                    G.jokers:emplace(card)
-                    return true
-                  end
-                }))
-            end
-        end,
-    })
-
-    SMODS.Back({
-        name = "Deck of the Club",
-        key = "club",
-        pos = { x = 2, y = 1 },
-        atlas = "mintybacks",
-        unlocked = true,
-        config = {},
-
-        apply = function()
-            if not ((SMODS.Mods["Cardsleeves"] or {}).can_load and (SMODS.Mods["FusionJokers"] or {}).can_load and (G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_clubsleeve") then
-                G.E_MANAGER:add_event(Event({
-                  func = function()
-                    local card = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_gluttonous', nil)
-                    card:add_to_deck()
-                    G.jokers:emplace(card)
-                    return true
-                  end
-                }))
-            end
-        end,
-    })
-
-    SMODS.Back({
-        name = "Deck of the Spade",
-        key = "spade",
-        pos = { x = 3, y = 1 },
-        atlas = "mintybacks",
-        unlocked = true,
-        config = {},
-
-        apply = function()
-            if not ((SMODS.Mods["Cardsleeves"] or {}).can_load and (SMODS.Mods["FusionJokers"] or {}).can_load and (G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_spadesleeve") then
-                G.E_MANAGER:add_event(Event({
-                  func = function()
-                    local card = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_wrathful', nil)
-                    card:add_to_deck()
-                    G.jokers:emplace(card)
-                    return true
-                  end
-                }))
-            end
-        end,
-    })
-
-    SMODS.Back({
-        name = "Deck of the 3",
-        key = "3suit",
-        pos = { x = 4, y = 1 },
-        atlas = "mintybacks",
-        unlocked = true,
-        config = {},
-
-        apply = function()
-            if not ((SMODS.Mods["Cardsleeves"] or {}).can_load and (SMODS.Mods["FusionJokers"] or {}).can_load and (G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_3suitsleeve") then
-                G.E_MANAGER:add_event(Event({
-                  func = function()
-                    local card = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_minty_hedonist', nil)
-                    card:add_to_deck()
-                    G.jokers:emplace(card)
-                    return true
-                  end
-                }))
-            end
-        end,
-    })
-
-
-    if (SMODS.Mods["CardSleeves"] or {}).can_load then
-        CardSleeves.Sleeve({
-            key = "heartsleeve",
-            name = "Sleeve of the Heart",
-            atlas = "mintysleeves",
-            pos = { x = 0, y = 1 },
-            config = {},
-            unlocked = true,
-            unlock_condition = { name = "Deck of the Heart", stake = 1 },
-            loc_vars = function(self)
-                local key, vars
-    
-                if self.get_current_deck_key() ~= "b_minty_heart" then
-                    key = self.key
-                else
-                    if (SMODS.Mods["CardSleeves"] or {}).can_load then
-                        key = self.key.."_fusionalt"
-                    else
-                        key = self.key.."_alt"
-                    end
-                end
-    
-                return { key = key, vars = vars }
-            end,
-            apply = function(self)
-                if self.get_current_deck_name() ~= "Deck of the Heart" then
-                    G.E_MANAGER:add_event(Event({
-                      func = function()
-                        local card = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_lusty', nil)
-                        card:add_to_deck()
-                        G.jokers:emplace(card)
-                        return true
-                    end
-                    }))
-                elseif SMODS.Mods["FusionJokers"] or {}).can_load
-                    G.E_MANAGER:add_event(Event({
-                      func = function()
-                        local card = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_heart_paladin', nil)
-                        card:add_to_deck()
-                        G.jokers:emplace(card)
-                        return true
-                    end
-                    }))
-                else
-                    G.E_MANAGER:add_event(Event({
-                      func = function()
-                        local card = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_bloodstone', nil)
-                        card:add_to_deck()
-                        G.jokers:emplace(card)
-                        return true
-                    end
-                    }))
-                end
-            end,
-        })
-
-        CardSleeves.Sleeve({
-            key = "diamondsleeve",
-            name = "Sleeve of the Diamond",
-            atlas = "mintysleeves",
-            pos = { x = 1, y = 1 },
-            config = {},
-            unlocked = true,
-            unlock_condition = { name = "Deck of the Diamond", stake = 1 },
-            loc_vars = function(self)
-                local key, vars
-    
-                if self.get_current_deck_key() ~= "b_minty_diamond" then
-                    key = self.key
-                else
-                    if (SMODS.Mods["CardSleeves"] or {}).can_load then
-                        key = self.key.."_fusionalt"
-                    else
-                        key = self.key.."_alt"
-                    end
-                end
-    
-                return { key = key, vars = vars }
-            end,
-            apply = function(self)
-                
-            end,
-            trigger_effect = function(self, args)
-                -- what if anything should we do with this.
-            end
-        })
-
-        CardSleeves.Sleeve({
-            key = "clubsleeve",
-            name = "Sleeve of the Club",
-            atlas = "mintysleeves",
-            pos = { x = 2, y = 1 },
-            config = {},
-            unlocked = true,
-            unlock_condition = { name = "Deck of the Club", stake = 1 },
-            loc_vars = function(self)
-                local key, vars
-    
-                if self.get_current_deck_key() ~= "b_minty_club" then
-                    key = self.key
-                else
-                    if (SMODS.Mods["CardSleeves"] or {}).can_load then
-                        key = self.key.."_fusionalt"
-                    else
-                        key = self.key.."_alt"
-                    end
-                end
-    
-                return { key = key, vars = vars }
-            end,
-            apply = function(self)
-                
-            end,
-            trigger_effect = function(self, args)
-                -- what if anything should we do with this.
-            end
-        })
-
-        CardSleeves.Sleeve({
-            key = "spadesleeve",
-            name = "Sleeve of the Spade",
-            atlas = "mintysleeves",
-            pos = { x = 3, y = 1 },
-            config = {},
-            unlocked = true,
-            unlock_condition = { name = "Deck of the Spade", stake = 1 },
-            loc_vars = function(self)
-                local key, vars
-    
-                if self.get_current_deck_key() ~= "b_minty_spade" then
-                    key = self.key
-                else
-                    if (SMODS.Mods["CardSleeves"] or {}).can_load then
-                        key = self.key.."_fusionalt"
-                    else
-                        key = self.key.."_alt"
-                    end
-                end
-    
-                return { key = key, vars = vars }
-            end,
-            apply = function(self)
-                
-            end,
-            trigger_effect = function(self, args)
-                -- what if anything should we do with this.
-            end
-        })
-
-        CardSleeves.Sleeve({
-            key = "3suitsleeve",
-            name = "Sleeve of the 3",
-            atlas = "mintysleeves",
-            pos = { x = 4, y = 1 },
-            config = {},
-            unlocked = true,
-            unlock_condition = { name = "Deck of the 3", stake = 1 },
-            loc_vars = function(self)
-                local key, vars
-    
-                if self.get_current_deck_key() ~= "b_minty_3suit" then
-                    key = self.key
-                else
-                    if (SMODS.Mods["CardSleeves"] or {}).can_load then
-                        key = self.key.."_fusionalt"
-                    else
-                        key = self.key.."_alt"
-                    end
-                end
-    
-                return { key = key, vars = vars }
-            end,
-            apply = function(self)
-                
-            end,
-            trigger_effect = function(self, args)
-                -- what if anything should we do with this.
-            end
-        })
-    end
-end]]
