@@ -1,5 +1,9 @@
 minty_config = SMODS.current_mod.config
 NFS.load(SMODS.current_mod.path .. 'configui.lua')()
+SMODS.current_mod.optional_features = {
+    retrigger_joker = true,
+    post_trigger = true,
+}
 
 SMODS.Atlas {
     key = 'mintyjokeratlas',
