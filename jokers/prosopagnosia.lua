@@ -19,10 +19,10 @@ SMODS.Joker {
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
         return {
-            vars = {card.ability.extra.Xmult}
+            vars = {card.ability.extra.xmult}
         }
     end,
-    config = {extra = {Xmult = 5}},
+    config = {extra = {xmult = 5}},
     calculate = function(self, card, context)
         if context.joker_main and context.scoring_hand then
             local faces = 0
@@ -34,13 +34,7 @@ SMODS.Joker {
 
             if faces == 1 then
                 return {
-                    message = localize {
-                        type = 'variable',
-                        key = 'a_xmult',
-                        vars = { card.ability.extra.Xmult }
-                    },
-					colour = G.C.RED,
-					Xmult_mod = card.ability.extra.Xmult
+                    xmult = card.ability.extra.xmult
                 }
             end
         end
