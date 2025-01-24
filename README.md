@@ -8,8 +8,8 @@ Current features:
 - Cement
 - Injokes
 - Some jokers
+- Several decks
 - Placeholder art
-- One or more decks
 - A silly custom suit
 - A little 3, as a treat
 - Cross-mod content with the following mods:
