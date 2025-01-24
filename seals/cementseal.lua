@@ -5,7 +5,7 @@ SMODS.Seal {
 	badge_colour = HEX("545454"), --a cement-y grey, hopefully
   config = {extra = {chips = 50}},
   discovered = true,
-  always_scores = true,
+  always_scores = true, --not a thing yet, but
   loc_vars = function(self, info_queue)
     return { vars = {self.config.extra.chips, } }
   end,
@@ -21,7 +21,6 @@ SMODS.Seal {
 }
 
 local debuffcardref = Card.set_debuff
-
 function Card:set_debuff(should_debuff)
   if self.seal == "minty_cement" then
      self.debuff = false 

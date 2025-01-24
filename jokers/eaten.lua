@@ -24,7 +24,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.cardarea == G.play then
+        if context.cardarea == G.play and context.individual then
             if context.other_card:get_id() == 7 then
                 return {
                     mult = card.ability.extra.mult,
@@ -34,7 +34,11 @@ SMODS.Joker {
             end
         end
         if context.destroying_card and not context.destroying_card.ability.eternal and context.destroying_card:get_id() ~= 7 and pseudorandom('eaten') < G.GAME.probabilities.normal/card.ability.extra.odds then
-            return true
+            return {
+                remove = true,
+                message = localize('k_drowned_ex'),
+                card = card
+            }
         end
     end
 }
