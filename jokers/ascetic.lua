@@ -32,16 +32,28 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.cardarea == G.play then
-            if context.other_card:is_suit('minty_3s') or context.other_card:get_id() == 3 then
-                local result = {
-                    chips = card.ability.extra.s_chips,
-                    card = card
-                }
-                if context.other_card:is_suit('minty_3s') and context.other_card:get_id() == 3 then
-                    result["message"] = localize('k_again_ex')
-                    result["repetitions"] = 1
+            if context.repetition then 
+                local count = 0
+                if context.other_card:is_3() then
+                    count = context.other_card:is_3()
+                else return end
+                if count > 1 then
+                    --sendDebugMessage('Count (repetitions): '..count)
+                    return {
+                        message = localize('k_again_ex'),
+                        repetitions = count - 1
+                    }
                 end
-                return result
+            end
+            if context.individual then
+                if context.other_card:is_3() then
+                    local count = context.other_card:is_3()
+                    --sendDebugMessage('Count (individual): '..count)
+                    return {
+                        chips = card.ability.extra.s_chips,
+                        card = card
+                    }
+                end
             end
         end
     end
