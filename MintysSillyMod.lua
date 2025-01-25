@@ -111,7 +111,7 @@ end
 function Card:is_3(bypass_debuff)
     local count = 0
         if self.debuff and not bypass_debuff then return false end
-        if self.ability.name == "Wild Card" or self.base.suit == 'minty_3s' then
+        if SMODS.has_any_suit(self) or self.base.suit == 'minty_3s' then
             count = count + 1
         end
         if next(find_joker("Treat-o-Vision")) and self.base.suit == G.GAME.treatovision_suit then
@@ -132,6 +132,9 @@ function Card:is_3(bypass_debuff)
 
         if (SMODS.Mods["Gemstone"] or {}).can_load then
             if self.ability.gemslot_catseye then
+                count = count + 2
+            end
+            if self.ability.gemslot_sapphire then --Remove this if Gemstones hooks sapphires into SMODS.has_any_suit
                 count = count + 1
             end
         end
@@ -159,6 +162,7 @@ NFS.load(SMODS.current_mod.path .. 'jokers/excited.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/chisel.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/bucket.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/treatovision.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/wildsupport.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/lucky.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/stormy.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/patchy.lua')()
@@ -175,6 +179,7 @@ end
 
 if (SMODS.Mods["paperback"] or {}).can_load then
     NFS.load(SMODS.current_mod.path .. 'jokers/churu.lua')()
+    NFS.load(SMODS.current_mod.path .. 'jokers/catnipfields.lua')()
 end
 
 if (SMODS.Mods["Gemstone"] or {}).can_load then

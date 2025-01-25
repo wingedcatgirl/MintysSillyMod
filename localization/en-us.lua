@@ -111,7 +111,7 @@ return {
 				["name"] = "Cat's Eye",
 				["text"] = {
 					"Attached card",
-					"counts as a {C:minty_3s}3s{} {C:attention}twice{}",
+					"counts as a {C:minty_3s}3{} {C:attention}twice{}",
 				},
 			},
 		},
@@ -310,6 +310,15 @@ return {
 					"or up to {C:money}$#5#{} (+{C:money}$#10#{}),",
 					"and {C:green}#1# in #6#{} chance to",
 					"increase maximum value."
+				},
+			},
+			["j_minty_catnipfields"] = {
+				["name"] = "Catnip Fields",
+				["text"] = {
+					"{C:minty_3s}3s{} give {X:mult,C:white}X#1#{} Mult when scored.",
+					"Increases by {X:mult,C:white}X#2#{} Mult for each ",
+					"consecutively scored {C:minty_3s}3{}",
+					"{C:inactive}(Resets after each hand played)",
 				},
 			},
 		},
