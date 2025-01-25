@@ -18,7 +18,7 @@ SMODS.Consumable{ -- The Cat
     loc_vars = function(self) return {vars = {self.config.max_highlighted}} end,
 
     use = function(self)
-        enable_exotics()
+        if not exotic_in_pool() then enable_exotics() end
 
         local function event(config)
             local e = Event(config)
