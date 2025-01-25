@@ -111,7 +111,7 @@ return {
 				["name"] = "Cat's Eye",
 				["text"] = {
 					"Attached card",
-					"counts as a {C:minty_3s}3{}",
+					"counts as a {C:minty_3s}3s{} {C:attention}twice{}",
 				},
 			},
 		},
@@ -298,6 +298,18 @@ return {
 					"{V:1}#1#{} and {C:minty_3s}#2#{} suits",
 					"count as the same suit",
 					"{C:inactive}(First suit changes each round){}"
+				},
+			},
+			["j_minty_wildsupport"] = {
+				["name"] = "Wild Support",
+				["text"] = {
+					"Played {C:attention}Wild Cards{} give {C:green#1#{} of",
+					"up to {C:mult}#2#{} Mult (+{C:mult}#7#{}),",
+					"up to {X:mult,C:white}X#3#{} Mult (+{X:mult,C:white}X#8#{}),",
+					"up to {C:chips}#4#{} Chips (+{C:chips}#9#{}),",
+					"or up to {C:money}$#5#{} (+{C:money}$#10#{}),",
+					"and {C:green}#1# in #6#{} chance to",
+					"increase maximum value."
 				},
 			},
 		},
