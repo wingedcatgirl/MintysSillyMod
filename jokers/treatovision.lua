@@ -60,8 +60,8 @@ function Card:is_suit(suit, bypass_debuff, flush_calc)
             return true
         end
     end
-    if self.base.suit ~= "spectrum_fakewild" and self.ability.name ~= 'Wild Card' then
-        if suit == "minty_3s" and self.base.suit ~= "minty_3s" then
+    if self.base.suit ~= "spectrum_fakewild" and not SMODS.has_any_suit(self) and (suit == "minty_3s" or self.base.suit == "minty_3s") then
+        if suit == "minty_3s" and not self:is_3() then
             return false
         end
         if suit ~= "minty_3s" and self.base.suit == "minty_3s" then
