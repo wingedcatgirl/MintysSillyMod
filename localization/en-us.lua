@@ -303,7 +303,7 @@ return {
 			["j_minty_wildsupport"] = {
 				["name"] = "Wild Support",
 				["text"] = {
-					"Played {C:attention}Wild Cards{} give {C:green#1#{} of",
+					"Played {C:attention}Wild Cards{} give {C:green}#1#{} of",
 					"up to {C:mult}#2#{} Mult (+{C:mult}#7#{}),",
 					"up to {X:mult,C:white}X#3#{} Mult (+{X:mult,C:white}X#8#{}),",
 					"up to {C:chips}#4#{} Chips (+{C:chips}#9#{}),",
