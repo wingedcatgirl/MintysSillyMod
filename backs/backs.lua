@@ -34,7 +34,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 0, y = 0 },
         config = {start_with_3s = true},
         unlocked = false,
-        unlock_condition = { deck = "b_minty_treat", stake = 1 },
+        unlock_condition = { deck = "b_minty_treat", stake = "stake_white" },
         loc_vars = function(self)
             local key, vars
 
@@ -131,7 +131,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 0, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = { deck = "b_minty_hearts", stake = 1 },
+        unlock_condition = { deck = "b_minty_hearts", stake = "stake_white" },
         loc_vars = function(self)
             local key, vars
 
@@ -253,7 +253,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 1, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = { deck = "b_minty_diamonds", stake = 1 },
+        unlock_condition = { deck = "b_minty_diamonds", stake = "stake_white" },
         loc_vars = function(self)
             local key, vars
 
@@ -374,7 +374,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 2, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = { deck = "b_minty_clubs", stake = 1 },
+        unlock_condition = { deck = "b_minty_clubs", stake = "stake_white" },
         loc_vars = function(self)
             local key, vars
 
@@ -495,7 +495,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 3, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = { deck = "b_minty_spades", stake = 1 },
+        unlock_condition = { deck = "b_minty_spades", stake = "stake_white" },
         loc_vars = function(self)
             local key, vars
 
@@ -616,7 +616,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 4, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = { deck = "b_minty_3suit", stake = 1 },
+        unlock_condition = { deck = "b_minty_3suit", stake = "stake_white" },
         loc_vars = function(self)
             local key, vars
 
