@@ -6,7 +6,7 @@ SMODS.Joker {
             odds = 6
         }
     },
-    rarity = 2,
+    rarity = 1,
     atlas = 'mintyjokerplaceholder',
     pos = {
         x = 0,
@@ -16,7 +16,7 @@ SMODS.Joker {
         x = 6,
         y = 0
     },
-    cost = 7,
+    cost = 6,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,
