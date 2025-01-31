@@ -17,7 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
-    config = {extra = {xmult = 3, stormcount = 0, kity = true}},
+    config = {extra = {xmult = 1.5, stormcount = 0, kity = true}},
     loc_vars = function(self, info_queue, card)
         return {
             vars = {card.ability.extra.xmult, card.ability.extra.stormcount}
