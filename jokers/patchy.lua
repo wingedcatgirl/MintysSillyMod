@@ -16,7 +16,12 @@ SMODS.Joker {
     discovered = false,
     config = {extra = {xmult = 3, kity = true}},
     loc_vars = function(self, info_queue, card)
+        local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
         return {
+            key = key,
             vars = {card.ability.extra.xmult}
         }
     end,

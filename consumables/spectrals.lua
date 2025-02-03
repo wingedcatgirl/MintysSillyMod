@@ -8,11 +8,18 @@ SMODS.Consumable {
 		max_highlighted = 1,
         seal = {extra = {chips = 50}},
 	},
-	loc_vars = function(self, info_queue, center)
+	loc_vars = function(self, info_queue, card)
+		local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
 		-- Handle creating a tooltip with set args.
 		info_queue[#info_queue + 1] =
 			{ set = "Other", key = "minty_cement_seal", specific_vars = { self.config.seal.extra.chips } }
-		return { vars = { center.ability.max_highlighted } }
+		return { 
+			key = key,
+			vars = { card.ability.max_highlighted } 
+		}
 	end,
 	cost = 4,
 	atlas = "mintyjokerplaceholder",

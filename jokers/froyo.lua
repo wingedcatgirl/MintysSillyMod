@@ -24,7 +24,12 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
         return {
+            key = key,
             vars = {card.ability.extra.chips, card.ability.extra.chip_mod}
         }
     end,

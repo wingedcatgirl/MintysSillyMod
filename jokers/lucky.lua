@@ -19,6 +19,15 @@ SMODS.Joker {
     perishable_compat = true,
     blueprint_compat = false,
     config = {extra = {temp = 0, kity = true}},
+    loc_vars = function(self, info_queue, card)
+        local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
+        return {
+            key = key,
+        }
+    end,
     add_to_deck = function(self, from_debuff)
         self.added_to_deck = true
 		for k, v in pairs(G.GAME.probabilities) do 

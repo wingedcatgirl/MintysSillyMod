@@ -23,7 +23,12 @@ SMODS.Joker {
         xmultbase = 1.05
       }},
     loc_vars = function(self, info_queue, card)
+        local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
         return {
+            key = key,
             vars = {card.ability.extra.xmult, card.ability.extra.xmultgain, card.ability.extra.xmultbase}
         }
     end,

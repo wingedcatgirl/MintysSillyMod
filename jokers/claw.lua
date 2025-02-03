@@ -14,7 +14,12 @@ SMODS.Joker {
     cost = 7,
     config = {extra = {odds = 3, xmult = 3, temp = 0}},
     loc_vars = function(self, info_queue, card)
+        local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
         return {
+            key = key,
             vars = {''..(G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds, card.ability.extra.xmult}
         }
     end,

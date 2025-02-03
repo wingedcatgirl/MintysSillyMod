@@ -28,6 +28,14 @@ Planned features:
 - Definitely more injokes
 - Probably way more cross-mod content
 
+<details>
+  <summary>Config Options</summary>
+<ul>
+<li>Dev Mode: Default false. Enables unfinished content. Usually there isn't any because I don't like leaving things unfinished. But latest-commit enjoyers might catch me in the middle of something.</li>
+<li>Flavor text: Default true. Enables funky MtG-style quotes at the bottom of some cards.</li>
+</ul>
+</details> 
+
 ## Installation Instructions
 1. Install [Lovely](https://github.com/ethangreen-dev/lovely-injector), if you haven't already.
 2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already.

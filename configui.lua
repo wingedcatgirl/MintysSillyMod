@@ -6,7 +6,11 @@ SMODS.current_mod.config_tab = function()
             ref_table = minty_config,
             ref_value = 'dev_mode',
         }),
-        {n = G.UIT.T, config = {colour = G.C.WHITE, padding = 0, text = "Enables unfinished stuff for testing\n(Requires restart)", scale = 0.3}},
+        create_toggle({
+            label = "Flavor text",
+            ref_table = minty_config,
+            ref_value = 'flavor_text',
+        }),
         }}
     }}
 end

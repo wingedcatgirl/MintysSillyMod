@@ -19,7 +19,12 @@ SMODS.Joker {
     blueprint_compat = true,
     config = {extra = {mult = 7, chips = 17, odds = 7}},
     loc_vars = function(self, info_queue, card)
+        local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
         return {
+            key = key,
             vars = {card.ability.extra.mult, card.ability.extra.chips, card.ability.extra.odds, ''..(G.GAME and G.GAME.probabilities.normal or 1)}
         }
     end,

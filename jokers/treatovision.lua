@@ -15,7 +15,12 @@ SMODS.Joker {
     blueprint_compat = true,
     config = {extra = {}},
     loc_vars = function(self, info_queue, card)
+        local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
         return {
+            key = key,
             vars = {
 				localize(
 					G.GAME.treatovision_suit or "Spades",

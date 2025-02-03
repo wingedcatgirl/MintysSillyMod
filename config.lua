@@ -1,3 +1,4 @@
 return {
-    ["dev_mode"] = false
+    ["dev_mode"] = false,
+    ["flavor_text"] = true
 }

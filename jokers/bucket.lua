@@ -19,8 +19,14 @@ SMODS.Joker {
     blueprint_compat = true,
     config = {},
 	loc_vars = function(self, info_queue, card)
+        local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
 		info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
-		return 
+		return {
+            key = key,
+        }
 	end,
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.individual then

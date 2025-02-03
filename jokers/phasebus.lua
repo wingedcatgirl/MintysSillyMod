@@ -19,7 +19,14 @@ SMODS.Joker {
     blueprint_compat = false,
     config = { extra = {status = 'Active'} },
     loc_vars = function(self, info_queue, card)
-        return { vars = {card.ability.extra.status} }
+        local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
+        return { 
+            key = key,
+            vars = {card.ability.extra.status}
+        }
     end,
     calculate = function(self, card, context)
         if context.joker_main and context.scoring_hand and card.ability.extra.status == 'Active' and not context.blueprint and not context.end_of_round then

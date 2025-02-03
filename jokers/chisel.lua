@@ -22,10 +22,16 @@ SMODS.Joker {
         stone = {extra = {chips = 50}}
     },
 	loc_vars = function(self, info_queue, card)
+        local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
 		-- Handle creating a tooltip with set args.
 		info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
 		info_queue[#info_queue + 1] = { set = "Other", key = "minty_cement_seal", specific_vars = { self.config.seal.extra.chips } }
-		return 
+		return {
+            key = key,
+        }
 	end,
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.individual and context.other_card.ability.name == 'Stone Card' then

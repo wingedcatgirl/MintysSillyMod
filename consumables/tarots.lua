@@ -15,7 +15,16 @@ SMODS.Consumable{ -- The Cat
         y = 0
     },
 
-    loc_vars = function(self) return {vars = {self.config.max_highlighted}} end,
+    loc_vars = function(self) 
+		local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
+        return {
+            key = key,
+            vars = {self.config.max_highlighted}
+        }
+    end,
 
     use = function(self)
         if not exotic_in_pool() then enable_exotics() end

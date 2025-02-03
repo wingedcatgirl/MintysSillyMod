@@ -19,7 +19,12 @@ SMODS.Joker {
     blueprint_compat = true,
     config = {extra = {mult = 5}},
     loc_vars = function(self, info_queue, card)
+        local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
         return {
+            key = key,
             vars = {card.ability.extra.mult}
         }
     end,

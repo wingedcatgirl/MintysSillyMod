@@ -24,7 +24,12 @@ SMODS.Joker {
     no_pool_flag = "churu_treat_eaten",
 
     loc_vars = function(self, info_queue, card)
+        local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
         return {
+            key = key,
             vars = {
                 card.ability.extra.s_mult,
                 G.GAME.probabilities.normal,
@@ -157,9 +162,15 @@ SMODS.Joker {
     yes_pool_flag = "sticks_can_spawn",
 
     loc_vars = function(self, info_queue, card)
+        local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
+
         local xMult = PB_UTIL.calculate_stick_xMult(card)
         
         return {
+            key = key,
             vars = {
                 card.ability.extra.xMult,
                 xMult
