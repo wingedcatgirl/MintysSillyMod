@@ -3,7 +3,8 @@ SMODS.Joker {
     config = {
         extra = {
             s_mult = 5,
-            odds = 4
+            odds = 4,
+            again = 0
         }
     },
     rarity = 1,
@@ -40,39 +41,27 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         -- Give the mult during play if card is a 3, and retrigger if it's a 3 of 3s
-        if context.cardarea == G.play then
-            if context.individual then
-                if context.other_card:is_3() then
-                    local count = context.other_card:is_3()
-                    --sendDebugMessage('Count (individual): '..count)
-                    return {
-                        mult_mod = card.ability.extra.s_mult,
-                        message = localize {
-                            type = 'variable',
-                            key = 'a_mult',
-                            vars = { card.ability.extra.s_mult }
-                        },
-                        card = card
-                    }
-                end
-            end
-            if context.repetition then 
-                local count = 0
-                if context.other_card:is_3() then
-                    count = context.other_card:is_3()
-                else return end
-                if count > 1 then
-                    --sendDebugMessage('Count (repetitions): '..count)
-                    return {
-                        message = localize('k_again_ex'),
-                        repetitions = count - 1
-                    }
-                end
-            end
+        if context.cardarea == G.play and context.individual and context.other_card:is_3() then
+            local count = context.other_card:is_3()
+            card.ability.extra.again = count - 1
+            return {
+                mult = card.ability.extra.s_mult,
+                card = card
+            }
+        end
+        if context.retrigger_joker_check and card.ability.extra.again ~= 0 and context.other_card == card then
+            local again = card.ability.extra.again
+            card.ability.extra.again = 0
+            return {
+                message = localize("k_again_ex"),
+                message_card = card,
+                repetitions = again,
+            }
         end
 
         -- Check if the Joker needs to be eaten
-        if context.end_of_round and not context.blueprint and not (context.individual or context.repetition) then
+        if context.end_of_round and not context.blueprint and not (context.individual or context.repetition or context.retrigger_joker_check or context.retrigger_joker) then
+            card.ability.extra.again = 0
             if pseudorandom("churu") < G.GAME.probabilities.normal / card.ability.extra.odds then
                 G.E_MANAGER:add_event(Event({
                     func = function()

@@ -14,7 +14,13 @@ SMODS.Joker {
     cost = 20,
     unlocked = false,
     discovered = false,
-    config = {extra = {xmult = 3, kity = true}},
+    config = {
+        extra = {
+            xmult = 3,
+            again = 0,
+            kity = true
+        }
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if minty_config.flavor_text then
@@ -31,6 +37,8 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.cardarea == G.play then
             if context.individual and context.other_card:is_3() then
+            local count = context.other_card:is_3()
+            card.ability.extra.again = count - 1
                 return {
                     xmult = card.ability.extra.xmult,
                     card = card
@@ -44,6 +52,15 @@ SMODS.Joker {
                     card = card
                 }
             end
+        end
+        if context.retrigger_joker_check and card.ability.extra.again ~= 0 and context.other_card == card then
+            local again = card.ability.extra.again
+            card.ability.extra.again = 0
+            return {
+                message = localize("k_again_ex"),
+                message_card = card,
+                repetitions = again,
+            }
         end
     end
 }

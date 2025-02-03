@@ -312,8 +312,7 @@ return {
 			["j_minty_threecats"] = {
 				["name"] = "Three Cats!",
 				["text"] = {
-					"{C:green}#1# in #5#{} chance for",
-					"played {C:minty_3s}3s{} to give each of",
+					"Played {C:minty_3s}3s{} give {C:green}#1#{} of",
 					"{C:chips}+#2#{} chips, {C:mult}+#3#{} Mult, and",
 					"{X:mult,C:white}X#4#{} Mult when scored.",
 				},
@@ -321,13 +320,12 @@ return {
 			["j_minty_threecats_flavor"] = {
 				["name"] = "Three Cats!",
 				["text"] = {
-					"{C:green}#1# in #5#{} chance for",
-					"played {C:minty_3s}3s{} to give each of",
+					"Played {C:minty_3s}3s{} give {C:green}#1#{} of",
 					"{C:chips}+#2#{} chips, {C:mult}+#3#{} Mult, and",
 					"{X:mult,C:white}X#4#{} Mult when scored.",
 					" ",
-					"{C:mult,s:0.8}     Meow!",
-					"{C:chips,s:0.8}Meow!",
+					"{C:mult,s:0.8}       Meow!   ",
+					"{C:chips,s:0.8}Meow!          ",
 					"          {X:mult,C:white,s:0.8}Meow!",
 				},
 			},

@@ -20,7 +20,8 @@ SMODS.Joker {
     config = {extra = {
         xmult = 1.05,
         xmultgain = 0.05,
-        xmultbase = 1.05
+        xmultbase = 1.05,
+        again = 0
       }},
     loc_vars = function(self, info_queue, card)
         local key = self.key
@@ -33,40 +34,37 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.cardarea == G.play then
-            if context.repetition then
-                local count = 0
-                if context.other_card:is_3() then
-                    count = context.other_card:is_3()
-                else return end
-                if count > 1 then
-                    --sendDebugMessage('Count (repetitions): '..count)
-                    return {
-                        message = localize('k_again_ex'),
-                        repetitions = count - 1
-                    }
-                end
+        if context.cardarea == G.play and context.individual then
+            if not context.other_card:is_3() then
+                card.ability.extra.xmult = card.ability.extra.xmultbase
+                return
             end
-
-            if context.individual then
-                -- Reset the xMult if the current card is not a 3
-                if not context.other_card:is_3() then
-                    card.ability.extra.xmult = card.ability.extra.xmultbase
-                    return
-                end
-        
-                -- Give the xMult if the current card is a 3
-                if context.other_card:is_3() then
+            -- Give the xMult if the current card is a 3
+            if context.other_card:is_3() then
                 -- Upgrade the xMult
-                    local xmult = card.ability.extra.xmult
-                    card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultgain
-        
-                    return {
-                        xmult = xmult,
-                        card = card
-                    }
-                end
+                local xmult = card.ability.extra.xmult
+                card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultgain
+                
+                --Prepare to retrigger if card is a 3 multiple times
+                local count = context.other_card:is_3()
+                card.ability.extra.again = count - 1
+    
+                return {
+                    xmult = xmult,
+                    card = card
+                }
             end
+        end
+        
+        --Retrigger self if played card was a 3 multiple times
+        if context.retrigger_joker_check and card.ability.extra.again ~= 0 and context.other_card == card then
+            local again = card.ability.extra.again
+            card.ability.extra.again = 0
+            return {
+                message = localize("k_again_ex"),
+                message_card = card,
+                repetitions = again,
+            }
         end
     
         -- Quietly reset the xMult for the card at the end of played hand
