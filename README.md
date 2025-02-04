@@ -50,6 +50,9 @@ Planned features:
 2. Delete all files from your `Mods/MintysSillyMod` folder. (There's no save data in there, so you won't lose any progress.)
 3. Unzip all the new files into the now-empty folder. Check again to make sure it's not nested.
 
+> [!IMPORTANT]  
+> Always start a new run after updating any mod. Attempting to continue an in-progress run may result in crashes.
+
 ## Contributing
 - Yes, feel free to contribute if you have a contribution!
 - If you find a bug or plausibly-different-than-intended behavior, you can [file an issue](https://github.com/wingedcatgirl/MintysSillyMod/issues) (_please_ test thoroughly to confirm the exact conditions that do _and don't_ cause the problem - you may find [DebugPlus](https://github.com/WilsontheWolf/DebugPlus) to be helpful with this) 
@@ -59,6 +62,6 @@ Planned features:
 ## Contacting me (Minty wingedcatgirl)
 - [Mod thread on the Balatro Discord](https://discord.com/channels/1116389027176787968/1308185262664450068) is the most obvious choice for mod-related communication.
 - There's also [my Discord server](https://discord.gg/V5Kbh8Q) <small>or well, one of them, i start so many things and never follow through lol</small>
-- Does GitHub have messaging? I can't find it, I think it doesn't.
+- Does GitHub have messaging? It has [Discussions](https://github.com/wingedcatgirl/MintysSillyMod/discussions), that'll have to do.
 - Most reliable will be [Dreamwidth](https://wingedcatgirl.dreamwidth.org/). I'm not super _active_ there, but I can assure you it's not going away.
 - I'm most active on [tumblr](https://www.tumblr.com/wingedcatgirl), though I don't trust the CEO of that site not to burn it all down without notice.
