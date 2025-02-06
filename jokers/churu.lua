@@ -22,6 +22,7 @@ SMODS.Joker {
     discovered = false,
     blueprint_compat = true,
     eternal_compat = false,
+    pools = {["Food"] = true}, -- Cryptid compatibility for refactor
     no_pool_flag = "churu_treat_eaten",
 
     loc_vars = function(self, info_queue, card)

@@ -22,3 +22,7 @@ SMODS.Suit{ -- 3s
         return exotic_in_pool()
     end
 }
+
+if (SMODS.Mods["paperback"] or {}).can_load then
+    table.insert(PB_UTIL.light_suits, 'minty_3s')
+end

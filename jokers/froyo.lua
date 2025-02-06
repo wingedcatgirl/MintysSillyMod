@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = true,
+    pools = {["Food"] = true}, -- Cryptid compatibility for refactor
     config = {
         extra = {
             chips = 50,

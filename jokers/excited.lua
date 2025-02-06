@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
+    pools = {["Meme"] = true}, -- Cryptid compatibility for refactor
     config = {extra = {chips = 0, chipgain = 1, mult = 0, multgain = 1, odds = 32}},
     loc_vars = function(self, info_queue, card)
         local key = self.key
