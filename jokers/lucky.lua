@@ -18,7 +18,8 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
-    config = {extra = {temp = 0, kity = true}},
+    pools = {["kity"] = true},
+    config = {extra = {temp = 0}},
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if minty_config.flavor_text then

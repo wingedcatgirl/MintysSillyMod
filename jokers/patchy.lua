@@ -18,7 +18,6 @@ SMODS.Joker {
         extra = {
             xmult = 3,
             again = 0,
-            kity = true
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -34,6 +33,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    pools = {["kity"] = true},
     calculate = function(self, card, context)
         if context.cardarea == G.play then
             if context.individual and context.other_card:is_3() then

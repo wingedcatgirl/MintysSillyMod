@@ -147,6 +147,15 @@ to_big = to_big or function(x)
     return x
 end
 
+SMODS.ObjectType({ --Legendary Kity pool
+    key = "kity",
+    default = "j_lucky_cat",
+	cards = {},
+    inject = function(self)
+        SMODS.ObjectType.inject(self)
+    end
+})
+
 NFS.load(SMODS.current_mod.path .. 'suits/3suit.lua')()
 
 -- NFS.load(SMODS.current_mod.path .. 'jokers/JOKER.lua')()

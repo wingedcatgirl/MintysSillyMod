@@ -57,31 +57,42 @@ SMODS.Consumable {
 	end,
 }
 
---[[
-if minty_config.dev_mode then
-	SMODS.Consumable {
-		object_type = "Consumable",
-		set = "Spectral",
-		name = "The Wand",
-		key = "wand",
-		config = {},
-		cost = 4,
-		hidden = true,
-		soul_set = 'Tarot',
-		soul_rate = 0.003,
-		atlas = "mintyjokerplaceholder",
-		pos = { x = 0, y = 4 },
-		use = function(self, card, area, copier)
-			G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
-				play_sound('timpani')
-				local card = create_card('Joker', G.jokers, true, nil, nil, nil, nil, nil)
-				card:add_to_deck()
-				G.jokers:emplace(card)
-				check_for_unlock{type = 'spawn_legendary'}
-				used_tarot:juice_up(0.3, 0.5)
-				return true end }))
-			delay(0.6)
-		end,
-	}
-end
-]]
+SMODS.Consumable {
+	object_type = "Consumable",
+	set = "Spectral",
+	name = "The Wand",
+	key = "wand",
+	effect = "Unlocker",
+	config = {},
+	cost = 4,
+	hidden = true,
+	soul_set = 'Tarot',
+	soul_rate = 0.003,
+	atlas = "mintyjokerplaceholder",
+	pos = { x = 2, y = 9 },
+	can_use = function(self, card)
+		if #G.jokers.cards < G.jokers.config.card_limit or self.area == G.jokers then
+			return true
+		else
+			return false
+		end
+	end,
+	use = function(self, card, area, copier)
+		G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+			play_sound('timpani')
+			local card = create_card(
+				"kity",
+				G.jokers,
+				nil,
+				nil,
+				nil,
+				nil,
+				nil,
+				"minty_wand"
+			)
+			card:add_to_deck()
+			G.jokers:emplace(card)
+			return true end }))
+		delay(0.6)
+	end,
+}
