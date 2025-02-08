@@ -35,7 +35,7 @@ SMODS.Joker {
                     local bonuses = {'mult', 'xmult', 'chips', 'cash'}
                     local result = {card = card}
                     local luck = math.floor(G.GAME.probabilities.normal)
-                    sendDebugMessage('[Minty] Luck = '..luck)
+                    --sendDebugMessage('[Minty] Luck = '..luck)
                     for go=1, math.min(luck, 4) do
                         local roll = pseudorandom_element(bonuses)
                         for i, v in ipairs(bonuses) do
@@ -46,7 +46,7 @@ SMODS.Joker {
                         end
                         if roll == "mult" then
                             result["mult"] = pseudorandom('wildmult', 1, card.ability.extra.mult)
-                            if pseudorandom('wildmultgain') < G.GAME.probabilities.normal/card.ability.extra.odds then
+                            if pseudorandom('wildmultgain') < G.GAME.probabilities.normal/card.ability.extra.odds and not context.blueprint then
                                 result["message"] = localize('k_upgrade_ex')
                                 result["message_card"] = card
                                 card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multgain
@@ -54,7 +54,7 @@ SMODS.Joker {
                         end
                         if roll == "xmult" then
                             result["xmult"] = pseudorandom('wildxmult', 10, (card.ability.extra.xmult*10))/10
-                            if pseudorandom('wildxmultgain') < G.GAME.probabilities.normal/card.ability.extra.odds then
+                            if pseudorandom('wildxmultgain') < G.GAME.probabilities.normal/card.ability.extra.odds and not context.blueprint then
                                 result["message"] = localize('k_upgrade_ex')
                                 result["message_card"] = card
                                 card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultgain
@@ -62,7 +62,7 @@ SMODS.Joker {
                         end
                         if roll == "chips" then
                             result["chips"] = pseudorandom('wildchips', 1, card.ability.extra.chips)
-                            if pseudorandom('wildchipsgain') < G.GAME.probabilities.normal/card.ability.extra.odds then
+                            if pseudorandom('wildchipsgain') < G.GAME.probabilities.normal/card.ability.extra.odds and not context.blueprint then
                                 result["message"] = localize('k_upgrade_ex')
                                 result["message_card"] = card
                                 card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsgain
@@ -70,7 +70,7 @@ SMODS.Joker {
                         end
                         if roll == "cash" then
                             result["dollars"] = pseudorandom('wildcash', 1, card.ability.extra.cash)
-                            if pseudorandom('wildcashgain') < G.GAME.probabilities.normal/card.ability.extra.odds then
+                            if pseudorandom('wildcashgain') < G.GAME.probabilities.normal/card.ability.extra.odds and not context.blueprint then
                                 result["message"] = localize('k_upgrade_ex')
                                 result["message_card"] = card
                                 card.ability.extra.cash = card.ability.extra.cash + card.ability.extra.cashgain
