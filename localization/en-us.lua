@@ -2,6 +2,7 @@ return {
 	["misc"] = {
 		["dictionary"] = {
 			["k_drowned_ex"] = "Drowned!",
+			["k_nommed_ex"] = "Nommed!",
 			["k_stopped_ex"] = "Stopped!",
 			["k_storm_ex"] = "Storm!",
 			["k_cube"] = "Hand must contain exactly 4 cards",
@@ -173,8 +174,8 @@ return {
 			},
 			["j_minty_lucky"] = {
 				["unlock"] = {
-					"Find this Joker",
-					"from the {C:spectral}Soul{} card",
+					"Find this Joker from",
+					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
 				},
 				["name"] = "Lucky",
 				["text"] = {
@@ -185,8 +186,8 @@ return {
 			},
 			["j_minty_lucky_flavor"] = {
 				["unlock"] = {
-					"Find this Joker",
-					"from the {C:spectral}Soul{} card",
+					"Find this Joker from",
+					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
 				},
 				["name"] = "Lucky",
 				["text"] = {
@@ -201,8 +202,8 @@ return {
 			},
 			["j_minty_stormy"] = {
 				["unlock"] = {
-					"Find this Joker",
-					"from the {C:spectral}Soul{} card",
+					"Find this Joker from",
+					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
 				},
 				["name"] = "Stormy",
 				["text"] = {
@@ -213,8 +214,8 @@ return {
 			},
 			["j_minty_stormy_flavor"] = {
 				["unlock"] = {
-					"Find this Joker",
-					"from the {C:spectral}Soul{} card",
+					"Find this Joker from",
+					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
 				},
 				["name"] = "Stormy",
 				["text"] = {
@@ -227,8 +228,8 @@ return {
 			},
 			["j_minty_patchy"] = {
 				["unlock"] = {
-					"Find this Joker",
-					"from the {C:spectral}Soul{} card",
+					"Find this Joker from",
+					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
 				},
 				["name"] = "Patchy",
 				["text"] = {
@@ -239,8 +240,8 @@ return {
 			},
 			["j_minty_patchy_flavor"] = {
 				["unlock"] = {
-					"Find this Joker",
-					"from the {C:spectral}Soul{} card",
+					"Find this Joker from",
+					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
 				},
 				["name"] = "Patchy",
 				["text"] = {
@@ -250,6 +251,34 @@ return {
 					" ",
 					"{C:inactive,s:0.8}BITING YOU BITING",
 					"{C:inactive,s:0.8}YOU BITING YOU :3",
+				},
+			},
+			["j_minty_minty"] = {
+				["unlock"] = {
+					"Find this Joker from",
+					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
+				},
+				["name"] = "Minty",
+				["text"] = {
+					"{X:dark_edition,C:white}^#1#{} Mult, {C:attention}#4#{} times",
+					"For every {C:attention}#3#{}{C:inactive}(#2#){} {C:minty_3s}3s{} scored,",
+					"gain a repetition and",
+					"increase target by #5#",
+				},
+			},
+			["j_minty_minty_flavor"] = {
+				["unlock"] = {
+					"Find this Joker from",
+					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
+				},
+				["name"] = "Minty",
+				["text"] = {
+					"{X:dark_edition,C:white}^#1#{} Mult, {C:attention}#4#{} times",
+					"For every {C:attention}#3#{}{C:inactive}(#2#){} {C:minty_3s}3s{} scored,",
+					"gain a repetition and",
+					"increase target by #5#",
+					" ",
+					"{C:inactive,s:0.8}Of COURSE I'm in here, it's MY mod!{}"
 				},
 			},
 			["j_minty_claw"] = {
@@ -324,9 +353,9 @@ return {
 					"{C:chips}+#2#{} chips, {C:mult}+#3#{} Mult, and",
 					"{X:mult,C:white}X#4#{} Mult when scored.",
 					" ",
-					"{C:mult,s:0.8}       Meow!   ",
-					"{C:chips,s:0.8}Meow!          ",
-					"          {X:mult,C:white,s:0.8}Meow!",
+					"{C:mult,s:0.8}       Meow!      ",
+					"{C:chips,s:0.8}Meow!             ",
+					"            {X:mult,C:white,s:0.8}Meow!",
 				},
 			},
 			["j_minty_slowtiger"] = {

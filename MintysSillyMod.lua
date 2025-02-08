@@ -175,6 +175,7 @@ NFS.load(SMODS.current_mod.path .. 'jokers/wildsupport.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/lucky.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/stormy.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/patchy.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/minty.lua')()
 
 NFS.load(SMODS.current_mod.path .. 'jokers/vanillatweaks.lua')()
 
