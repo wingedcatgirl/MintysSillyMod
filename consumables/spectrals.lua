@@ -69,6 +69,9 @@ SMODS.Consumable {
         if minty_config.flavor_text then
             key = self.key.."_flavor"
         end
+		return { 
+			key = key,
+		}
 	end,
 	cost = 4,
 	hidden = true,
