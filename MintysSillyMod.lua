@@ -111,23 +111,17 @@ end
 function Card:is_3(bypass_debuff)
     local count = 0
         if self.debuff and not bypass_debuff then return false end
-        if SMODS.has_any_suit(self) or self.base.suit == 'minty_3s' then
-            count = count + 1
-        end
-        if next(find_joker("Treat-o-Vision")) and self.base.suit == G.GAME.treatovision_suit then
+        if SMODS.has_any_suit(self) or self.base.suit == 'minty_3s' or (next(find_joker("Treat-o-Vision")) and self.base.suit == G.GAME.treatovision_suit) then
             count = count + 1
         end
         if self:get_id() == 3 then
             count = count + 1
         end
         --[[if self.ability.name == "fuzzy enhancement" then
-            count = count + 1
-        end]]
-        --[[if (is feline edition) then
-            count = count + 1
+            count = count + 3
         end]]
         --[[if (has kity seal) then
-            count = count + 1
+            count = count + 3
         end]]
 
         if (SMODS.Mods["Gemstone"] or {}).can_load then
@@ -138,12 +132,19 @@ function Card:is_3(bypass_debuff)
                 count = count + 1
             end
         end
+        --[[if (is feline edition) then
+            count = count * 2
+        end]]
 
         if count == 0 then return false else return count end
 end
 
 --Talisman compatibility compatibility
 to_big = to_big or function(x) 
+    return x
+end
+
+to_number = to_number or function(x)
     return x
 end
 
