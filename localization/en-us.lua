@@ -644,6 +644,16 @@ return {
 					"{C:inactive}(Must have room)",
 				},
 			},
+			["c_minty_wand_flavor"] = {
+				["name"] = "The Wand",
+				["text"] = {
+					"Summon a {C:legendary,E:1}Legendary",
+					"{C:legendary,E:1}Kity{} Joker",
+					"{C:inactive}(Must have room)",
+					" ",
+					"{C:inactive,s:0.8}RUN POUNCE CHASE HUNT"
+				},
+			},
 		},
 		["Sleeve"] = {
 			["sleeve_minty_treatsleeve"] = {

@@ -64,6 +64,12 @@ SMODS.Consumable {
 	key = "wand",
 	effect = "Unlocker",
 	config = {},
+	loc_vars = function(self, info_queue, card)
+		local key = self.key
+        if minty_config.flavor_text then
+            key = self.key.."_flavor"
+        end
+	end,
 	cost = 4,
 	hidden = true,
 	soul_set = 'Tarot',
