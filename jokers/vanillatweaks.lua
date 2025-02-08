@@ -25,38 +25,46 @@ if not (SMODS.Mods["UnStable"] or {}).can_load then --UnStable tweaks all these 
     }, true)
 
     SMODS.Joker:take_ownership('fibonacci', {
+        config = {
+            extra = {
+                mult = 8,
+                again = 0,
+            },
+        },
+        loc_vars = function(self, info_queue, card)
+            return {
+                vars = {card.ability.extra.mult}
+            }
+        end,
         calculate = function(self, card, context)
-            if context.cardarea == G.play then
-                if context.repetition then 
-                    local count = 0
-                    if context.other_card:is_3() then
-                        count = context.other_card:is_3()
-                    else return end
+            if context.cardarea == G.play and context.individual then
+                if (context.other_card:get_id() == 2 or 
+                context.other_card:get_id() == 5 or 
+                context.other_card:get_id() == 8 or 
+                context.other_card:get_id() == 14) or context.other_card:is_3() then
+                    local count = context.other_card:is_3() or 0
                     if (context.other_card:get_id() == 2 or 
                     context.other_card:get_id() == 5 or 
                     context.other_card:get_id() == 8 or 
                     context.other_card:get_id() == 14) then
                         count = count + 1
                     end
-                    if count > 1 then
-                        --sendDebugMessage('Count (repetitions): '..count)
-                        return {
-                            message = localize('k_again_ex'),
-                            repetitions = count - 1
-                        }
-                    end
+                    card.ability.extra.again = count - 1
+                    return {
+                        mult = card.ability.extra.mult,
+                        card = card
+                    }
                 end
-                if context.individual then
-                    if (context.other_card:get_id() == 2 or 
-                    context.other_card:get_id() == 5 or 
-                    context.other_card:get_id() == 8 or 
-                    context.other_card:get_id() == 14) or context.other_card:is_3() then
-                        return {
-                            mult = card.ability.extra,
-                            card = card
-                        }
-                    end
-                end
+            end
+            
+            if context.retrigger_joker_check and card.ability.extra.again ~= 0 and context.other_card == card then
+                local again = card.ability.extra.again
+                card.ability.extra.again = 0
+                return {
+                    message = localize("k_again_ex"),
+                    message_card = card,
+                    repetitions = again,
+                }
             end
         end
     }, true)
@@ -76,31 +84,40 @@ if not (SMODS.Mods["UnStable"] or {}).can_load then --UnStable tweaks all these 
     }, true)
 
     SMODS.Joker:take_ownership('odd_todd', {
+        config = {
+            extra = {
+                chips = 31,
+                again = 0,
+            },
+        },
+        loc_vars = function(self, info_queue, card)
+            return {
+                vars = {card.ability.extra.chips}
+            }
+        end,
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.individual then
-                if context.other_card:is_odd() or context.other_card:is_3()
-                then
+                if context.other_card:is_odd() or context.other_card:is_3() then
+                local count = context.other_card:is_3() or 0
+                if context.other_card:is_odd() and (context.other_card:get_id() ~= 3) then --Don't double count 3 rank
+                    count = count + 1
+                end
+                card.ability.extra.again = count - 1
                     return {
-                        chips = card.ability.extra,
+                        chips = card.ability.extra.chips,
                         card = card
                     }
                 end
             end
-            if context.repetition then 
-                local count = 0
-                if context.other_card:is_3() then
-                    count = context.other_card:is_3()
-                else return end
-                if context.other_card:is_odd() and not (context.other_card:get_id() == 3) then
-                    count = count + 1
-                end
-                if count > 1 then
-                    --sendDebugMessage('Count (repetitions): '..count)
-                    return {
-                        message = localize('k_again_ex'),
-                        repetitions = count - 1
-                    }
-                end
+
+            if context.retrigger_joker_check and card.ability.extra.again ~= 0 and context.other_card == card then
+                local again = card.ability.extra.again
+                card.ability.extra.again = 0
+                return {
+                    message = localize("k_again_ex"),
+                    message_card = card,
+                    repetitions = again,
+                }
             end
         end
     }, true)
