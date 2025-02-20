@@ -2,7 +2,7 @@ return {
 	["misc"] = {
 		["dictionary"] = {
 			["k_drowned_ex"] = "Drowned!",
-			["k_nommed_ex"] = "Nommed!",
+			["k_nommed_ex"] = "Nom!",
 			["k_stopped_ex"] = "Stopped!",
 			["k_storm_ex"] = "Storm!",
 			["k_cube"] = "Hand must contain exactly 4 cards",
@@ -279,6 +279,35 @@ return {
 					"increase target by #5#",
 					" ",
 					"{C:inactive,s:0.8}Of COURSE I'm in here, it's MY mod!{}"
+				},
+			},
+			["j_minty_garfielf"] = {
+				["unlock"] = {
+					"Find this Joker from",
+					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
+				},
+				["name"] = "Garfielf",
+				["text"] = {
+					"{X:mult,C:white}X#1#{} Mult",
+					"If a {C:minty_3s}3{} is scored,",
+					"{C:attention}destroy{} unscored non-{C:minty_3s}3s{}",
+					"and gain {X:mult,C:white}X#2#{} Mult",
+				},
+			},
+			["j_minty_garfielf_flavor"] = {
+				["unlock"] = {
+					"Find this Joker from",
+					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
+				},
+				["name"] = "Garfielf",
+				["text"] = {
+					"{X:mult,C:white}X#1#{} Mult",
+					"If a {C:minty_3s}3{} is scored,",
+					"{C:attention}destroy{} unscored non-{C:minty_3s}3s{}",
+					"and gain {X:mult,C:white}X#2#{} Mult",
+					" ",
+					"{C:inactive,s:0.8}\"Where are the Kings of Diamond?\"",
+					"{C:inactive,s:0.8}\"I ate those card.\"",
 				},
 			},
 			["j_minty_claw"] = {

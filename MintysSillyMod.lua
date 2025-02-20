@@ -3,6 +3,9 @@ NFS.load(SMODS.current_mod.path .. 'configui.lua')()
 SMODS.current_mod.optional_features = {
     retrigger_joker = true,
     post_trigger = true,
+    cardareas = {
+        unscored = true,
+    },
 }
 
 SMODS.Atlas {
@@ -177,6 +180,7 @@ NFS.load(SMODS.current_mod.path .. 'jokers/lucky.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/stormy.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/patchy.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/minty.lua')()
+NFS.load(SMODS.current_mod.path .. 'jokers/garfielf.lua')()
 
 NFS.load(SMODS.current_mod.path .. 'jokers/vanillatweaks.lua')()
 
