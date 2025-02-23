@@ -686,24 +686,3 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         end,
     })
 end
-
-if (SMODS.Mods["Cryptid"] or {}).can_load then
-    SMODS.Back({
-        name = "Deck of the Cat",
-        key = "catdeck",
-        pos = { x = 1, y = 0 },
-        atlas = "mintybacks",
-        config = { cry_force_suit = "minty_3s", cry_boss_blocked = {"bl_minty_thenip"}, start_with_3s = true },
-        unlocked = true,
-    })
-
-    SMODS.Back({
-        name = "Deck of 6 Years",
-        key = "cementdeck",
-        pos = { x = 0, y = 0 },
-        atlas = "mintybacks",
-        config = { cry_force_seal = "minty_cement" },
-        unlocked = true,
-    })
-end
-
