@@ -92,19 +92,21 @@ function SMODS.current_mod.reset_game_globals()
 end
 
 -- Debug message
-function say(message)
-    sendDebugMessage('[Minty] - '..(message or '???'))
+function mintySay(message, level)
+    message = message or "???"
+    level = level or "DEBUG"
+    sendMessageToConsole(level, "Minty's Mod", message)
 end
 
 -- Exotic system toggle logic (copied from Bunco)
 function disable_exotics()
     if G.GAME then G.GAME.Exotic = false end
-    say('Triggered Exotic System disabling.')
+    mintySay('Triggered Exotic System disabling.')
 end
 
 function enable_exotics()
     if G.GAME then G.GAME.Exotic = true end
-    say('Triggered Exotic System enabling.')
+    mintySay('Triggered Exotic System enabling.')
 end
 
 exotic_in_pool = function()
