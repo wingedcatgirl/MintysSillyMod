@@ -184,7 +184,7 @@ NFS.load(SMODS.current_mod.path .. 'jokers/garfielf.lua')()
 
 NFS.load(SMODS.current_mod.path .. 'jokers/vanillatweaks.lua')()
 
-if (SMODS.Mods["ortalab"] or {}).can_load then
+if (SMODS.Mods["ortalab"] or {}).can_load or minty_config.include_crossover then
     NFS.load(SMODS.current_mod.path .. 'jokers/ascetic.lua')()
 end
 
@@ -194,6 +194,9 @@ end
 
 if (SMODS.Mods["paperback"] or {}).can_load then
     NFS.load(SMODS.current_mod.path .. 'jokers/churu.lua')()
+end
+
+if (SMODS.Mods["paperback"] or {}).can_load or minty_config.include_crossover then
     NFS.load(SMODS.current_mod.path .. 'jokers/catnipfields.lua')()
 end
 

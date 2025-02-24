@@ -11,6 +11,11 @@ SMODS.current_mod.config_tab = function()
             ref_table = minty_config,
             ref_value = 'flavor_text',
         }),
+        create_toggle({
+            label = "Include (stable) crossover content",
+            ref_table = minty_config,
+            ref_value = 'include_crossover',
+        }),
         }}
     }}
 end

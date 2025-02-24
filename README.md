@@ -33,6 +33,7 @@ Planned features:
 <ul>
 <li>Dev Mode: Default false. Requires restart. Enables unfinished content. Usually there isn't any because I don't like leaving things unfinished. But latest-commit enjoyers might catch me in the middle of something.</li>
 <li>Flavor text: Default true. Enables funky MtG-style quotes at the bottom of some cards.</li>
+<li>Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things.</li>
 </ul>
 </details> 
 
