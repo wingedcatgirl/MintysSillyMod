@@ -523,6 +523,26 @@ return {
 					"{C:inactive,s:0.8}Holy shit, it's a Joker!",
 				},
 			},
+			["j_minty_gymbuddy"] = {
+				["name"] = "Gym Buddies",
+				["text"] = {
+					"Scored {C:attention}enhanced{} cards grant",
+					"{C:attention}permanent{} boosts to other",
+					"scored cards without the",
+					"same enhancement",
+				},
+			},
+			["j_minty_gymbuddy_flavor"] = {
+				["name"] = "Gym Buddies",
+				["text"] = {
+					"Scored {C:attention}enhanced{} cards grant",
+					"{C:attention}permanent{} boosts to other",
+					"scored cards without the",
+					"same enhancement",
+					" ",
+					"{C:inactive,s:0.8}Flavor text TBA!{}"
+				},
+			},
 			["j_minty_churutreat"] = {
 				["name"] = "Churu Treat",
 				["text"] = {            

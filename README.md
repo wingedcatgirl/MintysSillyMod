@@ -66,3 +66,11 @@ Planned features:
 - Does GitHub have messaging? It has [Discussions](https://github.com/wingedcatgirl/MintysSillyMod/discussions), that'll have to do.
 - Most reliable will be [Dreamwidth](https://wingedcatgirl.dreamwidth.org/). I'm not super _active_ there, but I can assure you it's not going away.
 - I'm most active on [tumblr](https://www.tumblr.com/wingedcatgirl), though I don't trust the CEO of that site not to burn it all down without notice.
+
+<details>
+  <summary>Adding cross-mod interactions</summary>
+<ul>
+<li>Legendary Kitys</li>: Give your kittycats `pools = {["kity"] = true}` to enable The Wand to summon them. (Technically also works with non-legendary Jokers, but The Wand is super-rare, so it might be disappointing.)
+<li>Gym Buddy boosts</li>: Give your enhancements a `config.extra.gymboost` of `"chips"`, `"xchips"`, `"mult"`, `"xmult"`, `"cash"`, `"hchips"`, `"hxchips"`, `"hmult"`, `"hxmult"`, `"hcash"` or `"none"` to have them grant the corresponding boost when scored with cards not of that enhancement. (If you don't, one will be chosen randomly each time. Which maybe you prefer!) 
+</ul>
+</details> 
