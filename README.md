@@ -28,15 +28,6 @@ Planned features:
 - Definitely more injokes
 - Probably way more cross-mod content
 
-<details>
-  <summary>Config Options</summary>
-<ul>
-<li>Dev Mode: Default false. Requires restart. Enables unfinished content. Usually there isn't any because I don't like leaving things unfinished. But latest-commit enjoyers might catch me in the middle of something.</li>
-<li>Flavor text: Default true. Enables funky MtG-style quotes at the bottom of some cards.</li>
-<li>Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things.</li>
-</ul>
-</details> 
-
 ## Installation Instructions
 1. Install [Lovely](https://github.com/ethangreen-dev/lovely-injector), if you haven't already.
 2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already.
@@ -54,6 +45,15 @@ Planned features:
 > [!IMPORTANT]  
 > Always start a new run after updating any mod. Attempting to continue an in-progress run may result in crashes.
 
+## Config Options
+- Dev Mode: Default false. Requires restart. Enables unfinished content. Usually there isn't any because I don't like leaving things unfinished. But latest-commit enjoyers might catch me in the middle of something.
+- Flavor text: Default true. Enables funky MtG-style quotes at the bottom of some cards.
+- Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things.
+
+## Adding cross-mod interactions
+- Legendary Kitys: Give your kittycats `pools = {["kity"] = true}` to enable The Wand to summon them. (Technically also works with non-legendary Jokers, but The Wand is super-rare, so it might be disappointing.)
+- Gym Buddy boosts: Give your enhancements a `config.extra.gymboost` of `"chips"`, `"xchips"`, `"mult"`, `"xmult"`, `"cash"`, `"hchips"`, `"hxchips"`, `"hmult"`, `"hxmult"`, `"hcash"` or `"none"` to have them grant the corresponding boost when scored with cards not of that enhancement. (If you don't, one will be chosen randomly each time. Which maybe you prefer!) 
+
 ## Contributing
 - Yes, feel free to contribute if you have a contribution!
 - If you find a bug or plausibly-different-than-intended behavior, you can [file an issue](https://github.com/wingedcatgirl/MintysSillyMod/issues) (_please_ test thoroughly to confirm the exact conditions that do _and don't_ cause the problem - you may find [DebugPlus](https://github.com/WilsontheWolf/DebugPlus) to be helpful with this) 
@@ -66,11 +66,3 @@ Planned features:
 - Does GitHub have messaging? It has [Discussions](https://github.com/wingedcatgirl/MintysSillyMod/discussions), that'll have to do.
 - Most reliable will be [Dreamwidth](https://wingedcatgirl.dreamwidth.org/). I'm not super _active_ there, but I can assure you it's not going away.
 - I'm most active on [tumblr](https://www.tumblr.com/wingedcatgirl), though I don't trust the CEO of that site not to burn it all down without notice.
-
-<details>
-  <summary>Adding cross-mod interactions</summary>
-<ul>
-<li>Legendary Kitys</li>: Give your kittycats `pools = {["kity"] = true}` to enable The Wand to summon them. (Technically also works with non-legendary Jokers, but The Wand is super-rare, so it might be disappointing.)
-<li>Gym Buddy boosts</li>: Give your enhancements a `config.extra.gymboost` of `"chips"`, `"xchips"`, `"mult"`, `"xmult"`, `"cash"`, `"hchips"`, `"hxchips"`, `"hmult"`, `"hxmult"`, `"hcash"` or `"none"` to have them grant the corresponding boost when scored with cards not of that enhancement. (If you don't, one will be chosen randomly each time. Which maybe you prefer!) 
-</ul>
-</details> 
