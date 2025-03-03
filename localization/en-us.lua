@@ -35,7 +35,7 @@ return {
 			["b_minty_hearts"] = {
 				["name"] = "Deck of the Heart",
 				["text"] = {
-					"Start with an", 
+					"Start with an",
 					"{C:attention}eternal{} {C:hearts}Lusty Joker{}",
 					"and {C:attention}The Sun{} tarot",
 				},
@@ -43,7 +43,7 @@ return {
 			["b_minty_diamonds"] = {
 				["name"] = "Deck of the Diamond",
 				["text"] = {
-					"Start with an", 
+					"Start with an",
 					"{C:attention}eternal{} {C:diamonds}Greedy Joker{}",
 					"and {C:attention}The Star{} tarot",
 				},
@@ -51,7 +51,7 @@ return {
 			["b_minty_clubs"] = {
 				["name"] = "Deck of the Club",
 				["text"] = {
-					"Start with an", 
+					"Start with an",
 					"{C:attention}eternal{} {C:clubs}Gluttonous Joker{}",
 					"and {C:attention}The Moon{} tarot",
 				},
@@ -59,7 +59,7 @@ return {
 			["b_minty_spades"] = {
 				["name"] = "Deck of the Spade",
 				["text"] = {
-					"Start with an", 
+					"Start with an",
 					"{C:attention}eternal{} {C:spades}Wrathful Joker{}",
 					"and {C:attention}The World{} tarot",
 				},
@@ -67,7 +67,7 @@ return {
 			["b_minty_3suit"] = {
 				["name"] = "Deck of the 3",
 				["text"] = {
-					"Start with an", 
+					"Start with an",
 					"{C:attention}eternal{} {C:minty_3s}Hedonist Joker{}",
 					"and {C:attention}The Cat{} tarot",
 				},
@@ -545,7 +545,7 @@ return {
 			},
 			["j_minty_churutreat"] = {
 				["name"] = "Churu Treat",
-				["text"] = {            
+				["text"] = {
 					"Scored {C:minty_3s}3s{} give {C:mult}+#1#{} Mult",
 					"{C:green}#2# in #3#{} chance this card is",
 					"eaten at end of round",
@@ -553,7 +553,7 @@ return {
 			},
 			["j_minty_churutreat_flavor"] = {
 				["name"] = "Churu Treat",
-				["text"] = {            
+				["text"] = {
 					"Scored {C:minty_3s}3s{} give {C:mult}+#1#{} Mult",
 					"{C:green}#2# in #3#{} chance this card is",
 					"eaten at end of round",

@@ -43,7 +43,6 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             if context.other_card.ability.set == "Enhanced" then
-                local juicetime = false
                 local buff = context.other_card.ability.name
                 local gain = "unset"
                 if (buff == "Bonus") or (buff == "Stone Card") then --This chunk handles vanilla enhancements

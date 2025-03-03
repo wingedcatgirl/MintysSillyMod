@@ -30,7 +30,8 @@ Planned features:
 ## Installation Instructions
 1. Install [Lovely](https://github.com/ethangreen-dev/lovely-injector), if you haven't already.
 2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already.
-   - **Minimum supported version is ALPHA-1307d**, due to Better Calc completely overhauling a lot of things.
+   - **Minimum supported version for 0.4.0 is ALPHA-1307d**, due to Better Calc completely overhauling a lot of things.
+   - Minimum supported version for latest release is **ALPHA-1428c**.
 3. Download the code as a ZIP file, from the latest release in Releases (should be stable, may be missing features) or the green "Code" button (may be buggy, but all features are available).
    - If you need old-calc Steamodded for some reason, please download [old-calc Minty's Mod](https://github.com/wingedcatgirl/MintysSillyMod/releases/tag/old-calc) as well; later versions are not kept compatible with old-calc.
 4. Inside the zip file is the mod code in a folder, `MintysSillyMod-SOMEVERSION`. Put that folder in your Mods folder. The file structure should look like `Mods/MintysSillyMod-SOMEVERSION/MintysSillyMod.json`. In particular, there should _not_ be a second `MintysSillyMod` folder nested inside the first one. (You might prefer to remove the version number suffix from the folder name; it doesn't actually matter.)

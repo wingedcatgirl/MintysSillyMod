@@ -57,16 +57,15 @@ SMODS.Joker {
 
         if context.destroying_card and context.cardarea == "unscored" and card.ability.extra.found == true then
             --sendDebugMessage("[Minty] Attempting to destroy card")
-            if context.destroying_card.ability.eternal then 
+            if context.destroying_card.ability.eternal then
                 --sendDebugMessage("[Minty] Card is eternal, no destruaction")
-                return false 
+                return false
             elseif context.destroying_card:is_3() then
                 --sendDebugMessage("[Minty] Card is a 3, no destruaction")
                 return false
             end
             --sendDebugMessage("[Minty] Destruaction time >:3")
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultgain
-            local multgain = card.ability.extra.xmultgain
             return {
                 delay = 0.4,
                 remove = true,
