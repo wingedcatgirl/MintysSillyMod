@@ -14,7 +14,6 @@ Current features:
 - A little 3, as a treat
 - Cross-mod content with the following mods:
   - [Card Sleeves](https://github.com/larswijn/CardSleeves)
-  - [Cryptid](https://github.com/MathIsFun0/Cryptid)
   - [Fusion Jokers](https://github.com/lshtech/Fusion-Jokers)
   - [Gemstones](https://github.com/0fficialHalo/Gemstones)
   - [Ortalab](https://github.com/Eremel/Ortalab)
