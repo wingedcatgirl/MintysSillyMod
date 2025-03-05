@@ -182,7 +182,9 @@ NFS.load(SMODS.current_mod.path .. 'jokers/gymbuddy.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/lucky.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/stormy.lua')()
 NFS.load(SMODS.current_mod.path .. 'jokers/patchy.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/minty.lua')()
+if (SMODS.Mods["Talisman"] or {}).can_load then
+    NFS.load(SMODS.current_mod.path .. 'jokers/minty.lua')()
+end
 NFS.load(SMODS.current_mod.path .. 'jokers/garfielf.lua')()
 
 NFS.load(SMODS.current_mod.path .. 'jokers/vanillatweaks.lua')()
