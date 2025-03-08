@@ -1,7 +1,6 @@
 SMODS.Suit{ -- 3s
     key = '3s',
     card_key = 'THREE',
-    hidden = true,
 
     lc_atlas = '3s',
     hc_atlas = '3s',
