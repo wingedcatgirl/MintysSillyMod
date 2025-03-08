@@ -1,15 +1,15 @@
 
 SMODS.Joker {
-    key = "lucky",
-    name = "Lucky",
-    atlas = 'mintylegends',
+    key = "lune",
+    name = "Lune",
+    atlas = 'mintyortalabplaceholder',
     pos = {
         x = 0,
         y = 0
     },
     soul_pos = {
-        x = 0,
-        y = 1
+        x = 2,
+        y = 0
     },
     rarity = 4,
     cost = 20,
@@ -33,7 +33,7 @@ SMODS.Joker {
         self.added_to_deck = true
 		for k, v in pairs(G.GAME.probabilities) do 
             self.config.extra.temp = v
-			G.GAME.probabilities[k] = v*33
+			G.GAME.probabilities[k] = v/33
 		end
     end,
     remove_from_deck = function(self, from_debuff)

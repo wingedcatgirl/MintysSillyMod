@@ -191,6 +191,14 @@ NFS.load(SMODS.current_mod.path .. 'jokers/vanillatweaks.lua')()
 
 if (SMODS.Mods["ortalab"] or {}).can_load or minty_config.include_crossover then
     NFS.load(SMODS.current_mod.path .. 'jokers/ascetic.lua')()
+    NFS.load(SMODS.current_mod.path .. 'jokers/sabertooth.lua')()
+
+    --[[if (SMODS.Mods["FusionJokers"] or {}).can_load then
+        NFS.load(SMODS.current_mod.path .. 'jokers/ninethlion.lua')()
+    end]]
+    NFS.load(SMODS.current_mod.path .. 'jokers/lune.lua')()
+
+    NFS.load(SMODS.current_mod.path .. 'blinds/thetree.lua')()
 end
 
 if (SMODS.Mods["FusionJokers"] or {}).can_load then

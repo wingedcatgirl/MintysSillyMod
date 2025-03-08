@@ -97,6 +97,12 @@ return {
 					"All 3s are debuffed",
 				},
 			},
+			["bl_minty_thetree"] = {
+				["name"] = "The Tree",
+				["text"] = {
+					"Hand must contain 3s",
+				},
+			},
 		},
 		["Other"] = {
 			["minty_cement_seal"] = {
@@ -198,6 +204,32 @@ return {
 					"{C:inactive,s:0.8}Black cats are lucky",
 					"{C:inactive,s:0.8}because you get to",
 					"{C:inactive,s:0.8}pet a cat!",
+				},
+			},
+			["j_minty_lune"] = {
+				["unlock"] = {
+					"Find this Joker from",
+					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
+				},
+				["name"] = "Lucky",
+				["text"] = {
+					"Divides all {C:attention}listed",
+					"{C:green,E:1,S:1.1}probabilities{} by {C:mult}33{}",
+					"{C:inactive}(ex: {C:green}33 in 100{C:inactive} -> {C:green}1 in 100{C:inactive})",
+				},
+			},
+			["j_minty_lune_flavor"] = {
+				["unlock"] = {
+					"Find this Joker from",
+					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
+				},
+				["name"] = "Lune",
+				["text"] = {
+					"Divides all {C:attention}listed",
+					"{C:green,E:1,S:1.1}probabilities{} by {C:mult}33{}",
+					"{C:inactive}(ex: {C:green}33 in 100{C:inactive} -> {C:green}1 in 100{C:inactive})",
+					" ",
+					"{C:inactive,s:0.8}Till all complete.",
 				},
 			},
 			["j_minty_stormy"] = {
@@ -477,6 +509,40 @@ return {
 					" ",
 					"{C:inactive,s:0.8}Flavor text?",
 					"{C:inactive,s:0.8}A needless indulgence!",
+				},
+			},
+			["j_minty_sabertooth"] = {
+				["name"] = "Saber Tooth",
+				["text"] = {
+					'Held {C:minty_3s}#3#{} have',
+					'a {C:green}#1# in #2#{} chance',
+					'to not give {X:mult,C:white}X#4#{} Mult',
+				},
+			},
+			["j_minty_sabertooth_flavor"] = {
+				["name"] = "Saber Tooth",
+				["text"] = {
+					'Held {C:minty_3s}#3#{} have',
+					'a {C:green}#1# in #2#{} chance',
+					'to not give {X:mult,C:white}X#4#{} Mult',
+					' ',
+					'{C:inactive,s:0.8}Sharp enough to call it vorpal',
+				},
+			},
+			["j_minty_ninethlion"] = {
+				["name"] = "Nineth Lion",
+				["text"] = {
+					'TBA',
+				},
+			},
+			["j_minty_ninethlion_flavor"] = {
+				["name"] = "Nineth Lion",
+				["text"] = {
+					'TBA',
+					' ',
+					'{C:inactive,s:0.8}Yum delicis sun >:3',
+					'{C:inactive,s:0.8}In definitely related news:',
+					'{C:inactive,s:0.8}you\'re a mortal!'
 				},
 			},
 			["j_minty_eaten"] = {
