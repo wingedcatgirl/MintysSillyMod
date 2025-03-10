@@ -323,7 +323,7 @@ return {
 					"{X:mult,C:white}X#1#{} Mult",
 					"If a {C:minty_3s}3{} is scored,",
 					"{C:attention}destroy{} unscored non-{C:minty_3s}3s{}",
-					"and gain {X:mult,C:white}X#2#{} Mult",
+					"and gain {X:mult,C:white}X#2#{} Mult each",
 				},
 			},
 			["j_minty_garfielf_flavor"] = {
@@ -336,7 +336,7 @@ return {
 					"{X:mult,C:white}X#1#{} Mult",
 					"If a {C:minty_3s}3{} is scored,",
 					"{C:attention}destroy{} unscored non-{C:minty_3s}3s{}",
-					"and gain {X:mult,C:white}X#2#{} Mult",
+					"and gain {X:mult,C:white}X#2#{} Mult each",
 					" ",
 					"{C:inactive,s:0.8}\"Where are the Kings of Diamond?\"",
 					"{C:inactive,s:0.8}\"I ate those card.\"",
