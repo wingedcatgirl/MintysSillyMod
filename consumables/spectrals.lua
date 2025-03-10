@@ -24,6 +24,7 @@ SMODS.Consumable {
 	cost = 4,
 	atlas = "mintyjokerplaceholder",
 	pos = { x = 2, y = 9 },
+	soul_pos = { x = 2, y = 7},
 	use = function(self, card, area, copier) --Good enough
 		for i = 1, #G.hand.highlighted do
 			local highlighted = G.hand.highlighted[i]
@@ -79,6 +80,7 @@ SMODS.Consumable {
 	soul_rate = 0.003,
 	atlas = "mintyjokerplaceholder",
 	pos = { x = 2, y = 9 },
+	soul_pos = { x = 2, y = 8},
 	can_use = function(self, card)
 		if #G.jokers.cards < G.jokers.config.card_limit or self.area == G.jokers then
 			return true
