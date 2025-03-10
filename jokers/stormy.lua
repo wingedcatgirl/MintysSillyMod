@@ -20,7 +20,7 @@ SMODS.Joker {
     pools = {["kity"] = true},
     config = {
         extra = {
-            xmult = 1.5,
+            xmult = math.sqrt(3),
             stormcount = 0,
         }
     },

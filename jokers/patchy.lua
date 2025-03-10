@@ -16,7 +16,7 @@ SMODS.Joker {
     discovered = false,
     config = {
         extra = {
-            xmult = 3,
+            xmult = math.sqrt(3),
             again = 0,
         }
     },
