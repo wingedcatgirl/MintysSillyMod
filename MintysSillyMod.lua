@@ -1,5 +1,5 @@
 minty_config = SMODS.current_mod.config
-NFS.load(SMODS.current_mod.path .. 'configui.lua')()
+SMODS.load_file('configui.lua')()
 SMODS.current_mod.optional_features = {
     retrigger_joker = true,
     post_trigger = true,
@@ -162,66 +162,66 @@ SMODS.ObjectType({ --Legendary Kity pool
     end
 })
 
-NFS.load(SMODS.current_mod.path .. 'suits/3suit.lua')()
+SMODS.load_file('suits/3suit.lua')()
 
--- NFS.load(SMODS.current_mod.path .. 'jokers/JOKER.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/froyo.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/hedonist.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/claw.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/prosopagnosia.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/phasebus.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/slowtiger.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/cube.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/eaten.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/excited.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/chisel.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/bucket.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/treatovision.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/wildsupport.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/gymbuddy.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/lucky.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/stormy.lua')()
-NFS.load(SMODS.current_mod.path .. 'jokers/patchy.lua')()
+-- SMODS.load_file('jokers/JOKER.lua')()
+SMODS.load_file('jokers/froyo.lua')()
+SMODS.load_file('jokers/hedonist.lua')()
+SMODS.load_file('jokers/claw.lua')()
+SMODS.load_file('jokers/prosopagnosia.lua')()
+SMODS.load_file('jokers/phasebus.lua')()
+SMODS.load_file('jokers/slowtiger.lua')()
+SMODS.load_file('jokers/cube.lua')()
+SMODS.load_file('jokers/eaten.lua')()
+SMODS.load_file('jokers/excited.lua')()
+SMODS.load_file('jokers/chisel.lua')()
+SMODS.load_file('jokers/bucket.lua')()
+SMODS.load_file('jokers/treatovision.lua')()
+SMODS.load_file('jokers/wildsupport.lua')()
+SMODS.load_file('jokers/gymbuddy.lua')()
+SMODS.load_file('jokers/lucky.lua')()
+SMODS.load_file('jokers/stormy.lua')()
+SMODS.load_file('jokers/patchy.lua')()
 if (SMODS.Mods["Talisman"] or {}).can_load then
-    NFS.load(SMODS.current_mod.path .. 'jokers/minty.lua')()
+    SMODS.load_file('jokers/minty.lua')()
 end
-NFS.load(SMODS.current_mod.path .. 'jokers/garfielf.lua')()
+SMODS.load_file('jokers/garfielf.lua')()
 
-NFS.load(SMODS.current_mod.path .. 'jokers/vanillatweaks.lua')()
+SMODS.load_file('jokers/vanillatweaks.lua')()
 
 if (SMODS.Mods["ortalab"] or {}).can_load or minty_config.include_crossover then
-    NFS.load(SMODS.current_mod.path .. 'jokers/ascetic.lua')()
-    NFS.load(SMODS.current_mod.path .. 'jokers/sabertooth.lua')()
+    SMODS.load_file('jokers/ascetic.lua')()
+    SMODS.load_file('jokers/sabertooth.lua')()
 
     --[[if (SMODS.Mods["FusionJokers"] or {}).can_load then
-        NFS.load(SMODS.current_mod.path .. 'jokers/ninethlion.lua')()
+        SMODS.load_file('jokers/ninethlion.lua')()
     end]]
-    NFS.load(SMODS.current_mod.path .. 'jokers/lune.lua')()
+    SMODS.load_file('jokers/lune.lua')()
 
-    NFS.load(SMODS.current_mod.path .. 'blinds/thetree.lua')()
+    SMODS.load_file('blinds/thetree.lua')()
 end
 
 if (SMODS.Mods["FusionJokers"] or {}).can_load then
-    NFS.load(SMODS.current_mod.path .. 'jokers/threecats.lua')()
+    SMODS.load_file('jokers/threecats.lua')()
 end
 
 if (SMODS.Mods["paperback"] or {}).can_load then
-    NFS.load(SMODS.current_mod.path .. 'jokers/churu.lua')()
+    SMODS.load_file('jokers/churu.lua')()
 end
 
 if (SMODS.Mods["paperback"] or {}).can_load or minty_config.include_crossover then
-    NFS.load(SMODS.current_mod.path .. 'jokers/catnipfields.lua')()
+    SMODS.load_file('jokers/catnipfields.lua')()
 end
 
 if (SMODS.Mods["Gemstone"] or {}).can_load then
-    NFS.load(SMODS.current_mod.path .. 'consumables/gemstones.lua')()
+    SMODS.load_file('consumables/gemstones.lua')()
 end
 
-NFS.load(SMODS.current_mod.path .. 'consumables/tarots.lua')()
-NFS.load(SMODS.current_mod.path .. 'consumables/spectrals.lua')()
-NFS.load(SMODS.current_mod.path .. 'backs/backs.lua')()
+SMODS.load_file('consumables/tarots.lua')()
+SMODS.load_file('consumables/spectrals.lua')()
+SMODS.load_file('backs/backs.lua')()
 
-NFS.load(SMODS.current_mod.path .. 'blinds/thenip.lua')()
+SMODS.load_file('blinds/thenip.lua')()
 
-NFS.load(SMODS.current_mod.path .. 'seals/cementseal.lua')()
+SMODS.load_file('seals/cementseal.lua')()
 --
