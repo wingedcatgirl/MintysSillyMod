@@ -38,7 +38,7 @@ SMODS.Joker {
                 }
             end
         end
-        if context.destroy_card and not context.destroy_card.ability.eternal and context.destroy_card:get_id() ~= 7 and pseudorandom('eaten') < G.GAME.probabilities.normal/card.ability.extra.odds then
+        if context.cardarea == G.play and context.destroy_card and not context.destroy_card.ability.eternal and context.destroy_card:get_id() ~= 7 and pseudorandom('eaten') < G.GAME.probabilities.normal/card.ability.extra.odds then
             return {
                 remove = true,
                 message = localize('k_drowned_ex'),
