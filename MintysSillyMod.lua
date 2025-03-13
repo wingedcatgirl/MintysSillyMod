@@ -99,12 +99,12 @@ function mintySay(message, level)
 end
 
 -- Exotic system toggle logic (copied from Bunco)
-function disable_exotics()
+disable_exotics = disable_exotics or function()
     if G.GAME then G.GAME.Exotic = false end
     mintySay('Triggered Exotic System disabling.')
 end
 
-function enable_exotics()
+enable_exotics = enable_exotics or function()
     if G.GAME then G.GAME.Exotic = true end
     mintySay('Triggered Exotic System enabling.')
 end
