@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
+    pools = {["kity"] = true},
     config = {
         extra = {
             powmult = 1.3,
