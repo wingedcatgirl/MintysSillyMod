@@ -91,18 +91,12 @@ SMODS.Consumable {
 	use = function(self, card, area, copier)
 		G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
 			play_sound('timpani')
-			local card = create_card(
-				"kity",
-				G.jokers,
-				nil,
-				nil,
-				nil,
-				nil,
-				nil,
-				"minty_wand"
-			)
-			card:add_to_deck()
-			G.jokers:emplace(card)
+			local card = SMODS.add_card({
+				set = "kity",
+				area = G.jokers,
+				legendary = true,
+				key_append = "minty_wand",
+			})
 			return true end }))
 		delay(0.6)
 	end,

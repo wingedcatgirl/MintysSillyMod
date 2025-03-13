@@ -31,7 +31,7 @@ Planned features:
 1. Install [Lovely](https://github.com/ethangreen-dev/lovely-injector), if you haven't already.
 2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already.
    - **Minimum supported version for 0.4.0 is ALPHA-1307d**, due to Better Calc completely overhauling a lot of things.
-   - Minimum supported version for latest release is **ALPHA-1428c**.
+   - Minimum supported version for latest commit is **ALPHA-1428c**.
 3. Download the code as a ZIP file, from the latest release in Releases (should be stable, may be missing features) or the green "Code" button (may be buggy, but all features are available).
    - If you need old-calc Steamodded for some reason, please download [old-calc Minty's Mod](https://github.com/wingedcatgirl/MintysSillyMod/releases/tag/old-calc) as well; later versions are not kept compatible with old-calc.
 4. Inside the zip file is the mod code in a folder, `MintysSillyMod-SOMEVERSION`. Put that folder in your Mods folder. The file structure should look like `Mods/MintysSillyMod-SOMEVERSION/MintysSillyMod.json`. In particular, there should _not_ be a second `MintysSillyMod` folder nested inside the first one. (You might prefer to remove the version number suffix from the folder name; it doesn't actually matter.)
@@ -51,7 +51,7 @@ Planned features:
 - Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things.
 
 ## Adding cross-mod interactions
-- Legendary Kitys: Give your kittycats `pools = {["kity"] = true}` to enable The Wand to summon them. (Technically also works with non-legendary Jokers, but The Wand is super-rare, so it might be disappointing.)
+- Legendary Kitys: Give your legendary kittycats `pools = {["kity"] = true}` to enable The Wand to summon them. Nothing interacts with non-legendary kittycats _yet_, but you can put them in the pool too for when/if we invent something.
 - Gym Buddy boosts: Give your enhancements a `config.extra.gymboost` of `"chips"`, `"xchips"`, `"mult"`, `"xmult"`, `"cash"`, `"hchips"`, `"hxchips"`, `"hmult"`, `"hxmult"`, `"hcash"` or `"none"` to have them grant the corresponding boost when scored with cards not of that enhancement. (If you don't, one will be chosen randomly each time. Which maybe you prefer!) 
 
 ## Contributing
