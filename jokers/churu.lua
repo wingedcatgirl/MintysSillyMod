@@ -134,7 +134,7 @@ SMODS.Joker {
             xMult = 1
         }
     },
-    rarity = 2,
+    rarity = 1,
     atlas = 'mintyjokerplaceholder',
     pos = {
         x = 0,
