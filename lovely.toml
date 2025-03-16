@@ -2,7 +2,7 @@
 version = "1.0.0"
 priority = 0
 
-
+# Remove non-legendary kitys from pool when using The Wand
 [[patches]]
 [patches.pattern]
 target = "functions/common_events.lua"
