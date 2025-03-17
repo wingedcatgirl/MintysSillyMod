@@ -28,3 +28,12 @@ pattern = "if (G.GAME.selected_back_key or {}).key == 'b_paperback_paper' and v.
 position = "at"
 payload = "if (G.GAME.selected_back_key or {}).key == 'b_paperback_paper' and (v.key:find('j_paperback_') or (v.pools and v.pools.Paperback)) then"
 match_indent = true
+
+# Add Ortalab crossover content to Ortalab stakes
+[[patches]]
+[patches.pattern]
+target = '=[SMODS ortalab "objects/stakes.lua"]'
+position = "after"
+pattern = "if not v.mod or v.mod.id ~= 'ortalab' then add = false end"
+payload =  "if (v.pools and v.pools.Ortalab) then add = true end"
+match_indent = true

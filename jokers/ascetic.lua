@@ -17,6 +17,9 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    pools = {
+        ["Ortalab"] = true, --Can appear on Ortalab Stakes
+    },
     effect = "Suit Chips",
     cost_mult = 1.0,
     config = {

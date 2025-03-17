@@ -18,7 +18,10 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
-    pools = {["kity"] = true},
+    pools = {
+        ["kity"] = true,
+        ["Ortalab"] = true,
+    },
     config = {extra = {temp = 0}},
     loc_vars = function(self, info_queue, card)
         local key = self.key
