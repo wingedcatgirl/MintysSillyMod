@@ -1,6 +1,6 @@
 [manifest]
 version = "1.0.0"
-priority = 0
+priority = 1
 
 # Remove non-legendary kitys from pool when using The Wand
 [[patches]]
@@ -20,7 +20,11 @@ payload = '''
 '''
 match_indent = true
 
-
-
-
-
+# Add Paperback cross-mod content to Paper Deck boost pool
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = "if (G.GAME.selected_back_key or {}).key == 'b_paperback_paper' and v.key:find('j_paperback_') then"
+position = "at"
+payload = "if (G.GAME.selected_back_key or {}).key == 'b_paperback_paper' and (v.key:find('j_paperback_') or (v.pools and v.pools.Paperback)) then"
+match_indent = true

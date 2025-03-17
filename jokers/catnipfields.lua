@@ -17,6 +17,9 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    pools = {
+        ["Paperback"] = true, --Increase freqency when playing with Paper Deck
+    },
     config = {extra = {
         xmult = 1.05,
         xmultgain = 0.05,

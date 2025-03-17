@@ -39,7 +39,7 @@ SMODS.Joker {
     remove_from_deck = function(self, from_debuff)
         self.added_to_deck = false
 		for k, v in pairs(G.GAME.probabilities) do 
-			G.GAME.probabilities[k] = self.config.extra.temp
+			G.GAME.probabilities[k] = v/33
 		end
     end,
     calculate = function(self, card, context)

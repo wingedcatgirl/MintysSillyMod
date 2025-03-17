@@ -22,7 +22,10 @@ SMODS.Joker {
     discovered = false,
     blueprint_compat = true,
     eternal_compat = false,
-    pools = {["Food"] = true}, -- Cryptid compatibility for refactor
+    pools = {
+        ["Food"] = true, -- Cryptid compatibility for refactor
+        ["Paperback"] = true, --Increase freqency when playing with Paper Deck
+    },
     no_pool_flag = "churu_treat_eaten",
 
     loc_vars = function(self, info_queue, card)
@@ -88,7 +91,7 @@ SMODS.Joker {
                                     local jokers_to_create = math.min(1,
                                         G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer))
                                     G.GAME.joker_buffer = G.GAME.joker_buffer + jokers_to_create
-                                    
+
                                     G.E_MANAGER:add_event(Event({
                                         func = function()
                                             local card = create_card('Joker', G.jokers, nil, 0, nil, nil, 'j_minty_plastic_stick', nil)
@@ -149,6 +152,9 @@ SMODS.Joker {
     discovered = false,
     blueprint_compat = true,
     eternal_compat = true,
+    pools = {
+        ["Paperback"] = true, --Increase freqency when playing with Paper Deck. if sticks can spawn which i don't think pb ever actually turns on lol
+    },
     yes_pool_flag = "sticks_can_spawn",
 
     loc_vars = function(self, info_queue, card)
@@ -158,7 +164,7 @@ SMODS.Joker {
         end
 
         local xMult = PB_UTIL.calculate_stick_xMult(card)
-        
+
         return {
             key = key,
             vars = {
