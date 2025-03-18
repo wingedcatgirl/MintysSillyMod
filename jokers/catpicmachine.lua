@@ -34,10 +34,10 @@ SMODS.Joker {
         }
     end,
     in_pool = function()
-        if #G.GAME.tags == 0 then return false end
+        if not G.GAME or (#G.GAME.tags == 0) then return false end
         for meow = 1, #G.GAME.tags do
             if G.GAME.tags[meow].key == "tag_cry_cat" then
-                return true    
+                return true
             end
         end
     end,

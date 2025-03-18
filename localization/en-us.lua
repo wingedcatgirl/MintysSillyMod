@@ -626,7 +626,7 @@ return {
 					"scored cards without the",
 					"same enhancement",
 					" ",
-					"{C:inactive,s:0.8}Flavor text TBA!{}"
+					"{C:inactive,s:0.8}Feel the burn!{}"
 				},
 			},
 			["j_minty_churutreat"] = {
