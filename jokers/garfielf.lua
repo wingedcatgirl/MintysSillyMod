@@ -65,7 +65,7 @@ SMODS.Joker {
             }
         end
 
-        if context.destroy_card and context.cardarea == "unscored" and card.ability.extra.found == true then
+        if context.destroy_card and context.cardarea == "unscored" and card.ability.extra.found == true and not context.blueprint then
             --mintySay("Attempting to destroy card")
             if context.destroy_card.ability.eternal then
                 --mintySay("Card is eternal, no destruaction")
