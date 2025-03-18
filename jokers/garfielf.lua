@@ -1,14 +1,14 @@
 SMODS.Joker {
     key = "garfielf",
     name = "Garfielf",
-    atlas = 'mintyjokerplaceholder',
+    atlas = 'mintylegends',
     pos = {
         x = 0,
-        y = 8
+        y = 2
     },
     soul_pos = {
-        x = 1,
-        y = 0
+        x = 0,
+        y = 3
     },
     rarity = 4,
     cost = 20,
@@ -29,6 +29,12 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
+        local rank = pseudorandom_element({
+            "Aces", "Kings", "Queens", "Jacks", "10s", "9s", "8s", "7s", "6s", "5s", "4s", "2s"
+        })
+        local suit = pseudorandom_element({
+            "Heart", "Spade", "Club", "Diamond"
+        })
         if minty_config.flavor_text then
             key = self.key.."_flavor"
         end
@@ -37,6 +43,8 @@ SMODS.Joker {
             vars = {
                 card.ability.extra.xmult,
                 card.ability.extra.xmultgain,
+                rank,
+                suit,
             }
         }
     end,

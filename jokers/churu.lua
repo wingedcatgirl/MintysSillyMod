@@ -8,7 +8,7 @@ SMODS.Joker {
         }
     },
     rarity = 1,
-    atlas = 'mintyjokerplaceholder',
+    atlas = 'mintyjokerdoodles',
     pos = {
         x = 0,
         y = 0
@@ -138,7 +138,7 @@ SMODS.Joker {
         }
     },
     rarity = 1,
-    atlas = 'mintyjokerplaceholder',
+    atlas = 'mintyjokerdoodles',
     pos = {
         x = 0,
         y = 0

@@ -1,10 +1,10 @@
 SMODS.Joker {
     key = "claw",
     name = "Fossilized Claw",
-    atlas = 'mintyjokerplaceholder',
+    atlas = 'mintyjokerdoodles',
     pos = {
         x = 0,
-        y = 7
+        y = 1
         },
     soul_pos = {
         x = 1,

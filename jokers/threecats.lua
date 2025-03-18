@@ -5,7 +5,7 @@ SMODS.Joker {
     dependencies = "FusionJokers",
     key = "threecats",
     name = "Three Cats!",
-    atlas = 'mintyjokerplaceholder',
+    atlas = 'mintyjokerdoodles',
     pos = {
         x = 0,
         y = 0

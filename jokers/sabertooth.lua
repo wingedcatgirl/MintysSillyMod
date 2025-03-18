@@ -1,14 +1,14 @@
 SMODS.Joker {
     key = "sabertooth",
     name = "Saber Tooth",
-    atlas = 'mintyortalabplaceholder',
+    atlas = 'mintyortalabdoodles',
     pos = {
         x = 0,
         y = 0
     },
     soul_pos = {
-        x = 2,
-        y = 0
+        x = 1,
+        y = 1
     },
     rarity = 1,
     cost = 5,

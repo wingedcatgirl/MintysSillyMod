@@ -1,5 +1,5 @@
 SMODS.Consumable{ -- The Cat
-    set = 'Tarot', atlas = 'mintyjokerplaceholder',
+    set = 'Tarot', atlas = 'mintyplaceholder',
     key = 'cat', 
     set_card_type_badge = function(self, card, badges)
         badges[1] = create_badge("Tarot?", get_type_colour(self or card.config, card), nil, 1.2)

@@ -30,7 +30,7 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
-    key = 'mintyjokerplaceholder',
+    key = 'mintyplaceholder',
     path = "placeholders.png",
     px = 71,
     py = 95
@@ -39,6 +39,20 @@ SMODS.Atlas {
 SMODS.Atlas {
     key = 'mintyortalabplaceholder',
     path = "ortalab placeholders.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = 'mintyjokerdoodles',
+    path = "jokerdoodles.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = 'mintyortalabdoodles',
+    path = "ortalab doodles.png",
     px = 71,
     py = 95
 }
@@ -109,7 +123,7 @@ enable_exotics = enable_exotics or function()
     mintySay('Triggered Exotic System enabling.')
 end
 
-exotic_in_pool = function()
+exotic_in_pool = exotic_in_pool or function()
     return G.GAME and G.GAME.Exotic
 end
 
@@ -145,7 +159,7 @@ function Card:is_3(bypass_debuff)
 end
 
 --Talisman compatibility compatibility
-to_big = to_big or function(x) 
+to_big = to_big or function(x)
     return x
 end
 
@@ -212,6 +226,10 @@ end
 
 if (SMODS.Mods["paperback"] or {}).can_load or minty_config.include_crossover then
     SMODS.load_file('jokers/catnipfields.lua')()
+end
+
+if (SMODS.Mods["Cryptid"] or {}).can_load then
+    SMODS.load_file('jokers/catpicmachine.lua')()
 end
 
 if (SMODS.Mods["Gemstone"] or {}).can_load then

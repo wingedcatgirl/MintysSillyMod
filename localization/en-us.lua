@@ -178,6 +178,26 @@ return {
 					"{C:inactive,s:0.8}allowed on the bus.",
 				},
 			},
+			["j_minty_catpicmachine"] = {
+				["name"] = "ilo pi sitelen soweli",
+				["text"] = {
+					"{X:minty_3s,C:white}?#1#{} Mult for each",
+					"{C:attention}Cat Tag{} held",
+					"{C:inactive}(operator based on",
+					"{C:inactive}Cat Tag's level)",
+				},
+			},
+			["j_minty_catpicmachine_flavor"] = {
+				["name"] = "ilo pi sitelen soweli",
+				["text"] = {
+					"{X:minty_3s,C:white}?#1#{} Mult for each",
+					"{C:attention}Cat Tag{} held",
+					"{C:inactive}(operator based on",
+					"{C:inactive}Cat Tag's level)",
+					" ",
+					"{C:inactive,s:0.8}The internet is for cats!",
+				},
+			},
 			["j_minty_lucky"] = {
 				["unlock"] = {
 					"Find this Joker from",
@@ -338,7 +358,7 @@ return {
 					"{C:attention}destroy{} unscored non-{C:minty_3s}3s{}",
 					"and gain {X:mult,C:white}X#2#{} Mult each",
 					" ",
-					"{C:inactive,s:0.8}\"Where are the Kings of Diamond?\"",
+					"{C:inactive,s:0.8}\"Where are the #3# of #4#?\"",
 					"{C:inactive,s:0.8}\"I ate those card.\"",
 				},
 			},

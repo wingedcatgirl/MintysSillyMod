@@ -22,7 +22,7 @@ SMODS.Consumable {
 		}
 	end,
 	cost = 4,
-	atlas = "mintyjokerplaceholder",
+	atlas = "mintyplaceholder",
 	pos = { x = 2, y = 9 },
 	soul_pos = { x = 2, y = 7},
 	use = function(self, card, area, copier) --Good enough
@@ -78,7 +78,7 @@ SMODS.Consumable {
 	hidden = true,
 	soul_set = 'Tarot',
 	soul_rate = 0.003,
-	atlas = "mintyjokerplaceholder",
+	atlas = "mintyplaceholder",
 	pos = { x = 2, y = 9 },
 	soul_pos = { x = 2, y = 8},
 	can_use = function(self, card)

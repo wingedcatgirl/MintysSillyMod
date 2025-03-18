@@ -1,7 +1,7 @@
 SMODS.Joker {
     key = "bucket",
     name = "Bucket of Cement",
-    atlas = 'mintyjokerplaceholder',
+    atlas = 'mintyjokerdoodles',
     pos = {
         x = 0,
         y = 0

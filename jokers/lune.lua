@@ -2,14 +2,14 @@
 SMODS.Joker {
     key = "lune",
     name = "Lune",
-    atlas = 'mintyortalabplaceholder',
+    atlas = 'mintylegends',
     pos = {
-        x = 0,
+        x = 5,
         y = 0
     },
     soul_pos = {
-        x = 2,
-        y = 0
+        x = 5,
+        y = 1
     },
     rarity = 4,
     cost = 20,

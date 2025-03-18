@@ -1,14 +1,14 @@
 SMODS.Joker {
     key = "gymbuddy",
     name = "Gym Buddies",
-    atlas = 'mintyjokerplaceholder',
+    atlas = 'mintyjokerdoodles',
     pos = {
         x = 0,
         y = 0
     },
     soul_pos = {
-        x = 1,
-        y = 0
+        x = 6,
+        y = 2
     },
     rarity = 3,
     cost = 9,
