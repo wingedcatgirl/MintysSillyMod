@@ -17,6 +17,9 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
+    pools = {
+        ["kity"] = true
+    },
     config = { extra = {mult = 1, multgain = 1} },
     set_ability = function(self, card, initial, delay_sprites)
         card.ability.extra.mult = G.GAME.round or 1

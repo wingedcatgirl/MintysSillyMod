@@ -40,6 +40,9 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    pools = {
+        ["kity"] = true
+    },
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.individual and context.other_card:is_3() then
             local count = context.other_card:is_3()

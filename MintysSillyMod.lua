@@ -153,12 +153,13 @@ to_number = to_number or function(x)
     return x
 end
 
-SMODS.ObjectType({ --Legendary Kity pool
+SMODS.ObjectType({ --Kity pool (Legendary and otherwise)
     key = "kity",
     default = "j_lucky_cat",
 	cards = {},
     inject = function(self)
         SMODS.ObjectType.inject(self)
+		self:inject_card(G.P_CENTERS.j_lucky_cat)
     end
 })
 

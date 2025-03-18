@@ -21,6 +21,7 @@ SMODS.Joker {
     blueprint_compat = true,
     pools = {
         ["Ortalab"] = true, --Can appear on Ortalab Stakes
+        ["kity"] = true,
     },
     config = {
         extra = {
