@@ -147,7 +147,7 @@ SMODS.Joker {
         x = 6,
         y = 1
     },
-    cost = 7,
+    cost = 6,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,
