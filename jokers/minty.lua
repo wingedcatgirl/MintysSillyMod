@@ -35,6 +35,8 @@ SMODS.Joker {
         if minty_config.flavor_text then
             key = self.key.."_flavor"
         end
+        local plural = ""
+        if card.ability.extra.reps > 0 then plural = "s" end
         return {
             key = key,
             vars = {
@@ -42,7 +44,8 @@ SMODS.Joker {
                 card.ability.extra.scored,
                 card.ability.extra.target,
                 card.ability.extra.reps + 1,
-                card.ability.extra.moving
+                card.ability.extra.moving,
+                plural
             }
         }
     end,

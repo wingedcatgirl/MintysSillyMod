@@ -312,7 +312,7 @@ return {
 				},
 				["name"] = "Minty",
 				["text"] = {
-					"{X:dark_edition,C:white}^#1#{} Mult, {C:attention}#4#{} times",
+					"{X:dark_edition,C:white}^#1#{} Mult, {C:attention}#4#{} time#6#",
 					"For every {C:attention}#3#{}{C:inactive}(#2#){} {C:minty_3s}3s{} scored,",
 					"gain a repetition and",
 					"increase target by #5#",
@@ -325,7 +325,7 @@ return {
 				},
 				["name"] = "Minty",
 				["text"] = {
-					"{X:dark_edition,C:white}^#1#{} Mult, {C:attention}#4#{} times",
+					"{X:dark_edition,C:white}^#1#{} Mult, {C:attention}#4#{} time#6#",
 					"For every {C:attention}#3#{}{C:inactive}(#2#){} {C:minty_3s}3s{} scored,",
 					"gain a repetition and",
 					"increase target by #5#",
