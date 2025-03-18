@@ -10,8 +10,8 @@ SMODS.Joker {
         x = 1,
         y = 1
     },
-    rarity = 1,
-    cost = 5,
+    rarity = 2,
+    cost = 7,
     unlocked = true,
     discovered = false,
     eternal_compat = true,
