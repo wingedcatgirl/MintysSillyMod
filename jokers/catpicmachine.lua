@@ -33,6 +33,14 @@ SMODS.Joker {
             vars = {card.ability.extra.number}
         }
     end,
+    in_pool = function()
+        if #G.GAME.tags == 0 then return false end
+        for meow = 1, #G.GAME.tags do
+            if G.GAME.tags[meow].key == "tag_cry_cat" then
+                return true    
+            end
+        end
+    end,
     calculate = function(self, card, context)
         if context.joker_main and context.scoring_hand and #G.GAME.tags ~= 0 then
             --mintySay("score time", "TRACE")
