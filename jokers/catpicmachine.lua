@@ -53,13 +53,13 @@ SMODS.Joker {
                     --mintySay("kity found :3", "TRACE")
                     local level = G.GAME.tags[meow].ability.level or 1
                     if level == 1 then l1 = l1 + 1
-                    elseif level == 2 then l2 = l2 + 1
-                    elseif level == 3 then l3 = l3 + 1
-                    elseif level == 4 then l4 = l4 + 1
-                    elseif level == 5 then l5 = l5 + 1
-                    elseif level >= 6 then
+                    elseif level == 2 or level == 3 then l2 = l2 + 1
+                    elseif level == 4 or level == 5 then l3 = l3 + 1
+                    elseif level == 6 or level == 7 then l4 = l4 + 1
+                    elseif level == 8 or level == 9 then l5 = l5 + 1
+                    elseif level >= 10 then
                         l5 = l5 + 1
-                        lwhat = lwhat + (2^(level-6)) -- l5 == 2^0 == 1, l6 == 2^1 == 2, l7 == 2^2 == 4, etc
+                        lwhat = lwhat + (2^(level-10)) -- l5 == 2^0 == 1, l6 == 2^1 == 2, l7 == 2^2 == 4, etc
                     end
                 end
             end
