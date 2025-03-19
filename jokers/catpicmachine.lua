@@ -45,7 +45,7 @@ SMODS.Joker {
         if context.joker_main and context.scoring_hand and #G.GAME.tags ~= 0 then
             --mintySay("score time", "TRACE")
             local result = {}
-            local l1, l2, l3, l4, lwhat = 0, 0, 0, 0, 0
+            local l1, l2, l3, l4, l5, lwhat = 0, 0, 0, 0, 0, 0
             --count cat tags and their level
             for meow = 1, #G.GAME.tags do
                 --mintySay("Tag #"..meow..":"..G.GAME.tags[meow].key, "TRACE")
@@ -56,14 +56,15 @@ SMODS.Joker {
                     elseif level == 2 then l2 = l2 + 1
                     elseif level == 3 then l3 = l3 + 1
                     elseif level == 4 then l4 = l4 + 1
-                    elseif level >= 5 then
-                        l4 = l4 + 1
-                        lwhat = lwhat + (2^(level-5)) -- l5 == 2^0 == 1, l6 == 2^1 == 2, l7 == 2^2 == 4, etc
+                    elseif level == 5 then l5 = l5 + 1
+                    elseif level >= 6 then
+                        l5 = l5 + 1
+                        lwhat = lwhat + (2^(level-6)) -- l5 == 2^0 == 1, l6 == 2^1 == 2, l7 == 2^2 == 4, etc
                     end
                 end
             end
-            local levels = {l1, l2, l3, l4}
-            local keys = {"mult", "emult", "eemult", "eeemult"}
+            local levels = {l1, l2, l3, l4, l5}
+            local keys = {"mult", "xmult", "emult", "eemult", "eeemult"}
             for i, level in ipairs(levels) do
                 if level ~= 0 then
                     result[keys[i]] = card.ability.extra.number * level
