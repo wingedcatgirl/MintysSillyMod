@@ -8,7 +8,7 @@ function MINTY.sleeveunlockcheck()
       "sleeve_minty_treatsleeve",
     }
     local count = 1
-    local result = "stake_white"
+    local result = "stake_gold"
     for _, sleeve in ipairs(sleeves) do
       if G.P_CENTERS[sleeve] and G.P_CENTERS[sleeve].unlocked == true then
         count = count + 1
