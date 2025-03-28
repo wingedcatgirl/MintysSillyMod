@@ -7,6 +7,7 @@ SMODS.current_mod.optional_features = {
         unscored = true,
     },
 }
+MINTY = {}
 
 SMODS.Atlas {
     key = 'mintyjokeratlas',

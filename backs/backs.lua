@@ -1,3 +1,35 @@
+function MINTY.sleeveunlockcheck()
+    local sleeves = {
+      "sleeve_minty_heartsleeve",
+      "sleeve_minty_diamondsleeve",
+      "sleeve_minty_clubssleeve",
+      "sleeve_minty_spadessleeve",
+      "sleeve_minty_3suitsleeve",
+      "sleeve_minty_treatsleeve",
+    }
+    local count = 1
+    local result = "stake_white"
+    for _, sleeve in ipairs(sleeves) do
+      if G.P_CENTERS[sleeve] and G.P_CENTERS[sleeve].unlocked == true then
+        count = count + 1
+      end
+    end
+    
+
+    
+    for key, stake in pairs(G.P_STAKES) do
+      if stake.count == count then
+          result = key
+          for _, sleeve in ipairs(sleeves) do
+            if G.P_CENTERS[sleeve] and G.P_CENTERS[sleeve].unlocked == false and type(G.P_CENTERS[sleeve].unlock_condition.stake) == "string" then
+                G.P_CENTERS[sleeve].unlock_condition.stake = result
+            end
+        end
+      end
+    end
+    return result
+end
+
 SMODS.Back({
     name = "Deck With A Treat",
     key = "treat",
@@ -34,8 +66,12 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 0, y = 0 },
         config = {start_with_3s = true},
         unlocked = false,
-        unlock_condition = { deck = "b_minty_treat", stake = "stake_white" },
+        unlock_condition = {
+          deck = "b_minty_treat",
+          stake = MINTY.sleeveunlockcheck()
+          },
         loc_vars = function(self)
+            MINTY.sleeveunlockcheck()
             local key, vars
 
             if self.get_current_deck_key() ~= "b_minty_treat" then
@@ -48,7 +84,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         end,
         apply = function(self)
             if not exotic_in_pool() then enable_exotics() end
-            G.GAME.starting_params.start_with_3s = true 
+            G.GAME.starting_params.start_with_3s = true
             --changing game starting params directly is inelegant but idk how to get sleeve config oopsie
             G.GAME.starting_params.easy_spectra = true
             if self.get_current_deck_key() ~= "b_minty_treat" then
@@ -59,7 +95,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                         for i = #G.playing_cards, 1, -1 do
                             if G.playing_cards[i]:get_id() == 3 then
                                 SMODS.change_base(G.playing_cards[i], 'minty_3s', nil)
-                            else 
+                            else
                                 if pseudorandom('treatsleevesuit') < 1/3 then
                                     SMODS.change_base(G.playing_cards[i], 'minty_3s', nil)
                                 end
@@ -68,7 +104,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                                 end
                             end
                         end
-        
+
                         return true
                     end
                 }))
@@ -131,8 +167,12 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 0, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = { deck = "b_minty_hearts", stake = "stake_white" },
+        unlock_condition = {
+          deck = "b_minty_hearts",
+          stake = MINTY.sleeveunlockcheck()
+          },
         loc_vars = function(self)
+            MINTY.sleeveunlockcheck()
             local key, vars
 
             if self.get_current_deck_key() ~= "b_minty_hearts" then
@@ -253,8 +293,12 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 1, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = { deck = "b_minty_diamonds", stake = "stake_white" },
+        unlock_condition = {
+          deck = "b_minty_diamonds",
+          stake = MINTY.sleeveunlockcheck()
+          },
         loc_vars = function(self)
+            MINTY.sleeveunlockcheck()
             local key, vars
 
             if self.get_current_deck_key() ~= "b_minty_diamonds" then
@@ -374,8 +418,12 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 2, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = { deck = "b_minty_clubs", stake = "stake_white" },
+        unlock_condition = {
+          deck = "b_minty_clubs",
+          stake = MINTY.sleeveunlockcheck()
+          },
         loc_vars = function(self)
+            MINTY.sleeveunlockcheck()
             local key, vars
 
             if self.get_current_deck_key() ~= "b_minty_clubs" then
@@ -495,8 +543,12 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 3, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = { deck = "b_minty_spades", stake = "stake_white" },
+        unlock_condition = {
+          deck = "b_minty_spades",
+          stake = MINTY.sleeveunlockcheck()
+          },
         loc_vars = function(self)
+            MINTY.sleeveunlockcheck()
             local key, vars
 
             if self.get_current_deck_key() ~= "b_minty_spades" then
@@ -616,8 +668,12 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 4, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = { deck = "b_minty_3suit", stake = "stake_white" },
+        unlock_condition = {
+          deck = "b_minty_3suit",
+          stake = MINTY.sleeveunlockcheck()
+          },
         loc_vars = function(self)
+            MINTY.sleeveunlockcheck()
             local key, vars
 
             if self.get_current_deck_key() ~= "b_minty_3suit" then
@@ -686,3 +742,4 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         end,
     })
 end
+
