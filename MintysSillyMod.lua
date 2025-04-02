@@ -244,4 +244,9 @@ SMODS.load_file('backs/backs.lua')()
 SMODS.load_file('blinds/thenip.lua')()
 
 SMODS.load_file('seals/cementseal.lua')()
+
+if (SMODS.Mods["ChDp"] or {}).can_load then
+    SMODS.load_file('challenge/challenges.lua')()
+    SMODS.load_file('jokers/theecho.lua')()
+end
 --
