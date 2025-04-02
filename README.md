@@ -58,7 +58,7 @@ Minty's Mod adds content for all of the following mods. Those with ⭐️ are al
 - [Fusion Jokers](https://github.com/lshtech/Fusion-Jokers) ⭐️
 - [Gemstones](https://github.com/0fficialHalo/Gemstones)
 - [Ortalab](https://github.com/Eremel/Ortalab)
-- [Paperback](https://github.com/GitNether/paperback)
+- [Paperback](https://github.com/GitNether/paperback) ⭐️
 
 The following mod~~s~~ add content for Minty's Mod and we haven't returned the favor (yet):
 - [Prism](https://github.com/blazingulag/Prism) ⭐️
