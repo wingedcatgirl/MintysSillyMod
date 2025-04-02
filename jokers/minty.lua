@@ -50,7 +50,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.cardarea == G.play and context.individual and context.other_card:is_3() and not (context.retrigger_joker or context.retrigger_joker_check) then
+        if context.cardarea == G.play and not context.blueprint and context.individual and context.other_card:is_3() and not (context.retrigger_joker or context.retrigger_joker_check) then
             local count = context.other_card:is_3()
             card.ability.extra.scored = card.ability.extra.scored + count
             if card.ability.extra.scored >= card.ability.extra.target then
