@@ -5,7 +5,10 @@ return {
 			["k_nommed_ex"] = "Nom!",
 			["k_stopped_ex"] = "Stopped!",
 			["k_storm_ex"] = "Storm!",
+			["k_forward_ex"] = "Forward!",
+			["k_abandon_ex"] = "Vote abandon!",
 			["k_cube"] = "Hand must contain exactly 4 cards",
+			["k_minty_challenge"] = "Challenge",
 		},
 		["v_dictionary"] = {
 			["a_chipgain"] = "+#1# Chips",
@@ -21,7 +24,11 @@ return {
 		["labels"] = {
 			["minty_cement_seal"] = "Cement Seal",
 			["gemslot_catseye"] = "Cat's Eye",
+			["k_minty_challenge"] = "Challenge",
 		},
+		["challenge_names"] = {
+			["c_minty_raidnight"] = "Day One Raid Night",
+		}
 	},
 	["descriptions"] = {
 		["Back"] = {
@@ -131,6 +138,16 @@ return {
                     "{C:inactive}(Must have a Gem Slot){}",
 				},
 			},
+			["c_minty_catseye_flavor"] = {
+				["name"] = "Cat's Eye",
+				["text"]  = {
+                    "Attach a {C:minty_3s}Cat's Eye",
+                    "{}Gemstone to {C:green}#1#{} selected {C:attention}card{}",
+                    "{C:inactive}(Must have a Gem Slot){}",
+					" ",
+					"{C:inactive,s:0.8}It can see you...r treats."
+				},
+			},
 		},
 		["Joker"] = {
 			["j_minty_cube"] = {
@@ -178,7 +195,41 @@ return {
 					"{C:inactive,s:0.8}allowed on the bus.",
 				},
 			},
-			["j_minty_catpicmachine"] = {
+			["j_minty_catpicmachine_modest"] = {
+				["name"] = "ilo pi sitelen soweli",
+				["text"] = {
+					"{X:mult,C:white}X#1#{} Mult if a",
+					"{C:attention}Cat Tag{} is held",
+				},
+			},
+			["j_minty_catpicmachine_modest_flavor"] = {
+				["name"] = "ilo pi sitelen soweli",
+				["text"] = {
+					"{X:mult,C:white}X#1#{} Mult if a",
+					"{C:attention}Cat Tag{} is held",
+					" ",
+					"{C:inactive,s:0.8}The internet is for cats!",
+				},
+			},
+			["j_minty_catpicmachine_mainline"] = {
+				["name"] = "ilo pi sitelen soweli",
+				["text"] = {
+					"{X:mult,C:white}X#1#{} Mult for each",
+					"{C:attention}Cat Tag{} held",
+					"{C:inactive}(With levels considered)"
+				},
+			},
+			["j_minty_catpicmachine_mainline_flavor"] = {
+				["name"] = "ilo pi sitelen soweli",
+				["text"] = {
+					"{X:mult,C:white}X#1#{} Mult for each",
+					"{C:attention}Cat Tag{} held",
+					"{C:inactive}(With levels considered)",
+					" ",
+					"{C:inactive,s:0.8}The internet is for cats!",
+				},
+			},
+			["j_minty_catpicmachine_madness"] = {
 				["name"] = "ilo pi sitelen soweli",
 				["text"] = {
 					"{X:minty_3s,C:white}?#1#{} Mult for each",
@@ -187,7 +238,7 @@ return {
 					"{C:inactive}Cat Tag's level)",
 				},
 			},
-			["j_minty_catpicmachine_flavor"] = {
+			["j_minty_catpicmachine_madness_flavor"] = {
 				["name"] = "ilo pi sitelen soweli",
 				["text"] = {
 					"{X:minty_3s,C:white}?#1#{} Mult for each",
@@ -456,6 +507,27 @@ return {
 					" ",
 					"{C:inactive,s:0.8}Turn it into a fast",
 					"{C:inactive,s:0.8}tiger with this one trick!",
+				},
+			},
+			["j_minty_theecho"] = {
+				["name"] = "The Echo",
+				["text"] = {
+					"Prevents Death.",
+					"If triggered against {C:attention}second{} Boss Blind,",
+					"{C:attention}-1 Ante{} and {C:attention}-1 charge{} {C:inactive}(#1# left){}.",
+					"{C:red}Self-destructs{} when no charges remaining.",
+				},
+			},
+			["j_minty_theecho_flavor"] = {
+				["name"] = "The Echo",
+				["text"] = {
+					"Prevents Death.",
+					"If triggered against {C:attention}second{} Boss Blind,",
+					"{C:attention}-1 Ante{} and {C:attention}-1 charge{} {C:inactive}(#1# left){}.",
+					"{C:red}Self-destructs{} when no charges remaining.",
+					" ",
+					"{C:inactive,s:0.8}Burning for battle...{}",
+					"{C:inactive,s:0.8}as long as the static's patience holds.{}",
 				},
 			},
 			["j_minty_froyo"] = {
@@ -917,6 +989,11 @@ return {
 					"{C:minty_3s}Three{} {C:attention}eternal{} {C:minty_3s}Cats!{}",
 				},
 			},
-		}
+		},
+		["Enhanced"] = {
+			--[[["m_stone"] = {
+				["name"] = "Slate Card"
+			},--]]
+		},
 	},
 }
