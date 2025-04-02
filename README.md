@@ -1,6 +1,6 @@
 ## Minty's Silly Little Mod
 
-A silly little mod that adds some silly little jokers. **[Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for added challenge run.** [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) is recommended, but not strictly required.
+A silly little mod that adds some silly little jokers and decks and things.
 
 [Mod main page on Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Minty%27s_Silly_Little_Mod) (Beware of SPOILERS!)
 
@@ -10,15 +10,9 @@ Current features:
 - Some jokers
 - Several decks
 - Placeholder art
+- Cross-mod content
 - A silly custom suit
 - A little 3, as a treat
-- Cross-mod content with the following mods:
-  - [Card Sleeves](https://github.com/larswijn/CardSleeves)
-  - [Cryptid](https://github.com/MathIsFun0/Cryptid)
-  - [Fusion Jokers](https://github.com/lshtech/Fusion-Jokers)
-  - [Gemstones](https://github.com/0fficialHalo/Gemstones)
-  - [Ortalab](https://github.com/Eremel/Ortalab)
-  - [Paperback](https://github.com/GitNether/paperback)
 - Far more ambition than sense
 
 Planned features:
@@ -50,6 +44,36 @@ Planned features:
 - Dev Mode: Default false. Requires restart. Enables unfinished content. Usually there isn't any because I don't like leaving things unfinished. But latest-commit enjoyers might catch me in the middle of something.
 - Flavor text: Default true. Enables funky MtG-style quotes at the bottom of some cards.
 - Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things.
+
+## Recommended additional mods:
+### Technical
+- [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for all challenge~~s~~ in Minty's Mod.
+- [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) enables five-suit poker hands, which are a fun little thing to play with.
+- [Talisman](https://github.com/MathIsFun0/Talisman) enables scores above e308 and also ^mult, which is just fun imo. Also very technically part of the next list (the Joker named Minty requires Talisman). They fixed the bug that bricks your save files, btw. talking to you, roffle. 
+
+### Cross-mod content
+Minty's Mod adds content for all of the following mods. Those with ⭐️ are also recommended for just, like, a basic default mod set. in my imo.
+- [Card Sleeves](https://github.com/larswijn/CardSleeves) ⭐️
+- [Cryptid](https://github.com/MathIsFun0/Cryptid)
+- [Fusion Jokers](https://github.com/lshtech/Fusion-Jokers) ⭐️
+- [Gemstones](https://github.com/0fficialHalo/Gemstones)
+- [Ortalab](https://github.com/Eremel/Ortalab)
+- [Paperback](https://github.com/GitNether/paperback)
+
+The following mod~~s~~ add content for Minty's Mod and we haven't returned the favor (yet):
+- [Prism](https://github.com/blazingulag/Prism) ⭐️
+
+### Other content mods
+Minty's Mod doesn't add anything for these _yet_, but we might in future. Until then, we're just recommending them because we like them. Consider anything on this list ⭐️'d.
+- [Drafting](https://github.com/spire-winder/Balatro-Draft) lets you build your starting deck by drafting random cards
+- [KCVanilla](https://github.com/kcgidw/kcvanilla) is just a couple of Jokers but I like them a lot. and it was the first mod I found that organized its files so I'm giving it a shoutout for that reason (I figured out how to organize my files by looking at its code)
+- [Rift-Raft](https://github.com/vitellaryjr/RiftRaft) lets you send cards to the Void and then later you can get them back as negative from Void Packs, it's fun
+
+### Quality of life
+Technically you can do whatever you want here, but here's the mods I like for the purpose:
+- [Galdur](https://github.com/Eremel/Galdur) revamps the New Run screen to make deck and sleeve selection much easier.
+- [Handy](https://github.com/SleepyG11/HandyBalatro) adds a whole lot of things but tbh the only one I care about is selecting multiple playing cards by dragging across them.
+- [Item Remover](https://github.com/art-muncher/Item-Remover) lets you disable specific items from the Collection, if they're OP or bugged or you just don't like them.
 
 ## Adding cross-mod interactions
 - Legendary Kitys: Give your legendary kittycats `pools = {["kity"] = true}` to enable The Wand to summon them. Nothing interacts with non-legendary kittycats _yet_, but you can put them in the pool too for when/if we invent something.
