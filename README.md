@@ -1,6 +1,6 @@
 ## Minty's Silly Little Mod
 
-A silly little mod that adds some silly little jokers. [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) is recommended, but not strictly required.
+A silly little mod that adds some silly little jokers. **[Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for added challenge run.** [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) is recommended, but not strictly required.
 
 [Mod main page on Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Minty%27s_Silly_Little_Mod) (Beware of SPOILERS!)
 
