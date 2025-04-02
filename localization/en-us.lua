@@ -28,6 +28,7 @@ return {
 		},
 		["challenge_names"] = {
 			["c_minty_raidnight"] = "Day One Raid Night",
+			["c_minty_raidnightsavage"] = "Day One Raid Night (Savage)",
 		}
 	},
 	["descriptions"] = {

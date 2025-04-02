@@ -36,12 +36,6 @@ SMODS.Joker {
             }
         }
     end,
-	add_to_deck = function(self, card, from_debuff)
-		G.jokers.config.card_limit = G.jokers.config.card_limit + 1
-	end,
-	remove_from_deck = function(self, card, from_debuff)
-		G.jokers.config.card_limit = G.jokers.config.card_limit - 1
-	end,
     calculate = function(self, card, context)
         if context.game_over and card.ability.extra.charges > 0 then
             if G.GAME.blind:get_type() == 'Boss' and G.GAME.round_resets.blind ~= G.P_BLINDS[G.GAME.last_chdp_blind] then --if we just lost to the second boss
@@ -49,7 +43,7 @@ SMODS.Joker {
                 card.ability.extra.ante = G.GAME.round_resets.ante
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        if card.ability.extra.ante == G.GAME.round_resets.ante then return false end
+                        if (card.ability.extra.ante == G.GAME.round_resets.ante) and (G.GAME.round_resets.ante ~= G.GAME.win_ante) then return false end
                         ease_ante(-1)
                         return true
                     end,
