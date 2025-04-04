@@ -7,6 +7,7 @@ return {
 			["k_storm_ex"] = "Storm!",
 			["k_forward_ex"] = "Forward!",
 			["k_abandon_ex"] = "Vote abandon!",
+			["k_victory_ex"] = "Victory!",
 			["k_cube"] = "Hand must contain exactly 4 cards",
 			["k_minty_challenge"] = "Challenge",
 		},
@@ -517,6 +518,7 @@ return {
 					"If triggered against {C:attention}second{} Boss Blind,",
 					"{C:attention}-1 Ante{} and {C:attention}-1 charge{} {C:inactive}(#1# left){}.",
 					"{C:red}Self-destructs{} when no charges remaining.",
+					"{C:inactive,s:0.8}(Or when challenge defeated){}",
 				},
 			},
 			["j_minty_theecho_flavor"] = {
@@ -526,6 +528,7 @@ return {
 					"If triggered against {C:attention}second{} Boss Blind,",
 					"{C:attention}-1 Ante{} and {C:attention}-1 charge{} {C:inactive}(#1# left){}.",
 					"{C:red}Self-destructs{} when no charges remaining.",
+					"{C:inactive,s:0.8}(Or when challenge defeated){}",
 					" ",
 					"{C:inactive,s:0.8}Burning for battle...{}",
 					"{C:inactive,s:0.8}as long as the static's patience holds.{}",

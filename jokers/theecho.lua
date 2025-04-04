@@ -71,5 +71,21 @@ SMODS.Joker {
 				colour = G.C.RED,
 			}
 		end
+        if context.end_of_round and not context.game_over and G.GAME.blind:get_type() == 'Boss' and (G.GAME.round_resets.ante >= G.GAME.win_ante) and context.cardarea == G.jokers then
+			G.E_MANAGER:add_event(Event({
+				func = function()
+					G.hand_text_area.blind_chips:juice_up()
+					G.hand_text_area.game_chips:juice_up()
+					play_sound("tarot1")
+                    card:start_dissolve()
+					return true
+				end,
+			}))
+			return {
+				message = localize("k_victory_ex"),
+				colour = G.C.RED,
+                card = card,
+			}
+        end
     end
 }

@@ -24,7 +24,7 @@ SMODS.Challenge({
 	},
 	consumeables = {
 		{ id = "c_devil" },
-		{ id = "c_trance" },
+		{ id = "c_devil" },
 	}
 })
 
