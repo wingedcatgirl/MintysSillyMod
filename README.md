@@ -47,7 +47,7 @@ Planned features:
 
 ## Recommended additional mods:
 ### Technical
-- [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for all challenge~~s~~ in Minty's Mod.
+- [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for all challenges in Minty's Mod.
 - [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) enables five-suit poker hands, which are a fun little thing to play with.
 - [Talisman](https://github.com/MathIsFun0/Talisman) enables scores above e308 and also ^mult, which is just fun imo. Also very technically part of the next list (the Joker named Minty requires Talisman). They fixed the bug that bricks your save files, btw. talking to you, roffle. 
 
