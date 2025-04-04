@@ -84,16 +84,13 @@ SMODS.Joker {
                             --mintySay("card.ability.extra.reps == "..card.ability.extra.reps, "TRACE")
                         elseif gameset == "madness" then
                             if level == 1 then l1 = l1 + 1
-                            elseif level == 2 or level == 3 then l2 = l2 + 1
-                            elseif level == 4 or level == 5 then l3 = l3 + 1
-                            elseif level == 6 or level == 7 then l4 = l4 + 1
-                            elseif level == 8 or level == 9 then l5 = l5 + 1
+                            elseif level == 2 or level == 3 then l2 = l2 + (level - 1)
+                            elseif level == 4 or level == 5 then l3 = l3 + (level - 3)
+                            elseif level == 6 or level == 7 then l4 = l4 + (level - 5)
+                            elseif level == 8 or level == 9 then l5 = l5 + (level - 7)
                             elseif level >= 10 then
                                 l5 = l5 + 1
                                 reps = reps + (2^(level-10)) -- l5 == 2^0 == 1, l6 == 2^1 == 2, l7 == 2^2 == 4, etc
-                            end
-                            if level == 3 or level == 5 or level == 7 or level == 9 then
-                                reps = reps + 1
                             end
                         end
                     end
