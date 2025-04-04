@@ -216,7 +216,7 @@ return {
 			["j_minty_catpicmachine_mainline"] = {
 				["name"] = "ilo pi sitelen soweli",
 				["text"] = {
-					"{X:mult,C:white}X#1#{} Mult for each",
+					"{X:mult,C:white}X#2#{} Mult for each",
 					"{C:attention}Cat Tag{} held",
 					"{C:inactive}(With levels considered)"
 				},
@@ -224,7 +224,7 @@ return {
 			["j_minty_catpicmachine_mainline_flavor"] = {
 				["name"] = "ilo pi sitelen soweli",
 				["text"] = {
-					"{X:mult,C:white}X#1#{} Mult for each",
+					"{X:mult,C:white}X#2#{} Mult for each",
 					"{C:attention}Cat Tag{} held",
 					"{C:inactive}(With levels considered)",
 					" ",
@@ -234,7 +234,7 @@ return {
 			["j_minty_catpicmachine_madness"] = {
 				["name"] = "ilo pi sitelen soweli",
 				["text"] = {
-					"{X:minty_3s,C:white}?#1#{} Mult for each",
+					"{X:minty_3s,C:white}?#3#{} Mult for each",
 					"{C:attention}Cat Tag{} held",
 					"{C:inactive}(operator based on",
 					"{C:inactive}Cat Tag's level)",
@@ -243,7 +243,7 @@ return {
 			["j_minty_catpicmachine_madness_flavor"] = {
 				["name"] = "ilo pi sitelen soweli",
 				["text"] = {
-					"{X:minty_3s,C:white}?#1#{} Mult for each",
+					"{X:minty_3s,C:white}?#3#{} Mult for each",
 					"{C:attention}Cat Tag{} held",
 					"{C:inactive}(operator based on",
 					"{C:inactive}Cat Tag's level)",

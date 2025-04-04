@@ -26,7 +26,9 @@ SMODS.Joker {
     blueprint_compat = true,
     config = {
         extra = {
-            number = 3,
+            modnumber = 3,
+            mainnumber = math.sqrt(3),
+            madnumber = math.sqrt(3),
             reps = 0
         }
     },
@@ -39,7 +41,11 @@ SMODS.Joker {
         end
         return {
             key = key,
-            vars = {card.ability.extra.number}
+            vars = {
+                card.ability.extra.modnumber,
+                card.ability.extra.mainnumber,
+                card.ability.extra.madnumber,
+            }
         }
     end,
     in_pool = function()
@@ -55,8 +61,16 @@ SMODS.Joker {
         if context.joker_main and context.scoring_hand and #G.GAME.tags ~= 0 then
             --mintySay("score time", "TRACE")
             local gameset = Cryptid.gameset(self)
+            local number = 3
+            if gameset == "modest" then
+                number = card.ability.extra.modnumber
+            elseif gameset == "mainline" then
+                number = card.ability.extra.mainnumber
+            elseif gameset == "madness" then
+                number = card.ability.extra.madnumber
+            end
             local result = {}
-            local l1, l2, l3, l4, l5, lwhat = 0, 0, 0, 0, 0, 0
+            local l1, l2, l3, l4, l5, reps = 0, 0, 0, 0, 0, 0
             card.ability.extra.reps = 0
             --mintySay("card.ability.extra.reps == "..card.ability.extra.reps, "TRACE")
             --count cat tags and their level
@@ -76,14 +90,17 @@ SMODS.Joker {
                             elseif level == 8 or level == 9 then l5 = l5 + 1
                             elseif level >= 10 then
                                 l5 = l5 + 1
-                                lwhat = lwhat + (2^(level-10)) -- l5 == 2^0 == 1, l6 == 2^1 == 2, l7 == 2^2 == 4, etc
+                                reps = reps + (2^(level-10)) -- l5 == 2^0 == 1, l6 == 2^1 == 2, l7 == 2^2 == 4, etc
+                            end
+                            if level == 3 or level == 5 or level == 7 or level == 9 then
+                                reps = reps + 1
                             end
                         end
                     end
                 end
             if gameset == "modest" or gameset == "mainline" then
                 result = {
-                    xmult = card.ability.extra.number
+                    xmult = number
                 }
                 if gameset == "mainline" then
                     card.ability.extra.reps = card.ability.extra.reps - 1
@@ -93,10 +110,10 @@ SMODS.Joker {
                 local keys = {"mult", "xmult", "emult", "eemult", "eeemult"}
                 for i, level in ipairs(levels) do
                     if level ~= 0 then
-                        result[keys[i]] = card.ability.extra.number * level
+                        result[keys[i]] = number * level
                     end
                 end
-                card.ability.extra.reps = lwhat
+                card.ability.extra.reps = reps
             end
 
             return result
