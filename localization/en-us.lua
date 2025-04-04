@@ -24,6 +24,7 @@ return {
 		},
 		["labels"] = {
 			["minty_cement_seal"] = "Cement Seal",
+			["m_minty_marble"] = "Marble Card",
 			["gemslot_catseye"] = "Cat's Eye",
 			["k_minty_challenge"] = "Challenge",
 		},
@@ -826,6 +827,24 @@ return {
 					"{C:inactive,s:0.8}Meow! :3",
 				},
 			},
+			["c_minty_boredkid"] = {
+				["name"] = "The Bored Child",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#{C:attention}Marble Card#2#{}",
+				},
+			},
+			["c_minty_boredkid_flavor"] = {
+				["name"] = "The Bored Child",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#{C:attention}Marble Card#2#{}",
+					" ",
+					"{C:inactive,s:0.8}Well, what if I threw rocks at you?",
+				},
+			},
 		},
 		["Spectral"] = {
 			["c_minty_6years"] = {
@@ -995,9 +1014,18 @@ return {
 			},
 		},
 		["Enhanced"] = {
-			--[[["m_stone"] = {
+			["m_stone"] = {
 				["name"] = "Slate Card"
-			},--]]
+			},
+			["m_minty_marble"] = {
+				["name"] = "Marble Card",
+				["label"] = "Marble Card",
+				["text"] = {
+					"No rank, can be",
+					"used as any suit",
+					"{C:money}$#1#{} when scored",
+				}
+			},
 		},
 	},
 }

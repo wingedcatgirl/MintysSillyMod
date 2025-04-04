@@ -18,6 +18,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = 'mintyenhance',
+    path = "enhancements.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
     key = 'cementseal',
     path = "cementseal.png",
     px = 71,
@@ -244,6 +251,7 @@ SMODS.load_file('backs/backs.lua')()
 
 SMODS.load_file('blinds/thenip.lua')()
 
+SMODS.load_file('enhancements/marble.lua')()
 SMODS.load_file('seals/cementseal.lua')()
 
 if (SMODS.Mods["ChDp"] or {}).can_load then
