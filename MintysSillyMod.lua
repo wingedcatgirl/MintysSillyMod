@@ -1,4 +1,19 @@
-MINTY = {}
+MINTY = {
+    prefix = SMODS.current_mod.prefix,
+    getSpecKey = (SPECF and SPECF.getSpecKey) or function(hand)
+        mintySay("Using Minty's function for this")
+        local hand = hand or "Spectrum"
+        local prefix = "none"
+        if (SMODS.Mods["Bunco"] or {}).can_load then 
+            prefix = SMODS.Mods["Bunco"].prefix
+        elseif (SMODS.Mods["paperback"] or {}).can_load then
+            prefix = SMODS.Mods["paperback"].prefix
+        elseif (SMODS.Mods["SixSuits"] or {}).can_load then
+            prefix = SMODS.Mods["SixSuits"].prefix
+        end
+        if prefix == "none" then return "No spectrum mod loaded!" else return prefix.."_"..hand end
+    end
+}
 minty_config = SMODS.current_mod.config
 assert(SMODS.current_mod.lovely, "Lovely patches whiffed! Please make sure this mod's file structure is not nested.")
 SMODS.load_file('configui.lua')()
