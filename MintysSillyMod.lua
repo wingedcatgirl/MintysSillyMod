@@ -1,17 +1,25 @@
 MINTY = {
     prefix = SMODS.current_mod.prefix,
-    getSpecKey = (SPECF and SPECF.getSpecKey) or function(hand)
+    getSpecKey = (SPECF and SPECF.getSpecKey) or function(HandName)
         mintySay("Using Minty's function for this")
-        local hand = hand or "Spectrum"
-        local prefix = "none"
-        if (SMODS.Mods["Bunco"] or {}).can_load then 
-            prefix = SMODS.Mods["Bunco"].prefix
-        elseif (SMODS.Mods["paperback"] or {}).can_load then
-            prefix = SMODS.Mods["paperback"].prefix
-        elseif (SMODS.Mods["SixSuits"] or {}).can_load then
-            prefix = SMODS.Mods["SixSuits"].prefix
+        if not G.GAME then return "ERROR: Hands don't exist yet!" end
+        local HandName = HandName or "Spectrum"
+        local lowest_key = nil
+        local lowest_order = math.huge
+        local escaped_name = HandName:gsub("([^%w])", "%%%1")  -- escape magic chars
+
+        local suffix_pattern = "_" .. escaped_name .. "$"
+
+        for key, hand in pairs(G.GAME.hands) do
+            if key:match(suffix_pattern) and type(hand.order) == "number" then
+                if hand.order < lowest_order then
+                    lowest_order = hand.order
+                    lowest_key = key
+                end
+            end
         end
-        if prefix == "none" then return "No spectrum mod loaded!" else return prefix.."_"..hand end
+        
+        if lowest_key == nil then return "ERROR: No spectrum mod loaded!" else return lowest_key end
     end
 }
 minty_config = SMODS.current_mod.config

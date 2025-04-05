@@ -42,11 +42,18 @@ SMODS.Challenge({
 	}
 })
 
+local wlbuncspec = next(SMODS.find_mod('Bunco')) and {id = 'whitelist_hand', value = 'Straight Spectrum', hand = 'bunc_Straight Spectrum'} or nil
+local wlpapspec = next(SMODS.find_mod('paperback')) and {id = 'whitelist_hand', value = 'Straight Spectrum', hand = 'paperback_Straight Spectrum'} or nil
+local wlspecspec = next(SMODS.find_mod('SpectrumFramework')) and {id = 'whitelist_hand', value = 'Straight Spectrum', hand = 'spectrum_Straight Spectrum'} or nil
+local wlsixspec = next(SMODS.find_mod('SixSuits')) and {id = 'whitelist_hand', value = 'Straight Spectrum', hand = 'six_Straight Spectrum'} or nil
+local wlspec = wlbuncspec or wlpapspec or wlspecspec or wlsixspec or nil
+
 SMODS.Challenge({
 	key = "backalley",
 	rules = {
 		custom = {
 			{ id = "whitelist_hand", value = "Straight Flush", hand = "Straight Flush"},
+			wlspec,
 			{ id = "whitelist_info" },
 		},
 	},
