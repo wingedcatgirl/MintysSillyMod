@@ -1,6 +1,6 @@
 MINTY = {}
 minty_config = SMODS.current_mod.config
-assert(SMODS.current_mod.lovely, "Lovely patches whiffed! Please make sure this mod's file structure is not nested.'")
+assert(SMODS.current_mod.lovely, "Lovely patches whiffed! Please make sure this mod's file structure is not nested.")
 SMODS.load_file('configui.lua')()
 SMODS.current_mod.optional_features = {
     retrigger_joker = true,
