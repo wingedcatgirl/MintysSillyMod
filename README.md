@@ -7,6 +7,7 @@ A silly little mod that adds some silly little jokers and decks and things.
 Current features:
 - Cement
 - Injokes
+- Challenges
 - Some jokers
 - Several decks
 - Placeholder art
@@ -46,6 +47,8 @@ Planned features:
 - Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things.
 
 ## Recommended additional mods:
+If you're trying out Minty's for the first time and want minimal other mods, go with [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework). The rest of the list is for after that.
+
 ### Technical
 - [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for all challenges in Minty's Mod.
 - [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) enables five-suit poker hands, which are a fun little thing to play with.
