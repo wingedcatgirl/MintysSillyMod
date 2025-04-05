@@ -9,6 +9,7 @@ return {
 			["k_abandon_ex"] = "Vote abandon!",
 			["k_victory_ex"] = "Victory!",
 			["k_cube"] = "Hand must contain exactly 4 cards",
+			["k_psycube"] = "What have you done?!",
 			["k_minty_challenge"] = "Challenge",
 		},
 		["v_dictionary"] = {
@@ -31,6 +32,7 @@ return {
 		["challenge_names"] = {
 			["c_minty_raidnight"] = "Day One Raid Night",
 			["c_minty_raidnightsavage"] = "Day One Raid Night (Savage)",
+			["c_minty_backalley"] = "Back Alleys",
 		}
 	},
 	["descriptions"] = {

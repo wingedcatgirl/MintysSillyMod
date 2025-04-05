@@ -41,3 +41,18 @@ SMODS.Challenge({
 		{ id = "j_minty_theecho", eternal = true },
 	}
 })
+
+SMODS.Challenge({
+	key = "backalley",
+	rules = {
+		custom = {
+			{ id = "whitelist_hand", value = "Straight Flush", hand = "Straight Flush"},
+			{ id = "whitelist_info" },
+		},
+	},
+	jokers = {
+		{ id = "j_four_fingers", eternal = true, edition = "negative" },
+		{ id = "j_shortcut", eternal = true, edition = "negative" },
+		{ id = "j_smeared", eternal = true, edition = "negative" },
+	}
+})

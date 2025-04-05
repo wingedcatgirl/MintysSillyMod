@@ -38,7 +38,21 @@ SMODS.Joker {
                 Xmult_mod = card.ability.extra.Xmult
             }
         end
-    end
+    end,
+
+
+    add_to_deck = function(self, from_debuff)
+        if not next(SMODS.find_card('j_minty_cube')) then
+            G.GAME.psychicrealuse = G.GAME.bosses_used["bl_psychic"]
+            G.GAME.bosses_used["bl_psychic"] = 1e308
+        end
+    end,
+    remove_from_deck = function(self, from_debuff)
+        if not next(SMODS.find_card('j_minty_cube')) then
+            G.GAME.bosses_used["bl_psychic"] = G.GAME.psychicrealuse
+            G.GAME.psychicrealuse = nil
+        end
+    end,
 }
 
 local forbidden = false
@@ -58,6 +72,9 @@ end
 local get_loc_debuff_textref = Blind.get_loc_debuff_text
 function Blind:get_loc_debuff_text()
 	if forbidden then
+        if (G.GAME.blind.config.blind.debuff ~= {}) and (G.GAME.blind.config.blind.debuff.h_size_ge and G.GAME.blind.config.blind.debuff.h_size_ge >= 5) or (G.GAME.blind.config.blind.debuff.h_size_le and G.GAME.blind.config.blind.debuff.h_size_le <= 3) then
+		    return localize("k_psycube")
+        end
 		return localize("k_cube")
 	end
 	return get_loc_debuff_textref(self)
