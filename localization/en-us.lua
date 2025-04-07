@@ -155,7 +155,6 @@ return {
 			["c_minty_treatandmystery"] = {
 				["name"] = "Treat and Mystery",
 				["text"] = {
-					"{C:money}#1#{}",
 					"{C:green}X#2#{} {C:minty_3s}3s{}",
 					"and {C:green}a full set{} {C:inactive,s:0.8}(probably #2#){}", 
 					"of another suit",
