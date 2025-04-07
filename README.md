@@ -58,6 +58,7 @@ If you're trying out Minty's for the first time and want minimal other mods, go 
 Minty's Mod adds content for all of the following mods. Those with ⭐️ are also recommended for just, like, a basic default mod set. in my imo.
 - [Card Sleeves](https://github.com/larswijn/CardSleeves) ⭐️
 - [Cryptid](https://github.com/MathIsFun0/Cryptid)
+- [Drafting](https://github.com/spire-winder/Balatro-Draft) ⭐️
 - [Fusion Jokers](https://github.com/lshtech/Fusion-Jokers) ⭐️
 - [Gemstones](https://github.com/0fficialHalo/Gemstones)
 - [Ortalab](https://github.com/Eremel/Ortalab)
@@ -68,7 +69,6 @@ The following mod~~s~~ add content for Minty's Mod and we haven't returned the f
 
 ### Other content mods
 Minty's Mod doesn't add anything for these _yet_, but we might in future. Until then, we're just recommending them because we like them. Consider anything on this list ⭐️'d.
-- [Drafting](https://github.com/spire-winder/Balatro-Draft) lets you build your starting deck by drafting random cards
 - [KCVanilla](https://github.com/kcgidw/kcvanilla) is just a couple of Jokers but I like them a lot. and it was the first mod I found that organized its files so I'm giving it a shoutout for that reason (I figured out how to organize my files by looking at its code)
 - [Rift-Raft](https://github.com/vitellaryjr/RiftRaft) lets you send cards to the Void and then later you can get them back as negative from Void Packs, it's fun
 
