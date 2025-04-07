@@ -27,6 +27,20 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = 'mintypacket',
+    path = "packets.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = 'mintyparcel',
+    path = "parcels.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
     key = 'mintyjokerblank',
     path = "blank.png",
     px = 71,

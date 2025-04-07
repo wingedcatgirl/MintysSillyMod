@@ -26,6 +26,9 @@ SMODS.Joker {
 		info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
 		return {
             key = key,
+            vars = {
+                localize{type = 'name_text', set = 'Enhanced', key = "m_stone"}
+            }
         }
 	end,
     calculate = function(self, card, context)

@@ -165,12 +165,16 @@ if (SMODS.Mods["Cryptid"] or {}).can_load then
     SMODS.load_file('jokers/catpicmachine.lua')()
 end
 
+SMODS.load_file('consumables/tarots.lua')()
+SMODS.load_file('consumables/spectrals.lua')()
+
 if (SMODS.Mods["Gemstone"] or {}).can_load then
     SMODS.load_file('consumables/gemstones.lua')()
 end
 
-SMODS.load_file('consumables/tarots.lua')()
-SMODS.load_file('consumables/spectrals.lua')()
+if (SMODS.Mods["draft"] or {}).can_load then
+    SMODS.load_file('consumables/drafts.lua')()
+end
 SMODS.load_file('backs/backs.lua')()
 
 SMODS.load_file('blinds/thenip.lua')()

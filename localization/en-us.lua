@@ -134,6 +134,62 @@ return {
 				},
 			},
 		},
+		["Packet"] = {
+			["c_minty_littletreat"] = {
+				["name"] = "A Little Treat",
+				["text"] = {
+					"{C:money}#1#{}",
+					"{C:green}X#2#{} random {C:minty_3s}3s{}",
+					"{C:inactive,s:0.8}(the suit)",
+				}
+			},
+			["c_minty_smoltreat"] = {
+				["name"] = "Illegally Smol Treat",
+				["text"] = {
+					"{C:money}#1#{}",
+					"A single 3 of {C:minty_3s}3s{}",
+				}
+			},
+		},
+		["Parcel"] = {
+			["c_minty_treatandmystery"] = {
+				["name"] = "Treat and Mystery",
+				["text"] = {
+					"{C:money}#1#{}",
+					"{C:green}X#2#{} {C:minty_3s}3s{}",
+					"and {C:green}a full set{} {C:inactive,s:0.8}(probably #2#){}", 
+					"of another suit",
+				}
+			},
+			["c_minty_lessthanthree"] = {
+				["name"] = "<3",
+				["text"] = {
+					"{C:green}X#2#{} {C:minty_3s}3s{}",
+					"and {C:green}X#3#{} {C:hearts}Hearts{}",
+				}
+			},
+			["c_minty_forbiddencandy"] = {
+				["name"] = "Forbidden Candy",
+				["text"] = {
+					"{C:green}X#2#{} {C:minty_3s}3s{}",
+					"and {C:green}X#3#{} {C:diamonds}Diamonds{}",
+				}
+			},
+			["c_minty_exclusivetreats"] = {
+				["name"] = "Exclusive Treats",
+				["text"] = {
+					"{C:green}X#2#{} {C:minty_3s}3s{}",
+					"and {C:green}X#3#{} {C:clubs}Clubs{}",
+				}
+			},
+			["c_minty_diggingfortreats"] = {
+				["name"] = "Digging for Treats",
+				["text"] = {
+					"{C:green}X#2#{} {C:minty_3s}3s{}",
+					"and {C:green}X#3#{} {C:spades}Spades{}",
+				}
+			},
+		},
 		["Gemstone"] = {
 			["c_minty_catseye"] = {
 				["name"] = "Cat's Eye",
@@ -441,7 +497,7 @@ return {
 			["j_minty_chisel"] = {
 				["name"] = "Chisel",
 				["text"] = {
-					"Scored {C:attention}Stone{} cards lose",
+					"Scored {C:attention}#1#s{} lose",
 					"their enhancement and",
 					"gain a {C:cement}Cement Seal{}",
 				},
@@ -449,7 +505,7 @@ return {
 			["j_minty_chisel_flavor"] = {
 				["name"] = "Chisel",
 				["text"] = {
-					"Scored {C:attention}Stone{} cards lose",
+					"Scored {C:attention}#1#s{} lose",
 					"their enhancement and",
 					"gain a {C:cement}Cement Seal{}",
 					" ",
@@ -463,14 +519,14 @@ return {
 				["name"] = "Bucket of Cement",
 				["text"] = {
 					"All scored cards",
-					"become {C:attention}Stone{} cards"
+					"become {C:attention}#1#s{}"
 				},
 			},
 			["j_minty_bucket_flavor"] = {
 				["name"] = "Bucket of Cement",
 				["text"] = {
 					"All scored cards",
-					"become {C:attention}Stone{} cards",
+					"become {C:attention}#1#s{}",
 					" ",
 					"{C:inactive,s:0.8}Happy 6th birthday!",
 				},

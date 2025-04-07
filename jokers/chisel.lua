@@ -31,6 +31,9 @@ SMODS.Joker {
 		info_queue[#info_queue + 1] = { set = "Other", key = "minty_cement_seal", specific_vars = { self.config.seal.extra.chips } }
 		return {
             key = key,
+            vars = {
+                localize{type = 'name_text', set = 'Enhanced', key = "m_stone"}
+            }
         }
 	end,
     calculate = function(self, card, context)

@@ -73,7 +73,8 @@ SMODS.Consumable{ -- The Bored Child
 
     config = {max_highlighted = 1, enh_conv = 'm_minty_marble'},
 
-    loc_vars = function(self)
+    loc_vars = function(self, info_queue)
+		info_queue[#info_queue + 1] = G.P_CENTERS.m_minty_marble
 		local key = self.key
         local plural = false
         if self.config.max_highlighted ~= 1 then plural = true end
