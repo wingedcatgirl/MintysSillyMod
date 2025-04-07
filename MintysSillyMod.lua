@@ -172,7 +172,7 @@ if (SMODS.Mods["Gemstone"] or {}).can_load then
     SMODS.load_file('consumables/gemstones.lua')()
 end
 
-if (SMODS.Mods["draft"] or {}).can_load then
+if (SMODS.Mods["draft"] or {}).can_load and (SMODS.Mods["draft"] or {}).version == "0.5.2.1" then --Temporary version lock until PR is merged
     SMODS.load_file('consumables/drafts.lua')()
 end
 SMODS.load_file('backs/backs.lua')()
