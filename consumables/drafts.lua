@@ -68,6 +68,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
+        enable_exotics()
         G.FUNCS.parcel_effect(card, {
             base_amount=card.ability.extra.parcel_amount,
             suits={SMODS.Suits["minty_3s"]}
@@ -119,6 +120,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
+        enable_exotics()
         G.FUNCS.parcel_effect(card, {
             base_amount=card.ability.extra.parcel_amount,
             suits={SMODS.Suits["minty_3s"]}
@@ -169,6 +171,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
+        enable_exotics()
         G.FUNCS.parcel_effect(card, {
             base_amount=card.ability.extra.parcel_amount,
             suits={SMODS.Suits["minty_3s"]}
@@ -219,6 +222,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
+        enable_exotics()
         G.FUNCS.parcel_effect(card, {
             base_amount=card.ability.extra.parcel_amount,
             suits={SMODS.Suits["minty_3s"]}
@@ -269,6 +273,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
+        enable_exotics()
         G.FUNCS.parcel_effect(card, {
             base_amount=card.ability.extra.parcel_amount,
             suits={SMODS.Suits["minty_3s"]}
