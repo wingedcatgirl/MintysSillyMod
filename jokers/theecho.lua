@@ -61,13 +61,13 @@ SMODS.Joker {
 					return true
 				end,
 			}))
-            local message = localize("k_forward_ex")
+            local message = "k_forward_ex"
             if card.ability.extra.charges == 0 then
-                message = localize("k_abandon_ex")
+                message = "k_abandon_ex"
             end
 			return {
-				message = message,
-				saved = true,
+				message = localize("k_wiped_ex"),
+				saved = message,
 				colour = G.C.RED,
 			}
 		end
