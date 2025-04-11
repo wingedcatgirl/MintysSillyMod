@@ -63,3 +63,25 @@ SMODS.Challenge({
 		{ id = "j_smeared", eternal = true, edition = "negative" },
 	}
 })
+
+local blbuncspec = next(SMODS.find_mod('Bunco')) and { id = "disable_hand_containing", value = "Spectrum", hand = "bunc_Spectrum" } or nil
+local blpapspec = next(SMODS.find_mod('paperback')) and { id = "disable_hand_containing", value = "Spectrum", hand = "paperback_Spectrum" } or nil
+local blspecspec = next(SMODS.find_mod('SpectrumFramework')) and { id = "disable_hand_containing", value = "Spectrum", hand = "spectrum_Spectrum" } or nil
+local blsixspec = next(SMODS.find_mod('SixSuits')) and { id = "disable_hand_containing", value = "Spectrum", hand = "six_Spectrum" } or nil
+local blspec = blbuncspec or blpapspec or blspecspec or blsixspec or nil
+
+SMODS.Challenge({
+	key = "evilbackalley",
+	rules = {
+		custom = {
+			{ id = "disable_hand_containing", value = "Straight", hand = "Straight" },
+			{ id = "disable_hand_containing", value = "Flush", hand = "Flush" },
+			blspec
+		},
+	},
+	jokers = {
+		{ id = "j_four_fingers", eternal = true, edition = "negative" },
+		{ id = "j_shortcut", eternal = true, edition = "negative" },
+		{ id = "j_smeared", eternal = true, edition = "negative" },
+	}
+})

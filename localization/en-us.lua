@@ -5,8 +5,9 @@ return {
 			["k_nommed_ex"] = "Nom!",
 			["k_stopped_ex"] = "Stopped!",
 			["k_storm_ex"] = "Storm!",
+			["k_wiped_ex"] = "Wiped!",
 			["k_forward_ex"] = "Forward!",
-			["k_abandon_ex"] = "Vote abandon!",
+			["k_abandon_ex"] = "Voting to abandon...",
 			["k_victory_ex"] = "Victory!",
 			["k_cube"] = "Hand must contain exactly 4 cards",
 			["k_psycube"] = "What have you done?!",
@@ -33,6 +34,7 @@ return {
 			["c_minty_raidnight"] = "Day One Raid Night",
 			["c_minty_raidnightsavage"] = "Day One Raid Night (Savage)",
 			["c_minty_backalley"] = "Back Alleys",
+			["c_minty_evilbackalley"] = "Deadly Back Alleys",
 		}
 	},
 	["descriptions"] = {
@@ -844,6 +846,26 @@ return {
 					"{C:inactive,s:0.8}This is definitely fine.",
 				},
 			},
+			["j_minty_scoundrel"] = {
+				["name"] = "The Scoundrel",
+				["text"] = {
+					"Whenever a {C:attention}#1#{}",
+					"hits, retrigger it for every",
+					"natural lucky hit this run",
+					"{C:inactive}(Maximum of 7)",
+				},
+			},
+			["j_minty_scoundrel_flavor"] = {
+				["name"] = "The Scoundrel",
+				["text"] = {
+					"Whenever a {C:attention}#1#{}",
+					"hits, retrigger it for every",
+					"natural lucky hit this run",
+					"{C:inactive}(Maximum of 7)",
+					" ",
+					"{C:inactive,s:0.8}*bites you cutely* ;3"
+				},
+			},
 			["j_minty_catnipfields"] = {
 				["name"] = "Catnip Fields",
 				["text"] = {
@@ -1080,7 +1102,8 @@ return {
 				["text"] = {
 					"No rank, can be",
 					"used as any suit",
-					"{C:money}$#1#{} when scored",
+					"{C:money}$#1#{}, {C:chips}+#2#{} Chips, and",
+					"{C:mult}+#3#{} Mult when scored"
 				}
 			},
 		},

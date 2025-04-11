@@ -29,7 +29,9 @@ SMODS.Joker {
         end
         return {
             key = key,
-            vars = {card.ability.extra.mult}
+            vars = {
+                card.ability.extra.mult
+            }
         }
     end,
     calculate = function(self, card, context)
