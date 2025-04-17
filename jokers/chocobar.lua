@@ -28,7 +28,7 @@ SMODS.Joker {
         local key = self.key
         if minty_config.flavor_text then
             key = self.key.."_flavor"
-            if (pseudorandom("choccy") > 0.8) then
+            if (pseudorandom("choccy") > 0.95) then
                 key = key.."2"
             end
         end
@@ -113,7 +113,7 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text and (pseudorandom("wrapper") > 0.8) then
+        if minty_config.flavor_text and (pseudorandom("wrapper") > 0.95) then
             key = self.key.."_flavor"
         end
         return {
