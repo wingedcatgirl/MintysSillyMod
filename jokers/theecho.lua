@@ -15,6 +15,9 @@ SMODS.Joker {
     unlocked = true,
     discovered = false,
     no_collection = true,
+    no_doe = true,    --
+    no_aeq = true,    -- Disable Cryptid features
+    immutable = true, --
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = false,
