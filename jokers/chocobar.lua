@@ -88,7 +88,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "wrapper",
     name = "Crumpled Wrapper",
-    atlas = 'mintyplaceholder',
+    atlas = 'mintyjokerdoodles',
     pos = {
         x = 0,
         y = 0
@@ -99,6 +99,9 @@ SMODS.Joker {
     },
     rarity = 1,
     cost = 1,
+    in_pool = function ()
+        return false
+    end,
     unlocked = true,
     discovered = false,
     eternal_compat = true,
