@@ -6,6 +6,20 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = 'mintyjokerdoodles',
+    path = "jokerdoodles.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = 'mintyscoundrel',
+    path = "scoundrel.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
     key = 'mintyenhance',
     path = "enhancements.png",
     px = 71,
@@ -57,20 +71,6 @@ SMODS.Atlas {
 SMODS.Atlas {
     key = 'mintyortalabplaceholder',
     path = "ortalab placeholders.png",
-    px = 71,
-    py = 95
-}
-
-SMODS.Atlas {
-    key = 'mintyjokerdoodles',
-    path = "jokerdoodles.png",
-    px = 71,
-    py = 95
-}
-
-SMODS.Atlas {
-    key = 'mintyscoundrel',
-    path = "scoundrel.png",
     px = 71,
     py = 95
 }

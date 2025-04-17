@@ -610,6 +610,47 @@ return {
 					"{C:inactive,s:0.8}(But it's so much cheaper!)",
 				},
 			},
+			["j_minty_chocobar"] = {
+				["name"] = "Choccy Bar",
+				["text"] = {
+					"{C:mult}+#1#{} Mult per card",
+					"played, loses {C:mult}-#2#{} each trigger"
+				},
+			},
+			["j_minty_chocobar_flavor"] = {
+				["name"] = "Choccy Bar",
+				["text"] = {
+					"{C:mult}+#1#{} Mult per card",
+					"played, loses {C:mult}-#2#{} each trigger",
+					" ",
+					"{C:inactive,s:0.8}Because your epic!"
+				},
+			},
+			["j_minty_chocobar_flavor2"] = {
+				["name"] = "Choccy Bar",
+				["text"] = {
+					"{C:mult}+#1#{} Mult per card",
+					"played, loses {C:mult}-#2#{} each trigger",
+					" ",
+					"{C:inactive,s:0.8}Because your epic!",
+					"{C:inactive,s:0.8}MISSPELLING INTENTIONAL",
+					"{C:inactive,s:0.8}PLS DON'T FILE A TYPO REPORT KTHX",
+				},
+			},
+			["j_minty_wrapper"] = {
+				["name"] = "Crumpled Wrapper",
+				["text"] = {
+					"{C:inactive}(...){}"
+				},
+			},
+			["j_minty_wrapper_flavor"] = {
+				["name"] = "Crumpled Wrapper",
+				["text"] = {
+					"{C:inactive}(...){}",
+					" ",
+					"{C:inactive,s:0.8}(... why are you still carrying this?)"
+				},
+			},
 			["j_minty_hedonist"] = {
 				["name"] = "Hedonist Joker",
 				["text"] = {
