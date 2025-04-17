@@ -850,8 +850,8 @@ return {
 				["name"] = "The Scoundrel",
 				["text"] = {
 					"Whenever a {C:attention}#1#{}",
-					"hits, retrigger it for every",
-					"natural lucky hit this run",
+					"hits, retrigger it {C:attention}#2#{} time#3#",
+					"and gain {C:attention}1{} retrigger",
 					"{C:inactive}(Maximum of 7)",
 				},
 			},
@@ -859,8 +859,8 @@ return {
 				["name"] = "The Scoundrel",
 				["text"] = {
 					"Whenever a {C:attention}#1#{}",
-					"hits, retrigger it for every",
-					"natural lucky hit this run",
+					"hits, retrigger it {C:attention}#2#{} time#3#",
+					"and gain {C:attention}1{} retrigger",
 					"{C:inactive}(Maximum of 7)",
 					" ",
 					"{C:inactive,s:0.8}*bites you cutely* ;3"

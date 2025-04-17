@@ -30,13 +30,17 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
+        local plural = "s"
+        if card.ability.extra.count == 1 then plural = "" end
         if minty_config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
             key = key,
             vars = {
-                localize{type = 'name_text', set = 'Enhanced', key = "m_lucky"}
+                localize{type = 'name_text', set = 'Enhanced', key = "m_lucky"},
+                card.ability.extra.count,
+                plural
             }
         }
     end,
