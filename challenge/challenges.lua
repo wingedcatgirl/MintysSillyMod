@@ -20,12 +20,15 @@ SMODS.Challenge({
 		},
 	},
 	jokers = {
-		{ id = "j_minty_theecho", eternal = true, edition = "negative" },
+		{ id = "j_minty_theecho", eternal = true, singular = true, edition = "negative" },
 	},
 	consumeables = {
 		{ id = "c_devil" },
 		{ id = "c_devil" },
-	}
+	},
+	unlocked = function()
+		return true
+	end
 })
 
 SMODS.Challenge({
@@ -38,8 +41,11 @@ SMODS.Challenge({
 		},
 	},
 	jokers = {
-		{ id = "j_minty_theecho", eternal = true },
-	}
+		{ id = "j_minty_theecho", eternal = true, singular = true },
+	},
+	unlocked = function()
+		return true
+	end
 })
 
 local wlbuncspec = next(SMODS.find_mod('Bunco')) and {id = 'whitelist_hand', value = 'Straight Spectrum', hand = 'bunc_Straight Spectrum'} or nil
@@ -61,7 +67,10 @@ SMODS.Challenge({
 		{ id = "j_four_fingers", eternal = true, edition = "negative" },
 		{ id = "j_shortcut", eternal = true, edition = "negative" },
 		{ id = "j_smeared", eternal = true, edition = "negative" },
-	}
+	},
+	unlocked = function()
+		return true
+	end
 })
 
 local blbuncspec = next(SMODS.find_mod('Bunco')) and { id = "disable_hand_containing", value = "Spectrum", hand = "bunc_Spectrum" } or nil
@@ -83,5 +92,8 @@ SMODS.Challenge({
 		{ id = "j_four_fingers", eternal = true, edition = "negative" },
 		{ id = "j_shortcut", eternal = true, edition = "negative" },
 		{ id = "j_smeared", eternal = true, edition = "negative" },
-	}
+	},
+	unlocked = function()
+		return true
+	end
 })
