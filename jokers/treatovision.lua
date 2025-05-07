@@ -16,7 +16,7 @@ SMODS.Joker {
     config = {extra = {}},
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
@@ -38,25 +38,10 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.end_of_round and not context.blueprint and not context.repetition and not context.individual then
-            reset_treat_card()
-        end        
-    end
-}
-
-function reset_treat_card()
-    G.GAME.treatovision_suit = 'Spades'
-    local valid_treat_cards = {}
-    for k, v in ipairs(G.playing_cards) do
-        if v.ability.effect ~= 'Stone Card' and v.base.suit ~= 'minty_3s' then
-            valid_treat_cards[#valid_treat_cards+1] = v
+            MINTY.reset_treat_card()
         end
     end
-    if valid_treat_cards[1] then 
-        local treat_card = pseudorandom_element(valid_treat_cards, pseudoseed('treat'..G.GAME.round_resets.ante))
-        G.GAME.treatovision_suit = treat_card.base.suit
-    end
-    --sendDebugMessage('[Minty] Treat-o-vision suit reset to '..G.GAME.treatovision_suit)
-end
+}
 
 local issuitref = Card.is_suit
 function Card:is_suit(suit, bypass_debuff, flush_calc)

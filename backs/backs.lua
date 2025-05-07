@@ -39,7 +39,7 @@ SMODS.Back({
     config = {start_with_3s = true},
 
     apply = function()
-        enable_exotics()
+        MINTY.enable_threeSuit()
         G.GAME.starting_params.easy_spectra = true
     end,
 })
@@ -83,7 +83,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
             return { key = key, vars = vars }
         end,
         apply = function(self)
-            if not exotic_in_pool() then enable_exotics() end
+            if not MINTY.threeSuit_in_pool() then MINTY.enable_threeSuit() end
             G.GAME.starting_params.start_with_3s = true
             --changing game starting params directly is inelegant but idk how to get sleeve config oopsie
             G.GAME.starting_params.easy_spectra = true

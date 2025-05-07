@@ -33,7 +33,7 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
@@ -77,7 +77,7 @@ SMODS.Joker {
                         "chips", "xchips", "mult", "xmult", "cash", "hchips", "hxchips", "hmult", "hxmult", "hcash",
                     })
                 end
-                --mintySay("Gain is "..gain)
+                --MINTY.say("Gain is "..gain)
                 for i = 1, #context.scoring_hand do
                     local juice = true
                     if context.scoring_hand[i].ability.name ~= buff then

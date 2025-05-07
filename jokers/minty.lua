@@ -32,7 +32,7 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         local plural = ""
@@ -48,6 +48,12 @@ SMODS.Joker {
                 plural
             }
         }
+    end,
+    in_pool = function(self, args)
+        if G.GAME.starting_params.start_with_3s then
+            return true
+        end
+        return MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)
         if context.cardarea == G.play and not context.blueprint and context.individual and context.other_card:is_3() and not (context.retrigger_joker or context.retrigger_joker_check) then

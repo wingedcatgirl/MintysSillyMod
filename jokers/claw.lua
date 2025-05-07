@@ -21,7 +21,7 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
@@ -34,6 +34,12 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    in_pool = function(self, args)
+        if G.GAME.starting_params.start_with_3s then
+            return true
+        end
+        return MINTY.threeSuit_in_pool()
+    end,
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.individual and context.other_card:is_3() then
             local trycount = context.other_card:is_3()

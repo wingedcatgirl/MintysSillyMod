@@ -10,7 +10,7 @@ SMODS.Joker {
         x = 4,
         y = 3
     },
-    rarity = 1,
+    rarity = 1, -- Wanted to make this increase in rarity when eaten but the game seems to crash if rarity is a function
     cost = 4,
     unlocked = true,
     discovered = false,
@@ -18,6 +18,10 @@ SMODS.Joker {
     perishable_compat = true,
     blueprint_compat = true,
     pools = {["Food"] = true},
+    in_pool = function()
+        if not (G.GAME and G.GAME.choccy_bars_eaten) then return true end
+        if pseudorandom("choccychance") < (G.GAME.probabilities.normal/(G.GAME.choccy_bars_eaten+1)) then return true else return false end
+    end,
     config = {
         extra = {
             mult = 10,
@@ -26,9 +30,9 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
-            if (pseudorandom("choccy") > 0.95) then
+            if (pseudorandom("choccyflavor") > 0.95) then
                 key = key.."2"
             end
         end
@@ -39,6 +43,11 @@ SMODS.Joker {
                 card.ability.extra.drop,
             }
         }
+    end,
+    set_ability = function(self, card, initial, delay_sprites)
+        local boost = G.GAME and G.GAME.choccy_bars_eaten or 0
+        card.ability.extra.mult = card.ability.extra.mult + boost*5
+        card.ability.extra.drop = card.ability.extra.drop + boost
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and card.ability.extra.mult > 0 then
@@ -67,6 +76,7 @@ SMODS.Joker {
         if context.after and card.ability.extra.mult <= 0 then
             G.E_MANAGER:add_event(Event({ -- eat choccy bar
                 func = function()
+                    G.GAME.choccy_bars_eaten = (G.GAME.choccy_bars_eaten or 0) + 1
                     play_sound("tarot1")
                     card:start_dissolve()
                     SMODS.add_card { -- create wrapper
@@ -113,7 +123,7 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text and (pseudorandom("wrapper") > 0.95) then
+        if MINTY.config.flavor_text and (pseudorandom("wrapperflavor") > 0.95) then
             key = self.key.."_flavor"
         end
         return {
@@ -123,7 +133,6 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        -- Unclear what this should do tbh
+        -- Feels like this should have a cool easter egg function but haven't come up with one yet
     end
 }
--- See localization/en-us.lua to create joker text

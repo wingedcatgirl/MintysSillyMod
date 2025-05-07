@@ -25,21 +25,21 @@ SMODS.Joker {
     config = {extra = {temp = 0}},
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
             key = key,
         }
     end,
-    add_to_deck = function(self, from_debuff)
+    add_to_deck = function(self, card, from_debuff)
         self.added_to_deck = true
 		for k, v in pairs(G.GAME.probabilities) do 
             self.config.extra.temp = v
 			G.GAME.probabilities[k] = v/33
 		end
     end,
-    remove_from_deck = function(self, from_debuff)
+    remove_from_deck = function(self, card, from_debuff)
         self.added_to_deck = false
 		for k, v in pairs(G.GAME.probabilities) do 
 			G.GAME.probabilities[k] = self.config.extra.temp

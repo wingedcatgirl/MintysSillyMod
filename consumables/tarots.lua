@@ -14,7 +14,7 @@ SMODS.Consumable{ -- The Cat
 
     loc_vars = function(self)
 		local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
@@ -24,7 +24,7 @@ SMODS.Consumable{ -- The Cat
     end,
 
     use = function(self)
-        if not exotic_in_pool() then enable_exotics() end
+        if not MINTY.threeSuit_in_pool() then MINTY.enable_threeSuit() end
 
         local function event(config)
             local e = Event(config)
@@ -56,7 +56,9 @@ SMODS.Consumable{ -- The Cat
         delay(0.5)
     end,
 
-    in_pool = true
+    in_pool = function()
+        return MINTY.threeSuit_in_pool(true)
+    end
 }
 
 SMODS.Consumable{ -- The Bored Child
@@ -80,7 +82,7 @@ SMODS.Consumable{ -- The Bored Child
         if self.config.max_highlighted ~= 1 then plural = true end
         local s = plural and "s" or ""
         local a = plural and "" or "a "
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
@@ -124,7 +126,9 @@ SMODS.Consumable{ -- The Bored Child
         delay(0.5)
     end,
 
-    in_pool = true
+    in_pool = function ()
+        return true
+    end
 }
 
 --[[SMODS.Consumable{ -- The Geologist
@@ -150,7 +154,7 @@ SMODS.Consumable{ -- The Bored Child
         if self.config.max_highlighted ~= 1 then plural = true end
         local s = plural and "s" or ""
         local a = plural and "" or "a "
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {

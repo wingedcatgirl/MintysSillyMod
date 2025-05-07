@@ -28,7 +28,7 @@ SMODS.Joker {
         local key = self.key
         local plural = "s"
         if card.ability.extra.count == 1 then plural = "" end
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
@@ -45,13 +45,13 @@ SMODS.Joker {
             card.ability.extra.luckycards[#card.ability.extra.luckycards+1] = context.other_card.unique_val
             MINTY.luckyCount(1)
             card.ability.extra.count = math.min(7, G.GAME.total_lucky_count)
-            --mintySay("Lucky hit: "..context.other_card.unique_val)
+            --MINTY.say("Lucky hit: "..context.other_card.unique_val)
         end
         if context.cardarea == G.play and context.repetition and card.ability.extra.count ~= 0 and context.other_card then
             local luckycard = false
-            --mintySay("Current card: "..context.other_card.unique_val)
+            --MINTY.say("Current card: "..context.other_card.unique_val)
             for k,v in pairs(card.ability.extra.luckycards) do
-                --mintySay("Previous hit: "..v)
+                --MINTY.say("Previous hit: "..v)
                 if context.other_card.unique_val == v then
                     card.ability.extra.luckycards[k] = nil
                     luckycard = true

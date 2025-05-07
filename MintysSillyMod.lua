@@ -1,8 +1,8 @@
 MINTY = {
     prefix = SMODS.current_mod.prefix,
-    config = SMODS.current_mod.config -- will update stuff later
+    config = SMODS.current_mod.config,
 }
-minty_config = SMODS.current_mod.config
+minty_config = SMODS.current_mod.config --Fallback in case anything is still using the old variable name
 assert(SMODS.current_mod.lovely, "Lovely patches whiffed! Please make sure this mod's file structure is not nested.")
 SMODS.load_file('configui.lua')()
 SMODS.current_mod.optional_features = {
@@ -22,6 +22,12 @@ SMODS.ObjectType({ --Kity pool (Legendary and otherwise)
     inject = function(self)
         SMODS.ObjectType.inject(self)
 		self:inject_card(G.P_CENTERS.j_lucky_cat)
+        if (SMODS.Mods["ortalab"] or {}).can_load then --I feel like this method will break if the other mod has higher priority <.< but I don't see many mods with positive priority anyway so maybe this won't come up. And if it ever does we can do a PR instead
+            self:inject_card(G.P_CENTERS.j_ortalab_black_cat)
+        end
+        if (SMODS.Mods["Neato_Jokers"] or {}).can_load then
+            self:inject_card(G.P_CENTERS.j_neat_tabbycat)
+        end
     end
 })
 
@@ -40,6 +46,7 @@ SMODS.load_file('jokers/excited.lua')()
 SMODS.load_file('jokers/chisel.lua')()
 SMODS.load_file('jokers/bucket.lua')()
 SMODS.load_file('jokers/chocobar.lua')()
+SMODS.load_file('jokers/atheismcorner.lua')()
 SMODS.load_file('jokers/treatovision.lua')()
 SMODS.load_file('jokers/wildsupport.lua')()
 SMODS.load_file('jokers/gymbuddy.lua')()
@@ -54,7 +61,7 @@ SMODS.load_file('jokers/garfielf.lua')()
 
 SMODS.load_file('jokers/vanillatweaks.lua')()
 
-if (SMODS.Mods["ortalab"] or {}).can_load or minty_config.include_crossover then
+if (SMODS.Mods["ortalab"] or {}).can_load or MINTY.config.include_crossover then
     SMODS.load_file('jokers/ascetic.lua')()
     SMODS.load_file('jokers/sabertooth.lua')()
 
@@ -68,13 +75,14 @@ end
 
 if (SMODS.Mods["FusionJokers"] or {}).can_load then
     SMODS.load_file('jokers/threecats.lua')()
+    SMODS.load_file('jokers/parkour.lua')()
 end
 
 if (SMODS.Mods["paperback"] or {}).can_load then
     SMODS.load_file('jokers/churu.lua')()
 end
 
-if (SMODS.Mods["paperback"] or {}).can_load or minty_config.include_crossover then
+if (SMODS.Mods["paperback"] or {}).can_load or MINTY.config.include_crossover then
     SMODS.load_file('jokers/catnipfields.lua')()
 end
 
@@ -87,6 +95,10 @@ SMODS.load_file('consumables/spectrals.lua')()
 
 if (SMODS.Mods["Gemstone"] or {}).can_load then
     SMODS.load_file('consumables/gemstones.lua')()
+end
+
+if (SMODS.Mods["MoreFluff"] or {}).can_load then
+    SMODS.load_file('consumables/colors.lua')()
 end
 
 if (SMODS.Mods["draft"] or {}).can_load and (SMODS.Mods["draft"] or {}).version == "0.5.2.1" then --Temporary version lock until PR is merged

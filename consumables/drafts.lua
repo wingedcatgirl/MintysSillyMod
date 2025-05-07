@@ -14,11 +14,11 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        enable_exotics()
+        MINTY.enable_threeSuit()
         G.FUNCS.packet_effect(card, {suits={SMODS.Suits["minty_3s"]}})
     end,
     set_badges = function(self, card, badges)
-        badges[#badges+1] = create_badge("Minty's Mod", HEX('CA7CA7'), G.C.WHITE, 1 )
+        badges[#badges+1] = create_badge("Drafting", HEX('d7ba89'), G.C.WHITE, 1 )
     end,
 }
 
@@ -38,11 +38,11 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        enable_exotics()
+        MINTY.enable_threeSuit()
         G.FUNCS.packet_effect(card, {ranks={SMODS.Ranks["3"]}, suits={SMODS.Suits["minty_3s"]}})
     end,
     set_badges = function(self, card, badges)
-        badges[#badges+1] = create_badge("Minty's Mod", HEX('CA7CA7'), G.C.WHITE, 1 )
+        badges[#badges+1] = create_badge("Drafting", HEX('d7ba89'), G.C.WHITE, 1 )
     end,
 }
 
@@ -68,7 +68,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        enable_exotics()
+        MINTY.enable_threeSuit()
         G.FUNCS.parcel_effect(card, {
             base_amount=card.ability.extra.parcel_amount,
             suits={SMODS.Suits["minty_3s"]}
@@ -79,6 +79,9 @@ SMODS.Consumable {
             base_amount=card.ability.extra.parcel_amount,
             suits={othersuit}
         })
+    end,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge("Drafting", HEX('d7ba89'), G.C.WHITE, 1 )
     end,
 }
 
@@ -120,7 +123,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        enable_exotics()
+        MINTY.enable_threeSuit()
         G.FUNCS.parcel_effect(card, {
             base_amount=card.ability.extra.parcel_amount,
             suits={SMODS.Suits["minty_3s"]}
@@ -129,6 +132,9 @@ SMODS.Consumable {
             base_amount=card.ability.extra.parcel_amount,
             suits={SMODS.Suits[card.ability.extra.other_suit]}
         })
+    end,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge("Drafting", HEX('d7ba89'), G.C.WHITE, 1 )
     end,
 }
 
@@ -171,7 +177,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        enable_exotics()
+        MINTY.enable_threeSuit()
         G.FUNCS.parcel_effect(card, {
             base_amount=card.ability.extra.parcel_amount,
             suits={SMODS.Suits["minty_3s"]}
@@ -180,6 +186,9 @@ SMODS.Consumable {
             base_amount=card.ability.extra.parcel_amount,
             suits={SMODS.Suits[card.ability.extra.other_suit]}
         })
+    end,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge("Drafting", HEX('d7ba89'), G.C.WHITE, 1 )
     end,
 }
 
@@ -222,7 +231,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        enable_exotics()
+        MINTY.enable_threeSuit()
         G.FUNCS.parcel_effect(card, {
             base_amount=card.ability.extra.parcel_amount,
             suits={SMODS.Suits["minty_3s"]}
@@ -231,6 +240,9 @@ SMODS.Consumable {
             base_amount=card.ability.extra.parcel_amount,
             suits={SMODS.Suits[card.ability.extra.other_suit]}
         })
+    end,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge("Drafting", HEX('d7ba89'), G.C.WHITE, 1 )
     end,
 }
 
@@ -273,7 +285,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        enable_exotics()
+        MINTY.enable_threeSuit()
         G.FUNCS.parcel_effect(card, {
             base_amount=card.ability.extra.parcel_amount,
             suits={SMODS.Suits["minty_3s"]}
@@ -282,5 +294,8 @@ SMODS.Consumable {
             base_amount=card.ability.extra.parcel_amount,
             suits={SMODS.Suits[card.ability.extra.other_suit]}
         })
+    end,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge("Drafting", HEX('d7ba89'), G.C.WHITE, 1 )
     end,
 }

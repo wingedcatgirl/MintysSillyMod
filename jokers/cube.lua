@@ -17,7 +17,7 @@ SMODS.Joker {
     config = {extra = {Xmult = 4}},
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
@@ -41,14 +41,24 @@ SMODS.Joker {
     end,
 
 
-    add_to_deck = function(self, from_debuff)
+    add_to_deck = function(self, card, from_debuff)
+        --TODO check whether Cube is eternal and only activate then 
         if not next(SMODS.find_card('j_minty_cube')) then
+            --Tuskallisetkäsiraudat (Jen's) TBA, getting keys is a pain cause Jen doesn't use GitHub
+            if (SMODS.Mods["aikoyorisshenanigans"] or {}).can_load then
+                G.GAME.thoughtrealuse = G.GAME.bosses_used["bl_akyrs_the_thought"]
+                G.GAME.bosses_used["bl_akyrs_the_thought"] = 1e308
+            end
             G.GAME.psychicrealuse = G.GAME.bosses_used["bl_psychic"]
             G.GAME.bosses_used["bl_psychic"] = 1e308
         end
     end,
-    remove_from_deck = function(self, from_debuff)
+    remove_from_deck = function(self, card, from_debuff)
         if not next(SMODS.find_card('j_minty_cube')) then
+            if (SMODS.Mods["aikoyorisshenanigans"] or {}).can_load then
+                G.GAME.bosses_used["bl_akyrs_the_thought"] = G.GAME.thoughtrealuse
+                G.GAME.thoughtrealuse = nil
+            end
             G.GAME.bosses_used["bl_psychic"] = G.GAME.psychicrealuse
             G.GAME.psychicrealuse = nil
         end

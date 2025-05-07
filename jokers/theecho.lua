@@ -29,7 +29,7 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
@@ -38,6 +38,48 @@ SMODS.Joker {
                 card.ability.extra.charges,
             }
         }
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        local valid = true
+        if next(SMODS.find_card('j_minty_theecho')) then
+            --MINTY.say("Two Echoes?! Madness!")
+            valid = false
+        end
+        if G.GAME.round_resets.ante >= G.GAME.win_ante then
+            --MINTY.say("You already won!")
+            valid = false
+        end
+
+        --[[ Dummy this out for now, I feel like it'll cause more problems than it solves
+        if not (G.GAME and G.GAME.challenge_index and (G.GAME.challenge_index.id == "c_minty_raidnight" or G.GAME.challenge_index.id == "c_minty_raidnightsavage")) then
+            MINTY.say("Echo outside Raid Night? That shouldn't happen!")
+            valid = false
+        end
+        ]]
+
+
+        if not valid then
+			G.E_MANAGER:add_event(Event({
+				func = function()
+                    card_eval_status_text(
+                        card,
+                        "jokers",
+                        nil,
+                        nil,
+                        nil,
+                        { message = localize("k_nope_ex"), colour = G.C.RARITY[4] }
+                    )
+					play_sound("tarot1")
+					return true
+				end,
+			}))
+			G.E_MANAGER:add_event(Event({
+				func = function()
+                    card:start_dissolve()
+					return true
+				end,
+			}))
+        end
     end,
     calculate = function(self, card, context)
         if context.game_over and card.ability.extra.charges > 0 then

@@ -36,7 +36,7 @@ SMODS.Joker {
         local key = self.key
         local gameset = Cryptid.gameset(self)
         key = key.."_"..gameset
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = key.."_flavor"
         end
         return {
@@ -50,6 +50,9 @@ SMODS.Joker {
     end,
     in_pool = function()
         if (not G.GAME) or (#G.GAME.tags == 0) then return false end
+        if next(SMODS.find_card("j_cry_energia")) and next(SMODS.find_card("j_cry_kittyprinter")) then --little too powerful a combo, so I'm making it slightly inconvenient to assemble :p
+            return false
+        end
         for meow = 1, #G.GAME.tags do
             if G.GAME.tags[meow].key == "tag_cry_cat" then
                 return true
@@ -59,7 +62,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.joker_main and context.scoring_hand and #G.GAME.tags ~= 0 then
-            --mintySay("score time", "TRACE")
+            --MINTY.say("score time", "TRACE")
             local gameset = Cryptid.gameset(self)
             local number = 3
             if gameset == "modest" then
@@ -72,16 +75,20 @@ SMODS.Joker {
             local result = {}
             local l1, l2, l3, l4, l5, reps = 0, 0, 0, 0, 0, 0
             card.ability.extra.reps = 0
-            --mintySay("card.ability.extra.reps == "..card.ability.extra.reps, "TRACE")
+            --MINTY.say("card.ability.extra.reps == "..card.ability.extra.reps, "TRACE")
             --count cat tags and their level
                 for meow = 1, #G.GAME.tags do
-                    --mintySay("Tag #"..meow..":"..G.GAME.tags[meow].key, "TRACE")
+                    --MINTY.say("Tag #"..meow..":"..G.GAME.tags[meow].key, "TRACE")
                     if G.GAME.tags[meow].key == "tag_cry_cat" then
                         local level = G.GAME.tags[meow].ability.level or 1
-                        --mintySay("kity found :3; level is "..level, "TRACE")
-                        if gameset == "mainline" then
+                        --MINTY.say("kity found :3; level is "..level, "TRACE")
+                        if gameset == "modest" then
+                            return {
+                                xmult = number
+                            }
+                        elseif gameset == "mainline" then
                             card.ability.extra.reps = card.ability.extra.reps + (2^(level-1))
-                            --mintySay("card.ability.extra.reps == "..card.ability.extra.reps, "TRACE")
+                            --MINTY.say("card.ability.extra.reps == "..card.ability.extra.reps, "TRACE")
                         elseif gameset == "madness" then
                             if level == 1 then l1 = l1 + 1
                             elseif level == 2 or level == 3 then l2 = l2 + (level - 1)
@@ -95,13 +102,11 @@ SMODS.Joker {
                         end
                     end
                 end
-            if gameset == "modest" or gameset == "mainline" then
+            if gameset == "mainline" then
                 result = {
                     xmult = number
                 }
-                if gameset == "mainline" then
-                    card.ability.extra.reps = card.ability.extra.reps - 1
-                end
+                card.ability.extra.reps = card.ability.extra.reps - 1
             elseif gameset == "madness" then
                 local levels = {l1, l2, l3, l4, l5}
                 local keys = {"mult", "xmult", "emult", "eemult", "eeemult"}
@@ -119,7 +124,7 @@ SMODS.Joker {
         if context.retrigger_joker_check and not context.retrigger_joker and context.other_card == card and card.ability.extra.reps >= 1 then
             local reps = card.ability.extra.reps
             card.ability.extra.reps = 0
-            --mintySay("card.ability.extra.reps == "..card.ability.extra.reps.."; local reps == "..reps, "TRACE")
+            --MINTY.say("card.ability.extra.reps == "..card.ability.extra.reps.."; local reps == "..reps, "TRACE")
             return {
                 repetitions = reps,
                 card = card,

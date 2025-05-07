@@ -11,11 +11,11 @@ position = "before"
 payload = '''
         if _type == "kity" then
             --local legtext = _legendary and "true" or "false"
-            --mintySay("key == "..v.key.."; _legendary == "..legtext.."; rarity == "..v.rarity, "TRACE")
+            --MINTY.say("key == "..v.key.."; _legendary == "..legtext.."; rarity == "..v.rarity, "TRACE")
             if _legendary and v.rarity ~= 4 then
                 add = nil
             end
-            --if add then mintySay("Joker Boy Allowed", "TRACE") else mintySay("No Joker Allowed", "TRACE") end
+            --if add then MINTY.say("Joker Boy Allowed", "TRACE") else MINTY.say("No Joker Allowed", "TRACE") end
         end
 '''
 match_indent = true

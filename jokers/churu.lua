@@ -26,11 +26,9 @@ SMODS.Joker {
         ["Food"] = true, -- Cryptid compatibility for refactor
         ["Paperback"] = true, --Increase freqency when playing with Paper Deck
     },
-    no_pool_flag = "churu_treat_eaten",
-
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
@@ -43,6 +41,15 @@ SMODS.Joker {
         }
     end,
 
+    in_pool = function(self, args)
+        if G.GAME.pool_flags.churu_treat_eaten then
+            return false
+        end
+        if G.GAME.starting_params.start_with_3s then
+            return true
+        end
+        return MINTY.threeSuit_in_pool()
+    end,
     calculate = function(self, card, context)
         -- Give the mult during play if card is a 3, and retrigger if it's a 3 of 3s
         if context.cardarea == G.play and context.individual and context.other_card:is_3() then
@@ -159,7 +166,7 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
 

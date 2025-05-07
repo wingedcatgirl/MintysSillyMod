@@ -21,7 +21,7 @@ SMODS.Joker {
     config = {extra = {chips = 0, chipgain = 1, mult = 0, multgain = 1, odds = 32}},
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {

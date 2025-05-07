@@ -5,6 +5,7 @@ A silly little mod that adds some silly little jokers and decks and things.
 [Mod main page on Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Minty%27s_Silly_Little_Mod) (Beware of SPOILERS!)
 
 Current features:
+- Cats
 - Cement
 - Injokes
 - Challenges
@@ -26,10 +27,9 @@ Planned features:
 ## Installation Instructions
 1. Install [Lovely](https://github.com/ethangreen-dev/lovely-injector), if you haven't already.
 2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already.
-   - **Minimum supported version for 0.5.0 is BETA-0312b**.
-   - Minimum supported version for latest commit is **BETA-0410a**.
+   - **Minimum supported version for 0.6.0 is BETA-0410b**. If the latest dev version fails for any reason, use [the May 2025 release](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-0506a).
+   - Minimum supported version for latest commit is also **BETA-0410b**.
 3. Download the code as a ZIP file, from the latest release in Releases (should be stable, may be missing features) or the green "Code" button (may be buggy, but all features are available).
-   - If you need old-calc Steamodded for some reason, please download [old-calc Minty's Mod](https://github.com/wingedcatgirl/MintysSillyMod/releases/tag/old-calc) as well; later versions are not kept compatible with old-calc.
 4. Inside the zip file is the mod code in a folder, `MintysSillyMod-SOMEVERSION`. Put that folder in your Mods folder. The file structure should look like `Mods/MintysSillyMod-SOMEVERSION/MintysSillyMod.json`. In particular, there should _not_ be a second `MintysSillyMod` folder nested inside the first one. (You might prefer to remove the version number suffix from the folder name; it doesn't actually matter.)
 5. Have a little 3 as a treat! :3
 
@@ -42,12 +42,12 @@ Planned features:
 > Always start a new run after updating any mod. Attempting to continue an in-progress run may result in crashes.
 
 ## Config Options
-- Dev Mode: Default false. Requires restart. Enables unfinished content. Usually there isn't any because I don't like leaving things unfinished. But latest-commit enjoyers might catch me in the middle of something.
+- Dev Mode: Default false. Enables unfinished content if there is any (requires restart) (there usually isn't any anyway) and puts trace messages in console (doesn't require restart).
 - Flavor text: Default true. Enables funky MtG-style quotes at the bottom of some cards.
 - Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things.
 
 ## Recommended additional mods:
-If you're trying out Minty's for the first time and want minimal other mods, go with [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework). The rest of the list is for after that.
+If you're trying out Minty's for the first time and want minimal other mods, go with [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework). The rest of the list is for after that.
 
 ### Technical
 - [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for all challenges in Minty's Mod.
@@ -55,12 +55,13 @@ If you're trying out Minty's for the first time and want minimal other mods, go 
 - [Talisman](https://github.com/MathIsFun0/Talisman) enables scores above e308 and also ^mult, which is just fun imo. Also very technically part of the next list (the Joker named Minty requires Talisman). They fixed the bug that bricks your save files, btw. talking to you, roffle. 
 
 ### Cross-mod content
-Minty's Mod adds content for all of the following mods. Those with ⭐️ are also recommended for just, like, a basic default mod set. in my imo.
+Minty's Mod adds content for all of the following mods. Those with ⭐️ are also recommended for just, like, a basic default content mod set. in my imo.
 - [Card Sleeves](https://github.com/larswijn/CardSleeves) ⭐️
 - [Cryptid](https://github.com/MathIsFun0/Cryptid)
 - [Drafting](https://github.com/spire-winder/Balatro-Draft) ⭐️
 - [Fusion Jokers](https://github.com/lshtech/Fusion-Jokers) ⭐️
 - [Gemstones](https://github.com/0fficialHalo/Gemstones)
+- [More Fluff](https://github.com/notmario/MoreFluff) ⭐️
 - [Ortalab](https://github.com/Eremel/Ortalab)
 - [Paperback](https://github.com/GitNether/paperback) ⭐️
 
@@ -75,6 +76,7 @@ Minty's Mod doesn't add anything for these _yet_, but we might in future. Until 
 ### Quality of life
 Technically you can do whatever you want here, but here's the mods I like for the purpose:
 - [Galdur](https://github.com/Eremel/Galdur) revamps the New Run screen to make deck and sleeve selection much easier.
+- [Glue for Modpacks](https://github.com/icyethics/Glue-For-Modpacks) lets you adjust the shop so having a lot of mods doesn't drown everything out.
 - [Handy](https://github.com/SleepyG11/HandyBalatro) adds a whole lot of things but tbh the only one I care about is selecting multiple playing cards by dragging across them.
 - [Item Remover](https://github.com/art-muncher/Item-Remover) lets you disable specific items from the Collection, if they're OP or bugged or you just don't like them.
 

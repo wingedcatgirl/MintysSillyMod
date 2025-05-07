@@ -35,9 +35,19 @@ return {
 			["c_minty_raidnightsavage"] = "Day One Raid Night (Savage)",
 			["c_minty_backalley"] = "Back Alleys",
 			["c_minty_evilbackalley"] = "Deadly Back Alleys",
+			["c_minty_cosmoport"] = "My Own Cosmoport",
 		}
 	},
 	["descriptions"] = {
+		["Mod"] = {
+			["MintysSillyMod"] = {
+				["name"] = "Minty's Silly Little Mod",
+				["text"] = {
+					"cat mod for cats",
+					"... I mean this mod contains Minty's silly little content ideas."
+				},
+			},
+		},
 		["Back"] = {
 			["b_minty_treat"] = {
 				["name"] = "Deck with a Treat",
@@ -552,6 +562,26 @@ return {
 					"            {X:mult,C:white,s:0.8}Meow!",
 				},
 			},
+			["j_minty_parkour"] = {
+				["name"] = "Parkour",
+				["text"] = {
+					"Applies {C:attention}Shortcut{}",
+					"{C:chips}+#1#{} Chips, gains {C:chips}+#3#{} for every",
+					"{C:attention}consecutive{} hand containing a {C:attention}Straight{}",
+					"{C:inactive}(Currently {C:chips}+#2#{C:inactive}){}"
+				},
+			},
+			["j_minty_parkour_flavor"] = {
+				["name"] = "Parkour",
+				["text"] = {
+					"Applies {C:attention}Shortcut{}",
+					"{C:chips}+#1#{} Chips, gains {C:chips}+#3#{} for every",
+					"{C:attention}consecutive{} hand containing a {C:attention}Straight{}",
+					"{C:inactive}(Currently {C:chips}+#2#{C:inactive}){}",
+					" ",
+					"{C:inactive,s:0.8}Their friends call them Peter.{}",
+				},
+			},
 			["j_minty_slowtiger"] = {
 				["name"] = "Slow Tiger",
 				["text"] = {
@@ -613,15 +643,15 @@ return {
 			["j_minty_chocobar"] = {
 				["name"] = "Choccy Bar",
 				["text"] = {
-					"{C:mult}+#1#{} Mult per card",
-					"played, loses {C:mult}-#2#{} each trigger"
+					"{C:mult}+#1#{} Mult when card is",
+					"scored, loses {C:mult}-#2#{} each trigger"
 				},
 			},
 			["j_minty_chocobar_flavor"] = {
 				["name"] = "Choccy Bar",
 				["text"] = {
-					"{C:mult}+#1#{} Mult per card",
-					"played, loses {C:mult}-#2#{} each trigger",
+					"{C:mult}+#1#{} Mult when card is",
+					"scored, loses {C:mult}-#2#{} each trigger",
 					" ",
 					"{C:inactive,s:0.8}Because your epic!"
 				},
@@ -629,24 +659,24 @@ return {
 			["j_minty_chocobar_flavor2"] = {
 				["name"] = "Choccy Bar",
 				["text"] = {
-					"{C:mult}+#1#{} Mult per card",
-					"played, loses {C:mult}-#2#{} each trigger",
+					"{C:mult}+#1#{} Mult when card is",
+					"scored, loses {C:mult}-#2#{} each trigger",
 					" ",
 					"{C:inactive,s:0.8}Because your epic!",
-					"{C:inactive,s:0.8}MISSPELLING INTENTIONAL",
+					"{C:inactive,s:0.8}MISSPELLING IS PART OF THE REFRANCE",
 					"{C:inactive,s:0.8}PLS DON'T FILE A TYPO REPORT KTHX",
 				},
 			},
 			["j_minty_wrapper"] = {
 				["name"] = "Crumpled Wrapper",
 				["text"] = {
-					"{C:inactive}(...){}"
+					"{C:inactive}...{}"
 				},
 			},
 			["j_minty_wrapper_flavor"] = {
 				["name"] = "Crumpled Wrapper",
 				["text"] = {
-					"{C:inactive}(...){}",
+					"{C:inactive}...{}",
 					" ",
 					"{C:inactive,s:0.8}(... why are you still carrying this?)"
 				},
@@ -840,6 +870,24 @@ return {
 					"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
 					" ",
 					"{C:inactive,s:0.8}nooooo my treat is all gone",
+				},
+			},
+			["j_minty_atheismcorner"] = {
+				["name"] = "Atheism Corner",
+				["text"] = {
+					"{C:chips}+#1#{} Chips, gains {C:chips}+#2#{} ",
+					"each round, resets if a",
+					"{C:spectral}Spectral{} card is used",
+				},
+			},
+			["j_minty_atheismcorner_flavor"] = {
+				["name"] = "Atheism Corner",
+				["text"] = {
+					"{C:chips}+#1#{} Chips, gains {C:chips}+#2#{} ",
+					"each round, resets if a",
+					"{C:spectral}Spectral{} card is used",
+					" ",
+					"{C:inactive,s:0.8}And think about what you've done!"
 				},
 			},
 			["j_minty_treatovision"] = {
@@ -1134,9 +1182,11 @@ return {
 			},
 		},
 		["Enhanced"] = {
+			--[[ Leave this commented until "stone cards" as a mechanic become a thing
 			["m_stone"] = {
 				["name"] = "Slate Card"
 			},
+			]]
 			["m_minty_marble"] = {
 				["name"] = "Marble Card",
 				["label"] = "Marble Card",
@@ -1148,5 +1198,28 @@ return {
 				}
 			},
 		},
+		["Colour"] = {
+			["c_minty_emeowrald"] = {
+				["name"] = "Emeowrald Green",
+				["text"] = {
+					"Converts a random card in",
+					"hand to {C:minty_3s}3s{} for every",
+					"{C:attention}#4#{} round this has been held",
+					"{C:inactive}(Currently {C:attention}#1#{C:inactive}, {}[{C:attention}#2#{C:inactive}#3#{}]{C:inactive})",
+
+				}
+			},
+			["c_minty_emeowrald_flavor"] = {
+				["name"] = "Emeowrald Green",
+				["text"] = {
+					"Converts a random card in",
+					"hand to {C:minty_3s}3s{} for every",
+					"{C:attention}#4#{} round this has been held",
+					"{C:inactive}(Currently {C:attention}#1#{C:inactive}, {}[{C:attention}#2#{C:inactive}#3#{}]{C:inactive})",
+					" ",
+					"{C:inactive,s:0.8}Green like a kitty's pretty eyes",
+				}
+			},
+		}
 	},
 }

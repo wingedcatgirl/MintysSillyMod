@@ -20,7 +20,7 @@ SMODS.Joker {
     config = {},
 	loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
 		info_queue[#info_queue + 1] = G.P_CENTERS.m_stone

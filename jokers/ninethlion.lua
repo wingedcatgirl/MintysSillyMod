@@ -20,7 +20,7 @@ SMODS.Joker {
     perishable_compat = true,
     blueprint_compat = true,
     pools = {
-        ["Ortalab"] = true, --Can appear on Ortalab Stakes
+        ["Ortalab"] = true, --Can appear on Ortalab Stakes; technically irrelevant as this can't naturally spawn anyway
         ["kity"] = true,
     },
     config = {
@@ -33,7 +33,7 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         local unluck = math.max(math.min(G.GAME.probabilities.normal or 1, card.ability.extra.odds), 0)

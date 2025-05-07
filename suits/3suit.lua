@@ -5,8 +5,8 @@ SMODS.Suit{ -- 3s
     lc_atlas = '3s',
     hc_atlas = '3s',
 
-    lc_ui_atlas = '3sicon',
-    hc_ui_atlas = '3sicon',
+    lc_ui_atlas = '3suiticon',
+    hc_ui_atlas = '3suiticon',
 
     pos = { x = 0, y = 0 },
     ui_pos = { x = 0, y = 0 },
@@ -18,7 +18,7 @@ SMODS.Suit{ -- 3s
         if G.GAME.starting_params.start_with_3s then
             return true
         end
-        return exotic_in_pool()
+        return MINTY.threeSuit_in_pool()
     end
 }
 

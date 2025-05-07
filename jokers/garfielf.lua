@@ -35,7 +35,7 @@ SMODS.Joker {
         local suit = pseudorandom_element({
             "Heart", "Spade", "Club", "Diamond"
         })
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
@@ -48,33 +48,39 @@ SMODS.Joker {
             }
         }
     end,
+    in_pool = function(self, args)
+        if G.GAME.starting_params.start_with_3s then
+            return true
+        end
+        return MINTY.threeSuit_in_pool()
+    end,
     calculate = function(self, card, context)
         -- Calculation goes here
         if context.cardarea == G.play and context.individual then
-            --mintySay("Observing card")
+            --MINTY.say("Observing card")
             if context.other_card:is_3() then
-                --mintySay("3 detected!")
+                --MINTY.say("3 detected!")
                 card.ability.extra.found = true
             end
         end
 
         if context.joker_main and context.scoring_hand then
-            --mintySay("xMult time :3")
+            --MINTY.say("xMult time :3")
             return {
                     xmult = card.ability.extra.xmult
             }
         end
 
         if context.destroy_card and context.cardarea == "unscored" and card.ability.extra.found == true and not context.blueprint then
-            --mintySay("Attempting to destroy card")
+            --MINTY.say("Attempting to destroy card")
             if context.destroy_card.ability.eternal then
-                --mintySay("Card is eternal, no destruaction")
+                --MINTY.say("Card is eternal, no destruaction")
                 return false
             elseif context.destroy_card:is_3() then
-                --mintySay("Card is a 3, no destruaction")
+                --MINTY.say("Card is a 3, no destruaction")
                 return false
             end
-            --mintySay("Destruaction time >:3")
+            --MINTY.say("Destruaction time >:3")
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultgain
             return {
                 delay = 0.4,
@@ -85,7 +91,7 @@ SMODS.Joker {
         end
 
         if context.after then
-            --mintySay("3 forgotten")
+            --MINTY.say("3 forgotten")
             card.ability.extra.found = false
         end
 

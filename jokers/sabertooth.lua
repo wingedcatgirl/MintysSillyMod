@@ -30,7 +30,7 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        if minty_config.flavor_text then
+        if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         local unluck = math.max(math.min(G.GAME.probabilities.normal or 1, card.ability.extra.odds), 0)
@@ -43,6 +43,12 @@ SMODS.Joker {
                 card.ability.extra.xmult
             }
         }
+    end,
+    in_pool = function(self, args)
+        if G.GAME.starting_params.start_with_3s then
+            return true
+        end
+        return MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)
         if context.cardarea == G.hand and context.individual and not context.end_of_round and context.other_card:is_3() then
