@@ -52,7 +52,7 @@ local wlbuncspec = next(SMODS.find_mod('Bunco')) and {id = 'whitelist_hand', val
 local wlpapspec = next(SMODS.find_mod('paperback')) and SMODS.Mods.paperback.config.suits_enabled and {id = 'whitelist_hand', value = 'Straight Spectrum', hand = 'paperback_Straight Spectrum'} or nil
 local wlspecspec = next(SMODS.find_mod('SpectrumFramework')) and {id = 'whitelist_hand', value = 'Straight Spectrum', hand = 'spectrum_Straight Spectrum'} or nil
 local wlsixspec = next(SMODS.find_mod('SixSuits')) and {id = 'whitelist_hand', value = 'Straight Spectrum', hand = 'six_Straight Spectrum'} or nil
-local wlspec = wlbuncspec or wlpapspec or wlspecspec or wlsixspec or nil
+local wlspec = wlspecspec or wlbuncspec or wlsixspec or wlpapspec or nil
 
 SMODS.Challenge({
 	key = "backalley",
@@ -77,7 +77,13 @@ local blbuncspec = next(SMODS.find_mod('Bunco')) and { id = "disable_hand_contai
 local blpapspec = next(SMODS.find_mod('paperback')) and { id = "disable_hand_containing", value = "Spectrum", hand = "paperback_Spectrum" } or nil
 local blspecspec = next(SMODS.find_mod('SpectrumFramework')) and { id = "disable_hand_containing", value = "Spectrum", hand = "spectrum_Spectrum" } or nil
 local blsixspec = next(SMODS.find_mod('SixSuits')) and { id = "disable_hand_containing", value = "Spectrum", hand = "six_Spectrum" } or nil
-local blspec = blbuncspec or blpapspec or blspecspec or blsixspec or nil
+local blspec = blspecspec or blbuncspec or blsixspec or blpapspec or nil
+
+--[[ 
+if (SMODS.Mods["SpectrumFramework"] or {}).can_load and (SMODS.Mods["SpectrumFramework"] or {}).version == "0.4.1" then
+	blspec = blbuncspec or blpapspec or blspecspec or blsixspec or nil
+end
+]]
 
 SMODS.Challenge({
 	key = "evilbackalley",
