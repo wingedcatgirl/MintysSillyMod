@@ -3,7 +3,7 @@
 	"name": "Minty's Silly Little Mod",
 	"display_name": "Minty's Mod",
 	"author": ["wingedcatgirl"],
-	"description": "A silly little mod that adds some silly little jokers",
+	"description": "A silly little mod that adds some silly little content ideas",
 	"prefix": "minty",
 	"main_file": "MintysSillyMod.lua",
 	"priority": 37,
