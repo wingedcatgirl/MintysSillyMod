@@ -26,6 +26,8 @@ SMODS.Joker {
         extra = {
             mult = 10,
             drop = 1,
+            multrate = 5,
+            droprate = 1,
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -46,8 +48,8 @@ SMODS.Joker {
     end,
     set_ability = function(self, card, initial, delay_sprites)
         local boost = G.GAME and G.GAME.choccy_bars_eaten or 0
-        card.ability.extra.mult = card.ability.extra.mult + boost*5
-        card.ability.extra.drop = card.ability.extra.drop + boost
+        card.ability.extra.mult = card.ability.extra.mult + boost*card.ability.extra.multrate
+        card.ability.extra.drop = card.ability.extra.drop + boost*card.ability.extra.droprate
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and card.ability.extra.mult > 0 then
