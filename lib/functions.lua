@@ -57,7 +57,7 @@ MINTY.disable_threeSuit = function()
 end
 
 ---Checks whether 3s and 3 accessories should spawn; a Spectrum has been played or 3s or Exotics have been force-enabled
----@param fallback? boolean Forces true if Spectrum Framework is not active
+---@param fallback? boolean Forces true if Spectrum Framework is not active; default false
 ---@return boolean
 MINTY.threeSuit_in_pool = function(fallback)
     local spectrum = false
@@ -107,7 +107,7 @@ end
 MINTY.getSpecKey = (SPECF and SPECF.getSpecKey) or function(HandName)
     MINTY.say("Using Minty's function for this")
     if not G.GAME then return "ERROR: Hands don't exist yet!" end
-    local HandName = HandName or "Spectrum"
+    HandName = HandName or "Spectrum"
     local lowest_key = nil
     local lowest_order = math.huge
     local escaped_name = HandName:gsub("([^%w])", "%%%1")  -- escape magic chars
