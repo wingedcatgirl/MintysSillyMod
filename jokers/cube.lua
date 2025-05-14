@@ -51,13 +51,13 @@ SMODS.Joker {
     end,
     remove_from_deck = function(self, card, from_debuff)
         if (not next(SMODS.find_card('j_minty_cube'))) and G.GAME.bosses_used["bl_psychic"] >= 1e300 then
-            MINTY.say("Yep")
+            MINTY.say("Yep", "TRACE")
             if (SMODS.Mods["aikoyorisshenanigans"] or {}).can_load then
                 G.GAME.bosses_used["bl_akyrs_the_thought"] = G.GAME.bosses_used["bl_akyrs_the_thought"] - 1e300
             end
             G.GAME.bosses_used["bl_psychic"] = G.GAME.bosses_used["bl_psychic"] - 1e300
         else
-            MINTY.say("Nope")
+            MINTY.say("Nope", "TRACE")
         end
     end,
 }
