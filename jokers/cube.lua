@@ -42,25 +42,22 @@ SMODS.Joker {
 
 
     add_to_deck = function(self, card, from_debuff)
-        --TODO check whether Cube is eternal and only activate then 
-        if not next(SMODS.find_card('j_minty_cube')) then
-            --Tuskallisetkäsiraudat (Jen's) TBA, getting keys is a pain cause Jen doesn't use GitHub
-            if (SMODS.Mods["aikoyorisshenanigans"] or {}).can_load then
-                G.GAME.thoughtrealuse = G.GAME.bosses_used["bl_akyrs_the_thought"]
-                G.GAME.bosses_used["bl_akyrs_the_thought"] = 1e308
-            end
-            G.GAME.psychicrealuse = G.GAME.bosses_used["bl_psychic"]
-            G.GAME.bosses_used["bl_psychic"] = 1e308
+        if not (card.ability and card.ability.eternal) then return end
+        --Tuskallisetkäsiraudat (Polterworx) TBA, getting keys is a pain cause Jen doesn't use GitHub
+        if (SMODS.Mods["aikoyorisshenanigans"] or {}).can_load then
+            G.GAME.bosses_used["bl_akyrs_the_thought"] = G.GAME.bosses_used["bl_akyrs_the_thought"] + 1e300
         end
+        G.GAME.bosses_used["bl_psychic"] = G.GAME.bosses_used["bl_psychic"] + 1e300
     end,
     remove_from_deck = function(self, card, from_debuff)
-        if not next(SMODS.find_card('j_minty_cube')) then
+        if (not next(SMODS.find_card('j_minty_cube'))) and G.GAME.bosses_used["bl_psychic"] >= 1e300 then
+            MINTY.say("Yep")
             if (SMODS.Mods["aikoyorisshenanigans"] or {}).can_load then
-                G.GAME.bosses_used["bl_akyrs_the_thought"] = G.GAME.thoughtrealuse
-                G.GAME.thoughtrealuse = nil
+                G.GAME.bosses_used["bl_akyrs_the_thought"] = G.GAME.bosses_used["bl_akyrs_the_thought"] - 1e300
             end
-            G.GAME.bosses_used["bl_psychic"] = G.GAME.psychicrealuse
-            G.GAME.psychicrealuse = nil
+            G.GAME.bosses_used["bl_psychic"] = G.GAME.bosses_used["bl_psychic"] - 1e300
+        else
+            MINTY.say("Nope")
         end
     end,
 }
