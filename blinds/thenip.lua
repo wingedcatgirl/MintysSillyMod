@@ -4,7 +4,7 @@ SMODS.Blind {
     mult = 2,
     boss = { min = 3, max = 10 },
     boss_colour = HEX("CA7CA7"),
-    atlas = 'mintyblinds',
+    atlas = 'blinds',
     pos = { x=0, y=0 },
     discovered = false,
     recalc_debuff = function(self, card, from_blind)

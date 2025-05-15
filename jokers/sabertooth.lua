@@ -1,7 +1,7 @@
 SMODS.Joker {
     key = "sabertooth",
     name = "Saber Tooth",
-    atlas = 'mintyortalabdoodles',
+    atlas = 'ortalabdoodles',
     pos = {
         x = 0,
         y = 0

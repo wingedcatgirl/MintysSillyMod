@@ -1,7 +1,7 @@
 SMODS.Joker {
     key = "treatovision",
     name = "Treat-o-vision",
-    atlas = 'mintyjokeratlas',
+    atlas = 'jokers',
     pos = {
         x = 0,
         y = 0

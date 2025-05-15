@@ -3,7 +3,7 @@ SMODS.Consumable({
     set = "Colour",
     name = "Emeowrald Green",
     key = "emeowrald",
-    atlas = "mintycolour",
+    atlas = "colours",
     pos = { x = 0, y = 0 },
     config = {
         val = 0,

@@ -1,7 +1,7 @@
 SMODS.Joker {
     key = "chocobar",
     name = "Chocolate Bar",
-    atlas = 'mintyjokerdoodles',
+    atlas = 'jokerdoodles',
     pos = {
         x = 0,
         y = 0
@@ -100,7 +100,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "wrapper",
     name = "Crumpled Wrapper",
-    atlas = 'mintyjokerdoodles',
+    atlas = 'jokerdoodles',
     pos = {
         x = 0,
         y = 0

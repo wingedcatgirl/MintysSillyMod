@@ -6,7 +6,7 @@ SMODS.Sound { --Source: https://www.youtube.com/watch?v=gXE9UgrOdls
 SMODS.Joker {
     key = "scoundrel",
     name = "The Scoundrel",
-    atlas = 'mintyscoundrel', --Art source: https://thegreatyin.tumblr.com/post/780313971308773376/was-thinking-about-this-concept-again-had-to; used with permission
+    atlas = 'scoundrel', --Art source: https://thegreatyin.tumblr.com/post/780313971308773376/was-thinking-about-this-concept-again-had-to; used with permission
     pos = {
         x = 0,
         y = 0

@@ -242,6 +242,54 @@ return {
 					"{C:inactive,s:0.8}YOU'RE a cube!",
 				},
 			},
+			["j_minty_languageEgg"] = {
+				["name"] = "Language Egg",
+				["text"] = {
+					"{C:mult}+#1#{} Mult for each round",
+					"completed with a unique",
+					"{C:attention}language{} setting this game",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult){}"
+				},
+			},
+			["j_minty_languageEgg_flavor"] = {
+				["name"] = "Language Egg",
+				["text"] = {
+					"{C:mult}+#1#{} Mult for each round",
+					"completed with a unique",
+					"{C:attention}language{} setting this game",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult){}",
+					" ",
+					"{C:inactive,s:0.8}Best enjoyed in the atheism corner"
+				},
+			},
+			["j_minty_neko"] = {
+				["name"] = "neko.exe",
+				["text"] = {
+					{
+						"{C:chips}+#1#{} Chips",
+						"{C:attention}Chases{} your mouse around!"
+					},
+					{
+						"{C:inactive,s:0.8}... or will, in a later update,",
+						"{C:inactive,s:0.8}once I've done the coding work."
+					}
+				},
+			},
+			["j_minty_neko_flavor"] = {
+				["name"] = "neko.exe",
+				["text"] = {
+					{
+						"{C:chips}+#1#{} Chips",
+						"{C:attention}Chases{} your mouse around!",
+						" ",
+						"{C:inactive,s:0.8}Adorable since 1989"
+					},
+					{
+						"{C:inactive,s:0.8}... or will, in a later update,",
+						"{C:inactive,s:0.8}once I've done the coding work."
+					}
+				},
+			},
 			["j_minty_phasebus"] = {
 				["name"] = "Phase Bus",
 				["text"] = {

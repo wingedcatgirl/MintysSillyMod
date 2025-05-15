@@ -4,7 +4,7 @@ SMODS.Blind {
     mult = 1.75,
     boss = { min = 3, max = 10 },
     boss_colour = HEX("CA7CA7"),
-    atlas = 'mintyblinds',
+    atlas = 'blinds',
     pos = { x=0, y=1 },
     discovered = false,
     config = {extra = {suit = 'minty_3s'}},

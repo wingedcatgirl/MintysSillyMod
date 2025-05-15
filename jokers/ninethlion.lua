@@ -3,7 +3,7 @@ FusionJokers.fusions:add_fusion("j_minty_ascetic", nil, false, "j_minty_sabertoo
 SMODS.Joker {
     key = "ninethlion",
     name = "Nineth Lion",
-    atlas = 'mintyortalabplaceholder',
+    atlas = 'ortalabplaceholder',
     pos = {
         x = 0,
         y = 0

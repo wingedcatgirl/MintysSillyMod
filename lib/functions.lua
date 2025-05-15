@@ -165,5 +165,7 @@ function MINTY.reset_treat_card()
 end
 
 function SMODS.current_mod.reset_game_globals()
+    G.GAME.languageEgg = G.GAME.languageEgg or {}
+    G.GAME.languageEgg[G.SETTINGS.language] = true
     MINTY.reset_treat_card()
 end

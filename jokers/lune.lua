@@ -2,7 +2,7 @@
 SMODS.Joker {
     key = "lune",
     name = "Lune",
-    atlas = 'mintylegends',
+    atlas = 'legends',
     pos = {
         x = 5,
         y = 0

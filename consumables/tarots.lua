@@ -1,7 +1,7 @@
 SMODS.Consumable{ -- The Cat
     set = 'Tarot',
     key = 'cat',
-    atlas = 'mintytarot',
+    atlas = 'tarots',
     pos = {
         x = 0,
         y = 0
@@ -64,7 +64,7 @@ SMODS.Consumable{ -- The Cat
 SMODS.Consumable{ -- The Bored Child
     set = 'Tarot',
     key = 'boredkid',
-    atlas = 'mintytarot',
+    atlas = 'tarots',
     pos = {
         x = 1,
         y = 0
@@ -132,7 +132,7 @@ SMODS.Consumable{ -- The Bored Child
 }
 
 --[[SMODS.Consumable{ -- The Geologist
-    set = 'Tarot', atlas = 'mintyplaceholder',
+    set = 'Tarot', atlas = 'placeholder',
     key = 'geologist',
     set_card_type_badge = function(self, card, badges)
         badges[1] = create_badge("Tarot?", get_type_colour(self or card.config, card), nil, 1.2)

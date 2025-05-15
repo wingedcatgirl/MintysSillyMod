@@ -34,7 +34,7 @@ SMODS.Back({
     name = "Deck With A Treat",
     key = "treat",
     pos = { x = 0, y = 0 },
-    atlas = "mintybacks",
+    atlas = "backs",
     unlocked = true,
     config = {start_with_3s = true},
 
@@ -62,7 +62,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
     CardSleeves.Sleeve({
         key = "treatsleeve",
         name = "Sleeve With A Treat",
-        atlas = "mintysleeves",
+        atlas = "sleeves",
         pos = { x = 0, y = 0 },
         config = {start_with_3s = true},
         unlocked = false,
@@ -120,7 +120,7 @@ SMODS.Back({
     name = "Deck of the Heart",
     key = "hearts",
     pos = { x = 0, y = 1 },
-    atlas = "mintybacks",
+    atlas = "backs",
     unlocked = true,
     config = {},
 
@@ -163,7 +163,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
     CardSleeves.Sleeve({
         key = "heartsleeve",
         name = "Sleeve of the Heart",
-        atlas = "mintysleeves",
+        atlas = "sleeves",
         pos = { x = 0, y = 1 },
         config = {},
         unlocked = false,
@@ -247,7 +247,7 @@ SMODS.Back({
     name = "Deck of the Diamond",
     key = "diamonds",
     pos = { x = 1, y = 1 },
-    atlas = "mintybacks",
+    atlas = "backs",
     unlocked = true,
     config = {},
 
@@ -289,7 +289,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
     CardSleeves.Sleeve({
         key = "diamondsleeve",
         name = "Sleeve of the Diamond",
-        atlas = "mintysleeves",
+        atlas = "sleeves",
         pos = { x = 1, y = 1 },
         config = {},
         unlocked = false,
@@ -372,7 +372,7 @@ SMODS.Back({
     name = "Deck of the Club",
     key = "clubs",
     pos = { x = 2, y = 1 },
-    atlas = "mintybacks",
+    atlas = "backs",
     unlocked = true,
     config = {},
 
@@ -414,7 +414,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
     CardSleeves.Sleeve({
         key = "clubssleeve",
         name = "Sleeve of the Club",
-        atlas = "mintysleeves",
+        atlas = "sleeves",
         pos = { x = 2, y = 1 },
         config = {},
         unlocked = false,
@@ -497,7 +497,7 @@ SMODS.Back({
     name = "Deck of the Spade",
     key = "spades",
     pos = { x = 3, y = 1 },
-    atlas = "mintybacks",
+    atlas = "backs",
     unlocked = true,
     config = {},
 
@@ -539,7 +539,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
     CardSleeves.Sleeve({
         key = "spadessleeve",
         name = "Sleeve of the Spade",
-        atlas = "mintysleeves",
+        atlas = "sleeves",
         pos = { x = 3, y = 1 },
         config = {},
         unlocked = false,
@@ -622,7 +622,7 @@ SMODS.Back({
     name = "Deck of the 3",
     key = "3suit",
     pos = { x = 4, y = 1 },
-    atlas = "mintybacks",
+    atlas = "backs",
     unlocked = true,
     config = {},
 
@@ -664,7 +664,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
     CardSleeves.Sleeve({
         key = "3suitsleeve",
         name = "Sleeve of the 3",
-        atlas = "mintysleeves",
+        atlas = "sleeves",
         pos = { x = 4, y = 1 },
         config = {},
         unlocked = false,

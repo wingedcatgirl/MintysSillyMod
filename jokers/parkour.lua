@@ -3,7 +3,7 @@ FusionJokers.fusions:add_fusion("j_shortcut", nil, false, "j_runner", "chips", t
 SMODS.Joker {
     key = "parkour",
     name = "Parkour",
-    atlas = 'mintyjokerdoodles',
+    atlas = 'jokerdoodles',
     pos = {
         x = 0,
         y = 5

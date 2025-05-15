@@ -1,26 +1,33 @@
 SMODS.Atlas {
-    key = 'mintyjokeratlas',
+    key = 'jokers',
     path = "jokers.png",
     px = 71,
     py = 95
 }
 
 SMODS.Atlas {
-    key = 'mintyjokerdoodles',
+    key = 'jokerdoodles',
     path = "jokerdoodles.png",
     px = 71,
     py = 95
 }
 
 SMODS.Atlas {
-    key = 'mintyscoundrel',
+    key = 'scoundrel',
     path = "scoundrel.png",
     px = 71,
     py = 95
 }
 
 SMODS.Atlas {
-    key = 'mintyenhance',
+    key = 'neko',
+    path = "neko.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = 'enhance',
     path = "enhancements.png",
     px = 71,
     py = 95
@@ -34,63 +41,63 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
-    key = 'mintytarot',
+    key = 'tarots',
     path = "tarots.png",
     px = 71,
     py = 95
 }
 
 SMODS.Atlas {
-    key = 'mintycolour',
+    key = 'colours',
     path = "colours.png",
     px = 71,
     py = 95
 }
 
 SMODS.Atlas {
-    key = 'mintypacket',
+    key = 'packets',
     path = "packets.png",
     px = 71,
     py = 95
 }
 
 SMODS.Atlas {
-    key = 'mintyparcel',
+    key = 'parcels',
     path = "parcels.png",
     px = 71,
     py = 95
 }
 
 SMODS.Atlas {
-    key = 'mintyjokerblank',
+    key = 'jokerblank',
     path = "blank.png",
     px = 71,
     py = 95
 }
 
 SMODS.Atlas {
-    key = 'mintyplaceholder',
+    key = 'placeholder',
     path = "placeholders.png",
     px = 71,
     py = 95
 }
 
 SMODS.Atlas {
-    key = 'mintyortalabplaceholder',
+    key = 'ortalabplaceholder',
     path = "ortalab placeholders.png",
     px = 71,
     py = 95
 }
 
 SMODS.Atlas {
-    key = 'mintyortalabdoodles',
+    key = 'ortalabdoodles',
     path = "ortalab doodles.png",
     px = 71,
     py = 95
 }
 
 SMODS.Atlas {
-    key = 'mintylegends',
+    key = 'legends',
     path = "legendaries.png",
     px = 71,
     py = 95
@@ -104,14 +111,14 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
-    key = 'mintybacks',
+    key = 'backs',
     path = "backs.png",
     px = 71,
     py = 95
 }
 
 SMODS.Atlas {
-    key = 'mintysleeves',
+    key = 'sleeves',
     path = "sleeves.png",
     px = 73,
     py = 95
@@ -125,7 +132,7 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
-    key = 'mintyblinds',
+    key = 'blinds',
     path = "blinds.png",
     atlas_table = 'ANIMATION_ATLAS',
     frames = 21,

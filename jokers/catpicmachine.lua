@@ -1,7 +1,7 @@
 SMODS.Joker {
     key = "catpicmachine",
     name = "ilo pi sitelen soweli",
-    atlas = 'mintyjokerdoodles',
+    atlas = 'jokerdoodles',
 	object_type = "Joker",
 	dependencies = {
 		items = {

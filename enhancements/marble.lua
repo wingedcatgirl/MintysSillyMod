@@ -1,7 +1,7 @@
 SMODS.Enhancement({
     key = "marble",
     name = "Marble Card",
-    atlas = "mintyenhance",
+    atlas = "enhance",
     set = "Enhanced",
     post = {
         x = 0,

@@ -2,7 +2,7 @@
 SMODS.Joker {
     key = "cube",
     name = "Cube Joker",
-    atlas = 'mintyjokerdoodles',
+    atlas = 'jokerdoodles',
     pos = {
         x = 5,
         y = 0

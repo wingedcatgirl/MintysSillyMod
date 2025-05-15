@@ -1,7 +1,7 @@
 SMODS.Joker {
     key = "phasebus",
     name = "Phase Bus",
-    atlas = 'mintyjokerdoodles',
+    atlas = 'jokerdoodles',
     pos = {
         x = 0,
         y = 0
