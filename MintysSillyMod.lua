@@ -36,6 +36,7 @@ SMODS.load_file('suits/3suit.lua')()
 -- SMODS.load_file('jokers/JOKER.lua')()
 SMODS.load_file('jokers/froyo.lua')()
 SMODS.load_file('jokers/hedonist.lua')()
+SMODS.load_file('jokers/languageegg.lua')()
 SMODS.load_file('jokers/claw.lua')()
 SMODS.load_file('jokers/prosopagnosia.lua')()
 SMODS.load_file('jokers/phasebus.lua')()
@@ -61,13 +62,19 @@ SMODS.load_file('jokers/garfielf.lua')()
 
 SMODS.load_file('jokers/vanillatweaks.lua')()
 
+if (SMODS.Mods["TOGAPack"] or {}).can_load or MINTY.config.dev_mode or MINTY.config.include_crossover then
+    SMODS.load_file('jokers/neko.lua')()
+end
+
 if (SMODS.Mods["ortalab"] or {}).can_load or MINTY.config.include_crossover then
     SMODS.load_file('jokers/ascetic.lua')()
     SMODS.load_file('jokers/sabertooth.lua')()
 
-    --[[if (SMODS.Mods["FusionJokers"] or {}).can_load then
+    --[[
+    if (SMODS.Mods["FusionJokers"] or {}).can_load then
         SMODS.load_file('jokers/ninethlion.lua')()
-    end]]
+    end
+    ]]
     SMODS.load_file('jokers/lune.lua')()
 
     SMODS.load_file('blinds/thetree.lua')()
