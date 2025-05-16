@@ -10,8 +10,8 @@ SMODS.Joker {
         x = 1,
         y = 0
     },
-    rarity = 3,
-    cost = 9,
+    rarity = 2,
+    cost = 8,
     unlocked = true,
     discovered = false,
     eternal_compat = true,
@@ -19,7 +19,7 @@ SMODS.Joker {
     blueprint_compat = true,
     config = {
         extra = {
-            chips = 333,
+            chips = 133,
             state = "wait",
             lastsprite = {
                 "wait", 0
@@ -78,8 +78,10 @@ SMODS.Joker {
 
 
         -- locate position of mouse relative to joker sprite 
+        -- TBA
 
         -- update joker state based on this info 
+        -- TBA
 
         -- update soul sprite based on state
         jokerref.soul_pos.x = states[card.ability.extra.state]
@@ -93,6 +95,7 @@ SMODS.Joker {
         --MINTY.say(tostring(jokerref.soul_pos.y), "TRACE")
 
         -- move joker to left or right if it's been in one of the lateral chase states long enough
+        -- TBA
 
         if card.ability.extra.lastsprite ~= {card.ability.extra.state, jokerref.soul_pos.y} then
             card.ability.extra.lastsprite = {card.ability.extra.state, jokerref.soul_pos.y}
