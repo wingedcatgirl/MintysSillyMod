@@ -56,6 +56,7 @@ SMODS.load_file('jokers/lucky.lua')()
 SMODS.load_file('jokers/stormy.lua')()
 SMODS.load_file('jokers/patchy.lua')()
 if (SMODS.Mods["Talisman"] or {}).can_load then
+    SMODS.load_file('jokers/hyperfix.lua')()
     SMODS.load_file('jokers/minty.lua')()
 end
 SMODS.load_file('jokers/garfielf.lua')()

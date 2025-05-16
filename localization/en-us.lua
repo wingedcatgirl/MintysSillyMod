@@ -242,6 +242,27 @@ return {
 					"{C:inactive,s:0.8}YOU'RE a cube!",
 				},
 			},
+			["j_minty_hyperfix"] = {
+				["name"] = "Angel of Hyperfixation",
+				["text"] = {
+					"{X:dark_edition,C:white}^#1#{} Mult for every blind",
+					"cleared or skipped before",
+					"buying your first Joker",
+					"{C:inactive}(Currently {X:dark_edition,C:white}^#2#{C:inactive})",
+				},
+			},
+			["j_minty_hyperfix_flavor"] = {
+				["name"] = "Angel of Hyperfixation",
+				["text"] = {
+					"{X:dark_edition,C:white}^#1#{} Mult for every blind",
+					"cleared or skipped before",
+					"buying your first Joker",
+					"{C:inactive}(Currently {X:dark_edition,C:white}^#2#{C:inactive})",
+					" ",
+					"{C:inactive,s:0.8}Sure, I'll get it done eventually,",
+					"{C:inactive,s:0.8}But it's always at the last minute...",
+				},
+			},
 			["j_minty_languageEgg"] = {
 				["name"] = "Language Egg",
 				["text"] = {

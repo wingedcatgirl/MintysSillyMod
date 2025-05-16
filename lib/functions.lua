@@ -128,7 +128,7 @@ end
 
 ---Adds to a global count when lucky cards hit; currently disabled because I can't figure out how to distinguish "unnatural" hits
 ---@param mod integer
-MINTY.luckyCount = function(mod) 
+MINTY.luckyCount = function(mod)
     mod = mod or 1
     G.GAME.total_lucky_count = G.GAME.total_lucky_count and (G.GAME.total_lucky_count + mod) or mod
     MINTY.say("Lucky counted", "TRACE")
@@ -164,8 +164,14 @@ function MINTY.reset_treat_card()
     --sendDebugMessage('[Minty] Treat-o-vision suit reset to '..G.GAME.treatovision_suit)
 end
 
-function SMODS.current_mod.reset_game_globals()
+function SMODS.current_mod.reset_game_globals(init)
     G.GAME.languageEgg = G.GAME.languageEgg or {}
     G.GAME.languageEgg[G.SETTINGS.language] = true
+
+    G.GAME.minty_hyperfix = G.GAME.minty_hyperfix or { active = true, value = 0 }
+    if G.GAME.minty_hyperfix.active and not init then
+        G.GAME.minty_hyperfix.value = (G.GAME.minty_hyperfix.value or 0) + 1
+    end
+
     MINTY.reset_treat_card()
 end
