@@ -39,7 +39,7 @@ return {
 		}
 	},
 	["descriptions"] = {
-		--[[ Commented for now; I think translations can uncomment it without issue 
+		--[[ For now, this is only for translations; leave it commented in US English. and/or if it's not done yet
 		["Mod"] = {
 			["MintysSillyMod"] = {
 				["name"] = "Minty's Silly Little Mod",
@@ -49,7 +49,7 @@ return {
 				},
 			},
 		},
-		]]
+		--]]
 		["Back"] = {
 			["b_minty_treat"] = {
 				["name"] = "Deck with a Treat",
