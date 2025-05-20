@@ -23,6 +23,13 @@ SMODS.Joker {
             expmult_boost = 0.25
         }
     },
+    in_pool = function (self, args) --Don't spawn if locked at 0 (not sure that's actually possible but hey)
+        if G and G.GAME and G.GAME.minty_hyperfix and G.GAME.minty_hyperfix.active or (G.GAME.minty_hyperfix.value > 0) then
+            return true
+        else
+            return false
+        end
+    end,
     loc_vars = function(self, info_queue, card)
         local key = self.key
         local total = card.ability.extra.expmult_base + ((G.GAME.minty_hyperfix and G.GAME.minty_hyperfix.value or 0) * card.ability.extra.expmult_boost)
