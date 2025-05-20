@@ -13,13 +13,13 @@ end
 ---Enables Bunco's exotics and anything that relies on them
 MINTY.enable_exotics = function()
     if G.GAME then G.GAME.Exotic = true end
-    MINTY.say("Enabled Bunco's exotic system, for some reason")
+    MINTY.say("Enabled Bunco's exotic system, for some reason", "TRACE")
 end
 
 ---Disables Bunco's exotics and anything that relies on them
 MINTY.disable_exotics = function()
     if G.GAME then G.GAME.Exotic = false end
-    MINTY.say("Disabled Bunco's exotic system, for some reason")
+    MINTY.say("Disabled Bunco's exotic system, for some reason", "TRACE")
 end
 
 ---Checks if Bunco's exotics are enabled, or if 3s are enabled and the relevant config is active 
@@ -31,28 +31,28 @@ end
 ---Enables 3 suit and accessories
 MINTY.enable_threeSuit = function()
     if not G.GAME then
-        MINTY.say("Attempted to enable 3 suit, but there is no game.")
+        MINTY.say("Attempted to enable 3 suit, but there is no game.", "DEBUG")
         return
     end
     G.GAME.threeSuitEnabled = true
     if G.GAME.Exotic then
-        MINTY.say("Attempted to enable 3 suit, but Exotic suits are already enabled.")
+        MINTY.say("Attempted to enable 3 suit, but Exotic suits are already enabled.", "TRACE")
     else
-        MINTY.say("Enabled 3 suit.")
+        MINTY.say("Enabled 3 suit.", "TRACE")
     end
 end
 
 ---Disables 3 suit and accessories
 MINTY.disable_threeSuit = function()
     if not G.GAME then
-        MINTY.say("Attempted to disable 3 suit, but there is no game.")
+        MINTY.say("Attempted to disable 3 suit, but there is no game.", "DEBUG")
         return
     end
     G.GAME.threeSuitEnabled = false
     if G.GAME.Exotic then
-        MINTY.say("Attempted to disable 3 suit, but Exotic suits are still enabled.")
+        MINTY.say("Attempted to disable 3 suit, but Exotic suits are still enabled.", "TRACE")
     else
-        MINTY.say("Disabled 3 suit.")
+        MINTY.say("Disabled 3 suit.", "TRACE")
     end
 end
 
