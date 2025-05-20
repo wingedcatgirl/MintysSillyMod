@@ -264,6 +264,10 @@ return {
 				},
 			},
 			["j_minty_languageEgg"] = {
+				["unlock"] = {
+					"Win a run in a language",
+					"other than {C:attention}English{}"
+				},
 				["name"] = "Language Egg",
 				["text"] = {
 					"{C:mult}+#1#{} Mult for each round",

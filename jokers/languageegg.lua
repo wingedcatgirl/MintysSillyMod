@@ -12,7 +12,7 @@ SMODS.Joker {
     },
     rarity = 1,
     cost = 5,
-    unlocked = true,
+    unlocked = false,
     discovered = false,
     eternal_compat = true,
     perishable_compat = true,
@@ -22,8 +22,23 @@ SMODS.Joker {
             mult = 5
         }
     },
-    in_pool = function ()
-        return not (G.SETTINGS.language == "en-us")
+    check_for_unlock = function (self, args)
+        if args.type == 'win_custom' and G.SETTINGS.language ~= "en-us" then
+            unlock_card(self)
+        end
+    end,
+    in_pool = function (self, args) --Spawn chance reduced by 1/3 if this run has only been played in US English
+        if G and (G.SETTINGS.language ~= "en-us") then return true end
+        local count = 0
+        if G and G.GAME and G.GAME.languageEgg then
+            for _ in pairs(G.GAME.languageEgg) do count = count + 1 end
+
+            if count <= 1 and G.GAME.languageEgg.en-us then
+                if pseudorandom("eggchance") < 1/3 then return false end
+            else return true
+            end
+        end
+        return false --this shouldn't ever happen during a game, but if it does, remove from pool as a failsafe 👍️
     end,
     loc_vars = function(self, info_queue, card)
         local count = 0
