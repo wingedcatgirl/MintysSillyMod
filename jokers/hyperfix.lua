@@ -47,6 +47,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.joker_main and context.scoring_hand then
             local total = card.ability.extra.expmult_base + ((G.GAME.minty_hyperfix and G.GAME.minty_hyperfix.value or 0) * card.ability.extra.expmult_boost)
+            if to_big(total) <= to_big(1) then return end
             return {
                 emult = total,
                 card = card
