@@ -71,7 +71,7 @@ MINTY.threeSuit_in_pool = function(fallback)
 end
 
 ---Checks how many times a card counts as a 3
----@param bypass_debuff boolean
+---@param bypass_debuff boolean?
 ---@return any --Since 0 is truthy in lua, we have to return boolean false in that case
 function Card:is_3(bypass_debuff)
     local count = 0
