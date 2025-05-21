@@ -23,6 +23,10 @@ SMODS.Joker {
             state = "wait",
             lastsprite = {
                 "wait", 0
+            },
+            motion = {
+                dir = "none",
+                duration = 0
             }
         }
     },
@@ -38,6 +42,10 @@ SMODS.Joker {
             }
         }
     end,
+    in_pool = function (self, args)
+        if AKYRS and AKYRS.card_any_drag() then return false end --Aikoyori if you want to put in a PR to let the kitty run in all zones please do, because I do not know how to begin figuring that out 
+        return true
+    end,
     calculate = function(self, card, context)
         if context.joker_main and context.scoring_hand then
             return {
@@ -50,6 +58,7 @@ SMODS.Joker {
         G.nekoframe = (G.nekoframe or 0) + dt
         if G.nekoframe > (G.SETTINGS.GAMESPEED * 0.25) then
             G.nekoframe = 0
+            card.ability.extra.motion.duration = card.ability.motion.duration + 1
         else
             return
         end
@@ -69,18 +78,32 @@ SMODS.Joker {
             chaseupleft = 12,
             chaseleft = 13,
             chasedownleft = 14,
-            scratchdown = 15,
-            scratchright = 16,
-            scratchup = 17,
-            scratchleft = 18,
+            scratchd = 15,
+            scratchr = 16,
+            scratchu = 17,
+            scratchl = 18,
         }
         local jokerref = card.config.center
 
 
-        -- locate position of mouse relative to joker sprite 
-        -- TBA
+        -- locate position of mouse relative to joker sprite
+        local mousepos = {}
+        mousepos.x, mousepos.y = love.mouse.getPosition()
+        local jokerpos = {}
+        --get joker sprite pos with some love2d thing presumably
+        --math out which 8-way direction it is
+        
 
         -- update joker state based on this info 
+        local joker_slot = nil
+        for i = 1, #G.jokers.cards do
+            if G.jokers.cards[i] == card then
+                joker_slot = i
+                break
+            end
+        end
+        local leftmost = (joker_slot == 1)
+        local rightmost = (joker_slot == #G.jokers.cards)
         -- TBA
 
         -- update soul sprite based on state
@@ -95,7 +118,36 @@ SMODS.Joker {
         --MINTY.say(tostring(jokerref.soul_pos.y), "TRACE")
 
         -- move joker to left or right if it's been in one of the lateral chase states long enough
-        -- TBA
+        local lastdir = card.ability.extra.motion.dir
+        --get current direction and reset tracking if it's changed
+        if string.find(card.ability.extra.state, "left") then
+            if lastdir ~= "left" then card.ability.extra.motion = {
+                dir = "left",
+                duration = 0
+            }
+            end
+        elseif string.find(card.ability.extra.state, "right") then
+            if lastdir ~= "right" then card.ability.extra.motion = {
+                dir = "right",
+                duration = 0
+            }
+            end
+        else
+            if lastdir ~= "none" then
+                card.ability.extra.motion = {
+                    dir = "none",
+                    duration = 0
+                }
+            end
+        end
+
+        if card.ability.extra.motion.duration == 5 and lastdir ~= "none" then --it's been running long enough
+            if not leftmost and lastdir == "left" then
+                G.jokers.cards[joker_slot-1], G.jokers.cards[joker_slot] = G.jokers.cards[joker_slot], G.jokers.cards[joker_slot-1]
+            elseif not rightmost and lastdir == "right" then
+                G.jokers.cards[joker_slot], G.jokers.cards[joker_slot-1] = G.jokers.cards[joker_slot-1], G.jokers.cards[joker_slot]
+            end
+        end
 
         if card.ability.extra.lastsprite ~= {card.ability.extra.state, jokerref.soul_pos.y} then
             card.ability.extra.lastsprite = {card.ability.extra.state, jokerref.soul_pos.y}
