@@ -4,7 +4,6 @@ MINTY = {
 }
 minty_config = SMODS.current_mod.config --Fallback in case anything is still using the old variable name
 assert(SMODS.current_mod.lovely, "Lovely patches whiffed! Please make sure this mod's file structure is not nested.")
-SMODS.load_file('configui.lua')()
 SMODS.current_mod.optional_features = {
     retrigger_joker = true,
     post_trigger = true,
@@ -12,8 +11,6 @@ SMODS.current_mod.optional_features = {
         unscored = true,
     },
 }
-SMODS.load_file('lib/atlases.lua')()
-SMODS.load_file('lib/functions.lua')()
 
 SMODS.ObjectType({ --Kity pool (Legendary and otherwise)
     key = "kity",
@@ -21,106 +18,129 @@ SMODS.ObjectType({ --Kity pool (Legendary and otherwise)
 	cards = {},
     inject = function(self)
         SMODS.ObjectType.inject(self)
-		self:inject_card(G.P_CENTERS.j_lucky_cat)
-        if (SMODS.Mods["ortalab"] or {}).can_load then --I feel like this method will break if the other mod has higher priority <.< but I don't see many mods with positive priority anyway so maybe this won't come up. And if it ever does we can do a PR instead
-            self:inject_card(G.P_CENTERS.j_ortalab_black_cat)
-        end
-        if (SMODS.Mods["Neato_Jokers"] or {}).can_load then
-            self:inject_card(G.P_CENTERS.j_neat_tabbycat)
+        --Add pool tag to external kitys so cards can care about that
+        local outside_kitys = {
+            j_lucky_cat = "vanilla",
+            j_ortalab_black_cat = "ortalab",
+            j_neat_tabbycat = "Neato_Jokers"
+        }
+        for k,v in pairs(outside_kitys) do --This might break if the other mod has a hig- er, low- er, LARGER NUMBER for priority, but uhhhh
+            if v == "vanilla" or (SMODS.Mods[v] or {}).can_load then
+                self:inject_card(G.P_CENTERS[k])
+                G.P_CENTERS[k].pools = G.P_CENTERS[k].pools or {}
+                G.P_CENTERS[k].pools.kity = true
+            end
         end
     end
 })
 
-SMODS.load_file('suits/3suit.lua')()
+local files = {
+    lib = {
+        { name = "atlases" },
+        { name = "functions" },
+        { name = "configui" },
+    },
+    suits = {
+        { name = "3suit" }
+    },
+    jokers = {
+        --Tweaks to existing Jokers 
+        { name = "vanillatweaks" },
+        --Common Jokers
+        { name = "froyo" },
+        { name = "hedonist" },
+        { name = "languageegg" },
+        { name = "claw" },
+        { name = "prosopagnosia" },
+        { name = "phasebus" },
+        { name = "slowtiger" },
+        { name = "cube" },
+        { name = "eaten" },
+        { name = "excited" },
+        { name = "chisel" },
+        { name = "bucket" },
+        { name = "chocobar" },
+        { name = "ascetic", mods = { {id = "ortalab"} } },
+        { name = "churu", mods = { {id = "paperback"} }, nocrossover = true },
+        --Uncommon Jokers
+        { name = "atheismcorner" },
+        { name = "treatovision" },
+        { name = "sabertooth", mods = { {id = "ortalab"} } },
+        { name = "neko", mods = { {id = "TOGAPack"} } },
+        { name = "catpicmachine", mods = { { id = "Cryptid" } } },
+        --Rare Jokers
+        { name = "wildsupport" },
+        { name = "gymbuddy" },
+        { name = "scoundrel" },
+        { name = "hyperfix", mods = { {id = "Talisman"} } },
+        --Fusion Jokers
+        { name = "ninethlion", mods = { {id = "ortalab"}, {id = "FusionJokers"} }, dev = true },
+        { name = "ninethlion", mods = { {id = "FusionJokers"} } },
+        { name = "ninethlion", mods = { {id = "FusionJokers"} } },
+        --Special Jokers
+        { name = "theecho", mods = { { id = "ChDp" } } },
+        --Legendary Jokers
+        { name = "lucky" },
+        { name = "stormy" },
+        { name = "patchy" },
+        { name = "minty", mods = { {id = "Talisman"} } },
+        { name = "garfielf" },
+        { name = "lune", mods = { {id = "ortalab"} } }
+    },
+    consumables = {
+        { name = "tarots" },
+        { name = "spectrals" },
+        { name = "colors", mods = { { id = "MoreFluff" } }, nocrossover = true },
+        { name = "gemstones", mods = { { id = "Gemstone" } }, nocrossover = true },
+        { name = "drafts", mods = { { id = "draft", version = "0.5.2.1" } } },
+    },
+    enhancements = {
+        { name = "marble" },
+    },
+    seals = {
+        { name = "cementseal" },
+    },
+    backs = {
+        { name = "backs" }
+    },
+    blinds = {
+        { name = "thenip" },
+        { name = "thetree", mods ={ {id = "ortalab"} } },
+        { name = "calico" },
+    },
+    challenge = {
+        { name = "challenges", mods = { { id = "ChDp" } } }
+    }
+}
 
--- SMODS.load_file('jokers/JOKER.lua')()
-SMODS.load_file('jokers/froyo.lua')()
-SMODS.load_file('jokers/hedonist.lua')()
-SMODS.load_file('jokers/languageegg.lua')()
-SMODS.load_file('jokers/claw.lua')()
-SMODS.load_file('jokers/prosopagnosia.lua')()
-SMODS.load_file('jokers/phasebus.lua')()
-SMODS.load_file('jokers/slowtiger.lua')()
-SMODS.load_file('jokers/cube.lua')()
-SMODS.load_file('jokers/eaten.lua')()
-SMODS.load_file('jokers/excited.lua')()
-SMODS.load_file('jokers/chisel.lua')()
-SMODS.load_file('jokers/bucket.lua')()
-SMODS.load_file('jokers/chocobar.lua')()
-SMODS.load_file('jokers/atheismcorner.lua')()
-SMODS.load_file('jokers/treatovision.lua')()
-SMODS.load_file('jokers/wildsupport.lua')()
-SMODS.load_file('jokers/gymbuddy.lua')()
-SMODS.load_file('jokers/scoundrel.lua')()
-SMODS.load_file('jokers/lucky.lua')()
-SMODS.load_file('jokers/stormy.lua')()
-SMODS.load_file('jokers/patchy.lua')()
-if (SMODS.Mods["Talisman"] or {}).can_load then
-    SMODS.load_file('jokers/hyperfix.lua')()
-    SMODS.load_file('jokers/minty.lua')()
-end
-SMODS.load_file('jokers/garfielf.lua')()
-
-SMODS.load_file('jokers/vanillatweaks.lua')()
-
-if (SMODS.Mods["TOGAPack"] or {}).can_load or MINTY.config.dev_mode or MINTY.config.include_crossover then
-    SMODS.load_file('jokers/neko.lua')()
-end
-
-if (SMODS.Mods["ortalab"] or {}).can_load or MINTY.config.include_crossover then
-    SMODS.load_file('jokers/ascetic.lua')()
-    SMODS.load_file('jokers/sabertooth.lua')()
-
-    --[[
-    if (SMODS.Mods["FusionJokers"] or {}).can_load then
-        SMODS.load_file('jokers/ninethlion.lua')()
+for folder, list in pairs(files) do
+    for _, data in ipairs(list) do
+        if data.dummy then goto nvm end
+        local load = true
+        local name = data.name
+        local mods = data.mods
+        local nocross = data.nocrossover
+        if mods then
+            local nevercross = {
+                "FusionJokers",
+                "Talisman",
+                "Cryptid",
+                "ChDp",
+                "draft",
+            }
+            for _, mod in ipairs(data.mods) do
+                load = load and (SMODS.Mods[mod.id] or {}).can_load
+                if mod.version then load = load and ((SMODS.Mods[mod.id] or {}).version == mod.version) end
+                for _, check in pairs(nevercross) do
+                    if mod.id == check then nocross = true end
+                end
+            end
+        end
+        if not nocross then load = MINTY.config.include_crossover or MINTY.config.dev_mode end
+        if data.dev then load = load and MINTY.config.dev_mode end
+        if load then
+            SMODS.load_file(folder..'/'..name..'.lua')()
+        end
+        ::nvm::
     end
-    ]]
-    SMODS.load_file('jokers/lune.lua')()
-
-    SMODS.load_file('blinds/thetree.lua')()
 end
-
-if (SMODS.Mods["FusionJokers"] or {}).can_load then
-    SMODS.load_file('jokers/threecats.lua')()
-    SMODS.load_file('jokers/parkour.lua')()
-end
-
-if (SMODS.Mods["paperback"] or {}).can_load then
-    SMODS.load_file('jokers/churu.lua')()
-end
-
-if (SMODS.Mods["paperback"] or {}).can_load or MINTY.config.include_crossover then
-    SMODS.load_file('jokers/catnipfields.lua')()
-end
-
-if (SMODS.Mods["Cryptid"] or {}).can_load then
-    SMODS.load_file('jokers/catpicmachine.lua')()
-end
-
-SMODS.load_file('consumables/tarots.lua')()
-SMODS.load_file('consumables/spectrals.lua')()
-
-if (SMODS.Mods["Gemstone"] or {}).can_load then
-    SMODS.load_file('consumables/gemstones.lua')()
-end
-
-if (SMODS.Mods["MoreFluff"] or {}).can_load then
-    SMODS.load_file('consumables/colors.lua')()
-end
-
-if (SMODS.Mods["draft"] or {}).can_load and (SMODS.Mods["draft"] or {}).version == "0.5.2.1" then --Temporary version lock until PR is merged
-    SMODS.load_file('consumables/drafts.lua')()
-end
-SMODS.load_file('backs/backs.lua')()
-
-SMODS.load_file('blinds/thenip.lua')()
-
-SMODS.load_file('enhancements/marble.lua')()
-SMODS.load_file('seals/cementseal.lua')()
-
-if (SMODS.Mods["ChDp"] or {}).can_load then
-    SMODS.load_file('challenge/challenges.lua')()
-    SMODS.load_file('jokers/theecho.lua')()
-end
---
