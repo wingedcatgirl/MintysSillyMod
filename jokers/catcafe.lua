@@ -1,14 +1,14 @@
 SMODS.Joker {
     key = "catcafe",
     name = "Cat Cafe",
-    atlas = 'placeholder',
+    atlas = 'jokerdoodles',
     pos = {
         x = 0,
-        y = 0
+        y = 6
     },
     soul_pos = {
         x = 1,
-        y = 0
+        y = 6
     },
     rarity = 2,
     cost = 6,
