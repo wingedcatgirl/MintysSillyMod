@@ -17,6 +17,9 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    pools = {
+        ["kity"] = true
+    },
     config = {
         extra = {
             chips = 133,
