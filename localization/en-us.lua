@@ -27,6 +27,7 @@ return {
 		["labels"] = {
 			["minty_cement_seal"] = "Cement Seal",
 			["m_minty_marble"] = "Marble Card",
+			["m_minty_garbled"] = "Garbled Card",
 			["gemslot_catseye"] = "Cat's Eye",
 			["k_minty_challenge"] = "Challenge",
 		},
@@ -50,186 +51,6 @@ return {
 			},
 		},
 		--]]
-		["Back"] = {
-			["b_minty_treat"] = {
-				["name"] = "Deck with a Treat",
-				["text"] = {
-					"Starts with a",
-					"full set of 13 {C:minty_3s}3s{}",
-				},
-			},
-			["b_minty_hearts"] = {
-				["name"] = "Deck of the Heart",
-				["text"] = {
-					"Start with an",
-					"{C:attention}eternal{} {C:hearts}Lusty Joker{}",
-					"and {C:attention}The Sun{} tarot",
-				},
-			},
-			["b_minty_diamonds"] = {
-				["name"] = "Deck of the Diamond",
-				["text"] = {
-					"Start with an",
-					"{C:attention}eternal{} {C:diamonds}Greedy Joker{}",
-					"and {C:attention}The Star{} tarot",
-				},
-			},
-			["b_minty_clubs"] = {
-				["name"] = "Deck of the Club",
-				["text"] = {
-					"Start with an",
-					"{C:attention}eternal{} {C:clubs}Gluttonous Joker{}",
-					"and {C:attention}The Moon{} tarot",
-				},
-			},
-			["b_minty_spades"] = {
-				["name"] = "Deck of the Spade",
-				["text"] = {
-					"Start with an",
-					"{C:attention}eternal{} {C:spades}Wrathful Joker{}",
-					"and {C:attention}The World{} tarot",
-				},
-			},
-			["b_minty_3suit"] = {
-				["name"] = "Deck of the 3",
-				["text"] = {
-					"Start with an",
-					"{C:attention}eternal{} {C:minty_3s}Hedonist Joker{}",
-					"and {C:attention}The Cat{} tarot",
-				},
-			},
-			["b_minty_catdeck"] = {
-				["name"] = "Deck of the Cat",
-				["text"] = {
-					'All playing cards are {C:minty_3s}3s{}',
-                    'and cannot change suits.',
-                    '{C:attention}The Nip{} cannot appear',
-                    ' ',
-                    '{C:inactive,s:0.8}The suit, not the rank!',
-				},
-			},
-			["b_minty_cementdeck"] = {
-				["name"] = "Deck of the 6th Year",
-				["text"] = {
-					"All cards have a {C:minty_cement}Cement Seal{}",
-            		"Cards cannot change seals",
-				},
-			},
-		},
-		["Blind"] = {
-			["bl_minty_thenip"] = {
-				["name"] = "The Nip",
-				["text"] = {
-					"All 3s are debuffed",
-				},
-			},
-			["bl_minty_thetree"] = {
-				["name"] = "The Tree",
-				["text"] = {
-					"Hand must contain 3s",
-				},
-			},
-			["bl_minty_calico_counter"] = {
-				["name"] = "Calico on the Counter",
-				["text"] = {
-					"#1# in #2# cards are drawn face-down",
-					"#1# in #2# cards are debuffed when drawn",
-				},
-			},
-		},
-		["Other"] = {
-			["minty_cement_seal"] = {
-				["label"] = "Cement Seal",
-				["name"] = "Cement Seal",
-				["text"] = {
-					"{C:chips}+#1# Chips{}",
-					"always scores",
-					"resists debuffs",
-				},
-			},
-			["gemslot_catseye"] = {
-				["name"] = "Cat's Eye",
-				["text"] = {
-					"Attached card",
-					"counts as a {C:minty_3s}3{} {C:attention}twice{}",
-				},
-			},
-		},
-		["Packet"] = {
-			["c_minty_littletreat"] = {
-				["name"] = "A Little Treat",
-				["text"] = {
-					"{C:money}#1#{}",
-					"{C:green}X#2#{} random {C:minty_3s}3s{}",
-					"{C:inactive,s:0.8}(the suit)",
-				}
-			},
-			["c_minty_smoltreat"] = {
-				["name"] = "Illegally Smol Treat",
-				["text"] = {
-					"{C:money}#1#{}",
-					"A single 3 of {C:minty_3s}3s{}",
-				}
-			},
-		},
-		["Parcel"] = {
-			["c_minty_treatandmystery"] = {
-				["name"] = "Treat and Mystery",
-				["text"] = {
-					"{C:green}X#2#{} {C:minty_3s}3s{}",
-					"and {C:green}a full set{} {C:inactive,s:0.8}(probably #2#){}",
-					"of another suit",
-				}
-			},
-			["c_minty_lessthanthree"] = {
-				["name"] = "<3",
-				["text"] = {
-					"{C:green}X#2#{} {C:minty_3s}3s{}",
-					"and {C:green}X#3#{} {C:hearts}Hearts{}",
-				}
-			},
-			["c_minty_forbiddencandy"] = {
-				["name"] = "Forbidden Candy",
-				["text"] = {
-					"{C:green}X#2#{} {C:minty_3s}3s{}",
-					"and {C:green}X#3#{} {C:diamonds}Diamonds{}",
-				}
-			},
-			["c_minty_exclusivetreats"] = {
-				["name"] = "Exclusive Treats",
-				["text"] = {
-					"{C:green}X#2#{} {C:minty_3s}3s{}",
-					"and {C:green}X#3#{} {C:clubs}Clubs{}",
-				}
-			},
-			["c_minty_diggingfortreats"] = {
-				["name"] = "Digging for Treats",
-				["text"] = {
-					"{C:green}X#2#{} {C:minty_3s}3s{}",
-					"and {C:green}X#3#{} {C:spades}Spades{}",
-				}
-			},
-		},
-		["Gemstone"] = {
-			["c_minty_catseye"] = {
-				["name"] = "Cat's Eye",
-				["text"]  = {
-                    "Attach a {C:minty_3s}Cat's Eye",
-                    "{}Gemstone to {C:green}#1#{} selected {C:attention}card{}",
-                    "{C:inactive}(Must have a Gem Slot){}",
-				},
-			},
-			["c_minty_catseye_flavor"] = {
-				["name"] = "Cat's Eye",
-				["text"]  = {
-                    "Attach a {C:minty_3s}Cat's Eye",
-                    "{}Gemstone to {C:green}#1#{} selected {C:attention}card{}",
-                    "{C:inactive}(Must have a Gem Slot){}",
-					" ",
-					"{C:inactive,s:0.8}It can see you...r treats."
-				},
-			},
-		},
 		["Joker"] = {
 			["j_minty_cube"] = {
 				["name"] = "Cube Joker",
@@ -1075,6 +896,93 @@ return {
 				},
 			},
 		},
+		["Back"] = {
+			["b_minty_treat"] = {
+				["name"] = "Deck with a Treat",
+				["text"] = {
+					"Starts with a",
+					"full set of 13 {C:minty_3s}3s{}",
+				},
+			},
+			["b_minty_hearts"] = {
+				["name"] = "Deck of the Heart",
+				["text"] = {
+					"Start with an",
+					"{C:attention}eternal{} {C:hearts}Lusty Joker{}",
+					"and {C:attention}The Sun{} tarot",
+				},
+			},
+			["b_minty_diamonds"] = {
+				["name"] = "Deck of the Diamond",
+				["text"] = {
+					"Start with an",
+					"{C:attention}eternal{} {C:diamonds}Greedy Joker{}",
+					"and {C:attention}The Star{} tarot",
+				},
+			},
+			["b_minty_clubs"] = {
+				["name"] = "Deck of the Club",
+				["text"] = {
+					"Start with an",
+					"{C:attention}eternal{} {C:clubs}Gluttonous Joker{}",
+					"and {C:attention}The Moon{} tarot",
+				},
+			},
+			["b_minty_spades"] = {
+				["name"] = "Deck of the Spade",
+				["text"] = {
+					"Start with an",
+					"{C:attention}eternal{} {C:spades}Wrathful Joker{}",
+					"and {C:attention}The World{} tarot",
+				},
+			},
+			["b_minty_3suit"] = {
+				["name"] = "Deck of the 3",
+				["text"] = {
+					"Start with an",
+					"{C:attention}eternal{} {C:minty_3s}Hedonist Joker{}",
+					"and {C:attention}The Cat{} tarot",
+				},
+			},
+			["b_minty_catdeck"] = {
+				["name"] = "Deck of the Cat",
+				["text"] = {
+					'All playing cards are {C:minty_3s}3s{}',
+                    'and cannot change suits.',
+                    '{C:attention}The Nip{} cannot appear',
+                    ' ',
+                    '{C:inactive,s:0.8}The suit, not the rank!',
+				},
+			},
+			["b_minty_cementdeck"] = {
+				["name"] = "Deck of the 6th Year",
+				["text"] = {
+					"All cards have a {C:minty_cement}Cement Seal{}",
+            		"Cards cannot change seals",
+				},
+			},
+		},
+		["Blind"] = {
+			["bl_minty_thenip"] = {
+				["name"] = "The Nip",
+				["text"] = {
+					"All 3s are debuffed",
+				},
+			},
+			["bl_minty_thetree"] = {
+				["name"] = "The Tree",
+				["text"] = {
+					"Hand must contain 3s",
+				},
+			},
+			["bl_minty_calico_counter"] = {
+				["name"] = "Calico on the Counter",
+				["text"] = {
+					"#1# in #2# cards are drawn face-down",
+					"#1# in #2# cards are debuffed when drawn",
+				},
+			},
+		},
 		["Tarot"] = {
 			["c_minty_cat"] = {
 				["name"] = "The Cat",
@@ -1315,6 +1223,13 @@ return {
 					"{C:mult}+#3#{} Mult when scored"
 				}
 			},
+			["m_minty_garbled"] = {
+				["name"] = "Garbled Card",
+				["label"] = "Garbled Card",
+				["text"] = {
+					"{C:mult}+???{} Mult"
+				}
+			},
 		},
 		["Colour"] = {
 			["c_minty_emeowrald"] = {
@@ -1338,6 +1253,123 @@ return {
 					"{C:inactive,s:0.8}Green like a kitty's pretty eyes",
 				}
 			},
-		}
+		},
+		["Rotarot"] = {
+			["c_minty_rot_cat"] = {
+				["name"] = "The Cat!",
+				["text"] = {
+					"Add {C:attention}#1#{} random {C:attention}Enhanced",
+					"{C:minty_3s}3s{} to your hand"
+				},
+			},
+			["c_minty_rot_boredkid"] = {
+				["name"] = "The Bored Child!",
+				["text"] = {
+					"Enhances {C:attention}#1#{} selected",
+					"card into a",
+					"{C:attention}#2#"
+				},
+			},
+			["c_minty_rot_bitz"] = {
+				["name"] = "The Bitz!",
+				["text"] = {
+					"Does something!",
+					"I haven't decided what!",
+				},
+			},
+		},
+		["Packet"] = {
+			["c_minty_littletreat"] = {
+				["name"] = "A Little Treat",
+				["text"] = {
+					"{C:money}#1#{}",
+					"{C:green}X#2#{} random {C:minty_3s}3s{}",
+					"{C:inactive,s:0.8}(the suit)",
+				}
+			},
+			["c_minty_smoltreat"] = {
+				["name"] = "Illegally Smol Treat",
+				["text"] = {
+					"{C:money}#1#{}",
+					"A single 3 of {C:minty_3s}3s{}",
+				}
+			},
+		},
+		["Parcel"] = {
+			["c_minty_treatandmystery"] = {
+				["name"] = "Treat and Mystery",
+				["text"] = {
+					"{C:green}X#2#{} {C:minty_3s}3s{}",
+					"and {C:green}a full set{} {C:inactive,s:0.8}(probably #2#){}",
+					"of another suit",
+				}
+			},
+			["c_minty_lessthanthree"] = {
+				["name"] = "<3",
+				["text"] = {
+					"{C:green}X#2#{} {C:minty_3s}3s{}",
+					"and {C:green}X#3#{} {C:hearts}Hearts{}",
+				}
+			},
+			["c_minty_forbiddencandy"] = {
+				["name"] = "Forbidden Candy",
+				["text"] = {
+					"{C:green}X#2#{} {C:minty_3s}3s{}",
+					"and {C:green}X#3#{} {C:diamonds}Diamonds{}",
+				}
+			},
+			["c_minty_exclusivetreats"] = {
+				["name"] = "Exclusive Treats",
+				["text"] = {
+					"{C:green}X#2#{} {C:minty_3s}3s{}",
+					"and {C:green}X#3#{} {C:clubs}Clubs{}",
+				}
+			},
+			["c_minty_diggingfortreats"] = {
+				["name"] = "Digging for Treats",
+				["text"] = {
+					"{C:green}X#2#{} {C:minty_3s}3s{}",
+					"and {C:green}X#3#{} {C:spades}Spades{}",
+				}
+			},
+		},
+		["Gemstone"] = {
+			["c_minty_catseye"] = {
+				["name"] = "Cat's Eye",
+				["text"]  = {
+                    "Attach a {C:minty_3s}Cat's Eye",
+                    "{}Gemstone to {C:green}#1#{} selected {C:attention}card{}",
+                    "{C:inactive}(Must have a Gem Slot){}",
+				},
+			},
+			["c_minty_catseye_flavor"] = {
+				["name"] = "Cat's Eye",
+				["text"]  = {
+                    "Attach a {C:minty_3s}Cat's Eye",
+                    "{}Gemstone to {C:green}#1#{} selected {C:attention}card{}",
+                    "{C:inactive}(Must have a Gem Slot){}",
+					" ",
+					"{C:inactive,s:0.8}It can see you...r treats."
+				},
+			},
+		},
+		["Other"] = {
+			["minty_cement_seal"] = {
+				["label"] = "Cement Seal",
+				["name"] = "Cement Seal",
+				["text"] = {
+					"{C:chips}+#1# Chips{}",
+					"always scores",
+					"resists debuffs",
+				},
+			},
+			["gemslot_catseye"] = {
+				["name"] = "Cat's Eye",
+				["text"] = {
+					"Attached card",
+					"counts as a {C:minty_3s}3{} {C:attention}twice{}",
+				},
+			},
+		},
 	},
 }

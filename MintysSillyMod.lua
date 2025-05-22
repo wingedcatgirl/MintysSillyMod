@@ -80,9 +80,9 @@ local files = {
         { name = "scoundrel" },
         { name = "hyperfix", mods = { {id = "Talisman"} } },
         --Fusion Jokers
-        { name = "ninethlion", mods = { {id = "ortalab"}, {id = "FusionJokers"} }, dev = true },
-        { name = "ninethlion", mods = { {id = "FusionJokers"} } },
-        { name = "ninethlion", mods = { {id = "FusionJokers"} } },
+        { name = "threecats", mods = { {id = "FusionJokers"} } },
+        { name = "parkour", mods = { {id = "FusionJokers"} } },
+        --{ name = "ninethlion", mods = { {id = "ortalab"}, {id = "FusionJokers"} }, dev = true },
         --Special Jokers
         { name = "theecho", mods = { { id = "ChDp" } } },
         --Legendary Jokers
@@ -97,11 +97,13 @@ local files = {
         { name = "tarots" },
         { name = "spectrals" },
         { name = "colors", mods = { { id = "MoreFluff" } }, nocrossover = true },
+        { name = "rotarots", mods = { { id = "MoreFluff" } }, nocrossover = true },
         { name = "gemstones", mods = { { id = "Gemstone" } }, nocrossover = true },
         { name = "drafts", mods = { { id = "draft", version = "0.5.2.1" } } },
     },
     enhancements = {
         { name = "marble" },
+        { name = "garbled", mods = { { id = "MoreFluff" } } },
     },
     seals = {
         { name = "cementseal" },
