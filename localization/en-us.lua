@@ -249,6 +249,23 @@ return {
 					"{C:inactive,s:0.8}YOU'RE a cube!",
 				},
 			},
+			["j_minty_catcafe"] = {
+				["name"] = "Cat Cafe",
+				["text"] = {
+					"{C:spectral}Kity{} Jokers give",
+					"{C:chips}+#1#{} Chips",
+				},
+			},
+			["j_minty_catcafe_flavor"] = {
+				["name"] = "Cat Cafe",
+				["text"] = {
+					"{C:spectral}Kity{} Jokers give",
+					"{C:chips}+#1#{} Chips",
+					" ",
+					"{C:inactive,s:0.8}The staff are cats.",
+					"{C:inactive,s:0.8}The patrons... are also cats."
+				},
+			},
 			["j_minty_hyperfix"] = {
 				["name"] = "Angel of Hyperfixation",
 				["text"] = {

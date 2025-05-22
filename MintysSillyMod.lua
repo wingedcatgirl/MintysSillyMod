@@ -3,7 +3,12 @@ MINTY = {
     config = SMODS.current_mod.config,
 }
 minty_config = SMODS.current_mod.config --Fallback in case anything is still using the old variable name
-assert(SMODS.current_mod.lovely, "Lovely patches whiffed! Please make sure this mod's file structure is not nested.")
+
+if not SMODS.current_mod.lovely then
+    NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
+    assert(false, "Lovely patches failed! Please make sure this mod's file structure is not nested. The mod will be automatically disabled on restart.")
+end
+
 SMODS.current_mod.optional_features = {
     retrigger_joker = true,
     post_trigger = true,
@@ -64,6 +69,7 @@ local files = {
         { name = "churu", mods = { {id = "paperback"} }, nocrossover = true },
         --Uncommon Jokers
         { name = "atheismcorner" },
+        { name = "catcafe" },
         { name = "treatovision" },
         { name = "sabertooth", mods = { {id = "ortalab"} } },
         { name = "neko", mods = { {id = "TOGAPack"} } },
