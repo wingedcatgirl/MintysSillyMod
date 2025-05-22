@@ -129,6 +129,13 @@ return {
 					"Hand must contain 3s",
 				},
 			},
+			["bl_minty_calico_counter"] = {
+				["name"] = "Calico on the Counter",
+				["text"] = {
+					"#1# in #2# cards are drawn face-down",
+					"#1# in #2# cards are debuffed when drawn",
+				},
+			},
 		},
 		["Other"] = {
 			["minty_cement_seal"] = {
@@ -1086,6 +1093,25 @@ return {
 					"to #3#{C:attention}Marble Card#2#{}",
 					" ",
 					"{C:inactive,s:0.8}Well, what if I threw rocks at you?",
+				},
+			},
+			["c_minty_bitz"] = {
+				["name"] = "The Bitz",
+				["text"] = {
+					"Summon a {C:legendary}normal{}",
+					"{C:chips,E:1}Kity{} Joker",
+					"{C:inactive}(Must have room){}",
+				},
+			},
+			["c_minty_bitz_flavor"] = {
+				["name"] = "The Bitz",
+				["text"] = {
+					"Summon a {C:legendary}normal{}",
+					"{C:chips,E:1}Kity{} Joker",
+					"{C:inactive}(Must have room){}",
+					" ",
+					'{C:inactive,s:0.8}"... now with a dash of bonito flakes{}',
+					'{C:inactive,s:0.8}to fuel your cats\' active lifestyles!{}',
 				},
 			},
 		},
