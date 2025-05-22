@@ -79,6 +79,7 @@ local files = {
         { name = "gymbuddy" },
         { name = "scoundrel" },
         { name = "hyperfix", mods = { {id = "Talisman"} } },
+        { name = "jacobsladder" },
         --Fusion Jokers
         { name = "threecats", mods = { {id = "FusionJokers"} } },
         { name = "parkour", mods = { {id = "FusionJokers"} } },

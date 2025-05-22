@@ -70,6 +70,25 @@ return {
 					"{C:inactive,s:0.8}YOU'RE a cube!",
 				},
 			},
+			["j_minty_jacobsladder"] = {
+				["name"] = "Jacob's Ladder",
+				["text"] = {
+					"If hand contains {C:attention}#1#{}",
+					"or more suits, {C:legendary}balance{}",
+					"{C:chips}Chips{} and {C:mult}Mult{}",
+				},
+			},
+			["j_minty_jacobsladder_flavor"] = {
+				["name"] = "Jacob's Ladder",
+				["text"] = {
+					"If hand contains {C:attention}#1#{}",
+					"or more suits, {C:legendary}balance{}",
+					"{C:chips}Chips{} and {C:mult}Mult{}",
+					" ",
+					"{C:inactive,s:0.8}What do you mean, 'why'?",
+					"{C:inactive,s:0.8}For SCIENCE, obviously!",
+				},
+			},
 			["j_minty_catcafe"] = {
 				["name"] = "Cat Cafe",
 				["text"] = {
