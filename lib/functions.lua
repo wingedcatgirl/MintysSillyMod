@@ -4,6 +4,9 @@
 function MINTY.say(message, level)
     message = message or "???"
     level = level or "DEBUG"
+    while #level < 5 do
+        level = level.." "
+    end
     if level == "TRACE" and not (MINTY.config.dev_mode and not MINTY.config.suppress_trace) then
         return
     end
@@ -37,6 +40,9 @@ MINTY.enable_threeSuit = function()
     G.GAME.threeSuitEnabled = true
     if G.GAME.Exotic then
         MINTY.say("Attempted to enable 3 suit, but Exotic suits are already enabled.", "TRACE")
+    elseif MINTY.config.enable_3_enable_exotic then
+        G.GAME.Exotic = true
+        MINTY.say("Enabled 3 suit and Exotic system.", "TRACE")
     else
         MINTY.say("Enabled 3 suit.", "TRACE")
     end
