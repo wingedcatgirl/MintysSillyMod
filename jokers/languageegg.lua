@@ -33,7 +33,7 @@ SMODS.Joker {
         if G and G.GAME and G.GAME.languageEgg then
             for _ in pairs(G.GAME.languageEgg) do count = count + 1 end
 
-            if count <= 1 and G.GAME.languageEgg.en-us then
+            if count <= 1 and G.GAME.languageEgg["en-us"] then
                 if pseudorandom("eggchance") < 1/3 then return false end
             else return true
             end
