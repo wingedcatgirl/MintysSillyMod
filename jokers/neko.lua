@@ -10,6 +10,7 @@ SMODS.Joker {
         x = 1,
         y = 0
     },
+    display_size = { w = 48, h = 65 },
     rarity = 2,
     cost = 8,
     unlocked = true,
@@ -123,7 +124,7 @@ SMODS.Joker {
         end
         --MINTY.say("Joker position: "..jokerpos.x..", "..jokerpos.y.."; Mouse position: "..mousepos.x..", "..mousepos.y.."; Direction: "..direction, "TRACE")
 
-        if card.ability.extra.state == "nap" or card.ability.extra.state == "yawn" or card.ability.extra.state == "wait" and direction ~= "close" then
+        if (card.ability.extra.state == "nap" or card.ability.extra.state == "yawn" or card.ability.extra.state == "wait") and direction ~= "close" then
             card.ability.extra.state = "alert"
             card.ability.extra.motion = {
                 dir = "none",

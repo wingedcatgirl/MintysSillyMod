@@ -22,8 +22,8 @@ SMODS.Atlas {
 SMODS.Atlas {
     key = 'neko',
     path = "neko.png",
-    px = 71,
-    py = 95
+    px = 48,
+    py = 65
 }
 
 SMODS.Atlas {

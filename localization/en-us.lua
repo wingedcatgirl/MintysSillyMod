@@ -73,7 +73,7 @@ return {
 			["j_minty_jacobsladder"] = {
 				["name"] = "Jacob's Ladder",
 				["text"] = {
-					"If hand contains {C:attention}#1#{}",
+					"If scored hand contains {C:attention}#1#{}",
 					"or more suits, {C:legendary}balance{}",
 					"{C:chips}Chips{} and {C:mult}Mult{}",
 				},
@@ -81,7 +81,7 @@ return {
 			["j_minty_jacobsladder_flavor"] = {
 				["name"] = "Jacob's Ladder",
 				["text"] = {
-					"If hand contains {C:attention}#1#{}",
+					"If scored hand contains {C:attention}#1#{}",
 					"or more suits, {C:legendary}balance{}",
 					"{C:chips}Chips{} and {C:mult}Mult{}",
 					" ",
@@ -154,29 +154,17 @@ return {
 			["j_minty_neko"] = {
 				["name"] = "neko.exe",
 				["text"] = {
-					{
-						"{C:chips}+#1#{} Chips",
-						"{C:attention}Chases{} your mouse around!"
-					},
-					{
-						"{C:inactive,s:0.8}... or will, in a later update,",
-						"{C:inactive,s:0.8}once I've done the coding work."
-					}
+					"{C:chips}+#1#{} Chips",
+					"{C:attention}Chases{} your mouse around!"
 				},
 			},
 			["j_minty_neko_flavor"] = {
 				["name"] = "neko.exe",
 				["text"] = {
-					{
-						"{C:chips}+#1#{} Chips",
-						"{C:attention}Chases{} your mouse around!",
-						" ",
-						"{C:inactive,s:0.8}Adorable since 1989"
-					},
-					{
-						"{C:inactive,s:0.8}... or will, in a later update,",
-						"{C:inactive,s:0.8}once I've done the coding work."
-					}
+					"{C:chips}+#1#{} Chips",
+					"{C:attention}Chases{} your mouse around!",
+					" ",
+					"{C:inactive,s:0.8}Adorable since 1989"
 				},
 			},
 			["j_minty_phasebus"] = {

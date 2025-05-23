@@ -52,7 +52,7 @@ SMODS.Blind {
         end
         return card.ability.wheel_flipped
     end,
-    press_play = function (self)
+    press_play = function (self) --idk why this isn't automatic. i feel like this is supposed to be automatic and i somehow screwed it up 
         for i = 1, #G.hand.cards do
             if G.hand.cards[i].highlighted and G.hand.cards[i].ability.wheel_flipped and G.hand.cards[i].facing == 'back' then
                 G.hand.cards[i]:flip()
