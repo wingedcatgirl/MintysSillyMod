@@ -58,14 +58,26 @@ SMODS.Joker {
         end
     end,
     update = function (self, card, dt)
-        if true then return end --dummy out all this for now 
+        --if true then return end --dummy out all this for now 
+        local area = card.area 
+        if G.your_collection then
+            for k, v in pairs(G.your_collection) do
+                if area == v then
+                    return --Neko can theoretically chase in collection but its timer doesn't update there, TODO fix this probably
+                end
+            end
+        end
         card.ability.extra.timer = (card.ability.extra.timer or 0) + dt
         if card.ability.extra.timer > (G.SETTINGS.GAMESPEED * 0.25) then
             card.ability.extra.timer = 0
-            card.ability.extra.motion.duration = card.ability.motion.duration + 1
+            card.ability.extra.motion.duration = card.ability.extra.motion.duration + 1
         else
             return
         end
+        if card.ability.extra.state == "alert" and card.ability.extra.motion.duration <= 5 then
+            return
+        end
+
         local states = {
             --state name = soul x pos 
             wait = 1,
@@ -90,28 +102,61 @@ SMODS.Joker {
         local jokerref = card.config.center
 
 
-        -- locate position of mouse relative to joker sprite
+        -- get positions of mouse and joker
         local mousepos = {}
-        mousepos.x, mousepos.y = love.mouse.getPosition()
+        mousepos.x, mousepos.y = math.floor(G.CURSOR.T.x*4)/4, math.floor(G.CURSOR.T.y*4)/4
         local jokerpos = {}
-        --get joker sprite pos with some love2d thing presumably
-        --math out which 8-way direction it is
-        
+        jokerpos.x, jokerpos.y = math.floor((card.T.x+2.5)*4)/4, math.floor((card.T.y+2)*4)/4
+        --math out the direction
+        local dx = jokerpos.x - mousepos.x
+        local dy = jokerpos.y - mousepos.y
+
+        local angle_rad = math.atan2(dy, dx)
+        local angle_deg = math.deg(angle_rad)
+        angle_deg = (angle_deg + 360) % 360
+
+        local index = math.floor((angle_deg + 22.5) / 45) % 8
+        local compass = { "left", "upleft", "up", "upright", "right", "downright", "down", "downleft" }
+        local direction = compass[index+1]
+        if math.abs(dx) <= 1 and math.abs(dy) <= 1.25 then
+            direction = "close"
+        end
+        --MINTY.say("Joker position: "..jokerpos.x..", "..jokerpos.y.."; Mouse position: "..mousepos.x..", "..mousepos.y.."; Direction: "..direction, "TRACE")
+
+        if card.ability.extra.state == "nap" and direction ~= "close" then
+            card.ability.extra.state = "alert"
+            card.ability.extra.motion = {
+                dir = "none",
+                duration = 0
+            }
+        end
 
         -- update joker state based on this info 
         local joker_slot = nil
-        for i = 1, #G.jokers.cards do
-            if G.jokers.cards[i] == card then
+        for i = 1, #area.cards do
+            if area.cards[i] == card then
                 joker_slot = i
                 break
             end
         end
         local leftmost = (joker_slot == 1)
-        local rightmost = (joker_slot == #G.jokers.cards)
+        local rightmost = (joker_slot == #area.cards)
         -- TBA
 
         -- update soul sprite based on state
         jokerref.soul_pos.x = states[card.ability.extra.state]
+
+        if direction == "close" then
+            if (card.ability.extra.state ~= "wait"
+            and card.ability.extra.state ~= "yawn"
+            and card.ability.extra.state ~= "wash"
+            and card.ability.extra.state ~= "nap")
+            then
+                card.ability.extra.state = "wait"
+            end
+        elseif "chase"..direction ~= card.ability.extra.state then
+            card.ability.extra.state = "chase"..direction
+        end
 
         if (card.ability.extra.state ~= "wait"
         and card.ability.extra.state ~= "yawn"
@@ -130,11 +175,19 @@ SMODS.Joker {
                 duration = 0
             }
             end
+            if leftmost then
+                card.ability.extra.state = "scratchl"
+                lastdir = "none"
+            end
         elseif string.find(card.ability.extra.state, "right") then
             if lastdir ~= "right" then card.ability.extra.motion = {
                 dir = "right",
                 duration = 0
             }
+            end
+            if rightmost then
+                card.ability.extra.state = "scratchr"
+                lastdir = "none"
             end
         else
             if lastdir ~= "none" then
@@ -143,20 +196,35 @@ SMODS.Joker {
                     duration = 0
                 }
             end
-        end
-
-        if card.ability.extra.motion.duration == 5 and lastdir ~= "none" then --it's been running long enough
-            if not leftmost and lastdir == "left" then
-                G.jokers.cards[joker_slot-1], G.jokers.cards[joker_slot] = G.jokers.cards[joker_slot], G.jokers.cards[joker_slot-1]
-            elseif not rightmost and lastdir == "right" then
-                G.jokers.cards[joker_slot], G.jokers.cards[joker_slot-1] = G.jokers.cards[joker_slot-1], G.jokers.cards[joker_slot]
+            if direction == "up" then
+                card.ability.extra.state = "scratchu"
+                lastdir = "none"
+            elseif direction == "down" then
+                card.ability.extra.state = "scratchd"
+                lastdir = "none"
             end
-            G.jokers:align_cards()
         end
 
         if card.ability.extra.lastsprite ~= {card.ability.extra.state, jokerref.soul_pos.y} then
             card.ability.extra.lastsprite = {card.ability.extra.state, jokerref.soul_pos.y}
             card:set_sprites(jokerref)
+        end
+
+        if card.ability.extra.motion.duration >= 5 and lastdir ~= "none" then --it's been running long enough
+            card.ability.extra.motion.duration = 0
+            if not leftmost and lastdir == "left" then
+                area.cards[joker_slot-1], area.cards[joker_slot] = area.cards[joker_slot], area.cards[joker_slot-1]
+            elseif not rightmost and lastdir == "right" then
+                area.cards[joker_slot], area.cards[joker_slot+1] = area.cards[joker_slot+1], area.cards[joker_slot]
+            end
+        elseif card.ability.extra.motion.duration >= 10 and lastdir == "none" then
+            if card.ability.extra.state == "wait" then
+                card.ability.extra.state = "yawn"
+                card.ability.extra.motion.duration = 5
+            elseif card.ability.extra.state == "yawn" then
+                card.ability.extra.state = "nap"
+                card.ability.extra.motion.duration = 0
+            end
         end
     end
 }
