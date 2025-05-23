@@ -27,10 +27,11 @@ SMODS.Joker {
             lastsprite = {
                 "wait", 0
             },
+            timer = 0,
             motion = {
                 dir = "none",
                 duration = 0
-            }
+            },
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -58,9 +59,9 @@ SMODS.Joker {
     end,
     update = function (self, card, dt)
         if true then return end --dummy out all this for now 
-        G.nekoframe = (G.nekoframe or 0) + dt
-        if G.nekoframe > (G.SETTINGS.GAMESPEED * 0.25) then
-            G.nekoframe = 0
+        card.ability.extra.timer = (card.ability.extra.timer or 0) + dt
+        if card.ability.extra.timer > (G.SETTINGS.GAMESPEED * 0.25) then
+            card.ability.extra.timer = 0
             card.ability.extra.motion.duration = card.ability.motion.duration + 1
         else
             return
@@ -150,6 +151,7 @@ SMODS.Joker {
             elseif not rightmost and lastdir == "right" then
                 G.jokers.cards[joker_slot], G.jokers.cards[joker_slot-1] = G.jokers.cards[joker_slot-1], G.jokers.cards[joker_slot]
             end
+            G.jokers:align_cards()
         end
 
         if card.ability.extra.lastsprite ~= {card.ability.extra.state, jokerref.soul_pos.y} then
