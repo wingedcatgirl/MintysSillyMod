@@ -220,7 +220,7 @@ SMODS.Joker {
         elseif card.ability.extra.motion.duration >= 10 and lastdir == "none" then
             if card.ability.extra.state == "wait" then
                 card.ability.extra.state = "yawn"
-                card.ability.extra.motion.duration = 5
+                card.ability.extra.motion.duration = 6
             elseif card.ability.extra.state == "yawn" then
                 card.ability.extra.state = "nap"
                 card.ability.extra.motion.duration = 0
