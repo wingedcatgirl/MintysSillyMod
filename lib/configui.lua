@@ -1,13 +1,5 @@
-local exoticmod = (SMODS.Mods["Bunco"] or {}).can_load
-
 local devonlytoggle = function(t)
     if MINTY.config.dev_mode then
-        return create_toggle(t)
-    end
-end
-
-local exoticonlytoggle = function(t)
-    if exoticmod then
         return create_toggle(t)
     end
 end
@@ -19,11 +11,6 @@ SMODS.current_mod.config_tab = function()
             label = "Flavor text",
             ref_table = MINTY.config,
             ref_value = 'flavor_text',
-        }),
-        exoticonlytoggle({
-            label = "Enabling 3s enables all secret suits",
-            ref_table = MINTY.config,
-            ref_value = 'enable_3_enable_exotic',
         }),
         create_toggle({
             label = "Include (stable) crossover content",
