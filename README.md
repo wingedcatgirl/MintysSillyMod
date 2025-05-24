@@ -42,9 +42,11 @@ Planned features:
 > Always start a new run after updating any mod. Attempting to continue an in-progress run may result in crashes.
 
 ## Config Options
-- Dev Mode: Default false. Enables unfinished content if there is any (requires restart) (there usually isn't any anyway) and puts trace messages in console (doesn't require restart).
 - Flavor text: Default true. Enables funky MtG-style quotes at the bottom of some cards.
-- Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things.
+- Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things. Autimatically on if Dev Mode is enabled. Requires restart.
+- 3 lock: Whether the 3 suit and related content can appear in a run; "Unlocked" means it's available from the start, "Locked" means it requires using The Cat tarot or playing a Spectrum hand[^1], "Sealed" means it never appears. Default "Locked".
+- Dev Mode: Default false. Enables unfinished content if there is any (requires restart) (there usually isn't any anyway). 
+   - Suppress trace messages: Default false; stops `TRACE`-level console messages even if Dev Mode is on.
 
 ## Recommended additional mods:
 If you're trying out Minty's for the first time and want minimal other mods, go with [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework). The rest of the list is for after that.
@@ -81,7 +83,8 @@ Technically you can do whatever you want here, but here's the mods I like for th
 - [Item Remover](https://github.com/art-muncher/Item-Remover) lets you disable specific items from the Collection, if they're OP or bugged or you just don't like them.
 
 ## Adding cross-mod interactions
-- Legendary Kitys: Give your legendary kittycats `pools = {["kity"] = true}` to enable The Wand to summon them. Nothing interacts with non-legendary kittycats _yet_, but you can put them in the pool too for when/if we invent something.
+- 3s: If you want things to interact with the 3s mechanic, use `Card:is_3()` for proper detection. It returns the number of times the card counts as a 3, or `false` if it doesn't, because `0` is truthy in Lua...
+- Legendary Kitys: Give your kittycats `pools = {["kity"] = true}` to enable them to be summoned by The Wand and The Bitz and to grant chips with Cat Cafe.
 - Gym Buddy boosts: Give your enhancements a `config.extra.gymboost` of `"chips"`, `"xchips"`, `"mult"`, `"xmult"`, `"cash"`, `"hchips"`, `"hxchips"`, `"hmult"`, `"hxmult"`, `"hcash"` or `"none"` to have them grant the corresponding boost when scored with cards not of that enhancement. (If you don't, one will be chosen randomly each time. Which maybe you prefer!) 
 
 ## Contributing
@@ -96,3 +99,6 @@ Technically you can do whatever you want here, but here's the mods I like for th
 - Does GitHub have messaging? It has [Discussions](https://github.com/wingedcatgirl/MintysSillyMod/discussions), that'll have to do.
 - Most reliable will be [Dreamwidth](https://wingedcatgirl.dreamwidth.org/). I'm not super _active_ there, but I can assure you it's not going away.
 - I'm most active on [tumblr](https://www.tumblr.com/wingedcatgirl), though I don't trust the CEO of that site not to burn it all down without notice.
+
+----
+[^1]: yes, there are other mods that add the Spectrum hand, but what's the point of having a framework if every mod has to account for every other mod. you know. if you're running those mods, add spectrum framework. let _it_ account for every other mod.

@@ -66,6 +66,11 @@ end
 ---@param fallback? boolean Forces true if Spectrum Framework is not active; default false
 ---@return boolean
 MINTY.threeSuit_in_pool = function(fallback)
+    if MINTY.config.three_lock.current_option == 3 then
+        return false
+    elseif MINTY.config.three_lock.current_option == 1 then
+        return true
+    end
     local spectrum = false
 
     if SPECF then

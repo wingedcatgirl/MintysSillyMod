@@ -4,6 +4,12 @@ local devonlytoggle = function(t)
     end
 end
 
+G.FUNCS.minty_optcycle = function(args)
+    local refval = args.cycle_config.ref_value
+    MINTY.config[refval].current_option = args.cycle_config.current_option
+    MINTY.config[refval].option_value = args.to_val
+end
+
 SMODS.current_mod.config_tab = function()
     return {n = G.UIT.ROOT, config = {r = 0.1, minw = 8, minh = 6, align = "tl", padding = 0.2, colour = G.C.BLACK}, nodes = {
         {n = G.UIT.C, config = {minw=1, minh=1, align = "tl", colour = G.C.CLEAR, padding = 0.15}, nodes = {
@@ -17,6 +23,15 @@ SMODS.current_mod.config_tab = function()
             ref_table = MINTY.config,
             ref_value = 'include_crossover',
         }),
+        create_option_cycle {
+            label = "3 availability",
+            options = {'Unlocked', "Locked", "Sealed"},
+            current_option = MINTY.config.three_lock.current_option,
+            ref_table = MINTY.config,
+            ref_value = "three_lock",
+            opt_callback = 'minty_optcycle',
+            w = 5.5
+            },
         create_toggle({
             label = "Dev mode",
             ref_table = MINTY.config,
