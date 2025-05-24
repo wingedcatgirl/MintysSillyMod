@@ -130,6 +130,7 @@ for folder, list in pairs(files) do
         local mods = data.mods
         local nocross = data.nocrossover
         if mods then
+            sendTraceMessage("Checking mods for "..folder..'/'..name..".lua")
             local nevercross = {
                 "FusionJokers",
                 "Talisman",
@@ -145,10 +146,19 @@ for folder, list in pairs(files) do
                 end
             end
         end
-        if not nocross then load = MINTY.config.include_crossover or MINTY.config.dev_mode end
-        if data.dev then load = load and MINTY.config.dev_mode end
+        if mods and not nocross then
+            sendTraceMessage("Checking crossover option for "..folder..'/'..name..".lua")
+            load = MINTY.config.include_crossover or MINTY.config.dev_mode
+        end
+        if data.dev then 
+            sendTraceMessage("Checking dev mode option for "..folder..'/'..name..".lua")
+            load = load and MINTY.config.dev_mode 
+        end
         if load then
+            sendTraceMessage("Loading file: "..folder..'/'..name..'.lua', "Minty's Mod")
             SMODS.load_file(folder..'/'..name..'.lua')()
+        else
+            sendTraceMessage("Skipping file: "..folder..'/'..name..'.lua', "Minty's Mod")
         end
         ::nvm::
     end
