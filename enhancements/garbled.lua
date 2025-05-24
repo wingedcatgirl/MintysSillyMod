@@ -11,6 +11,8 @@ SMODS.Enhancement({
 	badge_colour = HEX("a3ecc0"), --Magic Mint, according to internet
     config = {
         extra = {
+            min = 0,
+            max = 23,
             gymboost = "random"
         },
     },
@@ -23,9 +25,10 @@ SMODS.Enhancement({
     replace_base_card = true,
     no_rank = true,
     no_suit = true,
+    always_scores = true,
     calculate = function (self, card, context)
         if context.main_scoring and context.cardarea == G.play then
-            local mult = pseudorandom("minty_garbled", 0, 23)
+            local mult = pseudorandom("minty_garbled", card.ability.extra.min, card.ability.extra.max)
 
             if mult > 0 then
                 return {
