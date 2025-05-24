@@ -6,7 +6,6 @@ return {
         current_option = 2,
         option_value = "Locked",
     },
-    ["enable_3_enable_exotic"] = true,
     ["suppress_trace"] = false,
     ["test_button"] = false,
 }

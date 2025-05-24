@@ -27,7 +27,6 @@ end
 
 ---Checks if Bunco's exotics are enabled, or if 3s are enabled and the relevant config is active 
 MINTY.exotic_in_pool = function()
-    if MINTY.config.enable_3_enable_exotic then return threeSuit_in_pool() end
     return G.GAME and G.GAME.Exotic
 end
 
@@ -40,9 +39,6 @@ MINTY.enable_threeSuit = function()
     G.GAME.threeSuitEnabled = true
     if G.GAME.Exotic then
         MINTY.say("Attempted to enable 3 suit, but Exotic suits are already enabled.", "TRACE")
-    elseif MINTY.config.enable_3_enable_exotic then
-        G.GAME.Exotic = true
-        MINTY.say("Enabled 3 suit and Exotic system.", "TRACE")
     else
         MINTY.say("Enabled 3 suit.", "TRACE")
     end
