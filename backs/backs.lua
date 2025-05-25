@@ -17,13 +17,18 @@ function MINTY.sleeveunlockcheck(this)
     end
   end
 
-  for key, stake in pairs(G.P_STAKES) do
-    if stake.count == count then
-      result = key
+  if count > G.P_STAKES.stake_gold.count then
+    count, result = G.P_STAKES.stake_gold.count, "stake_gold"
+  else
+    for key, stake in pairs(G.P_STAKES) do
+      if stake.count == count then
+        result = key
+      end
     end
   end
+
   MINTY.nextSleeveUnlock.key, MINTY.nextSleeveUnlock.result = result, count
-  if MINTY.nextSleeveUnlock[this] then --patch to report the stake unlocked _on_ in the postgame unlock report thing; currently breaks if you quit before seeing the report
+  if MINTY.nextSleeveUnlock[this] then --patch to report the stake unlocked _on_ in the postgame unlock report thing; this doesn't save if you close the game tho
     result = MINTY.nextSleeveUnlock[this]
   end
 

@@ -1,8 +1,8 @@
-MINTY = {
-    prefix = SMODS.current_mod.prefix,
-    config = SMODS.current_mod.config,
-}
-minty_config = SMODS.current_mod.config --Fallback in case anything is still using the old variable name
+MINTY = MINTY or {}
+MINTY.prefix = SMODS.current_mod.prefix
+MINTY.config = SMODS.current_mod.config
+
+
 
 if not SMODS.current_mod.lovely then
     NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
