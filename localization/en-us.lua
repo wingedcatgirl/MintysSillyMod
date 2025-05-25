@@ -976,6 +976,13 @@ return {
 					"All 3s are debuffed",
 				},
 			},
+			["bl_minty_thenipdx"] = {
+				["name"] = "The Nip DX",
+				["text"] = {
+					"All non-3 cards",
+					"are debuffed",
+				},
+			},
 			["bl_minty_thetree"] = {
 				["name"] = "The Tree",
 				["text"] = {

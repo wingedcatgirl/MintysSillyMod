@@ -116,6 +116,7 @@ local files = {
         { name = "thenip" },
         { name = "thetree", mods ={ {id = "ortalab"} } },
         { name = "calico" },
+        { name = "thenipdx", mods ={ {id = "MoreFluff"} } },
     },
     challenge = {
         { name = "challenges", mods = { { id = "ChDp" } } }
@@ -130,7 +131,7 @@ for folder, list in pairs(files) do
         local mods = data.mods
         local nocross = data.nocrossover
         if mods then
-            sendTraceMessage("Checking mods for "..folder..'/'..name..".lua")
+            sendTraceMessage("Checking mods for "..folder..'/'..name..".lua", "Minty's Mod")
             local nevercross = {
                 "FusionJokers",
                 "Talisman",
