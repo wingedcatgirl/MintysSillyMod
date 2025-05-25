@@ -1,33 +1,33 @@
-function MINTY.sleeveunlockcheck()
-    local sleeves = {
-      "sleeve_minty_heartsleeve",
-      "sleeve_minty_diamondsleeve",
-      "sleeve_minty_clubssleeve",
-      "sleeve_minty_spadessleeve",
-      "sleeve_minty_3suitsleeve",
-      "sleeve_minty_treatsleeve",
-    }
-    local count = 1
-    local result = "stake_gold"
-    for _, sleeve in ipairs(sleeves) do
-      if G.P_CENTERS[sleeve] and G.P_CENTERS[sleeve].unlocked == true then
-        count = count + 1
-      end
-    end
-    
+function MINTY.sleeveunlockcheck(this)
+  MINTY.nextSleeveUnlock = MINTY.nextSleeveUnlock or {}
 
-    
-    for key, stake in pairs(G.P_STAKES) do
-      if stake.count == count then
-          result = key
-          for _, sleeve in ipairs(sleeves) do
-            if G.P_CENTERS[sleeve] and G.P_CENTERS[sleeve].unlocked == false and type(G.P_CENTERS[sleeve].unlock_condition.stake) == "string" then
-                G.P_CENTERS[sleeve].unlock_condition.stake = result
-            end
-        end
-      end
+  local sleeves = {
+    "sleeve_minty_heartsleeve",
+    "sleeve_minty_diamondsleeve",
+    "sleeve_minty_clubssleeve",
+    "sleeve_minty_spadessleeve",
+    "sleeve_minty_3suitsleeve",
+    "sleeve_minty_treatsleeve",
+  }
+  local count = 1
+  local result = "stake_gold"
+  for _, sleeve in ipairs(sleeves) do
+    if G.P_CENTERS[sleeve] and G.P_CENTERS[sleeve].unlocked == true then
+      count = count + 1
     end
-    return result
+  end
+
+  for key, stake in pairs(G.P_STAKES) do
+    if stake.count == count then
+      result = key
+    end
+  end
+  MINTY.nextSleeveUnlock.key, MINTY.nextSleeveUnlock.result = result, count
+  if MINTY.nextSleeveUnlock[this] then --patch to report the stake unlocked _on_ in the postgame unlock report thing; currently breaks if you quit before seeing the report
+    result = MINTY.nextSleeveUnlock[this]
+  end
+
+  return result, count
 end
 
 SMODS.Back({
@@ -66,10 +66,31 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 0, y = 0 },
         config = {start_with_3s = true},
         unlocked = false,
-        unlock_condition = {
-          deck = "b_minty_treat",
-          stake = MINTY.sleeveunlockcheck()
-          },
+        check_for_unlock = function (self, args)
+          if not (G and G.GAME) then return end
+          if self.get_current_deck_key() ~= "b_minty_treat" then return end
+          local skey, scount = MINTY.sleeveunlockcheck()
+          if args and args.type == 'win_custom' and G.GAME.stake == scount then
+              MINTY.nextSleeveUnlock[self.key] = skey
+              unlock_card(self)
+          end
+        end,
+        locked_loc_vars = function (self, info_queue, card)
+          stake_key = MINTY.sleeveunlockcheck(self.key)
+          local colours = G.C.GREY
+          if stake_key ~= "stake_white" then
+              colours = get_stake_col(SMODS.Stakes[stake_key].order)
+          end
+
+          return {
+            key = "sleeve_locked",
+            vars = {
+              localize{type = "name_text", set = "Back", key = "b_minty_treat"},
+              localize{type = "name_text", set = "Stake", key = stake_key},
+              colours = {colours}
+            }
+          }
+        end,
         loc_vars = function(self)
             MINTY.sleeveunlockcheck()
             local key, vars
@@ -167,10 +188,30 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 0, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = {
-          deck = "b_minty_hearts",
-          stake = MINTY.sleeveunlockcheck()
-          },
+        check_for_unlock = function (self, args)
+          if not (G and G.GAME) then return end
+          if self.get_current_deck_key() ~= "b_minty_hearts" then return end
+          local skey, scount = MINTY.sleeveunlockcheck()
+          if args and args.type == 'win_custom' and G.GAME.stake == scount then
+              MINTY.nextSleeveUnlock[self.key] = skey
+              unlock_card(self)
+          end
+        end,
+        locked_loc_vars = function (self, info_queue, card)
+          stake_key = MINTY.sleeveunlockcheck(self.key)
+          local colours = G.C.GREY
+          if stake_key ~= "stake_white" then
+              colours = get_stake_col(SMODS.Stakes[stake_key].order)
+          end
+          return {
+            key = "sleeve_locked",
+            vars = {
+              localize{type = "name_text", set = "Back", key = "b_minty_hearts"},
+              localize{type = "name_text", set = "Stake", key = stake_key},
+              colours = {colours}
+            }
+          }
+        end,
         loc_vars = function(self)
             MINTY.sleeveunlockcheck()
             local key, vars
@@ -293,10 +334,30 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 1, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = {
-          deck = "b_minty_diamonds",
-          stake = MINTY.sleeveunlockcheck()
-          },
+        check_for_unlock = function (self, args)
+          if not (G and G.GAME) then return end
+          if self.get_current_deck_key() ~= "b_minty_diamonds" then return end
+          local skey, scount = MINTY.sleeveunlockcheck()
+          if args and args.type == 'win_custom' and G.GAME.stake == scount then
+              MINTY.nextSleeveUnlock[self.key] = skey
+              unlock_card(self)
+          end
+        end,
+        locked_loc_vars = function (self, info_queue, card)
+          stake_key = MINTY.sleeveunlockcheck(self.key)
+          local colours = G.C.GREY
+          if stake_key ~= "stake_white" then
+              colours = get_stake_col(SMODS.Stakes[stake_key].order)
+          end
+          return {
+            key = "sleeve_locked",
+            vars = {
+              localize{type = "name_text", set = "Back", key = "b_minty_diamonds"},
+              localize{type = "name_text", set = "Stake", key = stake_key},
+              colours = {colours}
+            }
+          }
+        end,
         loc_vars = function(self)
             MINTY.sleeveunlockcheck()
             local key, vars
@@ -418,10 +479,30 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 2, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = {
-          deck = "b_minty_clubs",
-          stake = MINTY.sleeveunlockcheck()
-          },
+        check_for_unlock = function (self, args)
+          if not (G and G.GAME) then return end
+          if self.get_current_deck_key() ~= "b_minty_clubs" then return end
+          local skey, scount = MINTY.sleeveunlockcheck()
+          if args and args.type == 'win_custom' and G.GAME.stake == scount then
+              MINTY.nextSleeveUnlock[self.key] = skey
+              unlock_card(self)
+          end
+        end,
+        locked_loc_vars = function (self, info_queue, card)
+          stake_key = MINTY.sleeveunlockcheck(self.key)
+          local colours = G.C.GREY
+          if stake_key ~= "stake_white" then
+              colours = get_stake_col(SMODS.Stakes[stake_key].order)
+          end
+          return {
+            key = "sleeve_locked",
+            vars = {
+              localize{type = "name_text", set = "Back", key = "b_minty_clubs"},
+              localize{type = "name_text", set = "Stake", key = stake_key},
+              colours = {colours}
+            }
+          }
+        end,
         loc_vars = function(self)
             MINTY.sleeveunlockcheck()
             local key, vars
@@ -543,10 +624,30 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 3, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = {
-          deck = "b_minty_spades",
-          stake = MINTY.sleeveunlockcheck()
-          },
+        check_for_unlock = function (self, args)
+          if not (G and G.GAME) then return end
+          if self.get_current_deck_key() ~= "b_minty_spades" then return end
+          local skey, scount = MINTY.sleeveunlockcheck()
+          if args and args.type == 'win_custom' and G.GAME.stake == scount then
+              MINTY.nextSleeveUnlock[self.key] = skey
+              unlock_card(self)
+          end
+        end,
+        locked_loc_vars = function (self, info_queue, card)
+          stake_key = MINTY.sleeveunlockcheck(self.key)
+          local colours = G.C.GREY
+          if stake_key ~= "stake_white" then
+              colours = get_stake_col(SMODS.Stakes[stake_key].order)
+          end
+          return {
+            key = "sleeve_locked",
+            vars = {
+              localize{type = "name_text", set = "Back", key = "b_minty_spades"},
+              localize{type = "name_text", set = "Stake", key = stake_key},
+              colours = {colours}
+            }
+          }
+        end,
         loc_vars = function(self)
             MINTY.sleeveunlockcheck()
             local key, vars
@@ -668,10 +769,30 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
         pos = { x = 4, y = 1 },
         config = {},
         unlocked = false,
-        unlock_condition = {
-          deck = "b_minty_3suit",
-          stake = MINTY.sleeveunlockcheck()
-          },
+        check_for_unlock = function (self, args)
+          if not (G and G.GAME) then return end
+          if self.get_current_deck_key() ~= "b_minty_3suit" then return end
+          local skey, scount = MINTY.sleeveunlockcheck()
+          if args and args.type == 'win_custom' and G.GAME.stake == scount then
+              MINTY.nextSleeveUnlock[self.key] = skey
+              unlock_card(self)
+          end
+        end,
+        locked_loc_vars = function (self, info_queue, card)
+          stake_key = MINTY.sleeveunlockcheck(self.key)
+          local colours = G.C.GREY
+          if stake_key ~= "stake_white" then
+              colours = get_stake_col(SMODS.Stakes[stake_key].order)
+          end
+          return {
+            key = "sleeve_locked",
+            vars = {
+              localize{type = "name_text", set = "Back", key = "b_minty_3suit"},
+              localize{type = "name_text", set = "Stake", key = stake_key},
+              colours = {colours}
+            }
+          }
+        end,
         loc_vars = function(self)
             MINTY.sleeveunlockcheck()
             local key, vars
