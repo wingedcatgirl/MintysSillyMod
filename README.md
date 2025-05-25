@@ -54,7 +54,7 @@ If you're trying out Minty's for the first time and want minimal other mods, go 
 ### Technical
 - [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for all challenges in Minty's Mod.
 - [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) enables five-suit poker hands, which are a fun little thing to play with.
-- [Talisman](https://github.com/MathIsFun0/Talisman) enables scores above e308 and also ^mult, which is just fun imo. Also very technically part of the next list (the Joker named Minty requires Talisman). They fixed the bug that bricks your save files, btw. talking to you, roffle. 
+- [Talisman](https://github.com/MathIsFun0/Talisman) enables scores above e308 and also ^mult, which is just fun imo. Also very technically part of the next list (we have some ^mult Jokers). They fixed the bug that bricks your save files, btw. talking to you, roffle. 
 
 ### Cross-mod content
 Minty's Mod adds content for all of the following mods. Those with ⭐️ are also recommended for just, like, a basic default content mod set. in my imo.
@@ -66,9 +66,11 @@ Minty's Mod adds content for all of the following mods. Those with ⭐️ are al
 - [More Fluff](https://github.com/notmario/MoreFluff) ⭐️
 - [Ortalab](https://github.com/Eremel/Ortalab)
 - [Paperback](https://github.com/GitNether/paperback) ⭐️
+- [TOGA's Stuff](https://github.com/TheOneGoofAli/TOGAPackBalatro)
 
-The following mod~~s~~ add content for Minty's Mod and we haven't returned the favor (yet):
+The following mod add content for Minty's Mod and we haven't returned the favor (yet):
 - [Prism](https://github.com/blazingulag/Prism) ⭐️
+- [Random's Partners](https://github.com/Random71777/Random-s-Partners) (requires [Partner](https://github.com/Icecanno/Partner-API/))
 
 ### Other content mods
 Minty's Mod doesn't add anything for these _yet_, but we might in future. Until then, we're just recommending them because we like them. Consider anything on this list ⭐️'d.
@@ -80,7 +82,7 @@ Technically you can do whatever you want here, but here's the mods I like for th
 - [Galdur](https://github.com/Eremel/Galdur) revamps the New Run screen to make deck and sleeve selection much easier.
 - [Glue for Modpacks](https://github.com/icyethics/Glue-For-Modpacks) lets you adjust the shop so having a lot of mods doesn't drown everything out.
 - [Handy](https://github.com/SleepyG11/HandyBalatro) adds a whole lot of things but tbh the only one I care about is selecting multiple playing cards by dragging across them.
-- [Item Remover](https://github.com/art-muncher/Item-Remover) lets you disable specific items from the Collection, if they're OP or bugged or you just don't like them.
+- [Item Remover](https://github.com/art-muncher/Item-Remover) lets you disable specific items from the Collection, if they're OP or bugged or you just don't like them. ([Banner](https://github.com/SylviBlossom/Banner) does the same thing and is newer, switch if one of them isn't doing what you want it to.)
 
 ## Adding cross-mod interactions
 - 3s: If you want things to interact with the 3s mechanic, use `Card:is_3()` for proper detection. It returns the number of times the card counts as a 3, or `false` if it doesn't, because `0` is truthy in Lua...
