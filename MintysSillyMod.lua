@@ -109,12 +109,12 @@ local files = {
         { name = "cementseal" }, --Seals
     },
     backs = {
-        { name = "3" },
+        { name = "treat" },
         { name = "club" },
         { name = "diamond" },
         { name = "heart" },
         { name = "spade" },
-        { name = "treat" },
+        { name = "3" },
         { name = "silly" },
     },
     blinds = {
