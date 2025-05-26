@@ -45,9 +45,6 @@ SMODS.Joker {
         if G.GAME.pool_flags.churu_treat_eaten then
             return false
         end
-        if G.GAME.starting_params.start_with_3s then
-            return true
-        end
         return MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)

@@ -62,6 +62,7 @@ end
 ---@param fallback? boolean Forces true if Spectrum Framework is not active; default false
 ---@return boolean
 MINTY.threeSuit_in_pool = function(fallback)
+    if G.GAME.starting_params.start_with_3s then return true end
     if MINTY.config.three_lock.current_option == 3 then
         return false
     elseif MINTY.config.three_lock.current_option == 1 then

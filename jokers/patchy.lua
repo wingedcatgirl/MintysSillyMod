@@ -37,9 +37,6 @@ SMODS.Joker {
         ["kity"] = true
     },
     in_pool = function(self, args)
-        if G.GAME.starting_params.start_with_3s then
-            return true
-        end
         return MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)

@@ -15,9 +15,6 @@ SMODS.Suit{ -- 3s
     hc_colour = HEX('86B723'),
 
     in_pool = function(self, args)
-        if G.GAME.starting_params.start_with_3s then
-            return true
-        end
         return MINTY.threeSuit_in_pool()
     end
 }
