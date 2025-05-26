@@ -956,23 +956,6 @@ return {
 					"and {C:attention}The Cat{} tarot",
 				},
 			},
-			["b_minty_catdeck"] = {
-				["name"] = "Deck of the Cat",
-				["text"] = {
-					'All playing cards are {C:minty_3s}3s{}',
-                    'and cannot change suits.',
-                    '{C:attention}The Nip{} cannot appear',
-                    ' ',
-                    '{C:inactive,s:0.8}The suit, not the rank!',
-				},
-			},
-			["b_minty_cementdeck"] = {
-				["name"] = "Deck of the 6th Year",
-				["text"] = {
-					"All cards have a {C:minty_cement}Cement Seal{}",
-            		"Cards cannot change seals",
-				},
-			},
 		},
 		["Blind"] = {
 			["bl_minty_thenip"] = {
