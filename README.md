@@ -88,6 +88,7 @@ Technically you can do whatever you want here, but here's the mods I like for th
 - 3s: If you want things to interact with the 3s mechanic, use `Card:is_3()` for proper detection. It returns the number of times the card counts as a 3, or `false` if it doesn't, because `0` is truthy in Lua...
 - Legendary Kitys: Give your kittycats `pools = {["kity"] = true}` to enable them to be summoned by The Wand and The Bitz and to grant chips with Cat Cafe.
 - Gym Buddy boosts: Give your enhancements a `config.extra.gymboost` of `"chips"`, `"xchips"`, `"mult"`, `"xmult"`, `"cash"`, `"hchips"`, `"hxchips"`, `"hmult"`, `"hxmult"`, `"hcash"` or `"none"` to have them grant the corresponding boost when scored with cards not of that enhancement. (If you don't, one will be chosen randomly each time. Which maybe you prefer!) 
+- The Silliest, Littlest Deck: Add `pools = {["MintysSillyMod"] = true}` to have your cross-mod content appear with increased frequency when this deck is in play.
 
 ## Contributing
 - Yes, feel free to contribute if you have a contribution!
