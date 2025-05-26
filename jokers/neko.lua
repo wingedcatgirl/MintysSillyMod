@@ -119,7 +119,7 @@ SMODS.Joker {
         local index = math.floor((angle_deg + 22.5) / 45) % 8
         local compass = { "left", "upleft", "up", "upright", "right", "downright", "down", "downleft" }
         local direction = compass[index+1]
-        if math.abs(dx) <= 1 and math.abs(dy) <= 1.25 then
+        if (math.abs(dx) <= 1 and math.abs(dy) <= 1.25) or card.highlighted then
             direction = "close"
         end
         --MINTY.say("Joker position: "..jokerpos.x..", "..jokerpos.y.."; Mouse position: "..mousepos.x..", "..mousepos.y.."; Direction: "..direction, "TRACE")
