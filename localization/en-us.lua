@@ -76,6 +76,10 @@ return {
 				},
 			},
 			["j_minty_jacobsladder"] = {
+				["unlock"] = {
+					"Play a hand containing",
+					"{C:attention}5{} or more suits"
+				},
 				["name"] = "Jacob's Ladder",
 				["text"] = {
 					"If scored hand contains {C:attention}#1#{}",
@@ -956,6 +960,13 @@ return {
 					"and {C:attention}The Cat{} tarot",
 				},
 			},
+			["b_minty_sillylittledeck"] = {
+				["name"] = "The Silliest, Littlest Deck",
+				["text"] = {
+					"{C:legendary}Minty's Mod{C:attention} Jokers{} are {C:attention}3x",
+					"more likely to appear,",
+				},
+			},
 		},
 		["Blind"] = {
 			["bl_minty_thenip"] = {
@@ -1206,6 +1217,20 @@ return {
 				["text"] = {
 					"Instead start with",
 					"{C:minty_3s}Three{} {C:attention}eternal{} {C:minty_3s}Cats!{}",
+				},
+			},
+			["sleeve_minty_sillylittlesleeve"] = {
+				["name"] = "The Silliest, Littlest Sleeve",
+				["text"] = {
+					"{C:legendary}Minty's Mod{C:attention} Jokers{} are {C:attention}3x",
+					"more likely to appear,",
+				},
+			},
+			["sleeve_minty_sillylittlesleeve_alt"] = {
+				["name"] = "The Silliest, Littlest Sleeve",
+				["text"] = {
+					"Other {C:legendary}Minty's Mod{} items are {C:attention}2x",
+					"more likely to appear,",
 				},
 			},
 		},

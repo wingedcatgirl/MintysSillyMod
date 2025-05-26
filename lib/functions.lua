@@ -159,6 +159,7 @@ MINTY.sleeveunlockcheck = function(this)
     "sleeve_minty_spadessleeve",
     "sleeve_minty_3suitsleeve",
     "sleeve_minty_treatsleeve",
+    "sleeve_minty_sillylittlesleeve",
   }
   local count = 1
   local result = "stake_gold"
