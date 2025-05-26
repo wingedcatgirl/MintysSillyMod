@@ -1,0 +1,29 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+# Stop hyperfix count when a Joker is bought
+[[patches]]
+[patches.pattern]
+target = 'functions/button_callbacks.lua'
+position = "after"
+pattern = "elseif c1.ability.set == 'Joker' then"
+payload =  '''
+if G.GAME.minty_hyperfix then G.GAME.minty_hyperfix.active = false
+else G.GAME.minty_hyperfix = { active = false, value = 0 }
+end
+'''
+match_indent = true
+
+# Increment hyperfix count when a blind is skipped
+[[patches]]
+[patches.pattern]
+target = 'functions/button_callbacks.lua'
+position = "after"
+pattern = "G.GAME.skips = (G.GAME.skips or 0) + 1"
+payload =  '''
+    if G.GAME.minty_hyperfix.active then
+        G.GAME.minty_hyperfix.value = (G.GAME.minty_hyperfix.value or 0) + 1
+    end
+'''
+match_indent = true

@@ -1,0 +1,12 @@
+[manifest]
+version = "1.0.0"
+priority = 1
+
+# Add Ortalab crossover content to Ortalab stakes
+[[patches]]
+[patches.pattern]
+target = '=[SMODS ortalab "objects/stakes.lua"]'
+position = "after"
+pattern = "if not v.mod or v.mod.id ~= 'ortalab' then add = false end"
+payload =  "if (v.pools and v.pools.Ortalab) then add = true end"
+match_indent = true

@@ -1,0 +1,33 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+# Remove non-legendary kitys from pool when using The Bitz and The Wand
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = "            if add and not G.GAME.banned_keys[v.key] then"
+position = "before"
+payload = '''
+        if _type == "kity" then
+            --local legtext = _legendary and "true" or "false"
+            --MINTY.say("key == "..v.key.."; rarity == "..v.rarity, "TRACE")
+            if _legendary and v.rarity ~= 4 then
+                add = nil
+            end
+            if (not _legendary) and v.rarity == 4 then
+                add = nil
+            end
+            --if add then MINTY.say("Joker Boy Allowed", "TRACE") else MINTY.say("No Joker Allowed", "TRACE") end
+        end
+'''
+match_indent = true
+
+# Count lucky triggers (disabled atm cause our one thing is no longer counting globally)
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+position = "after"
+pattern = "self.lucky_trigger = true"
+payload =  "--MINTY.luckyCount()"
+match_indent = true
