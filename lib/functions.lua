@@ -145,28 +145,45 @@ MINTY.luckyCount = function(mod)
     end--]]
 end
 
----comment
+---Testing function cause I keep forgetting how pairs and ipairs work, don't worry about it 
+MINTY.centercount = function (args)
+    args = args or {}
+    local mod = args.mod or "MintysSillyMod"
+    local modprefix = SMODS.Mods[mod].prefix.."_"
+    local itemprefix = args.itemprefix or "sleeve_"
+    local count = 0
+    for k,v in pairs(G.P_CENTERS) do
+        if string.find(k,itemprefix..modprefix) then
+            count = count + 1
+            MINTY.say(k)
+        end
+    end
+    MINTY.say(tostring(count))
+end
+
 ---@param this? string Pass a sleeve key to check if it already got unlocked this session
----@return string result? Key of the stake that will unlock next sleeve, or already unlocked sleeve with key passed into `this` 
----@return integer count? Count (order) of the same stake as `string`
-MINTY.sleeveunlockcheck = function(this)
+---@param debug? boolean Print debugging strings
+---@return string result Key of the stake that will unlock next sleeve, or already unlocked sleeve with key passed into `this` 
+---@return integer count Count (order) of the same stake as `string`
+MINTY.sleeveunlockcheck = function(this, debug)
   MINTY.nextSleeveUnlock = MINTY.nextSleeveUnlock or {}
 
-  local sleeves = {
-    "sleeve_minty_heartsleeve",
-    "sleeve_minty_diamondsleeve",
-    "sleeve_minty_clubssleeve",
-    "sleeve_minty_spadessleeve",
-    "sleeve_minty_3suitsleeve",
-    "sleeve_minty_treatsleeve",
-    "sleeve_minty_sillylittlesleeve",
-  }
+  local sleeves = {}
+    for k,_ in pairs(G.P_CENTERS) do
+        if string.find(k,"sleeve_minty_") then
+            table.insert(sleeves, k)
+        end
+    end
   local count = 1
   local result = "stake_gold"
   for _, sleeve in ipairs(sleeves) do
     if G.P_CENTERS[sleeve] and G.P_CENTERS[sleeve].unlocked == true then
       count = count + 1
     end
+  end
+
+  if debug then
+    MINTY.say(tprint(sleeves))
   end
 
   if count > G.P_STAKES.stake_gold.count then
