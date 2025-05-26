@@ -19,9 +19,9 @@ SMODS.Joker {
     blueprint_compat = true,
     config = {
         extra = {
-            base = 40,
-            chips = 40,
-            chipgain = 10,
+            base = 50,
+            chips = 50,
+            chipgain = 20,
         }
     },
     loc_vars = function(self, info_queue, card)
