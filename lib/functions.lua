@@ -145,6 +145,47 @@ MINTY.luckyCount = function(mod)
     end--]]
 end
 
+---comment
+---@param this? string Pass a sleeve key to check if it already got unlocked this session
+---@return string result? Key of the stake that will unlock next sleeve, or already unlocked sleeve with key passed into `this` 
+---@return integer count? Count (order) of the same stake as `string`
+MINTY.sleeveunlockcheck = function(this)
+  MINTY.nextSleeveUnlock = MINTY.nextSleeveUnlock or {}
+
+  local sleeves = {
+    "sleeve_minty_heartsleeve",
+    "sleeve_minty_diamondsleeve",
+    "sleeve_minty_clubssleeve",
+    "sleeve_minty_spadessleeve",
+    "sleeve_minty_3suitsleeve",
+    "sleeve_minty_treatsleeve",
+  }
+  local count = 1
+  local result = "stake_gold"
+  for _, sleeve in ipairs(sleeves) do
+    if G.P_CENTERS[sleeve] and G.P_CENTERS[sleeve].unlocked == true then
+      count = count + 1
+    end
+  end
+
+  if count > G.P_STAKES.stake_gold.count then
+    count, result = G.P_STAKES.stake_gold.count, "stake_gold"
+  else
+    for key, stake in pairs(G.P_STAKES) do
+      if stake.count == count then
+        result = key
+      end
+    end
+  end
+
+  MINTY.nextSleeveUnlock.key, MINTY.nextSleeveUnlock.result = result, count
+  if MINTY.nextSleeveUnlock[this] then --patch to report the stake unlocked _on_ in the postgame unlock report thing; this doesn't save if you close the game tho
+    result = MINTY.nextSleeveUnlock[this]
+  end
+
+  return result, count
+end
+
 --Talisman compatibility compatibility
 to_big = to_big or function(x)
     return x
@@ -181,4 +222,10 @@ function SMODS.current_mod.reset_game_globals(init)
     end
 
     MINTY.reset_treat_card()
+end
+
+SMODS.current_mod.set_debuff = function (card)
+  if card.seal == "minty_cement" then
+     return "prevent_debuff"
+  end
 end

@@ -43,6 +43,7 @@ local files = {
     lib = {
         { name = "atlases" },
         { name = "functions" },
+        { name = "hooks" },
         { name = "configui" },
     },
     suits = {
@@ -110,7 +111,12 @@ local files = {
         { name = "cementseal" },
     },
     backs = {
-        { name = "backs" }
+        { name = "3" },
+        { name = "club" },
+        { name = "diamond" },
+        { name = "heart" },
+        { name = "spade" },
+        { name = "treat" },
     },
     blinds = {
         { name = "thenip" },

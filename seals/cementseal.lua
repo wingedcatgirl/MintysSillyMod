@@ -20,12 +20,3 @@ SMODS.Seal {
     end
 	end
 }
-
-local debuffcardref = Card.set_debuff
-function Card:set_debuff(should_debuff)
-  if self.seal == "minty_cement" then
-     self.debuff = false
-     return
-  end
-	return debuffcardref(self, should_debuff)
-end

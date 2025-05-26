@@ -42,13 +42,3 @@ SMODS.Joker {
         end
     end
 }
-
-local issuitref = Card.is_suit
-function Card:is_suit(suit, bypass_debuff, flush_calc)
-    if next(find_joker('Treat-o-vision')) then
-        if (suit == "minty_3s" or suit == G.GAME.treatovision_suit) and (self.base.suit == "minty_3s" or self.base.suit == G.GAME.treatovision_suit) then
-            return true
-        end
-    end
-    return issuitref(self, suit, bypass_debuff, flush_calc)
-end
