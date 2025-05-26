@@ -103,12 +103,10 @@ local files = {
         { name = "gemstones", mods = { { id = "Gemstone" } }, nocrossover = true },
         { name = "drafts", mods = { { id = "draft", version = "0.5.2.1" } } },
     },
-    enhancements = {
-        { name = "marble" },
+    modifiers = {
+        { name = "marble" }, --Enhancements
         { name = "garbled", mods = { { id = "MoreFluff" } } },
-    },
-    seals = {
-        { name = "cementseal" },
+        { name = "cementseal" }, --Seals
     },
     backs = {
         { name = "3" },
