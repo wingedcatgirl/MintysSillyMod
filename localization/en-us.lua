@@ -53,6 +53,11 @@ return {
 		--]]
 		["Joker"] = {
 			["j_minty_cube"] = {
+				["unlock"] = {
+					"Win a run playing more hands",
+					"requiring {C:attention}4{} cards than",
+					"hands {C:attention}impossible{} with 4 cards",
+				},
 				["name"] = "Cube Joker",
 				["text"] = {
 					"{X:mult,C:white}X#1#{} Mult",

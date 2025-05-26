@@ -1,3 +1,10 @@
+local counters = {
+    { boss = "bl_psychic" },
+    { boss = "bl_akyrs_the_thought", mod = "aikoyorisshenanigans"},
+    --CUBE LOVELY PATCH TARGET
+}
+--Tuskallisetkäsiraudat (Polterworx) TBA, getting keys is a pain cause Jen doesn't use GitHub
+
 
 SMODS.Joker {
     key = "cube",
@@ -9,7 +16,7 @@ SMODS.Joker {
     },
     rarity = 3,
     cost = 9,
-    unlocked = true,
+    unlocked = false,
     discovered = false,
     eternal_compat = true,
     perishable_compat = true,
@@ -24,6 +31,28 @@ SMODS.Joker {
             key = key,
             vars = {card.ability.extra.Xmult}
         }
+    end,
+    check_for_unlock = function (self, args)
+        if args and args.type == "win_custom" then
+            local fours = 0
+            local fournt = 0
+            fours = fours + G.GAME.hands["Two Pair"].played
+            fours = fours + G.GAME.hands["Four of a Kind"].played
+            fournt = fournt + G.GAME.hands["Full House"].played
+            fournt = fournt + G.GAME.hands["Flush House"].played
+            fournt = fournt + G.GAME.hands["Five of a Kind"].played
+            fournt = fournt + G.GAME.hands["Flush Five"].played
+            for k, v in pairs(G.GAME.hands) do
+                if string.find(k, "Spectrum", nil, true) then
+                    if G.GAME.hands[k].played > 0 then
+                        fournt = fournt + G.GAME.hands[k].played
+                    end
+                end
+            end
+            if fours > fournt then
+                unlock_card(self)
+            end
+        end
     end,
 
     calculate = function(self, card, context)
@@ -42,22 +71,25 @@ SMODS.Joker {
 
 
     add_to_deck = function(self, card, from_debuff)
-        if not (card.ability and card.ability.eternal) then return end
-        --Tuskallisetkäsiraudat (Polterworx) TBA, getting keys is a pain cause Jen doesn't use GitHub
-        if (SMODS.Mods["aikoyorisshenanigans"] or {}).can_load then
-            G.GAME.bosses_used["bl_akyrs_the_thought"] = G.GAME.bosses_used["bl_akyrs_the_thought"] + 1e300
+        if not (card.ability and card.ability.eternal) then return end -- only if eternal
+        if G.GAME.bosses_used["bl_psychic"] >= 1e300 then return end -- not if already banned
+        for _,v in ipairs(counters) do
+            local boss = v.boss
+            local mod = v.mod
+            if (not mod) or (SMODS.Mods[mod] or {}).can_load then
+                G.GAME.bosses_used[boss] = G.GAME.bosses_used[boss] + 1e300
+            end
         end
-        G.GAME.bosses_used["bl_psychic"] = G.GAME.bosses_used["bl_psychic"] + 1e300
     end,
     remove_from_deck = function(self, card, from_debuff)
-        if (not next(SMODS.find_card('j_minty_cube'))) and G.GAME.bosses_used["bl_psychic"] >= 1e300 then
-            MINTY.say("Yep", "TRACE")
-            if (SMODS.Mods["aikoyorisshenanigans"] or {}).can_load then
-                G.GAME.bosses_used["bl_akyrs_the_thought"] = G.GAME.bosses_used["bl_akyrs_the_thought"] - 1e300
+        if (not next(SMODS.find_card('j_minty_cube'))) then
+            for _,v in ipairs(counters) do
+                local boss = v.boss
+                local mod = v.mod
+                if (not mod) or (SMODS.Mods[mod] or {}).can_load then
+                    G.GAME.bosses_used[boss] = G.GAME.bosses_used[boss] - 1e300
+                end
             end
-            G.GAME.bosses_used["bl_psychic"] = G.GAME.bosses_used["bl_psychic"] - 1e300
-        else
-            MINTY.say("Nope", "TRACE")
         end
     end,
 }
