@@ -991,7 +991,7 @@ return {
 			["bl_minty_calico_counter"] = {
 				["name"] = "Calico on the Counter",
 				["text"] = {
-					"#1# in #2# cards are drawn face-down",
+					"#1# in #2# cards are drawn face-down,",
 					"#1# in #2# cards are debuffed when drawn",
 				},
 			},
