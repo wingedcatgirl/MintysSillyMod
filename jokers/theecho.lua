@@ -82,6 +82,8 @@ SMODS.Joker {
         end
     end,
     calculate = function(self, card, context)
+        if context.blueprint then return end
+
         if context.game_over and card.ability.extra.charges > 0 then
             if G.GAME.blind:get_type() == 'Boss' and G.GAME.round_resets.blind ~= G.P_BLINDS[G.GAME.last_chdp_blind] then --if we just lost to the second boss
                 card.ability.extra.charges = card.ability.extra.charges - 1
