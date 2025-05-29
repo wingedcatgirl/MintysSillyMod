@@ -97,7 +97,7 @@ SMODS.Joker {
                             elseif level == 8 or level == 9 then l5 = l5 + (level - 7)
                             elseif level >= 10 then
                                 l5 = l5 + 1
-                                reps = reps + (2^(level-10)) -- l5 == 2^0 == 1, l6 == 2^1 == 2, l7 == 2^2 == 4, etc
+                                reps = reps + (2^(level-10)) -- l10 == 2^0 == 1, l11 == 2^1 == 2, l12 == 2^2 == 4, etc
                             end
                         end
                     end
