@@ -1397,6 +1397,14 @@ return {
 					"counts as a {C:minty_3s}3{} {C:attention}twice{}",
 				},
 			},
+			["normal_jokers"] = {
+				["label"] = "Normal",
+				["name"] = "Normal",
+				["text"] = {
+					"Capable of",
+					"spawning naturally",
+				},
+			},
 		},
 	},
 }

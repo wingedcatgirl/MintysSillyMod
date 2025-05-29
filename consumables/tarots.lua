@@ -12,7 +12,7 @@ SMODS.Consumable{ -- The Cat
 
     config = {max_highlighted = 3, suit_conv = 'minty_3s'},
 
-    loc_vars = function(self)
+    loc_vars = function(self, info_queue)
 		local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
@@ -139,6 +139,7 @@ SMODS.Consumable {
 	effect = "Random Joker",
 	config = {},
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = { set = "Other", key = "normal_jokers", specific_vars = { } }
 		local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
