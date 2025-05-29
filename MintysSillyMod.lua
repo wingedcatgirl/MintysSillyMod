@@ -27,7 +27,8 @@ SMODS.ObjectType({ --Kity pool (Legendary and otherwise)
         local outside_kitys = {
             j_lucky_cat = "vanilla",
             j_ortalab_black_cat = "ortalab",
-            j_neat_tabbycat = "Neato_Jokers"
+            j_neat_tabbycat = "Neato_Jokers",
+            j_pl_black_cat = "plantain",
         }
         for k,v in pairs(outside_kitys) do --This might break if the other mod has a hig- er, low- er, LARGER NUMBER for priority, but uhhhh
             if v == "vanilla" or (SMODS.Mods[v] or {}).can_load then
