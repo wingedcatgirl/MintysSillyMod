@@ -43,7 +43,7 @@ SMODS.Joker {
             fournt = fournt + G.GAME.hands["Five of a Kind"].played
             fournt = fournt + G.GAME.hands["Flush Five"].played
             for k, v in pairs(G.GAME.hands) do
-                if string.find(k, "Spectrum", nil, true) then
+                if string.find(k, "Spectrum", nil, true) or string.find(k, "Specflush", nil, true) then
                     if G.GAME.hands[k].played > 0 then
                         fournt = fournt + G.GAME.hands[k].played
                     end
