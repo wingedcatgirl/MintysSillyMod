@@ -115,6 +115,24 @@ return {
 					"{C:inactive,s:0.8}The patrons... are also cats."
 				},
 			},
+			["j_minty_copycat"] = {
+				["name"] = "Copy Cat",
+				["text"] = {
+					"Copies the effect of a {C:attention}random{} other Joker",
+					"{C:inactive}(Changes target at end of shop){}",
+					"{C:inactive}(Currently {C:attention}#1#{C:inactive}){}",
+				},
+			},
+			["j_minty_copycat_flavor"] = {
+				["name"] = "Copy Cat",
+				["text"] = {
+					"Copies the effect of a {C:attention}random{} other Joker",
+					"{C:inactive}(Changes target at end of shop){}",
+					"{C:inactive}(Currently {C:attention}#1#{C:inactive}){}",
+					" ",
+					"{C:inactive,s:0.8}*perfectly echoed meow noises*",
+				},
+			},
 			["j_minty_hyperfix"] = {
 				["name"] = "Angel of Hyperfixation",
 				["text"] = {
