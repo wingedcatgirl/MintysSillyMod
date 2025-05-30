@@ -1,0 +1,19 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+# Sneak into the splash screen function to run last-second code
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+position = "before"
+pattern = "--If the skip splash screen option is set, immediately go to the main menu here"
+payload = "MINTY.lastmoment()"
+match_indent = true
+
+
+
+
+
+
+    

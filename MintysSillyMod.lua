@@ -23,20 +23,6 @@ SMODS.ObjectType({ --Kity pool (Legendary and otherwise)
 	cards = {},
     inject = function(self)
         SMODS.ObjectType.inject(self)
-        --Add pool tag to external kitys so cards can care about that
-        local outside_kitys = {
-            j_lucky_cat = "vanilla",
-            j_ortalab_black_cat = "ortalab",
-            j_neat_tabbycat = "Neato_Jokers",
-            j_pl_black_cat = "plantain",
-        }
-        for k,v in pairs(outside_kitys) do --This might break if the other mod has a hig- er, low- er, LARGER NUMBER for priority, but uhhhh
-            if v == "vanilla" or (SMODS.Mods[v] or {}).can_load then
-                self:inject_card(G.P_CENTERS[k])
-                G.P_CENTERS[k].pools = G.P_CENTERS[k].pools or {}
-                G.P_CENTERS[k].pools.kity = true
-            end
-        end
     end
 })
 
@@ -157,9 +143,9 @@ for folder, list in pairs(files) do
             sendTraceMessage("Checking crossover option for "..folder..'/'..name..".lua")
             load = MINTY.config.include_crossover or MINTY.config.dev_mode
         end
-        if data.dev then 
+        if data.dev then
             sendTraceMessage("Checking dev mode option for "..folder..'/'..name..".lua")
-            load = load and MINTY.config.dev_mode 
+            load = load and MINTY.config.dev_mode
         end
         if load then
             sendTraceMessage("Loading file: "..folder..'/'..name..'.lua', "Minty's Mod")
@@ -168,5 +154,25 @@ for folder, list in pairs(files) do
             sendTraceMessage("Skipping file: "..folder..'/'..name..'.lua', "Minty's Mod")
         end
         ::nvm::
+    end
+end
+
+MINTY.lastmoment = function ()
+    MINTY.say("Running last-moment code...")
+    --Add pool tag to external kitys so cards can care about that
+    if not (G.P_CENTERS.j_lucky_cat.pools and G.P_CENTERS.j_lucky_cat.pools.kity) then
+        local outside_kitys = {
+            j_lucky_cat = "vanilla",
+            j_ortalab_black_cat = "ortalab",
+            j_neat_tabbycat = "Neato_Jokers",
+            j_pl_black_cat = "plantain",
+        }
+        for k,v in pairs(outside_kitys) do --Hopefully this will work regardless of priority
+            if v == "vanilla" or (SMODS.Mods[v] or {}).can_load then
+                SMODS.ObjectType.obj_table.kity:inject_card(G.P_CENTERS[k])
+                G.P_CENTERS[k].pools = G.P_CENTERS[k].pools or {}
+                G.P_CENTERS[k].pools.kity = true
+            end
+        end
     end
 end

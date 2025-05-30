@@ -10,15 +10,15 @@ pattern = "            if add and not G.GAME.banned_keys[v.key] then"
 position = "before"
 payload = '''
         if _type == "kity" then
-            --local legtext = _legendary and "true" or "false"
+            --if add then MINTY.say("Joker Boy Allowed 1", "TRACE") else MINTY.say("No Joker Allowed 1", "TRACE") end
             --MINTY.say("key == "..v.key.."; rarity == "..v.rarity, "TRACE")
-            if _legendary and v.rarity ~= 4 then
+            if (_legendary and v.rarity ~= 4) then
                 add = nil
             end
             if (not _legendary) and v.rarity == 4 then
                 add = nil
             end
-            --if add then MINTY.say("Joker Boy Allowed", "TRACE") else MINTY.say("No Joker Allowed", "TRACE") end
+            --if add then MINTY.say("Joker Boy Allowed 2", "TRACE") else MINTY.say("No Joker Allowed 2", "TRACE") end
         end
 '''
 match_indent = true
