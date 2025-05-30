@@ -6,7 +6,7 @@ MINTY.config = SMODS.current_mod.config
 
 if not SMODS.current_mod.lovely then
     NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
-    assert(false, "Lovely patches failed! Please make sure this mod's file structure is not nested. The mod will be automatically disabled on restart.")
+    error("Lovely patches failed! Please make sure this mod's file structure is not nested. The mod will be automatically disabled on restart.")
 end
 
 SMODS.current_mod.optional_features = {
