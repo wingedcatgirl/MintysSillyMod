@@ -30,7 +30,7 @@ SMODS.Joker {
         return {
             key = key,
             vars = {
-                card.ability.extra.xmult
+                card.ability.extra.chips
             }
         }
     end,
