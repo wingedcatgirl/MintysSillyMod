@@ -11,7 +11,14 @@ pattern = "--If the skip splash screen option is set, immediately go to the main
 payload = "MINTY.lastmoment()"
 match_indent = true
 
-
+# ... and functions that reset that code
+[[patches]]
+[patches.pattern]
+target = 'functions/button_callbacks.lua'
+position = "after"
+pattern = 'G:init_item_prototypes()'
+payload = "if MINTY then MINTY.lastmoment() end"
+match_indent = true
 
 
 
