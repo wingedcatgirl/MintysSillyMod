@@ -1051,6 +1051,24 @@ return {
 					"{C:inactive,s:0.8}Well, what if I threw rocks at you?",
 				},
 			},
+			["c_minty_dorf"] = {
+				["name"] = "The Dwarf",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#{C:attention}Microcline Card#2#{}",
+				},
+			},
+			["c_minty_dorf_flavor"] = {
+				["name"] = "The Dwarf",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#{C:attention}Microcline Card#2#{}",
+					" ",
+					"{C:inactive,s:0.8}Strike the earth!",
+				},
+			},
 			["c_minty_bitz"] = {
 				["name"] = "The Bitz",
 				["text"] = {
@@ -1273,6 +1291,14 @@ return {
 				["label"] = "Garbled Card",
 				["text"] = {
 					"{C:mult}+???{} Mult"
+				}
+			},
+			["m_minty_microcline"] = {
+				["name"] = "Microcline Card",
+				["label"] = "Microcline Card",
+				["text"] = {
+					"No rank, no suit",
+					"{C:chips}+#1#{} Chips when held"
 				}
 			},
 		},

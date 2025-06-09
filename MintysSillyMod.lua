@@ -92,6 +92,7 @@ local files = {
     },
     modifiers = {
         { name = "marble" }, --Enhancements
+        { name = "microcline" },
         { name = "garbled", mods = { { id = "MoreFluff" } } },
         { name = "cementseal" }, --Seals
     },
@@ -140,11 +141,11 @@ for folder, list in pairs(files) do
             end
         end
         if mods and not nocross then
-            sendTraceMessage("Checking crossover option for "..folder..'/'..name..".lua")
+            sendTraceMessage("Checking crossover option for "..folder..'/'..name..".lua", "Minty's Mod")
             load = MINTY.config.include_crossover or MINTY.config.dev_mode
         end
         if data.dev then
-            sendTraceMessage("Checking dev mode option for "..folder..'/'..name..".lua")
+            sendTraceMessage("Checking dev mode option for "..folder..'/'..name..".lua", "Minty's Mod")
             load = load and MINTY.config.dev_mode
         end
         if load then
