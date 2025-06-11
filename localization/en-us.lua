@@ -1302,6 +1302,28 @@ return {
 				}
 			},
 		},
+		["Voucher"] = {
+			["v_minty_tabletopple"] = {
+				["name"] = "Table Topple",
+				["text"] = {
+					"Discard up to {C:mult}#1#{}",
+					"cards at a time"
+				}
+			},
+			["v_minty_catspaws"] = {
+				["name"] = "Cat's Paws",
+				["text"] = {
+					"Discard up to {C:mult}all{}",
+					"cards at a time;",
+					"play up to {C:chips}#1#{}",
+					"cards at a time"
+				},
+				["unlock"] = {
+					"Discard {C:attention}#1#{}{C:inactive}(#2#){} hands",
+					"of {C:mult}6{} or more cards",
+				}
+			}
+		},
 		["Colour"] = {
 			["c_minty_emeowrald"] = {
 				["name"] = "Emeowrald Green",

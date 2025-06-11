@@ -90,6 +90,9 @@ local files = {
         { name = "gemstones", mods = { { id = "Gemstone" } }, nocrossover = true },
         { name = "drafts", mods = { { id = "draft", version = "0.5.2.1" } } },
     },
+    vouchers = {
+        { name = "topplepaws" }
+    },
     modifiers = {
         { name = "marble" }, --Enhancements
         { name = "microcline" },
