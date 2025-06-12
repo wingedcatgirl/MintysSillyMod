@@ -82,7 +82,7 @@ SMODS.Joker {
             end
         end
         if target and target ~= card then
-            MINTY.say("Calculating blueprint effect of "..card.ability.extra.targetname.." copied by Copy Cat")
+            MINTY.say("Calculating blueprint effect of "..card.ability.extra.targetname.." copied by Copy Cat", "TRACE")
             local ret = SMODS.blueprint_effect(card, target, context)
             if ret then return ret end
         end
