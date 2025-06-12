@@ -68,6 +68,7 @@ local files = {
         { name = "scoundrel" },
         { name = "hyperfix", mods = { {id = "Talisman"} } },
         { name = "jacobsladder" },
+        { name = "copycat", incompat = { {id = "Cryptid"} } }, --Crashes a bunch with Cryptid fsr 👍️
         --Fusion Jokers
         { name = "threecats", mods = { {id = "FusionJokers"} } },
         { name = "parkour", mods = { {id = "FusionJokers"} } },
@@ -125,9 +126,10 @@ for folder, list in pairs(files) do
         local load = true
         local name = data.name
         local mods = data.mods
+        local incompat = data.incompat
         local nocross = data.nocrossover
         if mods then
-            sendTraceMessage("Checking mods for "..folder..'/'..name..".lua", "Minty's Mod")
+            sendTraceMessage("Checking required mods for "..folder..'/'..name..".lua", "Minty's Mod")
             local nevercross = {
                 "FusionJokers",
                 "Talisman",
@@ -135,12 +137,18 @@ for folder, list in pairs(files) do
                 "ChDp",
                 "draft",
             }
-            for _, mod in ipairs(data.mods) do
+            for _, mod in ipairs(mods) do
                 load = load and (SMODS.Mods[mod.id] or {}).can_load
                 if mod.version then load = load and ((SMODS.Mods[mod.id] or {}).version == mod.version) end
                 for _, check in pairs(nevercross) do
                     if mod.id == check then nocross = true end
                 end
+            end
+        end
+        if incompat then
+            sendTraceMessage("Checking conflicting mods for "..folder..'/'..name..".lua", "Minty's Mod")
+            for _, mod in ipairs(incompat) do
+                load = load and not (SMODS.Mods[mod.id] or {}).can_load
             end
         end
         if mods and not nocross then

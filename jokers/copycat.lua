@@ -10,8 +10,8 @@ SMODS.Joker {
         x = 1,
         y = 0
     },
-    rarity = 1,
-    cost = 5,
+    rarity = 2,
+    cost = 9,
     unlocked = true,
     discovered = false,
     eternal_compat = true,
@@ -19,8 +19,10 @@ SMODS.Joker {
     blueprint_compat = true,
     config = {
         extra = {
-            target = "None",
-            mult = 5
+            targetname = "None",
+            targetkey = "",
+            targetcard = {},
+            targetid = 0,
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -28,16 +30,61 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
+        local target
+        for i = 1, #G.jokers.cards do
+            if G.jokers.cards[i].unique_val == card.ability.extra.targetid then
+                target = G.jokers.cards[i]
+            end
+        end
+        if target then
+            info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.extra.targetkey]
+        else
+            card.ability.extra.targetname = "None"
+        end
         return {
             key = key,
             vars = {
-                card.ability.extra.target
+                card.ability.extra.targetname
             }
         }
     end,
     calculate = function(self, card, context)
-        -- Calculation goes here
+        if context.ending_shop and context.cardarea == G.jokers and not context.blueprint then
+            --go through jokers, pick a random bp-compatible one, put its unique id in targetid
+            local jokers = {}
+            for i = 1, #G.jokers.cards do
+                if (G.jokers.cards[i] ~= card) and G.jokers.cards[i].config.center.blueprint_compat then
+                    MINTY.say("Found a compatible Joker")
+                    jokers[#jokers+1] = G.jokers.cards[i]
+                end
+            end
+            if jokers == {} then return end
+            local target = pseudorandom_element(jokers, pseudoseed("copycat"))
+            card.ability.extra.targetcard = target
+            card.ability.extra.targetkey = target.config.center.key
+            card.ability.extra.targetid = target.unique_val
+            card.ability.extra.targetname = localize{type = "name_text", set = "Joker", key = card.ability.extra.targetkey}
+            MINTY.say("Joker selected: "..card.ability.extra.targetname)
+            return {
+                message = localize("k_copied_ex"),
+                message_card = card,
+            }
+        end
+        --MINTY.say("Considering calculation context")
+        if card.ability.extra.targetname == "None" then return end
+        if context.no_blueprint then return end
+        --MINTY.say("Calculation context allowed")
+        local target
+        for i = 1, #G.jokers.cards do
+            if G.jokers.cards[i].unique_val == card.ability.extra.targetid then
+                target = G.jokers.cards[i]
+                break
+            end
+        end
+        if target and target ~= card then
+            MINTY.say("Calculating blueprint effect of "..card.ability.extra.targetname.." copied by Copy Cat")
+            local ret = SMODS.blueprint_effect(card, target, context)
+            if ret then return ret end
+        end
     end
 }
-
--- See localization/en-us.lua to create joker text
