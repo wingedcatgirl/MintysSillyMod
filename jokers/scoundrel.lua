@@ -77,5 +77,3 @@ SMODS.Joker {
         end
     end
 }
-
--- See localization/en-us.lua to create joker text
