@@ -145,15 +145,15 @@ for folder, list in pairs(files) do
                 end
             end
         end
+        if mods and not nocross then
+            sendTraceMessage("Checking crossover option for "..folder..'/'..name..".lua", "Minty's Mod")
+            load = MINTY.config.include_crossover or MINTY.config.dev_mode
+        end
         if incompat then
             sendTraceMessage("Checking conflicting mods for "..folder..'/'..name..".lua", "Minty's Mod")
             for _, mod in ipairs(incompat) do
                 load = load and not (SMODS.Mods[mod.id] or {}).can_load
             end
-        end
-        if mods and not nocross then
-            sendTraceMessage("Checking crossover option for "..folder..'/'..name..".lua", "Minty's Mod")
-            load = MINTY.config.include_crossover or MINTY.config.dev_mode
         end
         if data.dev then
             sendTraceMessage("Checking dev mode option for "..folder..'/'..name..".lua", "Minty's Mod")
