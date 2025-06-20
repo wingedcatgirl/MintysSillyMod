@@ -44,8 +44,8 @@ SMODS.Consumable({
     key = "rot_cat",
     pos = { x = 0, y = 0 },
     config = {
-      val = 3,
-      suit = "minty_THREE"
+        val = 3,
+        suit = "minty_THREE"
     },
     cost = 3,
     atlas = "rotarots",
@@ -53,13 +53,13 @@ SMODS.Consumable({
     discovered = false,
     display_size = { w = 107, h = 107 },
     can_use = function(self, card)
-      return true
+        return true
     end,
     use = function(self, card, area, copier)
-      do_suit_shit_but_3(card, copier)
+        do_suit_shit_but_3(card, copier)
     end,
     loc_vars = function(self, info_queue, card)
-      return { vars = {card.ability.val} }
+        return { vars = {card.ability.val} }
     end
   })
 

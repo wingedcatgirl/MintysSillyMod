@@ -1069,6 +1069,24 @@ return {
 					"{C:inactive,s:0.8}Strike the earth!",
 				},
 			},
+			["c_minty_crystalidk"] = {
+				["name"] = "Crystal maker",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#{C:attention}Crystal Card#2#{}",
+				},
+			},
+			["c_minty_crystalidk_flavor"] = {
+				["name"] = "Crystal maker",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#{C:attention}Crystal Card#2#{}",
+					" ",
+					"{C:inactive,s:0.8}TBA",
+				},
+			},
 			["c_minty_bitz"] = {
 				["name"] = "The Bitz",
 				["text"] = {
@@ -1299,6 +1317,16 @@ return {
 				["text"] = {
 					"No rank, no suit",
 					"{C:chips}+#1#{} Chips when held"
+				}
+			},
+			["m_minty_crystal"] = {
+				["name"] = "Crystal Card",
+				["label"] = "Crystal Card",
+				["text"] = {
+					"No rank, no suit",
+					"{C:money}$#2#{} and {C:chips}+#1#{} Chips",
+					"when scored, and {C:green}#3# in #4#{}",
+					"chance to {C:attention}shatter{}"
 				}
 			},
 		},
