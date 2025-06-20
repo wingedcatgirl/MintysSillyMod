@@ -6,6 +6,10 @@ SMODS.Voucher{
         x = 1,
         y = 0,
     },
+    soul_pos = {
+        x = 2,
+        y = 0,
+    },
     cost = 10,
     config = {
         extra = {
