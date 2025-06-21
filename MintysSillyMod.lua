@@ -20,7 +20,12 @@ SMODS.current_mod.optional_features = {
 SMODS.ObjectType({ --Kity pool (Legendary and otherwise)
     key = "kity",
     default = "j_lucky_cat",
-	cards = {},
+	cards = {
+        ["j_lucky_cat"] = true,
+        ["j_pl_black_cat"] = true,
+        ["j_neat_tabbycat"] = true,
+        ["j_ortalab_black_cat"] = true,
+    },
     inject = function(self)
         SMODS.ObjectType.inject(self)
     end
@@ -170,21 +175,5 @@ for folder, list in pairs(files) do
 end
 
 MINTY.lastmoment = function ()
-    MINTY.say("Running last-moment code...")
-    --Add pool tag to external kitys so cards can care about that
-    if not (G.P_CENTERS.j_lucky_cat.pools and G.P_CENTERS.j_lucky_cat.pools.kity) then
-        local outside_kitys = {
-            j_lucky_cat = "vanilla",
-            j_ortalab_black_cat = "ortalab",
-            j_neat_tabbycat = "Neato_Jokers",
-            j_pl_black_cat = "plantain",
-        }
-        for k,v in pairs(outside_kitys) do --Hopefully this will work regardless of priority
-            if v == "vanilla" or (SMODS.Mods[v] or {}).can_load then
-                SMODS.ObjectType.obj_table.kity:inject_card(G.P_CENTERS[k])
-                G.P_CENTERS[k].pools = G.P_CENTERS[k].pools or {}
-                G.P_CENTERS[k].pools.kity = true
-            end
-        end
-    end
+    --MINTY.say("Running last-moment code...")
 end
