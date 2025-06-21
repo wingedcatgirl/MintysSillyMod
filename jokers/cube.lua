@@ -21,6 +21,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     config = {extra = {Xmult = 4}},
     loc_vars = function(self, info_queue, card)
         local key = self.key
@@ -56,7 +57,7 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.joker_main and context.scoring_hand then
+        if (context.joker_main and context.scoring_hand) or context.forcetrigger then
             return {
                 message = localize {
                     type = 'variable',

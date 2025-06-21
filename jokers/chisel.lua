@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = false,
     config = {
         seal = {extra = {chips = 50}},
         stone = {extra = {chips = 50}}

@@ -9,6 +9,7 @@ return {
 			["k_forward_ex"] = "Forward!",
 			["k_abandon_ex"] = "Voting to abandon...",
 			["k_victory_ex"] = "Victory!",
+			["k_inactive_ex"] = "Inactive!",
 			["k_cube"] = "Hand must contain exactly 4 cards",
 			["k_psycube"] = "What have you done?!",
 			["k_minty_challenge"] = "Challenge",

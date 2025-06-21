@@ -19,6 +19,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
+    demicoloncompat = true,
     config = {
         extra = {
             chips = 0,
@@ -45,6 +46,30 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger then
+            local chipgain = card.ability.extra.chipgain
+            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipgain
+            card.ability.extra.chipgain = card.ability.extra.chipgain + card.ability.extra.chipgain_gain
+            return {
+                message = localize{
+                    type='variable',
+                    key='a_chipgain',
+                    vars={chipgain}
+                },
+                colour = G.C.CHIPS,
+                card = card,
+                extra = {
+                    message = localize {
+                        type = 'variable',
+                        key = 'a_chips',
+                        vars = {card.ability.extra.chips}
+                    },
+                    chip_mod = card.ability.extra.chips,
+                    colour = G.C.CHIPS
+                }
+            }
+        end
+
         if context.before and not context.blueprint then
             if next(context.poker_hands['Straight']) then
                 local chipgain = card.ability.extra.chipgain

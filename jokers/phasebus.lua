@@ -17,18 +17,47 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
+    demicoloncompat = true,
     config = { extra = {status = 'Active'} },
     loc_vars = function(self, info_queue, card)
+        local active = card.ability.extra.status == "Active" and localize("k_active_ex") or localize("k_inactive_ex")
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
-        return { 
+        return {
             key = key,
-            vars = {card.ability.extra.status}
+            vars = {active}
         }
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger then
+            if card.ability.extra.status == 'Active' then
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'before',
+                    delay = 0.0,
+                    func = (function()
+                            local card = create_card('Spectral',G.consumeables, nil, nil, nil, nil, nil, 'sea')
+                            card:add_to_deck()
+                            G.consumeables:emplace(card)
+                            G.GAME.consumeable_buffer = 0
+                        return true
+                    end)}))
+                return {
+                    message = localize('k_plus_spectral'),
+                    colour = G.C.SECONDARY_SET.Spectral,
+                    card = card
+                }
+            else
+                card.ability.extra.status = 'Active'
+                return {
+                    message = localize('k_reset'),
+                    colour = G.C.SECONDARY_SET.Spectral,
+                    card = card
+                }
+            end
+        end
+
         if context.joker_main and context.scoring_hand and card.ability.extra.status == 'Active' and not context.blueprint and not context.end_of_round then
             local faces = 0
             if not context.end_of_round then
@@ -47,7 +76,7 @@ SMODS.Joker {
                     message = localize('k_stopped_ex'),
                     colour = G.C.MONEY,
                     card = card,
-                } 
+                }
             end
             return
         end
@@ -73,13 +102,13 @@ SMODS.Joker {
                         card = card
                     }
                 end
-            else 
+            else
                 card.ability.extra.status = 'Active'
                 return {
                     message = localize('k_reset'),
                     card = card
                 }
             end
-        end                  
+        end
     end
 }

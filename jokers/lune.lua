@@ -18,6 +18,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
+    demicoloncompat = false,
     pools = {
         ["kity"] = true,
         ["Ortalab"] = true,

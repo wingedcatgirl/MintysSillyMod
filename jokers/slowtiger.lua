@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
+    demicoloncompat = true,
     pools = {
         ["kity"] = true
     },
@@ -31,10 +32,16 @@ SMODS.Joker {
         end
         return {
             key = key,
-            vars = {card.ability.extra.mult, card.ability.extra.multgain} 
+            vars = {card.ability.extra.mult, card.ability.extra.multgain}
         }
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger then
+            return {
+                mult_mod = card.ability.extra.mult
+            }
+        end
+
         if context.joker_main and context.scoring_hand then
             return {
                     mult_mod = card.ability.extra.mult,
@@ -57,6 +64,6 @@ SMODS.Joker {
                     vars = { card.ability.extra.multgain }
                 },
             }
-        end                  
+        end
     end
 }

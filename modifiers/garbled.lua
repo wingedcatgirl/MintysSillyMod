@@ -27,7 +27,7 @@ SMODS.Enhancement({
     no_suit = true,
     always_scores = true,
     calculate = function (self, card, context)
-        if context.main_scoring and context.cardarea == G.play then
+        if (context.main_scoring and context.cardarea == G.play) or context.forcetrigger then
             local mult = pseudorandom("minty_garbled", card.ability.extra.min, card.ability.extra.max)
 
             if mult > 0 then

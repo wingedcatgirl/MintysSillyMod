@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = false,
     config = {extra = {mult = 7, chips = 17, odds = 7}},
     loc_vars = function(self, info_queue, card)
         local key = self.key
@@ -29,6 +30,14 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
+        --[[ Figure this out later~
+        if context.forcetrigger and context.scoring_hand then
+            for i = 1, #context.scoring_hand do
+
+            end
+        end
+        --]]
+
         if context.cardarea == G.play and context.individual then
             if context.other_card:get_id() == 7 then
                 return {

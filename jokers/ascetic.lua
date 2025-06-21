@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     pools = {
         ["Ortalab"] = true, --Can appear on Ortalab Stakes
     },
@@ -43,6 +44,13 @@ SMODS.Joker {
         return MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger then
+            return {
+                chips = card.ability.extra.s_chips,
+                card = card
+            }
+        end
+
         if context.cardarea == G.play and context.individual and context.other_card:is_3() then
             local count = context.other_card:is_3()
             card.ability.extra.again = count - 1

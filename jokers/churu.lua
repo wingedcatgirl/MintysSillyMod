@@ -48,6 +48,13 @@ SMODS.Joker {
         return MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger then
+            return {
+                mult = card.ability.extra.s_mult,
+                card = card
+            }
+        end
+
         -- Give the mult during play if card is a 3, and retrigger if it's a 3 of 3s
         if context.cardarea == G.play and context.individual and context.other_card:is_3() then
             local count = context.other_card:is_3()

@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     config = {extra = {mult = 4, xmult = 1.2, chips = 45, cash = 3, odds = 4, multgain = 1, xmultgain = 0.1, chipsgain = 15, cashgain = 1}},
     loc_vars = function(self, info_queue, card)
         local key = self.key
@@ -29,6 +30,37 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger then
+            local mult = pseudorandom('wildmult', 1, card.ability.extra.mult)
+            local xmult = pseudorandom('wildxmult', 10, (card.ability.extra.xmult*10))/10
+            local chips = pseudorandom('wildchips', 1, card.ability.extra.chips)
+            local cash = pseudorandom('wildcash', 1, card.ability.extra.cash)
+            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multgain
+            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultgain
+            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsgain
+            card.ability.extra.cash = card.ability.extra.cash + card.ability.extra.cashgain
+            return {
+                mult = mult,
+                xmult = xmult,
+                chips = chips,
+                dollars = cash,
+                message = localize('k_upgrade_ex'), --You forcetrigger the card with four things to upgrade, you get four upgrade messages. You knew the rules you were agreeing to when I made them up just now.
+                message_card = card,
+                extra = {
+                    message = localize('k_upgrade_ex'),
+                    message_card = card,
+                    extra = {
+                        message = localize('k_upgrade_ex'),
+                        message_card = card,
+                        extra = {
+                            message = localize('k_upgrade_ex'),
+                            message_card = card,
+                        }
+                    }
+                }
+            }
+        end
+
         if context.individual then
             if context.cardarea == G.play then
                 if SMODS.has_any_suit(context.other_card) and (G.GAME.probabilities.normal >= 1) then

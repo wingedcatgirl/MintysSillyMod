@@ -18,6 +18,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
+    demicoloncompat = false,
     pools = {
         ["kity"] = true
     },
@@ -33,14 +34,14 @@ SMODS.Joker {
     end,
     add_to_deck = function(self, card, from_debuff)
         self.added_to_deck = true
-		for k, v in pairs(G.GAME.probabilities) do 
+		for k, v in pairs(G.GAME.probabilities) do
             self.config.extra.temp = v
 			G.GAME.probabilities[k] = v*33
 		end
     end,
     remove_from_deck = function(self, card, from_debuff)
         self.added_to_deck = false
-		for k, v in pairs(G.GAME.probabilities) do 
+		for k, v in pairs(G.GAME.probabilities) do
 			G.GAME.probabilities[k] = v/33
 		end
     end,

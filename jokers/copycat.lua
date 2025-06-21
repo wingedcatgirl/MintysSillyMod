@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     config = {
         extra = {
             targetname = "None",
@@ -49,6 +50,12 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger and next(card.ability.extra.targetcard) and card.ability.extra.targetcard.config.center.demicoloncompat then
+            MINTY.say("Calculating force-triggered blueprint effect of "..card.ability.extra.targetname.." copied by Copy Cat", "TRACE")
+            local ret = SMODS.blueprint_effect(card, target, context)
+            if ret then return ret end
+        end
+
         if context.ending_shop and context.cardarea == G.jokers and not context.blueprint then
             --go through jokers, pick a random bp-compatible one, put its unique id in targetid
             local jokers = {}

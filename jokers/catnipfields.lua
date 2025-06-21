@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     pools = {
         ["Paperback"] = true, --Increase freqency when playing with Paper Deck
     },
@@ -40,6 +41,14 @@ SMODS.Joker {
         return MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger then
+            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultgain
+            return {
+                xmult = card.ability.extra.xmult,
+                card = card
+            }
+        end
+
         if context.cardarea == G.play and context.individual then
             if not context.other_card:is_3() then
                 card.ability.extra.xmult = card.ability.extra.xmultbase

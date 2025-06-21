@@ -29,6 +29,15 @@ SMODS.Enhancement({
     replace_base_card = true,
     no_rank = true,
     any_suit = true,
+    calculate = function (self, card, context)
+        if context.forcetrigger then
+            return {
+                dollars = card.ability.p_dollars,
+                chips = card.ability.bonus,
+                mult = card.ability.mult
+            }
+        end
+    end
 })
 
 local debuffcardref = Card.set_debuff

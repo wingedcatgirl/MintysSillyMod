@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     config = {
         extra = {
             mult = 5
@@ -59,7 +60,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_main and context.scoring_hand then
+        if (context.joker_main and context.scoring_hand) or context.forcetrigger then
             local count = 0
             if G.GAME.languageEgg then
                 for _ in pairs(G.GAME.languageEgg) do count = count + 1 end

@@ -40,10 +40,19 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = false,
     pools = {
         ["kity"] = true
     },
     calculate = function(self, card, context)
+        if context.forcetrigger then
+            return {
+                mult = card.ability.extra.mult,
+                chips = card.ability.extra.chips,
+                xmult = card.ability.extra.xmult
+            }
+        end
+
         if context.cardarea == G.play and context.individual and context.other_card:is_3() then
             local count = context.other_card:is_3()
             card.ability.extra.again = count - 1

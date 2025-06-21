@@ -18,6 +18,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     pools = {
         ["kity"] = true
     },
@@ -52,7 +53,7 @@ SMODS.Joker {
         return true
     end,
     calculate = function(self, card, context)
-        if context.joker_main and context.scoring_hand then
+        if (context.joker_main and context.scoring_hand) or context.forcetrigger then
             return {
                 chips = card.ability.extra.chips
             }

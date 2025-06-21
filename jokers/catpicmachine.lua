@@ -24,6 +24,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     config = {
         extra = {
             modnumber = 3,
@@ -61,7 +62,7 @@ SMODS.Joker {
         return false
     end,
     calculate = function(self, card, context)
-        if context.joker_main and context.scoring_hand and #G.GAME.tags ~= 0 then
+        if ((context.joker_main and context.scoring_hand) or context.forcetrigger) and #G.GAME.tags ~= 0 then
             --MINTY.say("score time", "TRACE")
             local gameset = Cryptid.gameset(self)
             local number = 3
