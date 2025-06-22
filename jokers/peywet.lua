@@ -13,7 +13,8 @@ SMODS.Joker {
     rarity = 2,
     cost = 7,
     pools = {
-        ["Food"] = true
+        ["Food"] = true,
+        ["Meme"] = true,
     },
     unlocked = true,
     discovered = false,
