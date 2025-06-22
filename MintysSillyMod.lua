@@ -64,6 +64,7 @@ local files = {
         { name = "atheismcorner" },
         { name = "catcafe" },
         { name = "treatovision" },
+        { name = "peywet", },
         { name = "sabertooth", mods = { {id = "ortalab"} } },
         { name = "neko", mods = { {id = "TOGAPack"} } },
         { name = "catpicmachine", mods = { { id = "Cryptid" } } },

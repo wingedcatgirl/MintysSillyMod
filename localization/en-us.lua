@@ -116,6 +116,13 @@ return {
 					"{C:inactive,s:0.8}The patrons... are also cats."
 				},
 			},
+			["j_minty_peywet"] = {
+				["name"] = "Smack Barm Pey Wet",
+				["text"] = {
+					"In {C:attention}Wigan{} it's",
+					"{C:green}good as gravy{}"
+				},
+			},
 			["j_minty_copycat"] = {
 				["name"] = "Copy Cat",
 				["text"] = {
@@ -1498,6 +1505,42 @@ return {
 				["text"] = {
 					"Capable of",
 					"spawning naturally",
+				},
+			},
+			["minty_peywet_exp_1"] = {
+				["label"] = "What?",
+				["name"] = "What?",
+				["text"] = {
+					"... What?",
+				},
+			},
+			["minty_peywet_exp_2"] = {
+				["label"] = "What?",
+				["name"] = "What?",
+				["text"] = {
+					"... It's a {C:green}green{} {C:attention}food{},",
+					"that's all I've got."
+				},
+			},
+			["minty_peywet_exp_3"] = {
+				["label"] = "Smack Barm Pey Wet",
+				["name"] = "Smack Barm Pey Wet",
+				["text"] = {
+					"Multiplies listed",
+					"{C:green}odds{} by {C:green}#1#{};",
+					"consumed in {C:attention}#2#{} rounds"
+				},
+			},
+			["minty_peywet_exp_3_flavor"] = {
+				["label"] = "Smack Barm Pey Wet",
+				["name"] = "Smack Barm Pey Wet",
+				["text"] = {
+					"Multiplies listed",
+					"{C:green}odds{} by {C:green}#1#{};",
+					"consumed in {C:attention}#2#{} rounds",
+					" ",
+					"{C:inactive,s:0.8}... transitively, that implies{}",
+					"{C:inactive,s:0.8}gravy is as good as pey wet.{}",
 				},
 			},
 		},
