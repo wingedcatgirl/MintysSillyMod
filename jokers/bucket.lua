@@ -24,17 +24,32 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
-		info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
+		info_queue[#info_queue + 1] = {
+            set = "Other",
+            key = "minty_stone_cards",
+        }
 		return {
             key = key,
             vars = {
-                localize{type = 'name_text', set = 'Enhanced', key = "m_stone"}
+                localize{type = 'name_text', set = 'Other', key = "minty_stone_cards"}
             }
         }
 	end,
     calculate = function(self, card, context)
-        if context.cardarea == G.play and context.individual then
-            context.other_card:set_ability(G.P_CENTERS.m_stone, nil, true)
+        if context.before then
+            for i = 1,#context.scoring_hand do
+                if context.scoring_hand[i].ability.set ~= "Enhanced" then
+                    local _, enh = pseudorandom_element(MINTY.rocks, pseudoseed("minty_bucket"))
+                    MINTY.say(enh, "TRACE")
+                    context.scoring_hand[i]:set_ability(G.P_CENTERS[enh], nil, true)
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            context.scoring_hand[i]:juice_up()
+                            return true
+                        end
+                    }))
+                end
+            end
         end
     end
 }

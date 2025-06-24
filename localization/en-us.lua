@@ -491,15 +491,15 @@ return {
 			["j_minty_bucket"] = {
 				["name"] = "Bucket of Cement",
 				["text"] = {
-					"All scored cards",
-					"become {C:attention}#1#s{}"
+					"Scored unenhanced cards",
+					"become random {C:attention}#1#s{}"
 				},
 			},
 			["j_minty_bucket_flavor"] = {
 				["name"] = "Bucket of Cement",
 				["text"] = {
-					"All scored cards",
-					"become {C:attention}#1#s{}",
+					"Scored unenhanced cards",
+					"become random {C:attention}#1#s{}",
 					" ",
 					"{C:inactive,s:0.8}Happy 6th birthday!",
 				},
@@ -1095,6 +1095,24 @@ return {
 					"{C:inactive,s:0.8}TBA",
 				},
 			},
+			["c_minty_geologist"] = {
+				["name"] = "The Geologist",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#random {C:attention}#4##2#{}",
+				},
+			},
+			["c_minty_geologist_flavor"] = {
+				["name"] = "The Geologist",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#random {C:attention}#4##2#{}",
+					" ",
+					"{C:inactive,s:0.8}TBA{}"
+				},
+			},
 			["c_minty_bitz"] = {
 				["name"] = "The Bitz",
 				["text"] = {
@@ -1297,11 +1315,9 @@ return {
 			},
 		},
 		["Enhanced"] = {
-			--[[ Leave this commented until "stone cards" as a mechanic become a thing
 			["m_stone"] = {
 				["name"] = "Slate Card"
 			},
-			]]
 			["m_minty_marble"] = {
 				["name"] = "Marble Card",
 				["label"] = "Marble Card",
@@ -1505,6 +1521,14 @@ return {
 				["text"] = {
 					"Capable of",
 					"spawning naturally",
+				},
+			},
+			["minty_stone_cards"] = {
+				["label"] = "Stone Card",
+				["name"] = "Stone Card",
+				["text"] = {
+					"A card with a {C:attention}rock{}-",
+					"themed enhancement"
 				},
 			},
 			["minty_peywet_exp_1"] = {

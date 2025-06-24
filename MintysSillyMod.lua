@@ -176,13 +176,7 @@ for folder, list in pairs(files) do
     end
 end
 
-MINTY.rocks = {}
-
 MINTY.lastmoment = function ()
     MINTY.say("Running last-moment code...")
-    for k,v in pairs(G.P_CENTERS) do
-        if v.minty_rock then
-            MINTY.rocks[v.key] = true
-        end
-    end
+    MINTY.rocklist()
 end

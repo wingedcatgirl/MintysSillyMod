@@ -28,19 +28,33 @@ SMODS.Joker {
             key = self.key.."_flavor"
         end
 		-- Handle creating a tooltip with set args.
-		info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
+		info_queue[#info_queue + 1] = {
+            set = "Other",
+            key = "minty_stone_cards",
+        }
 		info_queue[#info_queue + 1] = { set = "Other", key = "minty_cement_seal", specific_vars = { self.config.seal.extra.chips } }
 		return {
             key = key,
             vars = {
-                localize{type = 'name_text', set = 'Enhanced', key = "m_stone"}
+                localize{type = 'name_text', set = 'Other', key = "minty_stone_cards"}
             }
         }
 	end,
     calculate = function(self, card, context)
-        if context.cardarea == G.play and context.individual and context.other_card.ability.name == 'Stone Card' then
-            context.other_card:set_ability(G.P_CENTERS.c_base, nil, true)
-            context.other_card:set_seal("minty_cement")
+        if context.before then
+            for i = 1,#context.scoring_hand do
+                local enh = context.scoring_hand[i].config.center.key
+                if MINTY.rocks[enh] and not context.scoring_hand[i].seal then
+                    context.scoring_hand[i]:set_ability(G.P_CENTERS.c_base, nil, true)
+                    context.scoring_hand[i]:set_seal("minty_cement")
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            context.scoring_hand[i]:juice_up()
+                            return true
+                        end
+                    }))
+                end
+            end
         end
     end
 }

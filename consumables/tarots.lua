@@ -45,6 +45,7 @@ SMODS.Consumable{
                 G.hand.highlighted[i]:change_suit(self.config.suit_conv);
             return true end })
         end
+        delay(0.2)
         for i=1, #G.hand.highlighted do
             local percent = 0.85 + ( i - 0.999 ) / ( #G.hand.highlighted - 0.998 ) * 0.3
             event({trigger = 'after', delay = 0.15, func = function()
@@ -116,6 +117,7 @@ SMODS.Consumable{
                 G.hand.highlighted[i]:set_ability(G.P_CENTERS[card.ability.enh_conv], nil, true);
             return true end })
         end
+        delay(0.2)
         for i=1, #G.hand.highlighted do
             local percent = 0.85 + ( i - 0.999 ) / ( #G.hand.highlighted - 0.998 ) * 0.3
             event({trigger = 'after', delay = 0.15, func = function()
@@ -231,6 +233,7 @@ SMODS.Consumable{
                 G.hand.highlighted[i]:set_ability(G.P_CENTERS[card.ability.enh_conv], nil, true);
             return true end })
         end
+        delay(0.2)
         for i=1, #G.hand.highlighted do
             local percent = 0.85 + ( i - 0.999 ) / ( #G.hand.highlighted - 0.998 ) * 0.3
             event({trigger = 'after', delay = 0.15, func = function()
@@ -302,6 +305,7 @@ SMODS.Consumable{
                 G.hand.highlighted[i]:set_ability(G.P_CENTERS[card.ability.enh_conv], nil, true);
             return true end })
         end
+        delay(0.2)
         for i=1, #G.hand.highlighted do
             local percent = 0.85 + ( i - 0.999 ) / ( #G.hand.highlighted - 0.998 ) * 0.3
             event({trigger = 'after', delay = 0.15, func = function()
@@ -319,7 +323,7 @@ SMODS.Consumable{
     end
 }
 
---[[
+
 SMODS.Consumable{
     set = 'Tarot', atlas = 'placeholder',
     key = 'geologist',
@@ -338,10 +342,10 @@ SMODS.Consumable{
         y = 0
     },
 
-    loc_vars = function(self, card, area, copier)
-		local key = self.key
+    loc_vars = function (self, info_queue, card)
+        key = self.key
         local plural = false
-        if self.config.max_highlighted ~= 1 then plural = true end
+        if card.ability.max_highlighted ~= 1 then plural = true end
         local s = plural and "s" or ""
         local a = plural and "" or "a "
         if MINTY.config.flavor_text then
@@ -353,6 +357,7 @@ SMODS.Consumable{
                 self.config.max_highlighted,
                 s,
                 a,
+                localize{type = 'name_text', set = 'Other', key = "minty_stone_cards"}
             }
         }
     end,
@@ -372,11 +377,12 @@ SMODS.Consumable{
         end
         delay(0.2)
         for i=1, #G.hand.highlighted do
-            local enh = pseudorandom_element(rocks, pseudoseed("minty_geologist"))
+            local _, enh = pseudorandom_element(MINTY.rocks, pseudoseed("minty_geologist"))
             event({trigger = 'after', delay = 0.1, func = function()
                 G.hand.highlighted[i]:set_ability(G.P_CENTERS[enh], nil, true);
             return true end })
         end
+        delay(0.2)
         for i=1, #G.hand.highlighted do
             local percent = 0.85 + ( i - 0.999 ) / ( #G.hand.highlighted - 0.998 ) * 0.3
             event({trigger = 'after', delay = 0.15, func = function()
@@ -389,6 +395,7 @@ SMODS.Consumable{
         delay(0.5)
     end,
 
-    in_pool = true
+    in_pool = function ()
+        return true
+    end
 }
---]]

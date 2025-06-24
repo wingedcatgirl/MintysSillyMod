@@ -205,6 +205,23 @@ MINTY.sleeveunlockcheck = function(this, debug)
   return result, count
 end
 
+MINTY.rocklist = function ()
+    MINTY.rocks = MINTY.rocks or {}
+    local outside_rocks = {
+        m_ortalab_ore = true,
+        m_akyrs_brick_card = true,
+        m_mf_gemstone = true,
+        m_stone = true,
+    }
+
+    for k,v in pairs(G.P_CENTERS) do
+        if (v.minty_rock) or outside_rocks[k] then
+            MINTY.rocks[v.key] = true
+        end
+    end
+end
+
+
 --Talisman compatibility compatibility
 to_big = to_big or function(x)
     return x
