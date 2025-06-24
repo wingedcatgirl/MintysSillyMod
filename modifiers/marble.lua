@@ -3,6 +3,7 @@ SMODS.Enhancement({
     name = "Marble Card",
     atlas = "enhance",
     set = "Enhanced",
+    minty_rock = true,
     pos = {
         x = 0,
         y = 0

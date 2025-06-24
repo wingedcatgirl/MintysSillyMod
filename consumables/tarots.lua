@@ -13,7 +13,7 @@ SMODS.Consumable{
 
     config = {max_highlighted = 3, suit_conv = 'minty_3s'},
 
-    loc_vars = function(self, info_queue)
+    loc_vars = function(self, info_queue, card)
 		local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
@@ -77,8 +77,8 @@ SMODS.Consumable{
 
     config = {max_highlighted = 1, enh_conv = 'm_minty_marble'},
 
-    loc_vars = function(self, info_queue)
-		info_queue[#info_queue + 1] = G.P_CENTERS.m_minty_marble
+    loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.enh_conv]
 		local key = self.key
         local plural = false
         if self.config.max_highlighted ~= 1 then plural = true end
@@ -97,7 +97,7 @@ SMODS.Consumable{
         }
     end,
 
-    use = function(self)
+    use = function(self, card, area, copier)
         local function event(config)
             local e = Event(config)
             G.E_MANAGER:add_event(e)
@@ -113,7 +113,7 @@ SMODS.Consumable{
         delay(0.2)
         for i=1, #G.hand.highlighted do
             event({trigger = 'after', delay = 0.1, func = function()
-                G.hand.highlighted[i]:set_ability(G.P_CENTERS.m_minty_marble, nil, true);
+                G.hand.highlighted[i]:set_ability(G.P_CENTERS[card.ability.enh_conv], nil, true);
             return true end })
         end
         for i=1, #G.hand.highlighted do
@@ -192,8 +192,8 @@ SMODS.Consumable{
 
     config = {max_highlighted = 1, enh_conv = 'm_minty_microcline'},
 
-    loc_vars = function(self, info_queue)
-		info_queue[#info_queue + 1] = G.P_CENTERS.m_minty_microcline
+    loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.enh_conv]
 		local key = self.key
         local plural = false
         if self.config.max_highlighted ~= 1 then plural = true end
@@ -212,7 +212,7 @@ SMODS.Consumable{
         }
     end,
 
-    use = function(self)
+    use = function(self, card, area, copier)
         local function event(config)
             local e = Event(config)
             G.E_MANAGER:add_event(e)
@@ -228,7 +228,7 @@ SMODS.Consumable{
         delay(0.2)
         for i=1, #G.hand.highlighted do
             event({trigger = 'after', delay = 0.1, func = function()
-                G.hand.highlighted[i]:set_ability(G.P_CENTERS.m_minty_microcline, nil, true);
+                G.hand.highlighted[i]:set_ability(G.P_CENTERS[card.ability.enh_conv], nil, true);
             return true end })
         end
         for i=1, #G.hand.highlighted do
@@ -263,8 +263,8 @@ SMODS.Consumable{
 
     config = {max_highlighted = 1, enh_conv = 'm_minty_crystal'},
 
-    loc_vars = function(self, info_queue)
-		info_queue[#info_queue + 1] = G.P_CENTERS.m_minty_crystal
+    loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.enh_conv]
 		local key = self.key
         local plural = false
         if self.config.max_highlighted ~= 1 then plural = true end
@@ -283,7 +283,7 @@ SMODS.Consumable{
         }
     end,
 
-    use = function(self)
+    use = function(self, card, area, copier)
         local function event(config)
             local e = Event(config)
             G.E_MANAGER:add_event(e)
@@ -299,7 +299,7 @@ SMODS.Consumable{
         delay(0.2)
         for i=1, #G.hand.highlighted do
             event({trigger = 'after', delay = 0.1, func = function()
-                G.hand.highlighted[i]:set_ability(G.P_CENTERS.m_minty_microcline, nil, true);
+                G.hand.highlighted[i]:set_ability(G.P_CENTERS[card.ability.enh_conv], nil, true);
             return true end })
         end
         for i=1, #G.hand.highlighted do
@@ -338,7 +338,7 @@ SMODS.Consumable{
         y = 0
     },
 
-    loc_vars = function(self)
+    loc_vars = function(self, card, area, copier)
 		local key = self.key
         local plural = false
         if self.config.max_highlighted ~= 1 then plural = true end
@@ -372,8 +372,9 @@ SMODS.Consumable{
         end
         delay(0.2)
         for i=1, #G.hand.highlighted do
+            local enh = pseudorandom_element(rocks, pseudoseed("minty_geologist"))
             event({trigger = 'after', delay = 0.1, func = function()
-                G.hand.highlighted[i]:set_ability(G.P_CENTERS.m_minty_marble, nil, true);
+                G.hand.highlighted[i]:set_ability(G.P_CENTERS[enh], nil, true);
             return true end })
         end
         for i=1, #G.hand.highlighted do

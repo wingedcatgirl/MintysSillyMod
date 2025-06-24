@@ -3,6 +3,7 @@ SMODS.Enhancement({
     name = "Microcline Card",
     atlas = "enhance",
     set = "Enhanced",
+    minty_rock = true,
     pos = {
         x = 2,
         y = 0

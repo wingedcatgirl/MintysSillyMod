@@ -3,6 +3,7 @@ SMODS.Enhancement({
     name = "Crystal Card",
     atlas = "enhance",
     set = "Enhanced",
+    minty_rock = true,
     pos = {
         x = 2,
         y = 0
@@ -38,6 +39,13 @@ SMODS.Enhancement({
                 chips = card.ability.chips,
                 dollars = card.ability.p_dollars,
                 remove = true
+            }
+        end
+
+        if context.main_scoring and context.cardarea == G.play then
+            return {
+                chips = card.ability.chips,
+                dollars = card.ability.p_dollars,
             }
         end
 

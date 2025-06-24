@@ -103,6 +103,7 @@ local files = {
     modifiers = {
         { name = "marble" }, --Enhancements
         { name = "microcline" },
+        { name = "crystal" },
         { name = "garbled", mods = { { id = "MoreFluff" } } },
         { name = "cementseal" }, --Seals
     },
@@ -150,18 +151,18 @@ for folder, list in pairs(files) do
                     if mod.id == check then nocross = true end
                 end
             end
+            if not load and not nocross then
+                sendTraceMessage("Checking crossover option for "..folder..'/'..name..".lua", "Minty's Mod")
+                load = MINTY.config.include_crossover or MINTY.config.dev_mode
+            end
         end
-        if mods and not nocross then
-            sendTraceMessage("Checking crossover option for "..folder..'/'..name..".lua", "Minty's Mod")
-            load = MINTY.config.include_crossover or MINTY.config.dev_mode
-        end
-        if incompat then
+        if load and incompat then
             sendTraceMessage("Checking conflicting mods for "..folder..'/'..name..".lua", "Minty's Mod")
             for _, mod in ipairs(incompat) do
                 load = load and not (SMODS.Mods[mod.id] or {}).can_load
             end
         end
-        if data.dev then
+        if load and data.dev then
             sendTraceMessage("Checking dev mode option for "..folder..'/'..name..".lua", "Minty's Mod")
             load = load and MINTY.config.dev_mode
         end
@@ -175,6 +176,13 @@ for folder, list in pairs(files) do
     end
 end
 
+MINTY.rocks = {}
+
 MINTY.lastmoment = function ()
-    --MINTY.say("Running last-moment code...")
+    MINTY.say("Running last-moment code...")
+    for k,v in pairs(G.P_CENTERS) do
+        if v.minty_rock then
+            MINTY.rocks[v.key] = true
+        end
+    end
 end
