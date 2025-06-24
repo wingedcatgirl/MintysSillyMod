@@ -212,6 +212,8 @@ MINTY.rocklist = function ()
         m_akyrs_brick_card = true,
         m_mf_gemstone = true,
         m_stone = true,
+        --Minty rock list patch target
+
     }
 
     for k,v in pairs(G.P_CENTERS) do
