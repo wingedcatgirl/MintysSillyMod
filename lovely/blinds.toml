@@ -3,6 +3,8 @@ version = "1.0.0"
 dump_lua = true
 priority = 2
 
+## We should be able to delete this whole file whenever SMODS adds custom small/big blinds to their own API. But until then... lol
+
 ## Custom Small/Big Blinds
 [[patches]]
 [patches.pattern]
