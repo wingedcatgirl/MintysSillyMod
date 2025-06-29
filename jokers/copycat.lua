@@ -1,14 +1,14 @@
 SMODS.Joker {
     key = "copycat",
     name = "Copy Cat",
-    atlas = 'placeholder',
+    atlas = 'jokerdoodles',
     pos = {
         x = 0,
         y = 0
     },
     soul_pos = {
-        x = 1,
-        y = 0
+        x = 4,
+        y = 4
     },
     rarity = 2,
     cost = 9,
@@ -18,6 +18,9 @@ SMODS.Joker {
     perishable_compat = true,
     blueprint_compat = true,
     demicoloncompat = true,
+    pools = {
+        ["kity"] = true
+    },
     config = {
         extra = {
             targetname = "None",
@@ -32,13 +35,16 @@ SMODS.Joker {
             key = self.key.."_flavor"
         end
         local target
-        for i = 1, #G.jokers.cards do
-            if G.jokers.cards[i].unique_val == card.ability.extra.targetid then
-                target = G.jokers.cards[i]
+        if card.ability.extra.targetkey ~= "" then
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i].unique_val == card.ability.extra.targetid then
+                    target = G.jokers.cards[i]
+                end
             end
         end
         if target then
             info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.extra.targetkey]
+            card.ability.extra.targetname = localize{type = "name_text", set = "Joker", key = card.ability.extra.targetkey}
         else
             card.ability.extra.targetname = "None"
         end
@@ -61,7 +67,7 @@ SMODS.Joker {
             local jokers = {}
             for i = 1, #G.jokers.cards do
                 if (G.jokers.cards[i] ~= card) and G.jokers.cards[i].config.center.blueprint_compat then
-                    MINTY.say("Found a compatible Joker")
+                    --MINTY.say("Found a compatible Joker")
                     jokers[#jokers+1] = G.jokers.cards[i]
                 end
             end
@@ -77,6 +83,20 @@ SMODS.Joker {
                 message_card = card,
             }
         end
+
+        if context.selling_card and (context.card == card.ability.extra.targetcard) then
+            card.ability.extra = {
+                targetname = "None",
+                targetkey = "",
+                targetcard = {},
+                targetid = 0,
+            }
+            return {
+                message = localize("k_copied_ex"),
+                message_card = card,
+            }
+        end
+
         --MINTY.say("Considering calculation context")
         if card.ability.extra.targetname == "None" then return end
         if context.no_blueprint then return end

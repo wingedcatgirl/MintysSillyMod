@@ -10,6 +10,7 @@ return {
 			["k_abandon_ex"] = "Voting to abandon...",
 			["k_victory_ex"] = "Victory!",
 			["k_inactive_ex"] = "Inactive!",
+			["k_bye_ex"] = "Bye-bye!",
 			["k_cube"] = "Hand must contain exactly 4 cards",
 			["k_psycube"] = "What have you done?!",
 			["k_minty_challenge"] = "Challenge",
@@ -1019,6 +1020,36 @@ return {
 				["text"] = {
 					"#1# in #2# cards are drawn face-down,",
 					"#1# in #2# cards are debuffed when drawn",
+				},
+			},
+			["bl_minty_claw"] = {
+				["name"] = "A Claw",
+				["text"] = {
+					"Debuff first#1#",
+					"card#2# drawn",
+				},
+			},
+			["bl_minty_tooth"] = {
+				["name"] = "A Tooth",
+				["text"] = {
+					"Flip first#1#",
+					"card#2# drawn",
+				},
+			},
+			["bl_minty_paw"] = {
+				["name"] = "A Paw",
+				["text"] = {
+					"Play limit -#1#",
+					"for first hand",
+					"unless an item",
+					"is sold"
+				},
+			},
+			["bl_minty_tail"] = {
+				["name"] = "A Tail",
+				["text"] = {
+					"Discard limit -#1#",
+					"for first discard"
 				},
 			},
 		},

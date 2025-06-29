@@ -1,8 +1,3 @@
-SMODS.Sound { --Source: https://www.youtube.com/watch?v=gXE9UgrOdls
-    key = 'batnoise',
-    path = 'batnoise.ogg'
-}
-
 SMODS.Joker {
     key = "scoundrel",
     name = "The Scoundrel",

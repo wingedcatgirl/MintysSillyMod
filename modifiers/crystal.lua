@@ -5,7 +5,7 @@ SMODS.Enhancement({
     set = "Enhanced",
     minty_rock = true,
     pos = {
-        x = 2,
+        x = 3,
         y = 0
     },
 	object_type = "Enhancement",

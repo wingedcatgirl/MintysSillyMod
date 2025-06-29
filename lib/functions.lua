@@ -80,7 +80,7 @@ end
 
 ---Checks how many times a card counts as a 3
 ---@param bypass_debuff boolean?
----@return any --Since 0 is truthy in lua, we have to return boolean false in that case
+---@return integer|boolean --Number of times the card counts as a 3, or `false` if it doesn't count as a 3 (0 is truthy in lua...)
 function Card:is_3(bypass_debuff)
     local count = 0
         if self.debuff and not bypass_debuff then return false end
@@ -221,6 +221,76 @@ MINTY.rocklist = function ()
             MINTY.rocks[v.key] = true
         end
     end
+end
+
+---Get next blind, including custom small/big blinds
+---@param round string
+---@return string? 
+MINTY.get_blind = function (round)
+    if not round then
+        --figure out current round from G.GAME? Maybe not possible
+
+        MINTY.say("Don't call MINTY.get_blind without specifying a round!", "WARN ")
+        return
+    elseif round == "Boss" then
+        MINTY.say("Boss blind getting not implemented yet, sowwiez; using vanilla's function instead for now", "WARN ")
+        return get_new_boss()
+    end
+
+    --[[ Nothing uses "perscribing" yet, so disabling for now
+    local perscription == "perscribed_" .. (round == "Boss" and "bosses") or round:lower()
+    G.GAME[perscription] = G.GAME[perscription] or {}
+    if G.GAME[perscription] and G.GAME[perscription][G.GAME.round_resets.ante] then
+        local ret_blind = G.GAME[perscription][G.GAME.round_resets.ante]
+        G.GAME[perscription][G.GAME.round_resets.ante] = nil
+        if round == "Boss" then
+            G.GAME.bosses_used[ret_blind] = G.GAME.bosses_used[ret_blind] + 1
+        end
+        return ret_blind
+    end
+    --]]
+
+    if G["FORCE_"..round:upper()] then return G["FORCE_"..round:upper()] end
+
+    local vanillablind = "bl_"..round:lower()
+
+    local eligible_blinds = {[vanillablind] = true}
+    for k, v in pairs(G.P_BLINDS) do
+        if not v[round:lower()] then
+            -- don't add
+        elseif v.in_pool and type(v.in_pool) == 'function' then
+            local res, options = v:in_pool()
+            eligible_blinds[k] = res and true or nil
+        elseif v[round:lower()].min <= math.max(1, G.GAME.round_resets.ante) then
+            eligible_blinds[k] = true
+        end
+    end
+    for k, v in pairs(G.GAME.banned_keys) do
+        if eligible_blinds[k] then eligible_blinds[k] = nil end
+    end
+    --LOVELY TARGET: FURTHER BLIND CULLING
+
+    --Including this here for now to not break Ortalab's stakes
+    if G.GAME.modifiers.ortalab_only then
+        for k, v in pairs(eligible_bosses) do
+            if v and not G.P_BLINDS[k].mod or (G.P_BLINDS[k].mod.id ~= 'ortalab' and not (G.P_BLINDS[k].pools and G.P_BLINDS[k].pools.Ortalab)) then
+                eligible_bosses[k] = nil
+            end
+        end
+    end
+
+    local blindpool = {}
+    for k, v in pairs(eligible_blinds) do
+        table.insert(blindpool, k)
+        if G.GAME.modifiers.mintyallboost and (G.P_BLINDS[k].mod.id == "MintysSillyMod" or (G.P_BLINDS[k].pools and G.P_BLINDS[k].pools.MintysSillyMod)) then
+            table.insert(blindpool, k)
+        end
+    end
+    --LOVELY TARGET: FURTHER BLIND BOOSTING
+
+    local blind = pseudorandom_element(blindpool, pseudoseed('blind'))
+
+    return blind
 end
 
 

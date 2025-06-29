@@ -325,7 +325,7 @@ SMODS.Consumable{
 
 
 SMODS.Consumable{
-    set = 'Tarot', atlas = 'placeholder',
+    set = 'Tarot', atlas = 'tarots',
     key = 'geologist',
     name = "The Geologist",
     set_card_type_badge = function(self, card, badges)
@@ -335,14 +335,14 @@ SMODS.Consumable{
     config = {max_highlighted = 3},
     pos = {
         x = 0,
-        y = 9
-    },
-    soul_pos = {
-        x = 1,
-        y = 0
+        y = 1
     },
 
     loc_vars = function (self, info_queue, card)
+		info_queue[#info_queue + 1] = {
+            set = "Other",
+            key = "minty_stone_cards",
+        }
         key = self.key
         local plural = false
         if card.ability.max_highlighted ~= 1 then plural = true end

@@ -6,9 +6,6 @@ SMODS.Back{
     config = {},
     apply = function (self, back)
       G.GAME.modifiers.mintyjokerboost = true
-      if (SMODS.Mods["FusionJokers"] or {}).can_load and ((G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_sillylittlesleeve") then
-        G.GAME.modifiers.mintyallboost = true
-      end
     end
 }
 
@@ -56,5 +53,12 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
 
             return { key = key, vars = vars }
         end,
+        apply = function ()
+          if self.get_current_deck_key() ~= "b_minty_sillylittledeck" then
+            G.GAME.modifiers.mintyjokerboost = true
+          else
+            G.GAME.modifiers.mintyallboost = true
+          end
+        end
     })
 end
