@@ -11,7 +11,7 @@ match_indent = true
 payload = '''
     -- If the selected deck or sleeve is the Silliest Littlest deck or sleeve and this key is a Minty Joker,
     -- add copies of it to the pool, so that it is more common to get
-    if ((G.GAME.selected_back_key or {}).key == 'b_minty_sillylittledeck' or G.GAME.selected_sleeve == "sleeve_minty_sillylittlesleeve") and (v.key:find('j_minty_') or ((v.pools and v.pools.MintysSillyMod) and (v.set and v.set.Joker))) then
+    if G.GAME.modifiers.mintyjokerboost and (v.key:find('j_minty_') or ((v.pools and v.pools.MintysSillyMod) and (v.set and v.set.Joker))) then
       for i = 1, 2 do
         _pool[#_pool + 1] = v.key
         _pool_size = _pool_size + 1
@@ -20,7 +20,7 @@ payload = '''
 
     -- If the selected deck AND sleeve is the Silliest Littlest deck and sleeve and this key is a Minty non-Joker,
     -- add a copy of it to the pool
-    if ((G.GAME.selected_back_key or {}).key == 'b_minty_sillylittledeck' and G.GAME.selected_sleeve == "sleeve_minty_sillylittlesleeve") and ((v.key:find('_minty_') and not v.key:find('j_minty_')) or ((v.pools and v.pools.MintysSillyMod) and not (v.set and v.set.Joker))) then
+    if G.GAME.modifiers.mintyallboost and ((v.key:find('_minty_') and not v.key:find('j_minty_')) or ((v.pools and v.pools.MintysSillyMod) and not (v.set and v.set.Joker))) then
         _pool[#_pool + 1] = v.key
         _pool_size = _pool_size + 1
     end
