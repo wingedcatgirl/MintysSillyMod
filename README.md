@@ -1,4 +1,4 @@
-## Minty's Silly Little Mod
+## Minty's Silly Little Mod - Delicious Chocolatey Goodness for Balatro
 
 A silly little mod that adds some silly little jokers and decks and things.
 
@@ -45,7 +45,7 @@ Planned features:
 
 ## Config Options
 - Flavor text: Default true. Enables funky MtG-style quotes at the bottom of some cards.
-- Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things. Autimatically on if Dev Mode is enabled. Requires restart.
+- Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things. Automatically on if Dev Mode is enabled. Requires restart.
 - 3 lock: Whether the 3 suit and related content can appear in a run; "Unlocked" means it's available from the start, "Locked" means it requires using The Cat tarot or playing a Spectrum hand[^1], "Sealed" means it never appears unless a deck specifically enables it. Default "Locked".
 - Dev Mode: Default false. Enables unfinished content if there is any (requires restart) (there usually isn't any anyway). 
    - Suppress trace messages: Default false; stops `TRACE`-level console messages even if Dev Mode is on.
@@ -54,7 +54,7 @@ Planned features:
 If you're trying out Minty's for the first time and want minimal other mods, go with [Talisman](https://github.com/MathIsFun0/Talisman) (unless you don't care about ^mult), [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) (unless you don't care about the Spectrum hand as a concept). The rest of the list is for after that.
 
 ### Technical
-- [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for all challenges in Minty's Mod. Note that it has some unresolved cross-mod bugs, so you might want to disable it if you don't care about challenges right now.
+- [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for all challenges in Minty's Mod.
 - [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) enables five-suit poker hands, which are a fun little thing to play with.
 - [Talisman](https://github.com/MathIsFun0/Talisman) enables scores above e308 and also ^mult, which is just fun imo. Also very technically part of the next list (we have some ^mult Jokers).
 
@@ -70,7 +70,7 @@ Minty's Mod adds content for all of the following mods. Those with ⭐️ are al
 - [Paperback](https://github.com/GitNether/paperback) ⭐️
 - [TOGA's Stuff](https://github.com/TheOneGoofAli/TOGAPackBalatro)
 
-The following mod add content for Minty's Mod and we haven't returned the favor (yet):
+The following mods add content for Minty's Mod and we haven't returned the favor (yet):
 - [Prism](https://github.com/blazingulag/Prism) ⭐️
 - [Random's Partners](https://github.com/Random71777/Random-s-Partners) (requires [Partner](https://github.com/Icecanno/Partner-API/))
 
@@ -106,4 +106,4 @@ Technically you can do whatever you want here, but here's the mods I like for th
 - I'm most active on [tumblr](https://www.tumblr.com/wingedcatgirl), though I don't trust the CEO of that site not to burn it all down without notice.
 
 ----
-[^1]: yes, there are other mods that add the Spectrum hand, but what's the point of having a framework if every mod has to account for every other mod. you know. if you're running those mods, add spectrum framework. let _it_ account for every other mod.
+[^1]: Only if Spectrum Framework is active. Yes, there are other mods that add the Spectrum hand, but what's the point of having a framework if every mod has to account for every other mod. you know. If you're running those mods, add Spectrum Framework. Let _it_ account for every other mod.
