@@ -12,7 +12,10 @@ SMODS.Enhancement({
 	badge_colour = HEX("a3ecc0"), --Magic Mint, according to internet
     config = {
         bonus = 25,
-        h_x_mult = 1.25
+        h_x_mult = 1.25,
+        extra = {
+            gymboost = "hxmult"
+        }
     },
     loc_vars = function(self, info_queue, card)
         return {
