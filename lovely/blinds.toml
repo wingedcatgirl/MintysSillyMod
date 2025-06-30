@@ -60,6 +60,22 @@ self.big = blind and not not blind.big --Redundant if Ortalab is also present, b
 
 [[patches]]
 [patches.pattern]
+target = 'blind.lua'
+match_indent = true
+position = 'at'
+pattern = 'if self.name == "Small Blind" then'
+payload = 'if self.name == "Small Blind" or self.small then'
+
+[[patches]]
+[patches.pattern]
+target = 'blind.lua'
+match_indent = true
+position = 'at'
+pattern = 'elseif self.name == "Big Blind" then'
+payload = 'elseif self.name == "Big Blind" or self.big then'
+
+[[patches]]
+[patches.pattern]
 target = "functions/common_events.lua"
 pattern = '''if v.boss.showdown then '''
 position = "at"
