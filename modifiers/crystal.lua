@@ -11,7 +11,7 @@ SMODS.Enhancement({
 	object_type = "Enhancement",
 	badge_colour = HEX("a3ecc0"), --Magic Mint, according to internet
     config = {
-        chips = 50,
+        bonus = 50,
         p_dollars = 3,
         extra = {
             odds = 2,
@@ -21,7 +21,7 @@ SMODS.Enhancement({
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.chips,
+                card.ability.bonus,
                 card.ability.p_dollars,
                 G.GAME and G.GAME.probabilities and G.GAME.probabilities.normal or 1,
                 card.ability.extra.odds,
@@ -36,16 +36,9 @@ SMODS.Enhancement({
     calculate = function (self, card, context)
         if context.forcetrigger then
             return {
-                chips = card.ability.chips,
+                chips = card.ability.bonus,
                 dollars = card.ability.p_dollars,
                 remove = true
-            }
-        end
-
-        if context.main_scoring and context.cardarea == G.play then
-            return {
-                chips = card.ability.chips,
-                dollars = card.ability.p_dollars,
             }
         end
 
