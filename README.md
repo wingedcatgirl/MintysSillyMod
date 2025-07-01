@@ -31,7 +31,7 @@ Planned features:
 2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already.
    - **Minimum supported version for 0.6.0 is BETA-0410b**. If the latest dev version fails for any reason, use [the May 2025 release](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-0506a).
    - Minimum supported version for latest commit is also **BETA-0410b**.
-3. Download the code as a ZIP file, from the latest release in Releases (should be stable, may be missing features) or the green "Code" button (may be buggy, but all features are available).
+3. Download the code  -- you're currently looking at a dev branch, so I assume you want [the latest commit](https://github.com/wingedcatgirl/MintysSillyMod/archive/refs/heads/smods-0614a.zip).
 4. Inside the zip file is the mod code in a folder, `MintysSillyMod-SOMEVERSION`. Put that folder in your Mods folder. The file structure should look like `Mods/MintysSillyMod-SOMEVERSION/MintysSillyMod.json`. In particular, there should _not_ be a second `MintysSillyMod` folder nested inside the first one. (You might prefer to remove the version number suffix from the folder name; it doesn't actually matter.)
 5. Have a little 3 as a treat! :3
 
