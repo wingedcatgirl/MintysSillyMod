@@ -23,10 +23,11 @@ SMODS.Blind({
     collection_loc_vars = function (self)
         return self:loc_vars()
     end,
+    set_blind = function (self)
+        G.GAME.round_resets.toothflip = self.config.extra.flip
+    end,
     stay_flipped = function (self, area, card)
-        if G.GAME.round_resets.toothflip == nil then
-            G.GAME.round_resets.toothflip = self.config.extra.flip
-        elseif G.GAME.round_resets.toothflip > 0 then
+        if G.GAME.round_resets.toothflip > 0 then
             G.GAME.round_resets.toothflip = G.GAME.round_resets.toothflip - 1
             card.ability.wheel_flipped = true
             return true
@@ -43,6 +44,7 @@ SMODS.Blind({
         for k, v in pairs(G.playing_cards) do
             v.ability.wheel_flipped = nil
         end
+        G.GAME.round_resets.toothflip = nil
     end,
     defeat = function (self)
         self:disable()

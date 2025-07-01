@@ -23,10 +23,11 @@ SMODS.Blind({
     collection_loc_vars = function (self)
         return self:loc_vars()
     end,
+    set_blind = function (self)
+        G.GAME.round_resets.clawdebuff = self.config.extra.debuff
+    end,
     stay_flipped = function (self, area, card)
-        if G.GAME.round_resets.clawdebuff == nil then
-            G.GAME.round_resets.clawdebuff = self.config.extra.debuff
-        elseif G.GAME.round_resets.clawdebuff > 0 then
+        if G.GAME.round_resets.clawdebuff > 0 then
             G.GAME.round_resets.clawdebuff = G.GAME.round_resets.clawdebuff - 1
             SMODS.debuff_card(card, true, self.key)
         end
@@ -39,6 +40,7 @@ SMODS.Blind({
         for k, card in pairs(G.playing_cards) do
             SMODS.debuff_card(card, false, self.key)
         end
+        G.GAME.round_resets.clawdebuff = nil
     end,
     defeat = function (self)
         self:disable()
