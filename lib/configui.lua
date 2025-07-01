@@ -13,6 +13,15 @@ end
 SMODS.current_mod.config_tab = function()
     return {n = G.UIT.ROOT, config = {r = 0.1, minw = 8, minh = 6, align = "tl", padding = 0.2, colour = G.C.BLACK}, nodes = {
         {n = G.UIT.C, config = {minw=1, minh=1, align = "tl", colour = G.C.CLEAR, padding = 0.15}, nodes = {
+        create_option_cycle {
+            label = "Balance Level",
+            options = {'Restrained', "Regular", "Ridiculous"},
+            current_option = MINTY.config.balance_level.current_option,
+            ref_table = MINTY.config,
+            ref_value = "balance_level",
+            opt_callback = 'minty_optcycle',
+            w = 5.5
+            },
         create_toggle({
             label = "Flavor text",
             ref_table = MINTY.config,

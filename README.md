@@ -44,6 +44,7 @@ Planned features:
 > Always start a new run after updating any mod. Attempting to continue an in-progress run may result in crashes.
 
 ## Config Options
+- Balance level: Doesn't do anything yet but take a wild guess what the plan is. Yes we're jumping on this train. Blame [AikoShen](https://github.com/Aikoyori/Balatro-Aikoyoris-Shenanigans) for doing it second.
 - Flavor text: Default true. Enables funky MtG-style quotes at the bottom of some cards.
 - Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things. Automatically on if Dev Mode is enabled. Requires restart.
 - 3 lock: Whether the 3 suit and related content can appear in a run; "Unlocked" means it's available from the start, "Locked" means it requires using The Cat tarot or playing a Spectrum hand[^1], "Sealed" means it never appears unless a deck specifically enables it. Default "Locked".
