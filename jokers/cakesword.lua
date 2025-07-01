@@ -29,6 +29,10 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = {
+            set = "Other",
+            key = "minty_percent",
+        }
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"

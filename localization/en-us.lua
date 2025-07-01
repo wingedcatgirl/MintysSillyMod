@@ -1579,6 +1579,14 @@ return {
 					"themed enhancement"
 				},
 			},
+			["minty_percent"] = {
+				["label"] = "xkcd 985",
+				["name"] = "xkcd 985",
+				["text"] = {
+					"That's percentage",
+					"{C:attention}points{}."
+				},
+			},
 			["minty_peywet_exp_1"] = {
 				["label"] = "What?",
 				["name"] = "What?",
