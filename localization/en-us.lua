@@ -10,6 +10,7 @@ return {
 			["k_abandon_ex"] = "Voting to abandon...",
 			["k_victory_ex"] = "Victory!",
 			["k_inactive_ex"] = "Inactive!",
+			["k_sliced_ex"] = "Sliced!",
 			["k_bye_ex"] = "Bye-bye!",
 			["k_cube"] = "Hand must contain exactly 4 cards",
 			["k_psycube"] = "What have you done?!",
@@ -98,6 +99,22 @@ return {
 					" ",
 					"{C:inactive,s:0.8}What do you mean, 'why'?",
 					"{C:inactive,s:0.8}For SCIENCE, obviously!",
+				},
+			},
+			["j_minty_cakesword"] = {
+				["name"] = "Cake Sword",
+				["text"] = {
+					"Blind size reduced by {C:mult}#1#%{}",
+					"when entering; loses {C:mult}#2#%{} per hit",
+				},
+			},
+			["j_minty_cakesword_flavor"] = {
+				["name"] = "Cake Sword",
+				["text"] = {
+					"Blind size reduced by {C:mult}#1#%{}",
+					"when entering; loses {C:mult}#2#%{} per hit",
+					" ",
+					"{C:inactive,s:0.8}You should see the cake gun.{}"
 				},
 			},
 			["j_minty_catcafe"] = {

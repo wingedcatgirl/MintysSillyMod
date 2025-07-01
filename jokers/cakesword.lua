@@ -1,26 +1,26 @@
 SMODS.Joker {
-    key = "newjoker",
-    name = "New Joker",
+    key = "cakesword",
+    name = "Cake Sword",
     atlas = 'jokerdoodles',
     pos = {
         x = 0,
         y = 0
     },
     soul_pos = {
-        x = 1,
-        y = 0
+        x = 5,
+        y = 4
     },
     rarity = 2,
-    cost = 5,
+    cost = 6,
     pools = {
         ["Food"] = true,
     },
     unlocked = true,
     discovered = false,
-    eternal_compat = true,
+    eternal_compat = false,
     perishable_compat = true,
-    blueprint_compat = true,
-    demicoloncompat = false,
+    blueprint_compat = false,
+    demicoloncompat = true,
     config = {
         extra = {
             basepct = 35,
@@ -46,16 +46,44 @@ SMODS.Joker {
         if (context.setting_blind or context.forcetrigger) and not context.blueprint then
             G.E_MANAGER:add_event(Event({trigger = 'after', blocking = true, func = function()
                 play_sound('minty_swordnoise', 1)
+                card:juice_up()
                 G.GAME.blind.chips = final_chips
                 G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
                 return true
             end}))
 
             card.ability.extra.percent = card.ability.extra.percent - card.ability.extra.fallpct
+            if (card.ability.extra.percent <= 0) then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        play_sound('tarot1')
+                        card.T.r = -0.2
+                        card:juice_up(0.3, 0.4)
+                        card.states.drag.is = true
+                        card.children.center.pinch.x = true
+                        G.E_MANAGER:add_event(Event({
+                            trigger = 'after',
+                            delay = 0.3,
+                            blockable = false,
+                            func = function()
+                                G.jokers:remove_card(card)
+                                card:remove()
+                                card = nil
+                                return true;
+                            end
+                        }))
+                        return true
+                    end
+                }))
+                return {
+                    message = localize('k_eaten_ex'),
+                    colour = G.C.FILTER
+                }
+            end
 
             return {
-                    message = localize("k_again_ex"),
-                    message_card = card,
+                    message = localize("k_sliced_ex"),
+                    message_card = G.GAME.blind,
             }
         end
     end

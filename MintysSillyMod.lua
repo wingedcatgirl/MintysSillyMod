@@ -66,6 +66,7 @@ local files = {
         { name = "catcafe" },
         { name = "treatovision" },
         { name = "peywet", },
+        { name = "cakesword" },
         { name = "sabertooth", mods = { {id = "ortalab"} } },
         { name = "neko", mods = { {id = "TOGAPack"} } },
         { name = "catpicmachine", mods = { { id = "Cryptid" } } },
