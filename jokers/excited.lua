@@ -39,7 +39,7 @@ SMODS.Joker {
                 colour = G.C.CHIPS,
                 message = localize {
                     type = 'variable',
-                    key = 'a_chipgain',
+                    key = 'a_minty_chipgain',
                     vars = { card.ability.extra.chipgain },
                 },
                 message_card = card,
@@ -101,7 +101,7 @@ SMODS.Joker {
                     colour = G.C.CHIPS,
                     message = localize {
                         type = 'variable',
-                        key = 'a_chipgain',
+                        key = 'a_minty_chipgain',
                         vars = { card.ability.extra.chipgain },
                     },
                     message_card = card

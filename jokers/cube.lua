@@ -113,9 +113,9 @@ local get_loc_debuff_textref = Blind.get_loc_debuff_text
 function Blind:get_loc_debuff_text()
 	if forbidden then
         if (G.GAME.blind.config.blind.debuff ~= {}) and (G.GAME.blind.config.blind.debuff.h_size_ge and G.GAME.blind.config.blind.debuff.h_size_ge >= 5) or (G.GAME.blind.config.blind.debuff.h_size_le and G.GAME.blind.config.blind.debuff.h_size_le <= 3) then
-		    return localize("k_psycube")
+		    return localize("k_minty_psycube")
         end
-		return localize("k_cube")
+		return localize("k_minty_cube")
 	end
 	return get_loc_debuff_textref(self)
 end

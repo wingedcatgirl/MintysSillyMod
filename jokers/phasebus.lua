@@ -20,7 +20,7 @@ SMODS.Joker {
     demicoloncompat = true,
     config = { extra = {status = 'Active'} },
     loc_vars = function(self, info_queue, card)
-        local active = card.ability.extra.status == "Active" and localize("k_active_ex") or localize("k_inactive_ex")
+        local active = card.ability.extra.status == "Active" and localize("k_active_ex") or localize("k_minty_inactive")
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
@@ -73,7 +73,7 @@ SMODS.Joker {
             if faces == 1 then
                 card.ability.extra.status = 'Inactive'
                 return {
-                    message = localize('k_stopped_ex'),
+                    message = localize('k_minty_stopped'),
                     colour = G.C.MONEY,
                     card = card,
                 }

@@ -53,7 +53,7 @@ SMODS.Joker {
             return {
                 message = localize{
                     type='variable',
-                    key='a_chipgain',
+                    key='a_minty_chipgain',
                     vars={chipgain}
                 },
                 colour = G.C.CHIPS,
@@ -78,7 +78,7 @@ SMODS.Joker {
                 return {
                     message = localize{
                         type='variable',
-                        key='a_chipgain',
+                        key='a_minty_chipgain',
                         vars={chipgain}
                     },
                     colour = G.C.CHIPS,
@@ -87,7 +87,7 @@ SMODS.Joker {
             else
                 card.ability.extra.chipgain = card.ability.extra.chipgain_base
                 return {
-                    message = localize('k_stopped_ex'),
+                    message = localize('k_minty_stopped'),
                     colour = G.C.CHIPS,
                     card = card
                 }

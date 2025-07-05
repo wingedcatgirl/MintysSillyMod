@@ -1,25 +1,26 @@
 return {
 	["misc"] = {
 		["dictionary"] = {
-			["k_drowned_ex"] = "Drowned!",
-			["k_nommed_ex"] = "Nom!",
-			["k_stopped_ex"] = "Stopped!",
-			["k_storm_ex"] = "Storm!",
-			["k_wiped_ex"] = "Wiped!",
-			["k_forward_ex"] = "Forward!",
-			["k_abandon_ex"] = "Voting to abandon...",
-			["k_victory_ex"] = "Victory!",
-			["k_inactive_ex"] = "Inactive!",
-			["k_sliced_ex"] = "Sliced!",
-			["k_bye_ex"] = "Bye-bye!",
-			["k_cube"] = "Hand must contain exactly 4 cards",
-			["k_psycube"] = "What have you done?!",
+			["k_minty_drowned"] = "Drowned!",
+			["k_minty_nommed"] = "Nom!",
+			["k_minty_stopped"] = "Stopped!",
+			["k_minty_storm"] = "Storm!",
+			["k_minty_wiped"] = "Wiped!",
+			["k_minty_forward"] = "Forward!",
+			["k_minty_abandon"] = "Voting to abandon...",
+			["k_minty_victory"] = "Victory!",
+			["k_minty_inactive"] = "Inactive!",
+			["k_minty_sliced"] = "Sliced!",
+			["k_minty_bang"] = "Bang!",
+			["k_minty_bye"] = "Bye-bye!",
+			["k_minty_cube"] = "Hand must contain exactly 4 cards",
+			["k_minty_psycube"] = "What have you done?!",
 			["k_minty_challenge"] = "Challenge",
 		},
 		["v_dictionary"] = {
-			["a_chipgain"] = "+#1# Chips",
-			["a_multandchips"] = "+#1# Mult, +#2# Chips",
-			["a_chipsandmult"] = "+#1# Chips, +#2# Mult",
+			["a_minty_chipgain"] = "+#1# Chips",
+			["a_minty_multandchips"] = "+#1# Mult, +#2# Chips",
+			["a_minty_chipsandmult"] = "+#1# Chips, +#2# Mult",
 		},
 		["suits_plural"] = {
 			["minty_3s"] = "3s",
@@ -1399,6 +1400,15 @@ return {
 					"{C:money}$#2#{} and {C:chips}+#1#{} Chips",
 					"when scored, and {C:green}#3# in #4#{}",
 					"chance to {C:attention}shatter{}"
+				}
+			},
+			["m_minty_pistol"] = {
+				["name"] = "Pistol Card",
+				["label"] = "Pistol Card",
+				["text"] = {
+					"{X:mult,C:white} X#1# {} Mult, {C:green}#2# in #3#{}",
+					"chance to play immediately",
+					"upon highlighting"
 				}
 			},
 		},

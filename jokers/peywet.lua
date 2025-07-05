@@ -99,7 +99,7 @@ SMODS.Joker {
                 }
             else
                 return {
-                    message = localize('k_nommed_ex'),
+                    message = localize('k_minty_nommed'),
                     colour = G.C.GREEN
                 }
             end

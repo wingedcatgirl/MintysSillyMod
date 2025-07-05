@@ -82,7 +82,7 @@ SMODS.Joker {
             return {
                 delay = 0.4,
                 remove = true,
-                message = localize('k_nommed_ex'),
+                message = localize('k_minty_nommed'),
                 card = card,
             }
         end

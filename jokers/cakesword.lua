@@ -86,7 +86,7 @@ SMODS.Joker {
             end
 
             return {
-                    message = localize("k_sliced_ex"),
+                    message = localize("k_minty_sliced"),
                     message_card = G.GAME.blind,
             }
         end
