@@ -32,6 +32,7 @@ SMODS.Joker {
         if not G.PROFILES[G.SETTINGS.profile].career_stats["minty_peywet"] then G.PROFILES[G.SETTINGS.profile].career_stats["minty_peywet"] = 0 end
         local comprehension = G.PROFILES[G.SETTINGS.profile].career_stats["minty_peywet"]
         local infokey = "minty_peywet_exp_"
+        local _, odds = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, "minty_peywet_desc", false)
 
         if comprehension >= 2 then
             infokey = infokey.."3"
@@ -48,7 +49,7 @@ SMODS.Joker {
             set = "Other",
             key = infokey,
             specific_vars = {
-                card.ability.extra.odds,
+                odds,
                 card.ability.extra.life
             }
         }
@@ -57,18 +58,18 @@ SMODS.Joker {
         return {
             key = key,
             vars = {
-                card.ability.extra.odds,
+                odds,
                 card.ability.extra.life
             }
         }
     end,
-    add_to_deck = function (self, card, from_debuff)
-        G.GAME.probabilities.normal = G.GAME.probabilities.normal * card.ability.extra.odds
-    end,
-    remove_from_deck = function (self, card, from_debuff)
-        G.GAME.probabilities.normal = G.GAME.probabilities.normal / card.ability.extra.odds
-    end,
     calculate = function(self, card, context)
+        if context.mod_probability and not context.blueprint then
+	        return {
+                numerator = context.numerator * 5
+            }
+        end
+
         if context.end_of_round and not context.blueprint and not (context.individual or context.repetition or context.retrigger_joker_check or context.retrigger_joker) then
             card.ability.extra.life = card.ability.extra.life - 1
             if card.ability.extra.life < 1 then

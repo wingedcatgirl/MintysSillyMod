@@ -36,12 +36,12 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
-        local unluck = math.max(math.min(G.GAME.probabilities.normal or 1, card.ability.extra.odds), 0)
+        local unluck, odds = SMODS.get_probability_vars(self, 1, card.ability.extra.odds, "minty_nineth_desc", false)
         return {
             key = key,
             vars = {
                 unluck,
-                card.ability.extra.odds,
+                odds,
                 localize(card.ability.extra.suit, "suits_plural"),
                 card.ability.extra.xmult
             }

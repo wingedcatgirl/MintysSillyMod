@@ -310,8 +310,8 @@ return {
 				["name"] = "Lucky",
 				["text"] = {
 					"Multiplies all {C:attention}listed",
-					"{C:green,E:1,S:1.1}probabilities{} by {C:mult}33{}",
-					"{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}33 in 3{C:inactive})",
+					"{C:green,E:1,S:1.1}probabilities{} by {C:mult}#1#{}",
+					"{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}#1# in 3{C:inactive})",
 				},
 			},
 			["j_minty_lucky_flavor"] = {
@@ -322,8 +322,8 @@ return {
 				["name"] = "Lucky",
 				["text"] = {
 					"Multiplies all {C:attention}listed",
-					"{C:green,E:1,S:1.1}probabilities{} by {C:mult}33{}",
-					"{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}33 in 3{C:inactive})",
+					"{C:green,E:1,S:1.1}probabilities{} by {C:mult}#1#{}",
+					"{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}#1# in 3{C:inactive})",
 					" ",
 					"{C:inactive,s:0.8}Black cats are lucky",
 					"{C:inactive,s:0.8}because you get to",
@@ -338,8 +338,8 @@ return {
 				["name"] = "Lucky",
 				["text"] = {
 					"Divides all {C:attention}listed",
-					"{C:green,E:1,S:1.1}probabilities{} by {C:mult}33{}",
-					"{C:inactive}(ex: {C:green}33 in 100{C:inactive} -> {C:green}1 in 100{C:inactive})",
+					"{C:green,E:1,S:1.1}probabilities{} by {C:mult}#1#{}",
+					"{C:inactive}(ex: {C:green}#1# in 100{C:inactive} -> {C:green}1 in 100{C:inactive})",
 				},
 			},
 			["j_minty_lune_flavor"] = {
@@ -350,8 +350,8 @@ return {
 				["name"] = "Lune",
 				["text"] = {
 					"Divides all {C:attention}listed",
-					"{C:green,E:1,S:1.1}probabilities{} by {C:mult}33{}",
-					"{C:inactive}(ex: {C:green}33 in 100{C:inactive} -> {C:green}1 in 100{C:inactive})",
+					"{C:green,E:1,S:1.1}probabilities{} by {C:mult}#1#{}",
+					"{C:inactive}(ex: {C:green}#1# in 100{C:inactive} -> {C:green}1 in 100{C:inactive})",
 					" ",
 					"{C:inactive,s:0.8}Till all complete.",
 				},
@@ -484,6 +484,24 @@ return {
 					"{C:inactive,s:0.8}It seems to belong",
 					"{C:inactive,s:0.8}to an ancient",
 					"{C:inactive,s:0.8}prehistoric slow tiger.",
+				},
+			},
+			["j_minty_fatcat-m"] = {
+				["name"] = "Fat Cat",
+				["text"] = {
+					"When blind is selected,",
+					"create a random Joker with",
+					"Negative, Rental, and Perishable"
+				},
+			},
+			["j_minty_fatcat-m_flavor"] = {
+				["name"] = "Fat Cat",
+				["text"] = {
+					"When blind is selected,",
+					"create a random Joker with",
+					"Negative, Rental, and Perishable",
+					" ",
+					"{C:inactive,s:0.8}TBA",
 				},
 			},
 			["j_minty_chisel"] = {

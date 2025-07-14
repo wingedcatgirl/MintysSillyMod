@@ -29,10 +29,16 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
-        local luck = math.min((G.GAME and G.GAME.probabilities.normal or 1), 3)
+        local luck = SMODS.get_probability_vars(card, 1, 3, "minty_claw_desc", false)
+        luck = math.min(luck, 3)
         return {
             key = key,
-            vars = {luck, card.ability.extra.chips, card.ability.extra.mult, card.ability.extra.xmult}
+            vars = {
+                luck,
+                card.ability.extra.chips,
+                card.ability.extra.mult,
+                card.ability.extra.xmult
+            }
         }
     end,
     unlocked = true,
@@ -58,7 +64,8 @@ SMODS.Joker {
             card.ability.extra.again = count - 1
             local bonuses = {'mult', 'xmult', 'chips'}
             local result = {card = card}
-            local luck = math.floor(G.GAME.probabilities.normal)
+            local luck = SMODS.get_probability_vars(card, 1, 3, "minty_claw_roll", true)
+            luck = math.floor(luck)
             for go=1, math.min(luck, 3) do
                 local roll = pseudorandom_element(bonuses)
                 for i, v in ipairs(bonuses) do

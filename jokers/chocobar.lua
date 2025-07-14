@@ -19,9 +19,9 @@ SMODS.Joker {
     blueprint_compat = true,
     demicoloncompat = true,
     pools = {["Food"] = true},
-    in_pool = function()
+    in_pool = function(self, args)
         if not (G.GAME and G.GAME.choccy_bars_eaten) then return true end
-        if pseudorandom("choccychance") < (G.GAME.probabilities.normal/(G.GAME.choccy_bars_eaten+1)) then return true else return false end
+        if SMODS.pseudorandom_probability(self, "choccy_chance", 1, G.GAME.choccy_bars_eaten, "choccy_chance") then return true else return false end
     end,
     config = {
         extra = {

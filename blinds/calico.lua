@@ -13,27 +13,27 @@ SMODS.Blind {
         }
     },
     loc_vars = function (self)
+        local luck, odds = SMODS.get_probability_vars(self, 1, self.config.extra.odds, "minty_calico_desc", false)
         return {
             vars = {
-                G.GAME.probabilities.normal,
-                self.config.extra.odds,
+                luck,
+                odds
             }
         }
     end,
     collection_loc_vars = function (self)
+        local luck, odds = SMODS.get_probability_vars(self, 1, self.config.extra.odds, "minty_calico_desc", false)
         return {
             vars = {
-                G.GAME.probabilities.normal,
-                self.config.extra.odds,
+                luck,
+                odds
             }
         }
     end,
     recalc_debuff = function(self, card, from_blind)
         if not (card.area and card.area.config) then return false end
         if card.area.config.type ~= "deck" and card.area.config.type ~= "hand" then return false end
-        local luck = G.GAME.probabilities.normal or 1
-        local odds = self.config.extra.odds
-        if pseudorandom("calicodebuff") < luck/odds then
+        if SMODS.pseudorandom_probability(card, "minty_calico_debuff", 1, self.config.extra.odds, "minty_calico_debuff") then
             card.ability.calicodebuffed = true
             return true
         else
@@ -41,9 +41,7 @@ SMODS.Blind {
         end
     end,
     stay_flipped = function (self, area, card)
-        local luck = G.GAME.probabilities.normal or 1
-        local odds = self.config.extra.odds
-        if pseudorandom("calicoflip") < luck/odds then
+        if SMODS.pseudorandom_probability(card, "minty_calico_flip", 1, self.config.extra.odds, "minty_calico_flip") then
             if card.debuff and card.ability.calicodebuffed and (pseudorandom("calicoundebuff") < 1/2) then
                 card.ability.calicodebuffed = nil
                 card.debuff = false

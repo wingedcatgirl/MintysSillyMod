@@ -31,12 +31,13 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
+        local luck, odds = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, "minty_churu_desc", false)
         return {
             key = key,
             vars = {
                 card.ability.extra.s_mult,
-                G.GAME.probabilities.normal,
-                card.ability.extra.odds
+                luck,
+                odds,
             }
         }
     end,
@@ -77,7 +78,7 @@ SMODS.Joker {
         -- Check if the Joker needs to be eaten
         if context.end_of_round and not context.blueprint and not (context.individual or context.repetition or context.retrigger_joker_check or context.retrigger_joker) then
             card.ability.extra.again = 0
-            if pseudorandom("churu") < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, "minty_churu_eaten", 1, card.ability.extra.odds, "minty_churu_eaten") then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         play_sound('tarot1')
@@ -136,10 +137,6 @@ SMODS.Joker {
         end
     end
 }
-
-if (SMODS.Mods["Cryptid"] or {}).can_load then
-    table.insert(Cryptid.food, "j_minty_churutreat")
-end
 
 SMODS.Joker {
     key = 'plastic_stick',

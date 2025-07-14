@@ -19,12 +19,13 @@ SMODS.Enhancement({
         },
     },
     loc_vars = function(self, info_queue, card)
+        local luck, odds = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, "minty_crystal_desc", false)
         return {
             vars = {
                 card.ability.bonus,
                 card.ability.p_dollars,
-                G.GAME and G.GAME.probabilities and G.GAME.probabilities.normal or 1,
-                card.ability.extra.odds,
+                luck,
+                odds,
             },
         }
     end,
@@ -43,7 +44,7 @@ SMODS.Enhancement({
         end
 
         if context.destroy_card and context.cardarea == G.play and context.destroy_card == card then
-            if pseudorandom("Crystal Destroy Chance") < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, 'minty_crystalshatter', 1, card.ability.extra.odds, 'minty_crystalshatter') then
                 return {
                     remove = true
                 }

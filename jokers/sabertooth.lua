@@ -34,12 +34,12 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
-        local unluck = math.max(math.min(G.GAME.probabilities.normal or 1, card.ability.extra.odds), 0)
+        local unluck, odds = SMODS.get_probability_vars(self, 1, card.ability.extra.odds, "minty_sabertooth_desc", false)
         return {
             key = key,
             vars = {
                 unluck,
-                card.ability.extra.odds,
+                odds,
                 localize(card.ability.extra.suit, "suits_plural"),
                 card.ability.extra.xmult
             }
@@ -60,7 +60,7 @@ SMODS.Joker {
             local trycount = context.other_card:is_3()
             local repcount = 0
             for _try=1,trycount do
-                if pseudorandom('tooth') > G.GAME.probabilities.normal/card.ability.extra.odds then
+                if not SMODS.pseudorandom_probability(card, 'tooth', 1, card.ability.extra.odds, 'tooth') then
                     repcount = repcount + 1
                 end
             end

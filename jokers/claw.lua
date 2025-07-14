@@ -24,9 +24,14 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
+        local luck, odds = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, "minty_claw_desc", false)
         return {
             key = key,
-            vars = {''..(G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds, card.ability.extra.xmult}
+            vars = {
+                luck,
+                odds,
+                card.ability.extra.xmult
+            }
         }
     end,
     unlocked = true,
@@ -50,7 +55,7 @@ SMODS.Joker {
             local trycount = context.other_card:is_3()
             local repcount = 0
             for try=1,trycount do
-                if pseudorandom('claw') < G.GAME.probabilities.normal/card.ability.extra.odds then 
+                if SMODS.pseudorandom_probability(card, 'claw', 1, card.ability.extra.odds, 'claw') then
                     repcount = repcount + 1
                 end
             end
@@ -63,11 +68,11 @@ SMODS.Joker {
                 }
             end
         end
-            
-        if context.retrigger_joker_check and card.ability.extra.again ~= 0 and context.other_card == card then 
+
+        if context.retrigger_joker_check and card.ability.extra.again ~= 0 and context.other_card == card then
             local reps = card.ability.extra.again-1
             card.ability.extra.again = 0
-            if reps >= 1 then 
+            if reps >= 1 then
                 return {
                     message = localize('k_again_ex'),
                     message_card = card,

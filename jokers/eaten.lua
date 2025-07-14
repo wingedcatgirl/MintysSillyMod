@@ -24,9 +24,15 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
+        local luck, odds = SMODS.get_probability_vars(self, 1, card.ability.extra.odds, "minty_eaten_desc", false)
         return {
             key = key,
-            vars = {card.ability.extra.mult, card.ability.extra.chips, card.ability.extra.odds, ''..(G.GAME and G.GAME.probabilities.normal or 1)}
+            vars = {
+                card.ability.extra.mult,
+                card.ability.extra.chips,
+                odds,
+                luck
+            }
         }
     end,
     calculate = function(self, card, context)
@@ -47,7 +53,7 @@ SMODS.Joker {
                 }
             end
         end
-        if context.cardarea == G.play and context.destroy_card and not context.destroy_card.ability.eternal and context.destroy_card:get_id() ~= 7 and pseudorandom('eaten') < G.GAME.probabilities.normal/card.ability.extra.odds then
+        if context.cardarea == G.play and context.destroy_card and not context.destroy_card.ability.eternal and context.destroy_card:get_id() ~= 7 and SMODS.pseudorandom_probability(card, 'minty_eaten', 1, card.ability.extra.odds, 'minty_eaten') then
             return {
                 remove = true,
                 message = localize('k_minty_drowned'),
