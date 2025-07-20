@@ -49,9 +49,9 @@ elseif G.GAME.round_resets.blind.big then
 [patches.pattern]
 target = 'blind.lua'
 match_indent = true
-position = 'after'
+position = 'before'
 pattern = '''
-self.boss = blind and not not blind.boss
+if G.GAME.modifiers.no_blind_reward and G.GAME.modifiers.no_blind_reward[self:get_type()] then self.dollars = 0 end
 '''
 payload = '''
 self.small = blind and not not blind.small
