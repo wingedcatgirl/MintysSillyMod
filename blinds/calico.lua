@@ -41,6 +41,7 @@ SMODS.Blind {
         end
     end,
     stay_flipped = function (self, area, card)
+        if area ~= G.hand then return false end
         if SMODS.pseudorandom_probability(card, "minty_calico_flip", 1, self.config.extra.odds, "minty_calico_flip") then
             if card.debuff and card.ability.calicodebuffed and (pseudorandom("calicoundebuff") < 1/2) then
                 card.ability.calicodebuffed = nil
@@ -49,14 +50,6 @@ SMODS.Blind {
             card.ability.wheel_flipped = not card.debuff or nil
         end
         return card.ability.wheel_flipped
-    end,
-    press_play = function (self) --idk why this isn't automatic. i feel like this is supposed to be automatic and i somehow screwed it up 
-        for i = 1, #G.hand.cards do
-            if G.hand.cards[i].highlighted and G.hand.cards[i].ability.wheel_flipped and G.hand.cards[i].facing == 'back' then
-                G.hand.cards[i]:flip()
-                G.hand.cards[i].ability.wheel_flipped = nil
-            end
-        end
     end,
     disable = function (self)
         for i = 1, #G.hand.cards do
@@ -98,5 +91,6 @@ SMODS.Blind {
             end
             v.ability.wheel_flipped = nil
         end
+        --unlock_card(G.P_CENTERS.j_minty_finity_calico)
     end
 }
