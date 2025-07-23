@@ -25,9 +25,17 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
+        local luck, odds = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, "minty_excited_desc", false)
         return {
             key = key,
-            vars = {card.ability.extra.chips, card.ability.extra.chipgain, card.ability.extra.mult, card.ability.extra.multgain, card.ability.extra.odds, ''..(G.GAME and G.GAME.probabilities.normal or 1)}
+            vars = {
+                card.ability.extra.chips,
+                card.ability.extra.chipgain,
+                card.ability.extra.mult,
+                card.ability.extra.multgain,
+                odds,
+                luck,
+            }
         }
     end,
     calculate = function(self, card, context)
@@ -78,7 +86,7 @@ SMODS.Joker {
         end
         if
 			(-- Mostly copied from Cryptid's "sob" and "Duplicare"
-                (context.post_trigger and context.other_card ~= card)
+                (context.post_trigger and not context.other_context.fixed_probability and not context.other_context.mod_probability and context.other_card ~= card)
                 or (context.cardarea == G.play and context.individual)
 				or context.discard
 				or context.reroll_shop
@@ -93,8 +101,7 @@ SMODS.Joker {
 			and not context.retrigger_joker
 			and not context.blueprint
 		then
-            roll = pseudorandom('excited')
-            if roll > G.GAME.probabilities.normal/card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, "minty_excited", 1, card.ability.extra.odds, "minty_excited") then
                 card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipgain
                 return {
                     delay = 0.2,

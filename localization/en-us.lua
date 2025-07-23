@@ -28,6 +28,9 @@ return {
 		["suits_singular"] = {
 			["minty_3s"] = "3",
 		},
+		["ranks"] = {
+			["minty_face"] = "Face",
+		},
 		["labels"] = {
 			["minty_cement_seal"] = "Cement Seal",
 			["m_minty_marble"] = "Marble Card",
@@ -116,6 +119,29 @@ return {
 					"when entering; loses {C:mult}#2#%{} per hit",
 					" ",
 					"{C:inactive,s:0.8}You should see the cake gun.{}"
+				},
+			},
+			["j_minty_finity_calico"] = {
+				["name"] = "Calico on the Counter",
+				["text"] = {
+					"{C:attention}#1# in #2#{} cards {C:mult}flipped{} on draw,",
+					"{C:attention}#1# in #2#{} cards {C:mult}debuffed{} on draw.",
+					"{C:mult}Flipped{} or {C:mult}debuffed{} cards {C:attention}always score{}",
+					"{C:mult}Flipped{} cards give {C:mult}+#3#{} Mult",
+					"{C:mult}Debuffed{} cards give {X:mult,C:white}X#4#{} Mult",
+				},
+			},
+			["j_minty_finity_calico_flavor"] = {
+				["name"] = "Calico on the Counter",
+				["text"] = {
+					"{C:attention}#1# in #2#{} cards {C:mult}flipped{} on draw,",
+					"{C:attention}#1# in #2#{} cards {C:mult}debuffed{} on draw.",
+					"{C:mult}Flipped{} or {C:mult}debuffed{} cards {C:attention}always score{}",
+					"{C:mult}Flipped{} cards give {C:mult}+#3#{} Mult",
+					"{C:mult}Debuffed{} cards give {X:mult,C:white}X#4#{} Mult",
+					" ",
+					"{C:inactive,s:0.8}Yeah, I made a mess, but{}",
+					"{C:inactive,s:0.8}you like it better that way.{}",
 				},
 			},
 			["j_minty_catcafe"] = {
@@ -486,6 +512,26 @@ return {
 					"{C:inactive,s:0.8}prehistoric slow tiger.",
 				},
 			},
+			["j_minty_fatcat-l"] = {
+				["name"] = "Fat Cat",
+				["text"] = {
+					"When blind is selected,",
+					"if any Food Jokers are held",
+					"eat a random one and gain",
+					"{X:mult,C:white}X#2#{} Mult {C:inactive}(currently {X:mult,C:white}X#1#{}){}",
+				},
+			},
+			["j_minty_fatcat-l_flavor"] = {
+				["name"] = "Fat Cat",
+				["text"] = {
+					"When blind is selected,",
+					"if any Food Jokers are held",
+					"eat a random one and gain",
+					"{X:mult,C:white}X#2#{} Mult {C:inactive}(currently {X:mult,C:white}X#1#{}){}",
+					" ",
+					"{C:inactive,s:0.8}leave Tubbs olone dot tumblr dot com{}",
+				},
+			},
 			["j_minty_fatcat-m"] = {
 				["name"] = "Fat Cat",
 				["text"] = {
@@ -501,7 +547,8 @@ return {
 					"create a random Joker with",
 					"Negative, Rental, and Perishable",
 					" ",
-					"{C:inactive,s:0.8}TBA",
+					"{C:inactive,s:0.8}Diversity win: local capitalist",
+					"{C:inactive,s:0.8}pigdog is, in fact, a catgirl!",
 				},
 			},
 			["j_minty_chisel"] = {
@@ -1144,7 +1191,7 @@ return {
 					"{C:inactive,s:0.8}Strike the earth!",
 				},
 			},
-			["c_minty_crystalidk"] = {
+			["c_minty_gleam"] = {
 				["name"] = "Crystal maker",
 				["text"] = {
 					"Converts up to",
@@ -1152,7 +1199,7 @@ return {
 					"to #3#{C:attention}Crystal Card#2#{}",
 				},
 			},
-			["c_minty_crystalidk_flavor"] = {
+			["c_minty_gleam_flavor"] = {
 				["name"] = "Crystal maker",
 				["text"] = {
 					"Converts up to",

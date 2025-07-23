@@ -54,7 +54,7 @@ SMODS.Joker {
             }
         end
 
-        if (context.post_trigger and context.other_card ~= card) then
+        if (context.post_trigger and not context.other_context.fixed_probability and not context.other_context.mod_probability and context.other_card ~= card) then
             card.ability.extra.stormcount = card.ability.extra.stormcount + 1
             --sendDebugMessage('[Minty] Storm count: '..card.ability.extra.stormcount)
         end

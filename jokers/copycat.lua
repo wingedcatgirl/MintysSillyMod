@@ -77,7 +77,7 @@ SMODS.Joker {
             card.ability.extra.targetkey = target.config.center.key
             card.ability.extra.targetid = target.unique_val
             card.ability.extra.targetname = localize{type = "name_text", set = "Joker", key = card.ability.extra.targetkey}
-            MINTY.say("Joker selected: "..card.ability.extra.targetname)
+            --MINTY.say("Joker selected: "..card.ability.extra.targetname)
             return {
                 message = localize("k_copied_ex"),
                 message_card = card,
@@ -92,7 +92,7 @@ SMODS.Joker {
                 targetid = 0,
             }
             return {
-                message = localize("k_copied_ex"),
+                message = localize("k_minty_bye"),
                 message_card = card,
             }
         end
@@ -109,7 +109,7 @@ SMODS.Joker {
             end
         end
         if target and target ~= card then
-            MINTY.say("Calculating blueprint effect of "..card.ability.extra.targetname.." copied by Copy Cat", "TRACE")
+            --MINTY.say("Calculating blueprint effect of "..card.ability.extra.targetname.." copied by Copy Cat", "TRACE")
             local ret = SMODS.blueprint_effect(card, target, context)
             if ret then return ret end
         end
