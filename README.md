@@ -1,8 +1,8 @@
 ## Minty's Silly Little Mod - Delicious Chocolatey Goodness for Balatro
 
-A silly little mod that adds some silly little jokers and decks and things.
+A silly little mod that adds some silly little jokers and decks and things. It's chocolate because it's not vanilla. (It's not vanilla because I think calling a mod a word which in this context means "not modded" is silly.)
 
-[Mod main page on Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Minty%27s_Silly_Little_Mod) (Beware of SPOILERS!)
+[Mod main page on Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Minty%27s_Silly_Little_Mod) (Beware of SPOILERS! If you even care about discovering things on your own, that is 😛)
 
 Current features:
 - Cats
@@ -45,14 +45,14 @@ Planned features:
 
 ## Config Options
 - Balance level: Doesn't do anything yet but take a wild guess what the plan is. Yes we're jumping on this train. Blame [AikoShen](https://github.com/Aikoyori/Balatro-Aikoyoris-Shenanigans) for doing it second.
-- Flavor text: Default true. Enables funky MtG-style quotes at the bottom of some cards.
+- Flavor text: Default true. Enables funky MtG-style quotes at the bottom of Jokers, and also some other cards.
 - Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things. Automatically on if Dev Mode is enabled. Requires restart.
 - 3 lock: Whether the 3 suit and related content can appear in a run; "Unlocked" means it's available from the start, "Locked" means it requires using The Cat tarot or playing a Spectrum hand[^1], "Sealed" means it never appears unless a deck specifically enables it. Default "Locked".
 - Dev Mode: Default false. Enables unfinished content if there is any (requires restart) (there usually isn't any anyway). 
    - Suppress trace messages: Default false; stops `TRACE`-level console messages even if Dev Mode is on.
 
 ## Recommended additional mods:
-If you're trying out Minty's for the first time and want minimal other mods, go with [Talisman](https://github.com/MathIsFun0/Talisman) (unless you don't care about ^mult), [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) (unless you don't care about the Spectrum hand as a concept). The rest of the list is for after that.
+If you're trying out Minty's for the first time and want minimal other mods, go with [Talisman](https://github.com/MathIsFun0/Talisman) (unless you don't care about ^Mult), [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) (unless you don't care about the Spectrum hand as a concept). The rest of the list is for after that.
 
 ### Technical
 - [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for all challenges in Minty's Mod.

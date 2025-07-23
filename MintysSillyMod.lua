@@ -6,7 +6,7 @@ MINTY.config = SMODS.current_mod.config
 
 if not SMODS.current_mod.lovely then
     NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
-    error("Lovely patches failed! Please make sure this mod's file structure is not nested. The mod will be automatically disabled on restart.")
+    error("Minty's Mod: Lovely patches failed! Please make sure the file structure is not nested. The mod will be automatically disabled on restart.")
 end
 
 SMODS.current_mod.optional_features = {
@@ -30,6 +30,27 @@ SMODS.ObjectType({ --Kity pool (Legendary and otherwise)
         SMODS.ObjectType.inject(self)
     end
 })
+
+if not SMODS.ObjectType.Food then
+    SMODS.ObjectType({
+        key = "Food",
+        default = "j_popcorn",
+        cards = {
+            ["j_gros_michel"] = true,
+            ["j_egg"] = true,
+            ["j_ice_cream"] = true,
+            ["j_cavendish"] = true,
+            ["j_turtle_bean"] = true,
+            ["j_diet_cola"] = true,
+            ["j_popcorn"] = true,
+            ["j_ramen"] = true,
+            ["j_selzer"] = true,
+        },
+        inject = function(self)
+            SMODS.ObjectType.inject(self)
+        end,
+    })
+end
 
 local files = {
     lib = {
@@ -64,6 +85,7 @@ local files = {
         --Uncommon Jokers
         { name = "atheismcorner" },
         { name = "catcafe" },
+        { name = "fatcat-l" },
         { name = "treatovision" },
         { name = "peywet", },
         { name = "cakesword" },
@@ -91,9 +113,21 @@ local files = {
         { name = "garfielf" },
         { name = "lune", mods = { {id = "ortalab"} } }
     },
+    tarots = {
+        { name = "cat" },
+        { name = "boredchild" },
+        { name = "dorf" },
+        { name = "grin", dev = true },
+        { name = "shine" },
+        { name = "geologist" },
+        { name = "bitz" },
+    },
+    spectrals = {
+        { name = "sixyears" },
+        { name = "dekaja", dev = true },
+        { name = "wand" },
+    },
     consumables = {
-        { name = "tarots" },
-        { name = "spectrals" },
         { name = "colors", mods = { { id = "MoreFluff" } }, nocrossover = true },
         { name = "rotarots", mods = { { id = "MoreFluff" } }, nocrossover = true },
         { name = "gemstones", mods = { { id = "Gemstone" } }, nocrossover = true },
@@ -174,7 +208,15 @@ for folder, list in pairs(files) do
         end
         if load then
             sendTraceMessage("Loading file: "..folder..'/'..name..'.lua', "Minty's Mod")
-            SMODS.load_file(folder..'/'..name..'.lua')()
+            if not pcall(SMODS.load_file(folder..'/'..name..'.lua')) then
+                local disable = not MINTY.config.dev_mode and " The mod will be automatically disabled on restart." or ""
+                if not MINTY.config.dev_mode then
+                    NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
+                end
+                error("Minty's Mod: File '"..folder.."/"..name..".lua' failed to load! Please make sure there's nothing fucky with your file structure."..disable)
+            end
+
+            
         else
             sendTraceMessage("Skipping file: "..folder..'/'..name..'.lua', "Minty's Mod")
         end
