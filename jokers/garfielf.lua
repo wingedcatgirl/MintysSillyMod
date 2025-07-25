@@ -30,12 +30,21 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        local rank = pseudorandom_element({
-            "Aces", "Kings", "Queens", "Jacks", "10s", "9s", "8s", "7s", "6s", "5s", "4s", "2s"
-        })
-        local suit = pseudorandom_element({
-            "Heart", "Spade", "Club", "Diamond"
-        })
+        local ranks = {}
+        local suits = {}
+        for k,v in pairs(SMODS.Ranks) do
+            if k ~= "3" then
+                table.insert(ranks, k)
+            end
+        end
+        for k,v in pairs(SMODS.Suits) do
+            if k ~= "minty_3s" then
+                table.insert(suits, k)
+            end
+        end
+
+        local rank = localize(pseudorandom_element(ranks), "ranks")
+        local suit = localize(pseudorandom_element(suits), "suits_singular")
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
