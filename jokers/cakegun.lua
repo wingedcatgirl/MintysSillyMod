@@ -1,17 +1,17 @@
 SMODS.Joker {
-    key = "cakesword",
-    name = "Cake Sword",
+    key = "cakegun",
+    name = "Cake Gun",
     atlas = 'jokerdoodles',
     pos = {
         x = 0,
         y = 0
     },
     soul_pos = {
-        x = 5,
-        y = 4
+        x = 1,
+        y = 0
     },
-    rarity = 2,
-    cost = 6,
+    rarity = 3,
+    cost = 7,
     pools = {
         ["Food"] = true,
     },
@@ -23,16 +23,11 @@ SMODS.Joker {
     demicoloncompat = true,
     config = {
         extra = {
-            basepct = 35,
-            percent = 35,
-            fallpct = 5,
+            percent = 50,
+            shots = 6,
         }
     },
     loc_vars = function(self, info_queue, card)
-		info_queue[#info_queue + 1] = {
-            set = "Other",
-            key = "minty_percent",
-        }
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
@@ -41,27 +36,28 @@ SMODS.Joker {
             key = key,
             vars = {
                 card.ability.extra.percent,
-                card.ability.extra.fallpct,
+                card.ability.extra.shots,
+                (card.ability.extra.shots == 1) and "" or "s",
+                (card.ability.extra.shots == 1) and "s" or "",
             }
         }
     end,
     in_pool = function (self, args)
-        return not G.GAME.pool_flags.cake_sword_eaten
+        return G.GAME.pool_flags.cake_sword_eaten
     end,
     calculate = function(self, card, context)
         local final_chips = to_big((G.GAME.blind.chips / 100) * (100 - card.ability.extra.percent))
         if (context.setting_blind or context.forcetrigger) and not context.blueprint then
             G.E_MANAGER:add_event(Event({trigger = 'after', blocking = true, func = function()
-                play_sound('minty_swordnoise', 1)
+                play_sound('minty_gunshot', 1)
                 card:juice_up()
                 G.GAME.blind.chips = final_chips
                 G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
                 return true
             end}))
 
-            card.ability.extra.percent = card.ability.extra.percent - card.ability.extra.fallpct
-            if (card.ability.extra.percent <= 0) then
-                G.GAME.pool_flags.cake_sword_eaten = true
+            card.ability.extra.shots = card.ability.extra.shots - 1
+            if (card.ability.extra.shots <= 0) then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         play_sound('tarot1')
@@ -90,7 +86,7 @@ SMODS.Joker {
             end
 
             return {
-                    message = localize("k_minty_sliced"),
+                    message = localize("k_minty_bang"),
                     message_card = G.GAME.blind,
             }
         end

@@ -96,6 +96,7 @@ local files = {
         { name = "wildsupport" },
         { name = "gymbuddy" },
         { name = "scoundrel" },
+        { name = "cakegun" },
         { name = "hyperfix", mods = { {id = "Talisman"} } },
         { name = "jacobsladder" },
         { name = "copycat", incompat = { {id = "Cryptid"} } }, --Crashes a bunch with Cryptid fsr 👍️
