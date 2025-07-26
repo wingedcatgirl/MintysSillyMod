@@ -13,6 +13,20 @@ function MINTY.say(message, level)
     sendMessageToConsole(level, "Minty's Mod", message)
 end
 
+---Checks whether a card is in the collection (as opposed to e.g. the hand or Jokers tray)
+---@param card table Card to check
+---@return boolean
+MINTY.in_collection = function (card)
+    if G.your_collection then
+        for k, v in pairs(G.your_collection) do
+            if card.area == v then
+                return true
+            end
+        end
+    end
+    return false
+end
+
 ---Enables Bunco's exotics and anything that relies on them
 MINTY.enable_exotics = function()
     if G.GAME then G.GAME.Exotic = true end

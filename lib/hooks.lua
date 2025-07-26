@@ -25,8 +25,8 @@ end
 local isfaceref = Card.is_face
 function Card:is_face(from_boss)
     if self.debuff and not from_boss then return end
-    if next(find_joker("Prosopagnosia")) and not next(find_joker("Pareidolia")) then 
-        return false 
+    if next(find_joker("Prosopagnosia")) and not next(find_joker("Pareidolia")) then
+        return false
     end
 	return isfaceref(self, from_boss)
 end

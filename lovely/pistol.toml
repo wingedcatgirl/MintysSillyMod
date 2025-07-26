@@ -1,0 +1,19 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 3
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = 'self.highlighted = is_higlighted'
+position = 'after'
+match_indent = true
+payload = '''
+
+if self.ability and self.ability.name == "Pistol Card" then
+    --MINTY.say("Pistol card clicked, time to calculate!!!")
+    SMODS.calculate_context({minty_pistolclick = true})
+end
+
+'''

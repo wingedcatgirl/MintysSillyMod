@@ -4,8 +4,8 @@ SMODS.Consumable{
     name = "The Gleam",
     atlas = 'tarots',
     pos = {
-        x = 3,
-        y = 0
+        x = 1,
+        y = 1
     },
     set_card_type_badge = function(self, card, badges)
         badges[1] = create_badge("Tarot?", get_type_colour(self or card.config, card), nil, 1.2)

@@ -121,6 +121,22 @@ return {
 					"{C:inactive,s:0.8}You should see the cake gun.{}"
 				},
 			},
+			["j_minty_cakegun"] = {
+				["name"] = "Cake Gun",
+				["text"] = {
+					"Blind size reduced by {C:mult}#1#%{}",
+					"when entering; {C:mult}#2#{} shot#3# remain#4#",
+				},
+			},
+			["j_minty_cakegun_flavor"] = {
+				["name"] = "Cake Gun",
+				["text"] = {
+					"Blind size reduced by {C:mult}#1#%{}",
+					"when entering; {C:mult}#2#{} shot#3# remain#4#",
+					" ",
+					"{C:inactive,s:0.8}Oh, there it is.{}"
+				},
+			},
 			["j_minty_finity_calico"] = {
 				["name"] = "Calico on the Counter",
 				["text"] = {
@@ -1538,6 +1554,14 @@ return {
 					"{C:attention}#2#"
 				},
 			},
+			["c_minty_rot_gleam"] = {
+				["name"] = "The Gleam!",
+				["text"] = {
+					"Enhances {C:attention}#1#{} selected",
+					"card into a",
+					"{C:attention}#2#"
+				},
+			},
 			["c_minty_rot_bitz"] = {
 				["name"] = "The Bitz!",
 				["text"] = {
@@ -1645,6 +1669,14 @@ return {
 					"Capable of",
 					"spawning naturally",
 				},
+			},
+			["minty_disabled_object"] = {
+				["label"] = "Object Disabled",
+				["name"] = "Object Disabled",
+				["text"] = {
+					"Requires {C:Attention}#1#{}:",
+					"{C:mult}#2#{}"
+				}
 			},
 			["minty_stone_cards"] = {
 				["label"] = "Stone Card",
