@@ -123,3 +123,56 @@ SMODS.Consumable({
         } }
     end
 })
+
+
+SMODS.Consumable({
+    object_type = "Consumable",
+    set = "Rotarot",
+    name = "The Dwarf!",
+    key = "rot_dorf",
+    pos = { x = 0, y = 1 },
+    config = {
+        max_highlighted = 1,
+        mod_conv = "m_minty_spline",
+        enh = {
+        },
+    },
+    cost = 3,
+    atlas = "rotarots",
+    unlocked = true,
+    discovered = false,
+    display_size = { w = 107, h = 107 },
+    can_use = function(self, card)
+        return #G.hand.highlighted >= 1 and #G.hand.highlighted <= card.ability.max_highlighted
+    end,
+    in_pool = function (self, args)
+        return false
+    end,
+    loc_vars = function(self, info_queue, card)
+        --info_queue[#info_queue + 1] = G.P_CENTERS[self.config.mod_conv]
+        local key = self.key
+        if MINTY.config.flavor_text then
+            key = self.key.."_flavor"
+        end
+
+		info_queue[#info_queue + 1] = {
+            set = "Enhanced",
+            key = "m_minty_spline",
+            config = {},
+        }
+        info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Me", "to decide what the hell it does" } }
+        local plural = false
+        if self.config.max_highlighted ~= 1 then plural = true end
+        local s = plural and "s" or ""
+        local a = plural and "" or "a "
+
+        return {
+            key = key,
+            vars = {
+                card and card.ability.max_highlighted or self.config.max_highlighted,
+                localize{type = 'name_text', set = 'Enhanced', key = self.config.mod_conv},
+                s,
+                a,
+        } }
+    end
+})

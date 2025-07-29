@@ -10,9 +10,11 @@ return {
 			["k_minty_abandon"] = "Voting to abandon...",
 			["k_minty_victory"] = "Victory!",
 			["k_minty_inactive"] = "Inactive!",
+			["k_minty_active"] = "Active!",
 			["k_minty_sliced"] = "Sliced!",
 			["k_minty_bang"] = "Bang!",
 			["k_minty_bye"] = "Bye-bye!",
+			["k_minty_rescheduled"] = "Rescheduled!",
 			["k_minty_cube"] = "Hand must contain exactly 4 cards",
 			["k_minty_psycube"] = "What have you done?!",
 			["k_minty_challenge"] = "Challenge",
@@ -80,6 +82,40 @@ return {
 					"exactly {C:attention}4{} cards",
 					" ",
 					"{C:inactive,s:0.8}YOU'RE a cube!",
+				},
+			},
+			["j_minty_doctor"] = {
+				["name"] = "Doctor",
+				["text"] = {
+					"After {C:green}#1#{} hand#3#, {C:attention}permanently{}",
+					"gain {B:1,C:white}#2#{} Mult",
+					"{C:green}Unknown chance{} to {C:attention}reschedule{}",
+					"at end of round"
+				},
+			},
+			["j_minty_doctor_flavor"] = {
+				["name"] = "Doctor",
+				["text"] = {
+					"After {C:green}#1#{} hand#3#, {C:attention}permanently{}",
+					"gain {B:1,C:white}#2#{} Mult",
+					"{C:green}Unknown chance{} to {C:attention}reschedule{}",
+					"at end of round",
+					" ",
+					"{C:inactive,s:0.8}\"Vent art\"? No, this is a doctor.",
+					"{C:inactive,s:0.8}They've got the classic head mirror, see?"
+				},
+			},
+			["j_minty_doctor_active"] = {
+				["name"] = "Doctor",
+				["text"] = {
+					"{B:1,C:white}#2#{} Mult",
+				},
+			},
+			["j_minty_doctor_active_flavor"] = {
+				["name"] = "Doctor",
+				["text"] = {
+					"{B:1,C:white}#2#{} Mult",
+					"{C:inactive,s:0.8}Seriously? Lucky bastard."
 				},
 			},
 			["j_minty_jacobsladder"] = {
@@ -1492,6 +1528,14 @@ return {
 					"upon highlighting"
 				}
 			},
+			["m_minty_spline"] = {
+				["name"] = "Spline Card",
+				["label"] = "Spline Card",
+				["text"] = {
+					"TBA whatever this does!",
+					"{C:inactive,s:0.8}okay <3 yay <3{}"
+				}
+			},
 		},
 		["Voucher"] = {
 			["v_minty_tabletopple"] = {
@@ -1560,6 +1604,22 @@ return {
 					"Enhances {C:attention}#1#{} selected",
 					"card into a",
 					"{C:attention}#2#"
+				},
+			},
+			["c_minty_rot_dorf"] = {
+				["name"] = "The Dwarf!",
+				["text"] = {
+					"Reticulates up to",
+					"{C:attention}#1#{} selected card#3#",
+					"to #4#{C:attention}#2##3#{}",
+				},
+			},
+			["c_minty_rot_dorf_flavor"] = {
+				["name"] = "The Dwarf!",
+				["text"] = {
+					"Reticulates up to",
+					"{C:attention}#1#{} selected card#3#",
+					"to #4#{C:attention}#2##3#{}",
 				},
 			},
 			["c_minty_rot_bitz"] = {
@@ -1674,7 +1734,7 @@ return {
 				["label"] = "Object Disabled",
 				["name"] = "Object Disabled",
 				["text"] = {
-					"Requires {C:Attention}#1#{}:",
+					"Requires {C:attention}#1#{}:",
 					"{C:mult}#2#{}"
 				}
 			},

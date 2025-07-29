@@ -60,7 +60,6 @@ SMODS.Joker {
         end
     end,
     update = function (self, card, dt)
-        --if true then return end --dummy out all this for now 
         local area = card.area
         if G.your_collection then
             for k, v in pairs(G.your_collection) do
