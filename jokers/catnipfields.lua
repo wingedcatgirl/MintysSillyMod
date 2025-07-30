@@ -30,7 +30,7 @@ SMODS.Joker {
         again = 0
       }},
     loc_vars = function(self, info_queue, card)
-        if MINTY.in_collection(card) and not (paperback or MINTY.config.dev_mode) then
+        if MINTY.in_collection(card) and not (paperback or MINTY.config.dev_mode or MINTY.config.include_crossover) then
             info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Paperback" } }
         end
         local key = self.key
@@ -43,7 +43,7 @@ SMODS.Joker {
         }
     end,
     in_pool = function(self, args)
-        return (paperback or MINTY.config.dev_mode) and MINTY.threeSuit_in_pool()
+        return (paperback or MINTY.config.dev_mode or MINTY.config.include_crossover) and MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)
         if context.forcetrigger then

@@ -1,3 +1,11 @@
+---Stub function if PB isn't active, so this *can* work without it. Not recommended, but possible!
+local stickmult = (PB_Util and PB_UTIL.calculate_stick_xMult) or function (card)
+    local xMult = card.ability.extra.xMult
+    local sticks = math.max(#SMODS.find_card("j_minty_churu"), 1) --Assuming no other mod allows PB sticks to exist without PB :v
+    return xMult * sticks
+end
+local pb = (SMODS.Mods.paperback or {}).can_load
+
 SMODS.Joker {
     key = "churutreat",
     config = {
@@ -27,6 +35,9 @@ SMODS.Joker {
         ["Paperback"] = true, --Increase freqency when playing with Paper Deck
     },
     loc_vars = function(self, info_queue, card)
+        if MINTY.in_collection(card) and not (pb or MINTY.config.dev_mode or MINTY.config.include_crossover) then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Paperback" } }
+        end
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
@@ -43,7 +54,8 @@ SMODS.Joker {
     end,
 
     in_pool = function(self, args)
-        if G.GAME.pool_flags.churu_treat_eaten then
+        if not (pb or MINTY.config.dev_mode or MINTY.config.include_crossover) then return false end
+        if pb and G.GAME.pool_flags.churu_treat_eaten then --The normal gimmick only works if other sticks can spawn, so if they can't...
             return false
         end
         return MINTY.threeSuit_in_pool()
@@ -163,15 +175,22 @@ SMODS.Joker {
     pools = {
         ["Paperback"] = true, --Increase freqency when playing with Paper Deck. if sticks can spawn which i don't think pb ever actually turns on lol
     },
-    yes_pool_flag = "sticks_can_spawn",
+    in_pool = function (self, args)
+        if not (pb or MINTY.config.dev_mode or MINTY.config.include_crossover) then return false end
+        if not G.GAME.pool_flags.churu_treat_eaten then return false end
+        return G.GAME.pool_flags.sticks_can_spawn
+    end,
 
     loc_vars = function(self, info_queue, card)
+        if MINTY.in_collection(card) and not (pb or MINTY.config.dev_mode or MINTY.config.include_crossover) then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Paperback" } }
+        end
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
 
-        local xMult = PB_UTIL.calculate_stick_xMult(card)
+        local xMult = stickmult(card)
 
         return {
             key = key,
@@ -184,7 +203,7 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.joker_main then
-            local xMult = PB_UTIL.calculate_stick_xMult(card)
+            local xMult = stickmult(card)
 
             if xMult ~= 1 then
                 return {

@@ -1753,6 +1753,18 @@ return {
 					"{C:mult}#2#{}"
 				}
 			},
+			["minty_dev_warning"] = {
+				["label"] = "WARNING",
+				["name"] = "WARNING",
+				["text"] = {
+					"Known issue with {C:attention}#1#{}: {C:mult}#2#{}",
+					"If issues persist, disable the",
+					"{C:mult}Dev Mode{} of {C:minty_3s}Minty's Mod{} to",
+					"prevent this object from spawning",
+					" ",
+					"{C:inactive,s:0.8}It's Dev Mode, you knew there'd be jank.{}",
+				}
+			},
 			["minty_stone_cards"] = {
 				["label"] = "Stone Card",
 				["name"] = "Stone Card",

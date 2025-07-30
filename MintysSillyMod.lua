@@ -81,7 +81,7 @@ local files = {
         { name = "bucket" },
         { name = "chocobar" },
         { name = "ascetic" },
-        { name = "churu", mods = { {id = "paperback"} } },
+        { name = "churu",  },
         --Uncommon Jokers
         { name = "atheismcorner" },
         { name = "catcafe" },
@@ -101,7 +101,7 @@ local files = {
         { name = "doctor" },
         { name = "hyperfix" },
         { name = "jacobsladder" },
-        { name = "copycat", incompat = { {id = "Cryptid"} } }, --Crashes a bunch with Cryptid fsr 👍️
+        { name = "copycat" }, 
         --Fusion Jokers
         { name = "threecats", mods = { {id = "FusionJokers"} } },
         { name = "parkour", mods = { {id = "FusionJokers"} } },

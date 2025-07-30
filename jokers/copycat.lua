@@ -1,3 +1,5 @@
+local cryptid = (SMODS.Mods.Cryptid or {}).can_load
+
 SMODS.Joker {
     key = "copycat",
     name = "Copy Cat",
@@ -30,6 +32,13 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        if MINTY.in_collection(card) and cryptid then
+            if not MINTY.config.dev_mode then
+                info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Disabling Mod", "Cryptid" } }
+            else
+                info_queue[#info_queue+1] = { set = "Other", key = "minty_dev_warning", specific_vars = { "Mod", "Cryptid" } }
+            end
+        end
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
@@ -54,6 +63,9 @@ SMODS.Joker {
                 card.ability.extra.targetname
             }
         }
+    end,
+    in_pool = function (self, args) ----Crashes a bunch with Cryptid fsr 👍️
+        return not (cryptid and not MINTY.config.dev_mode)
     end,
     calculate = function(self, card, context)
         if context.forcetrigger and next(card.ability.extra.targetcard) and card.ability.extra.targetcard.config.center.demicoloncompat then
