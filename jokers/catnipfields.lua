@@ -1,3 +1,5 @@
+local paperback = (SMODS.Mods.paperback or {}).can_load
+
 SMODS.Joker {
     key = "catnipfields",
     name = "Catnip Fields",
@@ -28,6 +30,9 @@ SMODS.Joker {
         again = 0
       }},
     loc_vars = function(self, info_queue, card)
+        if MINTY.in_collection(card) and not (paperback or MINTY.config.dev_mode) then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Paperback" } }
+        end
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
@@ -38,7 +43,7 @@ SMODS.Joker {
         }
     end,
     in_pool = function(self, args)
-        return MINTY.threeSuit_in_pool()
+        return (paperback or MINTY.config.dev_mode) and MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)
         if context.forcetrigger then

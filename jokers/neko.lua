@@ -1,3 +1,5 @@
+local toga = (SMODS.Mods.TOGAPack or {}).can_load
+
 SMODS.Joker {
     key = "neko",
     name = "neko.exe",
@@ -37,6 +39,9 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        if MINTY.in_collection(card) and not (toga or MINTY.config.dev_mode) then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "TOGA's Stuff" } }
+        end
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
@@ -50,7 +55,7 @@ SMODS.Joker {
     end,
     in_pool = function (self, args)
         if AKYRS and AKYRS.card_any_drag() then return false end --Aikoyori if you want to put in a PR to let the kitty run in all zones please do, because I do not know how to begin figuring that out 
-        return true
+        return (toga or MINTY.config.dev_mode)
     end,
     calculate = function(self, card, context)
         if (context.joker_main and context.scoring_hand) or context.forcetrigger then

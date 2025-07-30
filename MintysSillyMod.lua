@@ -80,17 +80,18 @@ local files = {
         { name = "chisel" },
         { name = "bucket" },
         { name = "chocobar" },
-        { name = "ascetic", mods = { {id = "ortalab"} } },
-        { name = "churu", mods = { {id = "paperback"} }, nocrossover = true },
+        { name = "ascetic" },
+        { name = "churu", mods = { {id = "paperback"} } },
         --Uncommon Jokers
         { name = "atheismcorner" },
         { name = "catcafe" },
+        { name = "catnipfields" },
         { name = "fatcat-l" },
         { name = "treatovision" },
         { name = "peywet", },
         { name = "cakesword" },
-        { name = "sabertooth", mods = { {id = "ortalab"} } },
-        { name = "neko", mods = { {id = "TOGAPack"} } },
+        { name = "sabertooth" },
+        { name = "neko" },
         { name = "catpicmachine", mods = { { id = "Cryptid" } } },
         --Rare Jokers
         { name = "wildsupport" },
@@ -98,22 +99,22 @@ local files = {
         { name = "scoundrel" },
         { name = "cakegun" },
         { name = "doctor" },
-        { name = "hyperfix", mods = { {id = "Talisman"} } },
+        { name = "hyperfix" },
         { name = "jacobsladder" },
         { name = "copycat", incompat = { {id = "Cryptid"} } }, --Crashes a bunch with Cryptid fsr 👍️
         --Fusion Jokers
         { name = "threecats", mods = { {id = "FusionJokers"} } },
         { name = "parkour", mods = { {id = "FusionJokers"} } },
-        --{ name = "ninethlion", mods = { {id = "ortalab"}, {id = "FusionJokers"} }, dev = true },
+        --{ name = "ninethlion", mods = { {id = "FusionJokers"} }, dev = true },
         --Special Jokers
         { name = "theecho", mods = { { id = "ChDp" } } },
         --Legendary Jokers
         { name = "lucky" },
         { name = "stormy" },
         { name = "patchy" },
-        { name = "minty", mods = { {id = "Talisman"} } },
+        { name = "minty" },
         { name = "garfielf" },
-        { name = "lune", mods = { {id = "ortalab"} } }
+        { name = "lune" }
     },
     tarots = {
         { name = "cat" },
@@ -130,9 +131,9 @@ local files = {
         { name = "wand" },
     },
     consumables = {
-        { name = "colors", mods = { { id = "MoreFluff" } }, nocrossover = true },
-        { name = "rotarots", mods = { { id = "MoreFluff" } }, nocrossover = true },
-        { name = "gemstones", mods = { { id = "Gemstone" } }, nocrossover = true },
+        { name = "colors", mods = { { id = "MoreFluff" } } },
+        { name = "rotarots", mods = { { id = "MoreFluff" } } },
+        { name = "gemstones", mods = { { id = "Gemstone" } } },
         { name = "drafts", mods = { { id = "draft", version = "0.5.2.1" } } },
     },
     vouchers = {
@@ -161,9 +162,9 @@ local files = {
         { name = "apaw"},
         { name = "atail"},
         { name = "thenip" },
-        { name = "thetree", mods ={ {id = "ortalab"} } },
+        { name = "thetree", mods = { {id = "ortalab"} } },
         { name = "calico" },
-        { name = "thenipdx", mods ={ {id = "MoreFluff"} } },
+        { name = "thenipdx", mods = { {id = "MoreFluff"} } },
     },
     challenge = {
         { name = "challenges", mods = { { id = "ChDp" } } }
@@ -177,26 +178,11 @@ for folder, list in pairs(files) do
         local name = data.name
         local mods = data.mods
         local incompat = data.incompat
-        local nocross = data.nocrossover
         if mods then
             sendTraceMessage("Checking required mods for "..folder..'/'..name..".lua", "Minty's Mod")
-            local nevercross = {
-                "FusionJokers",
-                "Talisman",
-                "Cryptid",
-                "ChDp",
-                "draft",
-            }
             for _, mod in ipairs(mods) do
                 load = load and (SMODS.Mods[mod.id] or {}).can_load
                 if mod.version then load = load and ((SMODS.Mods[mod.id] or {}).version == mod.version) end
-                for _, check in pairs(nevercross) do
-                    if mod.id == check then nocross = true end
-                end
-            end
-            if not load and not nocross then
-                sendTraceMessage("Checking crossover option for "..folder..'/'..name..".lua", "Minty's Mod")
-                load = MINTY.config.include_crossover or MINTY.config.dev_mode
             end
         end
         if load and incompat then

@@ -1,4 +1,5 @@
 FusionJokers.fusions:add_fusion("j_minty_ascetic", nil, false, "j_minty_sabertooth", nil, false, "j_minty_ninethlion", 12)
+local ortalab = (SMODS.Mods.ortalab or {}).can_load
 
 SMODS.Joker {
     key = "ninethlion",
@@ -32,6 +33,9 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        if MINTY.in_collection(card) and not (ortalab or MINTY.config.dev_mode) then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Ortalab" } }
+        end
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"

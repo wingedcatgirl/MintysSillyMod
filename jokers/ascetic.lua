@@ -1,3 +1,5 @@
+local ortalab = (SMODS.Mods.ortalab or {}).can_load
+
 SMODS.Joker {
     key = "ascetic",
     name = "Ascetic Joker",
@@ -32,6 +34,9 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
+        if MINTY.in_collection(card) and not (ortalab or MINTY.config.dev_mode) then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Ortalab" } }
+        end
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
@@ -41,7 +46,7 @@ SMODS.Joker {
         }
     end,
     in_pool = function(self, args)
-        return MINTY.threeSuit_in_pool()
+        return (ortalab or MINTY.config.dev_mode) and MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)
         if context.forcetrigger then

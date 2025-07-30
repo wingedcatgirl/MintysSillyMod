@@ -1,3 +1,4 @@
+local ortalab = (SMODS.Mods["ortalab"] or {}).can_load
 
 SMODS.Joker {
     key = "lune",
@@ -28,7 +29,27 @@ SMODS.Joker {
             drop = 33
         }
     },
+    
+    locked_loc_vars = function (self, info_queue, card)
+        if not (ortalab or MINTY.config.dev_mode) then
+            return {
+                key = "minty_joker_unavailable",
+                vars = {
+                    "Mod",
+                    "Ortalab"
+                }
+            }
+        else
+            return {
+                key = "minty_joker_locked_kity"
+            }
+        end
+    end,
+    --]]
     loc_vars = function(self, info_queue, card)
+        if MINTY.in_collection(card) and not (ortalab or MINTY.config.dev_mode) then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Ortalab" } }
+        end
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
@@ -36,9 +57,12 @@ SMODS.Joker {
         return {
             key = key,
             vars = {
-                card.ability.extra.boost,
+                card.ability.extra.drop,
             },
         }
+    end,
+    in_pool = function (self, args)
+        return (ortalab or MINTY.config.dev_mode)
     end,
     calculate = function(self, card, context)
         if context.mod_probability and not context.blueprint then

@@ -1722,6 +1722,21 @@ return {
 					"counts as a {C:minty_3s}3{} {C:attention}twice{}",
 				},
 			},
+			["minty_joker_locked_kity"] = {
+				["name"] = "Locked",
+				["text"] = {
+					"Find this Joker from",
+					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
+				}
+			},
+			["minty_joker_unavailable"] = {
+				["name"] = "Unavailable",
+				["label"] = "Unavailable",
+				["text"] = {
+					"Requires {C:attention}#1#{}:",
+					"{C:mult}#2#{}"
+				}
+			},
 			["normal_jokers"] = {
 				["label"] = "Normal",
 				["name"] = "Normal",
