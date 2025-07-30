@@ -347,7 +347,10 @@ function SMODS.current_mod.reset_game_globals(init)
 end
 
 SMODS.current_mod.set_debuff = function (card)
-  if card.seal == "minty_cement" then
+  if
+    card.seal == "minty_cement"
+    or (card.ability and card.ability.name == "Marble Card")
+  then
      return "prevent_debuff"
   end
 end

@@ -40,12 +40,3 @@ SMODS.Enhancement({
         end
     end
 })
-
-local debuffcardref = Card.set_debuff
-function Card:set_debuff(should_debuff)
-    if self.ability.name == "m_minty_marble" then
-        self.debuff = false
-        return
-    end
-        return debuffcardref(self, should_debuff)
-end
