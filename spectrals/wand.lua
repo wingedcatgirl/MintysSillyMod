@@ -17,7 +17,7 @@ SMODS.Consumable {
 	cost = 4,
 	hidden = true,
 	soul_set = 'Tarot',
-	soul_rate = 0.003,
+	soul_rate = 0.0015, --Half the Soul's rate cause we don't want to flood the pool with these things
 	atlas = "placeholder",
 	pos = { x = 2, y = 9 },
 	soul_pos = { x = 2, y = 8},
