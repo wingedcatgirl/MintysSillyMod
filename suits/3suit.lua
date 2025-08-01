@@ -2,8 +2,8 @@ SMODS.Suit{ -- 3s
     key = '3s',
     card_key = 'THREE',
 
-    lc_atlas = '3s',
-    hc_atlas = '3s',
+    lc_atlas = '3s',   --Face art by Pentzal https://discord.com/channels/1116389027176787968/1308185262664450068/1400944242167251016
+    hc_atlas = '3shc', --... should probably make a proper credits tab soon tbh...
 
     lc_ui_atlas = '3suiticon',
     hc_ui_atlas = '3suiticon',
