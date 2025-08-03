@@ -1174,7 +1174,7 @@ return {
 			["bl_minty_paw"] = {
 				["name"] = "A Paw",
 				["text"] = {
-					"Play limit -#1#",
+					"Play limit =#1#",
 					"for first hand",
 					"unless an item",
 					"is sold"
@@ -1183,7 +1183,7 @@ return {
 			["bl_minty_tail"] = {
 				["name"] = "A Tail",
 				["text"] = {
-					"Discard limit -#1#",
+					"Discard limit =#1#",
 					"for first discard"
 				},
 			},
@@ -1577,8 +1577,9 @@ return {
 			["v_minty_tabletopple"] = {
 				["name"] = "Table Topple",
 				["text"] = {
-					"Discard up to {C:mult}#1#{}",
-					"cards at a time"
+					"Discard up to {C:mult}#2#{} more",
+					"cards at a time",
+					"{C:inactive}({C:mult}#1# {C:inactive}total){}"
 				}
 			},
 			["v_minty_catspaws"] = {
@@ -1586,8 +1587,9 @@ return {
 				["text"] = {
 					"Discard up to {C:mult}all{}",
 					"cards at a time;",
-					"play up to {C:chips}#1#{}",
-					"cards at a time"
+					"play up to {C:chips}#2#{} more",
+					"cards at a time",
+					"{C:inactive}({C:chips}#1# {C:inactive}total){}"
 				},
 				["unlock"] = {
 					"Discard {C:attention}#1#{}{C:inactive}(#2#){} hands",

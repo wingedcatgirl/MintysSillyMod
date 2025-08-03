@@ -8,7 +8,8 @@ SMODS.Blind({
     boss_colour = HEX("82cfcb"),
     config = {
         extra = {
-            play = 1
+            play = 4,
+            origplay = 5
         },
     },
     loc_vars = function (self)
@@ -23,12 +24,13 @@ SMODS.Blind({
     end,
     calculate = function (self, blind, context)
         if context.setting_blind then
-            G.GAME.round_resets.pawplay = true
-            SMODS.change_play_limit(-self.config.extra.play)
+            self.config.extra.origplay = G.GAME.starting_params.play_limit
+            G.GAME.round_resets.pawplay = self.config.extra.origplay - self.config.extra.play
+            SMODS.change_play_limit(-G.GAME.round_resets.pawplay)
         end
         if (context.after or context.selling_card) and G.GAME.round_resets.pawplay then
-            G.GAME.round_resets.pawplay = false
-            SMODS.change_play_limit(self.config.extra.play)
+            SMODS.change_play_limit(G.GAME.round_resets.pawplay)
+            G.GAME.round_resets.pawplay = nil
             if context.selling_card then
                 return {
                     message = localize('k_reset'),
@@ -43,8 +45,8 @@ SMODS.Blind({
     end,
     disable = function (self)
         if G.GAME.round_resets.pawplay then
-            G.GAME.round_resets.pawplay = false
-            SMODS.change_play_limit(self.config.extra.play)
+            SMODS.change_play_limit(G.GAME.round_resets.pawplay)
+            G.GAME.round_resets.pawplay = nil
         end
     end,
     defeat = function (self)

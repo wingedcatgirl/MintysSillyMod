@@ -8,7 +8,8 @@ SMODS.Blind({
     boss_colour = HEX("e778db"),
     config = {
         extra = {
-            disc = 1
+            disc = 4,
+            origdisc = 5,
         },
     },
     loc_vars = function (self)
@@ -22,13 +23,14 @@ SMODS.Blind({
         return self:loc_vars()
     end,
     set_blind = function (self)
-        G.GAME.round_resets.taildisc = true
-        SMODS.change_discard_limit(-self.config.extra.disc)
+        self.config.extra.origdisc = G.GAME.starting_params.discard_limit
+        G.GAME.round_resets.taildisc = self.config.extra.origdisc - self.config.extra.disc
+        SMODS.change_discard_limit(-G.GAME.round_resets.taildisc)
     end,
     calculate = function (self, blind, context)
         if context.pre_discard and G.GAME.round_resets.taildisc then
-            G.GAME.round_resets.taildisc = false
-            SMODS.change_discard_limit(self.config.extra.disc)
+            SMODS.change_discard_limit(G.GAME.round_resets.taildisc)
+            G.GAME.round_resets.taildisc = nil
             return {
                 message = localize('k_reset'),
             }
@@ -36,8 +38,8 @@ SMODS.Blind({
     end,
     disable = function (self)
         if G.GAME.round_resets.taildisc then
-            G.GAME.round_resets.taildisc = false
-            SMODS.change_discard_limit(self.config.extra.disc)
+            SMODS.change_discard_limit(G.GAME.round_resets.taildisc)
+            G.GAME.round_resets.taildisc = nil
         end
     end,
     defeat = function (self)
