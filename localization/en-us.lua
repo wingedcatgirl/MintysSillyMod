@@ -1817,6 +1817,23 @@ return {
 					"{C:attention}points{}."
 				},
 			},
+			["minty_faceholder"] = {
+				["label"] = "Faceholder",
+				["name"] = "Faceholder",
+				["text"] = {
+					"Placeholder art,",
+					"to be updated ~soon"
+				},
+			},
+			["minty_faceholder_ex"] = {
+				["label"] = "Faceholder",
+				["name"] = "Faceholder",
+				["text"] = {
+					"Fallback art for",
+					"unrecognized suit!",
+					"Please play carefully."
+				},
+			},
 			["minty_3credit"] = {
 				["label"] = "Credit",
 				["name"] = "Credit",

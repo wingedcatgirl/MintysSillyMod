@@ -76,5 +76,16 @@ SMODS.Rank{
         end
         return MINTY.find_rank("minty_face")
     end,
-    suit_map = suitmap
+    suit_map = suitmap,
+    loc_vars = function (self, info_queue, card)
+        local suit = card.base.suit
+        local key = "minty_faceholder"
+        if self.suit_map[suit] == 0 then
+            key = key.."_ex"
+        end
+        info_queue[#info_queue+1] = {
+            set = "Other",
+            key = key,
+        }
+    end
 }
