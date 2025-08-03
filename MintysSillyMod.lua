@@ -63,6 +63,9 @@ local files = {
     suits = {
         { name = "3suit" }
     },
+    ranks = {
+        { name = "face" }
+    },
     jokers = {
         --Tweaks to existing Jokers 
         { name = "vanillatweaks" },
@@ -117,10 +120,11 @@ local files = {
         { name = "lune" }
     },
     tarots = {
+        { name = "abacus", },
         { name = "cat" },
         { name = "boredchild" },
         { name = "dorf" },
-        { name = "grin", dev = true },
+        { name = "grin", },
         { name = "gleam" },
         { name = "geologist" },
         { name = "bitz" },
@@ -198,10 +202,12 @@ for folder, list in pairs(files) do
         if load then
             sendTraceMessage("Loading file: "..folder..'/'..name..'.lua', "Minty's Mod")
             if not pcall(SMODS.load_file(folder..'/'..name..'.lua')) then
+                local _,errormessage = pcall(SMODS.load_file(folder..'/'..name..'.lua'))
                 local disable = not MINTY.config.dev_mode and " The mod will be automatically disabled on restart." or ""
                 if not MINTY.config.dev_mode then
                     NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
                 end
+                sendErrorMessage(errormessage, "Minty's Mod")
                 error("Minty's Mod: File '"..folder.."/"..name..".lua' failed to load! Please make sure there's nothing fucky with your file structure."..disable)
             end
 

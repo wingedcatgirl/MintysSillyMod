@@ -394,6 +394,16 @@ MINTY.get_blind = function (round)
     return blind
 end
 
+function MINTY.find_rank(rank)
+    if not G.playing_cards then return true end
+    for k, v in ipairs(G.playing_cards) do
+        if v:get_id() == SMODS.Ranks[rank].id then
+            return true
+        end
+    end
+    return false
+end
+
 
 --Talisman compatibility compatibility
 to_big = to_big or function(x)

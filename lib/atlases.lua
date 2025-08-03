@@ -139,6 +139,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = 'facerank',
+    path = "facerank.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
     key = 'backs',
     path = "backs.png",
     px = 71,

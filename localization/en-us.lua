@@ -1193,18 +1193,54 @@ return {
 				["name"] = "The Cat",
 				["text"] = {
 					"Converts up to",
-					"{C:attention}#1#{} selected cards",
-					"to {C:minty_3s}3s{}",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#{C:minty_3s}#4#{}",
 				},
 			},
 			["c_minty_cat_flavor"] = {
 				["name"] = "The Cat",
 				["text"] = {
 					"Converts up to",
-					"{C:attention}#1#{} selected cards",
-					"to {C:minty_3s}3s{}",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#{C:minty_3s}#4#{}",
 					" ",
 					"{C:inactive,s:0.8}Meow! :3",
+				},
+			},
+			["c_minty_grin"] = {
+				["name"] = "The Grin",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to random {C:attention}face card#3#{}",
+				},
+			},
+			["c_minty_grin_flavor"] = {
+				["name"] = "The Grin",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to random {C:attention}face card#3#{}",
+					" ",
+					"{C:inactive,s:0.8}TBA!"
+				},
+			},
+			["c_minty_abacus"] = {
+				["name"] = "The Abacus",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to random {C:attention}number card#3#{}",
+				},
+			},
+			["c_minty_abacus_flavor"] = {
+				["name"] = "The Abacus",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to random {C:attention}number card#3#{}",
+					" ",
+					"{C:inactive,s:0.8}TBA!"
 				},
 			},
 			["c_minty_boredkid"] = {
@@ -1779,6 +1815,14 @@ return {
 				["text"] = {
 					"That's percentage",
 					"{C:attention}points{}."
+				},
+			},
+			["minty_3credit"] = {
+				["label"] = "Credit",
+				["name"] = "Credit",
+				["text"] = {
+					"Art by",
+					"{C:attention}Pentzal{}."
 				},
 			},
 			["minty_peywet_exp_1"] = {

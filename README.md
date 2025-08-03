@@ -88,7 +88,8 @@ Technically you can do whatever you want here, but here's the mods I like for th
 - [Item Remover](https://github.com/art-muncher/Item-Remover) lets you disable specific items from the Collection, if they're OP or bugged or you just don't like them. ([Banner](https://github.com/SylviBlossom/Banner) does the same thing and is newer, switch if one of them isn't doing what you want it to.)
 
 ## Adding cross-mod interactions
-- 3s: If you want things to interact with the 3s mechanic, use `Card:is_3()` for proper detection. It returns the number of times the card counts as a 3, or `false` if it doesn't, because `0` is truthy in Lua...
+- 3 suit: If you want things to interact with the 3s mechanic, use `Card:is_3()` for proper detection. It returns the number of times the card counts as a 3, or `false` if it doesn't, because `0` is truthy in Lua...
+- Face rank: If your modded suit includes Face art, give it `minty_facerank = true` to stop it from using the fallback art. Uh... I don't know how to properly implement cross-mod suit-rank combo art. I'll ask Kirbio UnStable, maybe. (Where by "ask" I mean "look in his published code".)
 - Legendary Kitys: Give your kittycats `pools = {["kity"] = true}` to enable them to be summoned by The Wand and The Bitz and to grant chips with Cat Cafe.
 - Gym Buddy boosts: Give your enhancements a `config.extra.gymboost` of `"chips"`, `"xchips"`, `"mult"`, `"xmult"`, `"cash"`, `"hchips"`, `"hxchips"`, `"hmult"`, `"hxmult"`, `"hcash"` or `"none"` to have them grant the corresponding boost when scored with cards not of that enhancement. (If you don't, one will be chosen randomly each time. Which maybe you prefer!) 
 - The Silliest, Littlest Deck: Add `pools = {["MintysSillyMod"] = true}` to have your cross-mod content appear with increased frequency when this deck is in play.
