@@ -1,17 +1,3 @@
-local BackApply_to_run_ref = Back.apply_to_run
-function Back.apply_to_run(self)
-    BackApply_to_run_ref(self)
-
-    if self.effect.config.start_with_3s then
-        G.E_MANAGER:add_event(Event({
-            func = function()
-                G.GAME.starting_params.start_with_3s = true
-                return true
-            end
-        }))
-    end
-end
-
 local issuitref = Card.is_suit
 function Card:is_suit(suit, bypass_debuff, flush_calc)
     if next(find_joker('Treat-o-vision')) then

@@ -39,7 +39,7 @@ MINTY.disable_exotics = function()
     MINTY.say("Disabled Bunco's exotic system, for some reason", "TRACE")
 end
 
----Checks if Bunco's exotics are enabled, or if 3s are enabled and the relevant config is active 
+---Checks if Bunco's exotics are enabled
 MINTY.exotic_in_pool = function()
     return G.GAME and G.GAME.Exotic
 end

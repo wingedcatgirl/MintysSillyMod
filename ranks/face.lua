@@ -69,7 +69,7 @@ SMODS.Rank{
     strength_effect = strength_effect,
     in_pool = function (self, args)
         if args and args.initial_deck then
-            return false
+            return args.start_with_faces
         end
         if args and args.grin then
             return true
