@@ -17,7 +17,7 @@ SMODS.Consumable{
 		info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.enh_conv]
 		local key = self.key
         local plural = false
-        if self.config.max_highlighted ~= 1 then plural = true end
+        if card.ability.consumeable.max_highlighted ~= 1 then plural = true end
         local s = plural and "s" or ""
         local a = plural and "" or "a "
         if MINTY.config.flavor_text then
@@ -35,6 +35,10 @@ SMODS.Consumable{
 
     use = function(self, card, area, copier)
         local used_tarot = copier or card
+
+        MINTY.tarotflip(used_tarot, { enh = card.ability.enh_conv })
+
+        --[[
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.4,
@@ -92,6 +96,7 @@ SMODS.Consumable{
             end
         }))
         delay(0.5)
+        ]]
     end,
 
     in_pool = function ()

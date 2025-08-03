@@ -15,47 +15,30 @@ SMODS.Consumable{
 
     loc_vars = function(self, info_queue, card)
 		local key = self.key
+        local plural = false
+        if card.ability.consumeable.max_highlighted ~= 1 then plural = true end
+        local s = plural and "s" or ""
+        local a = plural and "" or "a "
+        local suit = localize(card.ability.suit_conv, plural and "suits_plural" or "suits_singular")
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
             key = key,
-            vars = {self.config.max_highlighted}
+            vars = {
+                card.ability.consumeable.max_highlighted,
+                s,
+                a,
+                suit
+            }
         }
     end,
 
-    use = function(self)
+    use = function(self, card, area, copier)
         if not MINTY.threeSuit_in_pool() then MINTY.enable_threeSuit() end
+        local used_tarot = copier or card
 
-        local function event(config)
-            local e = Event(config)
-            G.E_MANAGER:add_event(e)
-            return e
-        end
-
-        for i=1, #G.hand.highlighted do
-            local percent = 1.15 - (i-0.999)/(#G.hand.highlighted-0.998)*0.3
-            event({trigger = 'after', delay = 0.15, func = function()
-                G.hand.highlighted[i]:flip();play_sound('card1', percent);G.hand.highlighted[i]:juice_up(0.3, 0.3);
-            return true end })
-        end
-        delay(0.2)
-        for i=1, #G.hand.highlighted do
-            event({trigger = 'after', delay = 0.1, func = function()
-                G.hand.highlighted[i]:change_suit(self.config.suit_conv);
-            return true end })
-        end
-        delay(0.2)
-        for i=1, #G.hand.highlighted do
-            local percent = 0.85 + ( i - 0.999 ) / ( #G.hand.highlighted - 0.998 ) * 0.3
-            event({trigger = 'after', delay = 0.15, func = function()
-                G.hand.highlighted[i]:flip(); play_sound('tarot2', percent, 0.6); G.hand.highlighted[i]:juice_up(0.3, 0.3);
-            return true end })
-        end
-        event({trigger = 'after', delay = 0.2, func = function()
-            G.hand:unhighlight_all();
-        return true end })
-        delay(0.5)
+        MINTY.tarotflip(used_tarot, { suit = card.ability.suit_conv })
     end,
 
     in_pool = function()

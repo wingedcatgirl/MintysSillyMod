@@ -237,6 +237,93 @@ MINTY.rocklist = function ()
     end
 end
 
+---Do the tarot flip thing to all of G.hands.highlighted
+---@param card Card
+---@param args table `rank`, `suit`, and/or `enh` = keys of the rank, suit, and/or enhancement to change the target cards to. alternately `random_ranks`, `random_suits`, and/or `random_enhs` are tables of same keys to pick one at random, in which case you need `seed` to seed the seed.
+MINTY.tarotflip = function (card, args)
+    if not args then
+        MINTY.say("hey you forgor to say anything when trying to change these cards", "ERROR")
+        return
+    end
+    local rank = args.rank or nil
+    local ranks = args.random_ranks or nil
+    local suit = args.suit or nil
+    local suits = args.random_suits or nil
+    local enh = args.enh or nil
+    local enhs = args.random_enhs or nil
+    local seed = args.seed or "minty_tarotflip_seedless_probably_shouldn't_happen_tbh"
+    if not (rank or ranks or suit or suits or enh or enhs) or (rank and ranks) or (suit and suits) or (enh and enhs) or ((ranks or suits or enhs) and not args.seed) then
+        MINTY.say("hey you didn't type the right arguments?", "ERROR")
+        tprint(args)
+    end
+
+    if card then
+        G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.4,
+        func = function()
+            play_sound('tarot1')
+            card:juice_up(0.3, 0.5)
+            return true
+        end }))
+    end
+
+    for i=1, #G.hand.highlighted do
+            local percent = 1.15 - (i-0.999)/(#G.hand.highlighted-0.998)*0.3
+            G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.15,
+            func = function()
+                G.hand.highlighted[i]:flip()
+                play_sound('card1', percent)
+                G.hand.highlighted[i]:juice_up(0.3, 0.3)
+                return true
+            end
+            }))
+        end
+        delay(0.2)
+        for i=1, #G.hand.highlighted do
+            G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.1,
+            func = function()
+                if ranks then rank = pseudorandom_element(ranks, pseudoseed(seed)) end
+                if suits then suit = pseudorandom_element(suits, pseudoseed(seed)) end
+                if enhs then enh = pseudorandom_element(enhs, pseudoseed(seed)) end
+                if rank or suit then
+                    assert(SMODS.change_base(G.hand.highlighted[i], suit, rank))
+                end
+                if enh then
+                    G.hand.highlighted[i]:set_ability(G.P_CENTERS[enh])
+                end
+                return true
+            end
+            }))
+        end
+        for i=1, #G.hand.highlighted do
+            local percent = 0.85 + ( i - 0.999 ) / ( #G.hand.highlighted - 0.998 ) * 0.3
+            G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.15,
+            func = function()
+                G.hand.highlighted[i]:flip()
+                play_sound('tarot2', percent, 0.6)
+                G.hand.highlighted[i]:juice_up(0.3, 0.3)
+                return true
+            end
+            }))
+        end
+            G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.15,
+            func = function()
+                G.hand:unhighlight_all()
+                return true
+            end
+            }))
+        delay(0.5)
+end
+
 ---Get next blind, including custom small/big blinds
 ---@param round string
 ---@return string? 
