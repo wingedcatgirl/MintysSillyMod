@@ -131,7 +131,7 @@ local files = {
     },
     spectrals = {
         { name = "sixyears" },
-        { name = "dekaja", dev = true },
+        { name = "dekaja" },
         { name = "wand" },
     },
     consumables = {

@@ -394,6 +394,9 @@ MINTY.get_blind = function (round)
     return blind
 end
 
+---Checks whether any of the specified rank exist in the player's entire deck
+---@param rank string Key of the rank to find
+---@return boolean
 function MINTY.find_rank(rank)
     if not G.playing_cards then return true end
     for k, v in ipairs(G.playing_cards) do

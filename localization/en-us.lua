@@ -1355,6 +1355,25 @@ return {
 					"{C:inactive,s:0.8}a - no? Wrong meme?",
 				},
 			},
+			["c_minty_dekaja"] = {
+				["name"] = "Dekaja",
+				["text"] = {
+					"Remove all {C:attention}modifiers{}",
+					"from #2#{C:attention}#1#{} selected",
+					"card#3# or Joker#3#",
+				},
+			},
+			["c_minty_dekaja_flavor"] = {
+				["name"] = "Dekaja",
+				["text"] = {
+					"Remove all {C:attention}modifiers{}",
+					"from #2#{C:attention}#1#{} selected",
+					"card#3# or Joker#3#",
+					" ",
+					"{C:inactive,s:0.8}Act now and we'll throw in",
+					"{C:inactive,s:0.8}a bonus Dekunda for free!",
+				},
+			},
 			["c_minty_wand"] = {
 				["name"] = "The Wand",
 				["text"] = {
