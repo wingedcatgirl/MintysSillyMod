@@ -237,24 +237,26 @@ MINTY.rocklist = function ()
     end
 end
 
----Do the tarot flip thing to all of G.hands.highlighted
+---Do the tarot flip thing to all of G.hand.highlighted
 ---@param card Card
----@param args table `rank`, `suit`, and/or `enh` = keys of the rank, suit, and/or enhancement to change the target cards to. alternately `random_ranks`, `random_suits`, and/or `random_enhs` are tables of same keys to pick one at random, in which case you need `seed` to seed the seed.
+---@param args table `rank`, `suit`, `enh`, `edi` = keys of the appropriate target modifications. alternately `random_ranks`, `random_suits`, `random_enhs`, `random_edis` are tables of same keys to pick one at random, in which case you need `seed` to seed the seed.
 MINTY.tarotflip = function (card, args)
     if not args then
         MINTY.say("hey you forgor to say anything when trying to change these cards", "ERROR")
         return
     end
-    local rank = args.rank or nil
-    local ranks = args.random_ranks or nil
-    local suit = args.suit or nil
-    local suits = args.random_suits or nil
-    local enh = args.enh or nil
-    local enhs = args.random_enhs or nil
+    local rank = args.rank
+    local ranks = args.random_ranks
+    local suit = args.suit
+    local suits = args.random_suits
+    local enh = args.enh
+    local enhs = args.random_enhs
+    local edi = args.edi
+    local edis = args.random_edis
     local seed = args.seed or "minty_tarotflip_seedless_probably_shouldn't_happen_tbh"
-    if not (rank or ranks or suit or suits or enh or enhs) or (rank and ranks) or (suit and suits) or (enh and enhs) or ((ranks or suits or enhs) and not args.seed) then
+    if not (rank or ranks or suit or suits or enh or enhs or edi or edis) or (rank and ranks) or (suit and suits) or (enh and enhs) or (edi and edis) or ((ranks or suits or enhs or edis) and not args.seed) then
         MINTY.say("hey you didn't type the right arguments?", "ERROR")
-        tprint(args)
+        tprint(args or {})
     end
 
     if card then
@@ -268,7 +270,8 @@ MINTY.tarotflip = function (card, args)
         end }))
     end
 
-    for i=1, #G.hand.highlighted do
+    if (rank or ranks or suit or suits or enh or enhs) then
+        for i=1, #G.hand.highlighted do
             local percent = 1.15 - (i-0.999)/(#G.hand.highlighted-0.998)*0.3
             G.E_MANAGER:add_event(Event({
             trigger = 'after',
@@ -313,15 +316,31 @@ MINTY.tarotflip = function (card, args)
             end
             }))
         end
+    end
+
+    if (edi or edis) then
+        for i=1, #G.hand.highlighted do
             G.E_MANAGER:add_event(Event({
             trigger = 'after',
-            delay = 0.15,
+            delay = 0.1,
             func = function()
-                G.hand:unhighlight_all()
+                if edis then edi = pseudorandom_element(edis, pseudoseed(seed)) end
+                if edi then G.hand.highlighted[i]:set_edition(edi) end
                 return true
             end
             }))
-        delay(0.5)
+        end
+    end
+
+    G.E_MANAGER:add_event(Event({
+    trigger = 'after',
+    delay = 0.15,
+    func = function()
+        G.hand:unhighlight_all()
+        return true
+    end
+    }))
+    delay(0.5)
 end
 
 ---Get next blind, including custom small/big blinds
@@ -338,7 +357,7 @@ MINTY.get_blind = function (round)
         return get_new_boss()
     end
 
-    --[[ Nothing uses "perscribing" yet, so disabling for now
+    --[[ Nothing uses "perscribing" for small/big blinds yet, so disabling for now
     local perscription == "perscribed_" .. (round == "Boss" and "bosses") or round:lower()
     G.GAME[perscription] = G.GAME[perscription] or {}
     if G.GAME[perscription] and G.GAME[perscription][G.GAME.round_resets.ante] then
