@@ -22,7 +22,8 @@ SMODS.Voucher{
         if next(SMODS.find_card(self.key)) and card.area.config.type == "voucher" then increase = 0 end
         return {
             vars = {
-                disclimit + increase
+                disclimit + increase,
+                card.ability.extra.disc
             }
         }
     end,
@@ -71,6 +72,7 @@ SMODS.Voucher{
         return {
             vars = {
                 playlimit + increase,
+                card.ability.extra.play
             }
         }
     end,
