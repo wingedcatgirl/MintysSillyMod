@@ -89,7 +89,8 @@ local files = {
         { name = "atheismcorner" },
         { name = "catcafe" },
         { name = "catnipfields" },
-        { name = "fatcat-l" },
+        { name = "fatcat-l" }, --Literal (Tubbs)
+        { name = "fatcat-m" }, --Metaphorical (Jeff Bezos catgirl)
         { name = "treatovision" },
         { name = "peywet", },
         { name = "cakesword" },
@@ -133,6 +134,7 @@ local files = {
         { name = "sixyears" },
         { name = "dekaja" },
         { name = "wand" },
+        --{ name = "testcard" },
     },
     consumables = {
         { name = "colors", mods = { { id = "MoreFluff" } } },

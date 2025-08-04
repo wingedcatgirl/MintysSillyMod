@@ -239,7 +239,7 @@ end
 
 ---Do the tarot flip thing to all of G.hand.highlighted
 ---@param card Card
----@param args table `rank`, `suit`, `enh`, `edi` = keys of the appropriate target modifications. alternately `random_ranks`, `random_suits`, `random_enhs`, `random_edis` are tables of same keys to pick one at random, in which case you need `seed` to seed the seed.
+---@param args table `rank`, `suit`, `enh`, `edi` = keys of the appropriate target modifications. alternately `random_ranks`, `random_suits`, `random_enhs`, `random_edis` are tables of same keys to pick one at random, in which case you need `seed` to seed the seed. Note: To clear an edition, pass the string "base", "none", "false", or "remove" as the edition key.
 MINTY.tarotflip = function (card, args)
     if not args then
         MINTY.say("hey you forgor to say anything when trying to change these cards", "ERROR")
@@ -325,7 +325,11 @@ MINTY.tarotflip = function (card, args)
             delay = 0.1,
             func = function()
                 if edis then edi = pseudorandom_element(edis, pseudoseed(seed)) end
-                if edi then G.hand.highlighted[i]:set_edition(edi) end
+                if edi then
+                    if edi == "base" or edi == "none" or edi == "false" or edi == "remove" then edi = nil end
+                    G.hand.highlighted[i]:set_edition(edi)
+                    G.hand.highlighted[i]:juice_up(0.3,0.3)
+                end
                 return true
             end
             }))

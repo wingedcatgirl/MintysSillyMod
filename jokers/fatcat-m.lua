@@ -38,22 +38,23 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.setting_blind or context.forcetrigger then
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
-                SMODS.add_card({
-                    set = "Joker",
-                    area = G.jokers,
-                    key_append = "minty_fatcat",
-                    edition = "negative",
-                    stickers = {
-                        "rental",
-                        "perishable"
-                    }
-                })
-                card:juice_up(0.3, 0.5)
-                return true
-            end }))
+                local copier = context.blueprint and context.blueprint_card or card
+                G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card({
+                                set = "Joker",
+                                area = G.jokers,
+                                key_append = "minty_fatcat",
+                                edition = "e_negative",
+                                stickers = {
+                                    "rental",
+                                    "perishable"
+                                }
+                            })
+                            card:juice_up(0.3, 0.5)
+                            card_eval_status_text(copier, 'extra', nil, nil, nil, {message = localize('k_minty_ordered'), delay = 0.35})
+                            return true
+                        end}))
         end
     end
 }
-
--- See localization/en-us.lua to create joker text

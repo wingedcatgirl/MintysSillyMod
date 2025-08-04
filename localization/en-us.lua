@@ -15,6 +15,7 @@ return {
 			["k_minty_bang"] = "Bang!",
 			["k_minty_bye"] = "Bye-bye!",
 			["k_minty_rescheduled"] = "Rescheduled!",
+			["k_minty_ordered"] = "Ordered!",
 			["k_minty_cube"] = "Hand must contain exactly 4 cards",
 			["k_minty_psycube"] = "What have you done?!",
 			["k_minty_challenge"] = "Challenge",
@@ -589,7 +590,7 @@ return {
 				["text"] = {
 					"When blind is selected,",
 					"create a random Joker with",
-					"Negative, Rental, and Perishable"
+					"{C:dark_edition}Negative{}, {C:rental}Rental{}, and {C:perishable}Perishable{}"
 				},
 			},
 			["j_minty_fatcat-m_flavor"] = {
@@ -597,7 +598,7 @@ return {
 				["text"] = {
 					"When blind is selected,",
 					"create a random Joker with",
-					"Negative, Rental, and Perishable",
+					"{C:dark_edition}Negative{}, {C:rental}Rental{}, and {C:perishable}Perishable{}",
 					" ",
 					"{C:inactive,s:0.8}Diversity win: local capitalist",
 					"{C:inactive,s:0.8}pigdog is, in fact, a catgirl!",
