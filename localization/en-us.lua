@@ -589,6 +589,7 @@ return {
 				["name"] = "Fat Cat",
 				["text"] = {
 					"When blind is selected,",
+					"spend {C:money}$#1#{} (if possible) to",
 					"create a random Joker with",
 					"{C:dark_edition}Negative{}, {C:rental}Rental{}, and {C:perishable}Perishable{}"
 				},
@@ -597,6 +598,7 @@ return {
 				["name"] = "Fat Cat",
 				["text"] = {
 					"When blind is selected,",
+					"spend {C:money}$#1#{} (if possible) to",
 					"create a random Joker with",
 					"{C:dark_edition}Negative{}, {C:rental}Rental{}, and {C:perishable}Perishable{}",
 					" ",

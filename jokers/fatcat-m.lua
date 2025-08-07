@@ -48,7 +48,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if (context.setting_blind --[[and you have enough money]]) or context.forcetrigger then
+        if (context.setting_blind and (to_big(G.GAME.dollars) - to_big(card.ability.extra.cost)) > to_big(G.GAME.bankrupt_at)) or context.forcetrigger then
                 local copier = context.blueprint and context.blueprint_card or card
                 G.E_MANAGER:add_event(Event({
                         func = function()
