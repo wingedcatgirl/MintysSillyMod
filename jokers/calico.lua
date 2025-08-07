@@ -47,6 +47,12 @@ SMODS.Joker {
             }
         }
     end,
+    in_pool = function (self, args)
+        local finity = (SMODS.Mods["finity"] or {}).can_load
+        local calico_defeated = G.GAME.blinds_defeated.bl_minty_calico_counter
+
+        return finity or calico_defeated
+    end,
     calculate = function(self, card, context)
         if context.forcetrigger then
             return {
@@ -69,22 +75,27 @@ SMODS.Joker {
                 end
             end
 
-            if context.to_area == G.hand or context.to_area == G.play then
+            if context.to_area == G.hand then
                 return {
                     stay_flipped = context.other_card.ability.calico_flipped
                 }
             end
 
+            if context.to_area == G.play then
+                return {
+                    stay_flipped = context.other_card.facing == "back"
+                }
+            end
         end
 
         --Force flipped and debuffed cards into play
         if context.modify_scoring_hand and not context.blueprint and context.other_card and (context.other_card.debuff or context.other_card.facing == "back") then
             return {
-                add_to_hand = true
+                add_to_hand = true,
             }
         end
 
-        if context.individual and context.other_card then
+        if context.cardarea == G.play and context.individual and context.other_card then
             local ret = {}
             if context.other_card.facing == "back" then
                 ret.mult = card.ability.extra.flipped_mult

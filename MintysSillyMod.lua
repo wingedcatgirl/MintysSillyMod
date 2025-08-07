@@ -112,6 +112,8 @@ local files = {
         --{ name = "ninethlion", mods = { {id = "FusionJokers"} }, dev = true },
         --Special Jokers
         { name = "theecho", mods = { { id = "ChDp" } } },
+        --Showdown Jokers (become Legendary if Finity is not active)
+        { name = "calico" },
         --Legendary Jokers
         { name = "lucky" },
         { name = "stormy" },

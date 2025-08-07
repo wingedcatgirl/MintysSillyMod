@@ -1,0 +1,45 @@
+[manifest]
+version = "1.0.0"
+priority = 1
+
+# Modify outcome of scoring a debuffed card
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+position = "after"
+pattern = '''
+function Card:can_calculate(ignore_debuff, ignore_sliced)
+'''
+payload = '''
+ignore_debuff = ignore_debuff or not not SMODS.find_card("j_minty_finity_calico")
+'''
+match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+position = "after"
+pattern = '''
+card_eval_status_text(card, 'debuff')
+'''
+payload = '''
+if not not SMODS.find_card("j_minty_finity_calico") then
+    context.no_chips = true
+    SMODS.score_card(card, context)
+    context.no_chips = nil
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+position = "at"
+pattern = '''
+if chips ~= 0 then
+'''
+payload = '''
+if chips ~= 0 and not context.no_chips then
+'''
+match_indent = true
