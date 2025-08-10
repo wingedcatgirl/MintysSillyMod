@@ -116,7 +116,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                     local card = SMODS.create_card({
                       set = 'Joker',
                       area = G.jokers,
-                      key = 'j_club_wizard',
+                      key = 'j_fuse_club_wizard',
                       stickers = {'eternal'},
                     })
                     card:add_to_deck()
