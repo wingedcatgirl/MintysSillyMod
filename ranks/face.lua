@@ -50,7 +50,7 @@ end
 
 local strength_effect = { random = true }
 
-if --[[SMODS.Mods["Steamodded"].version <= "1.0.0~BETA-0808a"]] true then
+if SMODS.Mods["Steamodded"].version < "1.0.0~BETA-0810a" then
     strength_effect = { ignore = true }
     sendWarnMessage("FYI, your version of Steamodded contains a bug with `strength_effect.random`. Switching to `strength_effect.ignore` for now.", "Minty's Mod")
 end
