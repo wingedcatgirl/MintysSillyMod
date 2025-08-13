@@ -41,6 +41,37 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger and context.scoring_hand then
+            for i = 1, #context.scoring_hand do
+                local gain = pseudorandom_element({
+                    "chips", "xchips", "mult", "xmult", "cash", "hchips", "hxchips", "hmult", "hxmult", "hcash",
+                    })
+                local gain_map = {
+                    chips = "perma_bonus",
+                    hchips = "perma_h_chips",
+                    xchips = "perma_x_chips",
+                    hxchips = "perma_h_x_chips",
+                    mult = "perma_mult",
+                    hmult = "perma_h_mult",
+                    xmult = "perma_x_mult",
+                    hxmult = "perma_h_x_mult",
+                    cash = "perma_p_dollars",
+                    hcash = "perma_h_dollars",
+                }
+                local ability_key = gain_map[gain]
+                local extra_value = card.ability.extra[gain]
+                local ability_table = context.scoring_hand[i].ability
+                ability_table[ability_key] = (ability_table[ability_key] or 0) + extra_value
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        context.scoring_hand[i]:juice_up()
+                        return true
+                    end,
+                    blocking = false
+                }))
+            end
+        end
+
         if context.individual and context.cardarea == G.play then
             if context.other_card.ability.set == "Enhanced" then
                 local buff = context.other_card.ability.name
@@ -69,10 +100,12 @@ SMODS.Joker {
                     hmult = true,
                     xmult = true,
                     hxmult = true,
-                    cash = true, money = true, dollars = true,
-                    hcash = true, hmoney = true, hdollars = true,
-                    none = true
+                    cash = true,
+                    hcash = true,
                 }
+                if gain == "none" then return end
+                if (gain == "money" or gain == "dollars" or gain == "pmoney" or gain == "pdollars" or gain == "pcash") then gain = "cash" end
+                if (gain == "hmoney" or gain == "hdollars") then gain = "hcash" end
                 if not valid_gains[gain] then gain = pseudorandom_element({
                         "chips", "xchips", "mult", "xmult", "cash", "hchips", "hxchips", "hmult", "hxmult", "hcash",
                     })
@@ -90,8 +123,8 @@ SMODS.Joker {
                             hmult = "perma_h_mult",
                             xmult = "perma_x_mult",
                             hxmult = "perma_h_x_mult",
-                            cash = "perma_p_dollars", money = "perma_p_dollars", dollars = "perma_p_dollars",
-                            hcash = "perma_h_dollars", hmoney = "perma_h_dollars", hdollars = "perma_h_dollars"
+                            cash = "perma_p_dollars",
+                            hcash = "perma_h_dollars",
                         }
                         local ability_key = gain_map[gain]
                         local extra_value = card.ability.extra[gain]

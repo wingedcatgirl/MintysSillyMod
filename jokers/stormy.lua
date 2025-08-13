@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     pools = {
         ["kity"] = true
     },
@@ -37,8 +38,23 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger then
+            local storm = card.ability.extra.stormcount
+            MINTY.say("Not yet tested but should be retriggering "..tostring(storm).." times", "DEBUG")
+            return {
+                message = localize {
+                    type = 'variable',
+                    key = 'a_xmult',
+                    vars = { card.ability.extra.xmult }
+                },
+                colour = G.C.RED,
+                Xmult_mod = card.ability.extra.xmult,
+                repetitions = storm,
+                card = card,
+            }
+        end
 
-        if (context.post_trigger and context.other_card ~= card) then
+        if (context.post_trigger and not context.other_context.fixed_probability and not context.other_context.mod_probability and context.other_card ~= card) then
             card.ability.extra.stormcount = card.ability.extra.stormcount + 1
             --sendDebugMessage('[Minty] Storm count: '..card.ability.extra.stormcount)
         end
@@ -48,7 +64,7 @@ SMODS.Joker {
             local storm = card.ability.extra.stormcount
             card.ability.extra.stormcount = 0
             return {
-                message = localize("k_storm_ex"),
+                message = localize("k_minty_storm"),
                 repetitions = storm,
                 card = card,
             }

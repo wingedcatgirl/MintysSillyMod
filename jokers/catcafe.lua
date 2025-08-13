@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     config = {
         extra = {
             chips = 333
@@ -39,6 +40,12 @@ SMODS.Joker {
         return true
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger then
+            return {
+                chips = card.ability.extra.chips,
+            }
+        end
+
         if context.other_joker and context.other_joker.config.center.pools and context.other_joker.config.center.pools.kity then
             return {
                     chips = card.ability.extra.chips,
@@ -47,5 +54,3 @@ SMODS.Joker {
         end
     end
 }
-
--- See localization/en-us.lua to create joker text

@@ -21,6 +21,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     config = {extra = {Xmult = 4}},
     loc_vars = function(self, info_queue, card)
         local key = self.key
@@ -56,7 +57,7 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.joker_main and context.scoring_hand then
+        if (context.joker_main and context.scoring_hand) or context.forcetrigger then
             return {
                 message = localize {
                     type = 'variable',
@@ -112,9 +113,9 @@ local get_loc_debuff_textref = Blind.get_loc_debuff_text
 function Blind:get_loc_debuff_text()
 	if forbidden then
         if (G.GAME.blind.config.blind.debuff ~= {}) and (G.GAME.blind.config.blind.debuff.h_size_ge and G.GAME.blind.config.blind.debuff.h_size_ge >= 5) or (G.GAME.blind.config.blind.debuff.h_size_le and G.GAME.blind.config.blind.debuff.h_size_le <= 3) then
-		    return localize("k_psycube")
+		    return localize("k_minty_psycube")
         end
-		return localize("k_cube")
+		return localize("k_minty_cube")
 	end
 	return get_loc_debuff_textref(self)
 end

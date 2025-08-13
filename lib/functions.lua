@@ -13,6 +13,20 @@ function MINTY.say(message, level)
     sendMessageToConsole(level, "Minty's Mod", message)
 end
 
+---Checks whether a card is in the collection (as opposed to e.g. the hand or Jokers tray)
+---@param card table Card to check
+---@return boolean
+MINTY.in_collection = function (card)
+    if G.your_collection then
+        for k, v in pairs(G.your_collection) do
+            if card.area == v then
+                return true
+            end
+        end
+    end
+    return false
+end
+
 ---Enables Bunco's exotics and anything that relies on them
 MINTY.enable_exotics = function()
     if G.GAME then G.GAME.Exotic = true end
@@ -25,7 +39,7 @@ MINTY.disable_exotics = function()
     MINTY.say("Disabled Bunco's exotic system, for some reason", "TRACE")
 end
 
----Checks if Bunco's exotics are enabled, or if 3s are enabled and the relevant config is active 
+---Checks if Bunco's exotics are enabled
 MINTY.exotic_in_pool = function()
     return G.GAME and G.GAME.Exotic
 end
@@ -80,7 +94,7 @@ end
 
 ---Checks how many times a card counts as a 3
 ---@param bypass_debuff boolean?
----@return any --Since 0 is truthy in lua, we have to return boolean false in that case
+---@return integer|boolean --Number of times the card counts as a 3, or `false` if it doesn't count as a 3 (0 is truthy in lua...)
 function Card:is_3(bypass_debuff)
     local count = 0
         if self.debuff and not bypass_debuff then return false end
@@ -205,6 +219,219 @@ MINTY.sleeveunlockcheck = function(this, debug)
   return result, count
 end
 
+MINTY.rocklist = function ()
+    MINTY.rocks = MINTY.rocks or {}
+    local outside_rocks = {
+        m_ortalab_ore = true,
+        m_akyrs_brick_card = true,
+        m_mf_gemstone = true,
+        m_stone = true,
+        --Minty rock list patch target
+
+    }
+
+    for k,v in pairs(G.P_CENTERS) do
+        if (v.minty_rock) or outside_rocks[k] then
+            MINTY.rocks[v.key] = true
+        end
+    end
+end
+
+---Do the tarot flip thing to all of G.hand.highlighted
+---@param card Card
+---@param args table `rank`, `suit`, `enh`, `edi` = keys of the appropriate target modifications. alternately `random_ranks`, `random_suits`, `random_enhs`, `random_edis` are tables of same keys to pick one at random, in which case you need `seed` to seed the seed. Note: To clear an edition, pass the string "base", "none", "false", or "remove" as the edition key.
+MINTY.tarotflip = function (card, args)
+    if not args then
+        MINTY.say("hey you forgor to say anything when trying to change these cards", "ERROR")
+        return
+    end
+    local rank = args.rank
+    local ranks = args.random_ranks
+    local suit = args.suit
+    local suits = args.random_suits
+    local enh = args.enh
+    local enhs = args.random_enhs
+    local edi = args.edi
+    local edis = args.random_edis
+    local seed = args.seed or "minty_tarotflip_seedless_probably_shouldn't_happen_tbh"
+    local sound = args.sound
+    if not (rank or ranks or suit or suits or enh or enhs or edi or edis) or (rank and ranks) or (suit and suits) or (enh and enhs) or (edi and edis) or ((ranks or suits or enhs or edis) and not args.seed) then
+        MINTY.say("hey you didn't type the right arguments?", "ERROR")
+        tprint(args or {})
+    end
+
+    if card then
+        G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.4,
+        func = function()
+            play_sound('tarot1')
+            card:juice_up(0.3, 0.5)
+            return true
+        end }))
+    end
+
+    if (rank or ranks or suit or suits or enh or enhs) then
+        for i=1, #G.hand.highlighted do
+            local percent = 1.15 - (i-0.999)/(#G.hand.highlighted-0.998)*0.3
+            G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.15,
+            func = function()
+                G.hand.highlighted[i]:flip()
+                play_sound('card1', percent)
+                G.hand.highlighted[i]:juice_up(0.3, 0.3)
+                return true
+            end
+            }))
+        end
+        delay(0.2)
+        for i=1, #G.hand.highlighted do
+            G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.1,
+            func = function()
+                if ranks then rank = pseudorandom_element(ranks, pseudoseed(seed)) end
+                if suits then suit = pseudorandom_element(suits, pseudoseed(seed)) end
+                if enhs then enh = pseudorandom_element(enhs, pseudoseed(seed)) end
+                if rank or suit then
+                    assert(SMODS.change_base(G.hand.highlighted[i], suit, rank))
+                end
+                if enh then
+                    G.hand.highlighted[i]:set_ability(G.P_CENTERS[enh])
+                end
+                return true
+            end
+            }))
+        end
+        for i=1, #G.hand.highlighted do
+            local percent = 0.85 + ( i - 0.999 ) / ( #G.hand.highlighted - 0.998 ) * 0.3
+            G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.15,
+            func = function()
+                G.hand.highlighted[i]:flip()
+                play_sound(sound or 'tarot2', percent, 0.6)
+                G.hand.highlighted[i]:juice_up(0.3, 0.3)
+                return true
+            end
+            }))
+        end
+    end
+
+    if (edi or edis) then
+        for i=1, #G.hand.highlighted do
+            G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.1,
+            func = function()
+                if edis then edi = pseudorandom_element(edis, pseudoseed(seed)) end
+                if edi then
+                    if edi == "base" or edi == "none" or edi == "false" or edi == "remove" then edi = nil end
+                    G.hand.highlighted[i]:set_edition(edi)
+                    G.hand.highlighted[i]:juice_up(0.3,0.3)
+                end
+                return true
+            end
+            }))
+        end
+    end
+
+    G.E_MANAGER:add_event(Event({
+    trigger = 'after',
+    delay = 0.15,
+    func = function()
+        G.hand:unhighlight_all()
+        return true
+    end
+    }))
+    delay(0.5)
+end
+
+---Get next blind, including custom small/big blinds
+---@param round string
+---@return string? 
+MINTY.get_blind = function (round)
+    if not round then
+        --figure out current round from G.GAME? Maybe not possible
+
+        MINTY.say("Don't call MINTY.get_blind without specifying a round!", "WARN ")
+        return
+    elseif round == "Boss" then
+        MINTY.say("Boss blind getting not implemented yet, sowwiez; using vanilla's function instead for now", "WARN ")
+        return get_new_boss()
+    end
+
+    --[[ Nothing uses "perscribing" for small/big blinds yet, so disabling for now
+    local perscription == "perscribed_" .. (round == "Boss" and "bosses") or round:lower()
+    G.GAME[perscription] = G.GAME[perscription] or {}
+    if G.GAME[perscription] and G.GAME[perscription][G.GAME.round_resets.ante] then
+        local ret_blind = G.GAME[perscription][G.GAME.round_resets.ante]
+        G.GAME[perscription][G.GAME.round_resets.ante] = nil
+        if round == "Boss" then
+            G.GAME.bosses_used[ret_blind] = G.GAME.bosses_used[ret_blind] + 1
+        end
+        return ret_blind
+    end
+    --]]
+
+    if G["FORCE_"..round:upper()] then return G["FORCE_"..round:upper()] end
+
+    local vanillablind = "bl_"..round:lower()
+
+    local eligible_blinds = {[vanillablind] = true}
+    for k, v in pairs(G.P_BLINDS) do
+        if not v[round:lower()] then
+            -- don't add
+        elseif v.in_pool and type(v.in_pool) == 'function' then
+            local res, options = v:in_pool()
+            eligible_blinds[k] = res and true or nil
+        elseif v[round:lower()].min <= math.max(1, G.GAME.round_resets.ante) then
+            eligible_blinds[k] = true
+        end
+    end
+    for k, v in pairs(G.GAME.banned_keys) do
+        if eligible_blinds[k] then eligible_blinds[k] = nil end
+    end
+    --LOVELY TARGET: FURTHER BLIND CULLING
+
+    --Including this here for now to not break Ortalab's stakes
+    if G.GAME.modifiers.ortalab_only then
+        for k, v in pairs(eligible_bosses) do
+            if v and not G.P_BLINDS[k].mod or (G.P_BLINDS[k].mod.id ~= 'ortalab' and not (G.P_BLINDS[k].pools and G.P_BLINDS[k].pools.Ortalab)) then
+                eligible_bosses[k] = nil
+            end
+        end
+    end
+
+    local blindpool = {}
+    for k, v in pairs(eligible_blinds) do
+        table.insert(blindpool, k)
+        if G.GAME.modifiers.mintyallboost and (G.P_BLINDS[k].mod.id == "MintysSillyMod" or (G.P_BLINDS[k].pools and G.P_BLINDS[k].pools.MintysSillyMod)) then
+            table.insert(blindpool, k)
+        end
+    end
+    --LOVELY TARGET: FURTHER BLIND BOOSTING
+
+    local blind = pseudorandom_element(blindpool, pseudoseed('blind'))
+
+    return blind
+end
+
+---Checks whether any of the specified rank exist in the player's entire deck
+---@param rank string Key of the rank to find
+---@return boolean
+function MINTY.find_rank(rank)
+    if not G.playing_cards then return true end
+    for k, v in ipairs(G.playing_cards) do
+        if v:get_id() == SMODS.Ranks[rank].id then
+            return true
+        end
+    end
+    return false
+end
+
+
 --Talisman compatibility compatibility
 to_big = to_big or function(x)
     return x
@@ -244,7 +471,10 @@ function SMODS.current_mod.reset_game_globals(init)
 end
 
 SMODS.current_mod.set_debuff = function (card)
-  if card.seal == "minty_cement" then
+  if
+    card.seal == "minty_cement"
+    or (card.ability and card.ability.name == "Marble Card")
+  then
      return "prevent_debuff"
   end
 end

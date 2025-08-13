@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
+    demicoloncompat = true,
     pools = {
         ["kity"] = true
     },
@@ -29,12 +30,21 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
-        local rank = pseudorandom_element({
-            "Aces", "Kings", "Queens", "Jacks", "10s", "9s", "8s", "7s", "6s", "5s", "4s", "2s"
-        })
-        local suit = pseudorandom_element({
-            "Heart", "Spade", "Club", "Diamond"
-        })
+        local ranks = {}
+        local suits = {}
+        for k,v in pairs(SMODS.Ranks) do
+            if k ~= "3" then
+                table.insert(ranks, k)
+            end
+        end
+        for k,v in pairs(SMODS.Suits) do
+            if k ~= "minty_3s" then
+                table.insert(suits, k)
+            end
+        end
+
+        local rank = localize(pseudorandom_element(ranks), "ranks")
+        local suit = localize(pseudorandom_element(suits), "suits_singular")
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
@@ -52,7 +62,13 @@ SMODS.Joker {
         return MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)
-        -- Calculation goes here
+        if (context.joker_main and context.scoring_hand) or context.forcetrigger then
+            --MINTY.say("xMult time :3")
+            return {
+                    xmult = card.ability.extra.xmult
+            }
+        end
+
         if context.cardarea == G.play and context.individual then
             --MINTY.say("Observing card")
             if context.other_card:is_3() then
@@ -61,28 +77,21 @@ SMODS.Joker {
             end
         end
 
-        if context.joker_main and context.scoring_hand then
-            --MINTY.say("xMult time :3")
-            return {
-                    xmult = card.ability.extra.xmult
-            }
-        end
-
         if context.destroy_card and context.cardarea == "unscored" and card.ability.extra.found == true and not context.blueprint then
             --MINTY.say("Attempting to destroy card")
             if context.destroy_card.ability.eternal then
                 --MINTY.say("Card is eternal, no destruaction")
-                return false
+                return
             elseif context.destroy_card:is_3() then
                 --MINTY.say("Card is a 3, no destruaction")
-                return false
+                return
             end
             --MINTY.say("Destruaction time >:3")
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultgain
             return {
                 delay = 0.4,
                 remove = true,
-                message = localize('k_nommed_ex'),
+                message = localize('k_minty_nommed'),
                 card = card,
             }
         end

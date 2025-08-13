@@ -13,6 +13,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = false,
     config = {extra = {}},
     loc_vars = function(self, info_queue, card)
         local key = self.key

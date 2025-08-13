@@ -4,6 +4,9 @@ SMODS.Back{
     atlas = "backs",
     unlocked = true,
     config = {},
+    apply = function (self, back)
+      G.GAME.modifiers.mintyjokerboost = true
+    end
 }
 
 if (SMODS.Mods["CardSleeves"] or {}).can_load then
@@ -50,5 +53,12 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
 
             return { key = key, vars = vars }
         end,
+        apply = function ()
+          if self.get_current_deck_key() ~= "b_minty_sillylittledeck" then
+            G.GAME.modifiers.mintyjokerboost = true
+          else
+            G.GAME.modifiers.mintyallboost = true
+          end
+        end
     })
 end

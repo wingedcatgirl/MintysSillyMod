@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
+    demicoloncompat = true,
     config = {
         extra = {
             base = 50,
@@ -38,7 +39,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
+        if context.joker_main or context.forcetrigger then
             return {
                 message = localize {
                     type = 'variable',
@@ -49,7 +50,7 @@ SMODS.Joker {
                 colour = G.C.CHIPS
             }
         end
-        if context.after and not context.blueprint then
+        if context.end_of_round and not (context.individual or context.repetition or context.retrigger_joker_check or context.retrigger_joker) and not context.blueprint then
             card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipgain
             card_eval_status_text(card, 'extra', nil, nil, nil, {
                 message = localize {

@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     pools = {["Food"] = true}, -- Cryptid compatibility for refactor
     config = {
         extra = {
@@ -35,7 +36,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.after and not context.blueprint then
+        if (context.after and not context.blueprint) or context.forcetrigger then
             local new_chip_val = card.ability.extra.chips - card.ability.extra.chip_mod
             if (new_chip_val > 0) then
                 card.ability.extra.chips = new_chip_val

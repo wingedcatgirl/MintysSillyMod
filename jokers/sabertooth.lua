@@ -1,3 +1,5 @@
+local ortalab = (SMODS.Mods.ortalab or {}).can_load
+
 SMODS.Joker {
     key = "sabertooth",
     name = "Saber Tooth",
@@ -17,6 +19,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     pools = {
         ["Ortalab"] = true, --Can appear on Ortalab Stakes
     },
@@ -29,30 +32,40 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        if MINTY.in_collection(card) and not (ortalab or MINTY.config.dev_mode or MINTY.config.include_crossover) then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Ortalab" } }
+        end
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
-        local unluck = math.max(math.min(G.GAME.probabilities.normal or 1, card.ability.extra.odds), 0)
+        local unluck, odds = SMODS.get_probability_vars(self, 1, card.ability.extra.odds, "minty_sabertooth_desc", false)
         return {
             key = key,
             vars = {
                 unluck,
-                card.ability.extra.odds,
+                odds,
                 localize(card.ability.extra.suit, "suits_plural"),
                 card.ability.extra.xmult
             }
         }
     end,
     in_pool = function(self, args)
-        return MINTY.threeSuit_in_pool()
+        return (ortalab or MINTY.config.dev_mode or MINTY.config.include_crossover) and MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger then
+            return {
+                xmult = card.ability.extra.xmult,
+                card = card
+            }
+        end
+
         if context.cardarea == G.hand and context.individual and not context.end_of_round and context.other_card:is_3() then
             local trycount = context.other_card:is_3()
             local repcount = 0
             for _try=1,trycount do
-                if pseudorandom('tooth') > G.GAME.probabilities.normal/card.ability.extra.odds then
+                if not SMODS.pseudorandom_probability(card, 'tooth', 1, card.ability.extra.odds, 'tooth') then
                     repcount = repcount + 1
                 end
             end
@@ -79,5 +92,3 @@ SMODS.Joker {
         end
     end
 }
-
--- See localization/en-us.lua to create joker text

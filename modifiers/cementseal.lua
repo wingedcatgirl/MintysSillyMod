@@ -12,7 +12,7 @@ SMODS.Seal {
 	atlas = "cementseal",
     pos = {x = 0, y = 0},
 	calculate = function(self, card, context)
-    if context.cardarea == G.play and context.main_scoring then
+    if (context.cardarea == G.play and context.main_scoring) or context.forcetrigger then
       return {
         chips = self.config.extra.chips,
         card = card

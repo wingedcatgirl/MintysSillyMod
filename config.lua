@@ -1,4 +1,8 @@
 return {
+    ["balance_level"] = {
+        current_option = 2,
+        option_value = "Regular"
+    },
     ["dev_mode"] = false,
     ["flavor_text"] = true,
     ["include_crossover"] = false,

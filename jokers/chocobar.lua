@@ -17,10 +17,11 @@ SMODS.Joker {
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     pools = {["Food"] = true},
-    in_pool = function()
+    in_pool = function(self, args)
         if not (G.GAME and G.GAME.choccy_bars_eaten) then return true end
-        if pseudorandom("choccychance") < (G.GAME.probabilities.normal/(G.GAME.choccy_bars_eaten+1)) then return true else return false end
+        if SMODS.pseudorandom_probability(self, "choccy_chance", 1, G.GAME.choccy_bars_eaten, "choccy_chance") then return true else return false end
     end,
     config = {
         extra = {
@@ -52,13 +53,13 @@ SMODS.Joker {
         card.ability.extra.drop = card.ability.extra.drop + boost*card.ability.extra.droprate
     end,
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play and card.ability.extra.mult > 0 then
+        if ((context.individual and context.cardarea == G.play) or context.forcetrigger) and card.ability.extra.mult > 0 then
             local pmult = card.ability.extra.mult
             local ret = {
                 mult = pmult,
                 extra = {}
             }
-            if not context.blueprint then 
+            if not context.blueprint then
                 card.ability.extra.mult = card.ability.extra.mult - card.ability.extra.drop
                 if card.ability.extra.mult >= 0 then
                     ret.extra = {

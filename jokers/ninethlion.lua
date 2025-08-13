@@ -1,4 +1,5 @@
 FusionJokers.fusions:add_fusion("j_minty_ascetic", nil, false, "j_minty_sabertooth", nil, false, "j_minty_ninethlion", 12)
+local ortalab = (SMODS.Mods.ortalab or {}).can_load
 
 SMODS.Joker {
     key = "ninethlion",
@@ -32,16 +33,19 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        if MINTY.in_collection(card) and not (ortalab or MINTY.config.dev_mode --[[or MINTY.config.include_crossover]]) then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Ortalab" } }
+        end
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
-        local unluck = math.max(math.min(G.GAME.probabilities.normal or 1, card.ability.extra.odds), 0)
+        local unluck, odds = SMODS.get_probability_vars(self, 1, card.ability.extra.odds, "minty_nineth_desc", false)
         return {
             key = key,
             vars = {
                 unluck,
-                card.ability.extra.odds,
+                odds,
                 localize(card.ability.extra.suit, "suits_plural"),
                 card.ability.extra.xmult
             }
@@ -51,5 +55,3 @@ SMODS.Joker {
         -- Calculation goes here
     end
 }
-
--- See localization/en-us.lua to create joker text

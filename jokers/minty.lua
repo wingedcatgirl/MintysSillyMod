@@ -1,3 +1,5 @@
+local talisman = (SMODS.Mods.Talisman or {}).can_load
+
 SMODS.Joker {
     key = "minty",
     name = "Minty",
@@ -17,6 +19,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
+    demicoloncompat = true,
     pools = {
         ["kity"] = true
     },
@@ -31,6 +34,9 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        if MINTY.in_collection(card) and not talisman then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Talisman" } }
+        end
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
@@ -50,9 +56,20 @@ SMODS.Joker {
         }
     end,
     in_pool = function(self, args)
-        return MINTY.threeSuit_in_pool()
+        return talisman and MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)
+        if not talisman then return end
+
+        if context.forcetrigger then
+            MINTY.say("Not yet tested but should be retriggering "..tostring(card.ability.extra.reps).." times", "DEBUG")
+            return {
+                emult = card.ability.extra.powmult,
+                repetitions = card.ability.extra.reps,
+                card = card
+            }
+        end
+        
         if context.cardarea == G.play and not context.blueprint and context.individual and context.other_card:is_3() and not (context.retrigger_joker or context.retrigger_joker_check) then
             local count = context.other_card:is_3()
             card.ability.extra.scored = card.ability.extra.scored + count

@@ -33,6 +33,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     pools = {
         ["kity"] = true
     },
@@ -40,6 +41,13 @@ SMODS.Joker {
         return MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger then
+            return {
+                xmult = card.ability.extra.xmult,
+                card = card
+            }
+        end
+
         if context.cardarea == G.play then
             if context.individual and context.other_card:is_3() then
             local count = context.other_card:is_3()

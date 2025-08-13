@@ -6,7 +6,7 @@ MINTY.config = SMODS.current_mod.config
 
 if not SMODS.current_mod.lovely then
     NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
-    error("Lovely patches failed! Please make sure this mod's file structure is not nested. The mod will be automatically disabled on restart.")
+    error("Minty's Mod: Lovely patches failed! Please make sure the file structure is not nested. The mod will be automatically disabled on restart.")
 end
 
 SMODS.current_mod.optional_features = {
@@ -20,21 +20,51 @@ SMODS.current_mod.optional_features = {
 SMODS.ObjectType({ --Kity pool (Legendary and otherwise)
     key = "kity",
     default = "j_lucky_cat",
-	cards = {},
+	cards = {
+        ["j_lucky_cat"] = true,
+        ["j_pl_black_cat"] = true,
+        ["j_neat_tabbycat"] = true,
+        ["j_ortalab_black_cat"] = true,
+    },
     inject = function(self)
         SMODS.ObjectType.inject(self)
     end
 })
+
+if not SMODS.ObjectType.Food then
+    SMODS.ObjectType({
+        key = "Food",
+        default = "j_popcorn",
+        cards = {
+            ["j_gros_michel"] = true,
+            ["j_egg"] = true,
+            ["j_ice_cream"] = true,
+            ["j_cavendish"] = true,
+            ["j_turtle_bean"] = true,
+            ["j_diet_cola"] = true,
+            ["j_popcorn"] = true,
+            ["j_ramen"] = true,
+            ["j_selzer"] = true,
+        },
+        inject = function(self)
+            SMODS.ObjectType.inject(self)
+        end,
+    })
+end
 
 local files = {
     lib = {
         { name = "atlases" },
         { name = "functions" },
         { name = "hooks" },
+        { name = "sounds" },
         { name = "configui" },
     },
     suits = {
         { name = "3suit" }
+    },
+    ranks = {
+        { name = "face" }
     },
     jokers = {
         --Tweaks to existing Jokers 
@@ -53,46 +83,77 @@ local files = {
         { name = "chisel" },
         { name = "bucket" },
         { name = "chocobar" },
-        { name = "ascetic", mods = { {id = "ortalab"} } },
-        { name = "churu", mods = { {id = "paperback"} }, nocrossover = true },
+        { name = "ascetic" },
+        { name = "churu",  },
         --Uncommon Jokers
         { name = "atheismcorner" },
         { name = "catcafe" },
+        { name = "catnipfields" },
+        { name = "fatcat-l" }, --Literal (Tubbs)
+        { name = "fatcat-m" }, --Metaphorical (Jeff Bezos catgirl)
         { name = "treatovision" },
-        { name = "sabertooth", mods = { {id = "ortalab"} } },
-        { name = "neko", mods = { {id = "TOGAPack"} } },
+        { name = "peywet", },
+        { name = "cakesword" },
+        { name = "sabertooth" },
+        { name = "neko" },
         { name = "catpicmachine", mods = { { id = "Cryptid" } } },
         --Rare Jokers
         { name = "wildsupport" },
         { name = "gymbuddy" },
         { name = "scoundrel" },
-        { name = "hyperfix", mods = { {id = "Talisman"} } },
+        { name = "cakegun" },
+        { name = "doctor" },
+        { name = "hyperfix" },
         { name = "jacobsladder" },
+        { name = "copycat" }, 
         --Fusion Jokers
         { name = "threecats", mods = { {id = "FusionJokers"} } },
         { name = "parkour", mods = { {id = "FusionJokers"} } },
-        --{ name = "ninethlion", mods = { {id = "ortalab"}, {id = "FusionJokers"} }, dev = true },
+        --{ name = "ninethlion", mods = { {id = "FusionJokers"} }, dev = true },
         --Special Jokers
         { name = "theecho", mods = { { id = "ChDp" } } },
+        --Showdown Jokers (become Legendary if Finity is not active)
+        { name = "calico" },
         --Legendary Jokers
         { name = "lucky" },
         { name = "stormy" },
         { name = "patchy" },
-        { name = "minty", mods = { {id = "Talisman"} } },
+        { name = "minty" },
         { name = "garfielf" },
-        { name = "lune", mods = { {id = "ortalab"} } }
+        { name = "lune" }
+    },
+    tarots = {
+        { name = "abacus", },
+        { name = "cat" },
+        { name = "boredchild" },
+        { name = "dorf" },
+        { name = "grin", },
+        { name = "gleam" },
+        { name = "geologist" },
+        { name = "bitz" },
+    },
+    spectrals = {
+        { name = "sixyears" },
+        { name = "dekaja" },
+        { name = "wand" },
+        --{ name = "testcard" },
     },
     consumables = {
-        { name = "tarots" },
-        { name = "spectrals" },
-        { name = "colors", mods = { { id = "MoreFluff" } }, nocrossover = true },
-        { name = "rotarots", mods = { { id = "MoreFluff" } }, nocrossover = true },
-        { name = "gemstones", mods = { { id = "Gemstone" } }, nocrossover = true },
+        { name = "colors", mods = { { id = "MoreFluff" } } },
+        { name = "rotarots", mods = { { id = "MoreFluff" } } },
+        { name = "gemstones", mods = { { id = "Gemstone" } } },
         { name = "drafts", mods = { { id = "draft", version = "0.5.2.1" } } },
+    },
+    vouchers = {
+        { name = "topplepaws" }
     },
     modifiers = {
         { name = "marble" }, --Enhancements
-        { name = "garbled", mods = { { id = "MoreFluff" } } },
+        { name = "microcline" },
+        { name = "crystal" },
+        { name = "garbled" }, --Rotarot enhancements
+        { name = "pistol" },
+        { name = "spline" },
         { name = "cementseal" }, --Seals
     },
     backs = {
@@ -105,10 +166,14 @@ local files = {
         { name = "silly" },
     },
     blinds = {
+        { name = "aclaw"},
+        { name = "atooth"},
+        { name = "apaw"},
+        { name = "atail"},
         { name = "thenip" },
-        { name = "thetree", mods ={ {id = "ortalab"} } },
+        { name = "thetree", mods = { {id = "ortalab"} } },
         { name = "calico" },
-        { name = "thenipdx", mods ={ {id = "MoreFluff"} } },
+        { name = "thenipdx", mods = { {id = "MoreFluff"} } },
     },
     challenge = {
         { name = "challenges", mods = { { id = "ChDp" } } }
@@ -121,35 +186,37 @@ for folder, list in pairs(files) do
         local load = true
         local name = data.name
         local mods = data.mods
-        local nocross = data.nocrossover
+        local incompat = data.incompat
         if mods then
-            sendTraceMessage("Checking mods for "..folder..'/'..name..".lua", "Minty's Mod")
-            local nevercross = {
-                "FusionJokers",
-                "Talisman",
-                "Cryptid",
-                "ChDp",
-                "draft",
-            }
-            for _, mod in ipairs(data.mods) do
+            sendTraceMessage("Checking required mods for "..folder..'/'..name..".lua", "Minty's Mod")
+            for _, mod in ipairs(mods) do
                 load = load and (SMODS.Mods[mod.id] or {}).can_load
                 if mod.version then load = load and ((SMODS.Mods[mod.id] or {}).version == mod.version) end
-                for _, check in pairs(nevercross) do
-                    if mod.id == check then nocross = true end
-                end
             end
         end
-        if mods and not nocross then
-            sendTraceMessage("Checking crossover option for "..folder..'/'..name..".lua")
-            load = MINTY.config.include_crossover or MINTY.config.dev_mode
+        if load and incompat then
+            sendTraceMessage("Checking conflicting mods for "..folder..'/'..name..".lua", "Minty's Mod")
+            for _, mod in ipairs(incompat) do
+                load = load and not (SMODS.Mods[mod.id] or {}).can_load
+            end
         end
-        if data.dev then
-            sendTraceMessage("Checking dev mode option for "..folder..'/'..name..".lua")
+        if load and data.dev then
+            sendTraceMessage("Checking dev mode option for "..folder..'/'..name..".lua", "Minty's Mod")
             load = load and MINTY.config.dev_mode
         end
         if load then
             sendTraceMessage("Loading file: "..folder..'/'..name..'.lua', "Minty's Mod")
-            SMODS.load_file(folder..'/'..name..'.lua')()
+            if not pcall(SMODS.load_file(folder..'/'..name..'.lua')) then
+                local _,errormessage = pcall(SMODS.load_file(folder..'/'..name..'.lua'))
+                local disable = not MINTY.config.dev_mode and " The mod will be automatically disabled on restart." or ""
+                if not MINTY.config.dev_mode then
+                    NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
+                end
+                sendErrorMessage(errormessage, "Minty's Mod")
+                error("Minty's Mod: File '"..folder.."/"..name..".lua' failed to load! Please make sure there's nothing fucky with your file structure."..disable)
+            end
+
+            
         else
             sendTraceMessage("Skipping file: "..folder..'/'..name..'.lua', "Minty's Mod")
         end
@@ -159,20 +226,6 @@ end
 
 MINTY.lastmoment = function ()
     MINTY.say("Running last-moment code...")
-    --Add pool tag to external kitys so cards can care about that
-    if not (G.P_CENTERS.j_lucky_cat.pools and G.P_CENTERS.j_lucky_cat.pools.kity) then
-        local outside_kitys = {
-            j_lucky_cat = "vanilla",
-            j_ortalab_black_cat = "ortalab",
-            j_neat_tabbycat = "Neato_Jokers",
-            j_pl_black_cat = "plantain",
-        }
-        for k,v in pairs(outside_kitys) do --Hopefully this will work regardless of priority
-            if v == "vanilla" or (SMODS.Mods[v] or {}).can_load then
-                SMODS.ObjectType.obj_table.kity:inject_card(G.P_CENTERS[k])
-                G.P_CENTERS[k].pools = G.P_CENTERS[k].pools or {}
-                G.P_CENTERS[k].pools.kity = true
-            end
-        end
-    end
+    MINTY.rocklist()
 end
+----

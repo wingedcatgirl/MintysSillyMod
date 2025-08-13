@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = true,
     config = {
         immutable = {
             req = 5
@@ -132,8 +133,13 @@ SMODS.Joker {
         end
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger then
+            return {
+                balance = true
+            }
+        end
+
         if context.final_scoring_step and context.cardarea == G.jokers then
-            MINTY.say("joekr")
             local suits = {}
             for _,v in ipairs(SMODS.Suit.obj_buffer) do
                 suits[v] = false

@@ -5,6 +5,13 @@ SMODS.Atlas {
     py = 95
 }
 
+SMODS.Atlas({
+    key = 'modicon',
+    path = 'mod icon (cat).png',
+    px = 34,
+    py = 34
+})
+
 SMODS.Atlas {
     key = 'jokerdoodles',
     path = "jokerdoodles.png",
@@ -43,6 +50,13 @@ SMODS.Atlas {
 SMODS.Atlas {
     key = 'tarots',
     path = "tarots.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = 'spectrals',
+    path = "spectrals.png",
     px = 71,
     py = 95
 }
@@ -111,8 +125,29 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = 'vouchers',
+    path = "vouchers.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
     key = '3s',
     path = "3s.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = '3shc',
+    path = "3shc.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = 'facerank',
+    path = "facerank.png",
     px = 71,
     py = 95
 }

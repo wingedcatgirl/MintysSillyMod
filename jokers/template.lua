@@ -1,7 +1,7 @@
 SMODS.Joker {
     key = "newjoker",
     name = "New Joker",
-    atlas = 'placeholder',
+    atlas = 'jokerdoodles',
     pos = {
         x = 0,
         y = 0
@@ -17,6 +17,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = false,
     config = {
         extra = {
             mult = 5

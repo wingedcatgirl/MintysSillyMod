@@ -31,3 +31,17 @@ position = "after"
 pattern = "self.lucky_trigger = true"
 payload =  "--MINTY.luckyCount()"
 match_indent = true
+
+# Count all-time large discards
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+position = "after"
+pattern = "-- TARGET: pre_discard"
+payload = '''
+if highlighted_count > 5 then
+     inc_career_stat('minty_large_discards', 1)
+     check_for_unlock({type = "career_stat", statname = "minty_large_discards"})
+end
+'''
+match_indent = true

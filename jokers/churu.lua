@@ -1,3 +1,11 @@
+---Stub function if PB isn't active, so this *can* work without it. Not recommended, but possible!
+local stickmult = (PB_Util and PB_UTIL.calculate_stick_xMult) or function (card)
+    local xMult = card.ability.extra.xMult
+    local sticks = math.max(#SMODS.find_card("j_minty_churu"), 1) --Assuming no other mod allows PB sticks to exist without PB :v
+    return xMult * sticks
+end
+local pb = (SMODS.Mods.paperback or {}).can_load
+
 SMODS.Joker {
     key = "churutreat",
     config = {
@@ -27,27 +35,39 @@ SMODS.Joker {
         ["Paperback"] = true, --Increase freqency when playing with Paper Deck
     },
     loc_vars = function(self, info_queue, card)
+        if MINTY.in_collection(card) and not (pb or MINTY.config.dev_mode or MINTY.config.include_crossover) then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Paperback" } }
+        end
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
+        local luck, odds = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, "minty_churu_desc", false)
         return {
             key = key,
             vars = {
                 card.ability.extra.s_mult,
-                G.GAME.probabilities.normal,
-                card.ability.extra.odds
+                luck,
+                odds,
             }
         }
     end,
 
     in_pool = function(self, args)
-        if G.GAME.pool_flags.churu_treat_eaten then
+        if not (pb or MINTY.config.dev_mode or MINTY.config.include_crossover) then return false end
+        if pb and G.GAME.pool_flags.churu_treat_eaten then --The normal gimmick only works if other sticks can spawn, so if they can't...
             return false
         end
         return MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)
+        if context.forcetrigger then
+            return {
+                mult = card.ability.extra.s_mult,
+                card = card
+            }
+        end
+
         -- Give the mult during play if card is a 3, and retrigger if it's a 3 of 3s
         if context.cardarea == G.play and context.individual and context.other_card:is_3() then
             local count = context.other_card:is_3()
@@ -70,7 +90,7 @@ SMODS.Joker {
         -- Check if the Joker needs to be eaten
         if context.end_of_round and not context.blueprint and not (context.individual or context.repetition or context.retrigger_joker_check or context.retrigger_joker) then
             card.ability.extra.again = 0
-            if pseudorandom("churu") < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, "minty_churu_eaten", 1, card.ability.extra.odds, "minty_churu_eaten") then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         play_sound('tarot1')
@@ -130,10 +150,6 @@ SMODS.Joker {
     end
 }
 
-if (SMODS.Mods["Cryptid"] or {}).can_load then
-    table.insert(Cryptid.food, "j_minty_churutreat")
-end
-
 SMODS.Joker {
     key = 'plastic_stick',
     config = {
@@ -159,15 +175,22 @@ SMODS.Joker {
     pools = {
         ["Paperback"] = true, --Increase freqency when playing with Paper Deck. if sticks can spawn which i don't think pb ever actually turns on lol
     },
-    yes_pool_flag = "sticks_can_spawn",
+    in_pool = function (self, args)
+        if not (pb or MINTY.config.dev_mode or MINTY.config.include_crossover) then return false end
+        if not G.GAME.pool_flags.churu_treat_eaten then return false end
+        return G.GAME.pool_flags.sticks_can_spawn
+    end,
 
     loc_vars = function(self, info_queue, card)
+        if MINTY.in_collection(card) and not (pb or MINTY.config.dev_mode or MINTY.config.include_crossover) then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Paperback" } }
+        end
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
 
-        local xMult = PB_UTIL.calculate_stick_xMult(card)
+        local xMult = stickmult(card)
 
         return {
             key = key,
@@ -180,7 +203,7 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.joker_main then
-            local xMult = PB_UTIL.calculate_stick_xMult(card)
+            local xMult = stickmult(card)
 
             if xMult ~= 1 then
                 return {

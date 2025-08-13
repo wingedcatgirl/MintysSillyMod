@@ -18,10 +18,15 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
+    demicoloncompat = false,
     pools = {
         ["kity"] = true
     },
-    config = {extra = {temp = 0}},
+    config = {
+        extra = {
+            boost = 33
+        }
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then
@@ -29,21 +34,16 @@ SMODS.Joker {
         end
         return {
             key = key,
+            vars = {
+                card.ability.extra.boost,
+            },
         }
     end,
-    add_to_deck = function(self, card, from_debuff)
-        self.added_to_deck = true
-		for k, v in pairs(G.GAME.probabilities) do 
-            self.config.extra.temp = v
-			G.GAME.probabilities[k] = v*33
-		end
-    end,
-    remove_from_deck = function(self, card, from_debuff)
-        self.added_to_deck = false
-		for k, v in pairs(G.GAME.probabilities) do 
-			G.GAME.probabilities[k] = v/33
-		end
-    end,
     calculate = function(self, card, context)
+        if context.mod_probability and not context.blueprint then
+	        return {
+                numerator = context.numerator * card.ability.extra.boost
+            }
+        end
     end
 }

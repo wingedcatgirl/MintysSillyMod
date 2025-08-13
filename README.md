@@ -1,8 +1,8 @@
-## Minty's Silly Little Mod
+## Minty's Silly Little Mod - Delicious Chocolatey Goodness for Balatro
 
-A silly little mod that adds some silly little jokers and decks and things.
+A silly little mod that adds some silly little jokers and decks and things. It's chocolate because it's not vanilla. (It's not vanilla because I think calling a mod a word which in this context means "not modded" is silly.)
 
-[Mod main page on Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Minty%27s_Silly_Little_Mod) (Beware of SPOILERS!)
+[Mod main page on Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Minty%27s_Silly_Little_Mod) (Beware of SPOILERS! If you even care about discovering things on your own, that is 😛)
 
 Current features:
 - Cats
@@ -29,9 +29,8 @@ Planned features:
 ## Installation Instructions
 1. Install [Lovely](https://github.com/ethangreen-dev/lovely-injector), if you haven't already.
 2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already.
-   - **Minimum supported version for 0.6.0 is BETA-0410b**. If the latest dev version fails for any reason, use [the May 2025 release](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-0506a).
-   - Minimum supported version for latest commit is also **BETA-0410b**.
-3. Download the code as a ZIP file, from the latest release in Releases. ALTERNATELY: If you like dev branches, you can go get [the latest commit from the dev branch](https://github.com/wingedcatgirl/MintysSillyMod/archive/refs/heads/smods-0614a.zip) (FYI there may be unfinished content there!).
+   - **Minimum supported version for 0.7.0 is [BETA-0711a](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-0711a)**. If the latest dev version fails for any reason, use the linked release.
+3. Download the code from [the latest release](https://github.com/wingedcatgirl/MintysSillyMod/releases).
 4. Inside the zip file is the mod code in a folder, `MintysSillyMod-SOMEVERSION`. Put that folder in your Mods folder. The file structure should look like `Mods/MintysSillyMod-SOMEVERSION/MintysSillyMod.json`. In particular, there should _not_ be a second `MintysSillyMod` folder nested inside the first one. (You might prefer to remove the version number suffix from the folder name; it doesn't actually matter.)
 5. Have a little 3 as a treat! :3
 
@@ -44,17 +43,18 @@ Planned features:
 > Always start a new run after updating any mod. Attempting to continue an in-progress run may result in crashes.
 
 ## Config Options
-- Flavor text: Default true. Enables funky MtG-style quotes at the bottom of some cards.
-- Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things. Autimatically on if Dev Mode is enabled. Requires restart.
+<!-- - Balance level: Doesn't do anything yet but take a wild guess what the plan is. Yes we're jumping on this train. Blame [AikoShen](https://github.com/Aikoyori/Balatro-Aikoyoris-Shenanigans) for doing it second. -->
+- Flavor text: Default true. Enables funky MtG-style quotes at the bottom of Jokers, and also some other cards.
+- Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things. Automatically on if Dev Mode is enabled.
 - 3 lock: Whether the 3 suit and related content can appear in a run; "Unlocked" means it's available from the start, "Locked" means it requires using The Cat tarot or playing a Spectrum hand[^1], "Sealed" means it never appears unless a deck specifically enables it. Default "Locked".
 - Dev Mode: Default false. Enables unfinished content if there is any (requires restart) (there usually isn't any anyway). 
    - Suppress trace messages: Default false; stops `TRACE`-level console messages even if Dev Mode is on.
 
 ## Recommended additional mods:
-If you're trying out Minty's for the first time and want minimal other mods, go with [Talisman](https://github.com/MathIsFun0/Talisman) (unless you don't care about ^mult), [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) (unless you don't care about the Spectrum hand as a concept). The rest of the list is for after that.
+If you're trying out Minty's for the first time and want minimal other mods, go with [Talisman](https://github.com/MathIsFun0/Talisman) (unless you don't care about ^Mult as a concept), [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges as a concept) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) (unless you don't care about the Spectrum hand as a concept). The rest of the list is for after that.
 
 ### Technical
-- [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for all challenges in Minty's Mod. Note that it has some unresolved cross-mod bugs, so you might want to disable it if you don't care about challenges right now.
+- [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for all challenges in Minty's Mod.
 - [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) enables five-suit poker hands, which are a fun little thing to play with.
 - [Talisman](https://github.com/MathIsFun0/Talisman) enables scores above e308 and also ^mult, which is just fun imo. Also very technically part of the next list (we have some ^mult Jokers).
 
@@ -63,14 +63,14 @@ Minty's Mod adds content for all of the following mods. Those with ⭐️ are al
 - [Card Sleeves](https://github.com/larswijn/CardSleeves) ⭐️
 - [Cryptid](https://github.com/MathIsFun0/Cryptid)
 - [Drafting](https://github.com/spire-winder/Balatro-Draft) ⭐️ (FYI, the crossover content requires [a temporary beta branch](https://github.com/wingedcatgirl/Balatro-Draft/tree/suitupdate-temp) we made)
-- [Fusion Jokers](https://github.com/lshtech/Fusion-Jokers) ⭐️
-- [Gemstones](https://github.com/0fficialHalo/Gemstones)
+- [Fusion Jokers](https://github.com/wingedcatgirl/Fusion-Jokers) ⭐️
+- [Gemstones](https://github.com/wingedcatgirl/Gemstones)
 - [More Fluff](https://github.com/notmario/MoreFluff) ⭐️
 - [Ortalab](https://github.com/Eremel/Ortalab)
 - [Paperback](https://github.com/GitNether/paperback) ⭐️
 - [TOGA's Stuff](https://github.com/TheOneGoofAli/TOGAPackBalatro)
 
-The following mod add content for Minty's Mod and we haven't returned the favor (yet):
+The following mods add content for Minty's Mod and we haven't returned the favor (yet):
 - [Prism](https://github.com/blazingulag/Prism) ⭐️
 - [Random's Partners](https://github.com/Random71777/Random-s-Partners) (requires [Partner](https://github.com/Icecanno/Partner-API/))
 
@@ -87,7 +87,8 @@ Technically you can do whatever you want here, but here's the mods I like for th
 - [Item Remover](https://github.com/art-muncher/Item-Remover) lets you disable specific items from the Collection, if they're OP or bugged or you just don't like them. ([Banner](https://github.com/SylviBlossom/Banner) does the same thing and is newer, switch if one of them isn't doing what you want it to.)
 
 ## Adding cross-mod interactions
-- 3s: If you want things to interact with the 3s mechanic, use `Card:is_3()` for proper detection. It returns the number of times the card counts as a 3, or `false` if it doesn't, because `0` is truthy in Lua...
+- 3 suit: If you want things to interact with the 3s mechanic, use `Card:is_3()` for proper detection. It returns the number of times the card counts as a 3, or `false` if it doesn't, because `0` is truthy in Lua...
+- Face rank: If your modded suit includes Face art, give it `minty_facerank = true` to stop it from using the fallback art. Uh... I don't know how to properly implement cross-mod suit-rank combo art. I'll ask Kirbio UnStable, maybe. (Where by "ask" I mean "look in his published code".)
 - Legendary Kitys: Give your kittycats `pools = {["kity"] = true}` to enable them to be summoned by The Wand and The Bitz and to grant chips with Cat Cafe.
 - Gym Buddy boosts: Give your enhancements a `config.extra.gymboost` of `"chips"`, `"xchips"`, `"mult"`, `"xmult"`, `"cash"`, `"hchips"`, `"hxchips"`, `"hmult"`, `"hxmult"`, `"hcash"` or `"none"` to have them grant the corresponding boost when scored with cards not of that enhancement. (If you don't, one will be chosen randomly each time. Which maybe you prefer!) 
 - The Silliest, Littlest Deck: Add `pools = {["MintysSillyMod"] = true}` to have your cross-mod content appear with increased frequency when this deck is in play.
@@ -106,4 +107,4 @@ Technically you can do whatever you want here, but here's the mods I like for th
 - I'm most active on [tumblr](https://www.tumblr.com/wingedcatgirl), though I don't trust the CEO of that site not to burn it all down without notice.
 
 ----
-[^1]: yes, there are other mods that add the Spectrum hand, but what's the point of having a framework if every mod has to account for every other mod. you know. if you're running those mods, add spectrum framework. let _it_ account for every other mod.
+[^1]: Only if Spectrum Framework is active. Yes, there are other mods that add the Spectrum hand, but what's the point of having a framework if every mod has to account for every other mod. you know. If you're running those mods, add Spectrum Framework. Let _it_ account for every other mod.

@@ -3,6 +3,7 @@ SMODS.Enhancement({
     name = "Marble Card",
     atlas = "enhance",
     set = "Enhanced",
+    minty_rock = true,
     pos = {
         x = 0,
         y = 0
@@ -29,13 +30,13 @@ SMODS.Enhancement({
     replace_base_card = true,
     no_rank = true,
     any_suit = true,
-})
-
-local debuffcardref = Card.set_debuff
-function Card:set_debuff(should_debuff)
-    if self.ability.name == "m_minty_marble" then
-        self.debuff = false
-        return
+    calculate = function (self, card, context)
+        if context.forcetrigger then
+            return {
+                dollars = card.ability.p_dollars,
+                chips = card.ability.bonus,
+                mult = card.ability.mult
+            }
+        end
     end
-        return debuffcardref(self, should_debuff)
-end
+})

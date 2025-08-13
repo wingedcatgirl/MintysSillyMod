@@ -1,8 +1,3 @@
-SMODS.Sound { --Source: https://www.youtube.com/watch?v=gXE9UgrOdls
-    key = 'batnoise',
-    path = 'batnoise.ogg'
-}
-
 SMODS.Joker {
     key = "scoundrel",
     name = "The Scoundrel",
@@ -18,6 +13,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
+    demicoloncompat = false,
     config = {
         extra = {
             count = 0,
@@ -77,5 +73,3 @@ SMODS.Joker {
         end
     end
 }
-
--- See localization/en-us.lua to create joker text
