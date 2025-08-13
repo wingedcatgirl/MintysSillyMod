@@ -173,7 +173,7 @@ local files = {
         { name = "thenip" },
         { name = "thetree" },
         { name = "calico" },
-        { name = "thenipdx", mods = { {id = "MoreFluff"} } },
+        { name = "thenipdx" },
     },
     challenge = {
         { name = "challenges", mods = { { id = "ChDp" } } }
