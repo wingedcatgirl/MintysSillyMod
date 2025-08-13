@@ -94,9 +94,10 @@ local files = {
         { name = "treatovision" },
         { name = "peywet", },
         { name = "cakesword" },
+        { name = "copycat" },
         { name = "sabertooth" },
         { name = "neko" },
-        { name = "catpicmachine", mods = { { id = "Cryptid" } } },
+        { name = "catpicmachine", },
         --Rare Jokers
         { name = "wildsupport" },
         { name = "gymbuddy" },
@@ -105,7 +106,6 @@ local files = {
         { name = "doctor" },
         { name = "hyperfix" },
         { name = "jacobsladder" },
-        { name = "copycat" }, 
         --Fusion Jokers
         { name = "threecats", mods = { {id = "FusionJokers"} } },
         { name = "parkour", mods = { {id = "FusionJokers"} } },
@@ -171,7 +171,7 @@ local files = {
         { name = "apaw"},
         { name = "atail"},
         { name = "thenip" },
-        { name = "thetree", mods = { {id = "ortalab"} } },
+        { name = "thetree" },
         { name = "calico" },
         { name = "thenipdx", mods = { {id = "MoreFluff"} } },
     },
@@ -216,7 +216,7 @@ for folder, list in pairs(files) do
                 error("Minty's Mod: File '"..folder.."/"..name..".lua' failed to load! Please make sure there's nothing fucky with your file structure."..disable)
             end
 
-            
+
         else
             sendTraceMessage("Skipping file: "..folder..'/'..name..'.lua', "Minty's Mod")
         end

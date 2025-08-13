@@ -1,3 +1,5 @@
+local cry = (SMODS.Mods.Cryptid or {}).can_load
+
 SMODS.Joker {
     key = "catpicmachine",
     name = "ilo pi sitelen soweli",
@@ -34,8 +36,11 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        if not finity or crossover then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Cryptid" } }
+        end
         local key = self.key
-        local gameset = Cryptid.gameset(self)
+        local gameset = cry and Cryptid.gameset(self) or "mainline"
         key = key.."_"..gameset
         if MINTY.config.flavor_text then
             key = key.."_flavor"
@@ -50,6 +55,7 @@ SMODS.Joker {
         }
     end,
     in_pool = function()
+        if not cry then return false end
         if (not G.GAME) or (#G.GAME.tags == 0) then return false end
         if next(SMODS.find_card("j_cry_energia")) and next(SMODS.find_card("j_cry_kittyprinter")) then --little too powerful a combo, so I'm making it slightly inconvenient to assemble :p
             return false
@@ -62,6 +68,7 @@ SMODS.Joker {
         return false
     end,
     calculate = function(self, card, context)
+        if not cry then return end --Don't crash if a player cheats this into play without Cryptid active
         if ((context.joker_main and context.scoring_hand) or context.forcetrigger) and #G.GAME.tags ~= 0 then
             --MINTY.say("score time", "TRACE")
             local gameset = Cryptid.gameset(self)

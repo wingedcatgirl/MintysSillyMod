@@ -5,7 +5,7 @@ local rarity = finity and "finity_showdown" or 4
 SMODS.Joker {
     key = "finity_calico",
     name = "Calico on the Counter",
-    atlas = 'legendaries',
+    atlas = 'legends',
     pos = {
         x = 1,
         y = 2
