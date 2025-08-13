@@ -49,7 +49,7 @@ SMODS.Joker {
     end,
     in_pool = function (self, args)
         local finity = (SMODS.Mods["finity"] or {}).can_load
-        local calico_defeated = G.GAME.blinds_defeated.bl_minty_calico_counter
+        local calico_defeated = G.GAME.blinds_defeated and G.GAME.blinds_defeated.bl_minty_calico_counter
 
         return finity or calico_defeated
     end,
