@@ -16,7 +16,18 @@ SMODS.Suit{ -- 3s
 
     in_pool = function(self, args)
         return MINTY.threeSuit_in_pool()
-    end
+    end,
+    --[[ loc_vars doesn't happen in the customize menu; unsure where better to put this info 
+    loc_vars = function (self, info_queue, card)
+        MINTY.say("loc_vars is being calculated for this 3 lol", "TRACE")
+        if G.STAGE == G.STAGES.MAIN_MENU then
+            info_queue[#info_queue+1] = {
+            set = "Other",
+            key = "minty_3credit",
+        }
+        end
+    end,
+    --]]
 }
 
 if (SMODS.Mods["paperback"] or {}).can_load then

@@ -1567,6 +1567,15 @@ return {
 					"{C:chips}+#1#{} Chips when held"
 				}
 			},
+			["m_minty_spline"] = {
+				["name"] = "Spline Card",
+				["label"] = "Spline Card",
+				["text"] = {
+					"{C:green}#1# in #2#{} chance",
+					"to gain {C:chips}+#3#{} permanent",
+					"Chips when scored",
+				}
+			},
 			["m_minty_crystal"] = {
 				["name"] = "Crystal Card",
 				["label"] = "Crystal Card",
@@ -1584,14 +1593,6 @@ return {
 					"{X:mult,C:white} X#1# {} Mult, {C:green}#2# in #3#{}",
 					"chance to play immediately",
 					"upon highlighting"
-				}
-			},
-			["m_minty_spline"] = {
-				["name"] = "Spline Card",
-				["label"] = "Spline Card",
-				["text"] = {
-					"TBA whatever this does!",
-					"{C:inactive,s:0.8}okay <3 yay <3{}"
 				}
 			},
 		},

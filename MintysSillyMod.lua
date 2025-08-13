@@ -151,8 +151,9 @@ local files = {
         { name = "marble" }, --Enhancements
         { name = "microcline" },
         { name = "crystal" },
-        { name = "garbled", mods = { { id = "MoreFluff" } } },
-        { name = "pistol", mods = { { id = "MoreFluff" } } },
+        { name = "garbled" }, --Rotarot enhancements
+        { name = "pistol" },
+        { name = "spline" },
         { name = "cementseal" }, --Seals
     },
     backs = {

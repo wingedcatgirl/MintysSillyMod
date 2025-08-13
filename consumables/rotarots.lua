@@ -145,22 +145,14 @@ SMODS.Consumable({
     can_use = function(self, card)
         return #G.hand.highlighted >= 1 and #G.hand.highlighted <= card.ability.max_highlighted
     end,
-    in_pool = function (self, args)
-        return false
-    end,
     loc_vars = function(self, info_queue, card)
         --info_queue[#info_queue + 1] = G.P_CENTERS[self.config.mod_conv]
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
-
-		info_queue[#info_queue + 1] = {
-            set = "Enhanced",
-            key = "m_minty_spline",
-            config = {},
-        }
-        info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Me", "to decide what the hell it does" } }
+        local luck, odds = SMODS.get_probability_vars(card, 1, 3, "minty_spline_desc", false)
+		info_queue[#info_queue + 1] = G.P_CENTERS[self.config.mod_conv]
         local plural = false
         if self.config.max_highlighted ~= 1 then plural = true end
         local s = plural and "s" or ""
