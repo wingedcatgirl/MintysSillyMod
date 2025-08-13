@@ -870,7 +870,7 @@ return {
 					' ',
 					'{C:inactive,s:0.8}Yum delicis sun >:3',
 					'{C:inactive,s:0.8}In definitely related news:',
-					'{C:inactive,s:0.8}you\'re a mortal!'
+					'{C:inactive,s:0.8}you\'re mortal!'
 				},
 			},
 			["j_minty_eaten"] = {
@@ -1225,7 +1225,8 @@ return {
 					"{C:attention}#1#{} selected card#2#",
 					"to random {C:attention}face card#3#{}",
 					" ",
-					"{C:inactive,s:0.8}TBA!"
+					"{C:inactive,s:0.8}You smirk. Critical hit rate up!",
+					"{C:inactive,s:0.8}... which does nothing in this game!"
 				},
 			},
 			["c_minty_abacus"] = {
@@ -1243,7 +1244,7 @@ return {
 					"{C:attention}#1#{} selected card#2#",
 					"to random {C:attention}number card#3#{}",
 					" ",
-					"{C:inactive,s:0.8}TBA!"
+					"{C:inactive,s:0.8}32.33 (repeating, of course)!"
 				},
 			},
 			["c_minty_boredkid"] = {
@@ -1283,7 +1284,7 @@ return {
 				},
 			},
 			["c_minty_gleam"] = {
-				["name"] = "Crystal maker",
+				["name"] = "The Gleam",
 				["text"] = {
 					"Converts up to",
 					"{C:attention}#1#{} selected card#2#",
@@ -1291,13 +1292,13 @@ return {
 				},
 			},
 			["c_minty_gleam_flavor"] = {
-				["name"] = "Crystal maker",
+				["name"] = "The Gleam",
 				["text"] = {
 					"Converts up to",
 					"{C:attention}#1#{} selected card#2#",
 					"to #3#{C:attention}Crystal Card#2#{}",
 					" ",
-					"{C:inactive,s:0.8}TBA",
+					"{C:inactive,s:0.8}But consider: SHINY",
 				},
 			},
 			["c_minty_geologist"] = {
@@ -1315,7 +1316,7 @@ return {
 					"{C:attention}#1#{} selected card#2#",
 					"to #3#random {C:attention}#4##2#{}",
 					" ",
-					"{C:inactive,s:0.8}TBA{}"
+					"{C:inactive,s:0.8}Please look at these cool rocks{}"
 				},
 			},
 			["c_minty_bitz"] = {

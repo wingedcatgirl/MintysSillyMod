@@ -1,16 +1,18 @@
-local rarity = (SMODS.Mods["finity"] or {}).can_load and "finity_showdown" or 4
+local finity = (SMODS.Mods["finity"] or {}).can_load
+local crossover = MINTY.config.include_crossover
+local rarity = finity and "finity_showdown" or 4
 
 SMODS.Joker {
     key = "finity_calico",
     name = "Calico on the Counter",
-    atlas = 'jokerdoodles',
+    atlas = 'legendaries',
     pos = {
-        x = 0,
-        y = 0
+        x = 1,
+        y = 2
     },
     soul_pos = {
         x = 1,
-        y = 0
+        y = 3
     },
     rarity = rarity,
     cost = 5,
@@ -37,6 +39,9 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
+        if not finity or crossover then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Finity" } }
+        end
         return {
             key = key,
             vars = {
@@ -48,10 +53,9 @@ SMODS.Joker {
         }
     end,
     in_pool = function (self, args)
-        local finity = (SMODS.Mods["finity"] or {}).can_load
         local calico_defeated = G.GAME.blinds_defeated and G.GAME.blinds_defeated.bl_minty_calico_counter
 
-        return finity or calico_defeated
+        return finity or (crossover and calico_defeated)
     end,
     calculate = function(self, card, context)
         if context.forcetrigger then

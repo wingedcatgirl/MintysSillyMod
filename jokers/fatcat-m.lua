@@ -3,12 +3,12 @@ SMODS.Joker {
     name = "Fat Cat",
     atlas = 'jokerdoodles',
     pos = {
-        x = 0,
-        y = 0
+        x = 6,
+        y = 5
     },
     soul_pos = {
-        x = 1,
-        y = 0
+        x = 6,
+        y = 4
     },
     rarity = 3,
     cost = 11,

@@ -254,6 +254,7 @@ MINTY.tarotflip = function (card, args)
     local edi = args.edi
     local edis = args.random_edis
     local seed = args.seed or "minty_tarotflip_seedless_probably_shouldn't_happen_tbh"
+    local sound = args.sound
     if not (rank or ranks or suit or suits or enh or enhs or edi or edis) or (rank and ranks) or (suit and suits) or (enh and enhs) or (edi and edis) or ((ranks or suits or enhs or edis) and not args.seed) then
         MINTY.say("hey you didn't type the right arguments?", "ERROR")
         tprint(args or {})
@@ -310,7 +311,7 @@ MINTY.tarotflip = function (card, args)
             delay = 0.15,
             func = function()
                 G.hand.highlighted[i]:flip()
-                play_sound('tarot2', percent, 0.6)
+                play_sound(sound or 'tarot2', percent, 0.6)
                 G.hand.highlighted[i]:juice_up(0.3, 0.3)
                 return true
             end

@@ -29,9 +29,8 @@ SMODS.Consumable {
 	hidden = true,
 	soul_set = 'Tarot',
 	soul_rate = 0.003,
-	atlas = "placeholder",
-	pos = { x = 2, y = 9 },
-	soul_pos = { x = 2, y = 8},
+	atlas = "spectrals",
+	pos = { x = 0, y = 0 },
 	can_use = function(self, card)
         local total = (#G.jokers.highlighted + #G.hand.highlighted)
         return (total <= self.config.max_highlighted) and (total ~= 0)
@@ -102,6 +101,7 @@ SMODS.Consumable {
 								target.ability[k] = nil
 							end
 						end
+						SMODS.debuff_card(target, "reset", "minty_dekaja")
 						play_sound("tarot2", percent)
 						target:juice_up(0.3, 0.3)
 						return true

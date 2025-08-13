@@ -11,7 +11,7 @@ SMODS.Consumable{
         badges[1] = create_badge("Tarot?", get_type_colour(self or card.config, card), nil, 1.2)
     end,
 
-    config = {max_highlighted = 2, mod_conv = 'randomize_rank'},
+    config = {max_highlighted = 3, mod_conv = 'randomize_rank'},
 
     loc_vars = function(self, info_queue, card)
 		local key = self.key

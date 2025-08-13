@@ -19,9 +19,8 @@ SMODS.Consumable {
 		}
 	end,
 	cost = 4,
-	atlas = "placeholder", --TODO move spectral art to a dedicated atlas
-	pos = { x = 2, y = 9 },
-	--soul_pos = { x = 1, y = 0},
+	atlas = "spectrals",
+	pos = { x = 3, y = 2 },
 	use = function(self, card, area, copier)
 
 	end,
