@@ -24,6 +24,7 @@ SMODS.current_mod.config_tab = function()
                 colour = G.C.GREY
             }),
             --]]
+        --[[
         create_option_cycle {
             label = "Balance Level",
             options = {'Restrained', "Regular", "Ridiculous"},
@@ -33,6 +34,7 @@ SMODS.current_mod.config_tab = function()
             opt_callback = 'minty_optcycle',
             w = 5.5
             },
+        --]]
         create_toggle({
             label = "Flavor text",
             ref_table = MINTY.config,

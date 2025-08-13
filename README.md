@@ -29,9 +29,8 @@ Planned features:
 ## Installation Instructions
 1. Install [Lovely](https://github.com/ethangreen-dev/lovely-injector), if you haven't already.
 2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already.
-   - **Minimum supported version for 0.6.0 is BETA-0410b**. If the latest update fails for any reason, use [the May 2025 release](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-0506a).
-   - Minimum supported version for latest commit is **[BETA-0711a](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-0711a)**.
-3. Download the code  -- you're currently looking at a dev branch, so I assume you want [the latest commit](https://github.com/wingedcatgirl/MintysSillyMod/archive/refs/heads/next-smods.zip).
+   - **Minimum supported version for 0.7.0 is [BETA-0711a](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-0711a)**. If the latest dev version fails for any reason, use the linked release.
+3. Download the code from [the latest release](https://github.com/wingedcatgirl/MintysSillyMod/releases).
 4. Inside the zip file is the mod code in a folder, `MintysSillyMod-SOMEVERSION`. Put that folder in your Mods folder. The file structure should look like `Mods/MintysSillyMod-SOMEVERSION/MintysSillyMod.json`. In particular, there should _not_ be a second `MintysSillyMod` folder nested inside the first one. (You might prefer to remove the version number suffix from the folder name; it doesn't actually matter.)
 5. Have a little 3 as a treat! :3
 
@@ -44,7 +43,7 @@ Planned features:
 > Always start a new run after updating any mod. Attempting to continue an in-progress run may result in crashes.
 
 ## Config Options
-- Balance level: Doesn't do anything yet but take a wild guess what the plan is. Yes we're jumping on this train. Blame [AikoShen](https://github.com/Aikoyori/Balatro-Aikoyoris-Shenanigans) for doing it second.
+<!-- - Balance level: Doesn't do anything yet but take a wild guess what the plan is. Yes we're jumping on this train. Blame [AikoShen](https://github.com/Aikoyori/Balatro-Aikoyoris-Shenanigans) for doing it second. -->
 - Flavor text: Default true. Enables funky MtG-style quotes at the bottom of Jokers, and also some other cards.
 - Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things. Automatically on if Dev Mode is enabled.
 - 3 lock: Whether the 3 suit and related content can appear in a run; "Unlocked" means it's available from the start, "Locked" means it requires using The Cat tarot or playing a Spectrum hand[^1], "Sealed" means it never appears unless a deck specifically enables it. Default "Locked".
@@ -52,7 +51,7 @@ Planned features:
    - Suppress trace messages: Default false; stops `TRACE`-level console messages even if Dev Mode is on.
 
 ## Recommended additional mods:
-If you're trying out Minty's for the first time and want minimal other mods, go with [Talisman](https://github.com/MathIsFun0/Talisman) (unless you don't care about ^Mult), [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) (unless you don't care about the Spectrum hand as a concept). The rest of the list is for after that.
+If you're trying out Minty's for the first time and want minimal other mods, go with [Talisman](https://github.com/MathIsFun0/Talisman) (unless you don't care about ^Mult as a concept), [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges as a concept) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) (unless you don't care about the Spectrum hand as a concept). The rest of the list is for after that.
 
 ### Technical
 - [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for all challenges in Minty's Mod.
