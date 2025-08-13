@@ -74,6 +74,30 @@ position = 'at'
 pattern = 'elseif self.name == "Big Blind" then'
 payload = 'elseif self.name == "Big Blind" or self.big then'
 
+# Saving non-boss status
+[[patches]]
+[patches.pattern]
+target = 'blind.lua'
+match_indent = true
+position = 'before'
+pattern = 'boss = self.boss,'
+payload = '''
+small = self.small,
+big = self.big,
+'''
+
+# Loading non-boss status
+[[patches]]
+[patches.pattern]
+target = 'blind.lua'
+match_indent = true
+position = 'before'
+pattern = 'self.boss = blindTable.boss'
+payload = '''
+self.small = blindTable.small
+self.big = blindTable.big
+'''
+
 [[patches]]
 [patches.pattern]
 target = "functions/common_events.lua"
