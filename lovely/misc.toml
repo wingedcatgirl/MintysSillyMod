@@ -18,6 +18,7 @@ payload = '''
             if (not _legendary) and v.rarity == 4 then
                 add = nil
             end
+            if SMODS.Rarities[v.rarity] and SMODS.Rarities[v.rarity].default_weight == 0 then add = nil end --Crude, current weight would be better but idk how to get that
             --if add then MINTY.say("Joker Boy Allowed 2", "TRACE") else MINTY.say("No Joker Allowed 2", "TRACE") end
         end
 '''

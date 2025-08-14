@@ -39,7 +39,7 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
-        if not finity or crossover then
+        if not (finity or crossover) then
             info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Finity" } }
         end
         return {
