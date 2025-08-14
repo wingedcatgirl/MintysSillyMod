@@ -5,9 +5,21 @@ SMODS.Atlas {
     py = 95
 }
 
+local kitties = {
+    "black",
+    "calico",
+    "grey",
+    "orange",
+    "plural",
+    "trans",
+    "white",
+}
+
+local color = kitties[math.random(1,#kitties)]
+
 SMODS.Atlas({
     key = 'modicon',
-    path = 'mod icon (cat).png',
+    path = 'kitty ('..color..').png',
     px = 34,
     py = 34
 })
