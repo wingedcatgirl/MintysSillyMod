@@ -1301,6 +1301,24 @@ return {
 					"{C:inactive,s:0.8}But consider: SHINY",
 				},
 			},
+			["c_minty_magnet"] = {
+				["name"] = "The Magnet",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#{C:attention}Hematite Card#2#{}",
+				},
+			},
+			["c_minty_magnet_flavor"] = {
+				["name"] = "The Magnet",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#{C:attention}Hematite Card#2#{}",
+					" ",
+					"{C:inactive,s:0.8}... but how does it work?"
+				},
+			},
 			["c_minty_geologist"] = {
 				["name"] = "The Geologist",
 				["text"] = {
@@ -1575,6 +1593,15 @@ return {
 					"{C:green}#1# in #2#{} chance",
 					"to gain {C:chips}+#3#{} permanent",
 					"Chips when scored",
+				}
+			},
+			["m_minty_hematite"] = {
+				["name"] = "Hematite Card",
+				["label"] = "Hematite Card",
+				["text"] = {
+					"No rank, no suit",
+					"{C:chips}+#1#{} Chips when scored",
+					"{X:mult,C:white}X#2#{} Mult when held"
 				}
 			},
 			["m_minty_crystal"] = {

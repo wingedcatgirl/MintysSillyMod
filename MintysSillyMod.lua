@@ -131,6 +131,7 @@ local files = {
         { name = "gleam" },
         { name = "geologist" },
         { name = "bitz" },
+        { name = "magnet" },
     },
     spectrals = {
         { name = "sixyears" },
@@ -151,6 +152,7 @@ local files = {
         { name = "marble" }, --Enhancements
         { name = "microcline" },
         { name = "crystal" },
+        { name = "hematite" },
         { name = "garbled" }, --Rotarot enhancements
         { name = "pistol" },
         { name = "spline" },
