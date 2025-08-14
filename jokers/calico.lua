@@ -15,7 +15,7 @@ SMODS.Joker {
         y = 3
     },
     rarity = rarity,
-    cost = 5,
+    cost = 10,
     pools = {
         ["kity"] = true,
     },
