@@ -11,7 +11,7 @@ pattern = '''
 function Card:can_calculate(ignore_debuff, ignore_sliced)
 '''
 payload = '''
-ignore_debuff = ignore_debuff or not not SMODS.find_card("j_minty_finity_calico")
+ignore_debuff = ignore_debuff or not not next(SMODS.find_card("j_minty_finity_calico"))
 '''
 match_indent = true
 
@@ -24,7 +24,7 @@ pattern = '''
 card_eval_status_text(card, 'debuff')
 '''
 payload = '''
-if not not SMODS.find_card("j_minty_finity_calico") then
+if next(SMODS.find_card("j_minty_finity_calico")) then
     context.no_chips = true
     SMODS.score_card(card, context)
     context.no_chips = nil
