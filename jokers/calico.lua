@@ -15,7 +15,9 @@ SMODS.Joker {
         y = 3
     },
     credit = {
-        art = "JPenguin" --https://discord.com/channels/1116389027176787968/1308185262664450068/1405665038571929760
+        art = "JPenguin", --https://discord.com/channels/1116389027176787968/1308185262664450068/1405665038571929760
+        code = "wingedcatgirl",
+        concept = "wingedcatgirl",
     },
     rarity = rarity,
     cost = 10,
