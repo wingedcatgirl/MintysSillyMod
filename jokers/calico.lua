@@ -14,6 +14,9 @@ SMODS.Joker {
         x = 1,
         y = 3
     },
+    credit = {
+        art = "JPenguin" --https://discord.com/channels/1116389027176787968/1308185262664450068/1405665038571929760
+    },
     rarity = rarity,
     cost = 10,
     pools = {
