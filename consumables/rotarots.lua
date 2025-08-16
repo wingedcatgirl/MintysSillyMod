@@ -102,9 +102,6 @@ SMODS.Consumable({
     config = {
         max_highlighted = 1,
         mod_conv = "m_minty_pistol",
-        enh = {
-            xmult = 2
-        },
     },
     cost = 3,
     atlas = "rotarots",
@@ -134,8 +131,6 @@ SMODS.Consumable({
     config = {
         max_highlighted = 1,
         mod_conv = "m_minty_spline",
-        enh = {
-        },
     },
     cost = 3,
     atlas = "rotarots",
@@ -148,10 +143,49 @@ SMODS.Consumable({
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS[self.config.mod_conv]
         local key = self.key
-        if MINTY.config.flavor_text then
-            key = self.key.."_flavor"
-        end
-        local luck, odds = SMODS.get_probability_vars(card, 1, 3, "minty_spline_desc", false)
+        --local luck, odds = SMODS.get_probability_vars(card, 1, 3, "minty_spline_desc", false)
+        local plural = false
+        if self.config.max_highlighted ~= 1 then plural = true end
+        local s = plural and "s" or ""
+        local a = plural and "" or "a "
+
+        return {
+            key = key,
+            vars = {
+                card and card.ability.max_highlighted or self.config.max_highlighted,
+                localize{type = 'name_text', set = 'Enhanced', key = self.config.mod_conv},
+                s,
+                a,
+        } }
+    end
+})
+
+
+SMODS.Consumable({
+    object_type = "Consumable",
+    set = "Rotarot",
+    name = "The Magnet!",
+    key = "rot_magnet",
+    pos = { x = 2, y = 1 },
+    config = {
+        max_highlighted = 1,
+        mod_conv = "m_minty_dynamite",
+    },
+    cost = 3,
+    atlas = "rotarots",
+    unlocked = true,
+    discovered = false,
+    display_size = { w = 107, h = 107 },
+    can_use = function(self, card)
+        return #G.hand.highlighted >= 1 and #G.hand.highlighted <= card.ability.max_highlighted
+    end,
+    in_pool = function (self, args)
+        return false
+    end,
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[self.config.mod_conv]
+        local key = self.key
+        --local luck, odds = SMODS.get_probability_vars(card, 1, 3, "minty_dynamite_desc", false) still don't know what dynamite Does lol
         local plural = false
         if self.config.max_highlighted ~= 1 then plural = true end
         local s = plural and "s" or ""

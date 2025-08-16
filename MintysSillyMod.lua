@@ -156,6 +156,7 @@ local files = {
         { name = "garbled" }, --Rotarot enhancements
         { name = "pistol" },
         { name = "spline" },
+        { name = "dynamite" },
         { name = "cementseal" }, --Seals
     },
     backs = {

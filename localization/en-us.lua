@@ -1604,6 +1604,14 @@ return {
 					"{X:mult,C:white}X#2#{} Mult when held"
 				}
 			},
+			["m_minty_dynamite"] = {
+				["name"] = "Dynamite Card",
+				["label"] = "Dynamite Card",
+				["text"] = {
+					"Does something! idk what yet!",
+					"Probably involves explosions!"
+				}
+			},
 			["m_minty_crystal"] = {
 				["name"] = "Crystal Card",
 				["label"] = "Crystal Card",
@@ -1703,10 +1711,10 @@ return {
 					"to #4#{C:attention}#2##3#{}",
 				},
 			},
-			["c_minty_rot_dorf_flavor"] = {
-				["name"] = "The Dwarf!",
+			["c_minty_rot_magnet"] = {
+				["name"] = "The Magnet!",
 				["text"] = {
-					"Reticulates up to",
+					"Enhances up to",
 					"{C:attention}#1#{} selected card#3#",
 					"to #4#{C:attention}#2##3#{}",
 				},
