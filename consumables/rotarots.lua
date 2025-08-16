@@ -185,7 +185,6 @@ SMODS.Consumable({
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS[self.config.mod_conv]
         local key = self.key
-        --local luck, odds = SMODS.get_probability_vars(card, 1, 3, "minty_dynamite_desc", false) still don't know what dynamite Does lol
         local plural = false
         if self.config.max_highlighted ~= 1 then plural = true end
         local s = plural and "s" or ""
