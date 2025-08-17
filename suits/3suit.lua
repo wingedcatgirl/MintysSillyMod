@@ -33,3 +33,9 @@ SMODS.Suit{ -- 3s
 if (SMODS.Mods["paperback"] or {}).can_load then
     table.insert(PB_UTIL.light_suits, 'minty_3s')
 end
+
+if AKYRS_CROSSMOD then
+    AKYRS_CROSSMOD.suit_to_atlas_map["minty_3s"] = {
+        "minty_pure3", {x=0, y=0}
+    }
+end

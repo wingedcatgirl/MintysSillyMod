@@ -158,8 +158,22 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = 'pure3',
+    path = "pure 3 (aikoshen).png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
     key = 'facerank',
     path = "facerank.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = 'pureface',
+    path = "pure face (aikoshen).png",
     px = 71,
     py = 95
 }

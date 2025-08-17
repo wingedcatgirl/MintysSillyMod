@@ -88,3 +88,9 @@ SMODS.Rank{
         end
     end
 }
+
+if AKYRS_CROSSMOD then
+    AKYRS_CROSSMOD.rank_to_atlas_map["minty_face"] = {
+        "minty_pureface", {x=0, y=0}
+    }
+end
