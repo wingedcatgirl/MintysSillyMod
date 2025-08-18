@@ -101,7 +101,7 @@ SMODS.Joker {
 			and not context.retrigger_joker
 			and not context.blueprint
 		then
-            if SMODS.pseudorandom_probability(card, "minty_excited", 1, card.ability.extra.odds, "minty_excited") then
+            if not SMODS.pseudorandom_probability(card, "minty_excited", 1, card.ability.extra.odds, "minty_excited") then
                 card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipgain
                 return {
                     delay = 0.2,
