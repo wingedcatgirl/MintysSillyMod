@@ -176,12 +176,12 @@ MINTY.centercount = function (args)
     MINTY.say(tostring(count))
 end
 
----@param this? string Pass a sleeve key to check if it already got unlocked this session
+---@param this? string Pass a sleeve key to check if it already got unlocked
 ---@param debug? boolean Print debugging strings
 ---@return string result Key of the stake that will unlock next sleeve, or already unlocked sleeve with key passed into `this` 
 ---@return integer count Count (order) of the same stake as `string`
 MINTY.sleeveunlockcheck = function(this, debug)
-  MINTY.nextSleeveUnlock = MINTY.nextSleeveUnlock or {}
+  G.PROFILES[G.SETTINGS.profile].mintysleeves = G.PROFILES[G.SETTINGS.profile].mintysleeves or {}
 
   local sleeves = {}
     for k,_ in pairs(G.P_CENTERS) do
@@ -211,11 +211,12 @@ MINTY.sleeveunlockcheck = function(this, debug)
     end
   end
 
-  MINTY.nextSleeveUnlock.key, MINTY.nextSleeveUnlock.result = result, count
-  if MINTY.nextSleeveUnlock[this] then --patch to report the stake unlocked _on_ in the postgame unlock report thing; this doesn't save if you close the game tho
-    result = MINTY.nextSleeveUnlock[this]
+  G.PROFILES[G.SETTINGS.profile].mintysleeves.key, G.PROFILES[G.SETTINGS.profile].mintysleeves.result = result, count
+  if G.PROFILES[G.SETTINGS.profile].mintysleeves[this] then --put it in the settings?
+    result = G.PROFILES[G.SETTINGS.profile].mintysleeves[this]
   end
 
+  G:save_settings()
   return result, count
 end
 

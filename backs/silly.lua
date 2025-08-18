@@ -22,7 +22,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
           if self.get_current_deck_key() ~= "b_minty_sillylittledeck" then return end
           local skey, scount = MINTY.sleeveunlockcheck()
           if args and args.type == 'win_custom' and G.GAME.stake == scount then
-              MINTY.nextSleeveUnlock[self.key] = skey
+              G.PROFILES[G.SETTINGS.profile].mintysleeves[self.key] = skey
               unlock_card(self)
           end
         end,
