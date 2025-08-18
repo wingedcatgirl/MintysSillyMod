@@ -42,6 +42,7 @@ SMODS.Enhancement({
 
         if context.minty_pistolclick and (G.STATE == G.STATES.SELECTING_HAND or G.STATE == G.STATES.DRAW_TO_HAND) then
             if context.clicked_card ~= card then return end
+            if not card.highlighted then return end
             --MINTY.say("Pistol card clicked, calculating!")
             local cards = {}
             local clicked = false
