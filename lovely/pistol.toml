@@ -13,7 +13,7 @@ payload = '''
 
 if self.ability and self.ability.name == "Pistol Card" then
     --MINTY.say("Pistol card clicked, time to calculate!!!")
-    SMODS.calculate_context({minty_pistolclick = true})
+    SMODS.calculate_context({minty_pistolclick = true, clicked_card = self})
 end
 
 '''
