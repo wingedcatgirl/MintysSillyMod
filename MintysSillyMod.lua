@@ -166,6 +166,7 @@ local files = {
         { name = "heart" },
         { name = "spade" },
         { name = "3" },
+        { name = "drippy" },
         { name = "silly" },
     },
     blinds = {

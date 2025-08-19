@@ -13,6 +13,7 @@ return {
 			["k_minty_active"] = "Active!",
 			["k_minty_sliced"] = "Sliced!",
 			["k_minty_bang"] = "Bang!",
+			["k_minty_kaboom"] = "Kablooie!",
 			["k_minty_bye"] = "Bye-bye!",
 			["k_minty_rescheduled"] = "Rescheduled!",
 			["k_minty_ordered"] = "Ordered!",
@@ -1125,6 +1126,13 @@ return {
 					"and {C:attention}The Cat{} tarot",
 				},
 			},
+			["b_minty_drippy"] = {
+				["name"] = "Drippy Deck",
+				["text"] = {
+                    "Every {C:attention}played card{}",
+                    "counts in scoring",
+				},
+			},
 			["b_minty_sillylittledeck"] = {
 				["name"] = "The Silliest, Littlest Deck",
 				["text"] = {
@@ -1608,8 +1616,8 @@ return {
 				["name"] = "Dynamite Card",
 				["label"] = "Dynamite Card",
 				["text"] = {
-					"Does something! idk what yet!",
-					"Probably involves explosions!"
+					"Reduce Blind size by {C:mult}#1#%{}",
+					"{C:mult}self-destructs{}"
 				}
 			},
 			["m_minty_crystal"] = {

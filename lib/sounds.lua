@@ -12,3 +12,8 @@ SMODS.Sound { --Sound by jjcunning https://freesound.org/people/jjcunning/sounds
     key = 'gunshot',
     path = 'jjcunning gun noise.ogg'
 }
+
+SMODS.Sound { --Deltarune reference, original source is this thing: https://soundeffects.fandom.com/wiki/Sound_Ideas,_EXPLOSION_-_LARGE_EXPLOSION_03_(H-B)
+    key = 'explosion',
+    path = 'lofi explosion.wav'
+}
