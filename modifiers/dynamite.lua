@@ -23,7 +23,8 @@ SMODS.Enhancement({
         }
     end,
     calculate = function (self, card, context)
-        if (context.destroy_card and context.destroy_card == card and context.cardarea == G.play) or context.forcetrigger then
+        if (context.main_scoring and context.cardarea == G.play) or context.forcetrigger then
+            card.kablooied = true
             return {
                 remove = true,
                 message = localize("k_minty_kaboom"),
@@ -37,6 +38,12 @@ SMODS.Enhancement({
                         return true
                     end}))
                 end
+            }
+        end
+
+        if context.destroy_card and context.destroy_card == card and card.kablooied then
+            return {
+                remove = true
             }
         end
     end
