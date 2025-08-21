@@ -137,7 +137,7 @@ return {
 					"{C:money}+$#2#{} value at end of round to",
 					"self and a random other Joker",
 					" ",
-					"{C:inactive,s:0.8}Quack, good sir and/or madam."
+					"{C:inactive,s:0.8}Quack, good #4#."
 				},
 			},
 			["j_minty_jacobsladder"] = {

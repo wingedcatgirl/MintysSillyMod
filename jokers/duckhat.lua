@@ -39,6 +39,7 @@ SMODS.Joker {
                 card.ability.extra.interest,
                 card.ability.extra.valboost,
                 card.ability.extra.dollars,
+                G.PROFILES[G.SETTINGS.profile].name or "player"
             }
         }
     end,
