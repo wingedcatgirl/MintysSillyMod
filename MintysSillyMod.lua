@@ -83,6 +83,7 @@ local files = {
         { name = "chisel" },
         { name = "bucket" },
         { name = "chocobar" },
+        { name = "duckhat" },
         { name = "ascetic" },
         { name = "churu",  },
         --Uncommon Jokers

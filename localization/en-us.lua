@@ -120,6 +120,26 @@ return {
 					"{C:inactive,s:0.8}Seriously? Lucky bastard."
 				},
 			},
+			["j_minty_duckhat"] = {
+				["name"] = "Duck in a Top Hat Thursday",
+				["text"] = {
+					"{C:money}+$#1#{} to interest cap",
+					"{C:money}+$#3#{} at end of round",
+					"{C:money}+$#2#{} value at end of round to",
+					"self and a random other Joker",
+				},
+			},
+			["j_minty_duckhat_flavor"] = {
+				["name"] = "Duck in a Top Hat Thursday",
+				["text"] = {
+					"{C:money}+$#1#{} to interest cap",
+					"{C:money}+$#3#{} at end of round",
+					"{C:money}+$#2#{} value at end of round to",
+					"self and a random other Joker",
+					" ",
+					"{C:inactive,s:0.8}Quack, good sir and/or madam."
+				},
+			},
 			["j_minty_jacobsladder"] = {
 				["unlock"] = {
 					"Play a hand containing",
