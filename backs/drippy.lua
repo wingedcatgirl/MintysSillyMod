@@ -13,12 +13,12 @@ SMODS.Back{
     end
 }
 
-if (SMODS.Mods["CardSleeves"] or {}).can_load and false then
+if (SMODS.Mods["CardSleeves"] or {}).can_load then
     CardSleeves.Sleeve({
         key = "drippysleeve",
         name = "Drippy Sleeve",
         atlas = "sleeves",
-        pos = { x = 1, y = 0 },
+        pos = { x = 0, y = 2 },
         config = {},
         unlocked = false,
         check_for_unlock = function (self, args)
@@ -59,6 +59,12 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load and false then
         end,
         calculate = function (self, sleeve, context)
             if context.modify_scoring_hand then
+                return {
+                    add_to_hand = true,
+                }
+            end
+
+            if self.get_current_deck_key() == "b_minty_drippy" and context.minty_omegasplash then
                 return {
                     add_to_hand = true,
                 }

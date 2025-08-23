@@ -1584,6 +1584,20 @@ return {
 					"more likely to appear,",
 				},
 			},
+			["sleeve_minty_drippysleeve"] = {
+				["name"] = "Drippy Sleeve",
+				["text"] = {
+                    "Every {C:attention}played card{}",
+                    "counts in scoring",
+				},
+			},
+			["sleeve_minty_drippysleeve_alt"] = {
+				["name"] = "Drippy Sleeve",
+				["text"] = {
+                    "{C:attention}Held cards{} also",
+                    "count in scoring",
+				},
+			},
 		},
 		["Enhanced"] = {
 			["m_stone"] = {
