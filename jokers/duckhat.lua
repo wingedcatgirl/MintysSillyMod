@@ -1,3 +1,5 @@
+local interest_req = 5 --Thunk _hard-coded_ this... but this'll be easier to change if smods ever makes it a variable
+
 SMODS.Joker {
     key = "duckhat",
     name = "Duck in a Top Hat Thursday",
@@ -26,6 +28,9 @@ SMODS.Joker {
             interest = 4,
             valboost = 2,
             dollars = 3,
+        },
+        immutable = {
+            actualinterestchange = 0
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -47,19 +52,19 @@ SMODS.Joker {
         return MINTY.config.dev_mode or self:thursday()
     end,
     add_to_deck = function (self, card, from_debuff)
-        local interest_req = 5 --Thunk _hard-coded_ this... but this'll be easier to change if smods ever makes it a variable
         G.GAME.interest_cap = G.GAME.interest_cap + (interest_req * card.ability.extra.interest)
+        card.ability.immutable.actualinterestchange = card.ability.extra.interest
     end,
     remove_from_deck = function (self, card, from_debuff)
-        local interest_req = 5
-        G.GAME.interest_cap = math.max(G.GAME.interest_cap - (interest_req * card.ability.extra.interest), 25) --make sure it doesn't go below baseline if something fucky happens
+        G.GAME.interest_cap = math.max(G.GAME.interest_cap - (interest_req * card.ability.immutable.actualinterestchange), 25) --make sure it doesn't go below baseline if something fucky happens
     end,
     calc_dollar_bonus = function (self, card)
         return card.ability.extra.dollars
     end,
     calculate = function(self, card, context)
-        if not (MINTY.config.dev_mode or self:thursday()) then
-			G.E_MANAGER:add_event(Event({
+        if not (MINTY.config.dev_mode or self:thursday()) and not card.bye then
+            card.bye = true
+            G.E_MANAGER:add_event(Event({
 				func = function()
                     card_eval_status_text(
                         card,
@@ -69,17 +74,18 @@ SMODS.Joker {
                         nil,
                         { message = localize("k_minty_bye"), colour = G.C.GOLD }
                     )
-					play_sound("tarot1")
-					return true
-				end,
-			}))
-			G.E_MANAGER:add_event(Event({
-				func = function()
-                    card:start_dissolve()
+					--play_sound("tarot1")
+			        SMODS.destroy_cards(card, true)
 					return true
 				end,
 			}))
             return
+        end
+
+        if card.ability.immutable.actualinterestchange ~= card.ability.extra.interest then
+            G.GAME.interest_cap = G.GAME.interest_cap - (interest_req * card.ability.immutable.actualinterestchange)
+            G.GAME.interest_cap = G.GAME.interest_cap + (interest_req * card.ability.extra.interest)
+            card.ability.immutable.actualinterestchange = card.ability.extra.interest
         end
 
         if (context.end_of_round and context.cardarea == G.jokers) then

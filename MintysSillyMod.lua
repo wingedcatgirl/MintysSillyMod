@@ -232,5 +232,22 @@ end
 MINTY.lastmoment = function ()
     MINTY.say("Running last-moment code...")
     MINTY.rocklist()
+
+    if Cryptid and cry_best_interest_cap and not MINTY.cbic_override then --Gotta put it here cause priority~ Cryptid will probably fix this on their end soon-ish but for now this at least makes sure ducks are accounted for
+        MINTY.cbic_override = true --Only do it once
+        local cbic = cry_best_interest_cap
+        function cry_best_interest_cap()
+            local best = cbic()
+            if next(SMODS.find_card("j_minty_duckhat")) then
+                for i,v in ipairs(SMODS.find_card("j_minty_duckhat")) do
+                    if v.ability.immutable.actualinterestchange > 0 then
+                        best = best + (v.ability.immutable.actualinterestchange * 5) --:thunk: momence; he hardcoded the interest rate
+                    end
+                end
+            end
+            return best
+        end
+    end
+
 end
 ----

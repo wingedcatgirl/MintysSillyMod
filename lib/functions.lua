@@ -33,7 +33,7 @@ MINTY.enable_exotics = function()
     MINTY.say("Enabled Bunco's exotic system, for some reason", "TRACE")
 end
 
----Disables Bunco's exotics and anything that relies on them
+---Disables Bunco's exotics and anything that relies on them. I don't remember why I wanted these 👍️
 MINTY.disable_exotics = function()
     if G.GAME then G.GAME.Exotic = false end
     MINTY.say("Disabled Bunco's exotic system, for some reason", "TRACE")
@@ -77,9 +77,12 @@ end
 ---@return boolean
 MINTY.threeSuit_in_pool = function(fallback)
     if G.GAME.starting_params.start_with_3s then return true end
-    if MINTY.config.three_lock.current_option == 3 then
+
+    local threelock = G.GAME.starting_params.minty_three_lock or MINTY.config.three_lock.current_option
+    
+    if threelock == 3 then
         return false
-    elseif MINTY.config.three_lock.current_option == 1 then
+    elseif threelock == 1 then
         return true
     end
     local spectrum = false
@@ -462,6 +465,10 @@ end
 function SMODS.current_mod.reset_game_globals(init)
     G.GAME.languageEgg = G.GAME.languageEgg or {}
     G.GAME.languageEgg[G.SETTINGS.language] = true
+
+    if init or not G.GAME.starting_params.minty_three_lock then
+        G.GAME.starting_params.minty_three_lock = MINTY.config.three_lock.current_option
+    end
 
     G.GAME.minty_hyperfix = G.GAME.minty_hyperfix or { active = true, value = 0 }
     if G.GAME.minty_hyperfix.active and not init then
