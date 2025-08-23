@@ -147,3 +147,19 @@ function Card:is_even(bypass_debuff)
     if (id ~= 14) and (id%2 == 0) then return true end
     return false
 end
+
+SMODS.Enhancement:take_ownership("m_stone",{
+    loc_vars = function (self, info_queue, card)
+        local key = self.key
+        if MINTY.config.stone_rename then
+            key = key.."_alt"
+        end
+
+        return {
+            key = key,
+            vars = {
+                card.ability.bonus
+            }
+        }
+    end
+}, true)

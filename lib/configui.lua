@@ -45,6 +45,11 @@ SMODS.current_mod.config_tab = function()
             ref_table = MINTY.config,
             ref_value = 'include_crossover',
         }),
+        create_toggle({
+            label = "Rename Stone to Slate",
+            ref_table = MINTY.config,
+            ref_value = 'stone_rename',
+        }),
         create_option_cycle {
             label = "3 availability",
             options = {'Unlocked', "Locked", "Sealed"},

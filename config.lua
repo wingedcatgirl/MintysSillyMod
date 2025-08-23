@@ -5,6 +5,7 @@ return {
     },
     ["dev_mode"] = false,
     ["flavor_text"] = true,
+    ["stone_rename"] = true,
     ["include_crossover"] = false,
     ["three_lock"] = {
         current_option = 2,

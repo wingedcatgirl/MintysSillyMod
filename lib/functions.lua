@@ -509,3 +509,8 @@ MINTY.enhancecheck = function()
         end
     end
 end
+
+SMODS.current_mod.process_loc_text = function()
+    G.localization.descriptions.Enhanced.m_stone_alt = G.localization.descriptions.Enhanced.m_stone_alt or {}
+    G.localization.descriptions.Enhanced.m_stone_alt.text = G.localization.descriptions.Enhanced.m_stone.text
+end
