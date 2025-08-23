@@ -60,6 +60,7 @@ If you're trying out Minty's for the first time and want minimal other mods, go 
 
 ### Cross-mod content
 Minty's Mod adds content for all of the following mods. Those with ⭐️ are also recommended for just, like, a basic default content mod set. in my imo.
+- [Aikoyori's Shenanigans](https://github.com/Aikoyori/Balatro-Aikoyoris-Shenanigans)
 - [Card Sleeves](https://github.com/larswijn/CardSleeves) ⭐️
 - [Cryptid](https://github.com/MathIsFun0/Cryptid)
 - [Drafting](https://github.com/spire-winder/Balatro-Draft) ⭐️ (FYI, the crossover content requires [a temporary beta branch](https://github.com/wingedcatgirl/Balatro-Draft/tree/suitupdate-temp) we made)

@@ -126,6 +126,10 @@ function Card:is_3(bypass_debuff)
             count = count * 2
         end]]
 
+        if (SMODS.Mods["aikoyorisshenanigans"] or {}).can_load then
+            if self.get_letter_with_pretend and self:get_letter_with_pretend() == "3" then count = count + 1 end
+        end
+
         if count == 0 then return false else return count end
 end
 
