@@ -94,6 +94,7 @@ Technically you can do whatever you want here, but here's the mods I like for th
 - Legendary Kitys: Give your kittycats `pools = {["kity"] = true}` to enable them to be summoned by The Wand and The Bitz and to grant chips with Cat Cafe.
 - Gym Buddy boosts: Give your enhancements a `config.extra.gymboost` of `"chips"`, `"xchips"`, `"mult"`, `"xmult"`, `"cash"`, `"hchips"`, `"hxchips"`, `"hmult"`, `"hxmult"`, `"hcash"` or `"none"` to have them grant the corresponding boost when scored with cards not of that enhancement. (If you don't, one will be chosen randomly each time. Which maybe you prefer!) 
 - The Silliest, Littlest Deck: Add `pools = {["MintysSillyMod"] = true}` to have your cross-mod content appear with increased frequency when this deck is in play.
+- Rocks: Add `minty_rock = true` to your enhancement definition to have it count as a rock. If this fails for priority reasons (which I don't _think_ should be possible, but you never know) there's a Lovely patch target in `lib/functions.lua`.
 
 ## Contributing
 - Yes, feel free to contribute if you have a contribution!

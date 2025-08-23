@@ -490,3 +490,22 @@ SMODS.current_mod.set_debuff = function (card)
      return "prevent_debuff"
   end
 end
+
+MINTY.enhancecheck = function()
+    MINTY.inkbleedtable = MINTY.inkbleedtable or {}
+    for k,v in pairs(G.P_CENTERS) do
+        if v.set == "Enhanced" then
+            for kk, vv in pairs(G.P_CENTERS) do
+                if vv.set == "Enhanced" then
+                    if (localize{type = 'name_text', set = 'Enhanced', key = k} == localize{type = 'name_text', set = 'Enhanced', key = kk}) and (k ~= kk) then
+                        MINTY.inkbleedtable[k] = MINTY.inkbleedtable[k] or {}
+                        MINTY.inkbleedtable[k][kk] = true
+
+                        MINTY.inkbleedtable[kk] = MINTY.inkbleedtable[kk] or {}
+                        MINTY.inkbleedtable[kk][k] = true
+                    end
+                end
+            end
+        end
+    end
+end

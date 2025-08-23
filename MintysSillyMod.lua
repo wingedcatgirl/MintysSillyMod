@@ -12,6 +12,7 @@ end
 SMODS.current_mod.optional_features = {
     retrigger_joker = true,
     post_trigger = true,
+    quantum_enhancements = true,
     cardareas = {
         unscored = true,
     },
@@ -232,6 +233,7 @@ end
 MINTY.lastmoment = function ()
     MINTY.say("Running last-moment code...")
     MINTY.rocklist()
+    MINTY.enhancecheck()
 
     if Cryptid and cry_best_interest_cap and not MINTY.cbic_override then --Gotta put it here cause priority~ Cryptid will probably fix this on their end soon-ish but for now this at least makes sure ducks are accounted for
         MINTY.cbic_override = true --Only do it once

@@ -630,7 +630,7 @@ return {
 			["j_minty_chisel"] = {
 				["name"] = "Chisel",
 				["text"] = {
-					"Scored {C:attention}#1#s{} lose",
+					"Scored {C:attention}#1#{} lose",
 					"their enhancement and",
 					"gain a {C:cement}Cement Seal{}",
 				},
@@ -638,7 +638,7 @@ return {
 			["j_minty_chisel_flavor"] = {
 				["name"] = "Chisel",
 				["text"] = {
-					"Scored {C:attention}#1#s{} lose",
+					"Scored {C:attention}#1#{} lose",
 					"their enhancement and",
 					"gain a {C:cement}Cement Seal{}",
 					" ",
@@ -652,14 +652,14 @@ return {
 				["name"] = "Bucket of Cement",
 				["text"] = {
 					"Scored unenhanced cards",
-					"become random {C:attention}#1#s{}"
+					"become random {C:attention}#1#{}"
 				},
 			},
 			["j_minty_bucket_flavor"] = {
 				["name"] = "Bucket of Cement",
 				["text"] = {
 					"Scored unenhanced cards",
-					"become random {C:attention}#1#s{}",
+					"become random {C:attention}#1#{}",
 					" ",
 					"{C:inactive,s:0.8}Happy 6th birthday!",
 				},
@@ -1600,7 +1600,7 @@ return {
 			},
 		},
 		["Enhanced"] = {
-			["m_stone"] = {
+			["m_stone_alt"] = {
 				["name"] = "Slate Card"
 			},
 			["m_minty_marble"] = {
@@ -1905,10 +1905,10 @@ return {
 				}
 			},
 			["minty_stone_cards"] = {
-				["label"] = "Stone Card",
-				["name"] = "Stone Card",
+				["label"] = "Rock Cards",
+				["name"] = "Rock Cards",
 				["text"] = {
-					"A card with a {C:attention}rock{}-",
+					"Cards with a {C:attention}rock{}-",
 					"themed enhancement"
 				},
 			},
