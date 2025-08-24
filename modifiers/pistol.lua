@@ -19,9 +19,6 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
         local luck, odds = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, "minty_pistol_desc", false)
-        if MINTY.in_collection(card) and not (mf or MINTY.config.dev_mode) then
-            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "More Fluff" } }
-        end
         return {
             vars = {
                 card.ability.x_mult,
@@ -29,9 +26,6 @@ SMODS.Enhancement({
                 odds,
             },
         }
-    end,
-    in_pool = function (self, args)
-        return (mf or MINTY.config.dev_mode)
     end,
     calculate = function (self, card, context)
         if context.forcetrigger then

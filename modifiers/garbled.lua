@@ -19,16 +19,10 @@ SMODS.Enhancement({
         },
     },
     loc_vars = function(self, info_queue, card)
-        if MINTY.in_collection(card) and not (mf or MINTY.config.dev_mode) then
-            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "More Fluff" } }
-        end
         return {
             vars = {
             },
         }
-    end,
-    in_pool = function (self, args)
-        return (mf or MINTY.config.dev_mode)
     end,
     replace_base_card = true,
     no_rank = true,
