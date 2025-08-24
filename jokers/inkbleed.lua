@@ -39,13 +39,21 @@ SMODS.Joker {
         return SMODS.optional_features.quantum_enhancements and not not next(MINTY.inkbleedtable)
     end,
     calculate = function(self, card, context)
+        local function copy_table(t)
+            local out = {}
+            for k,v in pairs(t) do
+                out[k] = v
+            end
+            return out
+        end
+
         if context.check_enhancement then
             local enh = context.other_card.config.center.key
             --MINTY.say("Enhancement is "..enh)
             if enh == "c_base" then return end
             if MINTY.inkbleedtable and MINTY.inkbleedtable[enh] and next(MINTY.inkbleedtable[enh]) then
                 --MINTY.say(enh.." has name overlap")
-                return MINTY.inkbleedtable[enh]
+                return copy_table(MINTY.inkbleedtable[enh])
             end
         end
     end
