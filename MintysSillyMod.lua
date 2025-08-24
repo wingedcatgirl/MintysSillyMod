@@ -12,7 +12,7 @@ end
 SMODS.current_mod.optional_features = {
     retrigger_joker = true,
     post_trigger = true,
-    quantum_enhancements = true,
+    --quantum_enhancements = true,
     cardareas = {
         unscored = true,
     },
@@ -96,6 +96,7 @@ local files = {
         { name = "treatovision" },
         { name = "peywet", },
         { name = "cakesword" },
+        --{ name = "inkbleed" },
         { name = "copycat" },
         { name = "sabertooth" },
         { name = "neko" },

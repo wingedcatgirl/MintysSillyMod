@@ -86,6 +86,22 @@ return {
 					"{C:inactive,s:0.8}YOU'RE a cube!",
 				},
 			},
+			["j_minty_inkbleed"] = {
+				["name"] = "Inkbleed",
+				["text"] = {
+					"{C:attention}Enhancements{} sharing names",
+					"also share {C:attention}effects{}"
+				},
+			},
+			["j_minty_inkbleed_flavor"] = {
+				["name"] = "Inkbleed",
+				["text"] = {
+					"{C:attention}Enhancements{} sharing names",
+					"also share {C:attention}effects{}",
+					" ",
+					"{C:inactive,s:0.8}Also try Entropy and/or ArtBox!{}"
+				},
+			},
 			["j_minty_doctor"] = {
 				["name"] = "Doctor",
 				["text"] = {

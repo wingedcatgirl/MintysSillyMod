@@ -1,12 +1,8 @@
 SMODS.Joker {
     key = "inkbleed",
     name = "Inkbleed",
-    atlas = 'jokerdoodles',
+    atlas = 'jokers',
     pos = {
-        x = 0,
-        y = 0
-    },
-    soul_pos = {
         x = 1,
         y = 0
     },
@@ -24,25 +20,33 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         local key = self.key
+        if not SMODS.optional_features.quantum_enhancements then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Feature", "Quantum Enhancements" } }
+        elseif not next(MINTY.inkbleedtable) then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Enhancements", "to have some name overlap" } }
+        end
+        --TODO: Infoqueue a list of enhancements with name overlap?
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
             key = key,
             vars = {
-                card.ability.extra.mult
             }
         }
     end,
     in_pool = function (self, args) --Only if we actually *have* name collisions
-        return not not next(MINTY.inkbleedtable)
+        return SMODS.optional_features.quantum_enhancements and not not next(MINTY.inkbleedtable)
     end,
     calculate = function(self, card, context)
         if context.check_enhancement then
-            local ret = {}
             local enh = context.other_card.config.center.key
+            --MINTY.say("Enhancement is "..enh)
             if enh == "c_base" then return end
-            if MINTY.inkbleedtable and next(MINTY.inkbleedtable[enh]) then return MINTY.inkbleedtable[enh] end
+            if MINTY.inkbleedtable and MINTY.inkbleedtable[enh] and next(MINTY.inkbleedtable[enh]) then
+                --MINTY.say(enh.." has name overlap")
+                return MINTY.inkbleedtable[enh]
+            end
         end
     end
 }
