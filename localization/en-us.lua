@@ -14,6 +14,7 @@ return {
 			["k_minty_sliced"] = "Sliced!",
 			["k_minty_bang"] = "Bang!",
 			["k_minty_kaboom"] = "Kablooie!",
+			["k_minty_shaked"] = "Shaked!",
 			["k_minty_bye"] = "Bye-bye!",
 			["k_minty_rescheduled"] = "Rescheduled!",
 			["k_minty_ordered"] = "Ordered!",
@@ -698,6 +699,48 @@ return {
 					"{C:mult,s:0.8}       Meow!      ",
 					"{C:chips,s:0.8}Meow!             ",
 					"            {X:mult,C:white,s:0.8}Meow!",
+				},
+			},
+			["j_minty_wettiger"] = {
+				["name"] = "Wet Tiger",
+				["text"] = {
+					"Every {C:attention}played card{}",
+					"counts in scoring;",
+					"{C:mult}+#2#{} Mult",
+					"per round or {C:attention}extra scored card{}",
+					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult){}",
+				},
+			},
+			["j_minty_wettiger_flavor"] = {
+				["name"] = "Wet Tiger",
+				["text"] = {
+					"Every {C:attention}played card{}",
+					"counts in scoring;",
+					"{C:mult}+#2#{} Mult",
+					"per round or {C:attention}extra scored card{}",
+					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult){}",
+					" ",
+					"{C:inactive,s:0.8}Poor little meow meow...{}"
+				},
+			},
+			["j_minty_shakegun"] = {
+				["name"] = "Milkshake Gun",
+				["text"] = {
+					"Every {C:attention}played card{}",
+					"counts in scoring;",
+					"{C:attention}extra scored cards{}",
+					"reduce {C:attention}Blind{} size by {C:mult}#1#%{}",
+				},
+			},
+			["j_minty_shakegun_flavor"] = {
+				["name"] = "Milkshake Gun",
+				["text"] = {
+					"Every {C:attention}played card{}",
+					"counts in scoring;",
+					"{C:attention}extra scored cards{}",
+					"reduce {C:attention}Blind{} size by {C:mult}#1#%{}",
+					" ",
+					"{C:inactive,s:0.8}YES, shakes are just wet cakes!{}"
 				},
 			},
 			["j_minty_parkour"] = {
