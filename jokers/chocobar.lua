@@ -53,15 +53,20 @@ SMODS.Joker {
         card.ability.extra.drop = card.ability.extra.drop + boost*card.ability.extra.droprate
     end,
     calculate = function(self, card, context)
-        if ((context.individual and context.cardarea == G.play) or context.forcetrigger) and card.ability.extra.mult > 0 then
+        if ((context.individual and context.cardarea == G.play) or context.forcetrigger) and to_big(card.ability.extra.mult) > to_big(0) then
             local pmult = card.ability.extra.mult
             local ret = {
                 mult = pmult,
                 extra = {}
             }
             if not context.blueprint then
-                card.ability.extra.mult = card.ability.extra.mult - card.ability.extra.drop
-                if card.ability.extra.mult >= 0 then
+                SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "mult",
+                scalar_value = "drop",
+                operation = "-"
+            })
+                if to_big(card.ability.extra.mult) >= to_big(0) then
                     ret.extra = {
                         message = localize {
                             type = 'variable',
@@ -76,7 +81,7 @@ SMODS.Joker {
             return ret
         end
 
-        if context.after and card.ability.extra.mult <= 0 then
+        if context.after and to_big(card.ability.extra.mult) <= to_big(0) then
             G.E_MANAGER:add_event(Event({ -- eat choccy bar
                 func = function()
                     G.GAME.choccy_bars_eaten = (G.GAME.choccy_bars_eaten or 0) + 1

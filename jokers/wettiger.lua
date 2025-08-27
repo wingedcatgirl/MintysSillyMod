@@ -47,24 +47,17 @@ SMODS.Joker {
         end
 
         if context.individual and not context.blueprint and context.cardarea == G.play and card_is_splashed(context.other_card) then
-            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.gain
-            return {
-                message = localize {
-                    type = 'variable',
-                    key = 'a_mult',
-                    vars = { card.ability.extra.gain }
-                },
-            }
+            SMODS.scale_card(card,{
+                ref_table = card.ability.extra,
+                ref_value = "mult",
+                scalar_value = "gain",
+            })
+            return {}
         end
 
         if context.joker_main and context.scoring_hand then
             return {
-                mult_mod = card.ability.extra.mult,
-                message = localize {
-                    type = 'variable',
-                    key = 'a_mult',
-                    vars = { card.ability.extra.mult }
-                },
+                mult = card.ability.extra.mult,
             }
         end
     end

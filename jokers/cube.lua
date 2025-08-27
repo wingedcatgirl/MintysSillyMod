@@ -59,13 +59,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if (context.joker_main and context.scoring_hand) or context.forcetrigger then
             return {
-                message = localize {
-                    type = 'variable',
-                    key = 'a_xmult',
-                    vars = { card.ability.extra.Xmult }
-                },
-                colour = G.C.RED,
-                Xmult_mod = card.ability.extra.Xmult
+                xmult = card.ability.extra.Xmult
             }
         end
     end,

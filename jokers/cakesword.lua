@@ -59,8 +59,17 @@ SMODS.Joker {
                 return true
             end}))
 
-            card.ability.extra.percent = card.ability.extra.percent - card.ability.extra.fallpct
-            if (card.ability.extra.percent <= 0) then
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "percent",
+                scalar_value = "fallpct",
+                operation = "-",
+                scaling_message = {
+                    message = localize("k_minty_sliced"),
+                    message_card = G.GAME.blind,
+                }
+            })
+            if (to_big(card.ability.extra.percent) <= to_big(0)) then
                 G.GAME.pool_flags.cake_sword_eaten = true
                 G.E_MANAGER:add_event(Event({
                     func = function()
@@ -89,10 +98,7 @@ SMODS.Joker {
                 }
             end
 
-            return {
-                    message = localize("k_minty_sliced"),
-                    message_card = G.GAME.blind,
-            }
+            return {}
         end
     end
 }

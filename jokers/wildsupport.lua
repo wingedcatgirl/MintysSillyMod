@@ -59,29 +59,43 @@ SMODS.Joker {
             local xmult = pseudorandom('minty_wildxmult', 10, (card.ability.extra.xmult*10))/10
             local chips = pseudorandom('minty_wildchips', 1, card.ability.extra.chips)
             local cash = pseudorandom('minty_wildcash', 1, card.ability.extra.cash)
-            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multgain
-            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultgain
-            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsgain
-            card.ability.extra.cash = card.ability.extra.cash + card.ability.extra.cashgain
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "mult",
+                scalar_value = "multgain",
+                scaling_message = {
+                    message = localize('k_upgrade_ex')
+                }
+            })
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "xmult",
+                scalar_value = "xmultgain",
+                scaling_message = {
+                    message = localize('k_upgrade_ex')
+                }
+            })
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "chips",
+                scalar_value = "chipsgain",
+                scaling_message = {
+                    message = localize('k_upgrade_ex')
+                }
+            })
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "cash",
+                scalar_value = "cashgain",
+                scaling_message = {
+                    message = localize('k_upgrade_ex')
+                }
+            })
             return {
                 mult = mult,
                 xmult = xmult,
                 chips = chips,
                 dollars = cash,
-                message = localize('k_upgrade_ex'), --You forcetrigger the card with four things to upgrade, you get four upgrade messages. You knew the rules you were agreeing to when I made them up just now.
-                message_card = card,
-                extra = {
-                    message = localize('k_upgrade_ex'),
-                    message_card = card,
-                    extra = {
-                        message = localize('k_upgrade_ex'),
-                        message_card = card,
-                        extra = {
-                            message = localize('k_upgrade_ex'),
-                            message_card = card,
-                        }
-                    }
-                }
             }
         end
 
@@ -104,33 +118,53 @@ SMODS.Joker {
                         if roll == "mult" then
                             result["mult"] = pseudorandom('minty_wildmult', 1, card.ability.extra.mult)
                             if SMODS.pseudorandom_probability(card, 'minty_wildmultgain', 1, card.ability.extra.odds, 'minty_wildmultgain') and not context.blueprint then
-                                result["message"] = localize('k_upgrade_ex')
-                                result["message_card"] = card
-                                card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multgain
+                                SMODS.scale_card(card, {
+                                    ref_table = card.ability.extra,
+                                    ref_value = "mult",
+                                    scalar_value = "multgain",
+                                    scaling_message = {
+                                        message = localize('k_upgrade_ex')
+                                    }
+                                })
                             end
                         end
                         if roll == "xmult" then
                             result["xmult"] = pseudorandom('minty_wildxmult', 10, (card.ability.extra.xmult*10))/10
                             if SMODS.pseudorandom_probability(card, 'minty_wildxmultgain', 1, card.ability.extra.odds, 'minty_wildxmultgain') and not context.blueprint then
-                                result["message"] = localize('k_upgrade_ex')
-                                result["message_card"] = card
-                                card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultgain
+                                SMODS.scale_card(card, {
+                                    ref_table = card.ability.extra,
+                                    ref_value = "xmult",
+                                    scalar_value = "xmultgain",
+                                    scaling_message = {
+                                        message = localize('k_upgrade_ex')
+                                    }
+                                })
                             end
                         end
                         if roll == "chips" then
                             result["chips"] = pseudorandom('minty_wildchips', 1, card.ability.extra.chips)
                             if SMODS.pseudorandom_probability(card, 'minty_wildchipsgain', 1, card.ability.extra.odds, 'minty_wildchipsgain') and not context.blueprint then
-                                result["message"] = localize('k_upgrade_ex')
-                                result["message_card"] = card
-                                card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsgain
+                                SMODS.scale_card(card, {
+                                    ref_table = card.ability.extra,
+                                    ref_value = "chips",
+                                    scalar_value = "chips",
+                                    scaling_message = {
+                                        message = localize('k_upgrade_ex')
+                                    }
+                                })
                             end
                         end
                         if roll == "cash" then
                             result["dollars"] = pseudorandom('minty_wildcash', 1, card.ability.extra.cash)
                             if SMODS.pseudorandom_probability(card, 'minty_wildcashgain', 1, card.ability.extra.odds, 'minty_wildcashgain') and not context.blueprint then
-                                result["message"] = localize('k_upgrade_ex')
-                                result["message_card"] = card
-                                card.ability.extra.cash = card.ability.extra.cash + card.ability.extra.cashgain
+                                SMODS.scale_card(card, {
+                                    ref_table = card.ability.extra,
+                                    ref_value = "cash",
+                                    scalar_value = "cashgain",
+                                    scaling_message = {
+                                        message = localize('k_upgrade_ex')
+                                    }
+                                })
                             end
                         end
                     end

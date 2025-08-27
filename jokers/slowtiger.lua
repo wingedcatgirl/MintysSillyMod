@@ -36,34 +36,19 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.forcetrigger then
+        if (context.joker_main and context.scoring_hand) or context.forcetrigger then
             return {
-                mult_mod = card.ability.extra.mult
+                    mult = card.ability.extra.mult,
             }
         end
-
-        if context.joker_main and context.scoring_hand then
-            return {
-                    mult_mod = card.ability.extra.mult,
-                    message = localize {
-                        type = 'variable',
-                        key = 'a_mult',
-                        vars = { card.ability.extra.mult }
-                    },
-                    card = card
-                   }
-        end
-
 
         if context.end_of_round and not context.blueprint and not context.repetition and not context.individual then
-            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multgain
-            return {
-                message = localize {
-                    type = 'variable',
-                    key = 'a_mult',
-                    vars = { card.ability.extra.multgain }
-                },
-            }
+            SMODS.scale_card(card,{
+                ref_table = card.ability.extra,
+                ref_value = "mult",
+                scalar_value = "multgain",
+            })
+            return {}
         end
     end
 }

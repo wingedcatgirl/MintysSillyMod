@@ -1,6 +1,5 @@
 FusionJokers.fusions:add_fusion("j_minty_hedonist", nil, false, "j_minty_claw", nil, false, "j_minty_threecats", 12)
 
-
 SMODS.Joker {
     dependencies = "FusionJokers",
     key = "threecats",
@@ -14,7 +13,7 @@ SMODS.Joker {
         x = 2,
         y = 1
         },
-    rarity = 'fusion',
+    rarity = 'fuse_fusion',
     cost = 12,
     config = {
         extra = {
@@ -29,7 +28,7 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
-        local luck = SMODS.get_probability_vars(card, 1, 3, "minty_claw_desc", false)
+        local luck = SMODS.get_probability_vars(card, 1, 3, "minty_threecats_desc", false)
         luck = math.min(luck, 3)
         return {
             key = key,

@@ -48,41 +48,52 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.forcetrigger then
             local chipgain = card.ability.extra.chipgain
-            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipgain
-            card.ability.extra.chipgain = card.ability.extra.chipgain + card.ability.extra.chipgain_gain
-            return {
-                message = localize{
-                    type='variable',
-                    key='a_minty_chipgain',
-                    vars={chipgain}
-                },
-                colour = G.C.CHIPS,
-                card = card,
-                extra = {
-                    message = localize {
-                        type = 'variable',
-                        key = 'a_chips',
-                        vars = {card.ability.extra.chips}
-                    },
-                    chip_mod = card.ability.extra.chips,
-                    colour = G.C.CHIPS
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "chips",
+                scalar_value = "chipgain",
+                scaling_message = {
+                    message = localize{
+                        type='variable',
+                        key='a_minty_chipgain',
+                        vars={chipgain}
+                    }
                 }
+            })
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "chipgain",
+                scalar_value = "chipgain_gain",
+                no_message = true
+            })
+            return {
+                chips = card.ability.extra.chips,
             }
         end
 
         if context.before and not context.blueprint then
             if next(context.poker_hands['Straight']) then
                 local chipgain = card.ability.extra.chipgain
-                card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipgain
-                card.ability.extra.chipgain = card.ability.extra.chipgain + card.ability.extra.chipgain_gain
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "chips",
+                    scalar_value = "chipgain",
+                    scaling_message = {
+                        message = localize{
+                            type='variable',
+                            key='a_minty_chipgain',
+                            vars={chipgain}
+                        }
+                    }
+                })
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "chipgain",
+                    scalar_value = "chipgain_gain",
+                    no_message = true
+                })
                 return {
-                    message = localize{
-                        type='variable',
-                        key='a_minty_chipgain',
-                        vars={chipgain}
-                    },
-                    colour = G.C.CHIPS,
-                    card = card
+                    chips = card.ability.extra.chips,
                 }
             else
                 card.ability.extra.chipgain = card.ability.extra.chipgain_base
@@ -101,7 +112,7 @@ SMODS.Joker {
                     key = 'a_chips',
                     vars = {card.ability.extra.chips}
                 },
-                chip_mod = card.ability.extra.chips,
+                chips = card.ability.extra.chips,
                 colour = G.C.CHIPS
             }
         end

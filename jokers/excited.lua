@@ -40,39 +40,42 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.forcetrigger then
-            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipgain
-            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multgain
-            return {
-                delay = 0.2,
-                colour = G.C.CHIPS,
-                message = localize {
-                    type = 'variable',
-                    key = 'a_minty_chipgain',
-                    vars = { card.ability.extra.chipgain },
-                },
-                message_card = card,
-                extra = {
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "chips",
+                scalar_value = "chipgain",
+                scaling_message = {
+                    message = localize {
+                        type = 'variable',
+                        key = 'a_minty_chipgain',
+                        vars = { card.ability.extra.chipgain },
+                    },
+                    colour = G.C.CHIPS,
                     delay = 0.2,
-                    colour = G.C.RED,
+                }
+            })
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "mult",
+                scalar_value = "multgain",
+                scaling_message = {
                     message = localize {
                         type = 'variable',
                         key = 'a_mult',
                         vars = { card.ability.extra.multgain },
                     },
-                    message_card = card,
-                    extra = {
-                        mult = card.ability.extra.mult,
-                        chips = card.ability.extra.chips,
-                        card = card,
-                    }
+                    colour = G.C.RED,
+                    delay = 0.2,
                 }
+            })
+            return {
+                mult = card.ability.extra.mult,
+                chips = card.ability.extra.chips,
             }
         end
 
         if context.joker_main and context.scoring_hand then
-            local result = {
-                    card = card
-                   }
+            local result = {}
             if (card.ability.extra.mult == 0 and card.ability.extra.chips == 0) then --Is this even possible?
                 return
             end
@@ -86,7 +89,7 @@ SMODS.Joker {
         end
         if
 			(-- Mostly copied from Cryptid's "sob" and "Duplicare"
-                (context.post_trigger and not context.other_context.fixed_probability and not context.other_context.mod_probability and context.other_card ~= card)
+                (context.post_trigger and not context.other_context.fixed_probability and not context.other_context.mod_probability and not context and context.other_card ~= card)
                 or (context.cardarea == G.play and context.individual)
 				or context.discard
 				or context.reroll_shop
@@ -101,30 +104,43 @@ SMODS.Joker {
 			and not context.retrigger_joker
 			and not context.blueprint
 		then
+            for k,v in pairs(context) do
+                if v == true then
+                    MINTY.say(k, "TRACE")
+                end
+            end
             if not SMODS.pseudorandom_probability(card, "minty_excited", 1, card.ability.extra.odds, "minty_excited") then
-                card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipgain
-                return {
-                    delay = 0.2,
-                    colour = G.C.CHIPS,
-                    message = localize {
-                        type = 'variable',
-                        key = 'a_minty_chipgain',
-                        vars = { card.ability.extra.chipgain },
-                    },
-                    message_card = card
-                }
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "chips",
+                    scalar_value = "chipgain",
+                    scaling_message = {
+                        message = localize {
+                            type = 'variable',
+                            key = 'a_minty_chipgain',
+                            vars = { card.ability.extra.chipgain },
+                        },
+                        colour = G.C.CHIPS,
+                        delay = 0.2,
+                    }
+                })
+                return {}
             else
-                card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multgain
-                return {
-                    delay = 0.2,
-                    colour = G.C.RED,
-                    message = localize {
-                        type = 'variable',
-                        key = 'a_mult',
-                        vars = { card.ability.extra.multgain },
-                    },
-                    message_card = card
-                }
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "mult",
+                    scalar_value = "multgain",
+                    scaling_message = {
+                        message = localize {
+                            type = 'variable',
+                            key = 'a_mult',
+                            vars = { card.ability.extra.multgain },
+                        },
+                        colour = G.C.RED,
+                        delay = 0.2,
+                    }
+                })
+                return {}
             end
 		end
     end
