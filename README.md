@@ -1,3 +1,5 @@
+# You're currently looking at the dev branch. If that's what you want, proceed. If not, go look at [the main branch](https://github.com/wingedcatgirl/MintysSillyMod).
+
 ## Minty's Silly Little Mod - Delicious Chocolatey Goodness for Balatro
 
 A silly little mod that adds some silly little jokers and decks and things. It's chocolate because it's not vanilla. (It's not vanilla because I think calling a mod a word which in this context means "not modded" is silly.)
@@ -29,8 +31,8 @@ Planned features:
 ## Installation Instructions
 1. Install [Lovely](https://github.com/ethangreen-dev/lovely-injector), if you haven't already.
 2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already.
-   - **Minimum supported version for 0.7.0 is [BETA-0711a](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-0711a)**. If the latest dev version fails for any reason, use the linked release.
-3. Download the code from [the latest release](https://github.com/wingedcatgirl/MintysSillyMod/releases).
+   - **Minimum supported version for this branch is [BETA-0827](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-0827)**. If the latest dev version fails for any reason, use the linked release.
+3. Because this is the dev branch, you most likely want [the latest commit](https://github.com/wingedcatgirl/MintysSillyMod/archive/refs/heads/next.zip).
 4. Inside the zip file is the mod code in a folder, `MintysSillyMod-SOMEVERSION`. Put that folder in your Mods folder. The file structure should look like `Mods/MintysSillyMod-SOMEVERSION/MintysSillyMod.json`. In particular, there should _not_ be a second `MintysSillyMod` folder nested inside the first one. (You might prefer to remove the version number suffix from the folder name; it doesn't actually matter.)
 5. Have a little 3 as a treat! :3
 
