@@ -128,6 +128,7 @@ local files = {
         --Fusion Jokers
         { name = "threecats", mods = { {id = "FusionJokers"} } },
         { name = "parkour", mods = { {id = "FusionJokers"} } },
+        { name = "wildfire", mods = { {id = "FusionJokers"} } },
         { name = "wettiger", mods = { {id = "FusionJokers"}, {id = "Tsunami"} } },
         { name = "shakegun", mods = { {id = "FusionJokers"}, {id = "Tsunami"} } },
         --{ name = "ninethlion", mods = { {id = "FusionJokers"} }, dev = true },
