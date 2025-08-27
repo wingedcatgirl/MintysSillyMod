@@ -70,16 +70,10 @@ SMODS.Joker {
                         nil,
                         { message = localize("k_nope_ex"), colour = G.C.RARITY[4] }
                     )
-					play_sound("tarot1")
 					return true
 				end,
 			}))
-			G.E_MANAGER:add_event(Event({
-				func = function()
-                    card:start_dissolve()
-					return true
-				end,
-			}))
+            SMODS.destroy_cards(card, nil, nil, true)
         end
     end,
     calculate = function(self, card, context)
@@ -104,7 +98,7 @@ SMODS.Joker {
 					G.hand_text_area.game_chips:juice_up()
 					play_sound("tarot1")
                     if card.ability.extra.charges == 0 then
-                        card:start_dissolve()
+                        SMODS.destroy_cards(card, nil, nil, true)
                     end
 					return true
 				end,
@@ -125,7 +119,7 @@ SMODS.Joker {
 					G.hand_text_area.blind_chips:juice_up()
 					G.hand_text_area.game_chips:juice_up()
 					play_sound("tarot1")
-                    card:start_dissolve()
+                    SMODS.destroy_cards(card, nil, nil, true)
 					return true
 				end,
 			}))

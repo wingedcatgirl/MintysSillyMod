@@ -51,8 +51,7 @@ SMODS.Joker {
             if #foodjokers == 0 then return end
             local targetpos = jokerpos[pseudorandom("minty_fatcat_nom", 1, #foodjokers)]
             --MINTY.say("Selected compatible Joker in slot #"..tostring(targetpos))
-            G.jokers.cards[targetpos].getting_sliced = true
-            G.jokers.cards[targetpos]:start_dissolve()
+            SMODS.destroy_cards(G.jokers.cards[targetpos], nil, nil, true)
             SMODS.scale_card(card, {
                 ref_table = card.ability.extra,
                 ref_value = "xmult",

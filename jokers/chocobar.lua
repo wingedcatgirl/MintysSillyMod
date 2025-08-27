@@ -57,47 +57,39 @@ SMODS.Joker {
             local pmult = card.ability.extra.mult
             local ret = {
                 mult = pmult,
-                extra = {}
+                message_card = card
             }
             if not context.blueprint then
-                SMODS.scale_card(card, {
+                SMODS.scale_card(card, { --Why is the timing on this so janky?
                 ref_table = card.ability.extra,
                 ref_value = "mult",
                 scalar_value = "drop",
-                operation = "-"
+                operation = "-",
+                message_key = "a_mult_minus",
+                message_colour = G.C.MULT,
             })
-                if to_big(card.ability.extra.mult) >= to_big(0) then
-                    ret.extra = {
-                        message = localize {
-                            type = 'variable',
-                            key = 'a_mult_minus',
-                            vars = {card.ability.extra.drop}
-                        },
-                        message_card = card
-                    }
-                end
             end
 
             return ret
         end
 
         if context.after and to_big(card.ability.extra.mult) <= to_big(0) then
-            G.E_MANAGER:add_event(Event({ -- eat choccy bar
-                func = function()
-                    G.GAME.choccy_bars_eaten = (G.GAME.choccy_bars_eaten or 0) + 1
-                    play_sound("tarot1")
-                    card:start_dissolve()
-                    SMODS.add_card { -- create wrapper
-                        key = 'j_minty_wrapper',
-                        edition = card.edition,
-                        --stickers = card.stickers
-                    }
-                    return true
-                end,
-            }))
             return {
                 message = localize("k_eaten_ex"),
-                message_card = card
+                message_card = card,
+                func = function ()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            local edition = card.edition
+                            SMODS.add_card({
+                                key = "j_minty_wrapper",
+                                edition = edition
+                            })
+                            SMODS.destroy_cards(card, nil, true, true)
+                        return true
+                        end
+                    }))
+                end
             }
         end
     end
