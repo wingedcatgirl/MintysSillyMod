@@ -1,22 +1,22 @@
 MINTY = MINTY or {}
 MINTY.prefix = SMODS.current_mod.prefix
 MINTY.config = SMODS.current_mod.config
-SMODS.current_mod.debuginfo = {}
 
 if (SMODS.Mods.FusionJokers or {}).can_load and not SMODS.Mods.FusionJokers.version then
-    SMODS.current_mod.debuginfo = {
+    SMODS.current_mod.debug_info = {
         "You're using an outdated and abandoned version of Fusion Jokers!",
         "Please update to the version we're maintaining, located here:",
         "https://github.com/wingedcatgirl/Fusion-Jokers"
     }
 end
 
-if (SMODS.Mods.Bunco or {}).can_load then
+if (SMODS.Mods.Bunco or {}).can_load then --Not sure this one actually works, but worth putting it in just to see
     local ver = SMODS.Mods.Bunco.version
     if not (ver and string.find(ver, "JumboFork")) then
-        SMODS.current_mod.debuginfo[#SMODS.current_mod.debuginfo+1] = "You're using an outdated and abandoned version of Bunco!"
-        SMODS.current_mod.debuginfo[#SMODS.current_mod.debuginfo+1] = "Please update to the version JumboCarrot is maintaining, located here:"
-        SMODS.current_mod.debuginfo[#SMODS.current_mod.debuginfo+1] = "https://github.com/jumbocarrot0/Bunco"
+        SMODS.current_mod.debug_info = SMODS.current_mod.debug_info or {}
+        SMODS.current_mod.debug_info[#SMODS.current_mod.debug_info+1] = "You're using an outdated and abandoned version of Bunco!"
+        SMODS.current_mod.debug_info[#SMODS.current_mod.debug_info+1] = "Please update to the version JumboCarrot is maintaining, located here:"
+        SMODS.current_mod.debug_info[#SMODS.current_mod.debug_info+1] = "https://github.com/jumbocarrot0/Bunco"
     end
 end
 
