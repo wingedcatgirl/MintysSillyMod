@@ -66,17 +66,17 @@ SMODS.Joker {
             SMODS.destroy_cards(G.jokers.cards[#G.jokers.cards], nil, true, true) --little janky if i'm tbh but ¯\_(ツ)_/¯
         end
 
-        if context.joker_main then
+        if context.joker_main and context.scoring_hand then
             local check
             local suits = {}
             local bootlegwilds = 0
-            for i=1,#G.play.cards do
-                if G.play.cards[i].config.center.key == "m_wild" then check = true break end
-                if not SMODS.has_no_suit(G.play.cards[i]) then
-                    if SMODS.has_any_suit(G.play.cards[i]) then
+            for i=1,#context.scoring_hand do
+                if context.scoring_hand[i].config.center.key == "m_wild" then check = true break end
+                if not SMODS.has_no_suit(context.scoring_hand[i]) then
+                    if SMODS.has_any_suit(context.scoring_hand[i]) then
                         bootlegwilds = bootlegwilds + 1
                     else
-                        suits[G.play.cards[i].base.suit] = true
+                        suits[context.scoring_hand[i].base.suit] = true
                     end
                 end
             end
