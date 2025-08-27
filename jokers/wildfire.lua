@@ -32,12 +32,14 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
+        info_queue[#info_queue+1] = { set = "Other", key = "minty_spread2", specific_vars = { card.ability.extra.perish_count } }
         return {
             key = key,
             vars = {
                 card.ability.extra.xmult,
                 card.ability.extra.xmult_gain,
-                card.ability.extra.perish_count
+                card.ability.extra.perish_count,
+                localize{type = 'name_text', set = 'Enhanced', key = "m_wild"}
             }
         }
     end,
@@ -48,23 +50,50 @@ SMODS.Joker {
                 if G.jokers.cards[i] == card then mypos = i break end
             end
             if mypos == 1 then return end
-            local target = G.jokers.cards[mypos]
-            if target.config.center.key == self.key then return end
+            local target = G.jokers.cards[mypos-1]
+            if target.config.center.key == self.key or SMODS.is_eternal(target, card) then return end
             SMODS.scale_card(card, {
                 ref_table = card.ability.extra,
                 ref_value = "xmult",
                 scalar_value = "xmult_gain"
             })
-            target = copy_card(card)
-            if target.ability.eternal then target:remove_sticker("eternal") end
-            if not target.ability.perishable then target:add_sticker("perishable", true) end
-            target.ability.perish_tally = card.ability.extra.perish_count
+            local new = copy_card(card)
+            if new.ability.eternal then new:remove_sticker("eternal") end
+            if not new.ability.perishable then new:add_sticker("perishable", true) end
+            new.ability.perish_tally = card.ability.extra.perish_count
+            G.jokers:emplace(new)
+            G.jokers.cards[mypos-1], G.jokers.cards[#G.jokers.cards] = G.jokers.cards[#G.jokers.cards], G.jokers.cards[mypos-1]
+            SMODS.destroy_cards(G.jokers.cards[#G.jokers.cards], nil, true, true) --little janky if i'm tbh but ¯\_(ツ)_/¯
         end
 
         if context.joker_main then
-            return {
-                xmult = card.ability.extra.xmult
-            }
+            local check
+            local suits = {}
+            local bootlegwilds = 0
+            for i=1,#G.play.cards do
+                if G.play.cards[i].config.center.key == "m_wild" then check = true break end
+                if not SMODS.has_no_suit(G.play.cards[i]) then
+                    if SMODS.has_any_suit(G.play.cards[i]) then
+                        bootlegwilds = bootlegwilds + 1
+                    else
+                        suits[G.play.cards[i].base.suit] = true
+                    end
+                end
+            end
+
+            if not check then
+                local suitcount = 0
+                for k,v in ipairs(suits) do
+                    suitcount = suitcount + 1
+                end
+                if suitcount + bootlegwilds >= 4 then check = true end
+            end
+
+            if check then
+                return {
+                    xmult = card.ability.extra.xmult
+                }
+            end
         end
     end
 }

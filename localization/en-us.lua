@@ -723,6 +723,30 @@ return {
 					"{C:inactive,s:0.8}Poor little meow meow...{}"
 				},
 			},
+			["j_minty_wildfire"] = {
+				["name"] = "Wildfire",
+				["text"] = {
+					"{X:mult,C:white}X#1#{} Mult if played hand",
+					"contains {C:attention}4{} different suits",
+					"or a {C:attention}#4#{}",
+					"At {C:attention}end of shop{},",
+					"{C:attention}spread left{} to",
+					"gain {X:mult,C:white}X#2#{} Mult",
+				},
+			},
+			["j_minty_wildfire_flavor"] = {
+				["name"] = "Wildfire",
+				["text"] = {
+					"{X:mult,C:white}X#1#{} Mult if played hand",
+					"contains {C:attention}4{} different suits",
+					"or a {C:attention}#4#{}",
+					"At {C:attention}end of shop{},",
+					"{C:attention}spread left{} to",
+					"gain {X:mult,C:white}X#2#{} Mult",
+					" ",
+					"{C:inactive,s:0.8}IT BURRRRRRNS!{}"
+				},
+			},
 			["j_minty_shakegun"] = {
 				["name"] = "Milkshake Gun",
 				["text"] = {
@@ -1995,6 +2019,25 @@ return {
 					"unrecognized suit!",
 					"Please play carefully."
 				},
+			},
+			["minty_spread"] = {
+				["label"] = "Spread",
+				["name"] = "Spread",
+				["text"] = {
+					"Destroy another Joker to",
+					"create a {C:perishable}perishable{}",
+					"copy of self"
+				}
+			},
+			["minty_spread2"] = {
+				["label"] = "Spread",
+				["name"] = "Spread",
+				["text"] = {
+					"Destroy another Joker to",
+					"create a {C:perishable}perishable{}",
+					"copy of self with",
+					"{C:perishable}#1#{} rounds left"
+				}
 			},
 			["minty_3credit"] = {
 				["label"] = "Credit",
