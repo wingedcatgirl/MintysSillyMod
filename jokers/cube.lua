@@ -52,6 +52,7 @@ SMODS.Joker {
             end
             if fours > fournt then
                 unlock_card(self)
+                return true
             end
         end
     end,

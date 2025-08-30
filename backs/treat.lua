@@ -3,7 +3,23 @@ SMODS.Back({
     key = "treat",
     pos = { x = 0, y = 0 },
     atlas = "backs",
-    unlocked = true,
+    unlock_req = 5,
+    locked_loc_vars = function (self, info_queue, card)
+        return {
+            vars = {
+                self.unlock_req
+            }
+        }
+    end,
+    unlocked = false,
+    check_for_unlock = function (self, args)
+        if args and args.type == "discover_amount" then
+            if MINTY.discover_count() >= self.unlock_req then
+                unlock_card(self)
+                return true
+            end
+        end
+    end,
     config = {start_with_3s = true},
 
     apply = function()

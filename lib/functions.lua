@@ -439,6 +439,60 @@ function MINTY.find_rank(rank)
     return false
 end
 
+---Counts how many things in a given mod have been discovered
+---@param mod? string ID of the mod to check for; Minty's by default
+---@param set? string Type of thing to check for; Jokers by default
+---@return integer
+MINTY.discover_count = function(set, mod, debug)
+    mod = (mod or "MintysSillyMod")
+    set = set or "Joker"
+    local found = 0
+
+    if debug then
+        MINTY.say("Counting discovered items of set "..set.." from mod with id "..mod)
+    end
+
+    for k, v in pairs(G.P_CENTERS) do
+        if v.discovered then
+            if ((mod == "all") or (mod == "vanilla" and not v.mod) or (v.mod and v.mod.id == mod))
+            and ((v.set == set) or (set == "all")) then
+                if debug then
+                    MINTY.say("Discovered center found with key "..k)
+                end
+                found = found + 1
+            end
+        end
+    end
+
+    if set:lower() == "blind" then
+        for k, v in pairs(G.P_BLINDS) do
+            if v.discovered then
+                if ((mod == "all") or (mod == "vanilla" and not v.mod) or (v.mod and v.mod.id == mod)) then
+                    if debug then
+                        MINTY.say("Discovered blind found with key "..k)
+                    end
+                    found = found + 1
+                end
+            end
+        end
+    end
+
+    if set:lower() == "tag" then
+        for k, v in pairs(G.P_TAGS) do
+            if v.discovered then
+                if ((mod == "all") or (mod == "vanilla" and not v.mod) or (v.mod and v.mod.id == mod)) then
+                    if debug then
+                        MINTY.say("Discovered tag found with key "..k)
+                    end
+                    found = found + 1
+                end
+            end
+        end
+    end
+
+    return found
+end
+
 
 --Talisman compatibility compatibility
 to_big = to_big or function(x)

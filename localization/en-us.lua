@@ -87,6 +87,37 @@ return {
 					"{C:inactive,s:0.8}YOU'RE a cube!",
 				},
 			},
+			["j_minty_youtube"] = {
+				["name"] = "YouTube",
+				["text"] = {
+					"{C:green}#1# in #2#{} chance of",
+					"{X:mult,C:white}X#3#{} Mult"
+				},
+				["unlock"] = {
+					"Overkill a {C:attention}Boss Blind{}",
+					"by a factor of {X:mult,C:white}#1#{}"
+				},
+			},
+			["j_minty_youtube_flavor"] = {
+				["name"] = "YouTube",
+				["text"] = {
+					"{C:green}#1# in #2#{} chance of",
+					"{X:mult,C:white}X#3#{} Mult",
+					" ",
+					"{C:inactive,s:0.8}What? It's an expected result",
+					"{C:inactive,s:0.8}of {X:inactive,C:white,s:0.8}X#4#{C:inactive,s:0.8}, it's totally balanced,",
+				},
+			},
+			["j_minty_youtube_flavor_alt"] = {
+				["name"] = "YouTube",
+				["text"] = {
+					"{C:green}#1# in #2#{} chance of",
+					"{X:mult,C:white}X#3#{} Mult",
+					" ",
+					"{C:inactive,s:0.8}What? It's an expected",
+					"{C:inactive,s:0.8}result of... uh-oh.",
+				},
+			},
 			["j_minty_inkbleed"] = {
 				["name"] = "Inkbleed",
 				["text"] = {
@@ -1188,6 +1219,10 @@ return {
 					"Starts with a",
 					"full set of 13 {C:minty_3s}3s{}",
 				},
+				["unlock"] = {
+					"Discover {C:attention}#1#{} Jokers",
+					"from {C:legendary}Minty's Mod{}"
+				}
 			},
 			["b_minty_hearts"] = {
 				["name"] = "Deck of the Heart",
@@ -1195,6 +1230,11 @@ return {
 					"Start with an",
 					"{C:attention}eternal{} {C:hearts}Lusty Joker{}",
 					"and {C:attention}The Sun{} tarot",
+				},
+				["unlock"] = {
+					"Discover a {V:1}sin{},", 
+					"a {V:2}mineral{}, and",
+					"an {V:3}arcanum{}."
 				},
 			},
 			["b_minty_diamonds"] = {
@@ -1204,6 +1244,11 @@ return {
 					"{C:attention}eternal{} {C:diamonds}Greedy Joker{}",
 					"and {C:attention}The Star{} tarot",
 				},
+				["unlock"] = {
+					"Discover a {V:1}sin{},", 
+					"a {V:2}mineral{}, and",
+					"an {V:3}arcanum{}."
+				},
 			},
 			["b_minty_clubs"] = {
 				["name"] = "Deck of the Club",
@@ -1211,6 +1256,11 @@ return {
 					"Start with an",
 					"{C:attention}eternal{} {C:clubs}Gluttonous Joker{}",
 					"and {C:attention}The Moon{} tarot",
+				},
+				["unlock"] = {
+					"Discover a {V:1}sin{},", 
+					"a {V:2}mineral{}, and",
+					"an {V:3}arcanum{}."
 				},
 			},
 			["b_minty_spades"] = {
@@ -1220,6 +1270,11 @@ return {
 					"{C:attention}eternal{} {C:spades}Wrathful Joker{}",
 					"and {C:attention}The World{} tarot",
 				},
+				["unlock"] = {
+					"Discover a {V:1}sin{},", 
+					"a {V:2}mineral{}, and",
+					"an {V:3}arcanum{}."
+				},
 			},
 			["b_minty_3suit"] = {
 				["name"] = "Deck of the 3",
@@ -1227,6 +1282,11 @@ return {
 					"Start with an",
 					"{C:attention}eternal{} {C:minty_3s}Hedonist Joker{}",
 					"and {C:attention}The Cat{} tarot",
+				},
+				["unlock"] = {
+					"Discover a {V:1}sin{},", 
+					"a {V:2}mineral{}, and",
+					"an {V:3}arcanum{}."
 				},
 			},
 			["b_minty_drippy"] = {

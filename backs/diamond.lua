@@ -3,7 +3,38 @@ SMODS.Back({
     key = "diamonds",
     pos = { x = 1, y = 1 },
     atlas = "backs",
-    unlocked = true,
+    unlocked = false,
+    unlock_req = {
+      "j_greedy_joker",
+      "j_rough_gem",
+      "c_star",
+    },
+    locked_loc_vars = function (self, info_queue, card)
+      local vars = {
+        colours = {
+
+        }
+      }
+      for i,v in ipairs(self.unlock_req) do
+          vars.colours[i] = G.P_CENTERS[v].discovered and G.C.PURPLE or G.C.FILTER
+      end
+      return {
+        vars = vars
+      }
+    end,
+    check_for_unlock = function (self, args)
+      local result = false
+      if args and args.type == "discover_amount" then
+        result = true
+        for i,v in ipairs(self.unlock_req) do
+            result = result and G.P_CENTERS[v].discovered
+        end
+        if result then
+          unlock_card(self)
+        end
+      end
+      return result
+    end,
     config = {},
 
     apply = function()
