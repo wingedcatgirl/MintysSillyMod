@@ -122,6 +122,7 @@ local files = {
         { name = "gymbuddy" },
         { name = "scoundrel" },
         { name = "cakegun" },
+        { name = "youtube" },
         { name = "doctor" },
         { name = "hyperfix" },
         { name = "jacobsladder" },
@@ -232,8 +233,8 @@ for folder, list in pairs(files) do
         end
         if load then
             sendTraceMessage("Loading file: "..folder..'/'..name..'.lua', "Minty's Mod")
-            if not pcall(SMODS.load_file(folder..'/'..name..'.lua')) then
-                local _,errormessage = pcall(SMODS.load_file(folder..'/'..name..'.lua'))
+            local loaded,errormessage = pcall(SMODS.load_file(folder..'/'..name..'.lua'))
+            if not loaded then
                 local disable = not MINTY.config.dev_mode and " The mod will be automatically disabled on restart." or ""
                 if not MINTY.config.dev_mode then
                     NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
