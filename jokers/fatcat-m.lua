@@ -48,7 +48,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if (context.setting_blind and (to_big(G.GAME.dollars) - to_big(card.ability.extra.cost)) > to_big(G.GAME.bankrupt_at)) or context.forcetrigger then
+        if (context.setting_blind and (to_big(G.GAME.dollars) - to_big(card.ability.extra.cost)) >= to_big(G.GAME.bankrupt_at)) or context.forcetrigger then
                 local copier = context.blueprint and context.blueprint_card or card
                 G.E_MANAGER:add_event(Event({
                         func = function()
@@ -60,7 +60,8 @@ SMODS.Joker {
                                 stickers = {
                                     "rental",
                                     "perishable"
-                                }
+                                },
+                                force_stickers = true
                             })
                             card:juice_up(0.3, 0.5)
                             card_eval_status_text(copier, 'extra', nil, nil, nil, {message = localize('k_minty_ordered'), delay = 0.35})
