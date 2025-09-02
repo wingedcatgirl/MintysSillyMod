@@ -10,11 +10,23 @@ G.FUNCS.minty_optcycle = function(args)
     MINTY.config[refval].option_value = args.to_val
 end
 
+G.FUNCS.minty_gameset_optcycle = function(args)
+    local refval = args.cycle_config.ref_value
+    G.PROFILES[G.SETTINGS.profile][refval].current_option = args.cycle_config.current_option
+    G.PROFILES[G.SETTINGS.profile][refval].option_value = args.to_val
+end
+
 G.FUNCS.minty_testbutton = function ()
     return nil
 end
 
 SMODS.current_mod.config_tab = function()
+    --[[ Fallback for in case the funky intro thing doesn't work whenever I do this for real
+    G.PROFILES[G.SETTINGS.profile].minty_balance_level = G.PROFILES[G.SETTINGS.profile].minty_balance_level or {
+        current_option = 2,
+        option_value = "Regular"
+    }
+    --]]
     return {n = G.UIT.ROOT, config = {r = 0.1, minw = 8, minh = 6, align = "tl", padding = 0.2, colour = G.C.BLACK}, nodes = {
         {n = G.UIT.C, config = {minw=1, minh=1, align = "tl", colour = G.C.CLEAR, padding = 0.15}, nodes = {
             --[[
@@ -28,10 +40,10 @@ SMODS.current_mod.config_tab = function()
         create_option_cycle {
             label = "Balance Level",
             options = {'Restrained', "Regular", "Ridiculous"},
-            current_option = MINTY.config.balance_level.current_option,
-            ref_table = MINTY.config,
-            ref_value = "balance_level",
-            opt_callback = 'minty_optcycle',
+            current_option = G.PROFILES[G.SETTINGS.profile].minty_balance_level.current_option,
+            ref_table = G.PROFILES[G.SETTINGS.profile],
+            ref_value = "minty_balance_level",
+            opt_callback = 'minty_gameset_optcycle',
             w = 5.5
             },
         --]]
