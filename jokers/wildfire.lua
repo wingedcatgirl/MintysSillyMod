@@ -6,11 +6,11 @@ SMODS.Joker {
     atlas = 'jokerdoodles',
     pos = {
         x = 0,
-        y = 0
+        y = 7
     },
     soul_pos = {
         x = 1,
-        y = 0
+        y = 7
     },
     rarity = "fuse_fusion",
     cost = 12,

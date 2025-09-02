@@ -27,8 +27,9 @@ SMODS.Joker {
         }
     },
     in_pool = function (self, args) --Don't spawn if locked at 0 (not sure that's actually possible but hey)
-        if not talisman then return end
-        if G and G.GAME and G.GAME.minty_hyperfix and G.GAME.minty_hyperfix.active or (G.GAME.minty_hyperfix.value > 0) then
+        if not talisman then return false end
+        if not (G and G.GAME and G.GAME.minty_hyperfix) then return false end
+        if G.GAME.minty_hyperfix.active or (G.GAME.minty_hyperfix.value > 0) then
             return true
         else
             return false

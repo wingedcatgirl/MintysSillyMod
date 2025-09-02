@@ -762,9 +762,7 @@ return {
 			["j_minty_wildfire"] = {
 				["name"] = "Wildfire",
 				["text"] = {
-					"{X:mult,C:white}X#1#{} Mult if played hand",
-					"contains {C:attention}4{} different suits",
-					"or a {C:attention}#4#{}",
+					"{X:mult,C:white}X#1#{} Mult",
 					"At {C:attention}end of shop{},",
 					"{C:attention}spread left{} to",
 					"gain {X:mult,C:white}X#2#{} Mult",
@@ -773,9 +771,7 @@ return {
 			["j_minty_wildfire_flavor"] = {
 				["name"] = "Wildfire",
 				["text"] = {
-					"{X:mult,C:white}X#1#{} Mult if played hand",
-					"contains {C:attention}4{} different suits",
-					"or a {C:attention}#4#{}",
+					"{X:mult,C:white}X#1#{}",
 					"At {C:attention}end of shop{},",
 					"{C:attention}spread left{} to",
 					"gain {X:mult,C:white}X#2#{} Mult",
