@@ -1,4 +1,4 @@
-FusionJokers.fusions:add_fusion("j_campfire", nil, false, "j_flower_pot", nil, false, "j_minty_wildfire", 12)
+FusionJokers.fusions:add_fusion("j_campfire", nil, false, "j_madness", nil, false, "j_minty_wildfire", 12)
 
 SMODS.Joker {
     key = "wildfire",
@@ -23,7 +23,7 @@ SMODS.Joker {
     config = {
         extra = {
             xmult = 3,
-            xmult_gain = 0.5,
+            xmult_gain = 0.25,
             perish_count = 2
         }
     },
@@ -67,33 +67,9 @@ SMODS.Joker {
         end
 
         if context.joker_main and context.scoring_hand then
-            local check
-            local suits = {}
-            local bootlegwilds = 0
-            for i=1,#context.scoring_hand do
-                if context.scoring_hand[i].config.center.key == "m_wild" then check = true break end
-                if not SMODS.has_no_suit(context.scoring_hand[i]) then
-                    if SMODS.has_any_suit(context.scoring_hand[i]) then
-                        bootlegwilds = bootlegwilds + 1
-                    else
-                        suits[context.scoring_hand[i].base.suit] = true
-                    end
-                end
-            end
-
-            if not check then
-                local suitcount = 0
-                for k,v in ipairs(suits) do
-                    suitcount = suitcount + 1
-                end
-                if suitcount + bootlegwilds >= 4 then check = true end
-            end
-
-            if check then
-                return {
-                    xmult = card.ability.extra.xmult
-                }
-            end
+            return {
+                xmult = card.ability.extra.xmult
+            }
         end
     end
 }
