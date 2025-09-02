@@ -39,7 +39,6 @@ SMODS.Joker {
                 card.ability.extra.xmult,
                 card.ability.extra.xmult_gain,
                 card.ability.extra.perish_count,
-                localize{type = 'name_text', set = 'Enhanced', key = "m_wild"}
             }
         }
     end,
