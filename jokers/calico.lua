@@ -58,7 +58,7 @@ SMODS.Joker {
         }
     end,
     in_pool = function (self, args)
-        local calico_defeated = G.GAME.blinds_defeated and G.GAME.blinds_defeated.bl_minty_calico_counter
+        local calico_defeated = G.GAME.blinds_defeated_list and G.GAME.blinds_defeated_list.bl_minty_calico_counter
 
         return finity or (crossover and calico_defeated)
     end,
