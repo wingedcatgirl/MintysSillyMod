@@ -113,9 +113,9 @@ target = '=[SMODS _ "src/overrides.lua"]'
 position = "after"
 pattern = '''defeat(self, silent)'''
 payload = '''
-G.GAME.blinds_defeated = G.GAME.blinds_defeated or {}
+G.GAME.blinds_defeated_list = G.GAME.blinds_defeated_list or {}
 local bkey = (G.GAME and G.GAME.blind and G.GAME.blind.config and G.GAME.blind.config.blind and G.GAME.blind.config.blind.key)
-if bkey then G.GAME.blinds_defeated[bkey] = (G.GAME.blinds_defeated[bkey] or 0) + 1 end
+if bkey then G.GAME.blinds_defeated_list[bkey] = (G.GAME.blinds_defeated_list[bkey] or 0) + 1 end
 '''
 match_indent = true
 
