@@ -169,7 +169,8 @@ local files = {
         { name = "drafts", mods = { { id = "draft", version = "0.5.2.1" } } },
     },
     vouchers = {
-        { name = "topplepaws" }
+        { name = "topplepaws" },
+        { name = "treasure" },
     },
     modifiers = {
         { name = "marble" }, --Enhancements

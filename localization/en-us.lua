@@ -21,6 +21,11 @@ return {
 			["k_minty_cube"] = "Hand must contain exactly 4 cards",
 			["k_minty_psycube"] = "What have you done?!",
 			["k_minty_challenge"] = "Challenge",
+			["k_minty_hands"] = "hands per round",
+			["k_minty_size"] = "hand size",
+			["k_minty_discards"] = "discards per round",
+			["k_minty_jokers"] = "Joker slots",
+			["k_minty_selection"] = "selection limit",
 		},
 		["v_dictionary"] = {
 			["a_minty_chipgain"] = "+#1# Chips",
@@ -105,7 +110,7 @@ return {
 					"{X:mult,C:white}X#3#{} Mult",
 					" ",
 					"{C:inactive,s:0.8}What? It's an expected result",
-					"{C:inactive,s:0.8}of {X:inactive,C:white,s:0.8}X#4#{C:inactive,s:0.8}, it's totally balanced,",
+					"{C:inactive,s:0.8}of {X:inactive,C:white,s:0.8}X#4#{C:inactive,s:0.8}, it's totally balanced!",
 				},
 			},
 			["j_minty_youtube_flavor_alt"] = {
@@ -1300,7 +1305,7 @@ return {
 				["name"] = "The Silliest, Littlest Deck",
 				["text"] = {
 					"{C:legendary}Minty's Mod{C:attention} Jokers{} are {C:attention}3x",
-					"more likely to appear,",
+					"more likely to appear.",
 				},
 			},
 		},
@@ -1717,14 +1722,14 @@ return {
 				["name"] = "The Silliest, Littlest Sleeve",
 				["text"] = {
 					"{C:legendary}Minty's Mod{C:attention} Jokers{} are {C:attention}3x",
-					"more likely to appear,",
+					"more likely to appear.",
 				},
 			},
 			["sleeve_minty_sillylittlesleeve_alt"] = {
 				["name"] = "The Silliest, Littlest Sleeve",
 				["text"] = {
 					"Other {C:legendary}Minty's Mod{} items are {C:attention}2x",
-					"more likely to appear,",
+					"more likely to appear.",
 				},
 			},
 			["sleeve_minty_drippysleeve"] = {
@@ -1839,7 +1844,22 @@ return {
 					"Discard {C:attention}#1#{}{C:inactive}(#2#){} hands",
 					"of {C:mult}6{} or more cards",
 				}
-			}
+			},
+			["v_minty_treasure"] = {
+				["name"] = "Treasure",
+				["text"] = {
+					"{V:1}+#1#{} to",
+					"{C:attention}#2#{}"
+				},
+				["unlock"] = {
+					"Unlock the vouchers",
+					"{V:1}#1#{},",
+					"{V:2}#2#{},",
+					"{V:3}#3#{},",
+					"{V:4}#4#{},",
+					"and {V:5}#5#{}.",
+				}
+			},
 		},
 		["Colour"] = {
 			["c_minty_emeowrald"] = {
