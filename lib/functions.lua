@@ -133,6 +133,15 @@ function Card:is_3(bypass_debuff)
         if count == 0 then return false else return count end
 end
 
+function Card:is_kity()
+    local minty_kity = self.config.center.pools and self.config.center.pools.kity
+    local valkitty
+    if (SMODS.Mods.vallkarri or {}).can_load then
+        valkitty = self:is_kitty()
+    end
+    return minty_kity or valkitty
+end
+
 MINTY.getSpecKey = (SPECF and SPECF.getSpecKey) or function(HandName)
     MINTY.say("Using Minty's function for this")
     if not G.GAME then return "ERROR: Hands don't exist yet!" end
