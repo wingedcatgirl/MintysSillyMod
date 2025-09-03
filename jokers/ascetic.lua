@@ -27,7 +27,7 @@ SMODS.Joker {
     cost_mult = 1.0,
     config = {
         extra = {
-            s_chips = 30,
+            s_chips = 25,
             suit = 'minty_3s',
             again = 0
         }
