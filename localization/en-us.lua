@@ -1496,7 +1496,7 @@ return {
 				["text"] = {
 					"Converts up to",
 					"{C:attention}#1#{} selected card#2#",
-					"to #3#random {C:attention}#4##2#{}",
+					"to random {C:attention}#4#{}",
 				},
 			},
 			["c_minty_geologist_flavor"] = {
@@ -1504,7 +1504,7 @@ return {
 				["text"] = {
 					"Converts up to",
 					"{C:attention}#1#{} selected card#2#",
-					"to #3#random {C:attention}#4##2#{}",
+					"to random {C:attention}#4#{}",
 					" ",
 					"{C:inactive,s:0.8}Please look at these cool rocks{}"
 				},
