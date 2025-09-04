@@ -626,6 +626,10 @@ return {
 					"played {C:minty_3s}3s{} to give",
 					"{X:mult,C:white} X#3# {} Mult when scored",
 				},
+				["unlock"] = {
+                    "Have at least {E:1,C:attention}#2#",
+                    "{E:1,C:minty_3s}#1#{} in your deck"
+				}
 			},
 			["j_minty_claw_flavor"] = {
 				["name"] = "Fossilized Claw",
@@ -742,8 +746,8 @@ return {
 				["text"] = {
 					"Every {C:attention}played card{}",
 					"counts in scoring;",
-					"{C:mult}+#2#{} Mult",
-					"per round or {C:attention}extra scored card{}",
+					"{C:mult}+#2#{} Mult per round",
+					"or {C:attention}extra scored card{}",
 					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult){}",
 				},
 			},
@@ -752,8 +756,8 @@ return {
 				["text"] = {
 					"Every {C:attention}played card{}",
 					"counts in scoring;",
-					"{C:mult}+#2#{} Mult",
-					"per round or {C:attention}extra scored card{}",
+					"{C:mult}+#2#{} Mult per round",
+					"or {C:attention}extra scored card{}",
 					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult){}",
 					" ",
 					"{C:inactive,s:0.8}Poor little meow meow...{}"

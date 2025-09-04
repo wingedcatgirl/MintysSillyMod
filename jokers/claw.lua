@@ -34,7 +34,31 @@ SMODS.Joker {
             }
         }
     end,
-    unlocked = true,
+    locked_loc_vars = function (self, info_queue, card)
+        return {
+            vars = {
+                localize(self.unlock_condition.suit, "suits_plural"),
+                self.unlock_condition.count,
+            }
+        }
+    end,
+    unlocked = false,
+    unlock_condition = {
+        suit = "minty_3s",
+        count = 33,
+    },
+    check_for_unlock = function (self, args)
+        if args and args.type == "modify_deck" then
+            local count = 0
+            for _, v in pairs(G.playing_cards) do
+                count = count + (v:is_3() or 0)
+            end
+            if count >= self.unlock_condition.count then
+                unlock_card(self)
+                return true
+            end
+        end
+    end,
     discovered = false,
     eternal_compat = true,
     perishable_compat = true,
