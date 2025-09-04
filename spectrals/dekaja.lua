@@ -26,9 +26,6 @@ SMODS.Consumable {
 		}
 	end,
 	cost = 4,
-	hidden = true,
-	soul_set = 'Tarot',
-	soul_rate = 0.003,
 	atlas = "spectrals",
 	pos = { x = 0, y = 0 },
 	can_use = function(self, card)
