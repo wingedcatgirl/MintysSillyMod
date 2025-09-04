@@ -138,7 +138,7 @@ SMODS.Joker {
             }
         end
 
-        if context.final_scoring_step and context.cardarea == G.jokers then
+        if context.final_scoring_step then
             local suits = {}
             for _,v in ipairs(SMODS.Suit.obj_buffer) do
                 suits[v] = false

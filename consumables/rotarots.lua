@@ -179,9 +179,6 @@ SMODS.Consumable({
     can_use = function(self, card)
         return #G.hand.highlighted >= 1 and #G.hand.highlighted <= card.ability.max_highlighted
     end,
-    in_pool = function (self, args)
-        return false
-    end,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS[self.config.mod_conv]
         local key = self.key
