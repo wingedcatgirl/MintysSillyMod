@@ -24,11 +24,11 @@ SMODS.Joker {
         ["kity"] = true
     },
     config = {
-        extra = {
+        immutable = {
             targetname = "None",
             targetkey = "",
-            targetcard = {},
             targetid = 0,
+            targetcard = {}
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -44,23 +44,23 @@ SMODS.Joker {
             key = self.key.."_flavor"
         end
         local target
-        if card.ability.extra.targetkey ~= "" then
+        if card.ability.immutable.targetkey ~= "" then
             for i = 1, #G.jokers.cards do
-                if G.jokers.cards[i].unique_val == card.ability.extra.targetid then
+                if G.jokers.cards[i].unique_val == card.ability.immutable.targetid then
                     target = G.jokers.cards[i]
                 end
             end
         end
         if target then
-            info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.extra.targetkey]
-            card.ability.extra.targetname = localize{type = "name_text", set = "Joker", key = card.ability.extra.targetkey}
+            info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.immutable.targetkey]
+            card.ability.immutable.targetname = localize{type = "name_text", set = "Joker", key = card.ability.immutable.targetkey}
         else
-            card.ability.extra.targetname = "None"
+            card.ability.immutable.targetname = "None"
         end
         return {
             key = key,
             vars = {
-                card.ability.extra.targetname
+                card.ability.immutable.targetname
             }
         }
     end,
@@ -68,8 +68,8 @@ SMODS.Joker {
         return not (cryptid and not MINTY.config.dev_mode)
     end,
     calculate = function(self, card, context)
-        if context.forcetrigger and next(card.ability.extra.targetcard) and card.ability.extra.targetcard.config.center.demicoloncompat then
-            MINTY.say("Calculating force-triggered blueprint effect of "..card.ability.extra.targetname.." copied by Copy Cat", "TRACE")
+        if context.forcetrigger and next(card.ability.immutable.targetcard) and card.ability.immutable.targetcard.config.center.demicoloncompat then
+            MINTY.say("Calculating force-triggered blueprint effect of "..card.ability.immutable.targetname.." copied by Copy Cat", "TRACE")
             local ret = SMODS.blueprint_effect(card, target, context)
             if ret then return ret end
         end
@@ -85,19 +85,19 @@ SMODS.Joker {
             end
             if jokers == {} then return end
             local target = pseudorandom_element(jokers, pseudoseed("copycat"))
-            card.ability.extra.targetcard = target
-            card.ability.extra.targetkey = target.config.center.key
-            card.ability.extra.targetid = target.unique_val
-            card.ability.extra.targetname = localize{type = "name_text", set = "Joker", key = card.ability.extra.targetkey}
-            --MINTY.say("Joker selected: "..card.ability.extra.targetname)
+            card.ability.immutable.targetcard = target
+            card.ability.immutable.targetkey = target.config.center.key
+            card.ability.immutable.targetid = target.unique_val
+            card.ability.immutable.targetname = localize{type = "name_text", set = "Joker", key = card.ability.immutable.targetkey}
+            --MINTY.say("Joker selected: "..card.ability.immutable.targetname)
             return {
                 message = localize("k_copied_ex"),
                 message_card = card,
             }
         end
 
-        if context.selling_card and (context.card == card.ability.extra.targetcard) then
-            card.ability.extra = {
+        if context.selling_card and (context.card == card.ability.immutable.targetcard) then
+            card.ability.immutable = {
                 targetname = "None",
                 targetkey = "",
                 targetcard = {},
@@ -110,18 +110,18 @@ SMODS.Joker {
         end
 
         --MINTY.say("Considering calculation context")
-        if card.ability.extra.targetname == "None" then return end
+        if card.ability.immutable.targetname == "None" then return end
         if context.no_blueprint then return end
         --MINTY.say("Calculation context allowed")
         local target
         for i = 1, #G.jokers.cards do
-            if G.jokers.cards[i].unique_val == card.ability.extra.targetid then
+            if G.jokers.cards[i].unique_val == card.ability.immutable.targetid then
                 target = G.jokers.cards[i]
                 break
             end
         end
         if target and target ~= card then
-            --MINTY.say("Calculating blueprint effect of "..card.ability.extra.targetname.." copied by Copy Cat", "TRACE")
+            --MINTY.say("Calculating blueprint effect of "..card.ability.immutable.targetname.." copied by Copy Cat", "TRACE")
             local ret = SMODS.blueprint_effect(card, target, context)
             if ret then return ret end
         end
