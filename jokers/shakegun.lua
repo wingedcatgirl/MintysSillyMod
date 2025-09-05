@@ -9,8 +9,8 @@ SMODS.Joker {
         y = 0
     },
     soul_pos = {
-        x = 1,
-        y = 0
+        x = 2,
+        y = 7
     },
     rarity = "fuse_fusion",
     cost = 10,
@@ -55,7 +55,7 @@ SMODS.Joker {
             return {
                 message = localize("k_minty_shaked"),
                 message_card = G.GAME.blind,
-                --sound = "minty_explosion",
+                sound = "minty_squirt",
                 func = function ()
                     local final_chips = to_big((G.GAME.blind.chips / 100) * (100 - card.ability.extra.percent))
                     G.GAME.blind.chips = final_chips

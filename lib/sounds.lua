@@ -17,3 +17,8 @@ SMODS.Sound { --Deltarune reference, original source is this thing: https://soun
     key = 'explosion',
     path = 'lofi explosion.wav'
 }
+
+SMODS.Sound { --https://sounds.spriters-resource.com/gamecube/supermariosunshine/asset/394927/; (sloppy) recreation from w2ndLoad_0.aw_000001bb.wav and w2ndLoad_0.aw_000001d0.wav
+    key = 'squirt',
+    path = 'approximately yoshi juice noise probably.ogg'
+}
