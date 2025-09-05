@@ -95,7 +95,7 @@ SMODS.Consumable {
 						for k,v in pairs(stickers) do
 							if target.ability[k] then
 								if v.removed then v:removed(target) end --Patch for Gemstones; I don't think this is universal
-								target.ability[k] = nil
+								target:remove_sticker(k)
 							end
 						end
 						SMODS.debuff_card(target, "reset", "minty_dekaja")
@@ -120,7 +120,7 @@ SMODS.Consumable {
 						for k,v in pairs(stickers) do
 							if target.ability[k] then
 								if v.removed then v:removed(target) end --Patch for Gemstones; I don't think this is universal
-								target.ability[k] = nil
+								target:remove_sticker(k)
 							end
 						end
 						play_sound("tarot2", percent)
