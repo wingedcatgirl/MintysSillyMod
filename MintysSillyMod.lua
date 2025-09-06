@@ -145,8 +145,8 @@ local files = {
         --{ name = "testcard" },
     },
     consumables = {
-        { name = "colors", mods = { { id = "MoreFluff" } } },
-        { name = "rotarots", mods = { { id = "MoreFluff" } } },
+        { name = "colors", mods = { { id = "MoreFluff", cfg = "Colour Cards" } } },
+        { name = "rotarots", mods = { { id = "MoreFluff", cfg = "45 Degree Rotated Tarot Cards" } } },
         { name = "gemstones", mods = { { id = "Gemstone" } } },
         { name = "drafts", mods = { { id = "draft", version = "0.5.2.1" } } },
     },
@@ -200,6 +200,10 @@ for folder, list in pairs(files) do
             sendTraceMessage("Checking required mods for "..folder..'/'..name..".lua", "Minty's Mod")
             for _, mod in ipairs(mods) do
                 load = load and (SMODS.Mods[mod.id] or {}).can_load
+                if mod.cfg then
+                    sendTraceMessage("Checking config "..mod.cfg.." for "..folder..'/'..name..".lua", "Minty's Mod")
+                    load = load and SMODS.Mods[mod.id].config[mod.cfg]
+                end
                 if mod.version then load = load and ((SMODS.Mods[mod.id] or {}).version == mod.version) end
             end
         end
