@@ -8,7 +8,36 @@ SMODS.Joker {
     },
     rarity = 2,
     cost = 7,
-    unlocked = true,
+    unlocked = false,
+    locked_loc_vars = function (self, info_queue, card)
+        local count = 0
+        for k,v in pairs(SMODS.Mods) do
+            if k ~= "Balatro" and k ~= "Steamodded" and k ~= "Lovely" and v.can_load then
+                count = count+1
+            end
+        end
+        return {
+            vars = {
+                self.unlock_condition.count,
+                count
+            }
+        }
+    end,
+    unlock_condition = {
+        count = 30
+    },
+    check_for_unlock = function (self, args)
+        local count = 0
+        for k,v in pairs(SMODS.Mods) do
+            if k ~= "Balatro" and k ~= "Steamodded" and k ~= "Lovely" and v.can_load then
+                count = count+1
+            end
+        end
+        if count >= self.unlock_condition.count then
+            unlock_card(self)
+            return true
+        end
+    end,
     discovered = false,
     eternal_compat = true,
     perishable_compat = true,

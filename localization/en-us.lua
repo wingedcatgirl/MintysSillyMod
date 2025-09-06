@@ -129,6 +129,11 @@ return {
 					"{C:attention}Enhancements{} sharing names",
 					"also share {C:attention}effects{}"
 				},
+				["unlock"] = {
+					"Play with at least",
+					"{C:attention}#1#{} mods active",
+					"{C:inactive}(Currently #2#){}"
+				}
 			},
 			["j_minty_inkbleed_flavor"] = {
 				["name"] = "Inkbleed",

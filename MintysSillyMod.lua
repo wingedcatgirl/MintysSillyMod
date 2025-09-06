@@ -63,9 +63,6 @@ if not SMODS.ObjectType.Food then
             ["j_ramen"] = true,
             ["j_selzer"] = true,
         },
-        inject = function(self)
-            SMODS.ObjectType.inject(self)
-        end,
     })
 end
 
@@ -112,7 +109,7 @@ local files = {
         { name = "treatovision" },
         { name = "peywet", },
         { name = "cakesword" },
-        --{ name = "inkbleed" },
+        --{ name = "inkbleed" }, --Dummied cause quantum enhancements are still janky
         { name = "copycat" },
         { name = "sabertooth" },
         { name = "neko" },
