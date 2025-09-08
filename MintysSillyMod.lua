@@ -148,7 +148,7 @@ local files = {
         { name = "colors", mods = { { id = "MoreFluff", cfg = "Colour Cards" } } },
         { name = "rotarots", mods = { { id = "MoreFluff", cfg = "45 Degree Rotated Tarot Cards" } } },
         { name = "gemstones", mods = { { id = "Gemstone" } } },
-        { name = "drafts", mods = { { id = "draft", version = "0.5.2.1" } } },
+        { name = "drafts", mods = { { id = "draft", version = "0.6.0" } } },
     },
     vouchers = {
         { name = "topplepaws" }

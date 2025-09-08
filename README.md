@@ -64,7 +64,7 @@ Minty's Mod adds content for all of the following mods. Those with ⭐️ are al
 - [Aikoyori's Shenanigans](https://github.com/Aikoyori/Balatro-Aikoyoris-Shenanigans)
 - [Card Sleeves](https://github.com/larswijn/CardSleeves) ⭐️
 - [Cryptid](https://github.com/MathIsFun0/Cryptid)
-- [Drafting](https://github.com/spire-winder/Balatro-Draft) ⭐️ (FYI, the crossover content requires [a temporary beta branch](https://github.com/wingedcatgirl/Balatro-Draft/tree/suitupdate-temp) we made)
+- [Drafting](https://github.com/spire-winder/Balatro-Draft) ⭐️
 - [Finity](https://github.com/frangnosquest/Finity)
 - [Fusion Jokers](https://github.com/wingedcatgirl/Fusion-Jokers) ⭐️
 - [Gemstones](https://github.com/wingedcatgirl/Gemstones)
