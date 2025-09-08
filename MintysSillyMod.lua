@@ -204,7 +204,7 @@ for folder, list in pairs(files) do
                     sendTraceMessage("Checking config "..mod.cfg.." for "..folder..'/'..name..".lua", "Minty's Mod")
                     load = load and SMODS.Mods[mod.id].config[mod.cfg]
                 end
-                if mod.version then load = load and ((SMODS.Mods[mod.id] or {}).version == mod.version) end
+                if mod.version then load = load and ((SMODS.Mods[mod.id] or {}).version >= mod.version) end
             end
         end
         if load and incompat then
