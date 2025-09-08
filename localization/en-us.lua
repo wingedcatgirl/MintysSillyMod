@@ -2052,6 +2052,28 @@ return {
 					"spawning naturally",
 				},
 			},
+			["minty_mirror"] = {
+				["label"] = "Mirror Pronouns",
+				["name"] = "Mirror Pronouns",
+				["text"] = {
+					"{C:attention}#1#'s{} pronouns are",
+					"the same as whoever",
+					"is referring to it"
+				}
+			},
+			["minty_mirror_flavor"] = {
+				["label"] = "Mirror Pronouns",
+				["name"] = "Mirror Pronouns",
+				["text"] = {
+					"{C:attention}#1#'s{} pronouns are",
+					"the same as whoever",
+					"is referring to it",
+					" ",
+					'{C:inactive,s:0.8}"Lore drop modder uses it/its?!?!?"',
+					'{C:inactive,s:0.6}                      "Not new information!"',	--Is there a better way to do this? Surely.
+					'{C:inactive,s:0.8}"Oh."                            ',				--Do I know it? Hell no.
+				}
+			},
 			["minty_disabled_object"] = {
 				["label"] = "Object Disabled",
 				["name"] = "Object Disabled",

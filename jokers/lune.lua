@@ -3,6 +3,7 @@ local ortalab = (SMODS.Mods["ortalab"] or {}).can_load
 SMODS.Joker {
     key = "lune",
     name = "Lune",
+    pronouns = "she_her",
     atlas = 'legends',
     pos = {
         x = 5,

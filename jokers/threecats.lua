@@ -3,6 +3,7 @@ FusionJokers.fusions:add_fusion("j_minty_hedonist", nil, false, "j_minty_claw", 
 SMODS.Joker {
     dependencies = "FusionJokers",
     key = "threecats",
+    pronouns = "they_them", --*Pep of Pig voice* three of you
     name = "Three Cats!",
     atlas = 'jokerdoodles',
     pos = {

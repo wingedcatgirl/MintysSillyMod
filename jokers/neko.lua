@@ -3,6 +3,7 @@ local toga = (SMODS.Mods.TOGAPack or {}).can_load
 SMODS.Joker {
     key = "neko",
     name = "neko.exe",
+    pronouns = "it_its",
     atlas = 'neko',
     pos = {
         x = 0,

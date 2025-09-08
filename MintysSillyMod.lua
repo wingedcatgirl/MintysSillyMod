@@ -73,6 +73,7 @@ local files = {
         { name = "hooks" },
         { name = "sounds" },
         { name = "configui" },
+        { name = "bluehairand", mods = { { id = "cardpronouns" } } },
     },
     suits = {
         { name = "3suit" }

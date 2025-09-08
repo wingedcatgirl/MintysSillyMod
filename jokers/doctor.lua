@@ -3,6 +3,7 @@ local talisman = (SMODS.Mods.Talisman or {}).can_load
 SMODS.Joker {
     key = "doctor",
     name = "Doctor",
+    pronouns = "he_him",
     atlas = 'jokerdoodles',
     pos = {
         x = 0,

@@ -3,6 +3,7 @@ local cryptid = (SMODS.Mods.Cryptid or {}).can_load
 SMODS.Joker {
     key = "copycat",
     name = "Copy Cat",
+    pronouns = "mirror",
     atlas = 'jokerdoodles',
     pos = {
         x = 0,
@@ -38,6 +39,10 @@ SMODS.Joker {
             else
                 info_queue[#info_queue+1] = { set = "Other", key = "minty_dev_warning", specific_vars = { "Mod", "Cryptid" } }
             end
+        end
+        if (SMODS.Mods.cardpronouns or {}).can_load then
+            local mirrorkey = "minty_mirror"..(MINTY.config.flavor_text and "_flavor" or "")
+            info_queue[#info_queue+1] = { set = "Other", key = mirrorkey, specific_vars = { localize{type = "name_text", set = "Joker", key = self.key } } }
         end
         local key = self.key
         if MINTY.config.flavor_text then

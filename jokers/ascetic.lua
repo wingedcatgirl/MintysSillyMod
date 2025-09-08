@@ -3,6 +3,7 @@ local ortalab = (SMODS.Mods.ortalab or {}).can_load
 SMODS.Joker {
     key = "ascetic",
     name = "Ascetic Joker",
+    pronouns = "any_all",
     atlas = 'ortalabdoodles',
     pos = {
         x = 0,

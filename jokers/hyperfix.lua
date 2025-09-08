@@ -3,6 +3,7 @@ local talisman = (SMODS.Mods.Talisman or {}).can_load
 SMODS.Joker {
     key = "hyperfix",
     name = "Angel of Hyperfixation",
+    pronouns = "she_her",
     atlas = 'jokerdoodles',
     pos = {
         x = 0,

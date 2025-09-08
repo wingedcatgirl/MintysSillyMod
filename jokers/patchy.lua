@@ -1,6 +1,7 @@
 SMODS.Joker {
     key = "patchy",
     name = "Patchy",
+    pronouns = "she_her",
     atlas = 'legends',
     pos = {
         x = 2,

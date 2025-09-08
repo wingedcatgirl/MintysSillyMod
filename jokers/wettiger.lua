@@ -3,6 +3,7 @@ FusionJokers.fusions:add_fusion("j_splash", nil, false, "j_minty_slowtiger", mul
 SMODS.Joker {
     key = "wettiger",
     name = "Wet Tiger",
+    pronouns = "it_its",
     atlas = 'jokerdoodles',
     pos = {
         x = 0,

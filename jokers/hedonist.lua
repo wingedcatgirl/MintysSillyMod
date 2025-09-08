@@ -1,6 +1,7 @@
 SMODS.Joker {
     key = "hedonist",
     name = "Hedonist Joker",
+    pronouns = "he_any",
     atlas = 'jokerdoodles',
     pos = {
         x = 0,
