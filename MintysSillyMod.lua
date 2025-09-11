@@ -175,6 +175,7 @@ local files = {
         { name = "microcline" },
         { name = "crystal" },
         { name = "hematite" },
+        { name = "static" },
         { name = "garbled" }, --Rotarot enhancements
         { name = "pistol" },
         { name = "spline" },

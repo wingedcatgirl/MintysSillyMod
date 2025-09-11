@@ -1826,6 +1826,15 @@ return {
 					"upon highlighting"
 				}
 			},
+			["m_minty_static"] = {
+				["name"] = "Static Card",
+				["label"] = "Static Card",
+				["text"] = {
+					"{C:purple}Balances{} #1#% of",
+					"{C:chips}Chips{} and {C:mult}Mult{}",
+					"when scored"
+				}
+			},
 		},
 		["Voucher"] = {
 			["v_minty_tabletopple"] = {
