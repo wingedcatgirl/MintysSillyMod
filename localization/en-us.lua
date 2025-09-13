@@ -54,6 +54,24 @@ return {
 			["c_minty_backalley"] = "Back Alleys",
 			["c_minty_evilbackalley"] = "Deadly Back Alleys",
 			["c_minty_cosmoport"] = "My Own Cosmoport",
+		},
+		["poker_hands"] = {
+			["minty_Handful"] = "Handful of Rocks",
+			["minty_flush_handful"] = "Flush Handful",
+			["minty_spec_handful"] = "Spectrum Handful",
+		},
+		["poker_hand_descriptions"] = {
+			["minty_Handful"] = {
+				"5 {C:attention}Rock Cards{}"
+			},
+			["minty_flush_handful"] = {
+				"5 {C:attention}Rock Cards{} of",
+				"the {C:attention}same{} enhancement"
+			},
+			["minty_spec_handful"] = {
+				"5 {C:attention}Rock Cards{} of",
+				"{C:attention}different{} enhancements"
+			},
 		}
 	},
 	["descriptions"] = {
@@ -1594,6 +1612,17 @@ return {
 					" ",
 					"{C:inactive,s:0.8}RUN POUNCE CHASE HUNT"
 				},
+			},
+		},
+		["Planet"] = {
+			["c_minty_rockplanet"] = {
+				["name"] = "Rock Planets"
+			},
+			["c_minty_twinrockplanet"] = {
+				["name"] = "Twin Rock Planets"
+			},
+			["c_minty_diffrockplanet"] = {
+				["name"] = "Different Rock Planets"
 			},
 		},
 		["Sleeve"] = {

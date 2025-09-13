@@ -202,6 +202,12 @@ local files = {
         { name = "calico" },
         { name = "thenipdx" },
     },
+    hands = {
+        { name = "handful" },
+    },
+    planets = {
+        { name = "handfuls" },
+    },
     challenge = {
         { name = "challenges", mods = { { id = "ChDp" } } }
     }
