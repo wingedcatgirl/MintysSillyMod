@@ -2,7 +2,8 @@ SMODS.Consumable{
     set = 'Planet',
     cost = 3,
     unlocked = true,
-    atlas = 'placeholder',
+    atlas = 'planets',
+    pos = { x = 0, y = 0 },
     key = 'rockplanet',
     name = "Rock Planets",
     effect = 'Hand Upgrade',
@@ -34,14 +35,14 @@ SMODS.Consumable{
 			},
 		}
 	end,
-    pos = {x=2, y=9},
 }
 
 SMODS.Consumable{
     set = 'Planet',
     cost = 3,
     unlocked = true,
-    atlas = 'placeholder',
+    atlas = 'planets',
+    pos = { x = 1, y = 0 },
     key = 'twinrockplanet',
     name = "Twin Rock Planets",
     effect = 'Hand Upgrade',
@@ -73,14 +74,14 @@ SMODS.Consumable{
 			},
 		}
 	end,
-    pos = {x=2, y=9},
 }
 
 SMODS.Consumable{
     set = 'Planet',
     cost = 3,
     unlocked = true,
-    atlas = 'placeholder',
+    atlas = 'planets',
+    pos = { x = 2, y = 0 },
     key = 'diffrockplanet',
     name = "Different Rock Planets",
     effect = 'Hand Upgrade',
@@ -112,5 +113,4 @@ SMODS.Consumable{
 			},
 		}
 	end,
-    pos = {x=2, y=9},
 }
