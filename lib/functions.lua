@@ -502,6 +502,15 @@ MINTY.discover_count = function(set, mod, debug)
     return found
 end
 
+---Faster than typing out all this crap :v 
+---@param func function The function to queue
+---@param args? table Other arguments
+MINTY.event = function(func, args)
+    args = args or {}
+    args.func = args.func or func
+    G.E_MANAGER:add_event(Event(args))
+end
+
 
 --Talisman compatibility compatibility
 to_big = to_big or function(x)

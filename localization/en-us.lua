@@ -26,6 +26,7 @@ return {
 			["k_minty_discards"] = "discards per round",
 			["k_minty_jokers"] = "Joker slots",
 			["k_minty_selection"] = "selection limit",
+			["k_minty_treasureplaceholder"] = "a random stat"
 		},
 		["v_dictionary"] = {
 			["a_minty_chipgain"] = "+#1# Chips",
@@ -1891,7 +1892,7 @@ return {
 			["v_minty_treasure"] = {
 				["name"] = "Treasure",
 				["text"] = {
-					"{V:1}+#1#{} to",
+					"{C:mult}+#1#{} to",
 					"{C:attention}#2#{}"
 				},
 				["unlock"] = {

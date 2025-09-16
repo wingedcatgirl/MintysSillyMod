@@ -36,17 +36,24 @@ SMODS.Voucher{
         x = 2,
         y = 0,
     },
-    cost = 10, --change to 20 after making it repeatable
+    cost = 20, --figure out how to make this increase
     config = {
         extra = {
             amount = 1
         }
     },
     loc_vars = function (self, info_queue, voucher)
+        local option
+        if MINTY.in_collection(voucher) then
+            option = "k_minty_treasureplaceholder"
+        else
+            option = "k_minty_"..voucher.ability.extra.option
+        end
+
         return {
             vars = {
                 voucher.ability.extra.amount,
-                localize("k_minty_"..card.ability.extra.option)
+                localize(option)
             }
         }
     end,
@@ -56,31 +63,37 @@ SMODS.Voucher{
     end,
     set_ability = function (self, voucher, initial, delay_sprites)
         local option = pseudorandom_element({ "hands", "size", "discards", "jokers", "selection" }, "minty_treasure")
+        local count = #SMODS.find_card(self.key, true)
         voucher.ability.extra.option = option
+        if not MINTY.in_collection(voucher) then
+            G.GAME.inflation = G.GAME.inflation + count --Very hacky and bad lol
+            voucher:set_cost()
+            G.GAME.inflation = G.GAME.inflation - count
+        end
     end,
     redeem = function (self, voucher)
         local option = voucher.ability.extra.option
         if option == "hands" then
-            MINTY.say("Increasing hands")
+            --MINTY.say("Increasing hands")
             G.GAME.round_resets.hands = G.GAME.round_resets.hands + voucher.ability.extra.amount
         elseif option == "size" then
             G.hand:change_size(voucher.ability.extra.amount)
-            MINTY.say("Increasing hand size")
+            --MINTY.say("Increasing hand size")
         elseif option == "discards" then
             G.GAME.round_resets.discards = G.GAME.round_resets.discards + voucher.ability.extra.amount
             ease_discard(voucher.ability.extra.amount)
-            MINTY.say("Increasing discards")
+            --MINTY.say("Increasing discards")
         elseif option == "jokers" then
             G.E_MANAGER:add_event(Event({func = function() --This is an event in vanilla and I don't know why but I'm replicating it just in case :shrug:
                 if G.jokers then
                     G.jokers.config.card_limit = G.jokers.config.card_limit + voucher.ability.extra.amount
                 end
                 return true end }))
-            MINTY.say("Increasing joker limit")
+            --MINTY.say("Increasing joker limit")
         elseif option == "selection" then
             SMODS.change_discard_limit(voucher.ability.extra.disc)
             SMODS.change_play_limit(voucher.ability.extra.disc)
-            MINTY.say("Increasing selection limit")
+            --MINTY.say("Increasing selection limit")
         else
             MINTY.say("Failed to select option for Treasure voucher?!", "ERROR")
         end
