@@ -21,6 +21,7 @@ return {
 			["k_minty_cube"] = "Hand must contain exactly 4 cards",
 			["k_minty_psycube"] = "What have you done?!",
 			["k_minty_challenge"] = "Challenge",
+			["k_minty_special"] = "Special",
 			["k_minty_hands"] = "hands per round",
 			["k_minty_size"] = "hand size",
 			["k_minty_discards"] = "discards per round",
@@ -48,6 +49,7 @@ return {
 			["m_minty_garbled"] = "Garbled Card",
 			["gemslot_catseye"] = "Cat's Eye",
 			["k_minty_challenge"] = "Challenge",
+			["k_minty_special"] = "Special",
 		},
 		["challenge_names"] = {
 			["c_minty_raidnight"] = "Day One Raid Night",
@@ -161,6 +163,20 @@ return {
 					"also share {C:attention}effects{}",
 					" ",
 					"{C:inactive,s:0.8}Also try Entropy and/or ArtBox!{}"
+				},
+			},
+			["j_minty_bigpockets"] = {
+				["name"] = "Big Pockets",
+				["text"] = {
+					"{C:mult}+#1#{} consumeable slots"
+				},
+			},
+			["j_minty_bigpockets_flavor"] = {
+				["name"] = "Big Pockets",
+				["text"] = {
+					"{C:mult}+#1#{} consumeable slots",
+					" ",
+					"{C:inactive,s:0.8}... or are you just happy to see me?"
 				},
 			},
 			["j_minty_doctor"] = {
@@ -1253,6 +1269,19 @@ return {
 					"from {C:legendary}Minty's Mod{}"
 				}
 			},
+			["b_minty_suitfocus"] = {
+				["name"] = "Suit Focus Deck",
+				["text"] = {
+					"Start with an",
+					"{C:attention}eternal{} {C:attention}#1#{}",
+					"and {C:attention}#2#{} tarot",
+				},
+				["unlock"] = {
+					"Discover #1# {V:1}sins{},",
+					"#2# {V:2}minerals{}, and",
+					"#3# {V:3}arcana{}."
+				},
+			},
 			["b_minty_hearts"] = {
 				["name"] = "Deck of the Heart",
 				["text"] = {
@@ -1261,7 +1290,7 @@ return {
 					"and {C:attention}The Sun{} tarot",
 				},
 				["unlock"] = {
-					"Discover a {V:1}sin{},", 
+					"Discover a {V:1}sin{},",
 					"a {V:2}mineral{}, and",
 					"an {V:3}arcanum{}."
 				},
@@ -1274,7 +1303,7 @@ return {
 					"and {C:attention}The Star{} tarot",
 				},
 				["unlock"] = {
-					"Discover a {V:1}sin{},", 
+					"Discover a {V:1}sin{},",
 					"a {V:2}mineral{}, and",
 					"an {V:3}arcanum{}."
 				},
@@ -1287,7 +1316,7 @@ return {
 					"and {C:attention}The Moon{} tarot",
 				},
 				["unlock"] = {
-					"Discover a {V:1}sin{},", 
+					"Discover a {V:1}sin{},",
 					"a {V:2}mineral{}, and",
 					"an {V:3}arcanum{}."
 				},
@@ -1300,7 +1329,7 @@ return {
 					"and {C:attention}The World{} tarot",
 				},
 				["unlock"] = {
-					"Discover a {V:1}sin{},", 
+					"Discover a {V:1}sin{},",
 					"a {V:2}mineral{}, and",
 					"an {V:3}arcanum{}."
 				},
@@ -1313,7 +1342,7 @@ return {
 					"and {C:attention}The Cat{} tarot",
 				},
 				["unlock"] = {
-					"Discover a {V:1}sin{},", 
+					"Discover a {V:1}sin{},",
 					"a {V:2}mineral{}, and",
 					"an {V:3}arcanum{}."
 				},
