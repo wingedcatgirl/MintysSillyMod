@@ -27,6 +27,10 @@ SMODS.Enhancement({
             },
         }
     end,
+    get_weight = function (self)
+        local default = 5
+        return mf and default or default/2
+    end,
     calculate = function (self, card, context)
         if context.forcetrigger then
             return {

@@ -28,6 +28,10 @@ SMODS.Enhancement({
             },
         }
     end,
+    get_weight = function (self)
+        local default = 5
+        return mf and default or default/2
+    end,
     calculate = function (self, card, context)
         if (context.main_scoring and context.cardarea == G.play and SMODS.pseudorandom_probability(card, 'minty_splineboost', 1, card.ability.extra.odds, 'minty_splineboost')) or context.forcetrigger then
             card.ability.perma_bonus = card.ability.perma_bonus + card.ability.extra.chips
