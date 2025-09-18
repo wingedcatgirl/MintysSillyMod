@@ -1,9 +1,3 @@
-SMODS.Rarity({
-	key = "challenge",
-	badge_colour = HEX("ca7ca7"),
-	default_weight = 0,
-})
-
 SMODS.Challenge({
 	key = "raidnight",
 	rules = {

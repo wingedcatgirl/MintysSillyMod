@@ -503,6 +503,7 @@ MINTY.discover_count = function(set, mod, debug)
 end
 
 ---Faster than typing out all this crap :v 
+---Remember to return `true` to resolve the event!
 ---@param func function The function to queue
 ---@param args? table Other arguments
 MINTY.event = function(func, args)
@@ -562,6 +563,12 @@ SMODS.current_mod.set_debuff = function (card)
      return "prevent_debuff"
   end
 end
+
+--[[
+SMODS.current_mod.calculate = function (self, context)
+    
+end
+]]
 
 MINTY.enhancecheck = function()
     MINTY.say("Building Inkbleed table...")

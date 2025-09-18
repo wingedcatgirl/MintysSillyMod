@@ -8,10 +8,17 @@ SMODS.Tag{
             G.GAME.chips = 0
             G.E_MANAGER:add_event(Event({
                 func = function()
+                    tag:yep()
                     G.GAME.blind:juice_up()
                     return true
                 end
             }))
+            MINTY.event(
+                function ()
+                    --create a random treat card
+                    return true
+                end
+            )
         end
     end
 }

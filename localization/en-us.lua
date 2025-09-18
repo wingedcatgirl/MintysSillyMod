@@ -165,6 +165,13 @@ return {
 					"{C:inactive,s:0.8}Also try Entropy and/or ArtBox!{}"
 				},
 			},
+			["j_minty_flexweirdo"] = {
+				["name"] = "JWCMCAHGSMBIBITSASUD",
+				["text"] = {
+					"Cards of {C:attention}#1#{}",
+					"give {C:mult}+#2#{} Mult when scored"
+				},
+			},
 			["j_minty_bigpockets"] = {
 				["name"] = "Big Pockets",
 				["text"] = {
@@ -1439,6 +1446,24 @@ return {
 					"{C:inactive,s:0.8}Meow! :3",
 				},
 			},
+			["c_minty_focus"] = {
+				["name"] = "The Focus",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to {V:1}#3#{}",
+				},
+			},
+			["c_minty_focus_flavor"] = {
+				["name"] = "The Focus",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to {V:1}#3#{}",
+					" ",
+					"{C:inactive,s:0.8}Target sighted..."
+				},
+			},
 			["c_minty_grin"] = {
 				["name"] = "The Grin",
 				["text"] = {
@@ -2088,6 +2113,30 @@ return {
 					"{C:chips}+#1# Chips{}",
 					"always scores",
 					"resists debuffs",
+				},
+			},
+			["minty_flexweirdo_full_name"] = {
+				["name"] = "His full name is...",
+				["text"] = {
+					"Joker Who Constantly Makes Cracks About",
+					"How Good Someone Must Be In Bed If They",
+					"Stretch A Slightly Unusual Distance",
+					"(Like Come On Man,",
+					"They're Not Even A Contortionist",
+					"That's Just Normal Human Variation)",
+				},
+			},
+			["minty_flexweirdo_full_name_flavor"] = {
+				["name"] = "His full name is...",
+				["text"] = {
+					"Joker Who Constantly Makes Cracks About",
+					"How Good Someone Must Be In Bed If They",
+					"Stretch A Slightly Unusual Distance",
+					"(Like Come On Man,",
+					"They're Not Even A Contortionist",
+					"That's Just Normal Human Variation)",
+					" ",
+					"{C:inactive,s:0.8}... Zippy Zappy Angel Eyes."
 				},
 			},
 			["gemslot_catseye"] = {

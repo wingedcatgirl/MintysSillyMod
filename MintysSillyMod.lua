@@ -66,6 +66,12 @@ if not SMODS.ObjectType.Food then
     })
 end
 
+SMODS.ConsumableType{
+    key = "minty_treat",
+    primary_colour = G.C.PURPLE,
+    secondary_colour = G.C.BLUE
+}
+
 local files = {
     lib = {
         { name = "atlases" },
@@ -73,6 +79,7 @@ local files = {
         { name = "hooks" },
         { name = "sounds" },
         { name = "configui" },
+        { name = "rarity" },
         { name = "bluehairand", mods = { { id = "cardpronouns" } } },
     },
     suits = {
@@ -101,6 +108,7 @@ local files = {
         { name = "duckhat" },
         { name = "ascetic" },
         { name = "churu",  },
+        { name = "flexweirdo" },
         --Uncommon Jokers
         { name = "atheismcorner" },
         { name = "bigpockets" },
@@ -154,6 +162,7 @@ local files = {
         { name = "geologist" },
         { name = "bitz" },
         { name = "magnet" },
+        { name = "focus" },
     },
     spectrals = {
         { name = "sixyears" },
@@ -185,11 +194,12 @@ local files = {
     },
     backs = {
         { name = "treat" },
-        { name = "club" },
-        { name = "diamond" },
-        { name = "heart" },
-        { name = "spade" },
-        { name = "3" },
+        --{ name = "club" },
+        --{ name = "diamond" },
+        --{ name = "heart" },
+        --{ name = "spade" },
+        --{ name = "3" },
+        { name = "suitfocus" },
         { name = "drippy" },
         { name = "silly" },
     },
