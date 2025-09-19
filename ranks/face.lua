@@ -60,7 +60,7 @@ SMODS.Rank{
     card_key = "F",
     pos = {x = 0},
     nominal = 15,
-    face_nominal = 0.5,
+    face_nominal = 0.05,
     lc_atlas = "facerank",
     hc_atlas = "facerank",
     shorthand = "F",
