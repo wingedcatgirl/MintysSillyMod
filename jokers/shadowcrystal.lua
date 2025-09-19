@@ -46,7 +46,10 @@ SMODS.Joker {
             key = key,
             vars = {
                 suit,
-                card.ability.extra.s_mult
+                card.ability.extra.dollars,
+                card.ability.extra.chips,
+                card.ability.extra.mult,
+                card.ability.extra.xmult
             }
         }
     end,
@@ -54,9 +57,28 @@ SMODS.Joker {
         return false
     end,
     calculate = function(self, card, context)
+        local results = {
+            {
+                mult = card.ability.extra.mult
+            },
+            {
+                dollars = card.ability.extra.dollars
+            },
+            {
+                xmult = card.ability.extra.xmult
+            },
+            {
+                chips = card.ability.extra.chips
+            }
+        }
+        local result = pseudorandom_element(results, "minty_shadowcrystal")
+
         if context.forcetrigger then
             return {
-                mult = card.ability.extra.s_mult,
+                mult = card.ability.extra.mult,
+                dollars = card.ability.extra.dollars,
+                xmult = card.ability.extra.xmult,
+                chips = card.ability.extra.chips,
             }
         end
 
@@ -66,9 +88,7 @@ SMODS.Joker {
             if (G.GAME.minty_focussuit == "suitless" and SMODS.has_no_suit(context.other_card))
             or (G.GAME.minty_focussuit == "all-suit" and SMODS.has_any_suit(context.other_card))
             or context.other_card:is_suit(G.GAME.minty_focussuit) then
-                return {
-                    mult = card.ability.extra.s_mult,
-                }
+                return result
             end
         end
     end

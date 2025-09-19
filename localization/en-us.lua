@@ -172,6 +172,27 @@ return {
 					"give {C:mult}+#2#{} Mult when scored"
 				},
 			},
+			["j_minty_shadowcrystal"] = {
+				["name"] = "Shadow Crystal",
+				["text"] = {
+					"Cards of {C:attention}#1#{}",
+					"give {C:money}$#2#{}, {C:chips}+#3#{} Chips",
+					"{C:mult}+#4#{} Mult, or {X:mult,C:white}X#5#{} Mult",
+					"when scored",
+				},
+			},
+			["j_minty_shadowcrystal_flavor"] = {
+				["name"] = "Shadow Crystal",
+				["text"] = {
+					"Cards of {C:attention}#1#{}",
+					"give {C:money}$#2#{}, {C:chips}+#3#{} Chips",
+					"{C:mult}+#4#{} Mult, or {X:mult,C:white}X#5#{} Mult",
+					"when scored",
+					" ",
+					"{C:inactive,s:0.8}The prophecy's text does not{}",
+					"{C:inactive,s:0.8}warp in the crystal's lens.{}",
+				},
+			},
 			["j_minty_bigpockets"] = {
 				["name"] = "Big Pockets",
 				["text"] = {
@@ -1695,6 +1716,28 @@ return {
 					"All 3s become 3s of {C:minty_3s}3s{}",
 					"{C:green}1 in 3{} other cards change rank to 3",
 					"{C:green}1 in 3{} other cards change suit to {C:minty_3s}3s{}",
+				},
+			},
+			["sleeve_minty_suitfocussleeve"] = {
+				["name"] = "Suit Focus Sleeve",
+				["text"] = {
+					"Start with an",
+					"{C:attention}eternal{} {C:attention}#1#{}",
+					"and {C:attention}#2#{} tarot",
+				},
+			},
+			["sleeve_minty_suitfocussleeve_alt"] = {
+				["name"] = "Suit Focus Sleeve",
+				["text"] = {
+					"Also start with",
+					"an {C:attention}eternal{} {C:attention}#1#{}",
+				},
+			},
+			["sleeve_minty_suitfocussleeve_fusionalt"] = {
+				["name"] = "Suit Focus Sleeve",
+				["text"] = {
+					"Instead start with",
+					"an {C:attention}eternal{} {C:attention}#1#{}",
 				},
 			},
 			["sleeve_minty_heartsleeve"] = {

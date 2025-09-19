@@ -144,20 +144,28 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
             MINTY.sleeveunlockcheck()
             local key, vars
 
+            vars = {
+                localize{ type = "name_text", set = "Joker", key = "j_minty_flexweirdo" },
+                localize{ type = "name_text", set = "Tarot", key = "c_minty_focus" },
+            }
+
             if self.get_current_deck_key() ~= "b_minty_suitfocus" then
                 key = self.key
             else
                 if (SMODS.Mods["FusionJokers"] or {}).can_load then
                     key = self.key.."_fusionalt"
+                    --vars[1] = localize{ type = "name_text", set = "Joker", key = "j_minty_FUSION" }
+                    vars[1] = "FUSION ISN'T DONE YET D:"
                 else
                     key = self.key.."_alt"
+                    vars[1] = localize{ type = "name_text", set = "Joker", key = "j_minty_shadowcrystal" }
                 end
             end
 
             return { key = key, vars = vars }
         end,
         apply = function (self)
-            
+
             if self.get_current_deck_key() ~= "b_minty_suitfocus" then
                 MINTY.event(
                     function ()
@@ -176,9 +184,33 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                     end
                 )
             elseif (SMODS.Mods["FusionJokers"] or {}).can_load then
-                -- create flex fusion
+                --[[
+                MINTY.event(
+                    function ()
+                        SMODS.add_card{
+                            key = "j_minty_FUSION",
+                            stickers = {
+                                "eternal"
+                            },
+                            force_stickers = true
+                        }
+                        return true
+                    end
+                )
+                ]]
             else
-                -- create flex rock
+                MINTY.event(
+                    function ()
+                        SMODS.add_card{
+                            key = "j_minty_shadowcrystal",
+                            stickers = {
+                                "eternal"
+                            },
+                            force_stickers = true
+                        }
+                        return true
+                    end
+                )
             end
         end
     }

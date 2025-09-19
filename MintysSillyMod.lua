@@ -121,6 +121,7 @@ local files = {
         { name = "cakesword" },
         --{ name = "inkbleed" }, --Dummied cause quantum enhancements are still janky
         { name = "copycat" },
+        { name = "shadowcrystal" },
         { name = "sabertooth" },
         { name = "neko" },
         { name = "catpicmachine", },
