@@ -3,7 +3,6 @@ local counters = {
     { boss = "bl_akyrs_the_thought", mod = "aikoyorisshenanigans"},
     --CUBE LOVELY PATCH TARGET
 }
---Tuskallisetkäsiraudat (Polterworx) TBA, getting keys is a pain cause Jen doesn't use GitHub
 
 
 SMODS.Joker {
@@ -83,7 +82,9 @@ SMODS.Joker {
                 local boss = v.boss
                 local mod = v.mod
                 if (not mod) or (SMODS.Mods[mod] or {}).can_load then
-                    G.GAME.bosses_used[boss] = G.GAME.bosses_used[boss] - 1e300
+                    if G.GAME.bosses_used[boss] >= 1e300 then
+                        G.GAME.bosses_used[boss] = G.GAME.bosses_used[boss] - 1e300
+                    end
                 end
             end
         end
