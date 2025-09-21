@@ -186,6 +186,20 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = 'numberrank',
+    path = "number rank.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = 'purenumber',
+    path = "pure number (aikoshen).png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
     key = 'backs',
     path = "backs.png",
     px = 71,

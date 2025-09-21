@@ -35,7 +35,7 @@ SMODS.Consumable{
     use = function(self)
         local ranks = {}
         for k,v in pairs(SMODS.Ranks) do
-            if not v.face then
+            if not v.face and (not v.in_pool or v:in_pool({abacus = true})) then
                 table.insert(ranks,k)
             end
         end

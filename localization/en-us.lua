@@ -42,6 +42,7 @@ return {
 		},
 		["ranks"] = {
 			["minty_face"] = "Face",
+			["minty_number"] = "Number",
 		},
 		["labels"] = {
 			["minty_cement_seal"] = "Cement Seal",
@@ -2281,6 +2282,23 @@ return {
 			["minty_faceholder_ex"] = {
 				["label"] = "Faceholder",
 				["name"] = "Faceholder",
+				["text"] = {
+					"Fallback art for",
+					"unrecognized suit!",
+					"Please play carefully."
+				},
+			},
+			["minty_placeholder"] = {
+				["label"] = "Placeholder",
+				["name"] = "Placeholder",
+				["text"] = {
+					"Placeholder art,",
+					"to be updated ~soon"
+				},
+			},
+			["minty_placeholder_ex"] = {
+				["label"] = "Placeholder",
+				["name"] = "Placeholder",
 				["text"] = {
 					"Fallback art for",
 					"unrecognized suit!",

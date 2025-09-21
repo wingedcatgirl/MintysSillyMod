@@ -86,7 +86,8 @@ local files = {
         { name = "3suit" }
     },
     ranks = {
-        { name = "face" }
+        { name = "face" },
+        { name = "number" },
     },
     jokers = {
         --Tweaks to existing Jokers 
