@@ -24,11 +24,12 @@ SMODS.Joker {
     config = {
         extra = {
             expmult_base = 1,
-            expmult_boost = 0.25
+            expmult_boost = 0.25,
+            xmult_rate = 2.5,
+            talisman = talisman,
         }
     },
     in_pool = function (self, args) --Don't spawn if locked at 0 (not sure that's actually possible but hey)
-        if not talisman then return false end
         if not (G and G.GAME and G.GAME.minty_hyperfix) then return false end
         if G.GAME.minty_hyperfix.active or (G.GAME.minty_hyperfix.value > 0) then
             return true
@@ -37,29 +38,43 @@ SMODS.Joker {
         end
     end,
     loc_vars = function(self, info_queue, card)
-        if MINTY.in_collection(card) and not talisman then
-            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Talisman" } }
-        end
+        local val = G.GAME and G.GAME.minty_hyperfix and G.GAME.minty_hyperfix.value or 0
         local key = self.key
-        local total = card.ability.extra.expmult_base + ((G.GAME.minty_hyperfix and G.GAME.minty_hyperfix.value or 0) * card.ability.extra.expmult_boost)
+        local base = card.ability.extra.talisman and card.ability.extra.expmult_base or 1
+        local rate = card.ability.extra.talisman and card.ability.extra.expmult_boost or card.ability.extra.xmult_rate
+        local total = base+(rate*val)
+        local op = (card.ability.extra.talisman and "^" or "X")
+        local opcol = card.ability.extra.talisman and G.C.DARK_EDITION or G.C.XMULT
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         return {
             key = key,
             vars = {
-                card.ability.extra.expmult_boost,
-                total
+                op,
+                rate,
+                total,
+                colours = {
+                    opcol
+                }
             }
         }
     end,
     calculate = function(self, card, context)
         if (context.joker_main and context.scoring_hand) or context.forcetrigger then
-            local total = card.ability.extra.expmult_base + ((G.GAME.minty_hyperfix and G.GAME.minty_hyperfix.value or 0) * card.ability.extra.expmult_boost)
-            if to_big(total) <= to_big(1) then return end
+            local val = G.GAME and G.GAME.minty_hyperfix and G.GAME.minty_hyperfix.value or 0
+            local base = card.ability.extra.talisman and card.ability.extra.expmult_base or card.ability.extra.xmult_rate
+            local inc = (card.ability.extra.talisman and card.ability.extra.expmult_boost or card.ability.extra.xmult_rate) * val
+            local op = card.ability.extra.talisman and "emult" or "xmult"
+            if to_big(base + inc) <= to_big(1) then return end
+            local ret = {}
+            ret[op] = base+inc
+            return ret
+        end
+
+        if context.end_of_round and G.GAME.minty_hyperfix.active and not context.blueprint and not context.repetition and not context.individual then
             return {
-                emult = total,
-                card = card
+                message = localize("k_upgrade_ex")
             }
         end
     end

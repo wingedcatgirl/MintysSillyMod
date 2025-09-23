@@ -385,19 +385,19 @@ return {
 			["j_minty_hyperfix"] = {
 				["name"] = "Angel of Hyperfixation",
 				["text"] = {
-					"{X:dark_edition,C:white}^#1#{} Mult for every blind",
+					"{B:1,C:white}#1##2#{} Mult for every blind",
 					"cleared or skipped before",
 					"buying your first Joker",
-					"{C:inactive}(Currently {X:dark_edition,C:white}^#2#{C:inactive})",
+					"{C:inactive}(Currently {B:1,C:white}#1##3#{C:inactive})",
 				},
 			},
 			["j_minty_hyperfix_flavor"] = {
 				["name"] = "Angel of Hyperfixation",
 				["text"] = {
-					"{X:dark_edition,C:white}^#1#{} Mult for every blind",
+					"{B:1,C:white}#1##2#{} Mult for every blind",
 					"cleared or skipped before",
 					"buying your first Joker",
-					"{C:inactive}(Currently {X:dark_edition,C:white}^#2#{C:inactive})",
+					"{C:inactive}(Currently {B:1,C:white}#1##3#{C:inactive})",
 					" ",
 					"{C:inactive,s:0.8}Sure, I'll get it done eventually,",
 					"{C:inactive,s:0.8}But it's always at the last minute...",
