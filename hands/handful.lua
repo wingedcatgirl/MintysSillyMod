@@ -2,18 +2,16 @@ SMODS.PokerHandPart{ -- Handful of Rocks base
     key = 'handful',
     func = function(hand)
         local cards = {}
-        local count = 0
 
         for _, card in ipairs(hand) do
             local enh = card.config.center.key
             if MINTY.rocks[enh] then
                 table.insert(cards, card)
-                count = count+1
             end
         end
         
-        if count >= 5 then
-            return cards --IT'S ALREADY A TABLE, YOU DON'T NEED TO PUT IT IN A TABLE
+        if #cards >= 5 then
+            return {cards} --yes you do have to put the table in a table actually, your previous conversation missed some important details
         else
             return {}
         end
@@ -55,25 +53,21 @@ SMODS.PokerHand{ -- Flush Handful
     },
     evaluate = function(parts)
         if not (parts.minty_handful and next(parts.minty_handful)) then return {} end
-        local handflush = {}
         local cards = {}
-        for _, card in ipairs(parts.minty_handful) do
-            local enh = card.config.center.key
-            handflush[enh] = (handflush[enh] or 0) + 1
-        end
         local check = false
-        for enh,count in pairs(handflush) do
-            if count >= 5 then
-                for _,card in ipairs(parts.minty_handful) do
-                    if enh == card.config.center.key then
-                        table.insert(cards, card)
-                    end
-                end
-                check = true
+        for _, handful in ipairs(parts.minty_handful) do -- idk whether this can even have more than one but check just to be sure
+            local handflush = {}
+            for _, card in ipairs(handful) do
+                local enh = card.config.center.key
+                handflush[enh] = (handflush[enh] or 0) + 1
             end
+            for enh,count in pairs(handflush) do
+                if count >= 5 then check = true break end
+            end
+            if check then break end
         end
 
-        return check and cards or {}
+        return check and parts.minty_handful or {}
     end
 }
 
@@ -95,11 +89,13 @@ SMODS.PokerHand{ -- Spectrum Handful
         if not (parts.minty_handful and next(parts.minty_handful)) then return {} end
         local handspec = {}
         local count = 0
-        for _, card in ipairs(parts.minty_handful) do
-            local enh = card.config.center.key
-            if not handspec[enh] then
-                handspec[enh] = true
-                count = count + 1
+        for _, handful in ipairs(parts.minty_handful) do
+            for _, card in ipairs(handful) do
+                local enh = card.config.center.key
+                if not handspec[enh] then
+                    handspec[enh] = true
+                    count = count + 1
+                end
             end
         end
 
