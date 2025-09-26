@@ -1,4 +1,4 @@
-FusionJokers.fusions:add_fusion("j_splash", nil, false, "j_minty_slowtiger", mult, true, "j_minty_wettiger", 6)
+FusionJokers.fusions:add_fusion("j_splash", nil, false, "j_minty_slowtiger", "mult", true, "j_minty_wettiger", 6)
 
 SMODS.Joker {
     key = "wettiger",
@@ -10,8 +10,8 @@ SMODS.Joker {
         y = 0
     },
     soul_pos = {
-        x = 1,
-        y = 0
+        x = 3,
+        y = 6
     },
     rarity = "fuse_fusion",
     cost = 6,
@@ -23,7 +23,7 @@ SMODS.Joker {
     demicoloncompat = false,
     config = {
         extra = {
-            mult = 5,
+            mult = 0,
             gain = 1,
         }
     },
