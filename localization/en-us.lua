@@ -1701,6 +1701,16 @@ return {
 			["c_minty_diffrockplanet"] = {
 				["name"] = "Different Rock Planets"
 			},
+			["c_minty_rockdimension"] = { --can't use process_loc_text for this cause we load before Cryptid
+				["name"] = "Rock Dimension",
+				["text"] = {
+					"({V:1}lvl.#4#{})({V:2}lvl.#5#{})({V:3}lvl.#6#{})",
+					"Level up",
+					"{C:attention}#1#{},",
+					"{C:attention}#2#{},",
+					"and {C:attention}#3#{}",
+				}
+			},
 		},
 		["Sleeve"] = {
 			["sleeve_minty_treatsleeve"] = {
