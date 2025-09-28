@@ -27,7 +27,9 @@ return {
 			["k_minty_discards"] = "discards per round",
 			["k_minty_jokers"] = "Joker slots",
 			["k_minty_selection"] = "selection limit",
-			["k_minty_treasureplaceholder"] = "a random stat"
+			["k_minty_treasureplaceholder"] = "a random stat",
+			["k_minty_treat"] = "Treat",
+			["b_minty_treat_cards"] = "Treat Cards",
 		},
 		["v_dictionary"] = {
 			["a_minty_chipgain"] = "+#1# Chips",
@@ -76,6 +78,13 @@ return {
 				"5 {C:attention}Rock Cards{} of",
 				"{C:attention}different{} enhancements"
 			},
+		},
+		["quips"] = {
+			["minty_de_ref"] = {
+				"Play one of these",
+				"High Card or Flush Five",
+				"builds, or {C:attention}log off!{}"
+			}
 		}
 	},
 	["descriptions"] = {

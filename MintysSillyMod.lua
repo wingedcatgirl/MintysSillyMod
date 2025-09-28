@@ -80,6 +80,7 @@ local files = {
         { name = "sounds" },
         { name = "configui" },
         { name = "rarity" },
+        { name = "quips" },
         { name = "bluehairand", mods = { { id = "cardpronouns" } } },
     },
     suits = {
@@ -196,11 +197,11 @@ local files = {
     },
     backs = {
         { name = "treat" },
-        --{ name = "club" },
-        --{ name = "diamond" },
-        --{ name = "heart" },
-        --{ name = "spade" },
-        --{ name = "3" },
+        --{ name = "club" },    --
+        --{ name = "diamond" }, --
+        --{ name = "heart" },   -- Yeah, you can bring them back if you really want to. Don't recommend it, but you can!
+        --{ name = "spade" },   --
+        --{ name = "3" },       --
         { name = "suitfocus" },
         { name = "drippy" },
         { name = "silly" },
@@ -222,7 +223,7 @@ local files = {
         { name = "handfuls" },
     },
     challenge = {
-        { name = "challenges", mods = { { id = "ChDp" } } }
+        { name = "challenges", mods = { { id = "ChDp" } } },
     }
 }
 

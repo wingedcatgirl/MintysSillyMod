@@ -49,6 +49,7 @@ SMODS.Back({
                       area = G.jokers,
                       key = 'j_minty_hedonist',
                       stickers = {'eternal'},
+                      force_stickers = true
                     })
                     card:add_to_deck()
                     G.jokers:emplace(card)
@@ -128,6 +129,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                           area = G.jokers,
                           key = 'j_minty_hedonist',
                           stickers = {'eternal'},
+                          force_stickers = true
                         })
                         card:add_to_deck()
                         G.jokers:emplace(card)
@@ -149,6 +151,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                       area = G.jokers,
                       key = 'j_minty_threecats',
                       stickers = {'eternal'},
+                      force_stickers = true
                     })
                     card:add_to_deck()
                     G.jokers:emplace(card)
@@ -163,6 +166,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                           area = G.jokers,
                           key = 'j_minty_claw',
                           stickers = {'eternal'},
+                          force_stickers = true
                         })
                         card:add_to_deck()
                         G.jokers:emplace(card)

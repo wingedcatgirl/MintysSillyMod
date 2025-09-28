@@ -50,6 +50,7 @@ SMODS.Back({
                       area = G.jokers,
                       key = 'j_lusty_joker',
                       stickers = {'eternal'},
+                      force_stickers = true
                     })
                     card:add_to_deck()
                     G.jokers:emplace(card)
@@ -130,6 +131,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                           area = G.jokers,
                           key = 'j_lusty_joker',
                           stickers = {'eternal'},
+                          force_stickers = true
                         })
                         card:add_to_deck()
                         G.jokers:emplace(card)
@@ -151,6 +153,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                       area = G.jokers,
                       key = 'j_fuse_heart_paladin',
                       stickers = {'eternal'},
+                      force_stickers = true
                     })
                     card:add_to_deck()
                     G.jokers:emplace(card)
@@ -165,6 +168,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                           area = G.jokers,
                           key = 'j_bloodstone',
                           stickers = {'eternal'},
+                          force_stickers = true
                         })
                         card:add_to_deck()
                         G.jokers:emplace(card)
