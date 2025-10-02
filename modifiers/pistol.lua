@@ -14,7 +14,8 @@ SMODS.Enhancement({
     config = {
         x_mult = 2,
         extra = {
-            odds = 10
+            odds = 10,
+            gymboost = "xmult"
         }
     },
     loc_vars = function(self, info_queue, card)
