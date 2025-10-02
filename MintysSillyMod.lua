@@ -173,6 +173,9 @@ local files = {
         { name = "wand" },
         --{ name = "testcard" },
     },
+    treats = {
+        {name = "choccy" },
+    },
     consumables = {
         { name = "colors", mods = { { id = "MoreFluff", cfg = "Colour Cards" } } },
         { name = "rotarots", mods = { { id = "MoreFluff", cfg = "45 Degree Rotated Tarot Cards" } } },

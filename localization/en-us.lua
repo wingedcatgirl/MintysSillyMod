@@ -1721,6 +1721,24 @@ return {
 				}
 			},
 		},
+		["minty_treat"] = {
+			["c_minty_choccytreat"] = {
+				["name"] = "Chocolate Cake",
+				["text"] = {
+					"Add {C:dark_edition}Negative{} to",
+					"{C:attention}#1#{} selected Joker#2#"
+				}
+			},
+			["c_minty_choccytreat_flavor"] = {
+				["name"] = "Chocolate Cake",
+				["text"] = {
+					"Add {C:dark_edition}Negative{} to",
+					"{C:attention}#1#{} selected Joker#2#",
+					" ",
+					"{C:inactive,s:0.8}nom. flavor text TBA{}"
+				}
+			},
+		},
 		["Sleeve"] = {
 			["sleeve_minty_treatsleeve"] = {
 				["name"] = "Sleeve with a Treat",
@@ -2201,6 +2219,15 @@ return {
 					" ",
 					"{C:inactive,s:0.8}... Zippy Zappy Angel Eyes."
 				},
+			},
+			["undiscovered_minty_treat"] = {
+				["name"] = "Undiscovered Treat",
+				["text"] = {
+					"Purchase or use",
+					"this delicious treat in an",
+					"unseeded run to",
+					"learn what it tastes like",
+				}
 			},
 			["gemslot_catseye"] = {
 				["name"] = "Cat's Eye",
