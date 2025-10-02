@@ -38,7 +38,7 @@ SMODS.Challenge({
 		{ id = "j_minty_theecho", eternal = true, singular = true },
 	},
 	unlocked = function()
-		return true
+		return G.PROFILES[G.SETTINGS.profile].challenge_progress.completed["c_minty_raidnight"]
 	end
 })
 
@@ -94,7 +94,7 @@ SMODS.Challenge({
 		{ id = "j_smeared", eternal = true, edition = "negative" },
 	},
 	unlocked = function()
-		return true
+		return G.PROFILES[G.SETTINGS.profile].challenge_progress.completed["c_minty_backalley"]
 	end
 })
 
