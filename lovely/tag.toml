@@ -1,0 +1,19 @@
+[manifest]
+version = "1.0.0"
+priority = -1
+
+# Calculate tags when blind is almost defeated
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+position = "before"
+pattern = "if G.GAME.chips - G.GAME.blind.chips >= 0 or G.GAME.current_round.hands_left < 1 then"
+payload = '''
+if to_big(G.GAME.chips) >= to_big(G.GAME.blind.chips) then
+    --MINTY.say("Checking tags before boss defeat...")
+    for i = 1, #G.GAME.tags do
+        G.GAME.tags[i]:apply_to_run({type = 'blind_defeated_check'})
+    end
+end
+'''
+match_indent = true

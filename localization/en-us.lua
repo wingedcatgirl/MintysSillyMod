@@ -1721,6 +1721,16 @@ return {
 				}
 			},
 		},
+		["Tag"] = {
+			["tag_minty_goading"] = {
+				["name"] = "Goading Tag",
+				["text"] = {
+					"When {C:mult}Boss Blind{} defeated,",
+					"{C:attention}revive it{} and create",
+					"a random {C:purple}Treat Card{}"
+				}
+			}
+		},
 		["minty_treat"] = {
 			["c_minty_choccytreat"] = {
 				["name"] = "Chocolate Cake",

@@ -68,6 +68,7 @@ end
 
 SMODS.ConsumableType{
     key = "minty_treat",
+    default = "c_minty_choccytreat",
     primary_colour = G.C.PURPLE,
     secondary_colour = G.C.BLUE
 }
@@ -181,6 +182,9 @@ local files = {
         { name = "rotarots", mods = { { id = "MoreFluff", cfg = "45 Degree Rotated Tarot Cards" } } },
         { name = "gemstones", mods = { { id = "Gemstone" } } },
         { name = "drafts", mods = { { id = "draft", version = "0.6.0" } } },
+    },
+    tags = {
+        { name = "goading" },
     },
     vouchers = {
         { name = "topplepaws" },
