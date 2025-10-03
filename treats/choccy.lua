@@ -2,6 +2,15 @@ SMODS.Consumable{
     key = "choccytreat",
     name = "Choccy Treat",
     set = "minty_treat",
+    atlas = "treats",
+    pos = {
+        x = 0,
+        y = 0,
+    },
+    soul_pos = {
+        x = 1,
+        y = 0,
+    },
     config = {
         max_highlighted = 1
     },

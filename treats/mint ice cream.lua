@@ -2,6 +2,11 @@ SMODS.Consumable{
     key = "ice_cream",
     name = "Mint Ice Cream",
     set = "minty_treat",
+    atlas = "treats",
+    pos = {
+        x = 0,
+        y = 0,
+    },
     config = {
         play_limit = 1
     },

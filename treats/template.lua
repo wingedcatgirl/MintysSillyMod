@@ -2,6 +2,11 @@ SMODS.Consumable{
     key = "template",
     name = "",
     set = "minty_treat",
+    atlas = "treats",
+    pos = {
+        x = 0,
+        y = 0,
+    },
     config = {
         
     },
