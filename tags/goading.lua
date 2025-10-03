@@ -8,6 +8,10 @@ SMODS.Tag{
         if not (context and context.type == "blind_defeated_check") then return end
         --MINTY.say("Context check passed...")
         if G.GAME.blind:get_type() ~= "Boss" then return end
+        if to_number(G.GAME.current_round.hands_left) == 0 then
+            tag:nope()
+            return
+        end
         --MINTY.say("Boss check passed...")
         local lock = tag.ID
 

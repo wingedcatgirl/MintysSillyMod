@@ -1725,7 +1725,8 @@ return {
 			["tag_minty_goading"] = {
 				["name"] = "Goading Tag",
 				["text"] = {
-					"When {C:mult}Boss Blind{} defeated,",
+					"When {C:mult}Boss Blind{} defeated",
+					"with at least {C:chips}1 hand{} left,",
 					"{C:attention}revive it{} and create",
 					"a random {C:purple}Treat Card{}"
 				}
