@@ -1,5 +1,10 @@
 SMODS.Tag{
     key = "goading",
+    atlas = "tags",
+    pos = {
+        x = 0,
+        y = 0,
+    },
     in_pool = function (self, args)
         return true --MINTY.config.dev_mode
     end,
