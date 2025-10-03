@@ -176,6 +176,7 @@ local files = {
     },
     treats = {
         {name = "choccy" },
+        {name = "mint ice cream" },
     },
     consumables = {
         { name = "colors", mods = { { id = "MoreFluff", cfg = "Colour Cards" } } },

@@ -1749,6 +1749,22 @@ return {
 					"{C:inactive,s:0.8}nom. flavor text TBA{}"
 				}
 			},
+			["c_minty_ice_cream"] = {
+				["name"] = "Mint Ice Cream",
+				["text"] = {
+					"Increase {C:green}play limit{}",
+					"by {C:attention}#1# card#2#{}"
+				}
+			},
+			["c_minty_ice_cream_flavor"] = {
+				["name"] = "Mint Ice Cream",
+				["text"] = {
+					"Increase {C:green}play limit{}",
+					"by {C:attention}#1# card#2#{}",
+					" ",
+					"{C:inactive,s:0.8}Yes, yes, insert obligatory joke here.{}"
+				}
+			},
 		},
 		["Sleeve"] = {
 			["sleeve_minty_treatsleeve"] = {

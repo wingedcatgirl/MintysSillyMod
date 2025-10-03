@@ -24,7 +24,7 @@ SMODS.Tag{
                 SMODS.add_card{
                     set = "minty_treat",
                     key_append = "minty_goaded"
-                    }
+                }
                 G.CONTROLLER.locks[lock] = nil
                 return true
             end)
