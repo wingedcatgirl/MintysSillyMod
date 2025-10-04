@@ -1746,7 +1746,7 @@ return {
 					"Add {C:dark_edition}Negative{} to",
 					"{C:attention}#1#{} selected Joker#2#",
 					" ",
-					"{C:inactive,s:0.8}nom. flavor text TBA{}"
+					"{C:inactive,s:0.8}CHOCOLAAAAAAATE???{}"
 				}
 			},
 			["c_minty_ice_cream"] = {
@@ -1763,6 +1763,24 @@ return {
 					"by {C:attention}#1# card#2#{}",
 					" ",
 					"{C:inactive,s:0.8}Yes, yes, insert obligatory joke here.{}"
+				}
+			},
+			["c_minty_blueberry_pie"] = {
+				["name"] = "Blueberry Pie",
+				["text"] = {
+					"Increase {C:chips}discard limit{}",
+					"by {C:attention}#1# card#2#{}"
+				}
+			},
+			["c_minty_blueberry_pie_flavor"] = {
+				["name"] = "Blueberry Pie",
+				["text"] = {
+					"Increase {C:chips}discard limit{}",
+					"by {C:attention}#1# card#2#{}",
+					" ",
+					"{C:inactive,s:0.8}Guaranteed not to cause{}",
+					"{C:inactive,s:0.8}gratuitous inflation{}",
+
 				}
 			},
 		},

@@ -70,7 +70,7 @@ SMODS.ConsumableType{
     key = "minty_treat",
     default = "c_minty_choccytreat",
     primary_colour = G.C.PURPLE,
-    secondary_colour = G.C.BLUE
+    secondary_colour = HEX("ca7ca7")
 }
 
 local files = {
@@ -177,6 +177,7 @@ local files = {
     treats = {
         {name = "choccy" },
         {name = "mint ice cream" },
+        {name = "blueberry pie" },
     },
     consumables = {
         { name = "colors", mods = { { id = "MoreFluff", cfg = "Colour Cards" } } },
