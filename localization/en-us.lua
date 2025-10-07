@@ -1444,16 +1444,15 @@ return {
 			["bl_minty_paw"] = {
 				["name"] = "A Paw",
 				["text"] = {
-					"Play limit =#1#",
-					"for first hand",
-					"unless an item",
-					"is sold"
+					"Play limit #1# for",
+					"first hand unless",
+					"an item is sold"
 				},
 			},
 			["bl_minty_tail"] = {
 				["name"] = "A Tail",
 				["text"] = {
-					"Discard limit =#1#",
+					"Discard limit #1#",
 					"for first discard"
 				},
 			},

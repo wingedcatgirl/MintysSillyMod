@@ -6,7 +6,7 @@ SMODS.Tag{
         y = 0,
     },
     in_pool = function (self, args)
-        return true --MINTY.config.dev_mode
+        return true
     end,
     apply = function (self, tag, context)
         --MINTY.say("Goading Tag trying to activate...")
