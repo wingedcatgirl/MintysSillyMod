@@ -1680,6 +1680,22 @@ return {
 					"{C:inactive,s:0.8}a bonus Dekunda for free!",
 				},
 			},
+			["c_minty_reincarnate"] = {
+				["name"] = "Reincarnate",
+				["text"] = {
+					"Destroy #2##1# {C:attention}Joker#3#{}",
+					"and create #4#new cop#5# of #6#"
+				},
+			},
+			["c_minty_reincarnate_flavor"] = {
+				["name"] = "Reincarnate",
+				["text"] = {
+					"Destroy #2##1# {C:attention}Joker#3#{}",
+					"and create #4#new cop#5# of #6#",
+					" ",
+					"{C:inactive,s:0.8}You feel like a new Joker!{}"
+				},
+			},
 			["c_minty_wand"] = {
 				["name"] = "The Wand",
 				["text"] = {
