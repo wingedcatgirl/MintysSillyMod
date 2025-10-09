@@ -175,6 +175,26 @@ return {
 					"{C:inactive,s:0.8}Also try Entropy and/or ArtBox!{}"
 				},
 			},
+			["j_minty_clock"] = {
+				["name"] = "Clock",
+				["text"] = {
+					"{C:mult}+Mult{} equal to current {C:attention}hour{}",
+					"{C:chips}+Chips{} equal to current {C:attention}minute{}",
+					"{C:money}+$#3#{} at end of round and {C:mult}self-destruct{}",
+					"if current {C:attention}second{} equals either value"
+				},
+			},
+			["j_minty_clock_flavor"] = {
+				["name"] = "Clock",
+				["text"] = {
+					"{C:mult}+Mult{} equal to current {C:attention}hour{}",
+					"{C:chips}+Chips{} equal to current {C:attention}minute{}",
+					"{C:money}+$#3#{} at end of round and {C:mult}self-destruct{}",
+					"if current {C:attention}second{} equals either value",
+					" ",
+					"{C:inactive,s:0.8}Tick... tock... tick... tock..."
+				},
+			},
 			["j_minty_flexweirdo"] = {
 				["name"] = "JWCMCAHGSMBIBITSASUD",
 				["text"] = {
