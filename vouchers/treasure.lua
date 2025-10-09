@@ -36,7 +36,7 @@ SMODS.Voucher{
         x = 2,
         y = 0,
     },
-    cost = 20, --figure out how to make this increase
+    cost = 15,
     config = {
         extra = {
             amount = 1
@@ -66,9 +66,10 @@ SMODS.Voucher{
         local count = #SMODS.find_card(self.key, true)
         voucher.ability.extra.option = option
         if not MINTY.in_collection(voucher) then
-            G.GAME.inflation = G.GAME.inflation + count --Very hacky and bad lol
-            voucher:set_cost()
-            G.GAME.inflation = G.GAME.inflation - count
+            MINTY.event(function ()
+                voucher.cost = voucher.cost + (count*2)
+                return true
+            end, {trigger = "after", delay = 0.5})
         end
     end,
     redeem = function (self, voucher)
