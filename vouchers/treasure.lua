@@ -67,7 +67,7 @@ SMODS.Voucher{
         voucher.ability.extra.option = option
         if not MINTY.in_collection(voucher) then
             MINTY.event(function ()
-                voucher.cost = voucher.cost + (count*2)
+                voucher.cost = voucher.cost + (count*5)
                 return true
             end, {trigger = "after", delay = 0.5})
         end
