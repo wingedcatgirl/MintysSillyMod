@@ -15,7 +15,7 @@ SMODS.Enhancement({
         extra = {
             min = 0,
             max = 23,
-            gymboost = "random"
+            gymboost = "mult"
         },
     },
     loc_vars = function(self, info_queue, card)
