@@ -22,14 +22,18 @@ SMODS.Tag{
 
         if to_big(G.GAME.chips) >= to_big(G.GAME.blind.chips) then
             G.CONTROLLER.locks[lock] = true
+            G.hand_text_area.game_chips:juice_up()
             G.GAME.chips = 0
-            tag:yep("!", G.C.PURPLE, function()
-                G.GAME.blind:juice_up()
+            tag:yep("!!!", G.C.PURPLE, function()
+                card_eval_status_text(G.GAME.blind, 'extra', nil, percent, nil, { message = localize("k_again_ex")})
                 --play revival sound. i'm imagining ripping it from xiv but lel
-                SMODS.add_card{
-                    set = "minty_treat",
-                    key_append = "minty_goaded"
-                }
+                MINTY.event(function ()
+                    SMODS.add_card{
+                        set = "minty_treat",
+                        key_append = "minty_goaded"
+                    }
+                    return true
+                end)
                 G.CONTROLLER.locks[lock] = nil
                 return true
             end)
