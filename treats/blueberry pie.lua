@@ -7,6 +7,10 @@ SMODS.Consumable{
         x = 0,
         y = 0,
     },
+    soul_pos = {
+        x = 3,
+        y = 0,
+    },
     config = {
         discard_limit = 1
     },
