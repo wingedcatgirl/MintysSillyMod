@@ -180,6 +180,7 @@ local files = {
         {name = "choccy" },
         {name = "mint ice cream" },
         {name = "blueberry pie" },
+        {name = "funnel cake" },
     },
     consumables = {
         { name = "colors", mods = { { id = "MoreFluff", cfg = "Colour Cards" } } },

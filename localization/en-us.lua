@@ -1818,6 +1818,24 @@ return {
 
 				}
 			},
+			["c_minty_funnel_cake"] = {
+				["name"] = "Funnel Cake",
+				["text"] = {
+					"Gives {C:money}$#1#{}",
+					"Increases by",
+					"{C:money}$#2#{} each Ante",
+				}
+			},
+			["c_minty_funnel_cake_flavor"] = {
+				["name"] = "Funnel Cake",
+				["text"] = {
+					"Gives {C:money}$#1#{}",
+					"Increases by",
+					"{C:money}$#2#{} each Ante",
+					" ",
+					"{C:inactive,s:0.8}cronch cronch cronch{}"
+				}
+			},
 		},
 		["Sleeve"] = {
 			["sleeve_minty_treatsleeve"] = {
