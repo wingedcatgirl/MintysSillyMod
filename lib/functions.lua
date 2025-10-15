@@ -135,11 +135,12 @@ end
 
 function Card:is_kity()
     local minty_kity = self.config.center.pools and self.config.center.pools.kity
+    local yahicat = self.config.center.pools and self.config.center.pools.Cat
     local valkitty
     if (SMODS.Mods.vallkarri or {}).can_load then
         valkitty = self:is_kitty()
     end
-    return minty_kity or valkitty
+    return minty_kity or valkitty or yahicat
 end
 
 MINTY.getSpecKey = (SPECF and SPECF.getSpecKey) or function(HandName)
