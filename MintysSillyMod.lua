@@ -28,7 +28,7 @@ end
 SMODS.current_mod.optional_features = {
     retrigger_joker = true,
     post_trigger = true,
-    --quantum_enhancements = true,
+    quantum_enhancements = true, --Comment out this line if Mana Compressor gives you trouble
     cardareas = {
         unscored = true,
     },
@@ -123,7 +123,7 @@ local files = {
         { name = "treatovision" },
         { name = "peywet", },
         { name = "cakesword" },
-        --{ name = "inkbleed" }, --Dummied cause quantum enhancements are still janky
+        --{ name = "inkbleed" }, --Dummied for now cause it's really janky
         { name = "copycat" },
         { name = "shadowcrystal" },
         { name = "sabertooth" },
@@ -135,6 +135,7 @@ local files = {
         { name = "scoundrel" },
         { name = "cakegun" },
         { name = "youtube" },
+        { name = "manacompressor" },
         { name = "doctor" },
         { name = "hyperfix" },
         { name = "jacobsladder" },
@@ -290,7 +291,9 @@ end
 MINTY.lastmoment = function ()
     MINTY.say("Running last-moment code...")
     MINTY.rocklist()
-    MINTY.enhancecheck()
+    if G.P_CENTERS.j_minty_inkbleed then --No point actually *doing* this if Inkbleed is still dummied
+        MINTY.enhancecheck()
+    end
 
     if Cryptid and cry_best_interest_cap and not MINTY.cbic_override then --Gotta put it here cause priority~ Cryptid will probably fix this on their end soon-ish but for now this at least makes sure ducks are accounted for
         MINTY.cbic_override = true --Only do it once

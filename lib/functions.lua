@@ -558,7 +558,7 @@ end
 SMODS.current_mod.set_debuff = function (card)
   if
     card.seal == "minty_cement"
-    or (card.ability and card.ability.name == "Marble Card")
+    or SMODS.has_enhancement(card, "m_minty_marble")
   then
      return "prevent_debuff"
   end

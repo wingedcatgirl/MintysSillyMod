@@ -1294,6 +1294,26 @@ return {
 					"{C:inactive,s:0.8}*bites you cutely* ;3"
 				},
 			},
+			["j_minty_manacompressor"] = {
+				["name"] = "Mana Compressor",
+				["text"] = {
+					"Strips enhancement from",
+					"the next played {C:attention}#1#{}",
+					"All consumed enhancements",
+					"count as each other",
+				},
+			},
+			["j_minty_manacompressor_flavor"] = {
+				["name"] = "Mana Compressor",
+				["text"] = {
+					"Strips enhancement from",
+					"the next played {C:attention}#1#{}",
+					"All consumed enhancements",
+					"count as each other",
+					" ",
+					"{C:inactive,s:0.8}Something!{}"
+				},
+			},
 			["j_minty_catnipfields"] = {
 				["name"] = "Catnip Fields",
 				["text"] = {
@@ -2512,6 +2532,13 @@ return {
 					"{C:inactive,s:0.8}gravy is as good as pey wet.{}",
 				},
 			},
+			["minty_compressed_enhancements"] = {
+				["label"] = "Compressed Enhancements",
+				["name"] = "Compressed Enhancements",
+				["text"] = {
+					"None yet"
+				}
+			}
 		},
 	},
 }
