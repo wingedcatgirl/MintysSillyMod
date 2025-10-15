@@ -109,6 +109,7 @@ local files = {
         { name = "bucket" },
         { name = "chocobar" },
         { name = "duckhat" },
+        { name = "bonkdice",  },
         { name = "ascetic" },
         { name = "churu",  },
         { name = "flexweirdo" },

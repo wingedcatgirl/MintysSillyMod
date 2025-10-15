@@ -1314,6 +1314,39 @@ return {
 					"{C:inactive,s:0.8}Something!{}"
 				},
 			},
+			["j_minty_bonkdice"] = {
+				["name"] = "Bonkin' Dice",
+				["text"] = {
+					"{C:mult}+#1#-#2#{} Mult",
+					"{C:mult}+#3#{} to max value",
+					"whenever it is rolled",
+				},
+			},
+			["j_minty_bonkdice_flavor"] = {
+				["name"] = "Bonkin Dice",
+				["text"] = {
+					"{C:mult}+#1#-#2#{} Mult",
+					"{C:mult}+#3#{} to max value",
+					"whenever it is rolled",
+					" ",
+					"{C:inactive,s:0.8}And has flavor text!{}",
+				},
+			},
+			["j_minty_template"] = {
+				["name"] = "Joker Template",
+				["text"] = {
+					"Does something",
+				},
+			},
+			["j_minty_template_flavor"] = {
+				["name"] = "Joker Template",
+				["text"] = {
+					"Does something",
+					" ",
+					"{C:inactive,s:0.8}And has flavor text!{}",
+				},
+			},
+			--HEY FUTURE MINTY, PUT NEW JOKERS HERE :P 
 			["j_minty_catnipfields"] = {
 				["name"] = "Catnip Fields",
 				["text"] = {
