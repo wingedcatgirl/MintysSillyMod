@@ -101,8 +101,9 @@ SMODS.Joker {
 
         if context.individual then
             if context.cardarea == G.play then
-                local luck, odds = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, "minty_wildsupport_roll", true)
-                luck = luck + math.max(4-odds, 0) --Denomination reduction shouldn't completely bork this :v 
+                local luck = SMODS.get_probability_vars(card, 1, 999999999999, "minty_wildsupport_luck", true)
+                luck = math.min(luck, 4)
+                local _,odds = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, "minty_wildsupport_odds", true)
                 if SMODS.has_enhancement(context.other_card, "m_wild") and (luck >= 1) then
                     local bonuses = {'mult', 'xmult', 'chips', 'cash'}
                     local result = {card = card}
