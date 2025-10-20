@@ -56,6 +56,7 @@ SMODS.Joker {
             eaten = {
 
             },
+            count = 0,
             current = "m_bonus",
             hungry = true
         }
@@ -85,8 +86,14 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.end_of_round and not context.blueprint and not (context.individual or context.repetition or context.retrigger_joker_check or context.retrigger_joker) then
             card.ability.extra.current = SMODS.poll_enhancement{guaranteed = true}
-            if card.ability.extra.eaten[card.ability.extra.current] then
-                SMODS.poll_enhancement{guaranteed = true} --One (1) retry if it rolls an already-eaten enhancement.
+            local retries = 0
+            if card.ability.extra.eaten[card.ability.extra.current] or not MINTY.find_enhancement(card.ability.extra.current) then
+                retries = card.ability.extra.count or 0 --Get some retries if it's already eaten or you don't have it
+            end
+            while retries > 0 and (card.ability.extra.eaten[card.ability.extra.current] or not MINTY.find_enhancement(card.ability.extra.current)) do
+                --Retry until it's new and you own it, or you run out of retries
+                card.ability.extra.current = SMODS.poll_enhancement{guaranteed = true}
+                retries = retries - 1
             end
             card.ability.extra.hungry = true
             return {
@@ -96,6 +103,7 @@ SMODS.Joker {
 
         if context.individual and context.cardarea == G.play and not context.end_of_round and card.ability.extra.hungry and (context.other_card.config.center.key == card.ability.extra.current) then
             context.other_card:set_ability(G.P_CENTERS.c_base, nil, true)
+            if not card.ability.extra.eaten[card.ability.extra.current] then card.ability.extra.count = (card.ability.extra.count or 0) + 1 end
             card.ability.extra.eaten[card.ability.extra.current] = true
             card.ability.extra.hungry = false
             return {
