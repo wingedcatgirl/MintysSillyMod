@@ -2,13 +2,11 @@ SMODS.Booster{
     key = "treat_normal_1",
     group_key = "k_minty_treat_packs",
     kind = "minty_treat",
-    --[[
-    atlas = ""
+    atlas = "boosters",
     pos = {
         x = 0,
         y = 0,
-    }
-    ]]
+    },
     config = {
         extra = 2,
         choose = 1
