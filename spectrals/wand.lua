@@ -41,3 +41,10 @@ SMODS.Consumable {
 		delay(0.6)
 	end,
 }
+
+local soul_soul_rate = G.P_CENTERS.c_soul.soul_rate or 0.003
+
+SMODS.Consumable:take_ownership("c_soul", {
+	soul_rate = soul_soul_rate/2, --... and halve the Soul's rate because, again, no flooding the pool.
+	soul_set = "Tarot", --Setting the soul set in case setting the soul rate without it breaks anything
+}, false)
