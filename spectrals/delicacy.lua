@@ -25,6 +25,15 @@ SMODS.Consumable {
         return not G.GAME.minty_delicacy_consumed
     end,
 	pos = { x = 3, y = 2 },
+    can_use = function (self, card)
+        if #G.jokers.cards <= 0 then return false end
+        for i,v in ipairs(G.jokers.cards) do
+            if not v.edition then
+                return true
+            end
+        end
+        return false
+    end,
 	use = function(self, card, area, copier)
         for i,v in ipairs(G.jokers.cards) do
             if not v.edition then
