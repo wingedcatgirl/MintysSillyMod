@@ -1769,6 +1769,27 @@ return {
 					"{C:inactive,s:0.8}You feel like a new Joker!{}"
 				},
 			},
+			["c_minty_delicacy"] = {
+				["name"] = "Ultimate Delicacy",
+				["text"] = {
+					"Add {C:dark_edition}Negative{} to",
+					"all held Jokers",
+					"{C:mult}Never spawns again{}",
+					"{C:mult}once used{}",
+				},
+			},
+			["c_minty_delicacy_flavor"] = {
+				["name"] = "Ultimate Delicacy",
+				["text"] = {
+					"Add {C:dark_edition}Negative{} to",
+					"all held Jokers",
+					"{C:mult}Never spawns again{}",
+					"{C:mult}once used{}",
+					" ",
+					"{C:inactive,s:0.8}Unable to see anything but the{}",
+					"{C:inactive,s:0.8}transcendent glow of perfection!{}",
+				},
+			},
 			["c_minty_wand"] = {
 				["name"] = "The Wand",
 				["text"] = {

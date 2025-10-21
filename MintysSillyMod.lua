@@ -174,6 +174,7 @@ local files = {
     spectrals = {
         { name = "sixyears" },
         { name = "dekaja" },
+        { name = "delicacy" },
         { name = "reincarnate" },
         { name = "wand" },
         --{ name = "testcard" },
