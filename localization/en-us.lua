@@ -30,6 +30,7 @@ return {
 			["k_minty_treasureplaceholder"] = "a random stat",
 			["k_minty_treat"] = "Treat",
 			["b_minty_treat_cards"] = "Treat Cards",
+			["k_minty_treat_packs"] = "Treat Pack"
 		},
 		["v_dictionary"] = {
 			["a_minty_chipgain"] = "+#1# Chips",
@@ -1837,9 +1838,15 @@ return {
 					"When {C:mult}Boss Blind{} defeated",
 					"with at least {C:chips}1 hand{} left,",
 					"{C:attention}revive it{} and create",
-					"a random {C:purple}Treat Card{}"
+					"a {C:purple}Menu Tag{}"
 				}
-			}
+			},
+			["tag_minty_menu"] = {
+				["name"] = "Menu Tag",
+				["text"] = {
+					"Gives a free {C:purple}Treat Pack{}"
+				}
+			},
 		},
 		["minty_treat"] = {
 			["c_minty_choccytreat"] = {
@@ -2367,6 +2374,15 @@ return {
 					"always scores",
 					"resists debuffs",
 				},
+			},
+			["p_minty_treat_normal_1"] = {
+				["name"] = "Treat Pack",
+				["label"] = "Treat Pack",
+				["text"] = {
+					"Order #1# of up to",
+					"#2# delicious {C:purple}treats{}",
+					"to be consumed immediately"
+				}
 			},
 			["minty_flexweirdo_full_name"] = {
 				["name"] = "His full name is...",

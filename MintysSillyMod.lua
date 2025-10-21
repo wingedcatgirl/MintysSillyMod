@@ -180,10 +180,13 @@ local files = {
         --{ name = "testcard" },
     },
     treats = {
-        {name = "choccy" },
-        {name = "mint ice cream" },
-        {name = "blueberry pie" },
-        {name = "funnel cake" },
+        { name = "choccy" },
+        { name = "mint ice cream" },
+        { name = "blueberry pie" },
+        { name = "funnel cake" },
+    },
+    boosters = {
+        { name = "treat" },
     },
     consumables = {
         { name = "colors", mods = { { id = "MoreFluff", cfg = "Colour Cards" } } },
@@ -193,6 +196,7 @@ local files = {
     },
     tags = {
         { name = "goading" },
+        { name = "menu" },
     },
     vouchers = {
         { name = "topplepaws" },
