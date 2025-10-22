@@ -449,6 +449,19 @@ function MINTY.find_rank(rank)
     return false
 end
 
+---Checks if you own an enhancement
+---@param enh string Key of the enhancement
+---@param quantum? boolean Include quantum enhancements
+function MINTY.find_enhancement(enh, quantum)
+    if not G.playing_cards then return true end
+    for k, v in ipairs(G.playing_cards) do
+        if (v.config.center.key == enh) or quantum and SMODS.has_enhancement(v, enh) then
+            return true
+        end
+    end
+    return false
+end
+
 ---Counts how many things in a given mod have been discovered
 ---@param mod? string ID of the mod to check for; Minty's by default
 ---@param set? string Type of thing to check for; Jokers by default

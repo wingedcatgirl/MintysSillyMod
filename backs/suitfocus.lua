@@ -90,15 +90,20 @@ SMODS.Back{
         end
     end,
     apply = function (self, back)
+        local sleeveexist = (SMODS.Mods["CardSleeves"] or {}).can_load
+        local fusionexist = not not next(SMODS.find_mod("FusionJokers"))
+        local focussleeve = ((G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_suitfocussleeve")
         MINTY.event(
             function ()
-                SMODS.add_card{
-                    key = "j_minty_flexweirdo",
-                    stickers = {
-                        "eternal"
-                    },
-                    force_stickers = true
-                }
+                if not (sleeveexist and fusionexist and focussleeve) then
+                    SMODS.add_card{
+                        key = "j_minty_flexweirdo",
+                        stickers = {
+                            "eternal"
+                        },
+                        force_stickers = true
+                    }
+                end
                 SMODS.add_card{
                     key = "c_minty_focus",
                     set = "Tarot"
@@ -152,10 +157,9 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
             if self.get_current_deck_key() ~= "b_minty_suitfocus" then
                 key = self.key
             else
-                if (SMODS.Mods["FusionJokers"] or {}).can_load then
+                if not not next(SMODS.find_mod("FusionJokers")) then
                     key = self.key.."_fusionalt"
-                    --vars[1] = localize{ type = "name_text", set = "Joker", key = "j_minty_FUSION" }
-                    vars[1] = "FUSION ISN'T DONE YET D:"
+                    vars[1] = localize{ type = "name_text", set = "Joker", key = "j_minty_superboss" }
                 else
                     key = self.key.."_alt"
                     vars[1] = localize{ type = "name_text", set = "Joker", key = "j_minty_shadowcrystal" }
@@ -163,6 +167,17 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
             end
 
             return { key = key, vars = vars }
+        end,
+        calculate = function (self, sleeve, context)
+            if context.before and context.full_hand and not G.GAME.minty_focussuit then
+                if SMODS.has_no_suit(context.full_hand[1]) then
+                    G.GAME.minty_focussuit = "suitless"
+                elseif SMODS.has_any_suit(context.full_hand[1]) then
+                    G.GAME.minty_focussuit = "all-suit"
+                else
+                    G.GAME.minty_focussuit = context.full_hand[1].base.suit
+                end
+            end
         end,
         apply = function (self)
 
@@ -183,12 +198,11 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                         return true
                     end
                 )
-            elseif (SMODS.Mods["FusionJokers"] or {}).can_load then
-                --[[
+            elseif not not next(SMODS.find_mod("FusionJokers")) then
                 MINTY.event(
                     function ()
                         SMODS.add_card{
-                            key = "j_minty_FUSION",
+                            key = "j_minty_superboss",
                             stickers = {
                                 "eternal"
                             },
@@ -197,7 +211,6 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                         return true
                     end
                 )
-                ]]
             else
                 MINTY.event(
                     function ()

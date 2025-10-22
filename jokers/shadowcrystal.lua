@@ -11,10 +11,11 @@ SMODS.Joker {
         x = 1,
         y = 0
     },
-    rarity = 1,
-    cost = 5,
+    rarity = 2,
+    cost = 7,
     unlocked = true,
-    discovered = false,
+    discovered = true,
+    no_collection = true,
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -54,7 +55,10 @@ SMODS.Joker {
         }
     end,
     in_pool = function (self, args)
-        return false
+        local deck = (CardSleeves and CardSleeves.Sleeve.get_current_deck_key() == "b_minty_suitfocus")
+        local sleeve = G.GAME.selected_sleeve == "sleeve_minty_suitfocussleeve"
+        local fused = not not next(SMODS.find_mod("FusionJokers")) and FusionJokers.fusionconfig.block_components and not not next(SMODS.find_card("j_minty_superboss"))
+        return (deck or sleeve) and not fused
     end,
     calculate = function(self, card, context)
         local results = {

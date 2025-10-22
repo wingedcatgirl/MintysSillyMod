@@ -224,6 +224,30 @@ return {
 					"{C:inactive,s:0.8}warp in the crystal's lens.{}",
 				},
 			},
+			["j_minty_superboss"] = {
+				["name"] = "Superboss",
+				["text"] = {
+					"Cards of {C:attention}#1#{}",
+					"give {C:money}$#2#{}, {C:chips}+#3#{} Chips",
+					"{C:mult}+#4#{} Mult, or {X:mult,C:white}X#5#{} Mult",
+					"when scored, which increases",
+					"if hand contains {C:attention}#6#{} or more",
+					"cards of {C:attention}#1#{}"
+				},
+			},
+			["j_minty_superboss_flavor"] = {
+				["name"] = "Superboss",
+				["text"] = {
+					"Cards of {C:attention}#1#{}",
+					"give {C:money}$#2#{}, {C:chips}+#3#{} Chips",
+					"{C:mult}+#4#{} Mult, or {X:mult,C:white}X#5#{} Mult",
+					"when scored, which increases",
+					"if hand contains {C:attention}#6#{} or more",
+					"cards of {C:attention}#1#{}",
+					" ",
+					"{C:inactive,s:0.8}WHY. WHY DID YOU GIVE THAT TO HIM.{}",
+				},
+			},
 			["j_minty_bigpockets"] = {
 				["name"] = "Big Pockets",
 				["text"] = {
