@@ -151,8 +151,8 @@ return {
 					"{C:green}#1# in #2#{} chance of",
 					"{X:mult,C:white}X#3#{} Mult",
 					" ",
-					"{C:inactive,s:0.8}What? It's an expected",
-					"{C:inactive,s:0.8}result of... uh-oh.",
+					"{C:inactive,s:0.8}What? It's an expected{}",
+					"{C:inactive,s:0.8}result of... uh-oh.{}",
 				},
 			},
 			["j_minty_inkbleed"] = {
@@ -279,8 +279,8 @@ return {
 					"{C:green}Unknown chance{} to {C:attention}reschedule{}",
 					"at end of round",
 					" ",
-					"{C:inactive,s:0.8}\"Vent art\"? No, this is a doctor.",
-					"{C:inactive,s:0.8}They've got the classic head mirror, see?"
+					"{C:inactive,s:0.8}\"Vent art\"? No, this is a doctor.{}",
+					"{C:inactive,s:0.8}They've got the classic head mirror, see?{}"
 				},
 			},
 			["j_minty_doctor_active"] = {
@@ -293,7 +293,7 @@ return {
 				["name"] = "Doctor",
 				["text"] = {
 					"{B:1,C:white}#2#{} Mult",
-					"{C:inactive,s:0.8}Seriously? Lucky bastard."
+					"{C:inactive,s:0.8}Seriously? Lucky bastard.{}"
 				},
 			},
 			["j_minty_duckhat"] = {
@@ -375,7 +375,7 @@ return {
 				["name"] = "Calico on the Counter",
 				["text"] = {
 					"{C:attention}#1# in #2#{} cards {C:mult}flipped{} on draw,",
-					"{C:attention}#1# in #2#{} cards {C:mult}debuffed{} on draw.",
+					"{C:attention}#1# in #2#{} cards {C:mult}debuffed{} on draw",
 					"{C:mult}Flipped{} or {C:mult}debuffed{} cards {C:attention}always score{}",
 					"{C:mult}Flipped{} cards give {C:mult}+#3#{} Mult",
 					"{C:mult}Debuffed{} cards give {X:mult,C:white}X#4#{} Mult",
@@ -385,7 +385,7 @@ return {
 				["name"] = "Calico on the Counter",
 				["text"] = {
 					"{C:attention}#1# in #2#{} cards {C:mult}flipped{} on draw,",
-					"{C:attention}#1# in #2#{} cards {C:mult}debuffed{} on draw.",
+					"{C:attention}#1# in #2#{} cards {C:mult}debuffed{} on draw",
 					"{C:mult}Flipped{} or {C:mult}debuffed{} cards {C:attention}always score{}",
 					"{C:mult}Flipped{} cards give {C:mult}+#3#{} Mult",
 					"{C:mult}Debuffed{} cards give {X:mult,C:white}X#4#{} Mult",
@@ -407,8 +407,8 @@ return {
 					"{C:spectral}Kity{} Jokers give",
 					"{C:chips}+#1#{} Chips",
 					" ",
-					"{C:inactive,s:0.8}The staff are cats.",
-					"{C:inactive,s:0.8}The patrons... are also cats."
+					"{C:inactive,s:0.8}The staff are cats.{}",
+					"{C:inactive,s:0.8}The patrons... are also cats.{}"
 				},
 			},
 			["j_minty_peywet"] = {
@@ -503,7 +503,7 @@ return {
 					"At end of round,",
 					"create a {C:spectral}Spectral{} card",
 					"if no {C:attention}face cards{}",
-					"were scored that round.",
+					"were scored that round",
 					"{C:inactive}(Must have room){}",
 					" ",
 					"{C:inactive}(Currently: #1#!){}",
@@ -515,13 +515,13 @@ return {
 					"At end of round,",
 					"create a {C:spectral}Spectral{} card",
 					"if no {C:attention}face cards{}",
-					"were scored that round.",
+					"were scored that round",
 					"{C:inactive}(Must have room){}",
 					" ",
 					"{C:inactive}(Currently: #1#!){}",
 					" ",
-					"{C:inactive,s:0.8}No eating language eggs",
-					"{C:inactive,s:0.8}allowed on the bus.",
+					"{C:inactive,s:0.8}No eating language eggs{}",
+					"{C:inactive,s:0.8}allowed on the bus.{}",
 				},
 			},
 			["j_minty_catpicmachine_modest"] = {
@@ -629,7 +629,7 @@ return {
 					"{C:green,E:1,S:1.1}probabilities{} by {C:mult}#1#{}",
 					"{C:inactive}(ex: {C:green}#1# in 100{C:inactive} -> {C:green}1 in 100{C:inactive})",
 					" ",
-					"{C:inactive,s:0.8}Till all complete.",
+					"{C:inactive,s:0.8}Till all complete.{}",
 				},
 			},
 			["j_minty_stormy"] = {
@@ -763,7 +763,7 @@ return {
 					" ",
 					"{C:inactive,s:0.8}It seems to belong",
 					"{C:inactive,s:0.8}to an ancient",
-					"{C:inactive,s:0.8}prehistoric slow tiger.",
+					"{C:inactive,s:0.8}prehistoric slow tiger.{}",
 				},
 			},
 			["j_minty_fatcat-l"] = {
@@ -825,7 +825,7 @@ return {
 					"{C:inactive,s:0.8}An artist knows they",
 					"{C:inactive,s:0.8}have found perfection",
 					"{C:inactive,s:0.8}when there is nothing",
-					"{C:inactive,s:0.8}left to take away.",
+					"{C:inactive,s:0.8}left to take away.{}",
 				},
 			},
 			["j_minty_bucket"] = {
@@ -849,7 +849,7 @@ return {
 				["text"] = {
 					"Played {C:minty_3s}3s{} give {C:green}#1#{} of",
 					"{C:chips}+#2#{} chips, {C:mult}+#3#{} Mult, and",
-					"{X:mult,C:white}X#4#{} Mult when scored.",
+					"{X:mult,C:white}X#4#{} Mult when scored",
 				},
 			},
 			["j_minty_threecats_flavor"] = {
@@ -857,7 +857,7 @@ return {
 				["text"] = {
 					"Played {C:minty_3s}3s{} give {C:green}#1#{} of",
 					"{C:chips}+#2#{} chips, {C:mult}+#3#{} Mult, and",
-					"{X:mult,C:white}X#4#{} Mult when scored.",
+					"{X:mult,C:white}X#4#{} Mult when scored",
 					" ",
 					"{C:mult,s:0.8}       Meow!      ",
 					"{C:chips,s:0.8}Meow!             ",
@@ -968,20 +968,20 @@ return {
 			["j_minty_theecho"] = {
 				["name"] = "The Echo",
 				["text"] = {
-					"Prevents Death.",
+					"Prevents Death",
 					"If triggered against {C:attention}second{} Boss Blind,",
 					"{C:attention}-1 Ante{} and {C:attention}-1 charge{} {C:inactive}(#1# left){}.",
-					"{C:red}Self-destructs{} when no charges remaining.",
+					"{C:red}Self-destructs{} when no charges remaining",
 					"{C:inactive,s:0.8}(Or when challenge defeated){}",
 				},
 			},
 			["j_minty_theecho_flavor"] = {
 				["name"] = "The Echo",
 				["text"] = {
-					"Prevents Death.",
+					"Prevents Death",
 					"If triggered against {C:attention}second{} Boss Blind,",
 					"{C:attention}-1 Ante{} and {C:attention}-1 charge{} {C:inactive}(#1# left){}.",
-					"{C:red}Self-destructs{} when no charges remaining.",
+					"{C:red}Self-destructs{} when no charges remaining",
 					"{C:inactive,s:0.8}(Or when challenge defeated){}",
 					" ",
 					"{C:inactive,s:0.8}Burning for battle...{}",
@@ -1058,9 +1058,9 @@ return {
 					"Played {C:minty_3s}3s{} give",
 					"{C:mult}+#1#{} Mult when scored",
 					" ",
-					"{C:inactive,s:0.8}I'm a hedonist.",
-					"{C:inactive,s:0.8}Of course I have",
-					"{C:inactive,s:0.8}flavor text. Mmm...",
+					"{C:inactive,s:0.8}I'm a hedonist.{}",
+					"{C:inactive,s:0.8}Of course I have{}",
+					"{C:inactive,s:0.8}flavor text. Mmm...{}",
 				},
 			},
 			["j_minty_proso"] = {
@@ -1069,7 +1069,7 @@ return {
 					"{X:mult,C:white} X#1# {} Mult if hand",
 					"contains {C:attention}face{} cards,",
 					"but {C:attention}no{} cards are",
-					"considered face cards.",
+					"considered face cards",
 				},
 			},
 			["j_minty_proso_flavor"] = {
@@ -1078,11 +1078,11 @@ return {
 					"{X:mult,C:white} X#1# {} Mult if hand",
 					"contains {C:attention}face{} cards,",
 					"but {C:attention}no{} cards are",
-					"considered face cards.",
+					"considered face cards",
 					" ",
-					"{C:inactive,s:0.8}You don't know what it's",
-					"{C:inactive,s:0.8}like to spend every day",
-					"{C:inactive,s:0.8}surrounded by monkeys.",
+					"{C:inactive,s:0.8}You don't know what it's{}",
+					"{C:inactive,s:0.8}like to spend every day{}",
+					"{C:inactive,s:0.8}surrounded by monkeys.{}",
 				},
 			},
 			["j_minty_ascetic"] = {
@@ -1142,7 +1142,7 @@ return {
 					"Played cards with rank {C:attention}7{}",
 					"give {C:chips}+#2#{} Chips and {C:mult}+#1#{} Mult",
 					"when scored. Destroy {C:green}#4# in #3#{}",
-					"scored cards of other ranks.",
+					"scored cards of other ranks",
 				},
 			},
 			["j_minty_eaten_flavor"] = {
@@ -1151,11 +1151,11 @@ return {
 					"Played cards with rank {C:attention}7{}",
 					"give {C:chips}+#2#{} Chips and {C:mult}+#1#{} Mult",
 					"when scored. Destroy {C:green}#4# in #3#{}",
-					"scored cards of other ranks.",
+					"scored cards of other ranks",
 					" ",
-					"{C:inactive,s:0.8}All shall be well and all shall be well",
-					"{C:inactive,s:0.8}and all manner of thing shall be well.",
-					"{C:inactive,s:0.8}That was the promise."
+					"{C:inactive,s:0.8}All shall be well and all shall be well{}",
+					"{C:inactive,s:0.8}and all manner of thing shall be well.{}",
+					"{C:inactive,s:0.8}That was the promise.{}"
 				},
 			},
 			["j_minty_excited"] = {
@@ -1270,7 +1270,7 @@ return {
 					"{C:inactive}(First suit changes each round){}",
 					" ",
 					"{C:inactive,s:0.8}Hey would you mind slathering yourself",
-					"{C:inactive,s:0.8}in BBQ sauce real quick? No reason.",
+					"{C:inactive,s:0.8}in BBQ sauce real quick? No reason.{}",
 				},
 			},
 			["j_minty_wildsupport"] = {
@@ -1282,7 +1282,7 @@ return {
 					"up to {C:chips}#4#{} Chips (+{C:chips}#9#{}),",
 					"or up to {C:money}$#5#{} (+{C:money}$#10#{}),",
 					"and {C:green}#1# in #6#{} chance to",
-					"increase maximum value."
+					"increase maximum value"
 				},
 			},
 			["j_minty_wildsupport_flavor"] = {
@@ -1294,9 +1294,9 @@ return {
 					"up to {C:chips}#4#{} Chips (+{C:chips}#9#{}),",
 					"or up to {C:money}$#5#{} (+{C:money}$#10#{}),",
 					"and {C:green}#1# in #6#{} chance to",
-					"increase maximum value.",
+					"increase maximum value",
 					" ",
-					"{C:inactive,s:0.8}This is definitely fine.",
+					"{C:inactive,s:0.8}This is definitely fine.{}",
 				},
 			},
 			["j_minty_scoundrel"] = {
@@ -1375,7 +1375,7 @@ return {
 			["j_minty_catnipfields"] = {
 				["name"] = "Catnip Fields",
 				["text"] = {
-					"{C:minty_3s}3s{} give {X:mult,C:white}X#1#{} Mult when scored.",
+					"{C:minty_3s}3s{} give {X:mult,C:white}X#1#{} Mult when scored",
 					"Increases by {X:mult,C:white}X#2#{} Mult for each ",
 					"consecutively scored {C:minty_3s}3{}",
 					"{C:inactive}(Resets after each hand played)",
@@ -1384,12 +1384,12 @@ return {
 			["j_minty_catnipfields_flavor"] = {
 				["name"] = "Catnip Fields",
 				["text"] = {
-					"{C:minty_3s}3s{} give {X:mult,C:white}X#1#{} Mult when scored.",
+					"{C:minty_3s}3s{} give {X:mult,C:white}X#1#{} Mult when scored",
 					"Increases by {X:mult,C:white}X#2#{} Mult for each ",
 					"consecutively scored {C:minty_3s}3{}",
 					"{C:inactive}(Resets after each hand played)",
 					" ",
-					"{C:inactive,s:0.8}Cats come from across the land to frolic here.",
+					"{C:inactive,s:0.8}Cats come from across the land to frolic here.{}",
 				},
 			},
 		},
@@ -1494,7 +1494,7 @@ return {
 				["name"] = "The Silliest, Littlest Deck",
 				["text"] = {
 					"{C:legendary}Minty's Mod{C:attention} Jokers{} are {C:attention}3x",
-					"more likely to appear.",
+					"more likely to appear",
 				},
 			},
 		},
@@ -2095,14 +2095,14 @@ return {
 				["name"] = "The Silliest, Littlest Sleeve",
 				["text"] = {
 					"{C:legendary}Minty's Mod{C:attention} Jokers{} are {C:attention}3x",
-					"more likely to appear.",
+					"more likely to appear",
 				},
 			},
 			["sleeve_minty_sillylittlesleeve_alt"] = {
 				["name"] = "The Silliest, Littlest Sleeve",
 				["text"] = {
 					"Other {C:legendary}Minty's Mod{} items are {C:attention}2x",
-					"more likely to appear.",
+					"more likely to appear",
 				},
 			},
 			["sleeve_minty_drippysleeve"] = {
@@ -2385,7 +2385,7 @@ return {
                     "{}Gemstone to {C:green}#1#{} selected {C:attention}card{}",
                     "{C:inactive}(Must have a Gem Slot){}",
 					" ",
-					"{C:inactive,s:0.8}It can see you...r treats."
+					"{C:inactive,s:0.8}It can see you...r treats.{}"
 				},
 			},
 		},
@@ -2429,7 +2429,7 @@ return {
 					"They're Not Even A Contortionist",
 					"That's Just Normal Human Variation)",
 					" ",
-					"{C:inactive,s:0.8}... Zippy Zappy Angel Eyes."
+					"{C:inactive,s:0.8}... Zippy Zappy Angel Eyes.{}"
 				},
 			},
 			["undiscovered_minty_treat"] = {
@@ -2488,9 +2488,9 @@ return {
 					"the same as whoever",
 					"is referring to it",
 					" ",
-					'{C:inactive,s:0.8}"Lore drop modder uses it/its?!?!?"',
-					'{C:inactive,s:0.6}                      "Not new information!"',	--Is there a better way to do this? Surely.
-					'{C:inactive,s:0.8}"Oh."                            ',				--Do I know it? Hell no.
+					'{C:inactive,s:0.8}"Lore drop modder uses it/its?!?!?"{}',
+					'{C:inactive,s:0.6}                      "Not new information!"{}',	--Is there a better way to do this? Surely.
+					'{C:inactive,s:0.8}"Oh.{}"                            ',			--Do I know it? Hell no.
 				}
 			},
 			["minty_disabled_object"] = {
