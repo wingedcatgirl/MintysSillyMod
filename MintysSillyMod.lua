@@ -68,7 +68,7 @@ end
 
 SMODS.ConsumableType{
     key = "minty_treat",
-    default = "c_minty_choccytreat",
+    default = "c_minty_funnel_cake",
     primary_colour = G.C.PURPLE,
     secondary_colour = HEX("ca7ca7")
 }
