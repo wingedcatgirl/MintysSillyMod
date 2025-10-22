@@ -1336,7 +1336,7 @@ return {
 					"All consumed enhancements",
 					"count as each other",
 					" ",
-					"{C:inactive,s:0.8}Something!{}"
+					"{C:inactive,s:0.8}As long as it doesn't have Annihilator amirite?{}"
 				},
 			},
 			["j_minty_bonkdice"] = {
@@ -1354,7 +1354,7 @@ return {
 					"{C:mult}+#3#{} to max value",
 					"whenever it is rolled",
 					" ",
-					"{C:inactive,s:0.8}And has flavor text!{}",
+					"{C:inactive,s:0.8}Maybe him skill issue?{}",
 				},
 			},
 			["j_minty_template"] = {
