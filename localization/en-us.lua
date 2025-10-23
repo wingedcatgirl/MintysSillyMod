@@ -1357,6 +1357,30 @@ return {
 					"{C:inactive,s:0.8}Maybe him skill issue?{}",
 				},
 			},
+			["j_minty_contraption"] = {
+				["name"] = "The Contraption",
+				["text"] = {
+					"{C:chips}+#1#{} Chips",
+					"When a {C:attention}#2#{} is scored",
+					"{C:green}N in #3#{} chance to add",
+					"its extra Chips to this Joker's Chips",
+					"where N is the number of",
+					"scoring #2#s in the hand",
+				},
+			},
+			["j_minty_contraption_flavor"] = {
+				["name"] = "The Contraption",
+				["text"] = {
+					"{C:chips}+#1#{} Chips",
+					"When a {C:attention}#2#{} is scored",
+					"{C:green}N in #3#{} chance to add",
+					"its extra Chips to this Joker's Chips",
+					"where N is the number of",
+					"scoring #2#s in the hand",
+					" ",
+					"{C:inactive,s:0.8}No, we're not throwing green people into it.{}",
+				},
+			},
 			["j_minty_template"] = {
 				["name"] = "Joker Template",
 				["text"] = {

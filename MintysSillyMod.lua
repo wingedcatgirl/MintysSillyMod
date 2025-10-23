@@ -119,6 +119,7 @@ local files = {
         { name = "catcafe" },
         { name = "catnipfields" },
         { name = "clock" },
+        { name = "contraption" },
         { name = "fatcat-l" }, --Literal (Tubbs)
         { name = "fatcat-m" }, --Metaphorical (Jeff Bezos catgirl)
         { name = "treatovision" },
