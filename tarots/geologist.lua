@@ -37,13 +37,8 @@ SMODS.Consumable{
     end,
 
     use = function(self)
-        local rocks = {}
-        for k,_ in pairs(MINTY.rocks) do
-            table.insert(rocks, k)
-        end
-
         local used_tarot = copier or card
-        MINTY.tarotflip(used_tarot, { random_enhs = rocks, seed = "minty_geologist" })
+        MINTY.tarotflip(used_tarot, { random_enhs = MINTY.rockbag, seed = "minty_geologist" })
     end,
 
     in_pool = function ()

@@ -239,6 +239,7 @@ end
 
 MINTY.rocklist = function ()
     MINTY.rocks = MINTY.rocks or {}
+    MINTY.rockbag = {}
     local outside_rocks = {
         m_ortalab_ore = true,
         m_akyrs_brick_card = true,
@@ -251,6 +252,7 @@ MINTY.rocklist = function ()
     for k,v in pairs(G.P_CENTERS) do
         if (v.minty_rock) or outside_rocks[k] then
             MINTY.rocks[v.key] = true
+            table.insert(MINTY.rockbag, v.key)
         end
     end
 end
@@ -311,7 +313,7 @@ MINTY.tarotflip = function (card, args)
             func = function()
                 if ranks then rank = pseudorandom_element(ranks, pseudoseed(seed)) end
                 if suits then suit = pseudorandom_element(suits, pseudoseed(seed)) end
-                if enhs then enh = pseudorandom_element(enhs, pseudoseed(seed)) end
+                if enhs then enh = SMODS.poll_enhancement({options = enhs, key = seed, guaranteed = true}) end
                 if rank or suit then
                     assert(SMODS.change_base(G.hand.highlighted[i], suit, rank))
                 end
@@ -343,7 +345,7 @@ MINTY.tarotflip = function (card, args)
             trigger = 'after',
             delay = 0.1,
             func = function()
-                if edis then edi = pseudorandom_element(edis, pseudoseed(seed)) end
+                if edis then edi = SMODS.poll_edition({options = enhs, key = seed, guaranteed = true}) end
                 if edi then
                     if edi == "base" or edi == "none" or edi == "false" or edi == "remove" then edi = nil end
                     G.hand.highlighted[i]:set_edition(edi)
@@ -468,6 +470,7 @@ end
 ---@return integer
 MINTY.discover_count = function(set, mod, debug)
     mod = (mod or "MintysSillyMod")
+    if mod:lower() == "vanilla" then mod = "vanilla" end
     set = set or "Joker"
     local found = 0
 

@@ -39,7 +39,7 @@ SMODS.Joker {
         if context.before then
             for i = 1,#context.scoring_hand do
                 if context.scoring_hand[i].ability.set ~= "Enhanced" then
-                    local _, enh = pseudorandom_element(MINTY.rocks, pseudoseed("minty_bucket"))
+                    local enh = SMODS.poll_enhancement({options = MINTY.rockbag, key = "minty_bucket", guaranteed = true})
                     MINTY.say(enh, "TRACE")
                     context.scoring_hand[i]:set_ability(G.P_CENTERS[enh], nil, true)
                     G.E_MANAGER:add_event(Event({
