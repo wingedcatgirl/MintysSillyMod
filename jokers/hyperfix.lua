@@ -40,7 +40,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         local val = G.GAME and G.GAME.minty_hyperfix and G.GAME.minty_hyperfix.value or 0
         local key = self.key
-        local base = card.ability.extra.talisman and card.ability.extra.expmult_base or 1
+        local base = card.ability.extra.talisman and card.ability.extra.expmult_base or card.ability.extra.xmult_rate
         local rate = card.ability.extra.talisman and card.ability.extra.expmult_boost or card.ability.extra.xmult_rate
         local total = base+(rate*val)
         local op = (card.ability.extra.talisman and "^" or "X")
