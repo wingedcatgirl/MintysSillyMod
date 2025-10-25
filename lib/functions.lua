@@ -244,6 +244,7 @@ MINTY.rocklist = function ()
         m_ortalab_ore = true,
         m_akyrs_brick_card = true,
         m_mf_gemstone = true,
+        m_artb_marble = true,
         m_stone = true,
         --Minty rock list patch target
 
