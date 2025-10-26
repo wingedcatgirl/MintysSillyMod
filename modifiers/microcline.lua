@@ -26,6 +26,15 @@ SMODS.Enhancement({
     replace_base_card = true,
     no_rank = true,
     no_suit = true,
+    valk_hand_buff = {
+        title = "DWARF JOKE",
+        colour = HEX("CA7CA7"),
+        scoring_func = function (n)
+            return {
+                echips = 1.2 + ((n-1)*0.01)
+            }
+        end
+    },
     calculate = function (self, card, context)
         if context.forcetrigger then
             return {
