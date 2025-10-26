@@ -21,6 +21,23 @@ SMODS.Enhancement({
             },
         }
     end,
+    valk_hand_buff = {
+        title = "ZzZzzzZZtTzt",
+        colour = G.C.YELLOW,
+        scoring_func = function (n)
+            local ret = {
+                extra = {
+                    balance = true
+                }
+            }
+            if hand_chips > mult then
+                ret.echips = 1 + (n * 0.1)
+            else
+                ret.emult = 1 + (n * 0.1)
+            end
+            return ret
+        end
+    },
     calculate = function (self, card, context)
         if (context.main_scoring and context.cardarea == G.play) or context.forcetrigger then
             local diff = math.abs(mult - hand_chips)

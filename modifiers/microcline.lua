@@ -27,7 +27,7 @@ SMODS.Enhancement({
     no_rank = true,
     no_suit = true,
     valk_hand_buff = {
-        title = "DWARF JOKE",
+        title = "DWARF JOKE", --technically this name is a placeholder but so was Leaf story
         colour = HEX("CA7CA7"),
         scoring_func = function (n)
             return {
