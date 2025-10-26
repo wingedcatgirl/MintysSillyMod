@@ -280,12 +280,12 @@ for folder, list in pairs(files) do
             sendTraceMessage("Loading file: "..folder..'/'..name..'.lua', "Minty's Mod")
             local loaded,errormessage = pcall(SMODS.load_file(folder..'/'..name..'.lua'))
             if not loaded then
-                local disable = not MINTY.config.dev_mode and " The mod will be automatically disabled on restart." or ""
+                local disable = not MINTY.config.dev_mode and "\nThe mod will be automatically disabled on restart." or ""
                 if not MINTY.config.dev_mode then
                     NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
                 end
                 sendErrorMessage(errormessage, "Minty's Mod")
-                error("Minty's Mod: File '"..folder.."/"..name..".lua' failed to load! Please make sure there's nothing fucky with your file structure."..disable)
+                error("Minty's Mod: File '"..folder.."/"..name..".lua' failed to load!\n   "..errormessage.."\nPlease make sure there's nothing fucky with your file structure."..disable)
             end
 
 
