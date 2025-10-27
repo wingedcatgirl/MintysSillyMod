@@ -30,6 +30,17 @@ SMODS.Enhancement({
     replace_base_card = true,
     no_rank = true,
     any_suit = true,
+    valk_hand_buff = {
+        title = "AMALGAMATED",
+        colour = G.C.BLUE,
+        scoring_func = function (power)
+            return {
+                dollars = 4 + power,
+                xchips = 4 + power,
+                xmult = 4 + power
+            }
+        end
+    },
     calculate = function (self, card, context)
         if context.forcetrigger then
             return {
