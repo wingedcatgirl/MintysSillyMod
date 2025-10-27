@@ -18,6 +18,30 @@ SMODS.Enhancement({
             gymboost = "chips"
         },
     },
+    valk_hand_buff = {
+        title = "MECHANICAL",
+        colour = HEX("777777"),
+        scoring_func = function (power)
+            local number = 0
+            for _, v in ipairs(G.play.cards) do
+                v.ability.perma_bonus = (v.ability.perma_bonus or 0) + 10 + (power * 3)
+                v.ability.perma_bonus = v.ability.perma_bonus * (1.5 + (power*0.5))
+                number = number + v.ability.perma_bonus
+            end
+            MINTY.event(function ()
+                for _, v in ipairs(G.play.cards) do
+                    v:juice_up()
+                end
+                return true
+            end)
+            return {
+                message = localize("k_upgrade_ex"),
+                extra = {
+                    chips = number
+                }
+            }
+        end
+    },
     loc_vars = function(self, info_queue, card)
         local luck, odds = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, "minty_spline_desc", false)
         return {
