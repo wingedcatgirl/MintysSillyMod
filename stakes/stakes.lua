@@ -1,5 +1,10 @@
 SMODS.Stake{
     key = "scarlet",
+    atlas = "stakes",
+    pos = {
+        x = 0,
+        y = 0,
+    },
     unlocked = false,
     prefix_config = {
         above_stake = false,
@@ -12,6 +17,11 @@ SMODS.Stake{
 
 SMODS.Stake{
     key = "irrigo",
+    atlas = "stakes",
+    pos = {
+        x = 1,
+        y = 0,
+    },
     unlocked = false,
     prefix_config = {
         above_stake = false
@@ -30,6 +40,11 @@ SMODS.Stake{
 
 SMODS.Stake{
     key = "void",
+    atlas = "stakes",
+    pos = {
+        x = 2,
+        y = 0,
+    },
     unlocked = false,
     prefix_config = {
         above_stake = false
@@ -41,6 +56,11 @@ SMODS.Stake{
 
 SMODS.Stake{
     key = "sky",
+    atlas = "stakes",
+    pos = {
+        x = 3,
+        y = 0,
+    },
     unlocked = false,
     prefix_config = {
         above_stake = false
@@ -52,6 +72,11 @@ SMODS.Stake{
 
 SMODS.Stake{
     key = "mint",
+    atlas = "stakes",
+    pos = {
+        x = 0,
+        y = 1,
+    },
     unlocked = false,
     prefix_config = {
         above_stake = false
@@ -59,14 +84,17 @@ SMODS.Stake{
     applied_stakes = { "sky" },
     above_stake = "stake_purple",
     colour = HEX("CA7CA7"),
+    modifiers = function ()
+        G.GAME.minty_unbalance = 0.3
+    end,
     calculate = function (self, context)
         if context.final_scoring_step then
             if to_big(mult) > to_big(hand_chips) then
-                local diff = hand_chips * 0.4
+                local diff = hand_chips * G.GAME.minty_unbalance
                 mult = mod_mult(mult + diff)
                 hand_chips = mod_chips(hand_chips - diff)
             else
-                local diff = mult * 0.4
+                local diff = mult * G.GAME.minty_unbalance
                 mult = mod_mult(mult - diff)
                 hand_chips = mod_chips(hand_chips + diff)
             end
@@ -113,6 +141,11 @@ SMODS.Stake{
 
 SMODS.Stake{
     key = "tungsten",
+    atlas = "stakes",
+    pos = {
+        x = 1,
+        y = 1,
+    },
     unlocked = false,
     prefix_config = {
         above_stake = false
@@ -124,6 +157,11 @@ SMODS.Stake{
 
 SMODS.Stake{
     key = "catcat",
+    atlas = "stakes",
+    pos = {
+        x = 2,
+        y = 1,
+    },
     unlocked = false,
     prefix_config = {
         above_stake = false
@@ -135,6 +173,11 @@ SMODS.Stake{
 
 SMODS.Stake{
     key = "rose_gold",
+    atlas = "stakes",
+    pos = {
+        x = 3,
+        y = 1,
+    },
     unlocked = false,
     prefix_config = {
         applied_stakes = false

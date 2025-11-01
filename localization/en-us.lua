@@ -2300,7 +2300,7 @@ return {
 			["stake_minty_mint"] = {
 				["name"] = "Mint Stake",
 				["text"] = {
-					"{C:purple}Unbalance{} 40% of",
+					"{C:purple}Unbalance{} 30% of",
 					"Chips and Mult",
                     "{s:0.8}Applies Sky Stake",
 				}
