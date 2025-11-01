@@ -12,7 +12,7 @@ SMODS.Stake{
     },
     applied_stakes = { "stake_white" },
     above_stake = "stake_red",
-    colour = HEX("CA7CA7")
+    colour = HEX("ff0537")
 }
 
 SMODS.Stake{
@@ -28,7 +28,7 @@ SMODS.Stake{
     },
     applied_stakes = { "scarlet" },
     above_stake = "stake_green",
-    colour = HEX("CA7CA7"),
+    colour = HEX("cb0dff"),
     calculate = function (self, context)
         if context.final_scoring_step and G.GAME.current_round.hands_played == 2 and (G.GAME and G.GAME.hands and G.GAME.hands[G.GAME.last_hand_played] and G.GAME.hands[G.GAME.last_hand_played].level > 0) then
             return {
@@ -51,7 +51,7 @@ SMODS.Stake{
     },
     applied_stakes = { "irrigo" },
     above_stake = "stake_black",
-    colour = HEX("CA7CA7")
+    colour = HEX("001417")
 }
 
 SMODS.Stake{
@@ -67,7 +67,7 @@ SMODS.Stake{
     },
     applied_stakes = { "void" },
     above_stake = "stake_blue",
-    colour = HEX("CA7CA7")
+    colour = HEX("00c7ff")
 }
 
 SMODS.Stake{
@@ -83,7 +83,7 @@ SMODS.Stake{
     },
     applied_stakes = { "sky" },
     above_stake = "stake_purple",
-    colour = HEX("CA7CA7"),
+    colour = HEX("00a156"),
     modifiers = function ()
         G.GAME.minty_unbalance = 0.3
     end,
@@ -152,7 +152,7 @@ SMODS.Stake{
     },
     applied_stakes = { "mint" },
     above_stake = "stake_orange",
-    colour = HEX("CA7CA7")
+    colour = HEX("667072")
 }
 
 SMODS.Stake{
@@ -187,6 +187,6 @@ SMODS.Stake{
         "stake_gold"
     },
     above_stake = "catcat",
-    colour = HEX("CA7CA7")
+    colour = HEX("ffb2a0")
 }
 
