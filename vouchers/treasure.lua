@@ -30,11 +30,7 @@ SMODS.Voucher{
     end,
     pos = {
         x = 1,
-        y = 0,
-    },
-    soul_pos = {
-        x = 2,
-        y = 0,
+        y = 2,
     },
     cost = 15,
     config = {
