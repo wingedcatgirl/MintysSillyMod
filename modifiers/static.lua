@@ -44,7 +44,7 @@ SMODS.Enhancement({
             diff = math.min(diff*(card.ability.extra.balancepct/100), diff)
             if to_big(diff) < to_big(1) then goto nvm end
 
-            if mult > hand_chips then
+            if to_big(mult) > to_big(hand_chips) then
                 mult = mod_mult(mult - (diff/2))
                 hand_chips = mod_chips(hand_chips + (diff/2))
             else

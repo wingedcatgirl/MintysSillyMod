@@ -243,6 +243,9 @@ local files = {
     planets = {
         { name = "handfuls" },
     },
+    stakes = {
+        { name = "stakes" },
+    },
     challenge = {
         { name = "challenges", mods = { { id = "ChDp" } } },
     }

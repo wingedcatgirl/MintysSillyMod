@@ -22,3 +22,8 @@ SMODS.Sound { --https://sounds.spriters-resource.com/gamecube/supermariosunshine
     key = 'squirt',
     path = 'approximately yoshi juice noise probably.ogg'
 }
+
+SMODS.Sound { --balala
+    key = 'unbalance',
+    path = 'unbalanced.ogg'
+}

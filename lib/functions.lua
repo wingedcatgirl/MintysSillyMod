@@ -455,14 +455,17 @@ end
 ---Checks if you own an enhancement
 ---@param enh string Key of the enhancement
 ---@param quantum? boolean Include quantum enhancements
-function MINTY.find_enhancement(enh, quantum)
-    if not G.playing_cards then return true end
+---@param count? boolean Return the number of found enhancements instead of a boolean
+function MINTY.find_enhancement(enh, quantum, count)
+    if not G.playing_cards then return count and 0 or true end
+    local num = 0
     for k, v in ipairs(G.playing_cards) do
         if (v.config.center.key == enh) or quantum and SMODS.has_enhancement(v, enh) then
-            return true
+            num = num + 1
+            if not count then return true end
         end
     end
-    return false
+    return num > 0 and num or false
 end
 
 ---Counts how many things in a given mod have been discovered
@@ -584,9 +587,11 @@ end
 
 --[[
 SMODS.current_mod.calculate = function (self, context)
-    
+    if context.final_scoring_step and G.GAME.current_round.hands_played == 2 then
+        MINTY.say(G.GAME.last_hand_played)
+    end
 end
-]]
+--]]
 
 MINTY.enhancecheck = function()
     MINTY.say("Building Inkbleed table...")

@@ -18,6 +18,7 @@ return {
 			["k_minty_bye"] = "Bye-bye!",
 			["k_minty_rescheduled"] = "Rescheduled!",
 			["k_minty_ordered"] = "Ordered!",
+			["k_minty_unbalanced"] = "Unbalanced",
 			["k_minty_cube"] = "Hand must contain exactly 4 cards",
 			["k_minty_psycube"] = "What have you done?!",
 			["k_minty_challenge"] = "Challenge",
@@ -2264,6 +2265,66 @@ return {
 					"{V:3}#3#{},",
 					"{V:4}#4#{},",
 					"and {V:5}#5#{}.",
+				}
+			},
+		},
+		["Stake"] = {
+			["stake_minty_scarlet"] = {
+				["name"] = "Scarlet Stake",
+				["text"] = {
+					"Will do something lol"
+				}
+			},
+			["stake_minty_irrigo"] = {
+				["name"] = "Irrigo Stake",
+				["text"] = {
+					"{C:blue}3rd{} hand of each",
+					"round is leveled down",
+                    "{s:0.8}Applies Scarlet Stake",
+				}
+			},
+			["stake_minty_void"] = {
+				["name"] = "Void Stake",
+				["text"] = {
+					"Will do something lol",
+                    "{s:0.8}Applies Irrigo Stake",
+				}
+			},
+			["stake_minty_sky"] = {
+				["name"] = "Sky Stake",
+				["text"] = {
+					"Will do something lol",
+                    "{s:0.8}Applies Void Stake",
+				}
+			},
+			["stake_minty_mint"] = {
+				["name"] = "Mint Stake",
+				["text"] = {
+					"{C:purple}Unbalance{} 40% of",
+					"Chips and Mult",
+                    "{s:0.8}Applies Sky Stake",
+				}
+			},
+			["stake_minty_tungsten"] = {
+				["name"] = "Tungsten Stake",
+				["text"] = {
+					"Will do something lol",
+                    "{s:0.8}Applies Mint Stake",
+				}
+			},
+			["stake_minty_catcat"] = {
+				["name"] = "#CA7CA7 Stake",
+				["text"] = {
+					"Will do something lol",
+                    "{s:0.8}Applies Tungsten Stake",
+				}
+			},
+			["stake_minty_rose_gold"] = {
+				["name"] = "Rose Gold Stake",
+				["text"] = {
+					"Combines Gold Stake",
+					"and CA7CA7 Stake",
+					"{s:0.8}welcome to hell, welcome to hell{}"
 				}
 			},
 		},
