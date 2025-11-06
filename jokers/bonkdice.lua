@@ -64,5 +64,12 @@ SMODS.Joker {
                 }
             end
         end
+
+        if context.retrigger_joker_check and context.other_card == card then
+            return {
+                repetitions = 1,
+                remove_default_message = true
+            }
+        end
     end
 }
