@@ -59,8 +59,11 @@ SMODS.Joker {
             card.ability.extra.stormcount = 0
             return {
                 message = localize("k_minty_storm"),
-                repetitions = storm,
-                card = card,
+                repetitions = 1,
+                extra = {
+                    repetitions = storm-1,
+                    remove_default_message = true
+                }
             }
         end
 
