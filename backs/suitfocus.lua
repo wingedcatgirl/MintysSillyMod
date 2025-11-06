@@ -101,6 +101,7 @@ SMODS.Back{
                         stickers = {
                             "eternal"
                         },
+                        no_edition = true,
                         force_stickers = true
                     }
                 end
@@ -189,6 +190,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                             stickers = {
                                 "eternal"
                             },
+                            no_edition = true,
                             force_stickers = true
                         }
                         SMODS.add_card{
@@ -206,6 +208,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                             stickers = {
                                 "eternal"
                             },
+                            no_edition = true,
                             force_stickers = true
                         }
                         return true
@@ -219,6 +222,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                             stickers = {
                                 "eternal"
                             },
+                            no_edition = true,
                             force_stickers = true
                         }
                         return true
