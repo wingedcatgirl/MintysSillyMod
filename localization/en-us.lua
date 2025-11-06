@@ -53,6 +53,7 @@ return {
 			["m_minty_marble"] = "Marble Card",
 			["m_minty_garbled"] = "Garbled Card",
 			["gemslot_catseye"] = "Cat's Eye",
+			["minty_counterfeit"] = "Counterfeit",
 			["k_minty_challenge"] = "Challenge",
 			["k_minty_special"] = "Special",
 		},
@@ -1343,7 +1344,7 @@ return {
 			["j_minty_bonkdice"] = {
 				["name"] = "Bonkin' Dice",
 				["text"] = {
-					"{C:mult}+#1#-#2#{} Mult",
+					"{C:mult}+#1#-#2#{} Mult, {C:attention}twice{}",
 					"{C:mult}+#3#{} to max value",
 					"whenever it is rolled",
 				},
@@ -1351,7 +1352,7 @@ return {
 			["j_minty_bonkdice_flavor"] = {
 				["name"] = "Bonkin Dice",
 				["text"] = {
-					"{C:mult}+#1#-#2#{} Mult",
+					"{C:mult}+#1#-#2#{} Mult, {C:attention}twice{}",
 					"{C:mult}+#3#{} to max value",
 					"whenever it is rolled",
 					" ",
@@ -2286,7 +2287,8 @@ return {
 			["stake_minty_void"] = {
 				["name"] = "Void Stake",
 				["text"] = {
-					"Will do something lol",
+                    "Shop can have {C:attention}Counterfeit{} cards",
+                    "{C:inactive,s:0.8}(Sell value locked to {C:money,s:0.8}$0{C:inactive,s:0.8})",
                     "{s:0.8}Applies Irrigo Stake",
 				}
 			},
@@ -2524,6 +2526,13 @@ return {
 					"this delicious treat in an",
 					"unseeded run to",
 					"learn what it tastes like",
+				}
+			},
+			["minty_counterfeit"] = {
+				["name"] = "Counterfeit",
+				["text"] = {
+					"Sell value",
+					"locked to {C:money}$0{}"
 				}
 			},
 			["gemslot_catseye"] = {
