@@ -2288,7 +2288,7 @@ return {
 				["name"] = "Void Stake",
 				["text"] = {
                     "Shop can have {C:attention}Counterfeit{} cards",
-                    "{C:inactive,s:0.8}(Sell value locked to {C:money,s:0.8}$0{C:inactive,s:0.8})",
+                    "{C:inactive,s:0.8}({C:attention,s:0.8}Costs{s:0.8} money to sell)",
                     "{s:0.8}Applies Irrigo Stake",
 				}
 			},
@@ -2531,8 +2531,8 @@ return {
 			["minty_counterfeit"] = {
 				["name"] = "Counterfeit",
 				["text"] = {
-					"Sell value",
-					"locked to {C:money}$0{}"
+					"{C:attention}Costs{} money",
+					"to sell"
 				}
 			},
 			["gemslot_catseye"] = {

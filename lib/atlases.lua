@@ -95,6 +95,13 @@ SMODS.Atlas{
 }
 
 SMODS.Atlas{
+    key = "stickers",
+    path = "stickers.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas{
     key = "treats",
     path = "treats.png",
     px = 71,

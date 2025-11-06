@@ -51,7 +51,11 @@ SMODS.Stake{
     },
     applied_stakes = { "irrigo" },
     above_stake = "stake_black",
-    colour = HEX("001417")
+    colour = HEX("001417"),
+    modifiers = function ()
+        G.GAME.modifiers.enable_minty_counterfeit = true
+        G.GAME.modifiers.enable_minty_counterfeit_consumeables = true
+    end
 }
 
 SMODS.Stake{
@@ -67,7 +71,7 @@ SMODS.Stake{
     },
     applied_stakes = { "void" },
     above_stake = "stake_blue",
-    colour = HEX("00c7ff")
+    colour = HEX("00c7ff"),
 }
 
 SMODS.Stake{

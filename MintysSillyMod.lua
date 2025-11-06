@@ -215,6 +215,7 @@ local files = {
         { name = "spline" },
         { name = "dynamite" },
         { name = "cementseal" }, --Seals
+        { name = "counterfeit" }, --Stickers
     },
     backs = {
         { name = "treat" },
