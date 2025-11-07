@@ -12,7 +12,14 @@ SMODS.Stake{
     },
     applied_stakes = { "stake_white" },
     above_stake = "stake_red",
-    colour = HEX("ff0537")
+    colour = HEX("ff0537"),
+    calculate = function (self, context)
+        if context.starting_shop then
+            return {
+                dollars = -1
+            }
+        end
+    end
 }
 
 SMODS.Stake{

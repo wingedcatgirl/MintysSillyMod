@@ -2273,7 +2273,9 @@ return {
 			["stake_minty_scarlet"] = {
 				["name"] = "Scarlet Stake",
 				["text"] = {
-					"Will do something lol"
+					"Entering shop",
+					"costs {C:gold}$1{}",
+					" "
 				}
 			},
 			["stake_minty_irrigo"] = {
