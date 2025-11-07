@@ -2297,7 +2297,8 @@ return {
 			["stake_minty_sky"] = {
 				["name"] = "Sky Stake",
 				["text"] = {
-					"Will do something lol",
+                    "{C:legendary}Showdown Blinds{}",
+                    "appear {C:attention}twice{} as often",
                     "{s:0.8}Applies Void Stake",
 				}
 			},

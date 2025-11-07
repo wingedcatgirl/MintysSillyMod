@@ -37,7 +37,7 @@ SMODS.Stake{
     above_stake = "stake_green",
     colour = HEX("cb0dff"),
     calculate = function (self, context)
-        if context.final_scoring_step and G.GAME.current_round.hands_played == 2 and (G.GAME and G.GAME.hands and G.GAME.hands[G.GAME.last_hand_played] and G.GAME.hands[G.GAME.last_hand_played].level > 0) then
+        if context.final_scoring_step and G.GAME.current_round.hands_played == 2 and (G.GAME and G.GAME.hands and G.GAME.hands[G.GAME.last_hand_played] and to_big(G.GAME.hands[G.GAME.last_hand_played].level) > to_big(0)) then
             return {
                 level_up = -1
             }
@@ -79,6 +79,9 @@ SMODS.Stake{
     applied_stakes = { "void" },
     above_stake = "stake_blue",
     colour = HEX("00c7ff"),
+    modifiers = function ()
+        G.GAME.showdown_rate = (G.GAME.showdown_rate or 1) * 2
+    end
 }
 
 SMODS.Stake{

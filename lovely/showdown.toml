@@ -1,0 +1,35 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 30
+
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''function get_new_boss()'''
+position = 'after'
+match_indent = true
+payload = '''
+local showdown_ante = (math.floor((G.GAME.round_resets.ante * (G.GAME.showdown_rate or 1))/G.GAME.win_ante) ~= math.floor(((G.GAME.round_resets.ante-1) * (G.GAME.showdown_rate or 1))/G.GAME.win_ante) and G.GAME.round_resets.ante >= 2)
+'''
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''
+elseif not v.boss.showdown and (v.boss.min <= math.max(1, G.GAME.round_resets.ante) and ((math.max(1, G.GAME.round_resets.ante))%G.GAME.win_ante ~= 0 or G.GAME.round_resets.ante < 2)) then
+    eligible_bosses[k] = res and true or nil
+elseif v.boss.showdown and (G.GAME.round_resets.ante)%G.GAME.win_ante == 0 and G.GAME.round_resets.ante >= 2 then
+    eligible_bosses[k] = res and true or nil
+'''
+position = 'at'
+match_indent = true
+payload = '''
+elseif not v.boss.showdown and not showdown_ante then
+    eligible_bosses[k] = res and true or nil
+elseif v.boss.showdown and showdown_ante then
+    eligible_bosses[k] = res and true or nil
+'''
+
+        
