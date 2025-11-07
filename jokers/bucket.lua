@@ -24,10 +24,7 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
-		info_queue[#info_queue + 1] = {
-            set = "Other",
-            key = "minty_stone_cards",
-        }
+        info_queue[#info_queue+1] = MINTY.enhancement_list(MINTY.rocks, "rock")
 		return {
             key = key,
             vars = {

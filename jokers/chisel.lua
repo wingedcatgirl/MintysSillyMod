@@ -27,11 +27,7 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
-		-- Handle creating a tooltip with set args.
-		info_queue[#info_queue + 1] = {
-            set = "Other",
-            key = "minty_stone_cards",
-        }
+		info_queue[#info_queue+1] = MINTY.enhancement_list(MINTY.rocks, "rock")
 		info_queue[#info_queue + 1] = { set = "Other", key = "minty_cement_seal", specific_vars = { self.config.seal.extra.chips } }
 		return {
             key = key,

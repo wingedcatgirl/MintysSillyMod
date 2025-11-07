@@ -2726,7 +2726,14 @@ return {
 				["text"] = {
 					"None yet"
 				}
-			}
+			},
+			["minty_rock_enhancements"] = {
+				["label"] = "Rock Cards",
+				["name"] = "Rock Cards",
+				["text"] = {
+					"None yet"
+				}
+			},
 		},
 	},
 }

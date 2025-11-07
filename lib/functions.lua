@@ -258,6 +258,35 @@ MINTY.rocklist = function ()
     end
 end
 
+---Converts a map of enhancements into an info-queue tip
+---@param table table A map (list of `key = true`) of the relevant enhancements
+---@param name string The name of the enhancement list
+---@return table
+function MINTY.enhancement_list(table, name)
+  local key = 'minty_'..name..'_enhancements'
+    local text = {}
+    local text_parsed = {}
+
+    for k,_ in pairs(table) do
+        if G.P_CENTERS[k] then
+            text[#text+1] = localize{type = 'name_text', set = 'Enhanced', key = k}
+        end
+    end
+
+    for _, v in ipairs(text) do
+      text_parsed[#text_parsed + 1] = loc_parse_string(v)
+    end
+
+    G.localization.descriptions.Other[key] = G.localization.descriptions.Other[key] or {}
+    G.localization.descriptions.Other[key].text = text
+    G.localization.descriptions.Other[key].text_parsed = text_parsed
+
+  return {
+    set = 'Other',
+    key = key,
+  }
+end
+
 ---Do the tarot flip thing to all of G.hand.highlighted
 ---@param card Card
 ---@param args table `rank`, `suit`, `enh`, `edi` = keys of the appropriate target modifications. alternately `random_ranks`, `random_suits`, `random_enhs`, `random_edis` are tables of same keys to pick one at random, in which case you need `seed` to seed the seed. Note: To clear an edition, pass the string "base", "none", "false", or "remove" as the edition key.

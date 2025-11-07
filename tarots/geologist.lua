@@ -13,10 +13,7 @@ SMODS.Consumable{
     },
 
     loc_vars = function (self, info_queue, card)
-		info_queue[#info_queue + 1] = {
-            set = "Other",
-            key = "minty_stone_cards",
-        }
+		info_queue[#info_queue+1] = MINTY.enhancement_list(MINTY.rocks, "rock")
         key = self.key
         local plural = false
         if card.ability.max_highlighted ~= 1 then plural = true end
