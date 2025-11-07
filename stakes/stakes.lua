@@ -99,9 +99,15 @@ SMODS.Stake{
     above_stake = "stake_purple",
     colour = HEX("00a156"),
     modifiers = function ()
-        G.GAME.minty_unbalance = 0.3
+        G.GAME.minty_unbalance = 0.10
+        G.GAME.minty_unbalance_base = 0.05
+        G.GAME.minty_unbalance_rate = 0.05
     end,
     calculate = function (self, context)
+        if context.ante_change and context.ante_end then
+            G.GAME.minty_unbalance = math.min(G.GAME.minty_unbalance_base + (G.GAME.minty_unbalance_rate*(G.GAME.round_resets.ante+1)), 0.5)
+        end
+
         if context.final_scoring_step then
             if to_big(mult) > to_big(hand_chips) then
                 local diff = hand_chips * G.GAME.minty_unbalance
