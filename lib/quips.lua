@@ -15,8 +15,15 @@ SMODS.JimboQuip{
             end
         end
         local check = false
-        if string.find(most.type, "Spectrum") then check = true end
-        if most.type == "Three of a Kind" or most.type == "Flush" or most.type == "Straight" or most.type == "Straight Flush" or most.type == "Two Pair" or most.type == "Full House" then check = true end
+        local centrist_hands = {
+            ["Three of a Kind"] = true,
+            ["Flush"] = true,
+            ["Straight"] = true,
+            ["Straight Flush"] = true,
+            ["Two Pair"] = true,
+            ["Full House"] = true,
+        }
+        if centrist_hands[most.type] or string.find(most.type, "Spectrum") then check = true end
         local weight = 2
         return check, {weight = weight}
     end
