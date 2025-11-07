@@ -33,7 +33,11 @@ SMODS.Enhancement({
         title = "MAGNETIC",
         colour = HEX("990808"),
         scoring_func = function (power)
-            --??
+            power = power + 4
+            return {
+                chips = power * 15,
+                xmult = power * 0.5
+            }
         end
     },
     calculate = function (self, card, context)

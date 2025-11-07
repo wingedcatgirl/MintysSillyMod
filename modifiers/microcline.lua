@@ -31,7 +31,7 @@ SMODS.Enhancement({
         colour = HEX("CA7CA7"),
         scoring_func = function (n)
             return {
-                echips = 1.2 + ((n-1)*0.01)
+                echips = 1.2 + ((n-1)*0.1)
             }
         end
     },
