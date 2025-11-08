@@ -2324,7 +2324,7 @@ return {
 			["stake_minty_catcat"] = {
 				["name"] = "#CA7CA7 Stake",
 				["text"] = {
-					"Will do something lol",
+					"{C:attention}+1{} Ante needed to win",
                     "{s:0.8}Applies Tungsten Stake",
 				}
 			},

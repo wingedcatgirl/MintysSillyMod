@@ -200,7 +200,10 @@ SMODS.Stake{
     },
     applied_stakes = { "tungsten" },
     above_stake = "stake_gold",
-    colour = HEX("CA7CA7")
+    colour = HEX("CA7CA7"),
+    modifiers = function ()
+        G.GAME.win_ante = G.GAME.win_ante + 1
+    end
 }
 
 SMODS.Stake{
