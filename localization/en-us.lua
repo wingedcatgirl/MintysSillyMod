@@ -54,6 +54,7 @@ return {
 			["m_minty_garbled"] = "Garbled Card",
 			["gemslot_catseye"] = "Cat's Eye",
 			["minty_counterfeit"] = "Counterfeit",
+			["minty_hooked"] = "Hooked",
 			["k_minty_challenge"] = "Challenge",
 			["k_minty_special"] = "Special",
 		},
@@ -2275,7 +2276,7 @@ return {
 				["text"] = {
 					"Entering shop",
 					"costs {C:gold}$1{}",
-					" "
+					"{s:0.8}Applies White Stake... {s:0.4}I guess..."
 				}
 			},
 			["stake_minty_irrigo"] = {
@@ -2314,7 +2315,9 @@ return {
 			["stake_minty_tungsten"] = {
 				["name"] = "Tungsten Stake",
 				["text"] = {
-					"Will do something lol",
+                    "Playing cards may become",
+					"{C:attention}Hooked{} when modified",
+                    "{C:inactive,s:0.8}(Will be {C:attention,s:0.8}discarded{C:inactive,s:0.8} if held)",
                     "{s:0.8}Applies Mint Stake",
 				}
 			},
@@ -2537,6 +2540,13 @@ return {
 				["text"] = {
 					"{C:attention}Costs{} money",
 					"to sell"
+				}
+			},
+			["minty_hooked"] = {
+				["name"] = "Hooked",
+				["text"] = {
+					"Will be {C:attention}discarded{}",
+					"if held",
 				}
 			},
 			["gemslot_catseye"] = {
