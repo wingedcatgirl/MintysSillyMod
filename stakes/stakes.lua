@@ -5,6 +5,11 @@ SMODS.Stake{
         x = 0,
         y = 0,
     },
+    sticker_atlas = "stake_stickers",
+    sticker_pos = {
+        x = 0,
+        y = 0,
+    },
     unlocked = false,
     prefix_config = {
         above_stake = false,
@@ -26,6 +31,11 @@ SMODS.Stake{
     key = "irrigo",
     atlas = "stakes",
     pos = {
+        x = 1,
+        y = 0,
+    },
+    sticker_atlas = "stake_stickers",
+    sticker_pos = {
         x = 1,
         y = 0,
     },
@@ -52,6 +62,11 @@ SMODS.Stake{
         x = 2,
         y = 0,
     },
+    sticker_atlas = "stake_stickers",
+    sticker_pos = {
+        x = 2,
+        y = 0,
+    },
     unlocked = false,
     prefix_config = {
         above_stake = false
@@ -72,6 +87,11 @@ SMODS.Stake{
         x = 3,
         y = 0,
     },
+    sticker_atlas = "stake_stickers",
+    sticker_pos = {
+        x = 3,
+        y = 0,
+    },
     unlocked = false,
     prefix_config = {
         above_stake = false
@@ -88,6 +108,11 @@ SMODS.Stake{
     key = "mint",
     atlas = "stakes",
     pos = {
+        x = 0,
+        y = 1,
+    },
+    sticker_atlas = "stake_stickers",
+    sticker_pos = {
         x = 0,
         y = 1,
     },
@@ -166,6 +191,11 @@ SMODS.Stake{
         x = 1,
         y = 1,
     },
+    sticker_atlas = "stake_stickers",
+    sticker_pos = {
+        x = 1,
+        y = 1,
+    },
     unlocked = false,
     prefix_config = {
         above_stake = false
@@ -194,6 +224,11 @@ SMODS.Stake{
         x = 2,
         y = 1,
     },
+    sticker_atlas = "stake_stickers",
+    sticker_pos = {
+        x = 2,
+        y = 1,
+    },
     unlocked = false,
     prefix_config = {
         above_stake = false
@@ -210,6 +245,11 @@ SMODS.Stake{
     key = "rose_gold",
     atlas = "stakes",
     pos = {
+        x = 3,
+        y = 1,
+    },
+    sticker_atlas = "stake_stickers",
+    sticker_pos = {
         x = 3,
         y = 1,
     },

@@ -2332,7 +2332,7 @@ return {
 				["name"] = "Rose Gold Stake",
 				["text"] = {
 					"Combines Gold Stake",
-					"and CA7CA7 Stake",
+					"and 0xCA7CA7 Stake",
 					"{s:0.8}welcome to hell, welcome to hell{}"
 				}
 			},
@@ -2561,6 +2561,70 @@ return {
 				["text"] = {
 					"Find this Joker from",
 					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
+				}
+			},
+			["minty_scarlet_sticker"] = {
+				["name"] = "Scarlet Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:attention}Scarlet",
+                    "{C:attention}Stake{} difficulty",
+				}
+			},
+			["minty_irrigo_sticker"] = {
+				["name"] = "Irrigo Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:attention}Irrigo",
+                    "{C:attention}Stake{} difficulty",
+				}
+			},
+			["minty_void_sticker"] = {
+				["name"] = "Void Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:attention}Void",
+                    "{C:attention}Stake{} difficulty",
+				}
+			},
+			["minty_sky_sticker"] = {
+				["name"] = "Sky Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:attention}Sky",
+                    "{C:attention}Stake{} difficulty",
+				}
+			},
+			["minty_mint_sticker"] = {
+				["name"] = "Mint Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:attention}Mint",
+                    "{C:attention}Stake{} difficulty",
+				}
+			},
+			["minty_tungsten_sticker"] = {
+				["name"] = "Tungsten Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:attention}Tungsten",
+                    "{C:attention}Stake{} difficulty",
+				}
+			},
+			["minty_catcat_sticker"] = {
+				["name"] = "0xCA7CA7 Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:attention}0xCA7CA7",
+                    "{C:attention}Stake{} difficulty",
+				}
+			},
+			["minty_rose_gold_sticker"] = {
+				["name"] = "Rose Gold Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:attention}Rose Gold",
+                    "{C:attention}Stake{} difficulty",
 				}
 			},
 			["minty_joker_unavailable"] = {
