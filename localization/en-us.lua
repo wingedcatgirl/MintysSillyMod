@@ -1351,7 +1351,7 @@ return {
 				},
 			},
 			["j_minty_bonkdice_flavor"] = {
-				["name"] = "Bonkin Dice",
+				["name"] = "Bonkin' Dice",
 				["text"] = {
 					"{C:mult}+#1#-#2#{} Mult, {C:attention}twice{}",
 					"{C:mult}+#3#{} to max value",
