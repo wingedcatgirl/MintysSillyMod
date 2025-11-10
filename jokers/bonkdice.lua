@@ -29,6 +29,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         local key = self.key
         local min, max = SMODS.get_probability_vars(card, card.ability.extra.min, card.ability.extra.max, "minty_bonk_dice_roll", true)
+        min = math.min(min, max)
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
@@ -44,6 +45,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.joker_main then
             local min, max = SMODS.get_probability_vars(card, card.ability.extra.min, card.ability.extra.max, "minty_bonk_dice_roll", true)
+            min = math.min(min, max)
             local mult = pseudorandom("minty_bonk_dice_roll", min, max)
             if mult == max then
                 SMODS.pseudorandom_probability(card, "minty_bonk_upgrade", 1, 1, nil, true) --Force a successful luck roll so things that care about that can respond
@@ -56,20 +58,33 @@ SMODS.Joker {
                     return true
                 end)
             else
-                SMODS.pseudorandom_probability(card, "minty_bonk_don't_upgrade", 0, 1000000, nil, true) --...or a failed luck roll.
+                SMODS.pseudorandom_probability(card, "minty_bonk_don't_upgrade", 0, max, nil, true) --...or a failed luck roll.
+            end
+            --Again!
+            min, max = SMODS.get_probability_vars(card, card.ability.extra.min, card.ability.extra.max, "minty_bonk_dice_roll", true)
+            min = math.min(min, max)
+            local mult2 = pseudorandom("minty_bonk_dice_roll", min, max)
+            if mult2 == max then
+                SMODS.pseudorandom_probability(card, "minty_bonk_upgrade", 1, 1, nil, true)
+                MINTY.event(function ()
+                    SMODS.scale_card(card, {
+                        ref_table = card.ability.extra,
+                        ref_value = "max",
+                        scalar_value = "gain"
+                    })
+                    return true
+                end)
+            else
+                SMODS.pseudorandom_probability(card, "minty_bonk_don't_upgrade", 0, max, nil, true)
             end
             if mult > 0 then
                 return {
-                    mult = mult
+                    mult = mult,
+                    extra = {
+                        mult = mult2
+                    }
                 }
             end
-        end
-
-        if context.retrigger_joker_check and context.other_card == card then
-            return {
-                repetitions = 1,
-                remove_default_message = true
-            }
         end
     end
 }
