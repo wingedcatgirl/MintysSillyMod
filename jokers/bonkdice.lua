@@ -2,14 +2,14 @@ SMODS.Joker {
     key = "bonkdice",
     name = "Bonkin' Dice",
     --pronouns = "",
-    atlas = 'jokerdoodles',
+    atlas = 'dice',
     pos = {
         x = 0,
         y = 0
     },
     soul_pos = {
-        x = 1,
-        y = 0
+        x = 0,
+        y = 1
     },
     rarity = 1,
     cost = 6,
@@ -24,8 +24,29 @@ SMODS.Joker {
             min = 1,
             max = 6,
             gain = 2,
+        },
+        immutable = {
+            x = 0,
+            soulx = 0
         }
     },
+    load = function (self, card, card_table, other_card)
+        MINTY.event(function ()
+            if not card.ability and card.ability.immutable then return false end
+            local diceref = card.config.center
+            local x, soulx = card.ability.immutable.x, card.ability.immutable.soulx
+            diceref.pos = {
+                x = x,
+                y = 0,
+            }
+            diceref.soul_pos = {
+                x = soulx,
+                y = 1,
+            }
+            card:set_sprites(diceref)
+            return true
+        end, {blocking = false, blockable = false})
+    end,
     loc_vars = function(self, info_queue, card)
         local key = self.key
         local min, max = SMODS.get_probability_vars(card, card.ability.extra.min, card.ability.extra.max, "minty_bonk_dice_roll", true)
@@ -44,6 +65,8 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.joker_main then
+            
+
             local min, max = SMODS.get_probability_vars(card, card.ability.extra.min, card.ability.extra.max, "minty_bonk_dice_roll", true)
             min = math.min(min, max)
             local mult = pseudorandom("minty_bonk_dice_roll", min, max)
@@ -78,10 +101,42 @@ SMODS.Joker {
                 SMODS.pseudorandom_probability(card, "minty_bonk_don't_upgrade", 0, max, nil, true)
             end
             if mult > 0 then
+                MINTY.event(function ()
+                    local diceref = card.config.center
+                    local x, soulx = pseudorandom("minty_bonk_sprite1", 0, 5), pseudorandom("minty_bonk_sprite2", 0, 5)
+                    card.ability.immutable.x, card.ability.immutable.soulx = x, soulx
+                    diceref.pos = {
+                        x = x,
+                        y = 0,
+                    }
+                    diceref.soul_pos = {
+                        x = soulx,
+                        y = 1,
+                    }
+                    card:set_sprites(diceref)
+                    return true
+                end)
                 return {
                     mult = mult,
+                    func = function ()
+                        MINTY.event(function ()
+                            local diceref = card.config.center
+                            local x, soulx = pseudorandom("minty_bonk_sprite1", 0, 5), pseudorandom("minty_bonk_sprite2", 0, 5)
+                            card.ability.immutable.x, card.ability.immutable.soulx = x, soulx
+                            diceref.pos = {
+                                x = x,
+                                y = 0,
+                            }
+                            diceref.soul_pos = {
+                                x = soulx,
+                                y = 1,
+                            }
+                            card:set_sprites(diceref)
+                            return true
+                        end)
+                    end,
                     extra = {
-                        mult = mult2
+                        mult = mult2,
                     }
                 }
             end
