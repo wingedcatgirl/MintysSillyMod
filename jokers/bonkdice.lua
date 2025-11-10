@@ -65,8 +65,6 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.joker_main then
-            
-
             local min, max = SMODS.get_probability_vars(card, card.ability.extra.min, card.ability.extra.max, "minty_bonk_dice_roll", true)
             min = math.min(min, max)
             local mult = pseudorandom("minty_bonk_dice_roll", min, max)
