@@ -2332,7 +2332,7 @@ return {
 				["name"] = "Rose Gold Stake",
 				["text"] = {
 					"Combines Gold Stake",
-					"and 0xCA7CA7 Stake",
+					"and <hash>CA7CA7 Stake",
 					"{s:0.8}welcome to hell, welcome to hell{}"
 				}
 			},
@@ -2612,10 +2612,10 @@ return {
 				}
 			},
 			["minty_catcat_sticker"] = {
-				["name"] = "0xCA7CA7 Sticker",
+				["name"] = "<hash>CA7CA7 Sticker",
 				["text"] = {
                     "Used this Joker",
-                    "to win on {C:attention}0xCA7CA7",
+                    "to win on {C:attention}<hash>CA7CA7",
                     "{C:attention}Stake{} difficulty",
 				}
 			},

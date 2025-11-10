@@ -79,7 +79,7 @@ MINTY.threeSuit_in_pool = function(fallback)
     if G.GAME.starting_params.start_with_3s then return true end
 
     local threelock = G.GAME.starting_params.minty_three_lock or MINTY.config.three_lock.current_option
-    
+
     if threelock == 3 then
         return false
     elseif threelock == 1 then
@@ -483,7 +483,7 @@ end
 
 ---Checks if you own an enhancement
 ---@param enh string Key of the enhancement
----@param quantum? boolean Include quantum enhancements
+---@param quantum? boolean Include quantum enhancements (default false)
 ---@param count? boolean Return the number of found enhancements instead of a boolean
 function MINTY.find_enhancement(enh, quantum, count)
     if not G.playing_cards then return count and 0 or true end

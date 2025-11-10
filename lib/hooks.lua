@@ -16,3 +16,19 @@ function Card:is_face(from_boss)
     end
 	return isfaceref(self, from_boss)
 end
+
+---Slapdash patch for #CA7CA7 stake name; replaces "<hash>" with "#"
+local oldparser = loc_parse_string
+loc_parse_string = function (line)
+    local parsed = oldparser(line)
+    if parsed then
+        for _, segment in ipairs(parsed) do
+            for i, part in ipairs(segment.strings) do
+                if type(part) == "string" then
+                    segment.strings[i] = part:gsub("<hash>", "#")
+                end
+            end
+        end
+    end
+    return parsed
+end
