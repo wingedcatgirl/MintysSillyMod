@@ -1384,21 +1384,6 @@ return {
 					"{C:inactive,s:0.8}No, we're not throwing green people into it.{}",
 				},
 			},
-			["j_minty_template"] = {
-				["name"] = "Joker Template",
-				["text"] = {
-					"Does something",
-				},
-			},
-			["j_minty_template_flavor"] = {
-				["name"] = "Joker Template",
-				["text"] = {
-					"Does something",
-					" ",
-					"{C:inactive,s:0.8}And has flavor text!{}",
-				},
-			},
-			--HEY FUTURE MINTY, PUT NEW JOKERS HERE :P 
 			["j_minty_nucleation"] = {
 				["name"] = "Nucleation",
 				["text"] = {
@@ -1422,6 +1407,42 @@ return {
 					"{C:purple,s:0.8}crystal{} {C:chips,s:0.8}crystal{} {C:gold,s:0.8}crystal{}",
 					"{C:mult,s:0.8}crystal{} {C:minty_3s,s:0.8}crystal{} {C:dark_edition,s:0.8}crystal{}",
 					"{C:inactive,s:0.5}what{}"
+				},
+			},
+			["j_minty_altar"] = {
+				["name"] = "The Altar",
+				["text"] = {
+					"Gains {C:mult}+#1#{} Mult for each",
+					"scored {C:attention}#3#{} of {V:1}#4#{}",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive})",
+                    "{s:0.8}Card changes every round",
+				},
+			},
+			["j_minty_altar_flavor"] = {
+				["name"] = "The Altar",
+				["text"] = {
+					"Gains {C:mult}+#1#{} Mult for each",
+					"scored {C:attention}#3#{} of {V:1}#4#{}",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive})",
+                    "{s:0.8}Card changes every round",
+					" ",
+					"{C:inactive,s:0.8}Seems like a good spot{}",
+					"{C:inactive,s:0.8}to place an idol...{}",
+				},
+			},
+			--HEY FUTURE MINTY, PUT NEW JOKERS ⬆️HERE⬆️ :P 
+			["j_minty_template"] = {
+				["name"] = "Joker Template",
+				["text"] = {
+					"Does something",
+				},
+			},
+			["j_minty_template_flavor"] = {
+				["name"] = "Joker Template",
+				["text"] = {
+					"Does something",
+					" ",
+					"{C:inactive,s:0.8}And has flavor text!{}",
 				},
 			},
 			["j_minty_catnipfields"] = {

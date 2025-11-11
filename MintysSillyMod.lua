@@ -114,6 +114,7 @@ local files = {
         { name = "churu",  },
         { name = "flexweirdo" },
         --Uncommon Jokers
+        { name = "altar" },
         { name = "atheismcorner" },
         { name = "bigpockets" },
         { name = "catcafe" },
