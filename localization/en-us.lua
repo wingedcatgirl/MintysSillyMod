@@ -1399,6 +1399,31 @@ return {
 				},
 			},
 			--HEY FUTURE MINTY, PUT NEW JOKERS HERE :P 
+			["j_minty_nucleation"] = {
+				["name"] = "Nucleation",
+				["text"] = {
+					"{C:chips}+#1#{} Chips per {C:attention}Crystal Card",
+					"in deck or shattered",
+					"{C:inactive}(Currently {C:chips}+#2#{C:inactive})",
+					"{C:green}#3# in #4#{} chance for {C:attention}unscored{}",
+					"cards to become {C:attention}Crystal{}",
+				},
+			},
+			["j_minty_nucleation_flavor"] = {
+				["name"] = "Nucleation",
+				["text"] = {
+					"{C:chips}+#1#{} Chips per {C:attention}Crystal Card",
+					"in deck or shattered",
+					"{C:inactive}(Currently {C:chips}+#2#{C:inactive})",
+					"{C:green}#3# in #4#{} chance for {C:attention}unscored{}",
+					"cards to become {C:attention}Crystal{}",
+					" ",
+					"{C:inactive,s:0.8}This {C:attention,s:0.8}crystal{C:inactive,s:0.8} is the",
+					"{C:purple,s:0.8}crystal{} {C:chips,s:0.8}crystal{} {C:gold,s:0.8}crystal{}",
+					"{C:mult,s:0.8}crystal{} {C:minty_3s,s:0.8}crystal{} {C:dark_edition,s:0.8}crystal{}",
+					"{C:inactive,s:0.5}what{}"
+				},
+			},
 			["j_minty_catnipfields"] = {
 				["name"] = "Catnip Fields",
 				["text"] = {

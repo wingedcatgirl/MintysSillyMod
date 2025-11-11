@@ -40,7 +40,7 @@ match_indent = true
 payload = '''
 --WAUGH AGAIN
 if MINTY.omegasplashing then
-    MINTY.say("We Are Omegasplashing")
+    --MINTY.say("We Are Omegasplashing")
     MINTY.omegasplashing = nil
     for i=1,#G.hand.cards do
         if G.hand.cards[i].debuff then 
@@ -51,7 +51,7 @@ if MINTY.omegasplashing then
             }))
             card_eval_status_text(G.hand.cards[i], 'debuff')
         else
-            MINTY.say("Aw Yeah It Is A Cards")
+            --MINTY.say("Aw Yeah It Is A Cards")
             SMODS.score_card(G.hand.cards[i], {cardarea = G.play, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands})
         end
         delay(0.2)

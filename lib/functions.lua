@@ -289,7 +289,7 @@ end
 
 ---Do the tarot flip thing to all of G.hand.highlighted
 ---@param card Card
----@param args table `rank`, `suit`, `enh`, `edi` = keys of the appropriate target modifications. alternately `random_ranks`, `random_suits`, `random_enhs`, `random_edis` are tables of same keys to pick one at random, in which case you need `seed` to seed the seed. Note: To clear an edition, pass the string "base", "none", "false", or "remove" as the edition key.
+---@param args table|{rank:string?, suit:string?, enh:string?, edi:string?, random_ranks:table?, random_suits:table?, random_enhs:table?, random_edis:table?, seed:string?, sound:string?} Keys of the appropriate target modifications. `random_` tables are lists of same keys to pick one at random, in which case you need `seed` to seed the seed. Note: To clear an edition, pass the string "base", "none", "false", or "remove" as the edition key.
 MINTY.tarotflip = function (card, args)
     if not args then
         MINTY.say("hey you forgor to say anything when trying to change these cards", "ERROR")
@@ -494,7 +494,7 @@ function MINTY.find_enhancement(enh, quantum, count)
             if not count then return true end
         end
     end
-    return num > 0 and num or false
+    return count and num or num > 0
 end
 
 ---Counts how many things in a given mod have been discovered
