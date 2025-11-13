@@ -1430,6 +1430,24 @@ return {
 					"{C:inactive,s:0.8}to place an idol...{}",
 				},
 			},
+			["j_minty_numberslop"] = {
+				["name"] = "Ugh, more numberslop",
+				["text"] = {
+					"{C:mult}+#1#{} Mult, it's so",
+					"needlessly OP",
+					"for a common >:("
+				},
+			},
+			["j_minty_numberslop_flavor"] = {
+				["name"] = "Ugh, more numberslop",
+				["text"] = {
+					"{C:mult}+#1#{} Mult, it's so",
+					"needlessly OP",
+					"for a common >:(",
+					" ",
+					"{C:inactive,s:0.8}These lazy Joker Forge mods always do this shit!{}",
+				},
+			},
 			--HEY FUTURE MINTY, PUT NEW JOKERS ⬆️HERE⬆️ :P 
 			["j_minty_template"] = {
 				["name"] = "Joker Template",

@@ -113,6 +113,7 @@ local files = {
         { name = "ascetic" },
         { name = "churu",  },
         { name = "flexweirdo" },
+        { name = "numberslop" },
         --Uncommon Jokers
         { name = "altar" },
         { name = "atheismcorner" },
