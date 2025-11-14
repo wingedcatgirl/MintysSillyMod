@@ -43,9 +43,6 @@ SMODS.ObjectType({ --Kity pool (Legendary and otherwise)
         ["j_neat_tabbycat"] = true,
         ["j_ortalab_black_cat"] = true,
     },
-    inject = function(self)
-        SMODS.ObjectType.inject(self)
-    end
 })
 
 if not SMODS.ObjectType.Food then

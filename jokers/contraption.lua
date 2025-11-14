@@ -4,12 +4,12 @@ SMODS.Joker {
     --pronouns = "",
     atlas = 'jokerdoodles',
     pos = {
-        x = 0,
-        y = 0
+        x = 5,
+        y = 7
     },
     soul_pos = {
-        x = 1,
-        y = 0
+        x = 6,
+        y = 7
     },
     rarity = 2,
     cost = 8,

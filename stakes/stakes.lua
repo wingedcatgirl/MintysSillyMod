@@ -105,7 +105,7 @@ SMODS.Stake{
 }
 
 SMODS.Stake{
-    key = "mint",
+    key = "mint", --Hee hee hoo hoo.
     atlas = "stakes",
     pos = {
         x = 0,
