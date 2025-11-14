@@ -33,7 +33,11 @@ SMODS.Consumable{
         }
     end,
     in_pool = function (self, args)
-        if pseudorandom("minty_choccychance", 1, 5) == 1 then return true else return false end
+        if pseudorandom("minty_choccychance", 1, 5) ~= 1 then return false end
+        if args and args.source then
+            return not not string.find(args.source, "minty_treat")
+        end
+        return false
     end,
     can_use = function (self, card)
         if #G.jokers.highlighted > card.ability.consumeable.max_highlighted or #G.jokers.highlighted <= 0 then return false end

@@ -28,6 +28,20 @@ SMODS.Consumable{
     can_use = function (self, card)
         return true
     end,
+    in_pool = function (self, args)
+        --[[    --Debug stuff
+        if args then
+            MINTY.say("Attempting to spawn a Funnel Cake card...")
+            for k,v in pairs(args) do
+                MINTY.say("Argument "..k.." passed with value "..tostring(v))
+            end
+        end
+        ]]
+        if args and args.source then
+            return not not string.find(args.source, "minty_treat")
+        end
+        return false
+    end,
     use = function (self, card, area, copier)
         local ante = G.GAME.round_resets.ante or 1
         ease_dollars(card.ability.consumeable.dollars_base + (card.ability.consumeable.dollars_rate * ante))

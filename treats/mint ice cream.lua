@@ -32,6 +32,12 @@ SMODS.Consumable{
             }
         }
     end,
+    in_pool = function (self, args)
+        if args and args.source then
+            return not not string.find(args.source, "minty_treat")
+        end
+        return false
+    end,
     can_use = function (self, card)
         return true
     end,
