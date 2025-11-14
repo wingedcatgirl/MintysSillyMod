@@ -40,5 +40,3 @@ SMODS.Joker {
         -- Calculation goes here
     end
 }
-
--- See localization/en-us.lua to create joker text

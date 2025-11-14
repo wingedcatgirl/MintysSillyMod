@@ -119,9 +119,7 @@ SMODS.Joker {
     end
 }
 
-local getstraightref = get_straight
-function get_straight(hand, min_length, skip, wrap)
-    skip = skip or (not not next(SMODS.find_card('j_minty_parkour')))
-    return getstraightref(hand, min_length, skip, wrap)
+local shortcutref = SMODS.shortcut
+function SMODS.shortcut()
+    return (not not next(SMODS.find_card('j_minty_parkour'))) or shortcutref()
 end
--- See localization/en-us.lua to create joker text
