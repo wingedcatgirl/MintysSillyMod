@@ -143,6 +143,39 @@ function Card:is_kity()
     return minty_kity or valkitty or yahicat
 end
 
+MINTY.kity_pool = function(legend, source)
+	local stake_index = G.GAME.stake or 1
+	local stake_key = SMODS.stake_from_index(stake_index)
+    local stake_check = (G.P_STAKES[stake_key].stake_level >= G.P_STAKES.stake_gold.stake_level) and not G.GAME.soul_or_wand_used
+	local cat_basket, gold_cats, ungold_cats = {}, {}, {}
+
+	for k,v in pairs(G.P_CENTERS) do
+		local is_cat = false
+		local rarity_check = (legend and v.rarity == 4) or ((legend == "ignore" or not legend) and v.rarity ~= 4)
+		local pool_check = (not v.in_pool) or (type(v.in_pool) == "boolean" and v.in_pool) or (type(v.in_pool) == "function" and v:in_pool({ source = source }))
+		if v.pools then
+			is_cat = v.pools.kity or v.pools.Kitties or v.pools.Cat
+		end
+        local valid = is_cat and rarity_check and pool_check
+		if valid then
+            cat_basket[#cat_basket+1] = k
+            local sticker_key = get_joker_win_sticker(v)
+            if sticker_key and not sticker_key:find("stake_") then
+                sticker_key = "stake_"..sticker_key
+            end
+            if sticker_key and G.P_STAKES[sticker_key].stake_level >= G.P_STAKES.stake_gold.stake_level then
+                gold_cats[#gold_cats+1] = k
+            else
+                ungold_cats[#ungold_cats+1] = k
+            end
+        end
+	end
+
+    if #cat_basket == 0 then cat_basket[#cat_basket+1] = "j_lucky_cat" end
+
+	return (legend and stake_check and (#gold_cats > 0) and (#ungold_cats > 0) and ungold_cats) or cat_basket
+end
+
 MINTY.getSpecKey = (SPECF and SPECF.getSpecKey) or function(HandName)
     MINTY.say("Using Minty's function for this")
     if not G.GAME then return "ERROR: Hands don't exist yet!" end
@@ -614,13 +647,22 @@ SMODS.current_mod.set_debuff = function (card)
   end
 end
 
---[[
+
 SMODS.current_mod.calculate = function (self, context)
-    if context.final_scoring_step and G.GAME.current_round.hands_played == 2 then
-        MINTY.say(G.GAME.last_hand_played)
+    if context.using_consumeable then
+        local legmap = {
+            c_soul = true,
+            c_minty_wand = true
+        }
+
+        local key = context.consumeable.config and context.consumeable.config.center and context.consumeable.config.center.key or "nope"
+
+        if legmap[key] then
+            G.GAME.soul_or_wand_used = true
+        end
     end
 end
---]]
+
 
 MINTY.enhancecheck = function()
     MINTY.say("Building Inkbleed table...")

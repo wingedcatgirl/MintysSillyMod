@@ -29,12 +29,12 @@ SMODS.Consumable {
 		end
 	end,
 	use = function(self, card, area, copier)
+		local key = pseudorandom_element(MINTY.kity_pool(true, "minty_wand"), "minty_wand")
 		G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
 			play_sound('timpani')
-			local card = SMODS.add_card({
-				set = "kity",
+			SMODS.add_card({
+				key = key,
 				area = G.jokers,
-				legendary = true,
 				key_append = "minty_wand",
 			})
 			return true end }))
