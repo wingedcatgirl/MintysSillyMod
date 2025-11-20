@@ -56,9 +56,24 @@ SMODS.Enhancement({
         local default = 5
         return mf and default or default/2
     end,
+    set_ability = function (self, card, initial, delay_sprites)
+        juice_card_until(card, function ()
+            return MINTY.config.ticking_splines
+        end)
+    end,
+    load = function (self, card, card_table, other_card)
+        juice_card_until(card, function ()
+            return MINTY.config.ticking_splines
+        end)
+    end,
     calculate = function (self, card, context)
         if (context.main_scoring and context.cardarea == G.play and SMODS.pseudorandom_probability(card, 'minty_splineboost', 1, card.ability.extra.odds, 'minty_splineboost')) or context.forcetrigger then
-            card.ability.perma_bonus = card.ability.perma_bonus + card.ability.extra.chips
+            SMODS.scale_card(card,{
+                ref_table = card.ability,
+                ref_value = "perma_bonus",
+                scalar_table = card.ability.extra,
+                scalar_value = "chips"
+            })
             return {
                 message = localize('k_upgrade_ex')
             }

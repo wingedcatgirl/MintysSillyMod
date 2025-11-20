@@ -1,3 +1,5 @@
+local nomotion = G and G.SETTINGS and G.SETTINGS.reduced_motion or false
+
 return {
     ["dev_mode"] = false,
     ["flavor_text"] = true,
@@ -8,5 +10,6 @@ return {
         option_value = "Locked",
     },
     ["suppress_trace"] = false,
+    ["ticking_splines"] = not nomotion,
     ["test_button"] = false,
 }

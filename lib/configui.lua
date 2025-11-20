@@ -62,6 +62,11 @@ SMODS.current_mod.config_tab = function()
             ref_table = MINTY.config,
             ref_value = 'stone_rename',
         }),
+        create_toggle({
+            label = "Ticking Spline cards",
+            ref_table = MINTY.config,
+            ref_value = 'ticking_splines',
+        }),
         create_option_cycle {
             label = "3 availability",
             options = {'Unlocked', "Locked", "Sealed"},
