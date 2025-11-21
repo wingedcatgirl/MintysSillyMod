@@ -18,6 +18,7 @@ return {
 			["k_minty_bye"] = "Bye-bye!",
 			["k_minty_rescheduled"] = "Rescheduled!",
 			["k_minty_ordered"] = "Ordered!",
+			["k_minty_yep"] = "Yep!",
 			["k_minty_unbalanced"] = "Unbalanced",
 			["k_minty_cube"] = "Hand must contain exactly 4 cards",
 			["k_minty_psycube"] = "What have you done?!",
@@ -1446,6 +1447,62 @@ return {
 					"for a common >:(",
 					" ",
 					"{C:inactive,s:0.8}These lazy Joker Forge mods always do this shit!{}",
+				},
+			},
+			["j_minty_fate"] = {
+				["name"] = "Fate",
+				["text"] = {
+					"{C:mult}Fixed {C:green}#1# in #2#{} chance of",
+					"a {C:mult}fixed {C:green}#3# in #4#{} chance",
+				},
+			},
+			["j_minty_fate_flavor"] = {
+				["name"] = "Fate",
+				["text"] = {
+					"{C:mult}Fixed {C:green}#1# in #2#{} chance of",
+					"a {C:mult}fixed {C:green}#3# in #4#{} chance",
+					" ",
+					"{C:inactive,s:0.8}The other half is luck.{}",
+				},
+			},
+			["j_minty_optimist"] = {
+				["name"] = "Optimist",
+				["text"] = {
+					"When any {C:green}chance{} succeeds,",
+					"gains {X:black,C:white}#2#X{} the",
+					"{C:green}numerator{} as {X:mult,C:white}xMult{}",
+					"{C:inactive}(Currently {C:mult}+#1#{C:inactive})",
+				},
+			},
+			["j_minty_optimist_flavor"] = {
+				["name"] = "Optimist",
+				["text"] = {
+					"When any {C:green}chance{} succeeds,",
+					"gains {X:black,C:white}#2#X{} the",
+					"{C:green}numerator{} as {X:mult,C:white}xMult{}",
+					"{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive})",
+					" ",
+					"{C:inactive,s:0.8}It'll all work out!{}",
+				},
+			},
+			["j_minty_pessimist"] = {
+				["name"] = "Pessimist",
+				["text"] = {
+					"When any {C:green}chance{} fails,",
+					"gains {X:black,C:white}#2#X{} the",
+					"{C:green}denominator{} as {C:chips}+Chips{}",
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive})",
+				},
+			},
+			["j_minty_pessimist_flavor"] = {
+				["name"] = "Pessimist",
+				["text"] = {
+					"When any {C:green}chance{} fails,",
+					"gains {X:black,C:white}#2#X{} the",
+					"{C:green}denominator{} as {C:chips}+Chips{}",
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive})",
+					" ",
+					"{C:inactive,s:0.8}You can't count on luck...{}",
 				},
 			},
 			--HEY FUTURE MINTY, PUT NEW JOKERS ⬆️HERE⬆️ :P 
