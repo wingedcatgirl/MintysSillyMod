@@ -41,7 +41,7 @@ function Blind:press_play()
     local any_selected = false
     local hooked = {}
     for k, v in ipairs(G.hand.cards) do
-        if v.ability.minty_hooked then
+        if not v.highlighted and v.ability.minty_hooked then
             hooked[#hooked+1] = v
             any_selected = true
         end
