@@ -180,6 +180,7 @@ local files = {
         { name = "sixyears" },
         { name = "dekaja" },
         { name = "delicacy" },
+        { name = "piracy" },
         { name = "reincarnate" },
         { name = "wand" },
         --{ name = "testcard" },
@@ -220,6 +221,7 @@ local files = {
         { name = "cementseal" }, --Seals
         { name = "counterfeit" }, --Stickers
         { name = "hooked" },
+        { name = "pirated" },
     },
     backs = {
         { name = "treat" },

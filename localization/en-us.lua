@@ -1942,6 +1942,24 @@ return {
 					"{C:inactive,s:0.8}You feel like a new Joker!{}"
 				},
 			},
+			["c_minty_piracy"] = {
+				["name"] = "Piracy",
+				["text"] = {
+					"{C:attention}Illegally{} copy 1",
+					"selected card from any",
+					"booster pack or shop"
+				},
+			},
+			["c_minty_piracy_flavor"] = {
+				["name"] = "Piracy",
+				["text"] = {
+					"{C:attention}Illegally{} copy 1",
+					"selected card from any",
+					"booster pack or shop",
+					" ",
+					"{C:inactive,s:0.8}I would download a Wraith, actually"
+				},
+			},
 			["c_minty_delicacy"] = {
 				["name"] = "Ultimate Delicacy",
 				["text"] = {
@@ -2668,6 +2686,13 @@ return {
 				["text"] = {
 					"Will be {C:attention}discarded{}",
 					"if held",
+				}
+			},
+			["minty_pirated"] = {
+				["name"] = "Pirated",
+				["text"] = {
+					"Acquired {C:attention}illegally{}",
+					"{C:mult}There may be consequences{}"
 				}
 			},
 			["gemslot_catseye"] = {

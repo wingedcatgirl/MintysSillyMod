@@ -15,19 +15,9 @@ SMODS.Sticker{
     should_apply = function (self, card, center, area, bypass_roll)
         if G.GAME.modifiers.all_minty_hooked == "absolute" then return true end
         if not G.GAME.modifiers.enable_minty_hooked then return false end
-        MINTY.say("Hooked sticker enabled...")
-        --if center.minty_hooked_compat == false then return false end
-        --if self.compat_exceptions[center.key] then return false end
---[[
-        if not ((area == G.shop_jokers) or (area == G.pack_cards)) then
-            return false
-        end
---]]
         if self.sets[center.set] then
             if G.GAME.modifiers.all_minty_hooked then return true end
-            if bypass_roll or pseudorandom("minty_hooked") <= 0.3 then return true else MINTY.say("Random roll failed") end
-        else
-            MINTY.say("Card not in valid sets")
+            if bypass_roll or pseudorandom("minty_hooked") <= 0.3 then return true end
         end
         return false
     end,
