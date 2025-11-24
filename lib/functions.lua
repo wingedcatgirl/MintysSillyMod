@@ -661,6 +661,12 @@ SMODS.current_mod.calculate = function (self, context)
             G.GAME.soul_or_wand_used = true
         end
     end
+
+    if context.setting_blind and G.GAME.minty_total_piracy_punishment then
+        local final_chips = to_big(G.GAME.blind.chips * (1.03 ^ G.GAME.minty_total_piracy_punishment))
+        G.GAME.blind.chips = final_chips
+        G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+    end
 end
 
 

@@ -26,6 +26,7 @@ SMODS.Sticker{
         if context.setting_blind then
             if SMODS.pseudorandom_probability(self, "minty_piracy_punishment", 1, 15, "minty_piracy_punishment", true) or card.ability.debug then
                 G.GAME.minty_piracy_punishment = (G.GAME.minty_piracy_punishment or 0) + 1
+                G.GAME.minty_total_piracy_punishment = (G.GAME.minty_total_piracy_punishment or 0) + 1
                 local first = G.GAME.minty_piracy_punishment == 1
                 SMODS.calculate_effect({message = "Confiscated!" }, card)
                 --card:juice_up()
@@ -42,7 +43,7 @@ SMODS.Sticker{
                             scale = 0.7, text = "notice for your ill-gotten card"..multi.."!", hold = 11, align = 'cm', offset = {x = 0,y = -1.8},major = G.play
                         })
                     end
-                    SMODS.destroy_cards(card, true)
+                    SMODS.destroy_cards(card, true, nil, true)
                     G.GAME.blind.chips = final_chips
 
                     if G.GAME.minty_piracy_punishment == 1 then
