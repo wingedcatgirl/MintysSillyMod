@@ -38,7 +38,7 @@ SMODS.Consumable{
         end
         ]]
         if args and args.source then
-            return not not string.find(args.source, "minty_treat")
+            return not not (string.find(args.source, "minty_treat") or string.find(args.source, "every_card"))
         end
         return false
     end,

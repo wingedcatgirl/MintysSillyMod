@@ -35,7 +35,7 @@ SMODS.Consumable{
     in_pool = function (self, args)
         if pseudorandom("minty_choccychance", 1, 5) ~= 1 then return false end
         if args and args.source then
-            return not not string.find(args.source, "minty_treat")
+            return not not (string.find(args.source, "minty_treat") or string.find(args.source, "every_card"))
         end
         return false
     end,

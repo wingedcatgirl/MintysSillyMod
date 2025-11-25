@@ -34,7 +34,7 @@ SMODS.Consumable{
     end,
     in_pool = function (self, args)
         if args and args.source then
-            return not not string.find(args.source, "minty_treat")
+            return not not (string.find(args.source, "minty_treat") or string.find(args.source, "every_card"))
         end
         return false
     end,

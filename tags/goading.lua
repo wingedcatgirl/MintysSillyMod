@@ -25,6 +25,7 @@ SMODS.Tag{
         local lock = tag.ID
 
         if to_big(G.GAME.chips) >= to_big(G.GAME.blind.chips) then
+            G.GAME.ever_successfully_goaded = true
             G.CONTROLLER.locks[lock] = true
             G.hand_text_area.game_chips:juice_up()
             G.GAME.chips = 0

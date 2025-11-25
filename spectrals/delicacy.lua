@@ -22,7 +22,7 @@ SMODS.Consumable {
 	soul_rate = 0.002,
 	atlas = "spectrals",
     in_pool = function (self, args)
-        return not G.GAME.minty_delicacy_consumed
+        return G.GAME.ever_successfully_goaded and not G.GAME.minty_delicacy_consumed
     end,
 	pos = { x = 3, y = 2 },
     can_use = function (self, card)

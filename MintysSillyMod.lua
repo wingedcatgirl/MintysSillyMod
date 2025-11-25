@@ -2,6 +2,7 @@ MINTY = MINTY or {}
 MINTY.prefix = SMODS.current_mod.prefix
 MINTY.config = SMODS.current_mod.config
 
+SMODS.current_mod.debug_info = {}
 if (SMODS.Mods.FusionJokers or {}).can_load and not SMODS.Mods.FusionJokers.version then
     SMODS.current_mod.debug_info = {
         "You're using an outdated and abandoned version of Fusion Jokers!",
@@ -13,7 +14,6 @@ end
 if (SMODS.Mods.Bunco or {}).can_load then --Not sure this one actually works, but worth putting it in just to see
     local ver = SMODS.Mods.Bunco.version
     if not (ver and string.find(ver, "JumboFork")) then
-        SMODS.current_mod.debug_info = SMODS.current_mod.debug_info or {}
         SMODS.current_mod.debug_info[#SMODS.current_mod.debug_info+1] = "You're using an outdated and abandoned version of Bunco!"
         SMODS.current_mod.debug_info[#SMODS.current_mod.debug_info+1] = "Please update to the version JumboCarrot is maintaining, located here:"
         SMODS.current_mod.debug_info[#SMODS.current_mod.debug_info+1] = "https://github.com/jumbocarrot0/Bunco"
@@ -66,6 +66,10 @@ end
 SMODS.ConsumableType{
     key = "minty_treat",
     default = "c_minty_funnel_cake",
+    select_card = function (self, card, pack)
+        if pack.kind == "everycard" then return "consumables" end
+        return false
+    end,
     primary_colour = G.C.PURPLE,
     secondary_colour = HEX("ca7ca7")
 }
@@ -192,6 +196,7 @@ local files = {
         { name = "funnel cake" },
     },
     boosters = {
+        { name = "packofeverycard" },
         { name = "treat" },
     },
     consumables = {
