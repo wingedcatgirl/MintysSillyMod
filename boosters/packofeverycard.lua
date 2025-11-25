@@ -24,7 +24,8 @@ end
 
 SMODS.Booster{
     key = "everycard_normal_1",
-    kind = "everycard",
+    group_key = "k_minty_everycard_packs",
+    kind = "minty_everycard",
     atlas = "boosters",
     pos = {
         x = 3,
@@ -45,6 +46,7 @@ SMODS.Booster{
             Tarot = 'consumeables',
             Spectral = 'consumeables',
             Planet = 'consumeables',
+            Voucher = false,
             --minty_treat = false
         }
         if card.config.center.hidden then return nil end --No Perkeo-ing your SOULs or Ultimate Delicacies :v
@@ -58,8 +60,8 @@ SMODS.Booster{
         local ctype_buffer = copy_table(SMODS.ConsumableType.ctype_buffer)
         ctype_buffer[#ctype_buffer+1] = "Joker"         --These aren't consumeables but we're putting them in the pool
         ctype_buffer[#ctype_buffer+1] = "Playing Card"  --cause it's a Pack of _Every_ Card
-                                                        --TODO figure out vouchers maybe? Vanilla doesn't give them a rate obviously so we'd have to decide one 😿
-                                                        --Maybe reinvent polterjen's tokens so you can also get tags :v
+        ctype_buffer[#ctype_buffer+1] = "Voucher"     
+                                                        --TODOMaybe reinvent polterjen's tokens so you can also get tags :v
 
         local baseweight = 2
         local denominators = {}
@@ -70,7 +72,8 @@ SMODS.Booster{
                 if v == "Playing Card" then rate = G.P_CENTERS.v_magic_trick.config.extra --aka 4
                 else rate = 0.5 end
             end
-            if v == "Joker" then rate = rate*0.5 end --They're already super common :v
+            if v == "Joker" then rate = rate*0.25 end --They're already super common :v
+            if v == "Voucher" then rate = 1 end -- 1/4 as common as planets/tarots, seems fine?
             rates[v] = rate
             local _, den = to_rational(rate)
             table.insert(denominators, den)

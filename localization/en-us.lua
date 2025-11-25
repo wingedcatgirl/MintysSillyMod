@@ -32,7 +32,8 @@ return {
 			["k_minty_treasureplaceholder"] = "a random stat",
 			["k_minty_treat"] = "Treat",
 			["b_minty_treat_cards"] = "Treat Cards",
-			["k_minty_treat_packs"] = "Treat Pack"
+			["k_minty_treat_packs"] = "Treat Pack",
+			["k_minty_everycard_packs"] = "Pack of Every Card",
 		},
 		["v_dictionary"] = {
 			["a_minty_chipgain"] = "+#1# Chips",
@@ -1957,7 +1958,7 @@ return {
 					"selected card from any",
 					"booster pack or shop",
 					" ",
-					"{C:inactive,s:0.8}I would download a Wraith, actually"
+					"{C:inactive,s:0.8}I would download a Blueprint, actually"
 				},
 			},
 			["c_minty_delicacy"] = {
@@ -2639,6 +2640,16 @@ return {
 					"Order #1# of up to",
 					"#2# delicious {C:purple}treats{}",
 					"to be consumed immediately"
+				}
+			},
+			["p_minty_everycard_normal_1"] = {
+				["name"] = "Pack of Every Card",
+				["label"] = "Pack of Every Card",
+				["text"] = {
+					"Select and take* #1# of up to",
+					"#2# of {C:attention}every{}* card type",
+					"{C:inactive}*Some exceptions apply,",
+					"{C:inactive}see store for details"
 				}
 			},
 			["minty_flexweirdo_full_name"] = {
