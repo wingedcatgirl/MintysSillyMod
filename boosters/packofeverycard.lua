@@ -42,6 +42,8 @@ SMODS.Booster{
         local predefs = {
             Joker = 'jokers',
             Base = 'deck',
+            Default = "deck",
+            ["Default Base"] = "deck",
             Enhanced = 'deck',
             Tarot = 'consumeables',
             Spectral = 'consumeables',
@@ -60,8 +62,8 @@ SMODS.Booster{
         local ctype_buffer = copy_table(SMODS.ConsumableType.ctype_buffer)
         ctype_buffer[#ctype_buffer+1] = "Joker"         --These aren't consumeables but we're putting them in the pool
         ctype_buffer[#ctype_buffer+1] = "Playing Card"  --cause it's a Pack of _Every_ Card
-        ctype_buffer[#ctype_buffer+1] = "Voucher"     
-                                                        --TODOMaybe reinvent polterjen's tokens so you can also get tags :v
+        ctype_buffer[#ctype_buffer+1] = "Voucher"
+                                                        --TODO maybe reinvent polterjen's tokens so you can also get tags :v
 
         local baseweight = 2
         local denominators = {}
@@ -82,7 +84,6 @@ SMODS.Booster{
             baseweight = lcm(baseweight, den)
         end
 
-        local treatcheck
         for _,v in ipairs(ctype_buffer) do
             local modrate = rates[v] * baseweight
             if modrate ~= math.floor(modrate) then
@@ -92,9 +93,7 @@ SMODS.Booster{
             for __=1,modrate do
                 sets[#sets+1] = v
             end
-            if v == "minty_treat" then treatcheck = true end
         end
-        if treatcheck then MINTY.say("yep treats can exist in this context") else MINTY.say("nope treats can't exist in this context fsr") end
         set = pseudorandom_element(sets, "minty_pack_of_every_card_set")
 
         return {
