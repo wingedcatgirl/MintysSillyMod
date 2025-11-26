@@ -41,10 +41,10 @@ SMODS.Booster{
     select_card = function (self, card, pack)
         local predefs = {
             Joker = 'jokers',
-            Base = 'deck',
-            Default = "deck",
-            ["Default Base"] = "deck",
-            Enhanced = 'deck',
+            Base = false,
+            Default = false,
+            ["Default Base"] = false,
+            Enhanced = false,
             Tarot = 'consumeables',
             Spectral = 'consumeables',
             Planet = 'consumeables',
