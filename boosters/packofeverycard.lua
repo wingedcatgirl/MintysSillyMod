@@ -43,7 +43,7 @@ SMODS.Booster{
             Joker = 'jokers',
             Base = false,
             Default = false,
-            ["Default Base"] = false,
+            ["Default Base"] = false, --Why do regular playing cards have three names.
             Enhanced = false,
             Tarot = 'consumeables',
             Spectral = 'consumeables',

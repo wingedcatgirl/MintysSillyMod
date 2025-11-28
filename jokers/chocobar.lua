@@ -109,7 +109,7 @@ SMODS.Joker {
     },
     rarity = 1,
     cost = 1,
-    in_pool = function ()
+    in_pool = function (self, args)
         return false
     end,
     unlocked = true,

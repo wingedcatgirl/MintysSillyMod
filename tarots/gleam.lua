@@ -38,7 +38,7 @@ SMODS.Consumable{
         MINTY.tarotflip(used_tarot, { enh = card.ability.enh_conv })
     end,
 
-    in_pool = function ()
+    in_pool = function (self, args)
         return true
     end
 }

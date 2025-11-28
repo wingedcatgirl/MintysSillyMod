@@ -136,7 +136,7 @@ if (SMODS.Mods["Cryptid"] or {}).can_load then
         set_card_type_badge = function(self, card, badges)
             badges[1] = create_badge("Planet?", get_type_colour(self or card.config, card), nil, 1.2)
         end,
-        in_pool = function()
+        in_pool = function(self, args)
             local handful_played = false
             if G and G.GAME and G.GAME.hands then
                 for i, v in ipairs(self.config.hand_types) do
