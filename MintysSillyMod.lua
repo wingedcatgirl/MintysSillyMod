@@ -196,6 +196,7 @@ local files = {
         { name = "funnel cake" },
     },
     boosters = {
+        { name = "modpacks" },
         { name = "packofeverycard" },
         { name = "treat" },
     },
@@ -316,6 +317,35 @@ MINTY.lastmoment = function ()
     MINTY.rocklist()
     if G.P_CENTERS.j_minty_inkbleed then --No point actually *doing* this if Inkbleed is still dummied
         MINTY.enhancecheck()
+    end
+
+    MINTY.packable_mods = {}
+    MINTY.modbag = {}
+    MINTY.vjokers = {}
+    for k,v in pairs(G.P_CENTERS) do
+        local normal = {
+            [1] = true,
+            [2] = true,
+            [3] = true,
+        }
+        if v.set == "Joker" and normal[v.rarity] then
+            if v.original_mod then
+                if not MINTY.packable_mods[v.original_mod.id] then
+                    MINTY.packable_mods[v.original_mod.id] = {
+                        id = v.original_mod.id,
+                        name = v.original_mod.name,
+                        shortname = v.original_mod.display_name,
+                        colour = v.original_mod.badge_colour,
+                        count = 1
+                    }
+                else
+                    MINTY.packable_mods[v.original_mod.id].count = MINTY.packable_mods[v.original_mod.id].count + 1
+                end
+                MINTY.modbag[#MINTY.modbag+1] = v.original_mod.id
+            else
+                MINTY.vjokers[#MINTY.vjokers+1] = k
+            end
+        end
     end
 
     if Cryptid and cry_best_interest_cap and not MINTY.cbic_override then --Gotta put it here cause priority~ Cryptid will probably fix this on their end soon-ish but for now this at least makes sure ducks are accounted for

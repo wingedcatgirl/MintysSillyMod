@@ -34,6 +34,7 @@ return {
 			["b_minty_treat_cards"] = "Treat Cards",
 			["k_minty_treat_packs"] = "Treat Pack",
 			["k_minty_everycard_packs"] = "Pack of Every Card",
+			["k_minty_mod_packs"] = "Mod Pack",
 		},
 		["v_dictionary"] = {
 			["a_minty_chipgain"] = "+#1# Chips",
@@ -2650,6 +2651,33 @@ return {
 					"#2# of {C:attention}every{}* card type",
 					"{C:inactive}*Some exceptions apply,",
 					"{C:inactive}see store for details"
+				}
+			},
+			["p_minty_mod_normal"] = {
+				["name"] = "#1# Pack",
+				["label"] = "#1# Pack",
+				["text"] = {
+					"Select #3# of up to",
+					"#4# Jokers from",
+					"{V:1}#2#{}"
+				}
+			},
+			["p_minty_mod_jumbo"] = {
+				["name"] = "Jumbo #1# Pack",
+				["label"] = "Jumbo #1# Pack",
+				["text"] = {
+					"Select #3# of up to",
+					"#4# Jokers from",
+					"{V:1}#2#{}"
+				}
+			},
+			["p_minty_mod_mega"] = {
+				["name"] = "Mega #1# Pack",
+				["label"] = "Mega #1# Pack",
+				["text"] = {
+					"Select #3# of up to",
+					"#4# Jokers from",
+					"{V:1}#2#{}"
 				}
 			},
 			["minty_flexweirdo_full_name"] = {
