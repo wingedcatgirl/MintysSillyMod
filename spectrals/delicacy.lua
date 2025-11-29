@@ -21,10 +21,10 @@ SMODS.Consumable {
 	soul_set = 'minty_treat',
 	soul_rate = 0.002,
 	atlas = "spectrals",
+	pos = { x = 3, y = 2 }, --TODO art
     in_pool = function (self, args)
         return G.GAME.ever_successfully_goaded and not G.GAME.minty_delicacy_consumed
     end,
-	pos = { x = 3, y = 2 },
     can_use = function (self, card)
         if #G.jokers.cards <= 0 then return false end
         for i,v in ipairs(G.jokers.cards) do

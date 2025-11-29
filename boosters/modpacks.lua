@@ -3,7 +3,7 @@ SMODS.Booster{
     kind = "mod_packs",
     group_key = "k_minty_mod_packs",
     atlas = "boosters",
-    pos = {
+    pos = { --TODO art
         x = 0,
         y = 0,
     },
@@ -26,7 +26,7 @@ SMODS.Booster{
         if MINTY.in_collection(card) then
             mod = {
                 shortname = "Mod",
-                name = "a random mod",
+                name = "a random mod", --TODO localizify this
                 colour = G.C.ATTENTION
             }
         end

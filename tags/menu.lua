@@ -1,6 +1,6 @@
 SMODS.Tag{
     key = "menu",
-    --[[
+    --[[ --TODO art
     atlas = "tags",
     pos = {
         x = 0,

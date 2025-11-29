@@ -4,7 +4,7 @@ SMODS.Joker {
     key = "superboss",
     name = "Superboss",
     pronouns = "he_him",
-    atlas = 'jokerdoodles',
+    atlas = 'jokerdoodles', --TODO art
     pos = {
         x = 0,
         y = 0

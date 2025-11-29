@@ -2,7 +2,7 @@ SMODS.Joker {
     key = "pessimist",
     name = "Pessimist",
     --pronouns = "",
-    atlas = 'jokerdoodles',
+    atlas = 'jokerdoodles', --TODO art
     pos = {
         x = 0,
         y = 0

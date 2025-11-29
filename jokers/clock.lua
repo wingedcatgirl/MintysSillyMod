@@ -9,7 +9,7 @@ SMODS.Joker {
     key = "clock",
     name = "Clock",
     --pronouns = "",
-    atlas = 'jokerdoodles',
+    atlas = 'jokerdoodles', --TODO art
     pos = {
         x = 0,
         y = 0

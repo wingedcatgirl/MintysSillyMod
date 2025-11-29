@@ -27,7 +27,7 @@ SMODS.Booster{
     group_key = "k_minty_everycard_packs",
     kind = "minty_everycard",
     atlas = "boosters",
-    pos = {
+    pos = { --TODO art
         x = 3,
         y = 2,
     },

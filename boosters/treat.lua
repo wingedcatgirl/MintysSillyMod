@@ -3,7 +3,7 @@ SMODS.Booster{
     group_key = "k_minty_treat_packs",
     kind = "minty_treat",
     atlas = "boosters",
-    pos = {
+    pos = { --TODO art
         x = 0,
         y = 0,
     },
