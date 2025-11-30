@@ -2643,9 +2643,29 @@ return {
 					"to be consumed immediately"
 				}
 			},
-			["p_minty_everycard_normal_1"] = {
+			["p_minty_everycard_normal"] = {
 				["name"] = "Pack of Every Card",
 				["label"] = "Pack of Every Card",
+				["text"] = {
+					"Select and take* #1# of up to",
+					"#2# of {C:attention}every{}* card type",
+					"{C:inactive}*Some exceptions apply,",
+					"{C:inactive}see store for details"
+				}
+			},
+			["p_minty_everycard_jumbo"] = {
+				["name"] = "Jumbo Pack of Every Card",
+				["label"] = "Jumbo Pack of Every Card",
+				["text"] = {
+					"Select and take* #1# of up to",
+					"#2# of {C:attention}every{}* card type",
+					"{C:inactive}*Some exceptions apply,",
+					"{C:inactive}see store for details"
+				}
+			},
+			["p_minty_everycard_mega"] = {
+				["name"] = "Mega Pack of Every Card",
+				["label"] = "Mega Pack of Every Card",
 				["text"] = {
 					"Select and take* #1# of up to",
 					"#2# of {C:attention}every{}* card type",

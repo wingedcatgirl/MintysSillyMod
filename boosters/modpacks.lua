@@ -3,9 +3,9 @@ SMODS.Booster{
     kind = "mod_packs",
     group_key = "k_minty_mod_packs",
     atlas = "boosters",
-    pos = { --TODO art
+    pos = {
         x = 0,
-        y = 0,
+        y = 1,
     },
     config = {
         extra = 2,
@@ -15,6 +15,8 @@ SMODS.Booster{
             name = "a random mod"
         }
     },
+    cost = 5,
+    weight = 1,
     set_ability = function (self, card, initial, delay_sprites)
         if card.ability.mod.shortname == "Mod" then
             local mod = copy_table(pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen"))
@@ -27,7 +29,7 @@ SMODS.Booster{
             mod = {
                 shortname = "Mod",
                 name = "a random mod", --TODO localizify this
-                colour = G.C.ATTENTION
+                colour = G.C.FILTER
             }
         end
         return {
@@ -75,8 +77,8 @@ SMODS.Booster{
     group_key = "k_minty_mod_packs",
     atlas = "boosters",
     pos = {
-        x = 0,
-        y = 0,
+        x = 1,
+        y = 1,
     },
     config = {
         extra = 2,
@@ -86,6 +88,8 @@ SMODS.Booster{
             name = "a random mod"
         }
     },
+    cost = 5,
+    weight = 1,
     set_ability = function (self, card, initial, delay_sprites)
         if card.ability.mod.shortname == "Mod" then
             local mod = copy_table(pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen"))
@@ -98,7 +102,7 @@ SMODS.Booster{
             mod = {
                 shortname = "Mod",
                 name = "a random mod",
-                colour = G.C.ATTENTION
+                colour = G.C.FILTER
             }
         end
         return {
@@ -146,8 +150,8 @@ SMODS.Booster{
     group_key = "k_minty_mod_packs",
     atlas = "boosters",
     pos = {
-        x = 0,
-        y = 0,
+        x = 2,
+        y = 1,
     },
     config = {
         extra = 4,
@@ -157,6 +161,8 @@ SMODS.Booster{
             name = "a random mod"
         }
     },
+    cost = 7,
+    weight = 0.5,
     set_ability = function (self, card, initial, delay_sprites)
         if card.ability.mod.shortname == "Mod" then
             local mod = copy_table(pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen"))
@@ -169,7 +175,7 @@ SMODS.Booster{
             mod = {
                 shortname = "Mod",
                 name = "a random mod",
-                colour = G.C.ATTENTION
+                colour = G.C.FILTER
             }
         end
         return {
@@ -216,8 +222,8 @@ SMODS.Booster{
     group_key = "k_minty_mod_packs",
     atlas = "boosters",
     pos = {
-        x = 0,
-        y = 0,
+        x = 3,
+        y = 1,
     },
     config = {
         extra = 4,
@@ -227,6 +233,8 @@ SMODS.Booster{
             name = "a random mod"
         }
     },
+    cost = 9,
+    weight = 0.125,
     set_ability = function (self, card, initial, delay_sprites)
         if card.ability.mod.shortname == "Mod" then
             local mod = copy_table(pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen"))
@@ -239,7 +247,7 @@ SMODS.Booster{
             mod = {
                 shortname = "Mod",
                 name = "a random mod",
-                colour = G.C.ATTENTION
+                colour = G.C.FILTER
             }
         end
         return {

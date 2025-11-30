@@ -3,9 +3,9 @@ SMODS.Booster{
     group_key = "k_minty_treat_packs",
     kind = "minty_treat",
     atlas = "boosters",
-    pos = { --TODO art
-        x = 0,
-        y = 0,
+    pos = {
+        x = 1,
+        y = 2,
     },
     config = {
         extra = 2,
