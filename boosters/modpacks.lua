@@ -52,9 +52,9 @@ SMODS.Booster{
         if i==1 then
             local oldban = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
-            if G.pack_cards then return false end
-            G.GAME.banned_keys = oldban
-            return true
+                if G.pack_cards then return false end
+                G.GAME.banned_keys = oldban
+                return true
             end, {blocking = false, blockable = false})
         end
         for k,v in pairs(G.P_CENTERS) do
@@ -125,9 +125,9 @@ SMODS.Booster{
         if i==1 then
             local oldban = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
-            if G.pack_cards then return false end
-            G.GAME.banned_keys = oldban
-            return true
+                if G.pack_cards then return false end
+                G.GAME.banned_keys = oldban
+                return true
             end, {blocking = false, blockable = false})
         end
         for k,v in pairs(G.P_CENTERS) do
@@ -195,18 +195,19 @@ SMODS.Booster{
         return true
     end,
     create_card = function (self, card, i)
-        local oldban = copy_table(G.GAME.banned_keys or {})
+        if i==1 then
+            local oldban = copy_table(G.GAME.banned_keys or {})
+            MINTY.event(function ()
+                if G.pack_cards then return false end
+                G.GAME.banned_keys = oldban
+                return true
+            end, {blocking = false, blockable = false})
+        end
         for k,v in pairs(G.P_CENTERS) do
             if (v.original_mod or {}).id ~= card.ability.mod.id then
                 G.GAME.banned_keys[k] = true
             end
         end
-
-        MINTY.event(function ()
-            if G.pack_cards then return false end
-            G.GAME.banned_keys = oldban
-            return true
-        end, {blocking = false, blockable = false})
 
         return {
             set = "Joker",
@@ -270,9 +271,9 @@ SMODS.Booster{
         if i==1 then
             local oldban = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
-            if G.pack_cards then return false end
-            G.GAME.banned_keys = oldban
-            return true
+                if G.pack_cards then return false end
+                G.GAME.banned_keys = oldban
+                return true
             end, {blocking = false, blockable = false})
         end
         for k,v in pairs(G.P_CENTERS) do
