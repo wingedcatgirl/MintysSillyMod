@@ -2751,7 +2751,7 @@ return {
 				["name"] = "Pirated",
 				["text"] = {
 					"Acquired {C:attention}illegally{}",
-					"{C:mult}There may be consequences{}"
+					"{C:mult}There may be consequences...{}"
 				}
 			},
 			["gemslot_catseye"] = {
