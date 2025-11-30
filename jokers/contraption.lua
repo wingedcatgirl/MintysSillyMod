@@ -62,11 +62,11 @@ SMODS.Joker {
 
         if context.cardarea == G.play and context.individual and SMODS.has_enhancement(context.other_card, "m_minty_spline") and context.other_card.ability.perma_bonus > 0 then
             if SMODS.pseudorandom_probability(card, "minty_contraption_scoring", card.ability.extra.luck, card.ability.extra.odds) then
-                card.ability.extra.increase = context.other_card.ability.perma_bonus
                 SMODS.scale_card(card, {
                     ref_table = card.ability.extra,
                     ref_value = "chips",
-                    scalar_value = "increase"
+                    scalar_table = context.other_card.ability,
+                    scalar_value = "perma_bonus"
                 })
                 return nil, true
             end
