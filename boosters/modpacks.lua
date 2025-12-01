@@ -19,7 +19,8 @@ SMODS.Booster{
     weight = 1,
     set_ability = function (self, card, initial, delay_sprites)
         if card.ability.mod.shortname == "Mod" then
-            local mod = copy_table(pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen"))
+            local _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+            local mod = copy_table(_)
             card.ability.mod = mod
         end
     end,
@@ -92,7 +93,8 @@ SMODS.Booster{
     weight = 1,
     set_ability = function (self, card, initial, delay_sprites)
         if card.ability.mod.shortname == "Mod" then
-            local mod = copy_table(pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen"))
+            local _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+            local mod = copy_table(_)
             card.ability.mod = mod
         end
     end,
@@ -165,7 +167,8 @@ SMODS.Booster{
     weight = 0.5,
     set_ability = function (self, card, initial, delay_sprites)
         if card.ability.mod.shortname == "Mod" then
-            local mod = copy_table(pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen"))
+            local _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+            local mod = copy_table(_)
             card.ability.mod = mod
         end
     end,
@@ -238,7 +241,8 @@ SMODS.Booster{
     weight = 0.125,
     set_ability = function (self, card, initial, delay_sprites)
         if card.ability.mod.shortname == "Mod" then
-            local mod = copy_table(pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen"))
+            local _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+            local mod = copy_table(_)
             card.ability.mod = mod
         end
     end,
