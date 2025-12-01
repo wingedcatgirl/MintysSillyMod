@@ -18,6 +18,7 @@ return {
 			["k_minty_bye"] = "Bye-bye!",
 			["k_minty_rescheduled"] = "Rescheduled!",
 			["k_minty_ordered"] = "Ordered!",
+			["k_minty_printed"] = "Printed!",
 			["k_minty_yep"] = "Yep!",
 			["k_minty_unbalanced"] = "Unbalanced",
 			["k_minty_cube"] = "Hand must contain exactly 4 cards",
@@ -1505,6 +1506,24 @@ return {
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive})",
 					" ",
 					"{C:inactive,s:0.8}You can't count on luck...{}",
+				},
+			},
+			["j_minty_printer"] = {
+				["name"] = "Printer",
+				["text"] = {
+					"At round start, print a",
+					"{C:attention}playing card{} with a random",
+					"{C:attention}enhancement{} and add it to hand"
+				},
+			},
+			["j_minty_printer_flavor"] = {
+				["name"] = "Printer",
+				["text"] = {
+					"At round start, print a",
+					"{C:attention}playing card{} with a random",
+					"{C:attention}enhancement{} and add it to hand",
+					" ",
+					"{C:inactive,s:0.8}And then I've got like, 55..."
 				},
 			},
 			--HEY FUTURE MINTY, PUT NEW JOKERS ⬆️HERE⬆️ :P 

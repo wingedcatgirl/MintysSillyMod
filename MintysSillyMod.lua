@@ -128,6 +128,7 @@ local files = {
         { name = "fatcat-m" }, --Metaphorical (Jeff Bezos catgirl)
         { name = "nucleation" },
         { name = "treatovision" },
+        { name = "printer" },
         { name = "peywet", },
         { name = "cakesword" },
         --{ name = "inkbleed" }, --Dummied for now cause it's really janky
