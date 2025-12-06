@@ -476,8 +476,8 @@ return {
 					"{C:mult}+#1#{} nanpa mute ni nanpa utala",
 					"ante {C:attention}toki{}",
 					"{C:inactive}(tenpo ni la {C:mult}+#2#{C:inactive}){}"
---				},
---			},
+				},
+			},
 --			["j_minty_languageEgg_flavor"] = {
 --				["name"] = "Language Egg",
 --				["text"] = {
