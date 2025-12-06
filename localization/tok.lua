@@ -466,17 +466,16 @@ return {
 --					"{C:inactive,s:0.8}But it's always at the last minute...",
 --				},
 --			},
---			["j_minty_languageEgg"] = {
---				["unlock"] = {
---					"Win a run in a language",
---					"other than {C:attention}English{}"
---				},
---				["name"] = "Language Egg",
---				["text"] = {
---					"{C:mult}+#1#{} Mult for each round",
---					"completed with a unique",
---					"{C:attention}language{} setting this game",
---					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult){}"
+			["j_minty_languageEgg"] = {
+				["unlock"] = {
+					"tenpo pona",
+					"ala {C:attention}toki Inli{}"
+				},
+				["name"] = "moku ni toki",
+				["text"] = {
+					"{C:mult}+#1#{} nanpa mute ni nanpa utala",
+					"ante {C:attention}toki{}",
+					"{C:inactive}(tenpo ni la {C:mult}+#2#{C:inactive}){}"
 --				},
 --			},
 --			["j_minty_languageEgg_flavor"] = {
