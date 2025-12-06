@@ -1,46 +1,6 @@
-SMODS.Challenge({
-	key = "raidnight",
-	rules = {
-		modifiers = {
-			{ id = "dollars", value = 6},
-			{ id = "hands", value = 5},
-			{ id = "discards", value = 4},
-			{ id = "hand_size", value = 9},
-		},
-		custom = {
-			{ id = "second_boss" },
-			{ id = "disable_skipping" },
-			{ id = "blind_scaling", value = 4},
-		},
-	},
-	jokers = {
-		{ id = "j_minty_theecho", eternal = true, singular = true, edition = "negative" },
-	},
-	consumeables = {
-		{ id = "c_devil" },
-		{ id = "c_devil" },
-	},
-	unlocked = function()
-		return true
-	end
-})
-
-SMODS.Challenge({
-	key = "raidnightsavage",
-	rules = {
-		custom = {
-			{ id = "second_boss" },
-			{ id = "disable_skipping" },
-			{ id = "blind_scaling", value = 5},
-		},
-	},
-	jokers = {
-		{ id = "j_minty_theecho", eternal = true, singular = true },
-	},
-	unlocked = function()
-		return G.PROFILES[G.SETTINGS.profile].challenge_progress.completed["c_minty_raidnight"]
-	end
-})
+if not (SMODS.Mods["ChDp"] or {}).can_load then
+    return nil
+end
 
 local wlbuncspec = next(SMODS.find_mod('Bunco')) and {id = 'whitelist_hand', value = 'Straight Spectrum', hand = 'bunc_Straight Spectrum'} or nil
 local wlpapspec = next(SMODS.find_mod('paperback')) and SMODS.Mods.paperback.config.suits_enabled and {id = 'whitelist_hand', value = 'Straight Spectrum', hand = 'paperback_Straight Spectrum'} or nil
@@ -50,6 +10,7 @@ local wlspec = wlspecspec or wlbuncspec or wlsixspec or wlpapspec or nil
 
 SMODS.Challenge({
 	key = "backalley",
+    button_colour = HEX("CA7CA7"),
 	rules = {
 		custom = {
 			{ id = "whitelist_hand", value = "Straight Flush", hand = "Straight Flush"},
@@ -81,6 +42,7 @@ end
 
 SMODS.Challenge({
 	key = "evilbackalley",
+    button_colour = HEX("CA7CA7"),
 	rules = {
 		custom = {
 			{ id = "disable_hand_containing", value = "Straight", hand = "Straight" },
@@ -95,27 +57,5 @@ SMODS.Challenge({
 	},
 	unlocked = function()
 		return G.PROFILES[G.SETTINGS.profile].challenge_progress.completed["c_minty_backalley"]
-	end
-})
-
-SMODS.Challenge({
-	key = "cosmoport",
-	rules = {
-		custom = {
-			{ id = "blackjack", value = 21 },
-			{ id = 'no_reward' },
-			{ id = 'no_extra_hand_money' },
-		},
-	},
-	jokers = {
-		{ id = "j_to_the_moon" },
-		{ id = "j_rocket" },
-		{ id = "j_lusty_joker" },
-	},
-	consumeables = {
-		{ id = "c_sun" },
-	},
-	unlocked = function()
-		return true
 	end
 })

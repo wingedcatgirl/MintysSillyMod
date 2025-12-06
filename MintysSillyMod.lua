@@ -261,7 +261,10 @@ local files = {
         { name = "stakes" },
     },
     challenge = {
-        { name = "challenges", mods = { { id = "ChDp" } } },
+        { name = "raidnight" },
+        { name = "backalley" },
+        { name = "cosmoport" },
+        { name = "taxfraud" },
     }
 }
 

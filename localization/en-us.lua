@@ -42,6 +42,14 @@ return {
 			["a_minty_multandchips"] = "+#1# Mult, +#2# Chips",
 			["a_minty_chipsandmult"] = "+#1# Chips, +#2# Mult",
 		},
+		["v_text"] = {
+			["ch_c_all_minty_counterfeit"] = {
+				"All cards are {C:attention}Counterfeit{}"
+			},
+			["ch_c_minty_ante_dollarpenalty"] = {
+				"Starting Ante {C:attention}#1#{}, {C:mult}-1{} Mult per {C:gold}$1{} held"
+			},
+		},
 		["suits_plural"] = {
 			["minty_3s"] = "3s",
 		},
@@ -68,6 +76,7 @@ return {
 			["c_minty_backalley"] = "Back Alleys",
 			["c_minty_evilbackalley"] = "Deadly Back Alleys",
 			["c_minty_cosmoport"] = "My Own Cosmoport",
+			["c_minty_taxfraud"] = "Tax Fraud",
 		},
 		["poker_hands"] = {
 			["minty_Handful"] = "Handful of Rocks",
