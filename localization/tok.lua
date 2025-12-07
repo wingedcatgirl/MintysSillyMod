@@ -109,7 +109,7 @@ return {
 				},
 			},
 		},
---		["Joker"] = {
+		["Joker"] = {
 --			["j_minty_cube"] = {
 --				["unlock"] = {
 --					"Win a run playing more hands",
@@ -478,17 +478,17 @@ return {
 					"{C:inactive}(tenpo ni la {C:mult}+#2#{C:inactive}){}"
 				},
 			},
---			["j_minty_languageEgg_flavor"] = {
---				["name"] = "Language Egg",
---				["text"] = {
---					"{C:mult}+#1#{} Mult for each round",
---					"completed with a unique",
---					"{C:attention}language{} setting this game",
---					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult){}",
---					" ",
---					"{C:inactive,s:0.8}Best enjoyed in the atheism corner"
---				},
---			},
+			["j_minty_languageEgg_flavor"] = {
+				["name"] = "Language Egg",
+				["text"] = {
+					"{C:mult}+#1#{} Mult for each round",
+					"completed with a unique",
+					"{C:attention}language{} setting this game",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult){}",
+					" ",
+					"{C:inactive,s:0.8}Best enjoyed in the atheism corner"
+				},
+			},
 --			["j_minty_neko"] = {
 --				["name"] = "neko.exe",
 --				["text"] = {
@@ -1562,7 +1562,7 @@ return {
 --					"{C:inactive,s:0.8}Cats come from across the land to frolic here.{}",
 --				},
 --			},
---		},
+		},
 --		["Back"] = {
 --			["b_minty_treat"] = {
 --				["name"] = "Deck with a Treat",
