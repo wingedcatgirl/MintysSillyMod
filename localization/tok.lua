@@ -479,14 +479,13 @@ return {
 				},
 			},
 			["j_minty_languageEgg_flavor"] = {
-				["name"] = "Language Egg",
+				["name"] = "moku ni toki",
 				["text"] = {
-					"{C:mult}+#1#{} Mult for each round",
-					"completed with a unique",
-					"{C:attention}language{} setting this game",
-					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult){}",
-					" ",
-					"{C:inactive,s:0.8}Best enjoyed in the atheism corner"
+					"{C:mult}+#1#{} nanpa mute ni nanpa utala",
+					"ante {C:attention}toki{}",
+					"{C:inactive}(tenpo ni la {C:mult}+#2#{C:inactive}){}",
+					--" ",
+					--"{C:inactive,s:0.8}Best enjoyed in the atheism corner"
 				},
 			},
 --			["j_minty_neko"] = {
