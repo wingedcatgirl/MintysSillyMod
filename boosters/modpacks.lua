@@ -19,7 +19,10 @@ SMODS.Booster{
     weight = 1,
     set_ability = function (self, card, initial, delay_sprites)
         if card.ability.mod.shortname == "Mod" then
-            local _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+            local _ = {}
+            while (_.count or 0) < self.config.extra do
+                _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+            end
             local mod = copy_table(_)
             card.ability.mod = mod
         end
@@ -93,7 +96,10 @@ SMODS.Booster{
     weight = 1,
     set_ability = function (self, card, initial, delay_sprites)
         if card.ability.mod.shortname == "Mod" then
-            local _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+            local _ = {}
+            while (_.count or 0) < self.config.extra do
+                _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+            end
             local mod = copy_table(_)
             card.ability.mod = mod
         end
@@ -167,7 +173,10 @@ SMODS.Booster{
     weight = 0.5,
     set_ability = function (self, card, initial, delay_sprites)
         if card.ability.mod.shortname == "Mod" then
-            local _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+            local _ = {}
+            while (_.count or 0) < self.config.extra do
+                _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+            end
             local mod = copy_table(_)
             card.ability.mod = mod
         end
@@ -241,7 +250,10 @@ SMODS.Booster{
     weight = 0.125,
     set_ability = function (self, card, initial, delay_sprites)
         if card.ability.mod.shortname == "Mod" then
-            local _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+            local _ = {}
+            while (_.count or 0) < self.config.extra do
+                _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+            end
             local mod = copy_table(_)
             card.ability.mod = mod
         end
