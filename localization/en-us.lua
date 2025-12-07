@@ -49,6 +49,9 @@ return {
 			["ch_c_minty_ante_dollarpenalty"] = {
 				"Starting Ante {C:attention}#1#{}, {C:mult}-1{} Mult per {C:gold}$1{} held"
 			},
+			["ch_c_minty_showman"] = {
+				"{C:attention}#1#{} can appear multiple times"
+			},
 		},
 		["suits_plural"] = {
 			["minty_3s"] = "3s",

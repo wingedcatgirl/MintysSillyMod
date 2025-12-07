@@ -4,7 +4,8 @@ SMODS.Challenge{
     rules = {
         custom = {
             {id = "all_minty_counterfeit"},
-            {id = "minty_ante_dollarpenalty", value = "4"}
+            {id = "minty_ante_dollarpenalty", value = "4"},
+            {id = "minty_showman", value = localize{key = "j_credit_card", type = "name_text", set = "Joker"}}
         }
     },
     jokers = {
@@ -13,12 +14,14 @@ SMODS.Challenge{
     apply = function (self)
         MINTY.event(function ()
             if not G.GAME.modifiers then return false end
+            G.GAME.modifiers.enable_minty_counterfeit = true
             G.GAME.modifiers.all_minty_counterfeit = true
+            G.GAME.modifiers.minty_infinite_j_credit_card = true
             return true
         end, {blockable = false, blocking = false})
     end,
     calculate = function (self, context)
-        if G.GAME.round_resets.ante >= 4 and context.main_scoring then
+        if G.GAME.round_resets.ante >= 4 and context.initial_scoring_step then
             return {
                 mult = -G.GAME.dollars
             }

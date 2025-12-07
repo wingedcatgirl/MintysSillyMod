@@ -32,3 +32,9 @@ loc_parse_string = function (line)
     end
     return parsed
 end
+
+local showman = SMODS.showman
+SMODS.showman = function (key)
+    if G.GAME.modifiers["minty_infinite_"..key] then return true end
+    return showman(key)
+end
