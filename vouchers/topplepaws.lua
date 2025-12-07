@@ -60,7 +60,7 @@ SMODS.Voucher{
     unlockreq = 20,
     check_for_unlock = function (self, args)
         if args and args.type == "career_stat" and args.statname == "minty_large_discards" then
-            if G.PROFILES[G.SETTINGS.profile].career_stats["minty_large_discards"] >= self.unlockreq then
+            if (G.PROFILES[G.SETTINGS.profile].career_stats["minty_large_discards"] or 0) >= self.unlockreq then
                 unlock_card(self)
             end
         end
