@@ -25,7 +25,7 @@ local all_numbers = { }
 
 if SMODS.Ranks then
     for k,v in pairs(SMODS.Ranks) do
-        if not v.face then
+        if not v.face and k ~= "Ace" then
             table.insert(all_numbers, k)
         end
     end
@@ -36,7 +36,7 @@ SMODS.Rank{
     card_key = "N",
     pos = {x = 0},
     nominal = 15,
-    face_nominal = -14, --To make it sort below 2 
+    face_nominal = -14.1, --To make it sort below 2 
     lc_atlas = "numberrank",
     hc_atlas = "numberrank",
     shorthand = "N",
