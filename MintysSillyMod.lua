@@ -352,6 +352,18 @@ MINTY.lastmoment = function ()
         end
     end
 
+    --Put vanilla ranks in first slot of prev table, where they belong.
+    for k,v in pairs(SMODS.Ranks) do
+        if v.prev and type(v.prev[1]) == "string" and v.prev[2] and string.find(v.prev[1], "minty_") then
+            for ii,vv in ipairs(v.prev) do
+                if SMODS.Ranks[vv] and not SMODS.Ranks[vv].original_mod then
+                    v.prev[1], v.prev[ii] = v.prev[ii], v.prev[1]
+                    break
+                end
+            end
+        end
+    end
+
     if Cryptid and cry_best_interest_cap and not MINTY.cbic_override then --Gotta put it here cause priority~ Cryptid will probably fix this on their end soon-ish but for now this at least makes sure ducks are accounted for
         MINTY.cbic_override = true --Only do it once
         local cbic = cry_best_interest_cap
