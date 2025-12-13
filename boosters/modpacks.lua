@@ -31,8 +31,8 @@ SMODS.Booster{
         local mod = card.ability.mod
         if MINTY.in_collection(card) then
             mod = {
-                shortname = "Mod",
-                name = "a random mod", --TODO localizify this
+                shortname = "Mod", --TODO localizify this??
+                name = localize("k_minty_random_mod"),
                 colour = G.C.FILTER
             }
         end

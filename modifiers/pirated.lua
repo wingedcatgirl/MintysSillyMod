@@ -28,7 +28,7 @@ SMODS.Sticker{
                 G.GAME.minty_piracy_punishment = (G.GAME.minty_piracy_punishment or 0) + 1
                 G.GAME.minty_total_piracy_punishment = (G.GAME.minty_total_piracy_punishment or 0) + 1
                 local first = G.GAME.minty_piracy_punishment == 1
-                SMODS.calculate_effect({message = "Confiscated!" }, card)
+                SMODS.calculate_effect({message = localize("k_minty_confiscated") }, card)
                 --card:juice_up()
 
                 G.E_MANAGER:add_event(Event({trigger = 'after', blocking = true, func = function()

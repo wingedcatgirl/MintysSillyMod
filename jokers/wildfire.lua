@@ -32,7 +32,7 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
-        info_queue[#info_queue+1] = { set = "Other", key = "minty_spread2", specific_vars = { card.ability.extra.perish_count } }
+        info_queue[#info_queue+1] = { set = "Other", key = "minty_spread2", specific_vars = { card.ability.extra.perish_count, card.ability.extra.perish_count == 1 and "" or "s" } }
         return {
             key = key,
             vars = {
@@ -51,18 +51,21 @@ SMODS.Joker {
             if mypos == 1 then return end
             local target = G.jokers.cards[mypos-1]
             if target.config.center.key == self.key or SMODS.is_eternal(target, card) then return end
+            target:set_ability(self.key)
+            local newvals = {}
+            for k,v in pairs(target.ability.extra) do
+                newvals[k] = math.max(target.ability.extra[k], card.ability.extra[k])
+            end
+            target.ability.extra = newvals
             SMODS.scale_card(card, {
                 ref_table = card.ability.extra,
                 ref_value = "xmult",
-                scalar_value = "xmult_gain"
+                scalar_value = "xmult_gain",
+                no_message = true
             })
-            local new = copy_card(card)
-            if new.ability.eternal then new:remove_sticker("eternal") end
-            if not new.ability.perishable then new:add_sticker("perishable", true) end
-            new.ability.perish_tally = card.ability.extra.perish_count
-            G.jokers:emplace(new)
-            G.jokers.cards[mypos-1], G.jokers.cards[#G.jokers.cards] = G.jokers.cards[#G.jokers.cards], G.jokers.cards[mypos-1]
-            SMODS.destroy_cards(G.jokers.cards[#G.jokers.cards], nil, true, true) --little janky if i'm tbh but ¯\_(ツ)_/¯
+            if not target.ability.perishable then target:add_sticker("perishable", true) end
+            target.ability.perish_tally = card.ability.extra.perish_count
+            SMODS.calculate_effect({message = localize("k_minty_spread") }, target)
         end
 
         if context.joker_main and context.scoring_hand then

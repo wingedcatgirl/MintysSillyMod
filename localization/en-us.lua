@@ -19,6 +19,13 @@ return {
 			["k_minty_rescheduled"] = "Rescheduled!",
 			["k_minty_ordered"] = "Ordered!",
 			["k_minty_printed"] = "Printed!",
+			["k_minty_spread"] = "Spread!",
+			["k_minty_confiscated"] = "Confiscated!",
+			["k_minty_crystal"] = "Crystal!",
+			["k_minty_random_mod"] = "a random mod",
+			["k_minty_first_suit"] = "first played suit",
+			["k_minty_no_suit"] = "no suit",
+			["k_minty_all_suits"] = "all suit",
 			["k_minty_yep"] = "Yep!",
 			["k_minty_unbalanced"] = "Unbalanced",
 			["k_minty_cube"] = "Hand must contain exactly 4 cards",
@@ -1538,6 +1545,24 @@ return {
 					"{C:inactive,s:0.8}And then I've got like, 55..."
 				},
 			},
+			["j_minty_obsession"] = {
+				["name"] = "Obsession",
+				["text"] = {
+					"Retriggers all cards",
+					"of rank {C:attention}#1#{}, {C:blue}#2#{} time#3#",
+					"{C:inactive}(Rank selected randomly on spawn)",
+				},
+			},
+			["j_minty_obsession_flavor"] = {
+				["name"] = "Obsession",
+				["text"] = {
+					"Retriggers all cards",
+					"of rank {C:attention}#1#{}, {C:blue}#2#{} time#3#",
+					"{C:inactive}(Rank selected randomly on spawn)",
+					" ",
+					"{C:inactive,s:0.8}I always feel like, somebody's watching me..."
+				},
+			},
 			--HEY FUTURE MINTY, PUT NEW JOKERS ⬆️HERE⬆️ :P 
 			["j_minty_template"] = {
 				["name"] = "Joker Template",
@@ -2987,7 +3012,7 @@ return {
 					"Destroy another Joker to",
 					"create a {C:perishable}perishable{}",
 					"copy of self with",
-					"{C:perishable}#1#{} rounds left"
+					"{C:perishable}#1#{} round#2# left"
 				}
 			},
 			["minty_3credit"] = {

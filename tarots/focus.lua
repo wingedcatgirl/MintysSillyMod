@@ -23,14 +23,14 @@ SMODS.Consumable{
         if card.ability.consumeable.max_highlighted ~= 1 then plural = true end
         local s = plural and "s" or ""
         local suit
-        if G.GAME.minty_focussuit == nil then --TODO localizify this
-            suit = "first played suit"
+        if G.GAME.minty_focussuit == nil then
+            suit = localize("k_minty_first_suit")
         elseif G.GAME.minty_focussuit == "suitless" then
-            suit = "Stone Card"
+            suit = localize{type = 'name_text', set = 'Enhanced', key = "m_stone"}
         elseif G.GAME.minty_focussuit == "all-suit" then
-            suit = "Wild Card"
+            suit = localize{type = 'name_text', set = 'Enhanced', key = "m_wild"}
         else
-            suit = localize(G.GAME.minty_focussuit, "suits_plural").." suit"
+            suit = localize(G.GAME.minty_focussuit, "suits_plural").." suit" --TODO localizify this phrase
         end
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"

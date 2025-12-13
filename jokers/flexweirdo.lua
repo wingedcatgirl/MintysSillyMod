@@ -37,14 +37,14 @@ SMODS.Joker {
             key = namekey,
         }
         local suit
-        if G.GAME.minty_focussuit == nil then --TODO localizify this
-            suit = "first played suit"
+        if G.GAME.minty_focussuit == nil then
+            suit = localize("k_minty_first_suit")
         elseif G.GAME.minty_focussuit == "suitless" then
-            suit = "no suit"
+            suit = localize("k_minty_no_suit")
         elseif G.GAME.minty_focussuit == "all-suit" then
-            suit = "all suits"
+            suit = localize("k_minty_all_suits")
         else
-            suit = localize(G.GAME.minty_focussuit, "suits_plural").." suit"
+            suit = localize(G.GAME.minty_focussuit, "suits_plural").." suit" --TODO localizify this phrase; figure out how v_dictionary works again
         end
         return {
             key = key,

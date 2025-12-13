@@ -605,6 +605,25 @@ to_number = to_number or function(x)
     return x
 end
 
+function MINTY.select_card_from_deck(args)
+    if not G.playing_cards then return nil end
+    args = args or {}
+
+    local valid_cards = {}
+
+    for k, v in ipairs(G.playing_cards) do
+        local valid = true
+        valid = valid and not (args.must_be_ranked and SMODS.has_no_rank(v))
+        valid = valid and not (args.must_be_suited and SMODS.has_no_suit(v))
+        valid = valid and not (args.exclude_suit and v:is_suit(args.exclude_suit))
+        if valid then
+            valid_cards[#valid_cards+1] = v
+        end
+    end
+    if valid_cards[1] then
+        return pseudorandom_element(valid_cards, pseudoseed((args.seed or "minty_select_random_card")))
+    end
+end
 
 ---Shuffles which suit is made equivalent to 3s by Treat-o-vision; pulls a random card with a non-3 suit from the deck and uses that.
 function MINTY.reset_treat_card()

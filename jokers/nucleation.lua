@@ -72,7 +72,7 @@ SMODS.Joker {
                         crystalizing:set_ability("m_minty_crystal", nil, false)
                         return true
                     end),
-                    message = "Crystal!", --TODO localizify this
+                    message = localize("k_minty_crystal"),
                     message_card = crystalizing
                 }
             end

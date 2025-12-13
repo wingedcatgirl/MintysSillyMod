@@ -62,7 +62,7 @@ SMODS.Consumable({
     loc_vars = function(self, info_queue, card)
         return { vars = {card.ability.val} }
     end
-  })
+})
 
 SMODS.Consumable({
     object_type = "Consumable",
