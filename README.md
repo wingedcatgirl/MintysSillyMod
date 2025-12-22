@@ -17,6 +17,7 @@ Current features:
 - Cross-mod content
 - A silly custom suit
 - A little 3, as a treat
+- An alternate stake path
 - Pencil-tool doodles for art
 - Far more ambition than sense
 
@@ -31,7 +32,7 @@ Planned features:
 ## Installation Instructions
 1. Install [Lovely](https://github.com/ethangreen-dev/lovely-injector), if you haven't already.
 2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already.
-   - **Minimum supported version for this branch is [BETA-0827](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-0827)**. If the latest dev version fails for any reason, use the linked release.
+   - This mod is currently being developed on [a custom branch off of 1221a](https://github.com/wingedcatgirl/smods/tree/stakeinjection); using [the actual release](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-1221a) shouldn't cause any issues other than the stake screen breaking sometimes.
 3. Because this is the dev branch, you most likely want [the latest commit](https://github.com/wingedcatgirl/MintysSillyMod/archive/refs/heads/next.zip).
 4. Inside the zip file is the mod code in a folder, `MintysSillyMod-SOMEVERSION`. Put that folder in your Mods folder. The file structure should look like `Mods/MintysSillyMod-SOMEVERSION/MintysSillyMod.json`. In particular, there should _not_ be a second `MintysSillyMod` folder nested inside the first one. (You might prefer to remove the version number suffix from the folder name; it doesn't actually matter.)
 5. Have a little 3 as a treat! :3
