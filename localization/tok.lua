@@ -75,8 +75,8 @@ return {
 		},
 --		["poker_hands"] = {
 --			["minty_Handful"] = "Handful of Rocks",
---			["minty_flush_handful"] = "Flush Handful",
---			["minty_spec_handful"] = "Spectrum Handful",
+--			["minty_flush_handful"] = "Handful of Rock",
+--			["minty_spec_handful"] = "Conglomerate",
 --		},
 --		["poker_hand_descriptions"] = {
 --			["minty_Handful"] = {
