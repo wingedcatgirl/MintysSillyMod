@@ -1871,6 +1871,25 @@ return {
 					"{C:inactive,s:0.8}Strike the earth!",
 				},
 			},
+			["c_minty_battery"] = {
+				["name"] = "The Battery",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#{C:attention}Static Card#2#{}",
+				},
+			},
+			["c_minty_battery_flavor"] = {
+				["name"] = "The Battery",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#{C:attention}Static Card#2#{}",
+					" ",
+					"{C:inactive,s:0.8}Tales of the ancient",
+					"{C:inactive,s:0.8}'nine-volt' remain unsubstantiated",
+				},
+			},
 			["c_minty_gleam"] = {
 				["name"] = "The Gleam",
 				["text"] = {

@@ -4,8 +4,8 @@ SMODS.Enhancement({
     atlas = "enhance",
     set = "Enhanced",
     pos = {
-        x = 1,
-        y = 0
+        x = 0,
+        y = 2
     },
 	object_type = "Enhancement",
 	badge_colour = HEX("a3ecc0"), --Magic Mint, according to internet
