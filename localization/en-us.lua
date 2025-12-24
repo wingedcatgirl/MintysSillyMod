@@ -88,6 +88,18 @@ return {
 			["c_minty_cosmoport"] = "My Own Cosmoport",
 			["c_minty_taxfraud"] = "Tax Fraud",
 		},
+		["achievement_names"] = {
+			["ach_minty_leftstakes"] = "Stakes a little to the left",
+			["ach_minty_lefterstakes"] = "Stakes rather more to the left",
+			["ach_minty_lefteststakes"] = "Stakes lefter than Marx himself",
+			["ach_minty_conqueror_of_hell"] = "Conqueror of Hell",
+		},
+		["achievement_descriptions"] = {
+			["ach_minty_leftstakes"] = "Win on at least Scarlet Stake",
+			["ach_minty_lefterstakes"] = "Win on at least Void Stake",
+			["ach_minty_lefteststakes"] = "Win on at least #CA7CA7 Stake",
+			["ach_minty_conqueror_of_hell"] = "Win on at least Rose Gold stake (How?!)",
+		},
 		["poker_hands"] = {
 			["minty_Handful"] = "Handful of Rocks",
 			["minty_flush_handful"] = "Handful of Rock",

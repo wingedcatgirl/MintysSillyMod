@@ -80,6 +80,7 @@ local files = {
         { name = "gradience" },
         { name = "functions" },
         { name = "hooks" },
+        { name = "cheevos" },
         { name = "sounds" },
         { name = "configui" },
         { name = "rarity" },
@@ -354,6 +355,15 @@ MINTY.lastmoment = function ()
             end
         end
     end
+
+    --Set applied stakes of the "applies every stake" stake. If we invent that.
+    --[[
+    if G.P_STAKES.stake_minty_barber then
+        G.P_STAKES.stake_minty_barber.applied_stakes = {}
+        local stakes = MINTY.get_all_top_stakes()
+        G.P_STAKES.stake_minty_barber.applied_stakes = stakes
+    end
+    --]]
 
     --Put vanilla ranks in first slot of prev table, where they belong.
     for k,v in pairs(SMODS.Ranks) do
