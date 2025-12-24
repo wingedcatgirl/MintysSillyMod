@@ -54,10 +54,11 @@ SMODS.Booster{
     end,
     create_card = function (self, card, i)
         if i==1 then
-            local oldban = copy_table(G.GAME.banned_keys or {})
+            G.GAME.real_banned_keys = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
                 if G.pack_cards then return false end
-                G.GAME.banned_keys = oldban
+                G.GAME.banned_keys = G.GAME.real_banned_keys
+                G.GAME.real_banned_keys = nil
                 return true
             end, {blocking = false, blockable = false})
         end
@@ -131,10 +132,11 @@ SMODS.Booster{
     end,
     create_card = function (self, card, i)
         if i==1 then
-            local oldban = copy_table(G.GAME.banned_keys or {})
+            G.GAME.real_banned_keys = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
                 if G.pack_cards then return false end
-                G.GAME.banned_keys = oldban
+                G.GAME.banned_keys = G.GAME.real_banned_keys
+                G.GAME.real_banned_keys = nil
                 return true
             end, {blocking = false, blockable = false})
         end
@@ -208,10 +210,11 @@ SMODS.Booster{
     end,
     create_card = function (self, card, i)
         if i==1 then
-            local oldban = copy_table(G.GAME.banned_keys or {})
+            G.GAME.real_banned_keys = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
                 if G.pack_cards then return false end
-                G.GAME.banned_keys = oldban
+                G.GAME.banned_keys = G.GAME.real_banned_keys
+                G.GAME.real_banned_keys = nil
                 return true
             end, {blocking = false, blockable = false})
         end
@@ -285,10 +288,11 @@ SMODS.Booster{
     end,
     create_card = function (self, card, i)
         if i==1 then
-            local oldban = copy_table(G.GAME.banned_keys or {})
+            G.GAME.real_banned_keys = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
                 if G.pack_cards then return false end
-                G.GAME.banned_keys = oldban
+                G.GAME.banned_keys = G.GAME.real_banned_keys
+                G.GAME.real_banned_keys = nil
                 return true
             end, {blocking = false, blockable = false})
         end

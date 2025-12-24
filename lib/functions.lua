@@ -686,6 +686,11 @@ SMODS.current_mod.calculate = function (self, context)
         G.GAME.blind.chips = final_chips
         G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
     end
+
+    if G.GAME.real_banned_keys and not G.pack_cards then --Failsafe for mod boosters
+        G.GAME.banned_keys = G.GAME.real_banned_keys
+        G.GAME.real_banned_keys = nil
+    end
 end
 
 
@@ -707,6 +712,73 @@ MINTY.enhancecheck = function()
                 end
             end
         end
+    end
+end
+
+---Checks whether one stake is above another
+---@param stake number|string Index or key of stake to evaluate
+---@param target number|string Index or key of stake we're checking against
+---@return boolean
+MINTY.at_least_stake = function (stake, target)
+    if not (stake and target) then return false end
+    local stake_index, target_index, stake_key, target_key
+    if type(stake) == "string" then
+        stake_key = stake
+        stake_index = SMODS.Stakes[stake].order
+    end
+    if type(stake) == "number" then
+        stake_key = G.P_CENTER_POOLS.Stake[stake].key
+        stake_index = stake
+    end
+    if type(target) == "string" then
+        target_key = target
+        target_index = SMODS.Stakes[target].order
+    end
+    if type(target) == "number" then
+        target_key = G.P_CENTER_POOLS.Stake[target].key
+        target_index = target
+    end
+
+    if stake_key == target_key then return true end
+
+    local function get_all_applied_stakes(key, ret)
+        ret = ret or {}
+        for _,v in ipairs(SMODS.Stakes[key].applied_stakes) do
+            ret[v] = true
+            get_all_applied_stakes(v, ret)
+        end
+        return ret
+    end
+
+    local stakes = get_all_applied_stakes(stake_key)
+    return stakes[target_key] == true--, stakes
+end
+
+MINTY.get_all_top_stakes = function()
+    local stakes = {}
+    for k,v in pairs(SMODS.Stakes) do
+        if k ~= "stake_minty_barber" then
+            if stakes[k] == nil then stakes[k] = true end
+            for _,vv in ipairs(v.applied_stakes) do
+                stakes[vv] = false
+            end
+        end
+    end
+    local ret = {}
+    for k,v in pairs(stakes) do
+        if v == true then
+            ret[#ret+1] = k
+        end
+    end
+
+    return ret
+end
+
+MINTY.gradient_check = function ()
+    if not dp then return end
+    loc_colour()
+    for k, v in pairs(G.ARGS.LOC_COLOURS) do
+        if v[1] and string.find(k, "minty") then dp.handleLog(v, "INFO", k) end
     end
 end
 

@@ -265,3 +265,10 @@ SMODS.Stake{
     colour = HEX("ffb2a0")
 }
 
+do return end --Dummy out Barber Stake for now.
+
+SMODS.Stake{
+    key = "barber",
+    unlocked = false,
+    applied_stakes = {}
+}
