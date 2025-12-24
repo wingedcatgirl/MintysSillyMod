@@ -1,0 +1,74 @@
+local mf = (SMODS.Mods["MoreFluff"] or {}).can_load
+
+SMODS.Enhancement({
+    key = "emphatic",
+    name = "Emphatic Card",
+    atlas = "enhance",
+    set = "Enhanced",
+    pos = {
+        x = 1,
+        y = 1
+    },
+	object_type = "Enhancement",
+	badge_colour = HEX("a3ecc0"), --Magic Mint, according to internet
+    config = {
+        extra = {
+            xmult = 2,
+            chips = 2
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.xmult,
+                card.ability.extra.xchips,
+            },
+        }
+    end,
+    get_weight = function (self)
+        local default = 5
+        return mf and default or default/2
+    end,
+    valk_hand_buff = {
+        title = "Mic. Drop.",
+        colour = G.C.GREY,
+        scoring_func = function (power)
+            local _, _, _, scoring_hand = G.FUNCS.get_poker_hand_info(G.play.cards)
+            for _,card in ipairs(scoring_hand) do
+                if card.config.center_key == "m_minty_emphatic" then
+                    card.kablooied = true
+                end
+            end
+            return {
+                emult = 1.20 + (power*0.05),
+                echips = 1.20 + (power*0.05),
+                --sound = pick a sound
+            }
+        end
+    },
+    calculate = function (self, card, context)
+        if context.forcetrigger then
+            return {
+                xmult = card.ability.extra.xmult,
+                xchips = card.ability.extra.xchips,
+                remove = true
+            }
+        end
+
+        if context.individual and context.other_card == card and context.other_card == context.scoring_hand[#context.scoring_hand] then
+            card.kablooied = true
+
+            return {
+                --sound = pick a sound at random,
+                xmult = card.ability.extra.xmult,
+                xchips = card.ability.extra.xchips,
+            }
+        end
+
+        if context.destroy_card and context.destroy_card == card and card.kablooied then
+            return {
+                remove = true
+            }
+        end
+    end
+})

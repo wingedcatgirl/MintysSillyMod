@@ -20,7 +20,7 @@ SMODS.Enhancement({
     },
     valk_hand_buff = {
         title = "fB*&@@Pe%$3%%", --todo, dynatext this misprint style?
-        colour = HEX("3cb342"),
+        colour = SMODS.Gradients.minty_garbled_handbuff,
         scoring_func = function (power)
             local mult = pseudorandom(pseudoseed("minty_garbled_handbuff"), power, power * 100)
 

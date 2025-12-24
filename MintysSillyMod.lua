@@ -77,6 +77,7 @@ SMODS.ConsumableType{
 local files = {
     lib = {
         { name = "atlases" },
+        { name = "gradience" },
         { name = "functions" },
         { name = "hooks" },
         { name = "sounds" },
