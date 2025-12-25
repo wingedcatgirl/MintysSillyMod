@@ -21,9 +21,10 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
           if not (G and G.GAME) then return end
           if self.get_current_deck_key() ~= "b_minty_sillylittledeck" then return end
           local skey, scount = MINTY.sleeveunlockcheck()
-          if args and args.type == 'win_custom' and G.GAME.stake == scount then
+          if args and args.type == 'win_custom' and MINTY.at_least_stake(G.GAME.stake, skey) then
               G.PROFILES[G.SETTINGS.profile].mintysleeves[self.key] = skey
-              unlock_card(self)
+              --unlock_card(self)
+              return true
           end
         end,
         locked_loc_vars = function (self, info_queue, card)

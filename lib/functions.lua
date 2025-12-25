@@ -240,34 +240,32 @@ MINTY.sleeveunlockcheck = function(this, debug)
         end
     end
   local count = 1
-  local result = "stake_gold"
   for _, sleeve in ipairs(sleeves) do
     if G.P_CENTERS[sleeve] and G.P_CENTERS[sleeve].unlocked == true then
       count = count + 1
     end
   end
 
-  if debug then
-    MINTY.say(tprint(sleeves))
-  end
+  local stakes = {
+    "stake_minty_scarlet",
+    "stake_minty_irrigo",
+    "stake_minty_void",
+    "stake_minty_sky",
+    "stake_minty_mint",
+    "stake_minty_tungsten",
+    "stake_minty_catcat",
+  }
 
-  if count > G.P_STAKES.stake_gold.count then
-    count, result = G.P_STAKES.stake_gold.count, "stake_gold"
-  else
-    for key, stake in pairs(G.P_STAKES) do
-      if stake.count == count then
-        result = key
-      end
-    end
-  end
+  local result = stakes[count] or "stake_minty_catcat"
+  local index = G.P_STAKES[result].order
 
-  G.PROFILES[G.SETTINGS.profile].mintysleeves.key, G.PROFILES[G.SETTINGS.profile].mintysleeves.result = result, count
+  G.PROFILES[G.SETTINGS.profile].mintysleeves.key, G.PROFILES[G.SETTINGS.profile].mintysleeves.result = result, index
   if G.PROFILES[G.SETTINGS.profile].mintysleeves[this] then --put it in the settings?
     result = G.PROFILES[G.SETTINGS.profile].mintysleeves[this]
   end
 
   G:save_settings()
-  return result, count
+  return result, index
 end
 
 MINTY.rocklist = function ()
