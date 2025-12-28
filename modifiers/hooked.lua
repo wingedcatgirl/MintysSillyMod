@@ -12,12 +12,13 @@ SMODS.Sticker{
         Default = true,
         Enhanced = true
     },
+    rate = 0.3,
     should_apply = function (self, card, center, area, bypass_roll)
-        if G.GAME.modifiers.all_minty_hooked == "absolute" then return true end
+        if bypass_roll or G.GAME.modifiers.all_minty_hooked == "absolute" then return true end
         if not G.GAME.modifiers.enable_minty_hooked then return false end
         if self.sets[center.set] then
             if G.GAME.modifiers.all_minty_hooked then return true end
-            if bypass_roll or pseudorandom("minty_hooked") <= 0.3 then return true end
+            if pseudorandom("minty_hooked") <= self.rate then return true end
         end
         return false
     end,

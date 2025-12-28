@@ -208,7 +208,7 @@ SMODS.Stake{
     end,
     calculate = function (self, context)
         local center = (context.other_card and context.other_card.config and context.other_card.config.center) or {}
-        if context.setting_ability and (center.set == "Default" or center.set == "Enhanced") then
+        if (context.setting_ability and (center.set == "Default" or center.set == "Enhanced")) or context.change_rank or context.change_suit then
             MINTY.say("Modifying playing card...")
             if SMODS.Stickers.minty_hooked:should_apply(context.other_card, center, context.other_card.area) then
                 SMODS.Stickers.minty_hooked:apply(context.other_card, true)
