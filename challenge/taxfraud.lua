@@ -21,10 +21,9 @@ SMODS.Challenge{
         end, {blockable = false, blocking = false})
     end,
     calculate = function (self, context)
-        if G.GAME.round_resets.ante >= 4 and context.initial_scoring_step then
-            return {
-                mult = -G.GAME.dollars
-            }
+        if G.GAME.round_resets.ante >= 4 and not G.GAME.modifiers.taxfraud_active then
+            G.GAME.modifiers.taxfraud_active = true
+            G.GAME.modifiers.minty_taxation = (G.GAME.modifiers.minty_taxation or 0) + 1
         end
     end,
     unlocked = function (self)

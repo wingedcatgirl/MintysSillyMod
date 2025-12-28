@@ -689,6 +689,12 @@ SMODS.current_mod.calculate = function (self, context)
         G.GAME.banned_keys = G.GAME.real_banned_keys
         G.GAME.real_banned_keys = nil
     end
+
+    if (G.GAME.modifiers.minty_taxation and G.GAME.modifiers.minty_taxation ~= 0) and context.initial_scoring_step then
+        return {
+            mult = G.GAME.dollars * -G.GAME.modifiers.minty_taxation
+        }
+    end
 end
 
 
