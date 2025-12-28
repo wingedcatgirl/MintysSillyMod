@@ -61,10 +61,11 @@ SMODS.Booster{
                 G.GAME.real_banned_keys = nil
                 return true
             end, {blocking = false, blockable = false})
-        end
-        for k,v in pairs(G.P_CENTERS) do
-            if (v.original_mod or {}).id ~= card.ability.mod.id then
-                G.GAME.banned_keys[k] = true
+
+            for k,v in pairs(G.P_CENTERS) do
+                if (v.original_mod or {}).id ~= card.ability.mod.id then
+                    G.GAME.banned_keys[k] = true
+                end
             end
         end
 
@@ -139,10 +140,10 @@ SMODS.Booster{
                 G.GAME.real_banned_keys = nil
                 return true
             end, {blocking = false, blockable = false})
-        end
-        for k,v in pairs(G.P_CENTERS) do
-            if (v.original_mod or {}).id ~= card.ability.mod.id then
-                G.GAME.banned_keys[k] = true
+            for k,v in pairs(G.P_CENTERS) do
+                if (v.original_mod or {}).id ~= card.ability.mod.id then
+                    G.GAME.banned_keys[k] = true
+                end
             end
         end
 
@@ -217,10 +218,10 @@ SMODS.Booster{
                 G.GAME.real_banned_keys = nil
                 return true
             end, {blocking = false, blockable = false})
-        end
-        for k,v in pairs(G.P_CENTERS) do
-            if (v.original_mod or {}).id ~= card.ability.mod.id then
-                G.GAME.banned_keys[k] = true
+            for k,v in pairs(G.P_CENTERS) do
+                if (v.original_mod or {}).id ~= card.ability.mod.id then
+                    G.GAME.banned_keys[k] = true
+                end
             end
         end
 
@@ -295,10 +296,10 @@ SMODS.Booster{
                 G.GAME.real_banned_keys = nil
                 return true
             end, {blocking = false, blockable = false})
-        end
-        for k,v in pairs(G.P_CENTERS) do
-            if (v.original_mod or {}).id ~= card.ability.mod.id then
-                G.GAME.banned_keys[k] = true
+            for k,v in pairs(G.P_CENTERS) do
+                if (v.original_mod or {}).id ~= card.ability.mod.id then
+                    G.GAME.banned_keys[k] = true
+                end
             end
         end
 
