@@ -57,6 +57,20 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
+        if context.debuff_hand and (#context.full_hand ~= 4) then
+            local warning = localize("k_minty_cube")
+            local ge = ((G.GAME.blind.config or {}).blind or {}).debuff and (G.GAME.blind.config.blind.debuff.h_size_ge or 4 >= 5)
+            local le = ((G.GAME.blind.config or {}).blind or {}).debuff and (G.GAME.blind.config.blind.debuff.h_size_le or 4 <= 3)
+            if ge or le then
+                warning = localize("k_minty_psycube")
+            end
+            return {
+                debuff = true,
+                debuff_text = warning,
+                debuff_source = card
+            }
+        end
+
         if (context.joker_main and context.scoring_hand) or context.forcetrigger then
             return {
                 xmult = card.ability.extra.Xmult
