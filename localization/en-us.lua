@@ -1,3 +1,5 @@
+local chdp = (SMODS.Mods["ChDp"] or {}).can_load
+
 return {
 	["misc"] = {
 		["dictionary"] = {
@@ -48,6 +50,7 @@ return {
 			["a_minty_chipgain"] = "+#1# Chips",
 			["a_minty_multandchips"] = "+#1# Mult, +#2# Chips",
 			["a_minty_chipsandmult"] = "+#1# Chips, +#2# Mult",
+			["v_minty_blackjack"] = "Hand must total #1# (is #2#)"
 		},
 		["v_text"] = {
 			["ch_c_all_minty_counterfeit"] = {
@@ -59,6 +62,12 @@ return {
 			["ch_c_minty_showman"] = {
 				"{C:attention}#1#{} can appear multiple times"
 			},
+			["ch_c_minty_blackjack"] = {
+				"Scored hand must add up to {C:attention}#1#{}",
+			},
+			["ch_c_minty_blackjack2"] = {
+				"{C:inactive,s:0.8}(Face cards are 10; Aces are 11 or 1)",
+			}
 		},
 		["suits_plural"] = {
 			["minty_3s"] = "3s",

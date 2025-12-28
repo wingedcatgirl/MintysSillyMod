@@ -90,28 +90,3 @@ SMODS.Joker {
         end
     end,
 }
-
-local forbidden = false
-local debuff_hand_ref = Blind.debuff_hand
-
-function Blind:debuff_hand(cards, hand, handname, check)
-	if next(SMODS.find_card('j_minty_cube')) then
-		if #cards ~= 4 then
-			forbidden = true
-            return true
-		end
-		forbidden = false
-	end
-	return debuff_hand_ref(self, cards, hand, handname, check)
-end
-
-local get_loc_debuff_textref = Blind.get_loc_debuff_text
-function Blind:get_loc_debuff_text()
-	if forbidden then
-        if (G.GAME.blind.config.blind.debuff ~= {}) and (G.GAME.blind.config.blind.debuff.h_size_ge and G.GAME.blind.config.blind.debuff.h_size_ge >= 5) or (G.GAME.blind.config.blind.debuff.h_size_le and G.GAME.blind.config.blind.debuff.h_size_le <= 3) then
-		    return localize("k_minty_psycube")
-        end
-		return localize("k_minty_cube")
-	end
-	return get_loc_debuff_textref(self)
-end
