@@ -50,7 +50,9 @@ return {
 			["a_minty_chipgain"] = "+#1# Chips",
 			["a_minty_multandchips"] = "+#1# Mult, +#2# Chips",
 			["a_minty_chipsandmult"] = "+#1# Chips, +#2# Mult",
-			["v_minty_blackjack"] = "Hand must total #1# (is #2#)"
+			["v_minty_blackjack"] = "Hand must total #1# (is #2#)",
+			["v_minty_forbidden_hand"] = "Hands containing #1# are forbidden",
+			["v_minty_not_permitted_hand"] = "#1# is not a permitted hand (see challenge info)",
 		},
 		["v_text"] = {
 			["ch_c_all_minty_counterfeit"] = {
@@ -67,7 +69,13 @@ return {
 			},
 			["ch_c_minty_blackjack2"] = {
 				"{C:inactive,s:0.8}(Face cards are 10; Aces are 11 or 1)",
-			}
+			},
+			["ch_c_minty_must_hand"] = {
+				"Only {C:attention}#1#{} hands are allowed"
+			},
+			["ch_c_minty_banned_hand"] = {
+				"Hands containing {C:attention}#1#{} are forbidden"
+			},
 		},
 		["suits_plural"] = {
 			["minty_3s"] = "3s",
@@ -113,6 +121,7 @@ return {
 			["minty_Handful"] = "Handful of Rocks",
 			["minty_flush_handful"] = "Handful of Rock",
 			["minty_spec_handful"] = "Conglomerate",
+			["minty_spectrum"] = "Spectrum" --dummy hand name for deadly back alleys
 		},
 		["poker_hand_descriptions"] = {
 			["minty_Handful"] = {

@@ -1,21 +1,18 @@
-if not (SMODS.Mods["ChDp"] or {}).can_load then
-    return nil
+local spectrum = false
+for k,v in pairs(SMODS.PokerHands) do
+	if string.find(k, "Spectrum") then
+		spectrum = true
+		break
+	end
 end
-
-local wlbuncspec = next(SMODS.find_mod('Bunco')) and {id = 'whitelist_hand', value = 'Straight Spectrum', hand = 'bunc_Straight Spectrum'} or nil
-local wlpapspec = next(SMODS.find_mod('paperback')) and SMODS.Mods.paperback.config.suits_enabled and {id = 'whitelist_hand', value = 'Straight Spectrum', hand = 'paperback_Straight Spectrum'} or nil
-local wlspecspec = next(SMODS.find_mod('SpectrumFramework')) and {id = 'whitelist_hand', value = 'Straight Spectrum', hand = 'spectrum_Straight Spectrum'} or nil
-local wlsixspec = next(SMODS.find_mod('SixSuits')) and {id = 'whitelist_hand', value = 'Straight Spectrum', hand = 'six_Straight Spectrum'} or nil
-local wlspec = wlspecspec or wlbuncspec or wlsixspec or wlpapspec or nil
 
 SMODS.Challenge({
 	key = "backalley",
     button_colour = HEX("CA7CA7"),
 	rules = {
 		custom = {
-			{ id = "whitelist_hand", value = "Straight Flush", hand = "Straight Flush"},
-			wlspec or { id = "whitelist_info" },
-			wlspec and { id = "whitelist_info" },
+			{ id = "minty_must_hand", value = "Straight Flush"},
+			spectrum and { id = "minty_must_hand", value = "Straight Spectrum"} or nil,
 		},
 	},
 	jokers = {
@@ -25,29 +22,38 @@ SMODS.Challenge({
 	},
 	unlocked = function()
 		return true
+	end,
+	calculate = function (self, context)
+		if context.debuff_hand then
+			local straight = false
+			local specorflush = false
+			for k,v in pairs(context.poker_hands) do
+				if next(v or {}) and string.find(k, "Straight") then
+					straight = true
+				elseif next(v or {}) and (string.find(k, "Flush") or string.find(k, "Spectrum")) then
+					specorflush = true
+				end
+				if straight and specorflush then return end
+			end
+
+			if not (straight and specorflush) then
+				return {
+					debuff = true,
+					debuff_text = localize{type = "variable", key = "v_minty_not_permitted_hand", vars = {context.scoring_name}}
+				}
+			end
+		end
 	end
 })
-
-local blbuncspec = next(SMODS.find_mod('Bunco')) and { id = "disable_hand_containing", value = "Spectrum", hand = "bunc_Spectrum" } or nil
-local blpapspec = next(SMODS.find_mod('paperback')) and { id = "disable_hand_containing", value = "Spectrum", hand = "paperback_Spectrum" } or nil
-local blspecspec = next(SMODS.find_mod('SpectrumFramework')) and { id = "disable_hand_containing", value = "Spectrum", hand = "spectrum_Spectrum" } or nil
-local blsixspec = next(SMODS.find_mod('SixSuits')) and { id = "disable_hand_containing", value = "Spectrum", hand = "six_Spectrum" } or nil
-local blspec = blspecspec or blbuncspec or blsixspec or blpapspec or nil
-
---[[ 
-if (SMODS.Mods["SpectrumFramework"] or {}).can_load and (SMODS.Mods["SpectrumFramework"] or {}).version == "0.4.1" then
-	blspec = blbuncspec or blpapspec or blspecspec or blsixspec or nil
-end
-]]
 
 SMODS.Challenge({
 	key = "evilbackalley",
     button_colour = HEX("CA7CA7"),
 	rules = {
 		custom = {
-			{ id = "disable_hand_containing", value = "Straight", hand = "Straight" },
-			{ id = "disable_hand_containing", value = "Flush", hand = "Flush" },
-			blspec
+			{id = "minty_banned_hand", value = "Straight"},
+			{id = "minty_banned_hand", value = "Flush"},
+			spectrum and {id = "minty_banned_hand", value = "Spectrum"} or nil,
 		},
 	},
 	jokers = {
@@ -57,5 +63,29 @@ SMODS.Challenge({
 	},
 	unlocked = function()
 		return G.PROFILES[G.SETTINGS.profile].challenge_progress.completed["c_minty_backalley"]
+	end,
+	calculate = function (self, context)
+		if context.debuff_hand then
+			local banned = false
+			local name
+			for k,v in pairs(context.poker_hands) do
+				if next(v or {}) and string.find(k, "Straight") then
+					banned = true
+					name = localize("Straight", "poker_hands")
+				elseif next(v or {}) and string.find(k, "Flush") then
+					banned = true
+					name = localize("Flush", "poker_hands")
+				elseif next(v or {}) and string.find(k, "Spectrum") then
+					banned = true
+					name = localize("minty_spectrum", "poker_hands")
+				end
+				if banned then
+					return {
+						debuff = true,
+						debuff_text = localize{type = "variable", key = "v_minty_forbidden_hand", vars = {name}}
+					}
+				end
+			end
+		end
 	end
 })
