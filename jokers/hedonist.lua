@@ -2,14 +2,10 @@ SMODS.Joker {
     key = "hedonist",
     name = "Hedonist Joker",
     pronouns = "he_any",
-    atlas = 'jokerdoodles',
+    atlas = 'jokers',
     pos = {
-        x = 0,
+        x = 2,
         y = 0
-    },
-    soul_pos = {
-        x = 1,
-        y = 3
     },
     rarity = 1,
     cost = 3,
