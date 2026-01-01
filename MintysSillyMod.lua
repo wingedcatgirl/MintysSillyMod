@@ -129,6 +129,7 @@ local files = {
         { name = "contraption" },
         { name = "fatcat-l" }, --Literal (Tubbs)
         { name = "fatcat-m" }, --Metaphorical (Jeff Bezos catgirl)
+        { name = "hamburger" },
         { name = "nucleation" },
         { name = "treatovision" },
         { name = "obsession" },

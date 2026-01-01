@@ -1593,6 +1593,22 @@ return {
 					"{C:inactive,s:0.8}I always feel like, somebody's watching me..."
 				},
 			},
+			["j_minty_hamburger"] = {
+				["name"] = "Delicious Hamburger",
+				["text"] = {
+					"{C:chips}+#1#{} hands",
+					"{C:attention}-1{} per round"
+				},
+			},
+			["j_minty_hamburger_flavor"] = {
+				["name"] = "Delicious Hamburger",
+				["text"] = {
+					"{C:chips}+#1#{} hands",
+					"{C:attention}-1{} per round",
+					" ",
+					"{C:inactive,s:0.8}Girls will literally eat it"
+				},
+			},
 			--HEY FUTURE MINTY, PUT NEW JOKERS ⬆️HERE⬆️ :P 
 			["j_minty_template"] = {
 				["name"] = "Joker Template",
