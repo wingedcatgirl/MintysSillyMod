@@ -26,9 +26,9 @@ elseif v.boss.showdown and (G.GAME.round_resets.ante)%G.GAME.win_ante == 0 and G
 position = 'at'
 match_indent = true
 payload = '''
-elseif not v.boss.showdown and not showdown_ante then
+elseif not v.boss.showdown and not showdown_ante and not (v.boss.min and v.boss.min > G.GAME.round_resets.ante) and not (v.boss.max and v.boss.max < G.GAME.round_resets.ante) then
     eligible_bosses[k] = res and true or nil
-elseif v.boss.showdown and showdown_ante then
+elseif v.boss.showdown and showdown_ante and not (v.boss.min and v.boss.min > G.GAME.round_resets.ante) and not (v.boss.max and v.boss.max < G.GAME.round_resets.ante) then
     eligible_bosses[k] = res and true or nil
 '''
 
