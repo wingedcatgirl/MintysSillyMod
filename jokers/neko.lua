@@ -65,6 +65,11 @@ SMODS.Joker {
         end
     end,
     update = function (self, card, dt)
+        local succ,vis = pcall(function ()return card.states.visible end)
+        if not (succ and vis) then
+            MINTY.say("neko's update is being called when it is not visible, probably bad?", "WARN ")
+            return
+        end
         local area = card.area
         if G.your_collection then
             for k, v in pairs(G.your_collection) do
@@ -214,6 +219,11 @@ SMODS.Joker {
         if card.ability.extra.lastsprite ~= {card.ability.extra.state, jokerref.soul_pos.y} then
             card.ability.extra.lastsprite = {card.ability.extra.state, jokerref.soul_pos.y}
             card:set_sprites(jokerref)
+        end
+
+        if not joker_slot then
+            MINTY.say("neko's update is being called when it's not in an area, send your mod list so i can figure out why", "WARN ")
+            return
         end
 
         if card.ability.extra.motion.duration >= 5 and lastdir ~= "none" then --it's been running long enough
