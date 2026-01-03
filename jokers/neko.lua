@@ -216,7 +216,7 @@ SMODS.Joker {
             card:set_sprites(jokerref)
         end
 
-        if card.ability.extra.motion.duration >= 5 and lastdir ~= "none" then --it's been running long enough
+        if card.ability.extra.motion.duration >= 5 and lastdir ~= "none" and pcall(assert, joker_slot) then --it's been running long enough
             card.ability.extra.motion.duration = 0
             if not leftmost and lastdir == "left" then
                 area.cards[joker_slot-1], area.cards[joker_slot] = area.cards[joker_slot], area.cards[joker_slot-1]
