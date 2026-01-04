@@ -47,3 +47,23 @@ get_blind_amount = function (ante)
     end
     return amt
 end
+
+local colour = loc_colour
+loc_colour = function (_c, _default)
+    if not G.ARGS.LOC_COLOURS then
+        colour(_c, _default)
+    end
+
+    if not G.ARGS.LOC_COLOURS.stake_minty_scarlet then
+        G.ARGS.LOC_COLOURS.stake_minty_scarlet = HEX("ff0537")
+        G.ARGS.LOC_COLOURS.stake_minty_irrigo = HEX("cb0dff")
+        G.ARGS.LOC_COLOURS.stake_minty_void = HEX("001417")
+        G.ARGS.LOC_COLOURS.stake_minty_sky = HEX("00c7ff")
+        G.ARGS.LOC_COLOURS.stake_minty_mint = HEX("00a156")
+        G.ARGS.LOC_COLOURS.stake_minty_tungsten = HEX("667072")
+        G.ARGS.LOC_COLOURS.stake_minty_catcat = HEX("CA7CA7")
+        G.ARGS.LOC_COLOURS.stake_minty_rose_gold = HEX("ffb2a0")
+    end
+
+    return colour(_c, _default)
+end

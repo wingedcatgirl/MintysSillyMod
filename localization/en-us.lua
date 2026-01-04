@@ -1677,7 +1677,9 @@ return {
 					"Blind size is {C:attention}square-root{}'d"
 				},
 				["unlock"] = {
-					"somethin"
+					"Win a run with any deck",
+					"on at least",
+					"{C:stake_minty_sky}Sky Stake{} difficulty"
 				}
 			},
 			["b_minty_hearts"] = {
