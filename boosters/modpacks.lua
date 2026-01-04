@@ -57,7 +57,7 @@ SMODS.Booster{
             G.GAME.real_banned_keys = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
                 if G.pack_cards then return false end
-                G.GAME.banned_keys = G.GAME.real_banned_keys
+                G.GAME.banned_keys = G.GAME.real_banned_keys or {}
                 G.GAME.real_banned_keys = nil
                 return true
             end, {blocking = false, blockable = false})
@@ -136,7 +136,7 @@ SMODS.Booster{
             G.GAME.real_banned_keys = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
                 if G.pack_cards then return false end
-                G.GAME.banned_keys = G.GAME.real_banned_keys
+                G.GAME.banned_keys = G.GAME.real_banned_keys or {}
                 G.GAME.real_banned_keys = nil
                 return true
             end, {blocking = false, blockable = false})
@@ -214,7 +214,7 @@ SMODS.Booster{
             G.GAME.real_banned_keys = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
                 if G.pack_cards then return false end
-                G.GAME.banned_keys = G.GAME.real_banned_keys
+                G.GAME.banned_keys = G.GAME.real_banned_keys or {}
                 G.GAME.real_banned_keys = nil
                 return true
             end, {blocking = false, blockable = false})
@@ -292,7 +292,7 @@ SMODS.Booster{
             G.GAME.real_banned_keys = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
                 if G.pack_cards then return false end
-                G.GAME.banned_keys = G.GAME.real_banned_keys
+                G.GAME.banned_keys = G.GAME.real_banned_keys or {}
                 G.GAME.real_banned_keys = nil
                 return true
             end, {blocking = false, blockable = false})
