@@ -242,6 +242,7 @@ local files = {
         --{ name = "heart" },   -- Yeah, you can bring them back if you really want to. Don't recommend it, but you can!
         --{ name = "spade" },   --
         --{ name = "3" },       --
+        { name = "plasmaathome" },
         { name = "suitfocus" },
         { name = "drippy" },
         { name = "silly" },

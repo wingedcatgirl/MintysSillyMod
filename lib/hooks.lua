@@ -38,3 +38,12 @@ SMODS.showman = function (key)
     if G.GAME.modifiers["minty_infinite_"..key] then return true end
     return showman(key)
 end
+
+local gba = get_blind_amount
+get_blind_amount = function (ante)
+    local amt = gba(ante)
+    if G.GAME.blind_size_exponent then
+        amt = amt^G.GAME.blind_size_exponent
+    end
+    return amt
+end

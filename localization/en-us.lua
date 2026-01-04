@@ -1670,6 +1670,16 @@ return {
 					"#3# {V:3}arcana{}."
 				},
 			},
+			["b_minty_plasmaathome"] = {
+				["name"] = "We Have Plasma Deck At Home",
+				["text"] = {
+					"Score by Chips {C:attention}plus{} Mult",
+					"Blind size is {C:attention}square-root{}'d"
+				},
+				["unlock"] = {
+					"somethin"
+				}
+			},
 			["b_minty_hearts"] = {
 				["name"] = "Deck of the Heart",
 				["text"] = {
