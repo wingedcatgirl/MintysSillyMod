@@ -351,9 +351,17 @@ MINTY.lastmoment = function ()
                 else
                     MINTY.packable_mods[v.original_mod.id].count = MINTY.packable_mods[v.original_mod.id].count + 1
                 end
-                MINTY.modbag[#MINTY.modbag+1] = v.original_mod.id
             else
                 MINTY.vjokers[#MINTY.vjokers+1] = k
+            end
+        end
+    end
+    for k,v in pairs(copy_table(MINTY.packable_mods)) do
+        if v.count < 6 then
+            MINTY.packable_mods[k] = nil
+        else
+            for _=1,math.ceil(math.log(v.count, 7)) do
+                MINTY.modbag[#MINTY.modbag+1] = k
             end
         end
     end

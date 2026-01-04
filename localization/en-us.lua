@@ -25,6 +25,7 @@ return {
 			["k_minty_confiscated"] = "Confiscated!",
 			["k_minty_crystal"] = "Crystal!",
 			["k_minty_random_mod"] = "a random mod",
+			["k_mod_singular"] = "Mod",
 			["k_minty_first_suit"] = "first played suit",
 			["k_minty_no_suit"] = "no suit",
 			["k_minty_all_suits"] = "all suit",

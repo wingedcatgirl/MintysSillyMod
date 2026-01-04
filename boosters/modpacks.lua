@@ -11,19 +11,20 @@ SMODS.Booster{
         extra = 2,
         choose = 1,
         mod = {
-            shortname = "Mod",
-            name = "a random mod"
+            shortname = localize("k_mod_singular"),
+            name = localize("k_minty_random_mod"),
         }
     },
     cost = 5,
     weight = 1,
     set_ability = function (self, card, initial, delay_sprites)
-        if card.ability.mod.shortname == "Mod" then
-            local _ = {}
-            while (_.count or 0) < self.config.extra do
-                _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+        if card.ability.mod.shortname == (localize("k_mod_singular") or "ERROR") then
+            local mod = {}
+            while (mod.count or 0) < self.config.extra do
+                local id = pseudorandom_element(MINTY.modbag, "minty_modpack_gen")
+                mod = copy_table(MINTY.packable_mods[id])
             end
-            local mod = copy_table(_)
+            
             card.ability.mod = mod
         end
     end,
@@ -31,7 +32,7 @@ SMODS.Booster{
         local mod = card.ability.mod
         if MINTY.in_collection(card) then
             mod = {
-                shortname = "Mod", --TODO localizify this??
+                shortname = localize("k_mod_singular"),
                 name = localize("k_minty_random_mod"),
                 colour = G.C.FILTER
             }
@@ -90,19 +91,20 @@ SMODS.Booster{
         extra = 2,
         choose = 1,
         mod = {
-            shortname = "Mod",
-            name = "a random mod"
+            shortname = localize("k_mod_singular"),
+            name = localize("k_minty_random_mod"),
         }
     },
     cost = 5,
     weight = 1,
     set_ability = function (self, card, initial, delay_sprites)
-        if card.ability.mod.shortname == "Mod" then
-            local _ = {}
-            while (_.count or 0) < self.config.extra do
-                _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+        if card.ability.mod.shortname == (localize("k_mod_singular") or "ERROR") then
+            local mod = {}
+            while (mod.count or 0) < self.config.extra do
+                local id = pseudorandom_element(MINTY.modbag, "minty_modpack_gen")
+                mod = copy_table(MINTY.packable_mods[id])
             end
-            local mod = copy_table(_)
+            
             card.ability.mod = mod
         end
     end,
@@ -110,8 +112,8 @@ SMODS.Booster{
         local mod = card.ability.mod
         if MINTY.in_collection(card) then
             mod = {
-                shortname = "Mod",
-                name = "a random mod",
+                shortname = localize("k_mod_singular"),
+                name = localize("k_minty_random_mod"),
                 colour = G.C.FILTER
             }
         end
@@ -168,19 +170,20 @@ SMODS.Booster{
         extra = 4,
         choose = 1,
         mod = {
-            shortname = "Mod",
-            name = "a random mod"
+            shortname = localize("k_mod_singular"),
+            name = localize("k_minty_random_mod"),
         }
     },
     cost = 7,
     weight = 0.5,
     set_ability = function (self, card, initial, delay_sprites)
-        if card.ability.mod.shortname == "Mod" then
-            local _ = {}
-            while (_.count or 0) < self.config.extra do
-                _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+        if card.ability.mod.shortname == (localize("k_mod_singular") or "ERROR") then
+            local mod = {}
+            while (mod.count or 0) < self.config.extra do
+                local id = pseudorandom_element(MINTY.modbag, "minty_modpack_gen")
+                mod = copy_table(MINTY.packable_mods[id])
             end
-            local mod = copy_table(_)
+            
             card.ability.mod = mod
         end
     end,
@@ -188,8 +191,8 @@ SMODS.Booster{
         local mod = card.ability.mod
         if MINTY.in_collection(card) then
             mod = {
-                shortname = "Mod",
-                name = "a random mod",
+                shortname = localize("k_mod_singular"),
+                name = localize("k_minty_random_mod"),
                 colour = G.C.FILTER
             }
         end
@@ -246,19 +249,20 @@ SMODS.Booster{
         extra = 4,
         choose = 2,
         mod = {
-            shortname = "Mod",
-            name = "a random mod"
+            shortname = localize("k_mod_singular"),
+            name = localize("k_minty_random_mod"),
         }
     },
     cost = 9,
     weight = 0.125,
     set_ability = function (self, card, initial, delay_sprites)
-        if card.ability.mod.shortname == "Mod" then
-            local _ = {}
-            while (_.count or 0) < self.config.extra do
-                _ = pseudorandom_element(MINTY.packable_mods, "minty_modpack_gen")
+        if card.ability.mod.shortname == (localize("k_mod_singular") or "ERROR") then
+            local mod = {}
+            while (mod.count or 0) < self.config.extra do
+                local id = pseudorandom_element(MINTY.modbag, "minty_modpack_gen")
+                mod = copy_table(MINTY.packable_mods[id])
             end
-            local mod = copy_table(_)
+            
             card.ability.mod = mod
         end
     end,
@@ -266,8 +270,8 @@ SMODS.Booster{
         local mod = card.ability.mod
         if MINTY.in_collection(card) then
             mod = {
-                shortname = "Mod",
-                name = "a random mod",
+                shortname = localize("k_mod_singular"),
+                name = localize("k_minty_random_mod"),
                 colour = G.C.FILTER
             }
         end
