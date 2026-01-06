@@ -2,13 +2,9 @@ SMODS.Joker {
     key = "flexweirdo",
     name = "Joker Who Constantly Makes Cracks About How Good Someone Must Be In Bed If They Stretch A Slightly Unusual Distance (Like Come On Man They're Not Even A Contortionist That's Just Normal Human Variation)", --or JWCMCAHGSMBIBITSASUD for short.
     pronouns = "he_him",
-    atlas = 'jokerdoodles', --TODO art
+    atlas = 'jokers',
     pos = {
-        x = 0,
-        y = 0
-    },
-    soul_pos = {
-        x = 1,
+        x = 3,
         y = 0
     },
     rarity = 1,

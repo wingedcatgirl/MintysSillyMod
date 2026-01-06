@@ -79,13 +79,13 @@ SMODS.Back{
         }
     end,
     calculate = function (self, back, context)
-        if context.before and context.full_hand and not G.GAME.minty_focussuit then
-            if SMODS.has_no_suit(context.full_hand[1]) then
+        if context.scoring_hand and context.scoring_hand[1] and not G.GAME.minty_focussuit then
+            if SMODS.has_no_suit(context.scoring_hand[1]) then
                 G.GAME.minty_focussuit = "suitless"
-            elseif SMODS.has_any_suit(context.full_hand[1]) then
+            elseif SMODS.has_any_suit(context.scoring_hand[1]) then
                 G.GAME.minty_focussuit = "all-suit"
             else
-                G.GAME.minty_focussuit = context.full_hand[1].base.suit
+                G.GAME.minty_focussuit = context.scoring_hand[1].base.suit
             end
         end
     end,
