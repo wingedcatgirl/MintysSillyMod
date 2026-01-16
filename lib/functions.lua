@@ -659,6 +659,7 @@ SMODS.current_mod.set_debuff = function (card)
   if
     card.seal == "minty_cement"
     or SMODS.has_enhancement(card, "m_minty_marble")
+    or (card.ability or {}).dekaja == G.GAME.round
   then
      return "prevent_debuff"
   end
