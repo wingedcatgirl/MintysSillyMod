@@ -18,7 +18,7 @@ SMODS.Booster{
     cost = 5,
     weight = 1,
     set_ability = function (self, card, initial, delay_sprites)
-        if card.ability.mod.shortname == (localize("k_mod_singular") or "ERROR") then
+        if (card.ability.mod.shortname == localize("k_mod_singular") or card.ability.mod.shortname == "ERROR") then
             local mod = {}
             while (mod.count or 0) < self.config.extra do
                 local id = pseudorandom_element(MINTY.modbag, "minty_modpack_gen")
@@ -98,7 +98,7 @@ SMODS.Booster{
     cost = 5,
     weight = 1,
     set_ability = function (self, card, initial, delay_sprites)
-        if card.ability.mod.shortname == (localize("k_mod_singular") or "ERROR") then
+        if (card.ability.mod.shortname == localize("k_mod_singular") or card.ability.mod.shortname == "ERROR") then
             local mod = {}
             while (mod.count or 0) < self.config.extra do
                 local id = pseudorandom_element(MINTY.modbag, "minty_modpack_gen")
@@ -177,7 +177,7 @@ SMODS.Booster{
     cost = 7,
     weight = 0.5,
     set_ability = function (self, card, initial, delay_sprites)
-        if card.ability.mod.shortname == (localize("k_mod_singular") or "ERROR") then
+        if (card.ability.mod.shortname == localize("k_mod_singular") or card.ability.mod.shortname == "ERROR") then
             local mod = {}
             while (mod.count or 0) < self.config.extra do
                 local id = pseudorandom_element(MINTY.modbag, "minty_modpack_gen")
@@ -256,7 +256,7 @@ SMODS.Booster{
     cost = 9,
     weight = 0.125,
     set_ability = function (self, card, initial, delay_sprites)
-        if card.ability.mod.shortname == (localize("k_mod_singular") or "ERROR") then
+        if (card.ability.mod.shortname == localize("k_mod_singular") or card.ability.mod.shortname == "ERROR") then
             local mod = {}
             while (mod.count or 0) < self.config.extra do
                 local id = pseudorandom_element(MINTY.modbag, "minty_modpack_gen")
