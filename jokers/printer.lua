@@ -38,9 +38,10 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if (context.first_hand_drawn or context.forcetrigger) and not card.getting_sliced then
+            local printed
             G.E_MANAGER:add_event(Event({
                 func = function()
-                    SMODS.add_card{
+                    printed = SMODS.add_card{
                         set = 'Enhanced',
                         area = G.play,
                         key_append = "minty_printer"
@@ -54,9 +55,9 @@ SMODS.Joker {
                     G.deck.config.card_limit = G.deck.config.card_limit + 1
                     return true
                 end}))
-            draw_card(G.play,G.hand, 90,'up', nil)
+            draw_card(G.play,G.hand, 90,'up', nil, printed)
 
-            playing_card_joker_effects({true})
+            playing_card_joker_effects({printed})
         end
     end
 }
