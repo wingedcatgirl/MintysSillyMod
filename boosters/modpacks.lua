@@ -24,7 +24,7 @@ SMODS.Booster{
                 local id = pseudorandom_element(MINTY.modbag, "minty_modpack_gen")
                 mod = copy_table(MINTY.packable_mods[id])
             end
-            
+
             card.ability.mod = mod
         end
     end,
@@ -104,7 +104,7 @@ SMODS.Booster{
                 local id = pseudorandom_element(MINTY.modbag, "minty_modpack_gen")
                 mod = copy_table(MINTY.packable_mods[id])
             end
-            
+
             card.ability.mod = mod
         end
     end,
@@ -183,7 +183,7 @@ SMODS.Booster{
                 local id = pseudorandom_element(MINTY.modbag, "minty_modpack_gen")
                 mod = copy_table(MINTY.packable_mods[id])
             end
-            
+
             card.ability.mod = mod
         end
     end,
@@ -262,7 +262,7 @@ SMODS.Booster{
                 local id = pseudorandom_element(MINTY.modbag, "minty_modpack_gen")
                 mod = copy_table(MINTY.packable_mods[id])
             end
-            
+
             card.ability.mod = mod
         end
     end,
