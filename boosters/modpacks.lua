@@ -57,11 +57,11 @@ SMODS.Booster{
         if i==1 then
             G.GAME.real_banned_keys = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
-                if G.pack_cards then return false end
+                if (G.pack_cards and G.pack_cards.cards) then return false end
                 G.GAME.banned_keys = G.GAME.real_banned_keys or {}
                 G.GAME.real_banned_keys = nil
                 return true
-            end, {blocking = false, blockable = false})
+            end, {blocking = false, blockable = false, delay = 0.2})
 
             for k,v in pairs(G.P_CENTERS) do
                 if (v.original_mod or {}).id ~= card.ability.mod.id then
@@ -137,11 +137,11 @@ SMODS.Booster{
         if i==1 then
             G.GAME.real_banned_keys = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
-                if G.pack_cards then return false end
+                if (G.pack_cards and G.pack_cards.cards) then return false end
                 G.GAME.banned_keys = G.GAME.real_banned_keys or {}
                 G.GAME.real_banned_keys = nil
                 return true
-            end, {blocking = false, blockable = false})
+            end, {blocking = false, blockable = false, delay = 0.2})
             for k,v in pairs(G.P_CENTERS) do
                 if (v.original_mod or {}).id ~= card.ability.mod.id then
                     G.GAME.banned_keys[k] = true
@@ -216,11 +216,11 @@ SMODS.Booster{
         if i==1 then
             G.GAME.real_banned_keys = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
-                if G.pack_cards then return false end
+                if (G.pack_cards and G.pack_cards.cards) then return false end
                 G.GAME.banned_keys = G.GAME.real_banned_keys or {}
                 G.GAME.real_banned_keys = nil
                 return true
-            end, {blocking = false, blockable = false})
+            end, {blocking = false, blockable = false, delay = 0.2})
             for k,v in pairs(G.P_CENTERS) do
                 if (v.original_mod or {}).id ~= card.ability.mod.id then
                     G.GAME.banned_keys[k] = true
@@ -295,11 +295,11 @@ SMODS.Booster{
         if i==1 then
             G.GAME.real_banned_keys = copy_table(G.GAME.banned_keys or {})
             MINTY.event(function ()
-                if G.pack_cards then return false end
+                if (G.pack_cards and G.pack_cards.cards) then return false end
                 G.GAME.banned_keys = G.GAME.real_banned_keys or {}
                 G.GAME.real_banned_keys = nil
                 return true
-            end, {blocking = false, blockable = false})
+            end, {blocking = false, blockable = false, delay = 0.2})
             for k,v in pairs(G.P_CENTERS) do
                 if (v.original_mod or {}).id ~= card.ability.mod.id then
                     G.GAME.banned_keys[k] = true
