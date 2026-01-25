@@ -39,8 +39,8 @@ SMODS.Booster{
         return {
             key = "p_minty_everycard_normal",
             vars = {
-                card.ability.choose,
-                card.ability.extra,
+                card.ability.choose + (G.GAME.modifiers.booster_choice_mod or 0),
+                card.ability.extra + (G.GAME.modifiers.booster_size_mod or 0),
             }
         }
     end,
@@ -132,8 +132,8 @@ SMODS.Booster{
         return {
             key = "p_minty_everycard_normal",
             vars = {
-                card.ability.choose,
-                card.ability.extra,
+                card.ability.choose + (G.GAME.modifiers.booster_choice_mod or 0),
+                card.ability.extra + (G.GAME.modifiers.booster_size_mod or 0),
             }
         }
     end,
@@ -225,8 +225,8 @@ SMODS.Booster{
         return {
             key = "p_minty_everycard_jumbo",
             vars = {
-                card.ability.choose,
-                card.ability.extra,
+                card.ability.choose + (G.GAME.modifiers.booster_choice_mod or 0),
+                card.ability.extra + (G.GAME.modifiers.booster_size_mod or 0),
             }
         }
     end,
@@ -318,8 +318,8 @@ SMODS.Booster{
         return {
             key = "p_minty_everycard_mega",
             vars = {
-                card.ability.choose,
-                card.ability.extra,
+                card.ability.choose + (G.GAME.modifiers.booster_choice_mod or 0),
+                card.ability.extra + (G.GAME.modifiers.booster_size_mod or 0),
             }
         }
     end,

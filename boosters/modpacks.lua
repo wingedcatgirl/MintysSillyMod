@@ -42,8 +42,8 @@ SMODS.Booster{
             vars = {
                 mod.shortname,
                 mod.name,
-                card.ability.choose,
-                card.ability.extra,
+                card.ability.choose + (G.GAME.modifiers.booster_choice_mod or 0),
+                card.ability.extra + (G.GAME.modifiers.booster_size_mod or 0),
                 colours = {
                     mod.colour
                 }
@@ -122,8 +122,8 @@ SMODS.Booster{
             vars = {
                 mod.shortname,
                 mod.name,
-                card.ability.choose,
-                card.ability.extra,
+                card.ability.choose + (G.GAME.modifiers.booster_choice_mod or 0),
+                card.ability.extra + (G.GAME.modifiers.booster_size_mod or 0),
                 colours = {
                     mod.colour
                 }
@@ -201,8 +201,8 @@ SMODS.Booster{
             vars = {
                 mod.shortname,
                 mod.name,
-                card.ability.choose,
-                card.ability.extra,
+                card.ability.choose + (G.GAME.modifiers.booster_choice_mod or 0),
+                card.ability.extra + (G.GAME.modifiers.booster_size_mod or 0),
                 colours = {
                     mod.colour
                 }
@@ -280,8 +280,8 @@ SMODS.Booster{
             vars = {
                 mod.shortname,
                 mod.name,
-                card.ability.choose,
-                card.ability.extra,
+                card.ability.choose + (G.GAME.modifiers.booster_choice_mod or 0),
+                card.ability.extra + (G.GAME.modifiers.booster_size_mod or 0),
                 colours = {
                     mod.colour
                 }
