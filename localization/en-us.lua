@@ -111,12 +111,14 @@ return {
 			["ach_minty_lefterstakes"] = "Stakes rather more to the left",
 			["ach_minty_lefteststakes"] = "Stakes lefter than Marx himself",
 			["ach_minty_conqueror_of_hell"] = "Conqueror of Hell",
+			["ach_minty_template"] = "Template",
 		},
 		["achievement_descriptions"] = {
 			["ach_minty_leftstakes"] = "Win on at least Scarlet Stake",
 			["ach_minty_lefterstakes"] = "Win on at least Void Stake",
 			["ach_minty_lefteststakes"] = "Win on at least #CA7CA7 Stake",
 			["ach_minty_conqueror_of_hell"] = "Win on at least Rose Gold Stake (How?!)",
+			["ach_minty_template"] = "Achievement",
 		},
 		["poker_hands"] = {
 			["minty_Handful"] = "Handful of Rocks",
