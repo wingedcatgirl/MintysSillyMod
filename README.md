@@ -55,12 +55,12 @@ Planned features:
    - Suppress trace messages: Default false; stops `TRACE`-level console messages even if Dev Mode is on.
 
 ## Recommended additional mods:
-If you're trying out Minty's for the first time and want minimal other mods, go with [Talisman](https://github.com/MathIsFun0/Talisman) (unless you don't care about ^Mult as a concept), [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges as a concept) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) (unless you don't care about the Spectrum hand as a concept). The rest of the list is for after that.
+If you're trying out Minty's for the first time and want minimal other mods, go with [Amulet](https://github.com/frostice482/amulet) (unless you don't care about ^Mult as a concept), [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges as a concept) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) (unless you don't care about the Spectrum hand as a concept). The rest of the list is for after that.
 
 ### Technical
-- [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for all challenges in Minty's Mod.
+- [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for some challenges in Minty's Mod.
 - [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) enables five-suit poker hands, which are a fun little thing to play with.
-- [Talisman](https://github.com/MathIsFun0/Talisman) enables scores above e308 and also ^mult, which is just fun imo. Also very technically part of the next list (we have some ^mult Jokers).
+- [Amulet](https://github.com/frostice482/amulet) enables scores above e308 and also ^mult, which is just fun imo.
 
 ### Cross-mod content
 Minty's Mod adds content for all of the following mods. Those with ⭐️ are also recommended for just, like, a basic default content mod set. in my imo.

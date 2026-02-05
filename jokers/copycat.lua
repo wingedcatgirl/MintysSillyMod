@@ -1,4 +1,4 @@
-local cryptid = (SMODS.Mods.Cryptid or {}).can_load
+local cryptid = next(SMODS.find_mod("Cryptid"))
 
 SMODS.Joker {
     key = "copycat",
@@ -40,7 +40,7 @@ SMODS.Joker {
                 info_queue[#info_queue+1] = { set = "Other", key = "minty_dev_warning", specific_vars = { "Mod", "Cryptid" } }
             end
         end
-        if (SMODS.Mods.cardpronouns or {}).can_load then
+        if next(SMODS.find_mod("cardpronouns")) then
             local mirrorkey = "minty_mirror"..(MINTY.config.flavor_text and "_flavor" or "")
             info_queue[#info_queue+1] = { set = "Other", key = mirrorkey, specific_vars = { localize{type = "name_text", set = "Joker", key = self.key } } }
         end

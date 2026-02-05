@@ -1,4 +1,4 @@
-local ortalab = (SMODS.Mods.ortalab or {}).can_load
+local ortalab = next(SMODS.find_mod("ortalab"))
 
 SMODS.Blind {
     key = "thetree",

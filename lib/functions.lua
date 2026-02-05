@@ -137,7 +137,7 @@ function Card:is_kity()
     local minty_kity = self.config.center.pools and self.config.center.pools.kity
     local yahicat = self.config.center.pools and self.config.center.pools.Cat
     local valkitty
-    if (SMODS.Mods.vallkarri or {}).can_load then
+    if next(SMODS.find_mod("vallkarri")) then
         valkitty = self:is_kitty()
     end
     return minty_kity or valkitty or yahicat

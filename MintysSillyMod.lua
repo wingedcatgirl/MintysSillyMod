@@ -28,7 +28,7 @@ end
 SMODS.current_mod.optional_features = {
     retrigger_joker = true,
     post_trigger = true,
-    quantum_enhancements = true, --Comment out this line if Mana Compressor gives you trouble
+    quantum_enhancements = true,
     cardareas = {
         unscored = true,
     },
@@ -148,7 +148,7 @@ local files = {
         { name = "scoundrel" },
         { name = "cakegun" },
         { name = "youtube" },
-        { name = "manacompressor" },
+        { name = "manacompressor" }, --Allowed to stay because it's less janky than Inkbleed, but comment this line if it gives you trouble
         { name = "pessimist" },
         { name = "doctor" },
         { name = "hyperfix" },

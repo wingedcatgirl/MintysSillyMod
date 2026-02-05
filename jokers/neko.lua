@@ -1,4 +1,4 @@
-local toga = (SMODS.Mods.TOGAPack or {}).can_load
+local toga = next(SMODS.find_mod("TOGAPack"))
 
 SMODS.Joker {
     key = "neko",

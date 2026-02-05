@@ -1,4 +1,4 @@
-local cry = (SMODS.Mods.Cryptid or {}).can_load
+local cry = next(SMODS.find_mod("Cryptid"))
 
 SMODS.Joker {
     key = "catpicmachine",

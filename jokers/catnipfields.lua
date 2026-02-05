@@ -1,4 +1,4 @@
-local paperback = (SMODS.Mods.paperback or {}).can_load
+local paperback = next(SMODS.find_mod("paperback"))
 
 SMODS.Joker {
     key = "catnipfields",
