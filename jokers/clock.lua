@@ -7,8 +7,8 @@ end
 
 SMODS.Joker {
     key = "clock",
-    name = "Clock",
-    --pronouns = "",
+    name = "The Time Being",
+    pronouns = "it_its",
     atlas = 'jokerdoodles', --TODO art
     pos = {
         x = 0,
@@ -16,7 +16,7 @@ SMODS.Joker {
     },
     soul_pos = {
         x = 1,
-        y = 0
+        y = 8
     },
     rarity = 2,
     cost = 6,
@@ -57,6 +57,16 @@ SMODS.Joker {
             return dollars
         end
         if card.debug then MINTY.say(hour..":"..minute..":"..second) end
+    end,
+    set_ability = function (self, card, initial, delay_sprites)
+        juice_card_until(card, function ()
+            return MINTY.config.ticking_splines
+        end)
+    end,
+    load = function (self, card, card_table, other_card)
+        juice_card_until(card, function ()
+            return MINTY.config.ticking_splines
+        end)
     end,
     calculate = function(self, card, context)
         local hour, minute, second = get_time_numbers()
