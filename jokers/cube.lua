@@ -2,6 +2,7 @@ local counters = {
     { boss = "bl_psychic" },
     { boss = "bl_akyrs_the_thought", mod = "aikoyorisshenanigans"},
     --CUBE LOVELY PATCH TARGET
+
 }
 
 
@@ -85,7 +86,7 @@ SMODS.Joker {
         for _,v in ipairs(counters) do
             local boss = v.boss
             local mod = v.mod
-            if (not mod) or (SMODS.Mods[mod] or {}).can_load then
+            if (not mod) or next(SMODS.find_mod(mod)) then
                 G.GAME.bosses_used[boss] = G.GAME.bosses_used[boss] + 1e300
             end
         end
@@ -95,7 +96,7 @@ SMODS.Joker {
             for _,v in ipairs(counters) do
                 local boss = v.boss
                 local mod = v.mod
-                if (not mod) or (SMODS.Mods[mod] or {}).can_load then
+                if (not mod) or next(SMODS.find_mod(mod)) then
                     if G.GAME.bosses_used[boss] >= 1e300 then
                         G.GAME.bosses_used[boss] = G.GAME.bosses_used[boss] - 1e300
                     end

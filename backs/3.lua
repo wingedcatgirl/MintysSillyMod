@@ -39,7 +39,7 @@ SMODS.Back({
     config = {},
 
     apply = function()
-        local sleeveexist = (SMODS.Mods["CardSleeves"] or {}).can_load
+        local sleeveexist = not not next(SMODS.find_mod("CardSleeves"))
         local fusionexist = not not next(SMODS.find_mod("FusionJokers"))
         local threesleeve = ((G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_3suitsleeve")
         if not (sleeveexist and fusionexist and threesleeve) then
@@ -73,7 +73,7 @@ SMODS.Back({
     end,
 })
 
-if (SMODS.Mods["CardSleeves"] or {}).can_load then
+if not not next(SMODS.find_mod("CardSleeves")) then
     CardSleeves.Sleeve({
         key = "3suitsleeve",
         name = "Sleeve of the 3",

@@ -1,4 +1,4 @@
-local ortalab = (SMODS.Mods["ortalab"] or {}).can_load
+local ortalab = SMODS.find_mod("ortalab")[1]
 
 SMODS.Joker {
     key = "lune",

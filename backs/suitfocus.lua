@@ -90,7 +90,7 @@ SMODS.Back{
         end
     end,
     apply = function (self, back)
-        local sleeveexist = (SMODS.Mods["CardSleeves"] or {}).can_load
+        local sleeveexist = not not next(SMODS.find_mod("CardSleeves"))
         local fusionexist = not not next(SMODS.find_mod("FusionJokers"))
         local focussleeve = ((G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_suitfocussleeve")
         MINTY.event(
@@ -115,7 +115,7 @@ SMODS.Back{
     end,
 }
 
-if (SMODS.Mods["CardSleeves"] or {}).can_load then
+if not not next(SMODS.find_mod("CardSleeves")) then
     CardSleeves.Sleeve{
         key = "suitfocussleeve",
         name = "Suit Focus Sleeve",

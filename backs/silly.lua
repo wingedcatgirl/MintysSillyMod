@@ -9,7 +9,7 @@ SMODS.Back{
     end
 }
 
-if (SMODS.Mods["CardSleeves"] or {}).can_load then
+if not not next(SMODS.find_mod("CardSleeves")) then
     CardSleeves.Sleeve({
         key = "sillylittlesleeve",
         name = "The Silliest, Littlest Sleeve",

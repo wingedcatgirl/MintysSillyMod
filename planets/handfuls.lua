@@ -115,7 +115,7 @@ SMODS.Consumable{
 	end,
 }
 
-if (SMODS.Mods["Cryptid"] or {}).can_load then
+if not not next(SMODS.find_mod("Cryptid")) then
     SMODS.Consumable{ -- Cryptid triple-planet
         set = 'Planet',
         cost = 4,

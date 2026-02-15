@@ -1,4 +1,4 @@
-local mf = (SMODS.Mods["MoreFluff"] or {}).can_load
+local mf = SMODS.find_mod("MoreFluff")[1]
 
 SMODS.Enhancement({
     key = "pistol",

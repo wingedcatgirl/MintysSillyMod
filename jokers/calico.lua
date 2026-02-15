@@ -1,4 +1,4 @@
-local finity = (SMODS.Mods["finity"] or {}).can_load
+local finity = SMODS.find_mod("finity")[1]
 local crossover = MINTY.config.include_crossover
 local rarity = finity and "finity_showdown" or 4
 

@@ -1,4 +1,4 @@
-if not (SMODS.Mods["ChDp"] or {}).can_load then
+if not SMODS.find_mod("ChDp")[1] then
     return nil
 end
 

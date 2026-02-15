@@ -1,4 +1,4 @@
-local chdp = (SMODS.Mods["ChDp"] or {}).can_load
+--local chdp = SMODS.find_mod("ChDp")[1] --What were we using this for, again...?
 
 return {
 	["misc"] = {

@@ -39,8 +39,8 @@ SMODS.Back({
     config = {},
 
     apply = function()
-        local sleeveexist = (SMODS.Mods["CardSleeves"] or {}).can_load
-        local fusionexist = (SMODS.Mods["FusionJokers"] or {}).can_load
+        local sleeveexist = not not next(SMODS.find_mod("CardSleeves"))
+        local fusionexist = not not next(SMODS.find_mod("FusionJokers"))
         local diamondsleeve = ((G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_diamondsleeve")
         if not (sleeveexist and fusionexist and diamondsleeve) then
             G.E_MANAGER:add_event(Event({
@@ -73,7 +73,7 @@ SMODS.Back({
     end,
 })
 
-if (SMODS.Mods["CardSleeves"] or {}).can_load then
+if not not next(SMODS.find_mod("CardSleeves")) then
     CardSleeves.Sleeve({
         key = "diamondsleeve",
         name = "Sleeve of the Diamond",
@@ -113,7 +113,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
             if self.get_current_deck_key() ~= "b_minty_diamonds" then
                 key = self.key
             else
-                if (SMODS.Mods["FusionJokers"] or {}).can_load then
+                if not not next(SMODS.find_mod("FusionJokers")) then
                     key = self.key.."_fusionalt"
                 else
                     key = self.key.."_alt"
@@ -145,7 +145,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                       return true
                     end
                   }))
-            elseif (SMODS.Mods["FusionJokers"] or {}).can_load then
+            elseif not not next(SMODS.find_mod("FusionJokers")) then
             G.E_MANAGER:add_event(Event({
                 func = function()
                     local card = SMODS.create_card({

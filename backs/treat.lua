@@ -30,7 +30,7 @@ SMODS.Back({
 })
 
 
-if (SMODS.Mods["CardSleeves"] or {}).can_load then
+if not not next(SMODS.find_mod("CardSleeves")) then
     CardSleeves.Sleeve({
         key = "treatsleeve",
         name = "Sleeve With A Treat",

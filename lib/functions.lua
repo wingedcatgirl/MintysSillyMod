@@ -114,7 +114,9 @@ function Card:is_3(bypass_debuff)
             count = count + 3
         end]]
 
-        if (SMODS.Mods["Gemstone"] or {}).can_load then
+        local gems = SMODS.find_mod("Gemstone")[1]
+
+        if gems and gems.can_load then
             if self.ability.gemslot_catseye then
                 count = count + 2
             end
@@ -126,8 +128,10 @@ function Card:is_3(bypass_debuff)
             count = count * 2
         end]]
 
-        if (SMODS.Mods["aikoyorisshenanigans"] or {}).can_load then
-            if self.get_letter_with_pretend and self:get_letter_with_pretend() == "3" then count = count + 1 end
+        local aikoshen = SMODS.find_mod("aikoyorisshenanigans")[1]
+
+        if aikoshen and aikoshen.can_load then
+            if self.get_letter_with_pretend and self:get_letter_with_pretend() == "3" then count = count + 1 end --Completely useless bc math deck ignores 98% of mechanics, but funny
         end
 
         if count == 0 then return false else return count end
