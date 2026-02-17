@@ -220,6 +220,13 @@ SMODS.Atlas {
     py = 95
 }
 
+SMODS.Atlas{
+    key = "fake3",
+    path = "3 of 3s.png",
+    px = 71,
+    py = 95
+}
+
 SMODS.Atlas {
     key = 'pure3',
     path = "pure 3 (aikoshen).png",

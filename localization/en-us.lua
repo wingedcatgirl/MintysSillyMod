@@ -97,6 +97,7 @@ return {
 			["minty_hooked"] = "Hooked",
 			["k_minty_challenge"] = "Challenge",
 			["k_minty_special"] = "Special",
+			minty_drained = "Drained",
 		},
 		["challenge_names"] = {
 			["c_minty_raidnight"] = "Day One Raid Night",
@@ -2507,6 +2508,15 @@ return {
 					"when scored"
 				}
 			},
+		},
+		Edition = {
+			e_minty_drained = {
+				name = "Drained",
+				text = {
+					"Does not count",
+					"as any suit"
+				}
+			}
 		},
 		["Voucher"] = {
 			["v_minty_tabletopple"] = {
