@@ -14,14 +14,14 @@ SMODS.Enhancement({
     config = {
         extra = {
             xmult = 2,
-            chips = 2
+            chips = 100
         }
     },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
                 card.ability.extra.xmult,
-                card.ability.extra.xchips,
+                card.ability.extra.chips,
             },
         }
     end,
@@ -51,19 +51,20 @@ SMODS.Enhancement({
         if context.forcetrigger then
             return {
                 xmult = card.ability.extra.xmult,
-                xchips = card.ability.extra.xchips,
+                chips = card.ability.extra.chips,
                 remove = true
             }
         end
 
-        if context.individual and context.other_card == card and context.other_card == context.scoring_hand[#context.scoring_hand] then
+        if context.main_scoring and context.cardarea == G.play then
             card.kablooied = true
             local meme = "minty_memenoise"..math.random(MINTY.memecount)
 
             return {
                 sound = meme,
+                message = localize("k_minty_ratio"),
                 xmult = card.ability.extra.xmult,
-                xchips = card.ability.extra.xchips,
+                chips = card.ability.extra.chips,
             }
         end
 

@@ -24,6 +24,7 @@ return {
 			["k_minty_spread"] = "Spread!",
 			["k_minty_confiscated"] = "Confiscated!",
 			["k_minty_crystal"] = "Crystal!",
+			k_minty_ratio = "L + ratio!",
 			["k_minty_random_mod"] = "a random mod",
 			["k_mod_singular"] = "Mod",
 			["k_minty_first_suit"] = "first played suit",
@@ -2508,6 +2509,14 @@ return {
 					"when scored"
 				}
 			},
+			m_minty_emphatic = {
+				name = "Emphatic Card",
+				label = "Emphatic Card",
+				text = {
+					"{X:mult,C:white}X#1#{} Mult, {C:chips}+#2#{} Chips",
+					"{C:red}self-destructs"
+				},
+			},
 		},
 		Edition = {
 			e_minty_drained = {
@@ -2686,6 +2695,14 @@ return {
 					"{C:attention}#1#{} selected card#3#",
 					"to #4#{C:attention}#2##3#{}",
 				},
+			},
+			c_minty_rot_battery = {
+				name = "The Battery!",
+				text = {
+					"Enhances up to",
+					"{C:attention}#1#{} selected card#3#",
+					"to #4#{C:attention}#2##3#{}",
+				}
 			},
 			["c_minty_rot_bitz"] = {
 				["name"] = "The Bitz!",

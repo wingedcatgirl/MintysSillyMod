@@ -234,6 +234,7 @@ local files = {
         { name = "pistol" },
         { name = "spline" },
         { name = "dynamite" },
+        { name = "emphatic" },
         { name = "drained" }, --Editions
         { name = "cementseal" }, --Seals
         { name = "counterfeit" }, --Stickers
