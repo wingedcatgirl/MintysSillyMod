@@ -32,3 +32,16 @@ SMODS.Sound { --balala
     key = 'unbalance',
     path = 'unbalanced.ogg'
 }
+
+do --Buttload of meme sounds grabbed from https://thirtydollar.website/
+    local path = SMODS.current_mod.path.."assets/sounds/thirty dollar memes"
+    local info = NFS.getDirectoryItemsInfo(path)
+    MINTY.memecount = #info
+    for i,v in ipairs(info) do
+        sendTraceMessage("Registering meme sound number "..i..": "..v.name)
+        SMODS.Sound{
+            key = "memenoise"..i,
+            path = "thirty dollar memes/"..v.name
+        }
+    end
+end

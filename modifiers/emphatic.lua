@@ -39,10 +39,11 @@ SMODS.Enhancement({
                     card.kablooied = true
                 end
             end
+            local meme = "minty_memenoise"..math.random(MINTY.memecount)
             return {
                 emult = 1.20 + (power*0.05),
                 echips = 1.20 + (power*0.05),
-                --sound = pick a sound
+                sound = meme
             }
         end
     },
@@ -57,9 +58,10 @@ SMODS.Enhancement({
 
         if context.individual and context.other_card == card and context.other_card == context.scoring_hand[#context.scoring_hand] then
             card.kablooied = true
+            local meme = "minty_memenoise"..math.random(MINTY.memecount)
 
             return {
-                --sound = pick a sound at random,
+                sound = meme,
                 xmult = card.ability.extra.xmult,
                 xchips = card.ability.extra.xchips,
             }
