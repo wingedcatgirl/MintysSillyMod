@@ -114,6 +114,9 @@ return {
 			["ach_minty_lefteststakes"] = "Stakes lefter than Marx himself",
 			["ach_minty_conqueror_of_hell"] = "Conqueror of Hell",
 			["ach_minty_template"] = "Template",
+			["ach_minty_nyanpletionist"] = "Nyanpletionist",
+			ach_minty_nyanpletionist_plus = "Nyanpletionist+",
+			ach_minty_nyanpletionist_plusplus = "Nyanpletionist++"
 		},
 		["achievement_descriptions"] = {
 			["ach_minty_leftstakes"] = "Win on at least Scarlet Stake",
@@ -121,6 +124,9 @@ return {
 			["ach_minty_lefteststakes"] = "Win on at least #CA7CA7 Stake",
 			["ach_minty_conqueror_of_hell"] = "Win on at least Rose Gold Stake (How?!)",
 			["ach_minty_template"] = "Achievement",
+			ach_minty_nyanpletionist = "Discover all Minty's Mod items",
+			ach_minty_nyanpletionist_plus = "Win with all Minty's Mod decks on #CA7CA7 Stake or higher",
+			ach_minty_nyanpletionist_plusplus = "Earn a #CA7CA7 or better sticker on all Minty's Mod Jokers"
 		},
 		["poker_hands"] = {
 			["minty_Handful"] = "Handful of Rocks",

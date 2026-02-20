@@ -1,11 +1,25 @@
 local dev = not not string.find(SMODS.current_mod.version, "~")
+local modid = SMODS.current_mod.id --A surprise tool that will help us later
 
-SMODS.Achievement{
+---@param t SMODS.Achievement
+---@return SMODS.Achievement
+local function cheevo (t)
+    for _,v in ipairs{"bypass_all_unlocked", "hidden_name", "hidden_text", "reset_on_startup"} do
+        if t[v] == nil then t[v] = true end
+    end
+
+    return SMODS.Achievement{
+        key = t.key,
+        bypass_all_unlocked = t.bypass_all_unlocked,
+        hidden_name = t.hidden_name,
+        hidden_text = t.hidden_text,
+        reset_on_startup = t.reset_on_startup,
+        unlock_condition = t.unlock_condition
+    }
+end
+
+cheevo{
     key = "leftstakes",
-    bypass_all_unlocked = true,
-    hidden_name = true,
-    hidden_text = true,
-    reset_on_startup = dev,
     unlock_condition = function (self, args)
         if args and args.type == 'win_stake' then
             return MINTY.at_least_stake(G.GAME.stake, "stake_minty_scarlet")
@@ -13,12 +27,8 @@ SMODS.Achievement{
     end
 }
 
-SMODS.Achievement{
+cheevo{
     key = "lefterstakes",
-    bypass_all_unlocked = true,
-    hidden_name = true,
-    hidden_text = true,
-    reset_on_startup = dev,
     unlock_condition = function (self, args)
         if args and args.type == 'win_stake' then
             return MINTY.at_least_stake(G.GAME.stake, "stake_minty_void")
@@ -26,12 +36,8 @@ SMODS.Achievement{
     end
 }
 
-SMODS.Achievement{
+cheevo{
     key = "lefteststakes",
-    bypass_all_unlocked = true,
-    hidden_name = true,
-    hidden_text = true,
-    reset_on_startup = dev,
     unlock_condition = function (self, args)
         if args and args.type == 'win_stake' then
             return MINTY.at_least_stake(G.GAME.stake, "stake_minty_catcat")
@@ -39,12 +45,8 @@ SMODS.Achievement{
     end
 }
 
-SMODS.Achievement{
+cheevo{
     key = "conqueror_of_hell",
-    bypass_all_unlocked = true,
-    hidden_name = true,
-    hidden_text = true,
-    reset_on_startup = dev,
     unlock_condition = function (self, args)
         if args and args.type == 'win_stake' then
             return MINTY.at_least_stake(G.GAME.stake, "stake_minty_rose_gold")
@@ -52,12 +54,8 @@ SMODS.Achievement{
     end
 }
 
-SMODS.Achievement{
+cheevo{
     key = "template",
-    bypass_all_unlocked = true,
-    hidden_name = true,
-    hidden_text = true,
-    reset_on_startup = dev,
     unlock_condition = function (self, args)
         if args and args.type == "hand" then
             if args.handname == 'Full House' and args.scoring_hand then
@@ -71,6 +69,64 @@ SMODS.Achievement{
                     return true
                 end
             end
+        end
+    end
+}
+
+cheevo{
+    key = "nyanpletionist",
+    bypass_all_unlocked = false,
+    hidden_text = false,
+    unlock_condition = function (self, args)
+        if args and args.type == "discover_amount" then
+            local items = {
+                "Centers", "Tags", "Blinds"
+            }
+
+            for _,item in ipairs(items) do
+                for k,v in pairs(SMODS[item]) do
+                    if v.original_mod and v.original_mod.id == modid then
+                        if not v.discovered and not v.no_collection then
+                            return false
+                        end
+                    end
+                end
+            end
+            return true
+        end
+    end
+}
+
+cheevo{
+    key = "nyanpletionist_plus",
+    bypass_all_unlocked = false,
+    hidden_text = false,
+    unlock_condition = function (self, args)
+        if args and args.type == "win_stake" then
+            for k,v in pairs(SMODS.Centers) do
+                if v.original_mod and v.original_mod.id == modid and v.set == "Back" then
+                    local sticker = get_deck_win_sticker(v)
+                    if not MINTY.at_least_stake("stake_"..sticker, "stake_minty_catcat") then return false end
+                end
+            end
+            return true
+        end
+    end
+}
+
+cheevo{
+    key = "nyanpletionist_plusplus",
+    bypass_all_unlocked = false,
+    hidden_text = false,
+    unlock_condition = function (self, args)
+        if args and args.type == "win_stake" then
+            for k,v in pairs(SMODS.Centers) do
+                if v.original_mod and v.original_mod.id == modid and v.set == "Joker" then
+                    local sticker = get_joker_win_sticker(v)
+                    if not MINTY.at_least_stake("stake_"..sticker, "stake_minty_catcat") then return false end
+                end
+            end
+            return true
         end
     end
 }
