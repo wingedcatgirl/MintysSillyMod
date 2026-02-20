@@ -10,6 +10,9 @@ local function cheevo (t)
 
     return SMODS.Achievement{
         key = t.key,
+        atlas = t.atlas or "cheevo",
+        pos = t.pos or {x=0,y=0},
+        hidden_pos = t.hidden_pos or {x=1, y=0},
         bypass_all_unlocked = t.bypass_all_unlocked,
         hidden_name = t.hidden_name,
         hidden_text = t.hidden_text,
@@ -106,6 +109,7 @@ cheevo{
             for k,v in pairs(SMODS.Centers) do
                 if v.original_mod and v.original_mod.id == modid and v.set == "Back" then
                     local sticker = get_deck_win_sticker(v)
+                    if not sticker then return false end
                     if not MINTY.at_least_stake("stake_"..sticker, "stake_minty_catcat") then return false end
                 end
             end
@@ -123,6 +127,7 @@ cheevo{
             for k,v in pairs(SMODS.Centers) do
                 if v.original_mod and v.original_mod.id == modid and v.set == "Joker" then
                     local sticker = get_joker_win_sticker(v)
+                    if not sticker then return false end
                     if not MINTY.at_least_stake("stake_"..sticker, "stake_minty_catcat") then return false end
                 end
             end

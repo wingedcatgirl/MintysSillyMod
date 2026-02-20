@@ -276,6 +276,13 @@ SMODS.Atlas {
     py = 95
 }
 
+SMODS.Atlas{
+    key = "cheevo",
+    path = "cheevo.png",
+    px = 66,
+    py = 66,
+}
+
 SMODS.Atlas {
     key = '3suiticon',
     path = "3sicon.png",
