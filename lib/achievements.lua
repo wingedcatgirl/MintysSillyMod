@@ -4,9 +4,10 @@ local modid = SMODS.current_mod.id --A surprise tool that will help us later
 ---@param t SMODS.Achievement
 ---@return SMODS.Achievement
 local function cheevo (t)
-    for _,v in ipairs{"bypass_all_unlocked", "hidden_name", "hidden_text", "reset_on_startup"} do
+    for _,v in ipairs{"bypass_all_unlocked", "hidden_name", "hidden_text"} do
         if t[v] == nil then t[v] = true end
     end
+    if t.reset_on_startup == nil then t.reset_on_startup = dev end
 
     return SMODS.Achievement{
         key = t.key,
