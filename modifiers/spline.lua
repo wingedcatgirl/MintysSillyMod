@@ -58,12 +58,12 @@ SMODS.Enhancement({
     end,
     set_ability = function (self, card, initial, delay_sprites)
         juice_card_until(card, function ()
-            return MINTY.config.ticking_splines
+            return card.config.center_key == "m_minty_spline" and MINTY.config.ticking_splines and not card.REMOVED
         end)
     end,
     load = function (self, card, card_table, other_card)
         juice_card_until(card, function ()
-            return MINTY.config.ticking_splines
+            return card.config.center_key == "m_minty_spline" and MINTY.config.ticking_splines and not card.REMOVED
         end)
     end,
     calculate = function (self, card, context)
