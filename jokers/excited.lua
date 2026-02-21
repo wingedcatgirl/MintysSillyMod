@@ -89,7 +89,7 @@ SMODS.Joker {
         end
         if
 			(-- Mostly copied from Cryptid's "sob" and "Duplicare"
-                (context.post_trigger and not context.other_context.fixed_probability and not context.other_context.mod_probability and not context and context.other_card ~= card)
+                (context.post_trigger and (context.other_context.main_eval or context.other_context.individual) and (context.other_card ~= card))
                 or (context.cardarea == G.play and context.individual)
 				or context.discard
 				or context.reroll_shop
