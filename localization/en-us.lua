@@ -3,6 +3,7 @@
 return {
 	["misc"] = {
 		["dictionary"] = {
+			--Card noises
 			["k_minty_drowned"] = "Drowned!",
 			["k_minty_nommed"] = "Nom!",
 			["k_minty_stopped"] = "Stopped!",
@@ -25,6 +26,24 @@ return {
 			["k_minty_confiscated"] = "Confiscated!",
 			["k_minty_crystal"] = "Crystal!",
 			k_minty_ratio = "L + ratio!",
+
+			--Option text
+			option_minty_flavor = "Flavor text",
+			option_minty_crossover = "Include crossover content (where possible)",
+			option_minty_slaterename = "Rename Stone to Slate",
+			option_minty_ticking = "Ticking cards",
+			option_minty_3lock = "3 suit availability",
+			option_minty_devmode = "Dev mode",
+			option_minty_notrace = "Suppress trace messages",
+
+			--Names of things
+			["k_minty_treat"] = "Treat",
+			["b_minty_treat_cards"] = "Treat Cards",
+			["k_minty_treat_packs"] = "Treat Pack",
+			["k_minty_everycard_packs"] = "Pack of Every Card",
+			["k_minty_mod_packs"] = "Mod Pack",
+
+			--Misc junk
 			["k_minty_random_mod"] = "a random mod",
 			["k_mod_singular"] = "Mod",
 			["k_minty_first_suit"] = "first played suit",
@@ -42,11 +61,6 @@ return {
 			["k_minty_jokers"] = "Joker slots",
 			["k_minty_selection"] = "selection limit",
 			["k_minty_treasureplaceholder"] = "a random stat",
-			["k_minty_treat"] = "Treat",
-			["b_minty_treat_cards"] = "Treat Cards",
-			["k_minty_treat_packs"] = "Treat Pack",
-			["k_minty_everycard_packs"] = "Pack of Every Card",
-			["k_minty_mod_packs"] = "Mod Pack",
 		},
 		["v_dictionary"] = {
 			["a_minty_chipgain"] = "+#1# Chips",

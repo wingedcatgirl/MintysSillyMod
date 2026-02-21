@@ -48,27 +48,27 @@ SMODS.current_mod.config_tab = function()
             },
         --]]
         create_toggle({
-            label = "Flavor text",
+            label = localize("option_minty_flavor"),
             ref_table = MINTY.config,
             ref_value = 'flavor_text',
         }),
         create_toggle({
-            label = "Include (stable) crossover content",
+            label = localize("option_minty_crossover"),
             ref_table = MINTY.config,
             ref_value = 'include_crossover',
         }),
         create_toggle({
-            label = "Rename Stone to Slate",
+            label = localize("option_minty_slaterename"),
             ref_table = MINTY.config,
             ref_value = 'stone_rename',
         }),
         create_toggle({
-            label = "Ticking Spline cards",
+            label = localize("option_minty_ticking"),
             ref_table = MINTY.config,
             ref_value = 'ticking_splines',
         }),
         create_option_cycle {
-            label = "3 availability",
+            label = localize("option_minty_3lock"),
             options = {'Unlocked', "Locked", "Sealed"},
             current_option = MINTY.config.three_lock.current_option,
             ref_table = MINTY.config,
@@ -77,12 +77,12 @@ SMODS.current_mod.config_tab = function()
             w = 5.5
             },
         create_toggle({
-            label = "Dev mode",
+            label = localize("option_minty_devmode"),
             ref_table = MINTY.config,
             ref_value = 'dev_mode',
         }),
         devonlytoggle({
-            label = "Suppress trace messages",
+            label = localize("option_minty_notrace"),
             ref_table = MINTY.config,
             ref_value = "suppress_trace",
         }),
