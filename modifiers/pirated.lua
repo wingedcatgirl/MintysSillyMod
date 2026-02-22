@@ -3,7 +3,7 @@ SMODS.Sticker{
     name = "Pirated",
     atlas = "stickers",
     pos = {
-        x = 0,
+        x = 2,
         y = 0,
     },
     badge_colour = HEX("CA7CA7"),
@@ -35,12 +35,12 @@ SMODS.Sticker{
                     local final_chips = to_big(G.GAME.blind.chips * 1.25)
                     if first then
                         play_sound('minty_warning', 1)
-                        local multi = (G.GAME.minty_piracy_punishment or 0) ~= 1 and "s" or ""
+                        local amt = (G.GAME.minty_piracy_punishment or 0) ~= 1 and "pl" or "sing"
                         attention_text({
-                            scale = 0.7, text = "The Blind delivers a cease-and-desist", hold = 11, align = 'cm', offset = {x = 0,y = -2.5},major = G.play
+                            scale = 0.7, text = localize("k_minty_cease_"..amt), hold = 11, align = 'cm', offset = {x = 0,y = -2.5},major = G.play
                         })
                         attention_text({
-                            scale = 0.7, text = "notice for your ill-gotten card"..multi.."!", hold = 11, align = 'cm', offset = {x = 0,y = -1.8},major = G.play
+                            scale = 0.7, text = localize("k_minty_desist_"..amt), hold = 11, align = 'cm', offset = {x = 0,y = -1.8},major = G.play
                         })
                     end
                     SMODS.destroy_cards(card, true, nil, true)

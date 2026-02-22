@@ -62,6 +62,10 @@ return {
 			["k_minty_jokers"] = "Joker slots",
 			["k_minty_selection"] = "selection limit",
 			["k_minty_treasureplaceholder"] = "a random stat",
+			k_minty_cease_sing = "The Blind delivers a cease-and-desist",
+			k_minty_desist_sing = "notice for your ill-gotten card!",
+			k_minty_cease_pl = "The Blind delivers a cease-and-desist",
+			k_minty_desist_pl = "notice for your ill-gotten cards!",
 		},
 		["v_dictionary"] = {
 			["a_minty_chipgain"] = "+#1# Chips",
@@ -111,6 +115,7 @@ return {
 			["gemslot_catseye"] = "Cat's Eye",
 			["minty_counterfeit"] = "Counterfeit",
 			["minty_hooked"] = "Hooked",
+			minty_pirated = "Pirated",
 			["k_minty_challenge"] = "Challenge",
 			["k_minty_special"] = "Special",
 			minty_drained = "Drained",
