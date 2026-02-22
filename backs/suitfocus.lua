@@ -1,7 +1,7 @@
 SMODS.Back{
     name = "Suit Focus Deck",
     key = "suitfocus",
-    pos = { x=1, y=0 }, --Placeholder
+    pos = { x=2, y=2 },
     atlas = "backs",
     unlocked = false,
     unlock_req = {
@@ -120,7 +120,7 @@ if not not next(SMODS.find_mod("CardSleeves")) then
         key = "suitfocussleeve",
         name = "Suit Focus Sleeve",
         atlas = "sleeves",
-        pos = { x=0, y=0 }, --placeholder
+        pos = { x=1, y=2 },
         unlocked = false,
         check_for_unlock = function (self, args)
             if not (G and G.GAME) then return end
