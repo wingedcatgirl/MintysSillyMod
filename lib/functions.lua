@@ -790,7 +790,7 @@ MINTY.gradient_check = function ()
     if not dp then return end
     loc_colour()
     for k, v in pairs(G.ARGS.LOC_COLOURS) do
-        if v[1] and string.find(k, "minty") then dp.handleLog(v, "INFO", k) end
+        if v[1] and string.find(k, "menthol") then dp.handleLog(v, "INFO", k) end
     end
 end
 
