@@ -7,7 +7,7 @@ SMODS.Enhancement({
     set = "Enhanced",
     pos = {
         x = 1,
-        y = 1
+        y = 2
     },
 	object_type = "Enhancement",
 	badge_colour = HEX("a3ecc0"), --Magic Mint, according to internet
@@ -52,6 +52,7 @@ SMODS.Enhancement({
             return {
                 xmult = card.ability.extra.xmult,
                 chips = card.ability.extra.chips,
+                remove_default_message = true,
                 remove = true
             }
         end
@@ -63,6 +64,7 @@ SMODS.Enhancement({
             return {
                 sound = meme,
                 message = localize("k_minty_ratio"),
+                remove_default_message = true,
                 xmult = card.ability.extra.xmult,
                 chips = card.ability.extra.chips,
             }
