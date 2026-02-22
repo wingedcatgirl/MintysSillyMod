@@ -22,7 +22,6 @@ SMODS.Sticker{
         card.ability.minty_pirated = val or nil
     end,
     calculate = function (self, card, context)
-        --TODO localizify all this
         if context.setting_blind then
             if SMODS.pseudorandom_probability(self, "minty_piracy_punishment", 1, 15, "minty_piracy_punishment", true) or card.ability.debug then
                 G.GAME.minty_piracy_punishment = (G.GAME.minty_piracy_punishment or 0) + 1

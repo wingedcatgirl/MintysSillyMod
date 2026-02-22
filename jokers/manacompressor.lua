@@ -34,7 +34,7 @@ SMODS.Joker {
     key = "manacompressor",
     name = "Mana Compressor",
     pronouns = "it_its",
-    atlas = 'jokerdoodles2', --TODO art
+    atlas = 'jokerdoodles2',
     pos = {
         x = 0,
         y = 0
