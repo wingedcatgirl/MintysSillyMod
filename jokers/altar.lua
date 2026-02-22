@@ -2,14 +2,14 @@ SMODS.Joker {
     key = "altar",
     name = "Altar",
     --pronouns = "",
-    atlas = 'jokerdoodles', --TODO art
+    atlas = 'jokerdoodles2', --TODO art
     pos = {
         x = 0,
         y = 0
     },
     soul_pos = {
-        x = 1,
-        y = 0
+        x = 4,
+        y = 1
     },
     rarity = 2,
     cost = 5,
