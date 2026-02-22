@@ -7,6 +7,10 @@ SMODS.Consumable{
         x = 0,
         y = 0,
     },
+    soul_pos = {
+        x = 4,
+        y = 0
+    },
     config = {
         dollars_base = 4,
         dollars_rate = 6
