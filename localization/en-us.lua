@@ -1308,16 +1308,16 @@ return {
 			["j_minty_plastic_stick"] = {
 				["name"] = "Plastic \"Stick\"",
 				["text"] = {
-					"Gives {X:mult,C:white}X#1#{} Mult for every",
-					"other {C:attention}\"Stick\"{} Joker you have...",
-					"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
+					"{X:mult,C:white}X#1#{} Mult if you have",
+					"another {C:attention}\"Stick\"{} Joker",
+					"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
 				},
 			},
 			["j_minty_plastic_stick_flavor"] = {
 				["name"] = "Plastic \"Stick\"",
 				["text"] = {
-					"Gives {X:mult,C:white}X#1#{} Mult for every",
-					"other {C:attention}\"Stick\"{} Joker you have...",
+					"{X:mult,C:white}X#1#{} Mult if you have",
+					"another {C:attention}\"Stick\"{} Joker",
 					"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
 					" ",
 					"{C:inactive,s:0.8}nooooo my treat is all gone",

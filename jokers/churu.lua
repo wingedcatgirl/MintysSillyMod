@@ -1,9 +1,14 @@
 ---Stub function if PB isn't active, so this *can* work without it. Not recommended, but possible!
 local stickmult = (PB_UTIL and PB_UTIL.calculate_stick_xMult) or function (card)
-    local xMult = card.ability.extra.xMult
-    local sticks = math.max(#SMODS.find_card("j_minty_churu"), 1) --Assuming no other mod allows PB sticks to exist without PB :v
-    return xMult * sticks
+    local xMult = card.ability.extra.xMult or 1
+    local sticks = SMODS.find_card("j_minty_plastic_stick") --Assuming no other mod allows PB sticks to exist without PB :v
+
+    if #sticks > 0 then
+        return card.ability.extra.xMult_if_stick or (xMult * (#sticks-1))
+    end
+    return 1
 end
+
 local pb = next(SMODS.find_mod("paperback"))
 
 SMODS.Joker {
@@ -154,7 +159,8 @@ SMODS.Joker {
     key = 'plastic_stick',
     config = {
         extra = {
-            xMult = 1
+            xMult = 1,
+            xMult_if_stick = 2
         }
     },
     rarity = 1,
@@ -195,7 +201,7 @@ SMODS.Joker {
         return {
             key = key,
             vars = {
-                card.ability.extra.xMult,
+                card.ability.extra.xMult_if_stick,
                 xMult
             }
         }
