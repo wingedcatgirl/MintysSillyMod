@@ -8,7 +8,7 @@ SMODS.Joker {
         y = 0
     },
     soul_pos = {
-        x = 1,
+        x = 5,
         y = 0
     },
     rarity = 2,

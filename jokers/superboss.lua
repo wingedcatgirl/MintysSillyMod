@@ -10,8 +10,8 @@ SMODS.Joker {
         y = 0
     },
     soul_pos = {
-        x = 1,
-        y = 0
+        x = 2,
+        y = 1
     },
     rarity = "fuse_fusion",
     cost = 12,
