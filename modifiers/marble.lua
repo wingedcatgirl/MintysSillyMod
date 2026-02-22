@@ -30,6 +30,7 @@ SMODS.Enhancement({
     replace_base_card = true,
     no_rank = true,
     any_suit = true,
+    always_scores = true,
     valk_hand_buff = {
         title = "AMALGAMATED",
         colour = G.C.BLUE,
