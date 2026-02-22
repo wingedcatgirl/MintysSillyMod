@@ -31,7 +31,7 @@ Planned features:
 ## Installation Instructions
 1. Install [Lovely](https://github.com/ethangreen-dev/lovely-injector), if you haven't already.
 2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already.
-   - This mod was developed on [a custom branch off of 1224a](https://github.com/wingedcatgirl/smods/tree/stakeinjection); using [the actual release](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-1224a) shouldn't cause any Menthol-specific issues.
+   - This mod was developed on [a custom branch off of 1224a](https://github.com/wingedcatgirl/smods/tree/stakeinjection); using [the actual release](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-1224a) shouldn't cause any Menthol-specific issues, other than the stake screen being bad sometimes.
 3. Because this is the main branch, you most likely want [the latest release](https://github.com/wingedcatgirl/MintysSillyMod/releases/latest).
 4. Inside the zip file is the mod code in a folder, `Menthol`. Put that folder in your Mods folder. The file structure should look like `Mods/Menthol/Menthol.json`. In particular, there should _not_ be a second `Menthol` folder nested inside the first one. (You might prefer to remove the version number suffix from the folder name; it doesn't actually matter.)
 5. Have a little 3 as a treat! :3
