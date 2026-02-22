@@ -103,9 +103,8 @@ local files = {
         { name = "vanillatweaks" },
         --Common Jokers
         { name = "froyo" },
-        { name = "hedonist" },
+        --{ name = "hedonist" },
         { name = "languageegg" },
-        { name = "claw" },
         { name = "prosopagnosia" },
         { name = "phasebus" },
         { name = "slowtiger" },
@@ -129,6 +128,7 @@ local files = {
         { name = "cakesword" },
         { name = "catcafe" },
         { name = "catnipfields" },
+        --{ name = "claw" },
         { name = "clock" },
         { name = "contraption" },
         { name = "fatcat-l" }, --Literal (Tubbs)
@@ -175,7 +175,7 @@ local files = {
         { name = "patchy" },
         { name = "minty" },
         { name = "garfielf" },
-        { name = "lune" }
+        --{ name = "lune" }
     },
     tarots = {
         { name = "abacus", },
