@@ -79,7 +79,8 @@ SMODS.Back{
         }
     end,
     calculate = function (self, back, context)
-        if context.scoring_hand and context.scoring_hand[1] and not G.GAME.minty_focussuit then
+        if context.before and context.scoring_hand and context.scoring_hand[1] and not G.GAME.minty_focussuit then
+            --MINTY.say("Attempting to set focus suit...", "TRACE")
             if SMODS.has_no_suit(context.scoring_hand[1]) then
                 G.GAME.minty_focussuit = "suitless"
             elseif SMODS.has_any_suit(context.scoring_hand[1]) then

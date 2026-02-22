@@ -99,7 +99,7 @@ SMODS.Joker {
 
         if not G.GAME.minty_focussuit then return end
 
-        if context.before and #context.scoring_hand >= card.ability.extra.req then
+        if context.initial_scoring_step and #context.scoring_hand >= card.ability.extra.req then
             local hitcount = 0
             local misscount = 0
             for i,v in ipairs(context.scoring_hand) do
