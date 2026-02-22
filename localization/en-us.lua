@@ -1511,19 +1511,22 @@ return {
 			["j_minty_numberslop"] = {
 				["name"] = "Ugh, more numberslop",
 				["text"] = {
-					"{C:mult}+#1#{} Mult, it's so",
-					"needlessly OP",
-					"for a common >:("
+					"{C:mult}+#1#{} Mult, strictly",
+					"better than Jimbo?!",
+					"How dare they put",
+					"this OP crap in Common!",
 				},
 			},
 			["j_minty_numberslop_flavor"] = {
 				["name"] = "Ugh, more numberslop",
 				["text"] = {
-					"{C:mult}+#1#{} Mult, it's so",
-					"needlessly OP",
-					"for a common >:(",
+					"{C:mult}+#1#{} Mult, strictly",
+					"better than Jimbo?!",
+					"How dare they put",
+					"this OP crap in Common!",
 					" ",
-					"{C:inactive,s:0.8}These lazy Joker Forge mods always do this shit!{}",
+					"{C:inactive,s:0.8}These lazy Joker Forge mods{}",
+					"{C:inactive,s:0.8}always do this kind of shit!{}",
 				},
 			},
 			["j_minty_fate"] = {

@@ -2,13 +2,9 @@ SMODS.Joker {
     key = "numberslop",
     name = "Ugh, more numberslop",
     pronouns = "she_her",
-    atlas = 'jokerdoodles', --TODO art
+    atlas = 'jokerdoodles2',
     pos = {
-        x = 0,
-        y = 0
-    },
-    soul_pos = {
-        x = 1,
+        x = 2,
         y = 0
     },
     rarity = 1,
