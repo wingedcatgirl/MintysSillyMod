@@ -144,9 +144,9 @@ return {
 			["ach_minty_lefteststakes"] = "Win on at least #CA7CA7 Stake",
 			["ach_minty_conqueror_of_hell"] = "Win on at least Rose Gold Stake (How?!)",
 			["ach_minty_template"] = "Achievement",
-			ach_minty_nyanpletionist = "Discover all Minty's Mod items",
-			ach_minty_nyanpletionist_plus = "Win with all Minty's Mod decks on #CA7CA7 Stake or higher",
-			ach_minty_nyanpletionist_plusplus = "Earn a #CA7CA7 or better sticker on all Minty's Mod Jokers"
+			ach_minty_nyanpletionist = "Discover all Menthol items",
+			ach_minty_nyanpletionist_plus = "Win with all Menthol decks on #CA7CA7 Stake or higher",
+			ach_minty_nyanpletionist_plusplus = "Earn a #CA7CA7 or better sticker on all Menthol Jokers"
 		},
 		["poker_hands"] = {
 			["minty_Handful"] = "Handful of Rocks",
@@ -178,8 +178,8 @@ return {
 	["descriptions"] = {
 		--[[ For now, this is only for translations; leave it commented in US English. and/or if it's not done yet
 		["Mod"] = {
-			["MintysSillyMod"] = {
-				["name"] = "Minty's Silly Little Mod",
+			["Menthol"] = {
+				["name"] = "Menthol",
 				["text"] = {
 					"cat mod for cats",
 					"... I mean this mod contains Minty's silly little content ideas."
@@ -1688,7 +1688,7 @@ return {
 				},
 				["unlock"] = {
 					"Discover {C:attention}#1#{} Jokers",
-					"from {C:legendary}Minty's Mod{}"
+					"from {C:legendary}Menthol{}"
 				}
 			},
 			["b_minty_suitfocus"] = {
@@ -1791,7 +1791,7 @@ return {
 			["b_minty_sillylittledeck"] = {
 				["name"] = "The Silliest, Littlest Deck",
 				["text"] = {
-					"{C:legendary}Minty's Mod{C:attention} Jokers{} are {C:attention}3x",
+					"{C:legendary}Menthol{C:attention} Jokers{} are {C:attention}3x",
 					"more likely to appear",
 				},
 			},
@@ -2429,14 +2429,14 @@ return {
 			["sleeve_minty_sillylittlesleeve"] = {
 				["name"] = "The Silliest, Littlest Sleeve",
 				["text"] = {
-					"{C:legendary}Minty's Mod{C:attention} Jokers{} are {C:attention}3x",
+					"{C:legendary}Menthol{C:attention} Jokers{} are {C:attention}3x",
 					"more likely to appear",
 				},
 			},
 			["sleeve_minty_sillylittlesleeve_alt"] = {
 				["name"] = "The Silliest, Littlest Sleeve",
 				["text"] = {
-					"Other {C:legendary}Minty's Mod{} items are {C:attention}2x",
+					"Other {C:legendary}Menthol{} items are {C:attention}2x",
 					"more likely to appear",
 				},
 			},
@@ -3076,7 +3076,7 @@ return {
 				["text"] = {
 					"Known issue with {C:attention}#1#{}: {C:mult}#2#{}",
 					"If issues persist, disable the",
-					"{C:mult}Dev Mode{} of {C:minty_3s}Minty's Mod{} to",
+					"{C:mult}Dev Mode{} of {C:minty_3s}Menthol{} to",
 					"prevent this object from spawning",
 					" ",
 					"{C:inactive,s:0.8}It's Dev Mode, you knew there'd be jank.{}",

@@ -2,8 +2,8 @@ return {
 	["descriptions"] = {
 		--[[ For now, this is only for translations; leave it commented in US English. and/or if it's not done yet ]]
 		["Mod"] = {
-			["MintysSillyMod"] = {
-				["name"] = "Minty's Silly Little Mod",
+			["Menthol"] = {
+				["name"] = "Menthol",
 				["text"] = {
 					"mod para gatos para gatos",
 					"... al parecer ese chiste no se puede traducir.",

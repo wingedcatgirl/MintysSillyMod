@@ -101,10 +101,10 @@ return {
 	},
 	["descriptions"] = {
 		["Mod"] = {
-			["MintysSillyMod"] = {
-				["name"] = "namako ni soweli Minti",
+			["Menthol"] = {
+				["name"] = "namako Mento",
 				["text"] = {
-					"namako soweli ni soweli",
+					"namako ni soweli Minti",
 					--"... I mean this mod contains Minty's silly little content ideas."
 				},
 			},
@@ -1571,7 +1571,7 @@ return {
 --				},
 --				["unlock"] = {
 --					"Discover {C:attention}#1#{} Jokers",
---					"from {C:legendary}Minty's Mod{}"
+--					"from {C:legendary}Menthol{}"
 --				}
 --			},
 --			["b_minty_suitfocus"] = {
@@ -1662,7 +1662,7 @@ return {
 --			["b_minty_sillylittledeck"] = {
 --				["name"] = "The Silliest, Littlest Deck",
 --				["text"] = {
---					"{C:legendary}Minty's Mod{C:attention} Jokers{} are {C:attention}3x",
+--					"{C:legendary}Menthol{C:attention} Jokers{} are {C:attention}3x",
 --					"more likely to appear",
 --				},
 --			},
@@ -2281,14 +2281,14 @@ return {
 --			["sleeve_minty_sillylittlesleeve"] = {
 --				["name"] = "The Silliest, Littlest Sleeve",
 --				["text"] = {
---					"{C:legendary}Minty's Mod{C:attention} Jokers{} are {C:attention}3x",
+--					"{C:legendary}Menthol{C:attention} Jokers{} are {C:attention}3x",
 --					"more likely to appear",
 --				},
 --			},
 --			["sleeve_minty_sillylittlesleeve_alt"] = {
 --				["name"] = "The Silliest, Littlest Sleeve",
 --				["text"] = {
---					"Other {C:legendary}Minty's Mod{} items are {C:attention}2x",
+--					"Other {C:legendary}Menthol{} items are {C:attention}2x",
 --					"more likely to appear",
 --				},
 --			},
@@ -2903,7 +2903,7 @@ return {
 --				["text"] = {
 --					"Known issue with {C:attention}#1#{}: {C:mult}#2#{}",
 --					"If issues persist, disable the",
---					"{C:mult}Dev Mode{} of {C:minty_3s}Minty's Mod{} to",
+--					"{C:mult}Dev Mode{} of {C:minty_3s}Menthol{} to",
 --					"prevent this object from spawning",
 --					" ",
 --					"{C:inactive,s:0.8}It's Dev Mode, you knew there'd be jank.{}",

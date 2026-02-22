@@ -1,15 +1,18 @@
 {
-	"id": "MintysSillyMod",
-	"name": "Minty's Silly Little Mod",
-	"display_name": "Minty's Mod",
+	"id": "Menthol",
+	"name": "Menthol",
+	"display_name": "Menthol",
 	"author": ["wingedcatgirl"],
 	"description": "A silly little mod that adds some silly little content ideas",
 	"prefix": "minty",
-	"main_file": "MintysSillyMod.lua",
+	"main_file": "Menthol.lua",
 	"priority": 37,
 	"badge_colour": "CA7CA7",
 	"badge_text_colour": "FFFFFF",
-	"version": "0.8.0~BETA20260221",
+	"version": "1.0.0",
+	"provides": [
+		"MintysSillyMod"
+	],
 	"dependencies": [
 		"Steamodded(>=1.0.0~BETA-1224a)"
 	]

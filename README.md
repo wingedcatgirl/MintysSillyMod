@@ -1,8 +1,7 @@
-# You're currently looking at the dev branch. If that's what you want, proceed. If not, go look at [the main branch](https://github.com/wingedcatgirl/MintysSillyMod).
+## Menthol - A Silly Little Minty-flavored Mod
+### (This is the main branch; you may want to look at [the `next` branch](https://github.com/wingedcatgirl/MintysSillyMod/tree/next) for in-progress updates.)
 
-## Minty's Silly Little Mod - Delicious Chocolatey Goodness for Balatro
-
-A silly little mod that adds some silly little jokers and decks and things. It's chocolate because it's not vanilla. (It's not vanilla because I think calling a mod a word which in this context means "not modded" is silly.)
+A silly little mod that adds some silly little jokers and decks and things. It's minty because it's not vanilla. (It's not vanilla because I think calling a mod a word which in this context means "not modded" is silly.)
 
 [Mod main page on Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Minty%27s_Silly_Little_Mod) (Beware of SPOILERS! If you even care about discovering things on your own, that is 😛)
 
@@ -32,14 +31,14 @@ Planned features:
 ## Installation Instructions
 1. Install [Lovely](https://github.com/ethangreen-dev/lovely-injector), if you haven't already.
 2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already.
-   - This mod is currently being developed on [a custom branch off of 1221a](https://github.com/wingedcatgirl/smods/tree/stakeinjection); using [the actual release](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-1221a) shouldn't cause any issues other than the stake screen breaking sometimes.
-3. Because this is the dev branch, you most likely want [the latest commit](https://github.com/wingedcatgirl/MintysSillyMod/archive/refs/heads/next.zip).
-4. Inside the zip file is the mod code in a folder, `MintysSillyMod-SOMEVERSION`. Put that folder in your Mods folder. The file structure should look like `Mods/MintysSillyMod-SOMEVERSION/MintysSillyMod.json`. In particular, there should _not_ be a second `MintysSillyMod` folder nested inside the first one. (You might prefer to remove the version number suffix from the folder name; it doesn't actually matter.)
+   - This mod was developed on [a custom branch off of 1224a](https://github.com/wingedcatgirl/smods/tree/stakeinjection); using [the actual release](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-1224a) shouldn't cause any Menthol-specific issues.
+3. Because this is the main branch, you most likely want [the latest release](https://github.com/wingedcatgirl/MintysSillyMod/releases/latest).
+4. Inside the zip file is the mod code in a folder, `Menthol`. Put that folder in your Mods folder. The file structure should look like `Mods/Menthol/Menthol.json`. In particular, there should _not_ be a second `Menthol` folder nested inside the first one. (You might prefer to remove the version number suffix from the folder name; it doesn't actually matter.)
 5. Have a little 3 as a treat! :3
 
 ## To update to a newer version
 1. Download the latest update.
-2. Delete all files from your `Mods/MintysSillyMod` folder. (There's no save data in there, so you won't lose any progress.)
+2. Delete all files from your `Mods/Menthol` folder (or `Mods/MintysSillyMod` if you're a real OG). (There's no save data in there, so you won't lose any progress.)
 3. Unzip all the new files into the now-empty folder. Check again to make sure it's not nested.
 
 > [!IMPORTANT]  
@@ -48,22 +47,23 @@ Planned features:
 ## Config Options
 <!-- - Balance level: Doesn't do anything yet but take a wild guess what the plan is. Yes we're jumping on this train. Blame [AikoShen](https://github.com/Aikoyori/Balatro-Aikoyoris-Shenanigans) for doing it second. -->
 - Flavor text: Default true. Enables funky MtG-style quotes at the bottom of Jokers, and also some other cards.
-- Include stable crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things. Automatically on if Dev Mode is enabled.
+- Include crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things. Automatically on if Dev Mode is enabled.
 - Rename Stone to Slate: Default true. This is really just for me; I'm persnickety, "stone" isn't a well-defined Thing, but slate is a real rock that [resembles your video game standard grey ahh chunk of generic](https://duckduckgo.com/?t=lm&q=slate+rock&ia=images&iax=images). Turn this off if you're persnickety in an incompatible way where seeing it have a different name than vanilla would bug you.
 - 3 lock: Whether the 3 suit and related content can appear in a run; "Unlocked" means it's available from the start, "Locked" means it requires using The Cat tarot or playing a Spectrum hand[^1], "Sealed" means it never appears unless a deck specifically enables it. Default "Locked".
+- Disable bad jokes: Some of these Jokers are just me being kind of mad, and they don't make much game sense as a result. Click this when the joke gets old.
 - Dev Mode: Default false. Enables unfinished content if there is any (requires restart) (there usually isn't any anyway). 
    - Suppress trace messages: Default false; stops `TRACE`-level console messages even if Dev Mode is on.
 
 ## Recommended additional mods:
-If you're trying out Minty's for the first time and want minimal other mods, go with [Amulet](https://github.com/frostice482/amulet) (unless you don't care about ^Mult as a concept), [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges as a concept) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) (unless you don't care about the Spectrum hand as a concept). The rest of the list is for after that.
+If you're trying out Menthol for the first time and want minimal other mods, go with [Amulet](https://github.com/frostice482/amulet) (unless you don't care about ^Mult as a concept), [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges as a concept) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) (unless you don't care about the Spectrum hand as a concept). The rest of the list is for after that.
 
 ### Technical
-- [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for some challenges in Minty's Mod.
+- [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for some challenges in Menthol.
 - [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) enables five-suit poker hands, which are a fun little thing to play with.
 - [Amulet](https://github.com/frostice482/amulet) enables scores above e308 and also ^mult, which is just fun imo.
 
 ### Cross-mod content
-Minty's Mod adds content for all of the following mods. Those with ⭐️ are also recommended for just, like, a basic default content mod set. in my imo.
+Menthol adds content for all of the following mods. Those with ⭐️ are also recommended for just, like, a basic default content mod set. in my imo.
 - [Aikoyori's Shenanigans](https://github.com/Aikoyori/Balatro-Aikoyoris-Shenanigans)
 - [CardPronouns](https://github.com/real-niacat/CardPronouns)
 - [Card Sleeves](https://github.com/larswijn/CardSleeves) ⭐️
@@ -77,12 +77,12 @@ Minty's Mod adds content for all of the following mods. Those with ⭐️ are al
 - [Paperback](https://github.com/GitNether/paperback) ⭐️
 - [TOGA's Stuff](https://github.com/TheOneGoofAli/TOGAPackBalatro)
 
-The following mods add content for Minty's Mod and we haven't returned the favor (yet):
+The following mods add content for Menthol and we haven't returned the favor (yet):
 - [Prism](https://github.com/blazingulag/Prism) ⭐️
 - [Random's Partners](https://github.com/Random71777/Random-s-Partners) (requires [Partner](https://github.com/Icecanno/Partner-API/))
 
 ### Other content mods
-Minty's Mod doesn't add anything for these _yet_, but we might in future. Until then, we're just recommending them because we like them. Consider anything on this list ⭐️'d.
+Menthol doesn't add anything for these _yet_, but we might in future. Until then, we're just recommending them because we like them. Consider anything on this list ⭐️'d.
 - [KCVanilla](https://github.com/kcgidw/kcvanilla) is just a couple of Jokers but I like them a lot. and it was the first mod I found that organized its files so I'm giving it a shoutout for that reason (I figured out how to organize my files by looking at its code)
 - [Rift-Raft](https://github.com/vitellaryjr/RiftRaft) lets you send cards to the Void and then later you can get them back as negative from Void Packs, it's fun
 
@@ -92,6 +92,7 @@ Technically you can do whatever you want here, but here's the mods I like for th
 - [Glue for Modpacks](https://github.com/icyethics/Glue-For-Modpacks) lets you adjust the shop so having a lot of mods doesn't drown everything out.
 - [Handy](https://github.com/SleepyG11/HandyBalatro) adds a whole lot of things but tbh the only one I care about is selecting multiple playing cards by dragging across them.
 - [Item Remover](https://github.com/art-muncher/Item-Remover) lets you disable specific items from the Collection, if they're OP or bugged or you just don't like them. ([Banner](https://github.com/SylviBlossom/Banner) does the same thing and is newer, switch if one of them isn't doing what you want it to.)
+- [re:Unlock All](https://github.com/wingedcatgirl/re-Unlock-All) lets you push the Unlock All button again if you switch mods and there's more to unlock.
 
 ## Adding cross-mod interactions
 - 3 suit: If you want things to interact with the 3s mechanic, use `Card:is_3()` for proper detection. It returns the number of times the card counts as a 3, or `false` if it doesn't, because `0` is truthy in Lua...

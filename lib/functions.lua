@@ -10,7 +10,7 @@ function MINTY.say(message, level)
     if level == "TRACE" and not (MINTY.config.dev_mode and not MINTY.config.suppress_trace) then
         return
     end
-    sendMessageToConsole(level, "Minty's Mod", message)
+    sendMessageToConsole(level, "Menthol", message)
 end
 
 ---Checks whether a card is in the collection (as opposed to e.g. the hand or Jokers tray)
@@ -217,7 +217,7 @@ end
 ---Testing function cause I keep forgetting how pairs and ipairs work, don't worry about it 
 MINTY.centercount = function (args)
     args = args or {}
-    local mod = args.mod or "MintysSillyMod"
+    local mod = args.mod or "Menthol"
     local modprefix = SMODS.Mods[mod].prefix.."_"
     local itemprefix = args.itemprefix or "sleeve_"
     local count = 0
@@ -492,7 +492,7 @@ MINTY.get_blind = function (round)
     local blindpool = {}
     for k, v in pairs(eligible_blinds) do
         table.insert(blindpool, k)
-        if G.GAME.modifiers.mintyallboost and (G.P_BLINDS[k].mod.id == "MintysSillyMod" or (G.P_BLINDS[k].pools and G.P_BLINDS[k].pools.MintysSillyMod)) then
+        if G.GAME.modifiers.mintyallboost and (G.P_BLINDS[k].mod.id == "Menthol" or (G.P_BLINDS[k].pools and (G.P_BLINDS[k].pools.MintysSillyMod or G.P_BLINDS[k].pools.Menthol))) then
             table.insert(blindpool, k)
         end
     end
@@ -533,11 +533,11 @@ function MINTY.find_enhancement(enh, quantum, count)
 end
 
 ---Counts how many things in a given mod have been discovered
----@param mod? string ID of the mod to check for; Minty's by default
+---@param mod? string ID of the mod to check for; Menthol by default
 ---@param set? string Type of thing to check for; Jokers by default
 ---@return integer
 MINTY.discover_count = function(set, mod, debug)
-    mod = (mod or "MintysSillyMod")
+    mod = (mod or "Menthol")
     if mod:lower() == "vanilla" then mod = "vanilla" end
     set = set or "Joker"
     local found = 0

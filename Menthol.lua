@@ -26,7 +26,7 @@ end
 
 if not SMODS.current_mod.lovely then
     NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
-    error("Minty's Mod: Lovely patches failed! Please make sure the file structure is not nested. The mod will be automatically disabled on restart.")
+    error("Menthol: Lovely patches failed! Please make sure the file structure is not nested. The mod will be automatically disabled on restart.")
 end
 
 SMODS.current_mod.optional_features = {
@@ -288,41 +288,41 @@ for folder, list in pairs(files) do
         local mods = data.mods
         local incompat = data.incompat
         if mods then
-            sendTraceMessage("Checking required mods for "..folder..'/'..name..".lua", "Minty's Mod")
+            sendTraceMessage("Checking required mods for "..folder..'/'..name..".lua", "Menthol")
             for _, mod in ipairs(mods) do
                 load = load and (SMODS.Mods[mod.id] or {}).can_load
                 if mod.cfg then
-                    sendTraceMessage("Checking config "..mod.cfg.." for "..folder..'/'..name..".lua", "Minty's Mod")
+                    sendTraceMessage("Checking config "..mod.cfg.." for "..folder..'/'..name..".lua", "Menthol")
                     load = load and SMODS.Mods[mod.id].config[mod.cfg]
                 end
                 if mod.version then load = load and ((SMODS.Mods[mod.id] or {}).version >= mod.version) end
             end
         end
         if load and incompat then
-            sendTraceMessage("Checking conflicting mods for "..folder..'/'..name..".lua", "Minty's Mod")
+            sendTraceMessage("Checking conflicting mods for "..folder..'/'..name..".lua", "Menthol")
             for _, mod in ipairs(incompat) do
                 load = load and not (SMODS.Mods[mod.id] or {}).can_load
             end
         end
         if load and data.dev then
-            sendTraceMessage("Checking dev mode option for "..folder..'/'..name..".lua", "Minty's Mod")
+            sendTraceMessage("Checking dev mode option for "..folder..'/'..name..".lua", "Menthol")
             load = load and MINTY.config.dev_mode
         end
         if load then
-            sendTraceMessage("Loading file: "..folder..'/'..name..'.lua', "Minty's Mod")
+            sendTraceMessage("Loading file: "..folder..'/'..name..'.lua', "Menthol")
             local loaded,errormessage = pcall(SMODS.load_file(folder..'/'..name..'.lua'))
             if not loaded then
                 local disable = not MINTY.config.dev_mode and "\nThe mod will be automatically disabled on restart." or ""
                 if not MINTY.config.dev_mode then
                     NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
                 end
-                sendErrorMessage(errormessage, "Minty's Mod")
-                error("Minty's Mod: File '"..folder.."/"..name..".lua' failed to load!\n   "..errormessage.."\nPlease make sure there's nothing fucky with your file structure."..disable)
+                sendErrorMessage(errormessage, "Menthol")
+                error("Menthol: File '"..folder.."/"..name..".lua' failed to load!\n   "..errormessage.."\nPlease make sure there's nothing fucky with your file structure."..disable)
             end
 
 
         else
-            sendTraceMessage("Skipping file: "..folder..'/'..name..'.lua', "Minty's Mod")
+            sendTraceMessage("Skipping file: "..folder..'/'..name..'.lua', "Menthol")
         end
         ::nvm::
     end
