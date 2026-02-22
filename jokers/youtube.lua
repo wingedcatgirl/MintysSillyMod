@@ -61,6 +61,9 @@ SMODS.Joker {
             }
         }
     end,
+    in_pool = function (self, args)
+        return not G.GAME.minty_no_dumb_shit
+    end,
     calculate = function(self, card, context)
         if context.joker_main and SMODS.pseudorandom_probability(card, "minty_youtube", 1, card.ability.extra.xmult, "minty_youtube") then
             return {

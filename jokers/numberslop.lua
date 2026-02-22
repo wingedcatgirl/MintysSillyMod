@@ -32,6 +32,9 @@ SMODS.Joker {
             }
         }
     end,
+    in_pool = function (self, args)
+        return not G.GAME.minty_no_dumb_shit
+    end,
     calculate = function(self, card, context)
         if context.joker_main or context.forcetrigger then
             return {

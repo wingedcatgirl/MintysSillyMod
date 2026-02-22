@@ -77,6 +77,11 @@ SMODS.current_mod.config_tab = function()
             w = 5.5
             },
         create_toggle({
+            label = localize("option_minty_nodumbshit"),
+            ref_table = MINTY.config,
+            ref_value = 'no_dumbass_shit',
+        }),
+        create_toggle({
             label = localize("option_minty_devmode"),
             ref_table = MINTY.config,
             ref_value = 'dev_mode',

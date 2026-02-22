@@ -33,6 +33,7 @@ return {
 			option_minty_slaterename = "Rename Stone to Slate",
 			option_minty_ticking = "Ticking cards",
 			option_minty_3lock = "3 suit availability",
+			option_minty_nodumbshit = "Disable bad jokes",
 			option_minty_devmode = "Dev mode",
 			option_minty_notrace = "Suppress trace messages",
 

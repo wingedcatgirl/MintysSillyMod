@@ -650,6 +650,9 @@ function SMODS.current_mod.reset_game_globals(init)
     if init or not G.GAME.starting_params.minty_three_lock then
         G.GAME.starting_params.minty_three_lock = MINTY.config.three_lock.current_option
     end
+    if init then
+        G.GAME.minty_no_dumb_shit = MINTY.config.no_dumbass_shit
+    end
 
     G.GAME.minty_hyperfix = G.GAME.minty_hyperfix or { active = true, value = 0 }
     if G.GAME.minty_hyperfix.active and not init then

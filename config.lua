@@ -12,4 +12,5 @@ return {
     ["suppress_trace"] = false,
     ["ticking_splines"] = not nomotion,
     ["test_button"] = false,
+    no_dumbass_shit = false
 }
