@@ -33,6 +33,11 @@ SMODS.Sound { --balala
     path = 'unbalanced.ogg'
 }
 
+SMODS.Sound{
+    key = "DRIVING",
+    path = "DRIVING IN MY CAR.ogg"
+}
+
 do --Buttload of meme sounds grabbed from https://thirtydollar.website/
     local path = SMODS.current_mod.path.."assets/sounds/thirty dollar memes"
     local info = NFS.getDirectoryItemsInfo(path)
