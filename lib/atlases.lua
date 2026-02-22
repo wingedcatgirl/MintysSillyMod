@@ -32,6 +32,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = 'jokerdoodles2',
+    path = "jokerdoodles2.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
     key = 'scoundrel',
     path = "scoundrel.png",
     px = 71,
@@ -43,6 +50,13 @@ SMODS.Atlas {
     path = "neko.png",
     px = 48,
     py = 65
+}
+
+SMODS.Atlas {
+    key = 'dice',
+    path = "dice.png",
+    px = 71,
+    py = 95
 }
 
 SMODS.Atlas {
@@ -67,10 +81,52 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = 'planets',
+    path = "planets.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
     key = 'spectrals',
     path = "spectrals.png",
     px = 71,
     py = 95
+}
+
+SMODS.Atlas {
+    key = 'boosters',
+    path = "boosters.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas{
+    key = "stakes",
+    path = "stakes.png",
+    px = 29,
+    py = 29,
+}
+
+SMODS.Atlas{
+    key = "stake_stickers",
+    path = "stake stickers.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas{
+    key = "stickers",
+    path = "stickers.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas{
+    key = "treats",
+    path = "treats.png",
+    px = 71,
+    py = 95,
 }
 
 SMODS.Atlas {
@@ -99,6 +155,13 @@ SMODS.Atlas {
     path = "parcels.png",
     px = 71,
     py = 95
+}
+
+SMODS.Atlas{
+    key = "tags",
+    path = "tags.png",
+    px = 34,
+    py = 34,
 }
 
 SMODS.Atlas {
@@ -157,6 +220,13 @@ SMODS.Atlas {
     py = 95
 }
 
+SMODS.Atlas{
+    key = "fake3",
+    path = "3 of 3s.png",
+    px = 71,
+    py = 95
+}
+
 SMODS.Atlas {
     key = 'pure3',
     path = "pure 3 (aikoshen).png",
@@ -179,6 +249,20 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = 'numberrank',
+    path = "number rank.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = 'purenumber',
+    path = "pure number (aikoshen).png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
     key = 'backs',
     path = "backs.png",
     px = 71,
@@ -190,6 +274,13 @@ SMODS.Atlas {
     path = "sleeves.png",
     px = 73,
     py = 95
+}
+
+SMODS.Atlas{
+    key = "cheevo",
+    path = "cheevo.png",
+    px = 66,
+    py = 66,
 }
 
 SMODS.Atlas {

@@ -32,7 +32,7 @@ SMODS.Consumable{
         
     end,
 
-    in_pool = function ()
+    in_pool = function (self, args)
         return true
     end
 }

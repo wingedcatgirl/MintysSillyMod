@@ -1,8 +1,9 @@
-local ortalab = (SMODS.Mods.ortalab or {}).can_load
+local ortalab = next(SMODS.find_mod("ortalab"))
 
 SMODS.Joker {
     key = "ascetic",
     name = "Ascetic Joker",
+    pronouns = "any_all",
     atlas = 'ortalabdoodles',
     pos = {
         x = 0,
@@ -27,7 +28,7 @@ SMODS.Joker {
     cost_mult = 1.0,
     config = {
         extra = {
-            s_chips = 30,
+            s_chips = 25,
             suit = 'minty_3s',
             again = 0
         }

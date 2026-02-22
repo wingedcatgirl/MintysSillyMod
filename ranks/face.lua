@@ -13,46 +13,18 @@ local suitmap = { --Uncomment these as the art gets arted
     --Fallback = 0
 }
 
-if SMODS.Suits then
-    for k,v in pairs(SMODS.Suits) do
-        if not suitmap[k] and not v.minty_facerank then
-            suitmap[k] = 0
-        end
+for k,v in pairs(SMODS.Suits) do
+    if not suitmap[k] and not v.minty_facerank then
+        suitmap[k] = 0
     end
-else
-    sendDebugMessage("Error defining suit map for Faces; SMODS.Suits doesn't seem to be defined at this time for some reason", "Minty's Mod")
 end
 
-local all_faces = { "King", "Queen", "Jack" }
+local all_faces = { }
 
-if SMODS.Ranks then
-    local smods_faces = {}
-    local sanitycheck = false
-    for k,v in pairs(SMODS.Ranks) do
-        if v.face then
-            table.insert(smods_faces, k)
-        end
-        if k == "King" then sanitycheck = true end
+for k,v in pairs(SMODS.Ranks) do
+    if v.face then
+        table.insert(all_faces, k)
     end
-
-    if sanitycheck then
-        all_faces = smods_faces
-    else
-        sendDebugMessage("Error defining next for Faces; vanilla ranks don't seem to be defined at this time", "Minty's Mod")
-        table.insert(smods_faces, "King")
-        table.insert(smods_faces, "Queen")
-        table.insert(smods_faces, "Jack")
-        all_faces = smods_faces
-    end
-else
-    sendDebugMessage("Error defining next for Faces; SMODS.Ranks doesn't seem to be defined at this time for some reason", "Minty's Mod")
-end
-
-local strength_effect = { random = true }
-
-if SMODS.Mods["Steamodded"].version < "1.0.0~BETA-0810a" then
-    strength_effect = { ignore = true }
-    sendWarnMessage("FYI, your version of Steamodded contains a bug with `strength_effect.random`. Switching to `strength_effect.ignore` for now.", "Minty's Mod")
 end
 
 SMODS.Rank{
@@ -60,13 +32,13 @@ SMODS.Rank{
     card_key = "F",
     pos = {x = 0},
     nominal = 15,
-    face_nominal = 0.5,
+    face_nominal = -4.9999,
     lc_atlas = "facerank",
     hc_atlas = "facerank",
     shorthand = "F",
     face = true,
     next = all_faces,
-    strength_effect = strength_effect,
+    strength_effect = { random = true },
     in_pool = function (self, args)
         if args and args.initial_deck then
             return args.start_with_faces

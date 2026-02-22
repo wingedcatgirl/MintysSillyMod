@@ -2,17 +2,16 @@ SMODS.PokerHandPart{ -- Handful of Rocks base
     key = 'handful',
     func = function(hand)
         local cards = {}
-        local count = 0
 
         for _, card in ipairs(hand) do
             local enh = card.config.center.key
             if MINTY.rocks[enh] then
                 table.insert(cards, card)
-                count = count+1
             end
         end
-        if count >= 5 then
-            return {cards}
+        
+        if #cards >= 5 then
+            return {cards} --yes you do have to put the table in a table actually, your previous conversation missed some important details
         else
             return {}
         end
@@ -22,10 +21,10 @@ SMODS.PokerHandPart{ -- Handful of Rocks base
 SMODS.PokerHand{ -- Handful of Rocks
     key = 'Handful',
     visible = false,
-    chips = 100,
-    mult = 10,
-    l_chips = 50,
-    l_mult = 1,
+    chips = 55,
+    mult = 6,
+    l_chips = 25,
+    l_mult = 2,
     example = {
         { 'S_2', true, enhancement = "m_minty_microcline"  },
         { 'D_7', true, enhancement = "m_minty_microcline"  },
@@ -34,17 +33,17 @@ SMODS.PokerHand{ -- Handful of Rocks
         { 'H_K', true, enhancement = "m_minty_crystal"     },
     },
     evaluate = function(parts)
-        return parts.handful
+        return parts.minty_handful
     end
 }
 
 SMODS.PokerHand{ -- Flush Handful
-    key = 'Flush Handful',
+    key = 'flush_handful',
     visible = false,
-    chips = 110,
-    mult = 12,
-    l_chips = 55,
-    l_mult = 2,
+    chips = 70,
+    mult = 8,
+    l_chips = 35,
+    l_mult = 3,
     example = {
         { 'S_2', true, enhancement = "m_minty_marble"  },
         { 'D_7', true, enhancement = "m_minty_marble"  },
@@ -53,25 +52,53 @@ SMODS.PokerHand{ -- Flush Handful
         { 'H_K', true, enhancement = "m_minty_marble"  },
     },
     evaluate = function(parts)
-        if not next(parts.handful) then return {} end
-        local handflush = {}
+        if not (parts.minty_handful and next(parts.minty_handful)) then return {} end
         local cards = {}
-        for _, card in ipairs(parts.handful) do
-            local enh = card.config.center.key
-            handflush[enh] = (handflush[enh] or 0) + 1
-        end
         local check = false
-        for enh,count in pairs(handflush) do
-            if count >= 5 then
-                for _,card in ipairs(parts.handful) do
-                    if enh == card.config.center.key then
-                        table.insert(cards, card)
-                    end
+        for _, handful in ipairs(parts.minty_handful) do -- idk whether this can even have more than one but check just to be sure
+            local handflush = {}
+            for _, card in ipairs(handful) do
+                local enh = card.config.center.key
+                handflush[enh] = (handflush[enh] or 0) + 1
+            end
+            for enh,count in pairs(handflush) do
+                if count >= 5 then check = true break end
+            end
+            if check then break end
+        end
+
+        return check and parts.minty_handful or {}
+    end
+}
+
+SMODS.PokerHand{ -- Spectrum Handful
+    key = 'spec_handful',
+    visible = false,
+    chips = 70,
+    mult = 8,
+    l_chips = 35,
+    l_mult = 3,
+    example = {
+        { 'S_2', true, enhancement = "m_minty_marble"  },
+        { 'D_7', true, enhancement = "m_minty_microcline"  },
+        { 'C_3', true, enhancement = "m_stone"  },
+        { 'C_5', true, enhancement = "m_minty_crystal"  },
+        { 'H_K', true, enhancement = "m_minty_hematite"  },
+    },
+    evaluate = function(parts)
+        if not (parts.minty_handful and next(parts.minty_handful)) then return {} end
+        local handspec = {}
+        local count = 0
+        for _, handful in ipairs(parts.minty_handful) do
+            for _, card in ipairs(handful) do
+                local enh = card.config.center.key
+                if not handspec[enh] then
+                    handspec[enh] = true
+                    count = count + 1
                 end
-                check = true
             end
         end
 
-        return check and cards or {}
+        return (count >= 5) and parts.minty_handful or {}
     end
 }

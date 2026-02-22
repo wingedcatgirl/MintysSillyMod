@@ -42,6 +42,9 @@ SMODS.Consumable{
 
         local used_tarot = copier or card
         MINTY.tarotflip(used_tarot, { random_ranks = ranks, seed = "minty_grin" })
+        if math.random(25) == 1 then
+            play_sound("minty_DRIVING", nil, 0.15)
+        end
     end,
 
     in_pool = function()

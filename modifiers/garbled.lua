@@ -1,4 +1,4 @@
-local mf = (SMODS.Mods["MoreFluff"] or {}).can_load
+local mf = SMODS.find_mod("MoreFluff")[1]
 
 SMODS.Enhancement({
     key = "garbled",
@@ -15,14 +15,29 @@ SMODS.Enhancement({
         extra = {
             min = 0,
             max = 23,
-            gymboost = "random"
+            gymboost = "mult"
         },
+    },
+    valk_hand_buff = {
+        title = "fB*&@@Pe%$3%%", --todo, dynatext this misprint style?
+        colour = SMODS.Gradients.minty_garbled_handbuff,
+        scoring_func = function (power)
+            local mult = pseudorandom(pseudoseed("minty_garbled_handbuff"), power, power * 100)
+
+            return {
+                mult = mult
+            }
+        end
     },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
             },
         }
+    end,
+    get_weight = function (self)
+        local default = 5
+        return mf and default or default/2
     end,
     replace_base_card = true,
     no_rank = true,

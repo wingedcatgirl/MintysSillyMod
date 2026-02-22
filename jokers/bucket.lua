@@ -24,10 +24,7 @@ SMODS.Joker {
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
-		info_queue[#info_queue + 1] = {
-            set = "Other",
-            key = "minty_stone_cards",
-        }
+        info_queue[#info_queue+1] = MINTY.enhancement_list(MINTY.rocks, "rock")
 		return {
             key = key,
             vars = {
@@ -39,7 +36,7 @@ SMODS.Joker {
         if context.before then
             for i = 1,#context.scoring_hand do
                 if context.scoring_hand[i].ability.set ~= "Enhanced" then
-                    local _, enh = pseudorandom_element(MINTY.rocks, pseudoseed("minty_bucket"))
+                    local enh = SMODS.poll_enhancement({options = MINTY.rockbag, key = "minty_bucket", guaranteed = true})
                     MINTY.say(enh, "TRACE")
                     context.scoring_hand[i]:set_ability(G.P_CENTERS[enh], nil, true)
                     G.E_MANAGER:add_event(Event({

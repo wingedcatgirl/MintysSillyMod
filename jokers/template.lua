@@ -1,7 +1,8 @@
 SMODS.Joker {
     key = "newjoker",
     name = "New Joker",
-    atlas = 'jokerdoodles',
+    --pronouns = "",
+    atlas = 'jokerdoodles2',
     pos = {
         x = 0,
         y = 0
@@ -39,5 +40,3 @@ SMODS.Joker {
         -- Calculation goes here
     end
 }
-
--- See localization/en-us.lua to create joker text

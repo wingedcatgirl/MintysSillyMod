@@ -1,8 +1,9 @@
-local talisman = (SMODS.Mods.Talisman or {}).can_load
+local talisman = not not next(SMODS.find_mod("Talisman"))
 
 SMODS.Joker {
     key = "doctor",
     name = "Doctor",
+    pronouns = "he_him",
     atlas = 'jokerdoodles',
     pos = {
         x = 0,
@@ -52,6 +53,9 @@ SMODS.Joker {
             }
         }
     end,
+    in_pool = function (self, args)
+        return not G.GAME.minty_no_dumb_shit
+    end,
     calculate = function(self, card, context)
         if context.forcetrigger then
             local ret = {}
@@ -96,5 +100,3 @@ SMODS.Joker {
         end
     end
 }
-
--- See localization/en-us.lua to create joker text

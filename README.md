@@ -1,3 +1,5 @@
+# You're currently looking at the dev branch. If that's what you want, proceed. If not, go look at [the main branch](https://github.com/wingedcatgirl/MintysSillyMod).
+
 ## Minty's Silly Little Mod - Delicious Chocolatey Goodness for Balatro
 
 A silly little mod that adds some silly little jokers and decks and things. It's chocolate because it's not vanilla. (It's not vanilla because I think calling a mod a word which in this context means "not modded" is silly.)
@@ -15,6 +17,7 @@ Current features:
 - Cross-mod content
 - A silly custom suit
 - A little 3, as a treat
+- An alternate stake path
 - Pencil-tool doodles for art
 - Far more ambition than sense
 
@@ -29,8 +32,8 @@ Planned features:
 ## Installation Instructions
 1. Install [Lovely](https://github.com/ethangreen-dev/lovely-injector), if you haven't already.
 2. Install [Steamodded](https://github.com/Steamopollys/steamodded), if you haven't already.
-   - **Minimum supported version for 0.7.0 is [BETA-0711a](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-0711a)**. If the latest dev version fails for any reason, use the linked release.
-3. Download the code from [the latest release](https://github.com/wingedcatgirl/MintysSillyMod/releases).
+   - This mod is currently being developed on [a custom branch off of 1221a](https://github.com/wingedcatgirl/smods/tree/stakeinjection); using [the actual release](https://github.com/Steamodded/smods/releases/tag/1.0.0-beta-1221a) shouldn't cause any issues other than the stake screen breaking sometimes.
+3. Because this is the dev branch, you most likely want [the latest commit](https://github.com/wingedcatgirl/MintysSillyMod/archive/refs/heads/next.zip).
 4. Inside the zip file is the mod code in a folder, `MintysSillyMod-SOMEVERSION`. Put that folder in your Mods folder. The file structure should look like `Mods/MintysSillyMod-SOMEVERSION/MintysSillyMod.json`. In particular, there should _not_ be a second `MintysSillyMod` folder nested inside the first one. (You might prefer to remove the version number suffix from the folder name; it doesn't actually matter.)
 5. Have a little 3 as a treat! :3
 
@@ -52,16 +55,17 @@ Planned features:
    - Suppress trace messages: Default false; stops `TRACE`-level console messages even if Dev Mode is on.
 
 ## Recommended additional mods:
-If you're trying out Minty's for the first time and want minimal other mods, go with [Talisman](https://github.com/MathIsFun0/Talisman) (unless you don't care about ^Mult as a concept), [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges as a concept) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) (unless you don't care about the Spectrum hand as a concept). The rest of the list is for after that.
+If you're trying out Minty's for the first time and want minimal other mods, go with [Amulet](https://github.com/frostice482/amulet) (unless you don't care about ^Mult as a concept), [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) (unless you don't care about challenges as a concept) and [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) (unless you don't care about the Spectrum hand as a concept). The rest of the list is for after that.
 
 ### Technical
-- [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for all challenges in Minty's Mod.
+- [Challenger Deep](https://github.com/OOkayOak/Challenger-Deep) is required for some challenges in Minty's Mod.
 - [Spectrum Framework](https://github.com/wingedcatgirl/SpectrumFramework) enables five-suit poker hands, which are a fun little thing to play with.
-- [Talisman](https://github.com/MathIsFun0/Talisman) enables scores above e308 and also ^mult, which is just fun imo. Also very technically part of the next list (we have some ^mult Jokers).
+- [Amulet](https://github.com/frostice482/amulet) enables scores above e308 and also ^mult, which is just fun imo.
 
 ### Cross-mod content
 Minty's Mod adds content for all of the following mods. Those with ⭐️ are also recommended for just, like, a basic default content mod set. in my imo.
 - [Aikoyori's Shenanigans](https://github.com/Aikoyori/Balatro-Aikoyoris-Shenanigans)
+- [CardPronouns](https://github.com/real-niacat/CardPronouns)
 - [Card Sleeves](https://github.com/larswijn/CardSleeves) ⭐️
 - [Cryptid](https://github.com/MathIsFun0/Cryptid)
 - [Drafting](https://github.com/spire-winder/Balatro-Draft) ⭐️

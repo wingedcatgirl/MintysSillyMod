@@ -2,6 +2,7 @@
 SMODS.Joker {
     key = "lucky",
     name = "Lucky",
+    pronouns = "he_him",
     atlas = 'legends',
     pos = {
         x = 0,

@@ -37,9 +37,14 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if (context.after and not context.blueprint) or context.forcetrigger then
-            local new_chip_val = card.ability.extra.chips - card.ability.extra.chip_mod
-            if (new_chip_val > 0) then
-                card.ability.extra.chips = new_chip_val
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "chips",
+                scalar_value = "chip_mod",
+                operation = "-",
+                no_message = true
+            })
+            if to_big(card.ability.extra.chips) > to_big(0) then
                 card_eval_status_text(card, 'extra', nil, nil, nil, {
                     message = localize {
                         type = 'variable',
@@ -49,27 +54,7 @@ SMODS.Joker {
                     colour = G.C.CHIPS
                 });
             else
-                G.E_MANAGER:add_event(Event({
-                    func = function()
-                        play_sound('tarot1')
-                        card.T.r = -0.2
-                        card:juice_up(0.3, 0.4)
-                        card.states.drag.is = true
-                        card.children.center.pinch.x = true
-                        G.E_MANAGER:add_event(Event({
-                            trigger = 'after',
-                            delay = 0.3,
-                            blockable = false,
-                            func = function()
-                                G.jokers:remove_card(card)
-                                card:remove()
-                                card = nil
-                                return true; 
-                            end
-                        })) 
-                        return true
-                    end
-                }))
+                SMODS.destroy_cards(card, nil, nil, true)
                 return {
                     message = localize('k_melted_ex'),
                     colour = G.C.FILTER
@@ -78,18 +63,12 @@ SMODS.Joker {
         end
         if context.joker_main then
             return {
-                message = localize {
-                    type = 'variable',
-                    key = 'a_chips',
-                    vars = {card.ability.extra.chips}
-                },
-                chip_mod = card.ability.extra.chips,
-                colour = G.C.CHIPS
+                chips = card.ability.extra.chips,
             }
         end
     end
 }
 
-if (SMODS.Mods["Cryptid"] or {}).can_load then
+if not not next(SMODS.find_mod("Cryptid")) then
     table.insert(Cryptid.food, "j_minty_froyo")
 end

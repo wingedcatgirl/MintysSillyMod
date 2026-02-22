@@ -1,6 +1,7 @@
 SMODS.Joker {
     key = "garfielf",
     name = "Garfielf",
+    pronouns = "he_him",
     atlas = 'legends',
     pos = {
         x = 0,
@@ -87,7 +88,12 @@ SMODS.Joker {
                 return
             end
             --MINTY.say("Destruaction time >:3")
-            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultgain
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "xmult",
+                scalar_value = "xmultgain",
+                no_message = true
+            })
             return {
                 delay = 0.4,
                 remove = true,

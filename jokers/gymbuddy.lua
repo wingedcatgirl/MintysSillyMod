@@ -1,6 +1,7 @@
 SMODS.Joker {
     key = "gymbuddy",
     name = "Gym Buddies",
+    pronouns = "they_them", -- there's literally two of them :V
     atlas = 'jokerdoodles',
     pos = {
         x = 0,

@@ -28,7 +28,7 @@ SMODS.Joker {
             vars = {card.ability.extra.xmult}
         }
     end,
-    config = {extra = {xmult = 5}},
+    config = {extra = {xmult = 3}},
     calculate = function(self, card, context)
         if context.forcetrigger then
             return {
@@ -39,8 +39,9 @@ SMODS.Joker {
         if context.joker_main and context.scoring_hand then
             local faces = 0
             for i = 1, #context.scoring_hand do
-                if context.scoring_hand[i]:is_face() then
+                if context.scoring_hand[i]:is_face() or (context.scoring_hand[i]:get_id() == SMODS.Ranks["minty_face"].id) then
                     faces = 1
+                    break
                 end
             end
 

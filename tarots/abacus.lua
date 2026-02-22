@@ -32,10 +32,10 @@ SMODS.Consumable{
         }
     end,
 
-    use = function(self)
+    use = function(self, card, area, copier)
         local ranks = {}
         for k,v in pairs(SMODS.Ranks) do
-            if not v.face then
+            if not v.face and (not v.in_pool or v:in_pool({abacus = true})) and k~= "Ace" then
                 table.insert(ranks,k)
             end
         end

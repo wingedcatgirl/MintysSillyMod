@@ -53,46 +53,43 @@ SMODS.Joker {
         card.ability.extra.drop = card.ability.extra.drop + boost*card.ability.extra.droprate
     end,
     calculate = function(self, card, context)
-        if ((context.individual and context.cardarea == G.play) or context.forcetrigger) and card.ability.extra.mult > 0 then
+        if ((context.individual and context.cardarea == G.play) or context.forcetrigger) and to_big(card.ability.extra.mult) > to_big(0) then
             local pmult = card.ability.extra.mult
             local ret = {
                 mult = pmult,
-                extra = {}
+                message_card = card
             }
             if not context.blueprint then
-                card.ability.extra.mult = card.ability.extra.mult - card.ability.extra.drop
-                if card.ability.extra.mult >= 0 then
-                    ret.extra = {
-                        message = localize {
-                            type = 'variable',
-                            key = 'a_mult_minus',
-                            vars = {card.ability.extra.drop}
-                        },
-                        message_card = card
-                    }
-                end
+                SMODS.scale_card(card, { --Why is the timing on this so janky?
+                ref_table = card.ability.extra,
+                ref_value = "mult",
+                scalar_value = "drop",
+                operation = "-",
+                message_key = "a_mult_minus",
+                message_colour = G.C.MULT,
+            })
             end
 
             return ret
         end
 
-        if context.after and card.ability.extra.mult <= 0 then
-            G.E_MANAGER:add_event(Event({ -- eat choccy bar
-                func = function()
-                    G.GAME.choccy_bars_eaten = (G.GAME.choccy_bars_eaten or 0) + 1
-                    play_sound("tarot1")
-                    card:start_dissolve()
-                    SMODS.add_card { -- create wrapper
-                        key = 'j_minty_wrapper',
-                        edition = card.edition,
-                        --stickers = card.stickers
-                    }
-                    return true
-                end,
-            }))
+        if context.after and to_big(card.ability.extra.mult) <= to_big(0) then
             return {
                 message = localize("k_eaten_ex"),
-                message_card = card
+                message_card = card,
+                func = function ()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            local edition = card.edition
+                            SMODS.add_card({
+                                key = "j_minty_wrapper",
+                                edition = edition
+                            })
+                            SMODS.destroy_cards(card, nil, true, true)
+                        return true
+                        end
+                    }))
+                end
             }
         end
     end
@@ -112,7 +109,7 @@ SMODS.Joker {
     },
     rarity = 1,
     cost = 1,
-    in_pool = function ()
+    in_pool = function (self, args)
         return false
     end,
     unlocked = true,

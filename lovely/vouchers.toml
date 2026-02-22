@@ -1,0 +1,16 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 2
+
+## Make vouchers respect allow_duplicates
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''if not G.GAME.used_vouchers[v.key] then'''
+position = 'at'
+match_indent = true
+payload = '''
+-- CHECK IN POOL FOR DUPE ALLOWANCE LEL
+if (not G.GAME.used_vouchers[v.key]) or (pool_opts and pool_opts.allow_duplicates) then
+'''

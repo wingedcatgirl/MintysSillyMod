@@ -1,8 +1,9 @@
-local cryptid = (SMODS.Mods.Cryptid or {}).can_load
+local cryptid = next(SMODS.find_mod("Cryptid"))
 
 SMODS.Joker {
     key = "copycat",
     name = "Copy Cat",
+    pronouns = "mirror",
     atlas = 'jokerdoodles',
     pos = {
         x = 0,
@@ -39,6 +40,10 @@ SMODS.Joker {
                 info_queue[#info_queue+1] = { set = "Other", key = "minty_dev_warning", specific_vars = { "Mod", "Cryptid" } }
             end
         end
+        if next(SMODS.find_mod("cardpronouns")) then
+            local mirrorkey = "minty_mirror"..(MINTY.config.flavor_text and "_flavor" or "")
+            info_queue[#info_queue+1] = { set = "Other", key = mirrorkey, specific_vars = { localize{type = "name_text", set = "Joker", key = self.key } } }
+        end
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
@@ -64,9 +69,11 @@ SMODS.Joker {
             }
         }
     end,
+    --[[]]
     in_pool = function (self, args) ----Crashes a bunch with Cryptid fsr 👍️
         return not (cryptid and not MINTY.config.dev_mode)
     end,
+    --]]
     calculate = function(self, card, context)
         if context.forcetrigger and next(card.ability.immutable.targetcard) and card.ability.immutable.targetcard.config.center.demicoloncompat then
             MINTY.say("Calculating force-triggered blueprint effect of "..card.ability.immutable.targetname.." copied by Copy Cat", "TRACE")
@@ -83,20 +90,21 @@ SMODS.Joker {
                     jokers[#jokers+1] = G.jokers.cards[i]
                 end
             end
-            if jokers == {} then return end
+            if not next(jokers) then return end
             local target = pseudorandom_element(jokers, pseudoseed("copycat"))
+            --MINTY.say("attempting to copy")
             card.ability.immutable.targetcard = target
             card.ability.immutable.targetkey = target.config.center.key
             card.ability.immutable.targetid = target.unique_val
             card.ability.immutable.targetname = localize{type = "name_text", set = "Joker", key = card.ability.immutable.targetkey}
-            --MINTY.say("Joker selected: "..card.ability.immutable.targetname)
+            --MINTY.say("Joker copied: "..card.ability.immutable.targetname)
             return {
                 message = localize("k_copied_ex"),
                 message_card = card,
             }
         end
 
-        if context.selling_card and (context.card == card.ability.immutable.targetcard) then
+        if context.selling_card and (context.card.unique_val == card.ability.immutable.targetid) then
             card.ability.immutable = {
                 targetname = "None",
                 targetkey = "",
@@ -123,7 +131,7 @@ SMODS.Joker {
         if target and target ~= card then
             --MINTY.say("Calculating blueprint effect of "..card.ability.immutable.targetname.." copied by Copy Cat", "TRACE")
             local ret = SMODS.blueprint_effect(card, target, context)
-            if ret then return ret end
+            if ret and next(ret) then return ret end
         end
     end
 }

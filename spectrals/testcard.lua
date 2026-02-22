@@ -20,8 +20,8 @@ SMODS.Consumable {
         text = {"Does whatever I'm", "testing right now!"}
     },
 	cost = 4,
-	atlas = "placeholder", --TODO move spectral art to a dedicated atlas
-	pos = { x = 2, y = 9 },
+	atlas = "spectrals",
+	pos = { x = 3, y = 2 },
 	--soul_pos = { x = 1, y = 0},
     no_collection = not MINTY.config.dev_mode,
     in_pool = function (self, args)

@@ -2,7 +2,27 @@ MINTY = MINTY or {}
 MINTY.prefix = SMODS.current_mod.prefix
 MINTY.config = SMODS.current_mod.config
 
+SMODS.current_mod.debug_info = {}
 
+local fujo = SMODS.find_mod("FusionJokers")[1]
+local bunco = SMODS.find_mod("Bunco")[1]
+
+if fujo and not fujo.version then
+    SMODS.current_mod.debug_info = {
+        "You're using an outdated and abandoned version of Fusion Jokers!",
+        "Please update to the version we're maintaining, located here:",
+        "https://github.com/wingedcatgirl/Fusion-Jokers"
+    }
+end
+
+if bunco then --Not sure this one actually works, but worth putting it in just to see
+    local ver = bunco.version
+    if not (ver and string.find(ver, "JumboFork")) then
+        SMODS.current_mod.debug_info[#SMODS.current_mod.debug_info+1] = "You're using an outdated and abandoned version of Bunco!"
+        SMODS.current_mod.debug_info[#SMODS.current_mod.debug_info+1] = "Please update to the version JumboCarrot is maintaining, located here:"
+        SMODS.current_mod.debug_info[#SMODS.current_mod.debug_info+1] = "https://github.com/jumbocarrot0/Bunco"
+    end
+end
 
 if not SMODS.current_mod.lovely then
     NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
@@ -12,7 +32,7 @@ end
 SMODS.current_mod.optional_features = {
     retrigger_joker = true,
     post_trigger = true,
-    --quantum_enhancements = true,
+    quantum_enhancements = true,
     cardareas = {
         unscored = true,
     },
@@ -27,9 +47,6 @@ SMODS.ObjectType({ --Kity pool (Legendary and otherwise)
         ["j_neat_tabbycat"] = true,
         ["j_ortalab_black_cat"] = true,
     },
-    inject = function(self)
-        SMODS.ObjectType.inject(self)
-    end
 })
 
 if not SMODS.ObjectType.Food then
@@ -47,25 +64,39 @@ if not SMODS.ObjectType.Food then
             ["j_ramen"] = true,
             ["j_selzer"] = true,
         },
-        inject = function(self)
-            SMODS.ObjectType.inject(self)
-        end,
     })
 end
+
+SMODS.ConsumableType{
+    key = "minty_treat",
+    default = "c_minty_funnel_cake",
+    select_card = function (self, card, pack)
+        if pack.kind == "minty_everycard" then return "consumeables" end
+        return false
+    end,
+    primary_colour = G.C.PURPLE,
+    secondary_colour = HEX("ca7ca7")
+}
 
 local files = {
     lib = {
         { name = "atlases" },
+        { name = "gradience" },
         { name = "functions" },
         { name = "hooks" },
+        { name = "achievements" },
         { name = "sounds" },
         { name = "configui" },
+        { name = "rarity" },
+        { name = "quips" },
+        { name = "bluehairand", mods = { { id = "cardpronouns" } } },
     },
     suits = {
         { name = "3suit" }
     },
     ranks = {
-        { name = "face" }
+        { name = "face" },
+        { name = "number" },
     },
     jokers = {
         --Tweaks to existing Jokers 
@@ -85,19 +116,33 @@ local files = {
         { name = "bucket" },
         { name = "chocobar" },
         { name = "duckhat" },
+        { name = "bonkdice",  },
+        { name = "optimist" },
         { name = "ascetic" },
         { name = "churu",  },
+        { name = "flexweirdo" },
+        { name = "numberslop" },
         --Uncommon Jokers
+        { name = "altar" },
         { name = "atheismcorner" },
+        { name = "bigpockets" },
+        { name = "cakesword" },
         { name = "catcafe" },
         { name = "catnipfields" },
+        { name = "clock" },
+        { name = "contraption" },
         { name = "fatcat-l" }, --Literal (Tubbs)
         { name = "fatcat-m" }, --Metaphorical (Jeff Bezos catgirl)
+        { name = "hamburger" },
+        { name = "nucleation" },
         { name = "treatovision" },
+        { name = "obsession" },
+        { name = "printer" },
         { name = "peywet", },
-        { name = "cakesword" },
-        --{ name = "inkbleed" },
+        --{ name = "inkbleed" }, --Dummied for now cause it's really janky
         { name = "copycat" },
+        { name = "shadowcrystal" },
+        { name = "fate" },
         { name = "sabertooth" },
         { name = "neko" },
         { name = "catpicmachine", },
@@ -106,12 +151,17 @@ local files = {
         { name = "gymbuddy" },
         { name = "scoundrel" },
         { name = "cakegun" },
+        { name = "youtube" },
+        { name = "manacompressor" }, --Allowed to stay because it's less janky than Inkbleed, but comment this line if it gives you trouble
+        { name = "pessimist" },
         { name = "doctor" },
         { name = "hyperfix" },
         { name = "jacobsladder" },
         --Fusion Jokers
         { name = "threecats", mods = { {id = "FusionJokers"} } },
         { name = "parkour", mods = { {id = "FusionJokers"} } },
+        { name = "wildfire", mods = { {id = "FusionJokers"} } },
+        { name = "superboss", mods = { {id = "FusionJokers"} } },
         { name = "wettiger", mods = { {id = "FusionJokers"}, {id = "Tsunami"} } },
         { name = "shakegun", mods = { {id = "FusionJokers"}, {id = "Tsunami"} } },
         --{ name = "ninethlion", mods = { {id = "FusionJokers"} }, dev = true },
@@ -129,20 +179,36 @@ local files = {
     },
     tarots = {
         { name = "abacus", },
-        { name = "cat" },
+        { name = "battery" },
+        { name = "bitz" },
         { name = "boredchild" },
+        { name = "cat" },
         { name = "dorf" },
+        { name = "focus" },
         { name = "grin", },
         { name = "gleam" },
         { name = "geologist" },
-        { name = "bitz" },
         { name = "magnet" },
     },
     spectrals = {
         { name = "sixyears" },
         { name = "dekaja" },
+        { name = "delicacy" },
+        { name = "piracy" },
+        { name = "reincarnate" },
         { name = "wand" },
         --{ name = "testcard" },
+    },
+    treats = {
+        { name = "choccy" },
+        { name = "mint ice cream" },
+        { name = "blueberry pie" },
+        { name = "funnel cake" },
+    },
+    boosters = {
+        { name = "modpacks" },
+        { name = "packofeverycard" },
+        { name = "treat" },
     },
     consumables = {
         { name = "colors", mods = { { id = "MoreFluff", cfg = "Colour Cards" } } },
@@ -150,27 +216,40 @@ local files = {
         { name = "gemstones", mods = { { id = "Gemstone" } } },
         { name = "drafts", mods = { { id = "draft", version = "0.6.0" } } },
     },
+    tags = {
+        { name = "goading" },
+        { name = "menu" },
+    },
     vouchers = {
-        { name = "topplepaws" }
+        { name = "topplepaws" },
+        { name = "treasure" },
     },
     modifiers = {
         { name = "marble" }, --Enhancements
         { name = "microcline" },
         { name = "crystal" },
         { name = "hematite" },
+        { name = "static" },
         { name = "garbled" }, --Rotarot enhancements
         { name = "pistol" },
         { name = "spline" },
         { name = "dynamite" },
+        { name = "emphatic" },
+        { name = "drained" }, --Editions
         { name = "cementseal" }, --Seals
+        { name = "counterfeit" }, --Stickers
+        { name = "hooked" },
+        { name = "pirated" },
     },
     backs = {
         { name = "treat" },
-        { name = "club" },
-        { name = "diamond" },
-        { name = "heart" },
-        { name = "spade" },
-        { name = "3" },
+        --{ name = "club" },    --
+        --{ name = "diamond" }, --
+        --{ name = "heart" },   -- Yeah, you can bring them back if you really want to. Don't recommend it, but you can!
+        --{ name = "spade" },   --
+        --{ name = "3" },       --
+        { name = "plasmaathome" },
+        { name = "suitfocus" },
         { name = "drippy" },
         { name = "silly" },
     },
@@ -184,8 +263,20 @@ local files = {
         { name = "calico" },
         { name = "thenipdx" },
     },
+    hands = {
+        { name = "handful" },
+    },
+    planets = {
+        { name = "handfuls" },
+    },
+    stakes = {
+        { name = "stakes" },
+    },
     challenge = {
-        { name = "challenges", mods = { { id = "ChDp" } } }
+        { name = "raidnight" },
+        { name = "backalley" },
+        { name = "cosmoport" },
+        { name = "taxfraud" },
     }
 }
 
@@ -219,14 +310,14 @@ for folder, list in pairs(files) do
         end
         if load then
             sendTraceMessage("Loading file: "..folder..'/'..name..'.lua', "Minty's Mod")
-            if not pcall(SMODS.load_file(folder..'/'..name..'.lua')) then
-                local _,errormessage = pcall(SMODS.load_file(folder..'/'..name..'.lua'))
-                local disable = not MINTY.config.dev_mode and " The mod will be automatically disabled on restart." or ""
+            local loaded,errormessage = pcall(SMODS.load_file(folder..'/'..name..'.lua'))
+            if not loaded then
+                local disable = not MINTY.config.dev_mode and "\nThe mod will be automatically disabled on restart." or ""
                 if not MINTY.config.dev_mode then
                     NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
                 end
                 sendErrorMessage(errormessage, "Minty's Mod")
-                error("Minty's Mod: File '"..folder.."/"..name..".lua' failed to load! Please make sure there's nothing fucky with your file structure."..disable)
+                error("Minty's Mod: File '"..folder.."/"..name..".lua' failed to load!\n   "..errormessage.."\nPlease make sure there's nothing fucky with your file structure."..disable)
             end
 
 
@@ -240,7 +331,67 @@ end
 MINTY.lastmoment = function ()
     MINTY.say("Running last-moment code...")
     MINTY.rocklist()
-    MINTY.enhancecheck()
+    if G.P_CENTERS.j_minty_inkbleed then --No point actually *doing* this if Inkbleed is still dummied
+        MINTY.enhancecheck()
+    end
+
+    MINTY.packable_mods = {}
+    MINTY.modbag = {}
+    MINTY.vjokers = {}
+    for k,v in pairs(G.P_CENTERS) do
+        local normal = {
+            [1] = true,
+            [2] = true,
+            [3] = true,
+        }
+        if v.set == "Joker" and normal[v.rarity] then
+            if v.original_mod then
+                if not MINTY.packable_mods[v.original_mod.id] then
+                    MINTY.packable_mods[v.original_mod.id] = {
+                        id = v.original_mod.id,
+                        name = v.original_mod.name,
+                        shortname = v.original_mod.display_name,
+                        colour = v.original_mod.badge_colour,
+                        count = 1
+                    }
+                else
+                    MINTY.packable_mods[v.original_mod.id].count = MINTY.packable_mods[v.original_mod.id].count + 1
+                end
+            else
+                MINTY.vjokers[#MINTY.vjokers+1] = k
+            end
+        end
+    end
+    for k,v in pairs(copy_table(MINTY.packable_mods)) do
+        if v.count < 6 then
+            MINTY.packable_mods[k] = nil
+        else
+            for _=1,math.ceil(math.log(v.count, 7)) do
+                MINTY.modbag[#MINTY.modbag+1] = k
+            end
+        end
+    end
+
+    --Set applied stakes of the "applies every stake" stake. If we invent that.
+    --[[
+    if G.P_STAKES.stake_minty_barber then
+        G.P_STAKES.stake_minty_barber.applied_stakes = {}
+        local stakes = MINTY.get_all_top_stakes()
+        G.P_STAKES.stake_minty_barber.applied_stakes = stakes
+    end
+    --]]
+
+    --Put vanilla ranks in first slot of prev table, where they belong.
+    for k,v in pairs(SMODS.Ranks) do
+        if v.prev and type(v.prev[1]) == "string" and v.prev[2] and string.find(v.prev[1], "minty_") then
+            for ii,vv in ipairs(v.prev) do
+                if SMODS.Ranks[vv] and not SMODS.Ranks[vv].original_mod then
+                    v.prev[1], v.prev[ii] = v.prev[ii], v.prev[1]
+                    break
+                end
+            end
+        end
+    end
 
     if Cryptid and cry_best_interest_cap and not MINTY.cbic_override then --Gotta put it here cause priority~ Cryptid will probably fix this on their end soon-ish but for now this at least makes sure ducks are accounted for
         MINTY.cbic_override = true --Only do it once

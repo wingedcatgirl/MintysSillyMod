@@ -41,10 +41,9 @@ SMODS.Joker {
     check_for_unlock = function (self, args)
         if args and args.type == 'hand' and args.scoring_hand then
             local spectrum = string.find(args.disp_text, "Spectrum") --The easy way: detect a Spectrum being scored
-            --this would be the part where I did the slightly-less-easy way and checked context.poker_hands, but I don't think context gets passed to check_for_unlock
             if spectrum then
                 unlock_card(self)
-                return
+                return true
             end
             -- If no Spectrum mod is installed, do it the hard way and detect a five-suited hand manually
             local wild_cards = {}
@@ -91,7 +90,7 @@ SMODS.Joker {
 
             if needed <= #wild_cards then
                 unlock_card(self)
-                return
+                return true
             end
 
             -- need to find (needed) more unique suits from flex cards
@@ -128,7 +127,7 @@ SMODS.Joker {
 
             if needed <= #flex_cards and assign(1, {}, {}) then
                 unlock_card(self)
-                return
+                return true
             end
         end
     end,

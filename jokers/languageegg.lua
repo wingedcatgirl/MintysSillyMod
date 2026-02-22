@@ -26,6 +26,7 @@ SMODS.Joker {
     check_for_unlock = function (self, args)
         if args.type == 'win_custom' and G.SETTINGS.language ~= "en-us" then
             unlock_card(self)
+            return true
         end
     end,
     in_pool = function (self, args) --Spawn chance reduced by 1/3 if this run has only been played in US English

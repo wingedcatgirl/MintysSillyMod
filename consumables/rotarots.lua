@@ -62,7 +62,7 @@ SMODS.Consumable({
     loc_vars = function(self, info_queue, card)
         return { vars = {card.ability.val} }
     end
-  })
+})
 
 SMODS.Consumable({
     object_type = "Consumable",
@@ -186,6 +186,44 @@ SMODS.Consumable({
         if self.config.max_highlighted ~= 1 then plural = true end
         local s = plural and "s" or ""
         local a = plural and "" or "a "
+
+        return {
+            key = key,
+            vars = {
+                card and card.ability.max_highlighted or self.config.max_highlighted,
+                localize{type = 'name_text', set = 'Enhanced', key = self.config.mod_conv},
+                s,
+                a,
+        } }
+    end
+})
+
+
+SMODS.Consumable({
+    object_type = "Consumable",
+    set = "Rotarot",
+    name = "The Battery!",
+    key = "rot_battery",
+    pos = { x = 3, y = 1 },
+    config = {
+        max_highlighted = 1,
+        mod_conv = "m_minty_emphatic",
+    },
+    cost = 3,
+    atlas = "rotarots",
+    unlocked = true,
+    discovered = false,
+    display_size = { w = 107, h = 107 },
+    can_use = function(self, card)
+        return #G.hand.highlighted >= 1 and #G.hand.highlighted <= card.ability.max_highlighted
+    end,
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[self.config.mod_conv]
+        local key = self.key
+        local plural = false
+        if self.config.max_highlighted ~= 1 then plural = true end
+        local s = plural and "s" or ""
+        local a = plural and "" or "an "
 
         return {
             key = key,

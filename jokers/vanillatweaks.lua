@@ -1,4 +1,4 @@
-if not (SMODS.Mods["UnStable"] or {}).can_load then --UnStable tweaks all these for its own ranks, 3petition will have to be reimplemented entirely to combine with that
+if not SMODS.find_mod("UnStable")[1] then --UnStable tweaks all these for its own ranks, 3petition will have to be reimplemented entirely to combine with that
     SMODS.Joker:take_ownership('hack', {
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.repetition then

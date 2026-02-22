@@ -1,5 +1,5 @@
 FusionJokers.fusions:add_fusion("j_minty_ascetic", nil, false, "j_minty_sabertooth", nil, false, "j_minty_ninethlion", 12)
-local ortalab = (SMODS.Mods.ortalab or {}).can_load
+local ortalab = next(SMODS.find_mod("ortalab"))
 
 SMODS.Joker {
     key = "ninethlion",

@@ -3,7 +3,23 @@ SMODS.Back({
     key = "treat",
     pos = { x = 0, y = 0 },
     atlas = "backs",
-    unlocked = true,
+    unlock_req = 5,
+    locked_loc_vars = function (self, info_queue, card)
+        return {
+            vars = {
+                self.unlock_req
+            }
+        }
+    end,
+    unlocked = false,
+    check_for_unlock = function (self, args)
+        if args and args.type == "discover_amount" then
+            if MINTY.discover_count() >= self.unlock_req then
+                --unlock_card(self)
+                return true
+            end
+        end
+    end,
     config = {start_with_3s = true},
 
     apply = function()
@@ -14,7 +30,7 @@ SMODS.Back({
 })
 
 
-if (SMODS.Mods["CardSleeves"] or {}).can_load then
+if not not next(SMODS.find_mod("CardSleeves")) then
     CardSleeves.Sleeve({
         key = "treatsleeve",
         name = "Sleeve With A Treat",
@@ -26,9 +42,10 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
           if not (G and G.GAME) then return end
           if self.get_current_deck_key() ~= "b_minty_treat" then return end
           local skey, scount = MINTY.sleeveunlockcheck()
-          if args and args.type == 'win_custom' and G.GAME.stake == scount then
+          if args and args.type == 'win_custom' and MINTY.at_least_stake(G.GAME.stake, skey) then
               G.PROFILES[G.SETTINGS.profile].mintysleeves[self.key] = skey
-              unlock_card(self)
+              --unlock_card(self)
+              return true
           end
         end,
         locked_loc_vars = function (self, info_queue, card)

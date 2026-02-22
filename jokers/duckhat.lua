@@ -3,6 +3,7 @@ local interest_req = 5 --Thunk _hard-coded_ this... but this'll be easier to cha
 SMODS.Joker {
     key = "duckhat",
     name = "Duck in a Top Hat Thursday",
+    pronouns = "it_its",
     atlas = 'jokerdoodles',
     pos = {
         x = 0,

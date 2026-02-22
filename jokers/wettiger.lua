@@ -1,16 +1,17 @@
-FusionJokers.fusions:add_fusion("j_splash", nil, false, "j_minty_slowtiger", mult, true, "j_minty_wettiger", 6)
+FusionJokers.fusions:add_fusion("j_splash", nil, false, "j_minty_slowtiger", "mult", true, "j_minty_wettiger", 6)
 
 SMODS.Joker {
     key = "wettiger",
     name = "Wet Tiger",
+    pronouns = "it_its",
     atlas = 'jokerdoodles',
     pos = {
         x = 0,
         y = 0
     },
     soul_pos = {
-        x = 1,
-        y = 0
+        x = 3,
+        y = 6
     },
     rarity = "fuse_fusion",
     cost = 6,
@@ -22,7 +23,7 @@ SMODS.Joker {
     demicoloncompat = false,
     config = {
         extra = {
-            mult = 5,
+            mult = 0,
             gain = 1,
         }
     },
@@ -47,27 +48,18 @@ SMODS.Joker {
         end
 
         if context.individual and not context.blueprint and context.cardarea == G.play and card_is_splashed(context.other_card) then
-            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.gain
-            return {
-                message = localize {
-                    type = 'variable',
-                    key = 'a_mult',
-                    vars = { card.ability.extra.gain }
-                },
-            }
+            SMODS.scale_card(card,{
+                ref_table = card.ability.extra,
+                ref_value = "mult",
+                scalar_value = "gain",
+            })
+            return {}
         end
 
         if context.joker_main and context.scoring_hand then
             return {
-                mult_mod = card.ability.extra.mult,
-                message = localize {
-                    type = 'variable',
-                    key = 'a_mult',
-                    vars = { card.ability.extra.mult }
-                },
+                mult = card.ability.extra.mult,
             }
         end
     end
 }
-
--- See localization/en-us.lua to create joker text

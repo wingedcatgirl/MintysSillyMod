@@ -44,11 +44,11 @@ SMODS.Blind {
         if area ~= G.hand then return false end
         if SMODS.pseudorandom_probability(card, "minty_calico_flip", 1, self.config.extra.odds, "minty_calico_flip") then
             card.ability.wheel_flipped = true
-            if not SMODS.find_card("j_minty_finity_calico") and card.debuff and card.ability.calicodebuffed and (pseudorandom("calicoundebuff") < 1/2) then
+            if not next(SMODS.find_card("j_minty_finity_calico")) and card.debuff and card.ability.calicodebuffed and (pseudorandom("calicoundebuff") < 1/2) then
                 card.ability.calicodebuffed = nil
                 card.debuff = false
             else
-                if not SMODS.find_card("j_minty_finity_calico") then
+                if not next(SMODS.find_card("j_minty_finity_calico")) then
                     card.ability.wheel_flipped = false
                 end
             end

@@ -1,6 +1,9 @@
+--local chdp = SMODS.find_mod("ChDp")[1] --What were we using this for, again...?
+
 return {
 	["misc"] = {
 		["dictionary"] = {
+			--Card noises
 			["k_minty_drowned"] = "Drowned!",
 			["k_minty_nommed"] = "Nom!",
 			["k_minty_stopped"] = "Stopped!",
@@ -18,14 +21,82 @@ return {
 			["k_minty_bye"] = "Bye-bye!",
 			["k_minty_rescheduled"] = "Rescheduled!",
 			["k_minty_ordered"] = "Ordered!",
+			["k_minty_printed"] = "Printed!",
+			["k_minty_spread"] = "Spread!",
+			["k_minty_confiscated"] = "Confiscated!",
+			["k_minty_crystal"] = "Crystal!",
+			k_minty_ratio = "L + ratio!",
+
+			--Option text
+			option_minty_flavor = "Flavor text",
+			option_minty_crossover = "Include crossover content (where possible)",
+			option_minty_slaterename = "Rename Stone to Slate",
+			option_minty_ticking = "Ticking cards",
+			option_minty_3lock = "3 suit availability",
+			option_minty_nodumbshit = "Disable bad jokes",
+			option_minty_devmode = "Dev mode",
+			option_minty_notrace = "Suppress trace messages",
+
+			--Names of things
+			["k_minty_treat"] = "Treat",
+			["b_minty_treat_cards"] = "Treat Cards",
+			["k_minty_treat_packs"] = "Treat Pack",
+			["k_minty_everycard_packs"] = "Pack of Every Card",
+			["k_minty_mod_packs"] = "Mod Pack",
+
+			--Misc junk
+			["k_minty_random_mod"] = "a random mod",
+			["k_mod_singular"] = "Mod",
+			["k_minty_first_suit"] = "first played suit",
+			["k_minty_no_suit"] = "no suit",
+			["k_minty_all_suits"] = "all suit",
+			["k_minty_yep"] = "Yep!",
+			["k_minty_unbalanced"] = "Unbalanced",
 			["k_minty_cube"] = "Hand must contain exactly 4 cards",
 			["k_minty_psycube"] = "What have you done?!",
 			["k_minty_challenge"] = "Challenge",
+			["k_minty_special"] = "Special",
+			["k_minty_hands"] = "hands per round",
+			["k_minty_size"] = "hand size",
+			["k_minty_discards"] = "discards per round",
+			["k_minty_jokers"] = "Joker slots",
+			["k_minty_selection"] = "selection limit",
+			["k_minty_treasureplaceholder"] = "a random stat",
+			k_minty_cease_sing = "The Blind delivers a cease-and-desist",
+			k_minty_desist_sing = "notice for your ill-gotten card!",
+			k_minty_cease_pl = "The Blind delivers a cease-and-desist",
+			k_minty_desist_pl = "notice for your ill-gotten cards!",
 		},
 		["v_dictionary"] = {
 			["a_minty_chipgain"] = "+#1# Chips",
 			["a_minty_multandchips"] = "+#1# Mult, +#2# Chips",
 			["a_minty_chipsandmult"] = "+#1# Chips, +#2# Mult",
+			["v_minty_blackjack"] = "Hand must total #1# (is #2#)",
+			["v_minty_forbidden_hand"] = "Hands containing #1# are forbidden",
+			["v_minty_not_permitted_hand"] = "#1# is not a permitted hand (see challenge info)",
+		},
+		["v_text"] = {
+			["ch_c_all_minty_counterfeit"] = {
+				"All cards are {C:attention}Counterfeit{}"
+			},
+			["ch_c_minty_ante_dollarpenalty"] = {
+				"Starting Ante {C:attention}#1#{}, {C:mult}-1{} Mult per {C:gold}$1{} held"
+			},
+			["ch_c_minty_showman"] = {
+				"{C:attention}#1#{} can appear multiple times"
+			},
+			["ch_c_minty_blackjack"] = {
+				"Scored hand must add up to {C:attention}#1#{}",
+			},
+			["ch_c_minty_blackjack2"] = {
+				"{C:inactive,s:0.8}(Face cards are 10; Aces are 11 or 1)",
+			},
+			["ch_c_minty_must_hand"] = {
+				"Only {C:attention}#1#{} hands are allowed"
+			},
+			["ch_c_minty_banned_hand"] = {
+				"Hands containing {C:attention}#1#{} are forbidden"
+			},
 		},
 		["suits_plural"] = {
 			["minty_3s"] = "3s",
@@ -35,13 +106,19 @@ return {
 		},
 		["ranks"] = {
 			["minty_face"] = "Face",
+			["minty_number"] = "Number",
 		},
 		["labels"] = {
 			["minty_cement_seal"] = "Cement Seal",
 			["m_minty_marble"] = "Marble Card",
 			["m_minty_garbled"] = "Garbled Card",
 			["gemslot_catseye"] = "Cat's Eye",
+			["minty_counterfeit"] = "Counterfeit",
+			["minty_hooked"] = "Hooked",
+			minty_pirated = "Pirated",
 			["k_minty_challenge"] = "Challenge",
+			["k_minty_special"] = "Special",
+			minty_drained = "Drained",
 		},
 		["challenge_names"] = {
 			["c_minty_raidnight"] = "Day One Raid Night",
@@ -49,6 +126,53 @@ return {
 			["c_minty_backalley"] = "Back Alleys",
 			["c_minty_evilbackalley"] = "Deadly Back Alleys",
 			["c_minty_cosmoport"] = "My Own Cosmoport",
+			["c_minty_taxfraud"] = "Tax Fraud",
+		},
+		["achievement_names"] = {
+			["ach_minty_leftstakes"] = "Stakes a little to the left",
+			["ach_minty_lefterstakes"] = "Stakes rather more to the left",
+			["ach_minty_lefteststakes"] = "Stakes lefter than Marx himself",
+			["ach_minty_conqueror_of_hell"] = "Conqueror of Hell",
+			["ach_minty_template"] = "Template",
+			["ach_minty_nyanpletionist"] = "Nyanpletionist",
+			ach_minty_nyanpletionist_plus = "Nyanpletionist+",
+			ach_minty_nyanpletionist_plusplus = "Nyanpletionist++"
+		},
+		["achievement_descriptions"] = {
+			["ach_minty_leftstakes"] = "Win on at least Scarlet Stake",
+			["ach_minty_lefterstakes"] = "Win on at least Void Stake",
+			["ach_minty_lefteststakes"] = "Win on at least #CA7CA7 Stake",
+			["ach_minty_conqueror_of_hell"] = "Win on at least Rose Gold Stake (How?!)",
+			["ach_minty_template"] = "Achievement",
+			ach_minty_nyanpletionist = "Discover all Minty's Mod items",
+			ach_minty_nyanpletionist_plus = "Win with all Minty's Mod decks on #CA7CA7 Stake or higher",
+			ach_minty_nyanpletionist_plusplus = "Earn a #CA7CA7 or better sticker on all Minty's Mod Jokers"
+		},
+		["poker_hands"] = {
+			["minty_Handful"] = "Handful of Rocks",
+			["minty_flush_handful"] = "Handful of Rock",
+			["minty_spec_handful"] = "Conglomerate",
+			["minty_spectrum"] = "Spectrum" --dummy hand name for deadly back alleys
+		},
+		["poker_hand_descriptions"] = {
+			["minty_Handful"] = {
+				"5 {C:attention}Rock Cards{}"
+			},
+			["minty_flush_handful"] = {
+				"5 {C:attention}Rock Cards{} of",
+				"the {C:attention}same{} enhancement"
+			},
+			["minty_spec_handful"] = {
+				"5 {C:attention}Rock Cards{} of",
+				"{C:attention}different{} enhancements"
+			},
+		},
+		["quips"] = {
+			["minty_de_ref"] = {
+				"Play one of these",
+				"High Card or Flush Five",
+				"builds, or {C:attention}log off!{}"
+			}
 		}
 	},
 	["descriptions"] = {
@@ -87,12 +211,48 @@ return {
 					"{C:inactive,s:0.8}YOU'RE a cube!",
 				},
 			},
+			["j_minty_youtube"] = {
+				["name"] = "YouTube",
+				["text"] = {
+					"{C:green}#1# in #2#{} chance of",
+					"{X:mult,C:white}X#3#{} Mult"
+				},
+				["unlock"] = {
+					"Overkill a {C:attention}Boss Blind{}",
+					"by a factor of {X:mult,C:white}#1#{}"
+				},
+			},
+			["j_minty_youtube_flavor"] = {
+				["name"] = "YouTube",
+				["text"] = {
+					"{C:green}#1# in #2#{} chance of",
+					"{X:mult,C:white}X#3#{} Mult",
+					" ",
+					"{C:inactive,s:0.8}What? It's an expected result",
+					"{C:inactive,s:0.8}of {X:inactive,C:white,s:0.8}X#4#{C:inactive,s:0.8}, it's totally balanced!",
+				},
+			},
+			["j_minty_youtube_flavor_alt"] = {
+				["name"] = "YouTube",
+				["text"] = {
+					"{C:green}#1# in #2#{} chance of",
+					"{X:mult,C:white}X#3#{} Mult",
+					" ",
+					"{C:inactive,s:0.8}What? It's an expected{}",
+					"{C:inactive,s:0.8}result of... uh-oh.{}",
+				},
+			},
 			["j_minty_inkbleed"] = {
 				["name"] = "Inkbleed",
 				["text"] = {
 					"{C:attention}Enhancements{} sharing names",
 					"also share {C:attention}effects{}"
 				},
+				["unlock"] = {
+					"Play with at least",
+					"{C:attention}#1#{} mods active",
+					"{C:inactive}(Currently #2#){}"
+				}
 			},
 			["j_minty_inkbleed_flavor"] = {
 				["name"] = "Inkbleed",
@@ -101,6 +261,92 @@ return {
 					"also share {C:attention}effects{}",
 					" ",
 					"{C:inactive,s:0.8}Also try Entropy and/or ArtBox!{}"
+				},
+			},
+			["j_minty_clock"] = {
+				["name"] = "The Time Being",
+				["text"] = {
+					"{C:mult}+Mult{} equal to current {C:attention}hour{}",
+					"{C:chips}+Chips{} equal to current {C:attention}minute{}",
+					"{C:money}+$#3#{} at end of round and {C:mult}self-destruct{}",
+					"if current {C:attention}second{} equals either value"
+				},
+			},
+			["j_minty_clock_flavor"] = {
+				["name"] = "The Time Being",
+				["text"] = {
+					"{C:mult}+Mult{} equal to current {C:attention}hour{}",
+					"{C:chips}+Chips{} equal to current {C:attention}minute{}",
+					"{C:money}+$#3#{} at end of round and {C:mult}self-destruct{}",
+					"if current {C:attention}second{} equals either value",
+					" ",
+					"{C:inactive,s:0.8}You run will be better for the Time Being"
+				},
+			},
+			["j_minty_flexweirdo"] = {
+				["name"] = "JWCMCAHGSMBIBITSASUD",
+				["text"] = {
+					"Cards of {C:attention}#1#{}",
+					"give {C:mult}+#2#{} Mult when scored"
+				},
+			},
+			["j_minty_shadowcrystal"] = {
+				["name"] = "Shadow Crystal",
+				["text"] = {
+					"Cards of {C:attention}#1#{}",
+					"give {C:money}$#2#{}, {C:chips}+#3#{} Chips",
+					"{C:mult}+#4#{} Mult, or {X:mult,C:white}X#5#{} Mult",
+					"when scored",
+				},
+			},
+			["j_minty_shadowcrystal_flavor"] = {
+				["name"] = "Shadow Crystal",
+				["text"] = {
+					"Cards of {C:attention}#1#{}",
+					"give {C:money}$#2#{}, {C:chips}+#3#{} Chips",
+					"{C:mult}+#4#{} Mult, or {X:mult,C:white}X#5#{} Mult",
+					"when scored",
+					" ",
+					"{C:inactive,s:0.8}The prophecy's text does not{}",
+					"{C:inactive,s:0.8}warp in the crystal's lens.{}",
+				},
+			},
+			["j_minty_superboss"] = {
+				["name"] = "Superboss",
+				["text"] = {
+					"Cards of {C:attention}#1#{}",
+					"give {C:money}$#2#{}, {C:chips}+#3#{} Chips",
+					"{C:mult}+#4#{} Mult, or {X:mult,C:white}X#5#{} Mult",
+					"when scored, which increases",
+					"if hand contains {C:attention}#6#{} or more",
+					"cards of {C:attention}#1#{}"
+				},
+			},
+			["j_minty_superboss_flavor"] = {
+				["name"] = "Superboss",
+				["text"] = {
+					"Cards of {C:attention}#1#{}",
+					"give {C:money}$#2#{}, {C:chips}+#3#{} Chips",
+					"{C:mult}+#4#{} Mult, or {X:mult,C:white}X#5#{} Mult",
+					"when scored, which increases",
+					"if hand contains {C:attention}#6#{} or more",
+					"cards of {C:attention}#1#{}",
+					" ",
+					"{C:inactive,s:0.8}WHY. WHY DID YOU GIVE THAT TO HIM.{}",
+				},
+			},
+			["j_minty_bigpockets"] = {
+				["name"] = "Big Pockets",
+				["text"] = {
+					"{C:mult}+#1#{} consumeable slots"
+				},
+			},
+			["j_minty_bigpockets_flavor"] = {
+				["name"] = "Big Pockets",
+				["text"] = {
+					"{C:mult}+#1#{} consumeable slots",
+					" ",
+					"{C:inactive,s:0.8}... or are you just happy to see me?"
 				},
 			},
 			["j_minty_doctor"] = {
@@ -120,8 +366,8 @@ return {
 					"{C:green}Unknown chance{} to {C:attention}reschedule{}",
 					"at end of round",
 					" ",
-					"{C:inactive,s:0.8}\"Vent art\"? No, this is a doctor.",
-					"{C:inactive,s:0.8}They've got the classic head mirror, see?"
+					"{C:inactive,s:0.8}\"Vent art\"? No, this is a doctor.{}",
+					"{C:inactive,s:0.8}They've got the classic head mirror, see?{}"
 				},
 			},
 			["j_minty_doctor_active"] = {
@@ -134,7 +380,7 @@ return {
 				["name"] = "Doctor",
 				["text"] = {
 					"{B:1,C:white}#2#{} Mult",
-					"{C:inactive,s:0.8}Seriously? Lucky bastard."
+					"{C:inactive,s:0.8}Seriously? Lucky bastard.{}"
 				},
 			},
 			["j_minty_duckhat"] = {
@@ -216,7 +462,7 @@ return {
 				["name"] = "Calico on the Counter",
 				["text"] = {
 					"{C:attention}#1# in #2#{} cards {C:mult}flipped{} on draw,",
-					"{C:attention}#1# in #2#{} cards {C:mult}debuffed{} on draw.",
+					"{C:attention}#1# in #2#{} cards {C:mult}debuffed{} on draw",
 					"{C:mult}Flipped{} or {C:mult}debuffed{} cards {C:attention}always score{}",
 					"{C:mult}Flipped{} cards give {C:mult}+#3#{} Mult",
 					"{C:mult}Debuffed{} cards give {X:mult,C:white}X#4#{} Mult",
@@ -226,7 +472,7 @@ return {
 				["name"] = "Calico on the Counter",
 				["text"] = {
 					"{C:attention}#1# in #2#{} cards {C:mult}flipped{} on draw,",
-					"{C:attention}#1# in #2#{} cards {C:mult}debuffed{} on draw.",
+					"{C:attention}#1# in #2#{} cards {C:mult}debuffed{} on draw",
 					"{C:mult}Flipped{} or {C:mult}debuffed{} cards {C:attention}always score{}",
 					"{C:mult}Flipped{} cards give {C:mult}+#3#{} Mult",
 					"{C:mult}Debuffed{} cards give {X:mult,C:white}X#4#{} Mult",
@@ -248,8 +494,8 @@ return {
 					"{C:spectral}Kity{} Jokers give",
 					"{C:chips}+#1#{} Chips",
 					" ",
-					"{C:inactive,s:0.8}The staff are cats.",
-					"{C:inactive,s:0.8}The patrons... are also cats."
+					"{C:inactive,s:0.8}The staff are cats.{}",
+					"{C:inactive,s:0.8}The patrons... are also cats.{}"
 				},
 			},
 			["j_minty_peywet"] = {
@@ -280,19 +526,19 @@ return {
 			["j_minty_hyperfix"] = {
 				["name"] = "Angel of Hyperfixation",
 				["text"] = {
-					"{X:dark_edition,C:white}^#1#{} Mult for every blind",
+					"{B:1,C:white}#1##2#{} Mult for every blind",
 					"cleared or skipped before",
 					"buying your first Joker",
-					"{C:inactive}(Currently {X:dark_edition,C:white}^#2#{C:inactive})",
+					"{C:inactive}(Currently {B:1,C:white}#1##3#{C:inactive})",
 				},
 			},
 			["j_minty_hyperfix_flavor"] = {
 				["name"] = "Angel of Hyperfixation",
 				["text"] = {
-					"{X:dark_edition,C:white}^#1#{} Mult for every blind",
+					"{B:1,C:white}#1##2#{} Mult for every blind",
 					"cleared or skipped before",
 					"buying your first Joker",
-					"{C:inactive}(Currently {X:dark_edition,C:white}^#2#{C:inactive})",
+					"{C:inactive}(Currently {B:1,C:white}#1##3#{C:inactive})",
 					" ",
 					"{C:inactive,s:0.8}Sure, I'll get it done eventually,",
 					"{C:inactive,s:0.8}But it's always at the last minute...",
@@ -344,7 +590,7 @@ return {
 					"At end of round,",
 					"create a {C:spectral}Spectral{} card",
 					"if no {C:attention}face cards{}",
-					"were scored that round.",
+					"were scored that round",
 					"{C:inactive}(Must have room){}",
 					" ",
 					"{C:inactive}(Currently: #1#!){}",
@@ -356,13 +602,13 @@ return {
 					"At end of round,",
 					"create a {C:spectral}Spectral{} card",
 					"if no {C:attention}face cards{}",
-					"were scored that round.",
+					"were scored that round",
 					"{C:inactive}(Must have room){}",
 					" ",
 					"{C:inactive}(Currently: #1#!){}",
 					" ",
-					"{C:inactive,s:0.8}No eating language eggs",
-					"{C:inactive,s:0.8}allowed on the bus.",
+					"{C:inactive,s:0.8}No eating language eggs{}",
+					"{C:inactive,s:0.8}allowed on the bus.{}",
 				},
 			},
 			["j_minty_catpicmachine_modest"] = {
@@ -470,7 +716,7 @@ return {
 					"{C:green,E:1,S:1.1}probabilities{} by {C:mult}#1#{}",
 					"{C:inactive}(ex: {C:green}#1# in 100{C:inactive} -> {C:green}1 in 100{C:inactive})",
 					" ",
-					"{C:inactive,s:0.8}Till all complete.",
+					"{C:inactive,s:0.8}Till all complete.{}",
 				},
 			},
 			["j_minty_stormy"] = {
@@ -590,6 +836,10 @@ return {
 					"played {C:minty_3s}3s{} to give",
 					"{X:mult,C:white} X#3# {} Mult when scored",
 				},
+				["unlock"] = {
+                    "Have at least {E:1,C:attention}#2#",
+                    "{E:1,C:minty_3s}#1#{} in your deck"
+				}
 			},
 			["j_minty_claw_flavor"] = {
 				["name"] = "Fossilized Claw",
@@ -600,7 +850,7 @@ return {
 					" ",
 					"{C:inactive,s:0.8}It seems to belong",
 					"{C:inactive,s:0.8}to an ancient",
-					"{C:inactive,s:0.8}prehistoric slow tiger.",
+					"{C:inactive,s:0.8}prehistoric slow tiger.{}",
 				},
 			},
 			["j_minty_fatcat-l"] = {
@@ -662,7 +912,7 @@ return {
 					"{C:inactive,s:0.8}An artist knows they",
 					"{C:inactive,s:0.8}have found perfection",
 					"{C:inactive,s:0.8}when there is nothing",
-					"{C:inactive,s:0.8}left to take away.",
+					"{C:inactive,s:0.8}left to take away.{}",
 				},
 			},
 			["j_minty_bucket"] = {
@@ -686,7 +936,7 @@ return {
 				["text"] = {
 					"Played {C:minty_3s}3s{} give {C:green}#1#{} of",
 					"{C:chips}+#2#{} chips, {C:mult}+#3#{} Mult, and",
-					"{X:mult,C:white}X#4#{} Mult when scored.",
+					"{X:mult,C:white}X#4#{} Mult when scored",
 				},
 			},
 			["j_minty_threecats_flavor"] = {
@@ -694,7 +944,7 @@ return {
 				["text"] = {
 					"Played {C:minty_3s}3s{} give {C:green}#1#{} of",
 					"{C:chips}+#2#{} chips, {C:mult}+#3#{} Mult, and",
-					"{X:mult,C:white}X#4#{} Mult when scored.",
+					"{X:mult,C:white}X#4#{} Mult when scored",
 					" ",
 					"{C:mult,s:0.8}       Meow!      ",
 					"{C:chips,s:0.8}Meow!             ",
@@ -706,8 +956,8 @@ return {
 				["text"] = {
 					"Every {C:attention}played card{}",
 					"counts in scoring;",
-					"{C:mult}+#2#{} Mult",
-					"per round or {C:attention}extra scored card{}",
+					"{C:mult}+#2#{} Mult per round",
+					"or {C:attention}extra scored card{}",
 					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult){}",
 				},
 			},
@@ -716,11 +966,31 @@ return {
 				["text"] = {
 					"Every {C:attention}played card{}",
 					"counts in scoring;",
-					"{C:mult}+#2#{} Mult",
-					"per round or {C:attention}extra scored card{}",
+					"{C:mult}+#2#{} Mult per round",
+					"or {C:attention}extra scored card{}",
 					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult){}",
 					" ",
 					"{C:inactive,s:0.8}Poor little meow meow...{}"
+				},
+			},
+			["j_minty_wildfire"] = {
+				["name"] = "Wildfire",
+				["text"] = {
+					"{X:mult,C:white}X#1#{} Mult",
+					"At {C:attention}end of shop{},",
+					"{C:attention}spread left{} to",
+					"gain {X:mult,C:white}X#2#{} Mult",
+				},
+			},
+			["j_minty_wildfire_flavor"] = {
+				["name"] = "Wildfire",
+				["text"] = {
+					"{X:mult,C:white}X#1#{}",
+					"At {C:attention}end of shop{},",
+					"{C:attention}spread left{} to",
+					"gain {X:mult,C:white}X#2#{} Mult",
+					" ",
+					"{C:inactive,s:0.8}IT BURRRRRRNS!{}"
 				},
 			},
 			["j_minty_shakegun"] = {
@@ -785,20 +1055,20 @@ return {
 			["j_minty_theecho"] = {
 				["name"] = "The Echo",
 				["text"] = {
-					"Prevents Death.",
+					"Prevents Death",
 					"If triggered against {C:attention}second{} Boss Blind,",
 					"{C:attention}-1 Ante{} and {C:attention}-1 charge{} {C:inactive}(#1# left){}.",
-					"{C:red}Self-destructs{} when no charges remaining.",
+					"{C:red}Self-destructs{} when no charges remaining",
 					"{C:inactive,s:0.8}(Or when challenge defeated){}",
 				},
 			},
 			["j_minty_theecho_flavor"] = {
 				["name"] = "The Echo",
 				["text"] = {
-					"Prevents Death.",
+					"Prevents Death",
 					"If triggered against {C:attention}second{} Boss Blind,",
 					"{C:attention}-1 Ante{} and {C:attention}-1 charge{} {C:inactive}(#1# left){}.",
-					"{C:red}Self-destructs{} when no charges remaining.",
+					"{C:red}Self-destructs{} when no charges remaining",
 					"{C:inactive,s:0.8}(Or when challenge defeated){}",
 					" ",
 					"{C:inactive,s:0.8}Burning for battle...{}",
@@ -875,9 +1145,9 @@ return {
 					"Played {C:minty_3s}3s{} give",
 					"{C:mult}+#1#{} Mult when scored",
 					" ",
-					"{C:inactive,s:0.8}I'm a hedonist.",
-					"{C:inactive,s:0.8}Of course I have",
-					"{C:inactive,s:0.8}flavor text. Mmm...",
+					"{C:inactive,s:0.8}I'm a hedonist.{}",
+					"{C:inactive,s:0.8}Of course I have{}",
+					"{C:inactive,s:0.8}flavor text. Mmm...{}",
 				},
 			},
 			["j_minty_proso"] = {
@@ -886,7 +1156,7 @@ return {
 					"{X:mult,C:white} X#1# {} Mult if hand",
 					"contains {C:attention}face{} cards,",
 					"but {C:attention}no{} cards are",
-					"considered face cards.",
+					"considered face cards",
 				},
 			},
 			["j_minty_proso_flavor"] = {
@@ -895,11 +1165,11 @@ return {
 					"{X:mult,C:white} X#1# {} Mult if hand",
 					"contains {C:attention}face{} cards,",
 					"but {C:attention}no{} cards are",
-					"considered face cards.",
+					"considered face cards",
 					" ",
-					"{C:inactive,s:0.8}You don't know what it's",
-					"{C:inactive,s:0.8}like to spend every day",
-					"{C:inactive,s:0.8}surrounded by monkeys.",
+					"{C:inactive,s:0.8}You don't know what it's{}",
+					"{C:inactive,s:0.8}like to spend every day{}",
+					"{C:inactive,s:0.8}surrounded by monkeys.{}",
 				},
 			},
 			["j_minty_ascetic"] = {
@@ -959,7 +1229,7 @@ return {
 					"Played cards with rank {C:attention}7{}",
 					"give {C:chips}+#2#{} Chips and {C:mult}+#1#{} Mult",
 					"when scored. Destroy {C:green}#4# in #3#{}",
-					"scored cards of other ranks.",
+					"scored cards of other ranks",
 				},
 			},
 			["j_minty_eaten_flavor"] = {
@@ -968,11 +1238,11 @@ return {
 					"Played cards with rank {C:attention}7{}",
 					"give {C:chips}+#2#{} Chips and {C:mult}+#1#{} Mult",
 					"when scored. Destroy {C:green}#4# in #3#{}",
-					"scored cards of other ranks.",
+					"scored cards of other ranks",
 					" ",
-					"{C:inactive,s:0.8}All shall be well and all shall be well",
-					"{C:inactive,s:0.8}and all manner of thing shall be well.",
-					"{C:inactive,s:0.8}That was the promise."
+					"{C:inactive,s:0.8}All shall be well and all shall be well{}",
+					"{C:inactive,s:0.8}and all manner of thing shall be well.{}",
+					"{C:inactive,s:0.8}That was the promise.{}"
 				},
 			},
 			["j_minty_excited"] = {
@@ -1087,7 +1357,7 @@ return {
 					"{C:inactive}(First suit changes each round){}",
 					" ",
 					"{C:inactive,s:0.8}Hey would you mind slathering yourself",
-					"{C:inactive,s:0.8}in BBQ sauce real quick? No reason.",
+					"{C:inactive,s:0.8}in BBQ sauce real quick? No reason.{}",
 				},
 			},
 			["j_minty_wildsupport"] = {
@@ -1099,7 +1369,7 @@ return {
 					"up to {C:chips}#4#{} Chips (+{C:chips}#9#{}),",
 					"or up to {C:money}$#5#{} (+{C:money}$#10#{}),",
 					"and {C:green}#1# in #6#{} chance to",
-					"increase maximum value."
+					"increase maximum value"
 				},
 			},
 			["j_minty_wildsupport_flavor"] = {
@@ -1111,9 +1381,9 @@ return {
 					"up to {C:chips}#4#{} Chips (+{C:chips}#9#{}),",
 					"or up to {C:money}$#5#{} (+{C:money}$#10#{}),",
 					"and {C:green}#1# in #6#{} chance to",
-					"increase maximum value.",
+					"increase maximum value",
 					" ",
-					"{C:inactive,s:0.8}This is definitely fine.",
+					"{C:inactive,s:0.8}This is definitely fine.{}",
 				},
 			},
 			["j_minty_scoundrel"] = {
@@ -1136,10 +1406,262 @@ return {
 					"{C:inactive,s:0.8}*bites you cutely* ;3"
 				},
 			},
+			["j_minty_manacompressor"] = {
+				["name"] = "Mana Compressor",
+				["text"] = {
+					"Strips enhancement from",
+					"the next played {C:attention}#1#{}",
+					"All consumed enhancements",
+					"count as each other",
+				},
+			},
+			["j_minty_manacompressor_flavor"] = {
+				["name"] = "Mana Compressor",
+				["text"] = {
+					"Strips enhancement from",
+					"the next played {C:attention}#1#{}",
+					"All consumed enhancements",
+					"count as each other",
+					" ",
+					"{C:inactive,s:0.8}As long as it doesn't have Annihilator amirite?{}"
+				},
+			},
+			["j_minty_bonkdice"] = {
+				["name"] = "Bonkin' Dice",
+				["text"] = {
+					"{C:mult}+#1#-#2#{} Mult, {C:attention}twice{}",
+					"{C:mult}+#3#{} to max value",
+					"whenever it is rolled",
+				},
+			},
+			["j_minty_bonkdice_flavor"] = {
+				["name"] = "Bonkin' Dice",
+				["text"] = {
+					"{C:mult}+#1#-#2#{} Mult, {C:attention}twice{}",
+					"{C:mult}+#3#{} to max value",
+					"whenever it is rolled",
+					" ",
+					"{C:inactive,s:0.8}Maybe him skill issue?{}",
+				},
+			},
+			["j_minty_contraption"] = {
+				["name"] = "The Contraption",
+				["text"] = {
+					"{C:chips}+#1#{} Chips",
+					"When a {C:attention}#2#{} is scored",
+					"{C:green}N in #3#{} chance to add",
+					"its extra Chips to this Joker's Chips",
+					"where N is the number of",
+					"scoring #2#s in the hand",
+				},
+			},
+			["j_minty_contraption_flavor"] = {
+				["name"] = "The Contraption",
+				["text"] = {
+					"{C:chips}+#1#{} Chips",
+					"When a {C:attention}#2#{} is scored",
+					"{C:green}N in #3#{} chance to add",
+					"its extra Chips to this Joker's Chips",
+					"where N is the number of",
+					"scoring #2#s in the hand",
+					" ",
+					"{C:inactive,s:0.8}No, we're not throwing green people into it.{}",
+				},
+			},
+			["j_minty_nucleation"] = {
+				["name"] = "Nucleation",
+				["text"] = {
+					"{C:chips}+#1#{} Chips per {C:attention}Crystal Card",
+					"in deck or shattered",
+					"{C:inactive}(Currently {C:chips}+#2#{C:inactive})",
+					"{C:green}#3# in #4#{} chance for {C:attention}unscored{}",
+					"cards to become {C:attention}Crystal{}",
+				},
+			},
+			["j_minty_nucleation_flavor"] = {
+				["name"] = "Nucleation",
+				["text"] = {
+					"{C:chips}+#1#{} Chips per {C:attention}Crystal Card",
+					"in deck or shattered",
+					"{C:inactive}(Currently {C:chips}+#2#{C:inactive})",
+					"{C:green}#3# in #4#{} chance for {C:attention}unscored{}",
+					"cards to become {C:attention}Crystal{}",
+					" ",
+					"{C:inactive,s:0.8}This {C:attention,s:0.8}crystal{C:inactive,s:0.8} is the",
+					"{C:purple,s:0.8}crystal{} {C:chips,s:0.8}crystal{} {C:gold,s:0.8}crystal{}",
+					"{C:mult,s:0.8}crystal{} {C:minty_3s,s:0.8}crystal{} {C:dark_edition,s:0.8}crystal{}",
+					"{C:inactive,s:0.5}what{}"
+				},
+			},
+			["j_minty_altar"] = {
+				["name"] = "The Altar",
+				["text"] = {
+					"Gains {C:mult}+#1#{} Mult for each",
+					"scored {C:attention}#3#{} of {V:1}#4#{}",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive})",
+                    "{s:0.8}Card changes every round",
+				},
+			},
+			["j_minty_altar_flavor"] = {
+				["name"] = "The Altar",
+				["text"] = {
+					"Gains {C:mult}+#1#{} Mult for each",
+					"scored {C:attention}#3#{} of {V:1}#4#{}",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive})",
+                    "{s:0.8}Card changes every round",
+					" ",
+					"{C:inactive,s:0.8}Seems like a good spot{}",
+					"{C:inactive,s:0.8}to place an idol...{}",
+				},
+			},
+			["j_minty_numberslop"] = {
+				["name"] = "Ugh, more numberslop",
+				["text"] = {
+					"{C:mult}+#1#{} Mult, strictly",
+					"better than Jimbo?!",
+					"How dare they put",
+					"this OP crap in Common!",
+				},
+			},
+			["j_minty_numberslop_flavor"] = {
+				["name"] = "Ugh, more numberslop",
+				["text"] = {
+					"{C:mult}+#1#{} Mult, strictly",
+					"better than Jimbo?!",
+					"How dare they put",
+					"this OP crap in Common!",
+					" ",
+					"{C:inactive,s:0.8}These lazy Joker Forge mods{}",
+					"{C:inactive,s:0.8}always do this kind of shit!{}",
+				},
+			},
+			["j_minty_fate"] = {
+				["name"] = "Fate",
+				["text"] = {
+					"{C:mult}Fixed {C:green}#1# in #2#{} chance of",
+					"a {C:mult}fixed {C:green}#3# in #4#{} chance",
+				},
+			},
+			["j_minty_fate_flavor"] = {
+				["name"] = "Fate",
+				["text"] = {
+					"{C:mult}Fixed {C:green}#1# in #2#{} chance of",
+					"a {C:mult}fixed {C:green}#3# in #4#{} chance",
+					" ",
+					"{C:inactive,s:0.8}The other half is luck.{}",
+				},
+			},
+			["j_minty_optimist"] = {
+				["name"] = "Optimist",
+				["text"] = {
+					"When any {C:green}chance{} succeeds,",
+					"gains {X:black,C:white}#2#X{} the",
+					"{C:green}numerator{} as {X:mult,C:white}xMult{}",
+					"{C:inactive}(Currently {C:mult}+#1#{C:inactive})",
+				},
+			},
+			["j_minty_optimist_flavor"] = {
+				["name"] = "Optimist",
+				["text"] = {
+					"When any {C:green}chance{} succeeds,",
+					"gains {X:black,C:white}#2#X{} the",
+					"{C:green}numerator{} as {X:mult,C:white}xMult{}",
+					"{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive})",
+					" ",
+					"{C:inactive,s:0.8}It'll all work out!{}",
+				},
+			},
+			["j_minty_pessimist"] = {
+				["name"] = "Pessimist",
+				["text"] = {
+					"When any {C:green}chance{} fails,",
+					"gains {X:black,C:white}#2#X{} the",
+					"{C:green}denominator{} as {C:chips}+Chips{}",
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive})",
+				},
+			},
+			["j_minty_pessimist_flavor"] = {
+				["name"] = "Pessimist",
+				["text"] = {
+					"When any {C:green}chance{} fails,",
+					"gains {X:black,C:white}#2#X{} the",
+					"{C:green}denominator{} as {C:chips}+Chips{}",
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive})",
+					" ",
+					"{C:inactive,s:0.8}You can't count on luck...{}",
+				},
+			},
+			["j_minty_printer"] = {
+				["name"] = "Printer",
+				["text"] = {
+					"At round start, print a",
+					"{C:attention}playing card{} with a random",
+					"{C:attention}enhancement{} and add it to hand"
+				},
+			},
+			["j_minty_printer_flavor"] = {
+				["name"] = "Printer",
+				["text"] = {
+					"At round start, print a",
+					"{C:attention}playing card{} with a random",
+					"{C:attention}enhancement{} and add it to hand",
+					" ",
+					"{C:inactive,s:0.8}And then I've got like, 55..."
+				},
+			},
+			["j_minty_obsession"] = {
+				["name"] = "Obsession",
+				["text"] = {
+					"Retriggers all cards",
+					"of rank {C:attention}#1#{}, {C:blue}#2#{} time#3#",
+					"{C:inactive}(Rank selected randomly on spawn)",
+				},
+			},
+			["j_minty_obsession_flavor"] = {
+				["name"] = "Obsession",
+				["text"] = {
+					"Retriggers all cards",
+					"of rank {C:attention}#1#{}, {C:blue}#2#{} time#3#",
+					"{C:inactive}(Rank selected randomly on spawn)",
+					" ",
+					"{C:inactive,s:0.8}I always feel like, somebody's watching me..."
+				},
+			},
+			["j_minty_hamburger"] = {
+				["name"] = "Delicious Hamburger",
+				["text"] = {
+					"{C:chips}+#1#{} hands",
+					"{C:attention}-1{} per round"
+				},
+			},
+			["j_minty_hamburger_flavor"] = {
+				["name"] = "Delicious Hamburger",
+				["text"] = {
+					"{C:chips}+#1#{} hands",
+					"{C:attention}-1{} per round",
+					" ",
+					"{C:inactive,s:0.8}Girls will literally eat it"
+				},
+			},
+			--HEY FUTURE MINTY, PUT NEW JOKERS ⬆️HERE⬆️ :P 
+			["j_minty_template"] = {
+				["name"] = "Joker Template",
+				["text"] = {
+					"Does something",
+				},
+			},
+			["j_minty_template_flavor"] = {
+				["name"] = "Joker Template",
+				["text"] = {
+					"Does something",
+					" ",
+					"{C:inactive,s:0.8}And has flavor text!{}",
+				},
+			},
 			["j_minty_catnipfields"] = {
 				["name"] = "Catnip Fields",
 				["text"] = {
-					"{C:minty_3s}3s{} give {X:mult,C:white}X#1#{} Mult when scored.",
+					"{C:minty_3s}3s{} give {X:mult,C:white}X#1#{} Mult when scored",
 					"Increases by {X:mult,C:white}X#2#{} Mult for each ",
 					"consecutively scored {C:minty_3s}3{}",
 					"{C:inactive}(Resets after each hand played)",
@@ -1148,12 +1670,12 @@ return {
 			["j_minty_catnipfields_flavor"] = {
 				["name"] = "Catnip Fields",
 				["text"] = {
-					"{C:minty_3s}3s{} give {X:mult,C:white}X#1#{} Mult when scored.",
+					"{C:minty_3s}3s{} give {X:mult,C:white}X#1#{} Mult when scored",
 					"Increases by {X:mult,C:white}X#2#{} Mult for each ",
 					"consecutively scored {C:minty_3s}3{}",
 					"{C:inactive}(Resets after each hand played)",
 					" ",
-					"{C:inactive,s:0.8}Cats come from across the land to frolic here.",
+					"{C:inactive,s:0.8}Cats come from across the land to frolic here.{}",
 				},
 			},
 		},
@@ -1164,6 +1686,35 @@ return {
 					"Starts with a",
 					"full set of 13 {C:minty_3s}3s{}",
 				},
+				["unlock"] = {
+					"Discover {C:attention}#1#{} Jokers",
+					"from {C:legendary}Minty's Mod{}"
+				}
+			},
+			["b_minty_suitfocus"] = {
+				["name"] = "Suit Focus Deck",
+				["text"] = {
+					"Start with an",
+					"{C:attention}eternal{} {C:attention}#1#{}",
+					"and {C:attention}#2#{} tarot",
+				},
+				["unlock"] = {
+					"Discover #1# {V:1}sins{},",
+					"#2# {V:2}minerals{}, and",
+					"#3# {V:3}arcana{}."
+				},
+			},
+			["b_minty_plasmaathome"] = {
+				["name"] = "We Have Plasma Deck At Home",
+				["text"] = {
+					"Score by Chips {C:attention}plus{} Mult",
+					"Blind size is {C:attention}square-root{}'d"
+				},
+				["unlock"] = {
+					"Win a run with any deck",
+					"on at least",
+					"{C:stake_minty_sky}Sky Stake{} difficulty"
+				}
 			},
 			["b_minty_hearts"] = {
 				["name"] = "Deck of the Heart",
@@ -1171,6 +1722,11 @@ return {
 					"Start with an",
 					"{C:attention}eternal{} {C:hearts}Lusty Joker{}",
 					"and {C:attention}The Sun{} tarot",
+				},
+				["unlock"] = {
+					"Discover a {V:1}sin{},",
+					"a {V:2}mineral{}, and",
+					"an {V:3}arcanum{}."
 				},
 			},
 			["b_minty_diamonds"] = {
@@ -1180,6 +1736,11 @@ return {
 					"{C:attention}eternal{} {C:diamonds}Greedy Joker{}",
 					"and {C:attention}The Star{} tarot",
 				},
+				["unlock"] = {
+					"Discover a {V:1}sin{},",
+					"a {V:2}mineral{}, and",
+					"an {V:3}arcanum{}."
+				},
 			},
 			["b_minty_clubs"] = {
 				["name"] = "Deck of the Club",
@@ -1187,6 +1748,11 @@ return {
 					"Start with an",
 					"{C:attention}eternal{} {C:clubs}Gluttonous Joker{}",
 					"and {C:attention}The Moon{} tarot",
+				},
+				["unlock"] = {
+					"Discover a {V:1}sin{},",
+					"a {V:2}mineral{}, and",
+					"an {V:3}arcanum{}."
 				},
 			},
 			["b_minty_spades"] = {
@@ -1196,6 +1762,11 @@ return {
 					"{C:attention}eternal{} {C:spades}Wrathful Joker{}",
 					"and {C:attention}The World{} tarot",
 				},
+				["unlock"] = {
+					"Discover a {V:1}sin{},",
+					"a {V:2}mineral{}, and",
+					"an {V:3}arcanum{}."
+				},
 			},
 			["b_minty_3suit"] = {
 				["name"] = "Deck of the 3",
@@ -1203,6 +1774,11 @@ return {
 					"Start with an",
 					"{C:attention}eternal{} {C:minty_3s}Hedonist Joker{}",
 					"and {C:attention}The Cat{} tarot",
+				},
+				["unlock"] = {
+					"Discover a {V:1}sin{},",
+					"a {V:2}mineral{}, and",
+					"an {V:3}arcanum{}."
 				},
 			},
 			["b_minty_drippy"] = {
@@ -1216,7 +1792,7 @@ return {
 				["name"] = "The Silliest, Littlest Deck",
 				["text"] = {
 					"{C:legendary}Minty's Mod{C:attention} Jokers{} are {C:attention}3x",
-					"more likely to appear,",
+					"more likely to appear",
 				},
 			},
 		},
@@ -1264,16 +1840,15 @@ return {
 			["bl_minty_paw"] = {
 				["name"] = "A Paw",
 				["text"] = {
-					"Play limit =#1#",
-					"for first hand",
-					"unless an item",
-					"is sold"
+					"Play limit #1# for",
+					"first hand unless",
+					"an item is sold"
 				},
 			},
 			["bl_minty_tail"] = {
 				["name"] = "A Tail",
 				["text"] = {
-					"Discard limit =#1#",
+					"Discard limit #1#",
 					"for first discard"
 				},
 			},
@@ -1295,6 +1870,24 @@ return {
 					"to #3#{C:minty_3s}#4#{}",
 					" ",
 					"{C:inactive,s:0.8}Meow! :3",
+				},
+			},
+			["c_minty_focus"] = {
+				["name"] = "The Focus",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to {V:1}#3#{}",
+				},
+			},
+			["c_minty_focus_flavor"] = {
+				["name"] = "The Focus",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to {V:1}#3#{}",
+					" ",
+					"{C:inactive,s:0.8}Target sighted..."
 				},
 			},
 			["c_minty_grin"] = {
@@ -1368,6 +1961,25 @@ return {
 					"to #3#{C:attention}Microcline Card#2#{}",
 					" ",
 					"{C:inactive,s:0.8}Strike the earth!",
+				},
+			},
+			["c_minty_battery"] = {
+				["name"] = "The Battery",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#{C:attention}Static Card#2#{}",
+				},
+			},
+			["c_minty_battery_flavor"] = {
+				["name"] = "The Battery",
+				["text"] = {
+					"Converts up to",
+					"{C:attention}#1#{} selected card#2#",
+					"to #3#{C:attention}Static Card#2#{}",
+					" ",
+					"{C:inactive,s:0.8}Tales of the ancient",
+					"{C:inactive,s:0.8}'nine-volt' remain unsubstantiated",
 				},
 			},
 			["c_minty_gleam"] = {
@@ -1483,6 +2095,61 @@ return {
 					"{C:inactive,s:0.8}a bonus Dekunda for free!",
 				},
 			},
+			["c_minty_reincarnate"] = {
+				["name"] = "Reincarnate",
+				["text"] = {
+					"Destroy #2##1# {C:attention}Joker#3#{}",
+					"and create #4#new cop#5# of #6#"
+				},
+			},
+			["c_minty_reincarnate_flavor"] = {
+				["name"] = "Reincarnate",
+				["text"] = {
+					"Destroy #2##1# {C:attention}Joker#3#{}",
+					"and create #4#new cop#5# of #6#",
+					" ",
+					"{C:inactive,s:0.8}You feel like a new Joker!{}"
+				},
+			},
+			["c_minty_piracy"] = {
+				["name"] = "Piracy",
+				["text"] = {
+					"{C:attention}Illegally{} copy 1",
+					"selected card from any",
+					"booster pack or shop"
+				},
+			},
+			["c_minty_piracy_flavor"] = {
+				["name"] = "Piracy",
+				["text"] = {
+					"{C:attention}Illegally{} copy 1",
+					"selected card from any",
+					"booster pack or shop",
+					" ",
+					"{C:inactive,s:0.8}I would download a Blueprint, actually"
+				},
+			},
+			["c_minty_delicacy"] = {
+				["name"] = "Ultimate Delicacy",
+				["text"] = {
+					"Add {C:dark_edition}Negative{} to",
+					"all held Jokers",
+					"{C:mult}Never spawns again{}",
+					"{C:mult}once used{}",
+				},
+			},
+			["c_minty_delicacy_flavor"] = {
+				["name"] = "Ultimate Delicacy",
+				["text"] = {
+					"Add {C:dark_edition}Negative{} to",
+					"all held Jokers",
+					"{C:mult}Never spawns again{}",
+					"{C:mult}once used{}",
+					" ",
+					"{C:inactive,s:0.8}Unable to see anything but the{}",
+					"{C:inactive,s:0.8}transcendent glow of perfection!{}",
+				},
+			},
 			["c_minty_wand"] = {
 				["name"] = "The Wand",
 				["text"] = {
@@ -1502,6 +2169,114 @@ return {
 				},
 			},
 		},
+		["Planet"] = {
+			["c_minty_rockplanet"] = {
+				["name"] = "Rock Planets"
+			},
+			["c_minty_twinrockplanet"] = {
+				["name"] = "Twin Rock Planets"
+			},
+			["c_minty_diffrockplanet"] = {
+				["name"] = "Different Rock Planets"
+			},
+			["c_minty_rockdimension"] = { --can't use process_loc_text for this cause we load before Cryptid
+				["name"] = "Rock Dimension",
+				["text"] = {
+					"({V:1}lvl.#4#{})({V:2}lvl.#5#{})({V:3}lvl.#6#{})",
+					"Level up",
+					"{C:attention}#1#{},",
+					"{C:attention}#2#{},",
+					"and {C:attention}#3#{}",
+				}
+			},
+		},
+		["Tag"] = {
+			["tag_minty_goading"] = {
+				["name"] = "Goading Tag",
+				["text"] = {
+					"When {C:mult}Boss Blind{} defeated",
+					"with at least {C:chips}1 hand{} left,",
+					"{C:attention}revive it{} and create",
+					"a {C:purple}Menu Tag{}"
+				}
+			},
+			["tag_minty_menu"] = {
+				["name"] = "Menu Tag",
+				["text"] = {
+					"Gives a free {C:purple}Treat Pack{}"
+				}
+			},
+		},
+		["minty_treat"] = {
+			["c_minty_choccytreat"] = {
+				["name"] = "Chocolate Cake",
+				["text"] = {
+					"Add {C:dark_edition}Negative{} to",
+					"{C:attention}#1#{} selected Joker#2#"
+				}
+			},
+			["c_minty_choccytreat_flavor"] = {
+				["name"] = "Chocolate Cake",
+				["text"] = {
+					"Add {C:dark_edition}Negative{} to",
+					"{C:attention}#1#{} selected Joker#2#",
+					" ",
+					"{C:inactive,s:0.8}CHOCOLAAAAAAATE???{}"
+				}
+			},
+			["c_minty_ice_cream"] = {
+				["name"] = "Mint Ice Cream",
+				["text"] = {
+					"Increase {C:green}play limit{}",
+					"by {C:attention}#1# card#2#{}"
+				}
+			},
+			["c_minty_ice_cream_flavor"] = {
+				["name"] = "Mint Ice Cream",
+				["text"] = {
+					"Increase {C:green}play limit{}",
+					"by {C:attention}#1# card#2#{}",
+					" ",
+					"{C:inactive,s:0.8}Yes, yes, insert obligatory joke here.{}"
+				}
+			},
+			["c_minty_blueberry_pie"] = {
+				["name"] = "Blueberry Pie",
+				["text"] = {
+					"Increase {C:chips}discard limit{}",
+					"by {C:attention}#1# card#2#{}"
+				}
+			},
+			["c_minty_blueberry_pie_flavor"] = {
+				["name"] = "Blueberry Pie",
+				["text"] = {
+					"Increase {C:chips}discard limit{}",
+					"by {C:attention}#1# card#2#{}",
+					" ",
+					"{C:inactive,s:0.8}Guaranteed not to cause{}",
+					"{C:inactive,s:0.8}gratuitous inflation{}",
+
+				}
+			},
+			["c_minty_funnel_cake"] = {
+				["name"] = "Funnel Cake",
+				["text"] = {
+					"Gives {C:money}$#1#{}",
+					"Increases by",
+					"{C:money}$#2#{} each Ante",
+				}
+			},
+			["c_minty_funnel_cake_flavor"] = {
+				["name"] = "Funnel Cake",
+				["text"] = {
+					"Gives {C:money}$#1#{}",
+					"Increases by",
+					"{C:money}$#2#{} each Ante",
+					" ",
+					"{C:inactive,s:0.8}cronch cronch cronch{}"
+				}
+			},
+		},
 		["Sleeve"] = {
 			["sleeve_minty_treatsleeve"] = {
 				["name"] = "Sleeve with a Treat",
@@ -1517,6 +2292,28 @@ return {
 					"All 3s become 3s of {C:minty_3s}3s{}",
 					"{C:green}1 in 3{} other cards change rank to 3",
 					"{C:green}1 in 3{} other cards change suit to {C:minty_3s}3s{}",
+				},
+			},
+			["sleeve_minty_suitfocussleeve"] = {
+				["name"] = "Suit Focus Sleeve",
+				["text"] = {
+					"Start with an",
+					"{C:attention}eternal{} {C:attention}#1#{}",
+					"and {C:attention}#2#{} tarot",
+				},
+			},
+			["sleeve_minty_suitfocussleeve_alt"] = {
+				["name"] = "Suit Focus Sleeve",
+				["text"] = {
+					"Also start with",
+					"an {C:attention}eternal{} {C:attention}#1#{}",
+				},
+			},
+			["sleeve_minty_suitfocussleeve_fusionalt"] = {
+				["name"] = "Suit Focus Sleeve",
+				["text"] = {
+					"Instead start with",
+					"an {C:attention}eternal{} {C:attention}#1#{}",
 				},
 			},
 			["sleeve_minty_heartsleeve"] = {
@@ -1633,14 +2430,14 @@ return {
 				["name"] = "The Silliest, Littlest Sleeve",
 				["text"] = {
 					"{C:legendary}Minty's Mod{C:attention} Jokers{} are {C:attention}3x",
-					"more likely to appear,",
+					"more likely to appear",
 				},
 			},
 			["sleeve_minty_sillylittlesleeve_alt"] = {
 				["name"] = "The Silliest, Littlest Sleeve",
 				["text"] = {
 					"Other {C:legendary}Minty's Mod{} items are {C:attention}2x",
-					"more likely to appear,",
+					"more likely to appear",
 				},
 			},
 			["sleeve_minty_drippysleeve"] = {
@@ -1732,6 +2529,32 @@ return {
 					"upon highlighting"
 				}
 			},
+			["m_minty_static"] = {
+				["name"] = "Static Card",
+				["label"] = "Static Card",
+				["text"] = {
+					"{C:purple}Balances{} #1#% of",
+					"{C:chips}Chips{} and {C:mult}Mult{}",
+					"when scored"
+				}
+			},
+			m_minty_emphatic = {
+				name = "Emphatic Card",
+				label = "Emphatic Card",
+				text = {
+					"{X:mult,C:white}X#1#{} Mult, {C:chips}+#2#{} Chips",
+					"{C:red}self-destructs"
+				},
+			},
+		},
+		Edition = {
+			e_minty_drained = {
+				name = "Drained",
+				text = {
+					"Does not count",
+					"as any suit"
+				}
+			}
 		},
 		["Voucher"] = {
 			["v_minty_tabletopple"] = {
@@ -1755,7 +2578,89 @@ return {
 					"Discard {C:attention}#1#{}{C:inactive}(#2#){} hands",
 					"of {C:mult}6{} or more cards",
 				}
-			}
+			},
+			["v_minty_treasure"] = {
+				["name"] = "Treasure",
+				["text"] = {
+					"{C:mult}+#1#{} to",
+					"{C:attention}#2#{}"
+				},
+				["unlock"] = {
+					"Unlock the vouchers",
+					"{V:1}#1#{},",
+					"{V:2}#2#{},",
+					"{V:3}#3#{},",
+					"{V:4}#4#{},",
+					"and {V:5}#5#{}.",
+				}
+			},
+		},
+		["Stake"] = {
+			["stake_minty_scarlet"] = {
+				["name"] = "Scarlet Stake",
+				["text"] = {
+					"Entering shop",
+					"costs {C:gold}$1{}",
+					"{s:0.8}Applies White Stake... {s:0.4}I guess..."
+				}
+			},
+			["stake_minty_irrigo"] = {
+				["name"] = "Irrigo Stake",
+				["text"] = {
+					"{C:blue}3rd{} hand of each",
+					"round is leveled down",
+                    "{s:0.8}Applies Scarlet Stake",
+				}
+			},
+			["stake_minty_void"] = {
+				["name"] = "Void Stake",
+				["text"] = {
+                    "Shop can have {C:attention}Counterfeit{} cards",
+                    "{C:inactive,s:0.8}({C:attention,s:0.8}Costs{s:0.8} money to sell)",
+                    "{s:0.8}Applies Irrigo Stake",
+				}
+			},
+			["stake_minty_sky"] = {
+				["name"] = "Sky Stake",
+				["text"] = {
+                    "{C:legendary}Showdown Blinds{}",
+                    "appear {C:attention}twice{} as often",
+                    "{s:0.8}Applies Void Stake",
+				}
+			},
+			["stake_minty_mint"] = {
+				["name"] = "Mint Stake",
+				["text"] = {
+					"{C:purple}Unbalance{} Chips and Mult",
+					"by {C:attention}10%{} plus {C:attention}5%{} per Ante",
+					"{s:0.8,C:inactive}(Maximum {s:0.8,C:attention}50%{s:0.8,C:inactive})",
+                    "{s:0.8}Applies Sky Stake",
+				}
+			},
+			["stake_minty_tungsten"] = {
+				["name"] = "Tungsten Stake",
+				["text"] = {
+                    "Playing cards may become",
+					"{C:attention}Hooked{} when modified",
+                    "{C:inactive,s:0.8}(Will be {C:attention,s:0.8}discarded{C:inactive,s:0.8} if held)",
+                    "{s:0.8}Applies Mint Stake",
+				}
+			},
+			["stake_minty_catcat"] = {
+				["name"] = "#CA7CA7 Stake",
+				["text"] = {
+					"{C:attention}+1{} Ante needed to win",
+                    "{s:0.8}Applies Tungsten Stake",
+				}
+			},
+			["stake_minty_rose_gold"] = {
+				["name"] = "Rose Gold Stake",
+				["text"] = {
+					"Combines Gold Stake",
+					"and <hash>CA7CA7 Stake",
+					"{s:0.8}welcome to hell, welcome to hell{}"
+				}
+			},
 		},
 		["Colour"] = {
 			["c_minty_emeowrald"] = {
@@ -1819,6 +2724,14 @@ return {
 					"{C:attention}#1#{} selected card#3#",
 					"to #4#{C:attention}#2##3#{}",
 				},
+			},
+			c_minty_rot_battery = {
+				name = "The Battery!",
+				text = {
+					"Enhances up to",
+					"{C:attention}#1#{} selected card#3#",
+					"to #4#{C:attention}#2##3#{}",
+				}
 			},
 			["c_minty_rot_bitz"] = {
 				["name"] = "The Bitz!",
@@ -1899,7 +2812,7 @@ return {
                     "{}Gemstone to {C:green}#1#{} selected {C:attention}card{}",
                     "{C:inactive}(Must have a Gem Slot){}",
 					" ",
-					"{C:inactive,s:0.8}It can see you...r treats."
+					"{C:inactive,s:0.8}It can see you...r treats.{}"
 				},
 			},
 		},
@@ -1913,6 +2826,126 @@ return {
 					"resists debuffs",
 				},
 			},
+			["p_minty_treat_normal_1"] = {
+				["name"] = "Treat Pack",
+				["label"] = "Treat Pack",
+				["text"] = {
+					"Order #1# of up to",
+					"#2# delicious {C:purple}treats{}",
+					"to be consumed immediately"
+				}
+			},
+			["p_minty_everycard_normal"] = {
+				["name"] = "Pack of Every Card",
+				["label"] = "Pack of Every Card",
+				["text"] = {
+					"Select and take* #1# of up to",
+					"#2# of {C:attention}every{}* card type",
+					"{C:inactive}*Some exceptions apply,",
+					"{C:inactive}see store for details"
+				}
+			},
+			["p_minty_everycard_jumbo"] = {
+				["name"] = "Jumbo Pack of Every Card",
+				["label"] = "Jumbo Pack of Every Card",
+				["text"] = {
+					"Select and take* #1# of up to",
+					"#2# of {C:attention}every{}* card type",
+					"{C:inactive}*Some exceptions apply,",
+					"{C:inactive}see store for details"
+				}
+			},
+			["p_minty_everycard_mega"] = {
+				["name"] = "Mega Pack of Every Card",
+				["label"] = "Mega Pack of Every Card",
+				["text"] = {
+					"Select and take* #1# of up to",
+					"#2# of {C:attention}every{}* card type",
+					"{C:inactive}*Some exceptions apply,",
+					"{C:inactive}see store for details"
+				}
+			},
+			["p_minty_mod_normal"] = {
+				["name"] = "#1# Pack",
+				["label"] = "#1# Pack",
+				["text"] = {
+					"Select #3# of up to",
+					"#4# Jokers from",
+					"{V:1}#2#{}"
+				}
+			},
+			["p_minty_mod_jumbo"] = {
+				["name"] = "Jumbo #1# Pack",
+				["label"] = "Jumbo #1# Pack",
+				["text"] = {
+					"Select #3# of up to",
+					"#4# Jokers from",
+					"{V:1}#2#{}"
+				}
+			},
+			["p_minty_mod_mega"] = {
+				["name"] = "Mega #1# Pack",
+				["label"] = "Mega #1# Pack",
+				["text"] = {
+					"Select #3# of up to",
+					"#4# Jokers from",
+					"{V:1}#2#{}"
+				}
+			},
+			["minty_flexweirdo_full_name"] = {
+				["name"] = "His full name is...",
+				["text"] = {
+					"Joker Who Constantly Makes Cracks About",
+					"How Good Someone Must Be In Bed If They",
+					"Stretch A Slightly Unusual Distance",
+					"(Like Come On Man,",
+					"They're Not Even A Contortionist",
+					"That's Just Normal Human Variation)",
+				},
+			},
+			["minty_flexweirdo_full_name_flavor"] = {
+				["name"] = "His full name is...",
+				["text"] = {
+					"Joker Who Constantly Makes Cracks About",
+					"How Good Someone Must Be In Bed If They",
+					"Stretch A Slightly Unusual Distance",
+					"(Like Come On Man,",
+					"They're Not Even A Contortionist",
+					"That's Just Normal Human Variation)",
+					" ",
+					"{C:inactive,s:0.8}... Zippy Zappy Angel Eyes.{}"
+				},
+			},
+			["undiscovered_minty_treat"] = {
+				["name"] = "Undiscovered Treat",
+				["text"] = {
+					"Purchase or use",
+					"this delicious treat in an",
+					"unseeded run to",
+					"learn what it tastes like",
+				}
+			},
+			["minty_counterfeit"] = {
+				["name"] = "Counterfeit",
+				["text"] = {
+					"{C:attention}Costs{} money",
+					"to sell"
+				}
+			},
+			["minty_hooked"] = {
+				["name"] = "Hooked",
+				["text"] = {
+					"Will be {C:attention}discarded{}",
+					"if held",
+				}
+			},
+			["minty_pirated"] = {
+				["name"] = "Pirated",
+				["text"] = {
+					"Acquired {C:attention}illegally{}",
+					"{C:mult}There may be consequences...{}"
+				}
+			},
 			["gemslot_catseye"] = {
 				["name"] = "Cat's Eye",
 				["text"] = {
@@ -1925,6 +2958,70 @@ return {
 				["text"] = {
 					"Find this Joker from",
 					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
+				}
+			},
+			["minty_scarlet_sticker"] = {
+				["name"] = "Scarlet Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:stake_minty_scarlet}Scarlet",
+                    "{C:stake_minty_scarlet}Stake{} difficulty",
+				}
+			},
+			["minty_irrigo_sticker"] = {
+				["name"] = "Irrigo Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:stake_minty_irrigo}Irrigo",
+                    "{C:stake_minty_irrigo}Stake{} difficulty",
+				}
+			},
+			["minty_void_sticker"] = {
+				["name"] = "Void Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:stake_minty_void}Void",
+                    "{C:stake_minty_void}Stake{} difficulty",
+				}
+			},
+			["minty_sky_sticker"] = {
+				["name"] = "Sky Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:stake_minty_sky}Sky",
+                    "{C:stake_minty_sky}Stake{} difficulty",
+				}
+			},
+			["minty_mint_sticker"] = {
+				["name"] = "Mint Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:stake_minty_mint}Mint",
+                    "{C:stake_minty_mint}Stake{} difficulty",
+				}
+			},
+			["minty_tungsten_sticker"] = {
+				["name"] = "Tungsten Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:stake_minty_tungsten}Tungsten",
+                    "{C:stake_minty_tungsten}Stake{} difficulty",
+				}
+			},
+			["minty_catcat_sticker"] = {
+				["name"] = "<hash>CA7CA7 Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:stake_minty_catcat}<hash>CA7CA7",
+                    "{C:stake_minty_catcat}Stake{} difficulty",
+				}
+			},
+			["minty_rose_gold_sticker"] = {
+				["name"] = "Rose Gold Sticker",
+				["text"] = {
+                    "Used this Joker",
+                    "to win on {C:stake_minty_rose_gold}Rose Gold",
+                    "{C:stake_minty_rose_gold}Stake{} difficulty",
 				}
 			},
 			["minty_joker_unavailable"] = {
@@ -1942,6 +3039,28 @@ return {
 					"Capable of",
 					"spawning naturally",
 				},
+			},
+			["minty_mirror"] = {
+				["label"] = "Mirror Pronouns",
+				["name"] = "Mirror Pronouns",
+				["text"] = {
+					"{C:attention}#1#'s{} pronouns are",
+					"the same as whoever",
+					"is referring to it"
+				}
+			},
+			["minty_mirror_flavor"] = {
+				["label"] = "Mirror Pronouns",
+				["name"] = "Mirror Pronouns",
+				["text"] = {
+					"{C:attention}#1#'s{} pronouns are",
+					"the same as whoever",
+					"is referring to it",
+					" ",
+					'{C:inactive,s:0.8}"Lore drop modder uses it/its?!?!?"{}',
+					'{C:inactive,s:0.6}                      "Not new information!"{}',	--Is there a better way to do this? Surely.
+					'{C:inactive,s:0.8}"Oh.{}"                            ',			--Do I know it? Hell no.
+				}
 			},
 			["minty_disabled_object"] = {
 				["label"] = "Object Disabled",
@@ -1996,6 +3115,42 @@ return {
 					"Please play carefully."
 				},
 			},
+			["minty_placeholder"] = {
+				["label"] = "Placeholder",
+				["name"] = "Placeholder",
+				["text"] = {
+					"Placeholder art,",
+					"to be updated ~soon"
+				},
+			},
+			["minty_placeholder_ex"] = {
+				["label"] = "Placeholder",
+				["name"] = "Placeholder",
+				["text"] = {
+					"Fallback art for",
+					"unrecognized suit!",
+					"Please play carefully."
+				},
+			},
+			["minty_spread"] = {
+				["label"] = "Spread",
+				["name"] = "Spread",
+				["text"] = {
+					"Destroy another Joker to",
+					"create a {C:perishable}perishable{}",
+					"copy of self"
+				}
+			},
+			["minty_spread2"] = {
+				["label"] = "Spread",
+				["name"] = "Spread",
+				["text"] = {
+					"Destroy another Joker to",
+					"create a {C:perishable}perishable{}",
+					"copy of self with",
+					"{C:perishable}#1#{} round#2# left"
+				}
+			},
 			["minty_3credit"] = {
 				["label"] = "Credit",
 				["name"] = "Credit",
@@ -2039,6 +3194,20 @@ return {
 					"{C:inactive,s:0.8}... transitively, that implies{}",
 					"{C:inactive,s:0.8}gravy is as good as pey wet.{}",
 				},
+			},
+			["minty_compressed_enhancements"] = {
+				["label"] = "Compressed Enhancements",
+				["name"] = "Compressed Enhancements",
+				["text"] = {
+					"None yet"
+				}
+			},
+			["minty_rock_enhancements"] = {
+				["label"] = "Rock Cards",
+				["name"] = "Rock Cards",
+				["text"] = {
+					"None yet"
+				}
 			},
 		},
 	},

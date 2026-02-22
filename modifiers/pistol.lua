@@ -1,4 +1,4 @@
-local mf = (SMODS.Mods["MoreFluff"] or {}).can_load
+local mf = SMODS.find_mod("MoreFluff")[1]
 
 SMODS.Enhancement({
     key = "pistol",
@@ -14,7 +14,8 @@ SMODS.Enhancement({
     config = {
         x_mult = 2,
         extra = {
-            odds = 10
+            odds = 10,
+            gymboost = "xmult"
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -27,6 +28,19 @@ SMODS.Enhancement({
             },
         }
     end,
+    get_weight = function (self)
+        local default = 5
+        return mf and default or default/2
+    end,
+    valk_hand_buff = {
+        title = "uhh... gun.", --I have no idea what to call this.
+        colour = G.C.GREY,
+        scoring_func = function (power) -- Deliberately a little OP because the unmodified chance of one of the cards going off before you click the fifth is ~35%
+            return {
+                emult = 1.75 + (power*0.25)
+            }
+        end
+    },
     calculate = function (self, card, context)
         if context.forcetrigger then
             return {

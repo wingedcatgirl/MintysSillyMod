@@ -26,6 +26,16 @@ SMODS.Enhancement({
     replace_base_card = true,
     no_rank = true,
     no_suit = true,
+    always_scores = true,
+    valk_hand_buff = {
+        title = "DWARF JOKE", --technically this name is a placeholder but so was Leaf story
+        colour = HEX("CA7CA7"),
+        scoring_func = function (n)
+            return {
+                echips = 1.2 + ((n-1)*0.1)
+            }
+        end
+    },
     calculate = function (self, card, context)
         if context.forcetrigger then
             return {

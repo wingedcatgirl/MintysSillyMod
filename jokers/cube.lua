@@ -2,8 +2,8 @@ local counters = {
     { boss = "bl_psychic" },
     { boss = "bl_akyrs_the_thought", mod = "aikoyorisshenanigans"},
     --CUBE LOVELY PATCH TARGET
+
 }
---Tuskallisetkäsiraudat (Polterworx) TBA, getting keys is a pain cause Jen doesn't use GitHub
 
 
 SMODS.Joker {
@@ -52,20 +52,29 @@ SMODS.Joker {
             end
             if fours > fournt then
                 unlock_card(self)
+                return true
             end
         end
     end,
 
     calculate = function(self, card, context)
+        if context.debuff_hand and (#context.full_hand ~= 4) then
+            local warning = localize("k_minty_cube")
+            local ge = ((G.GAME.blind.config or {}).blind or {}).debuff and (G.GAME.blind.config.blind.debuff.h_size_ge or 4 >= 5)
+            local le = ((G.GAME.blind.config or {}).blind or {}).debuff and (G.GAME.blind.config.blind.debuff.h_size_le or 4 <= 3)
+            if ge or le then
+                warning = localize("k_minty_psycube")
+            end
+            return {
+                debuff = true,
+                debuff_text = warning,
+                debuff_source = card
+            }
+        end
+
         if (context.joker_main and context.scoring_hand) or context.forcetrigger then
             return {
-                message = localize {
-                    type = 'variable',
-                    key = 'a_xmult',
-                    vars = { card.ability.extra.Xmult }
-                },
-                colour = G.C.RED,
-                Xmult_mod = card.ability.extra.Xmult
+                xmult = card.ability.extra.Xmult
             }
         end
     end,
@@ -77,7 +86,7 @@ SMODS.Joker {
         for _,v in ipairs(counters) do
             local boss = v.boss
             local mod = v.mod
-            if (not mod) or (SMODS.Mods[mod] or {}).can_load then
+            if (not mod) or next(SMODS.find_mod(mod)) then
                 G.GAME.bosses_used[boss] = G.GAME.bosses_used[boss] + 1e300
             end
         end
@@ -87,35 +96,12 @@ SMODS.Joker {
             for _,v in ipairs(counters) do
                 local boss = v.boss
                 local mod = v.mod
-                if (not mod) or (SMODS.Mods[mod] or {}).can_load then
-                    G.GAME.bosses_used[boss] = G.GAME.bosses_used[boss] - 1e300
+                if (not mod) or next(SMODS.find_mod(mod)) then
+                    if G.GAME.bosses_used[boss] >= 1e300 then
+                        G.GAME.bosses_used[boss] = G.GAME.bosses_used[boss] - 1e300
+                    end
                 end
             end
         end
     end,
 }
-
-local forbidden = false
-local debuff_hand_ref = Blind.debuff_hand
-
-function Blind:debuff_hand(cards, hand, handname, check)
-	if next(SMODS.find_card('j_minty_cube')) then
-		if #cards ~= 4 then
-			forbidden = true
-            return true
-		end
-		forbidden = false
-	end
-	return debuff_hand_ref(self, cards, hand, handname, check)
-end
-
-local get_loc_debuff_textref = Blind.get_loc_debuff_text
-function Blind:get_loc_debuff_text()
-	if forbidden then
-        if (G.GAME.blind.config.blind.debuff ~= {}) and (G.GAME.blind.config.blind.debuff.h_size_ge and G.GAME.blind.config.blind.debuff.h_size_ge >= 5) or (G.GAME.blind.config.blind.debuff.h_size_le and G.GAME.blind.config.blind.debuff.h_size_le <= 3) then
-		    return localize("k_minty_psycube")
-        end
-		return localize("k_minty_cube")
-	end
-	return get_loc_debuff_textref(self)
-end

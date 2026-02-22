@@ -98,7 +98,8 @@ SMODS.Consumable {
 								target:remove_sticker(k)
 							end
 						end
-						SMODS.debuff_card(target, "reset", "minty_dekaja")
+						target.ability.dekaja = G.GAME.round
+						SMODS.recalc_debuff(target)
 						play_sound("tarot2", percent)
 						target:juice_up(0.3, 0.3)
 						return true

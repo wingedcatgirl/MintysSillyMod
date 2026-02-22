@@ -30,7 +30,7 @@ SMODS.Suit{ -- 3s
     --]]
 }
 
-if (SMODS.Mods["paperback"] or {}).can_load then
+if PB_UTIL and PB_UTIL.light_suits then
     table.insert(PB_UTIL.light_suits, 'minty_3s')
 end
 

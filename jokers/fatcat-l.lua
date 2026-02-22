@@ -2,6 +2,7 @@ SMODS.Joker {
     key = "fatcat-l",
     name = "Fat cat",
     atlas = 'jokerdoodles',
+    pronouns = "he_him",
     pos = {
         x = 4,
         y = 5
@@ -42,7 +43,7 @@ SMODS.Joker {
             local jokerpos = {}
             for i = 1, #G.jokers.cards do
                 if (G.jokers.cards[i].config.center.pools or {}).Food and not SMODS.is_eternal(G.jokers.cards[i], card) then --Food should always be eternal-incompatible anyway but roll with it if it somehow happens
-                    MINTY.say("Found compatible Joker in slot #"..tostring(i))
+                    --MINTY.say("Found compatible Joker in slot #"..tostring(i))
                     foodjokers[#foodjokers+1] = G.jokers.cards[i]
                     jokerpos[#foodjokers] = i
                 end
@@ -50,14 +51,16 @@ SMODS.Joker {
 
             if #foodjokers == 0 then return end
             local targetpos = jokerpos[pseudorandom("minty_fatcat_nom", 1, #foodjokers)]
-            MINTY.say("Selected compatible Joker in slot #"..tostring(targetpos))
-            G.jokers.cards[targetpos].getting_sliced = true
-            G.jokers.cards[targetpos]:start_dissolve()
-            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultgain
-            return {
-                message = localize("k_minty_nommed"),
-                message_card = card
-            }
+            --MINTY.say("Selected compatible Joker in slot #"..tostring(targetpos))
+            SMODS.destroy_cards(G.jokers.cards[targetpos], nil, nil, true)
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "xmult",
+                scalar_value = "xmultgain",
+                scaling_message = {
+                    message = localize("k_minty_nommed"),
+                }
+            })
         end
 
         if context.forcetrigger or context.joker_main then
@@ -67,5 +70,3 @@ SMODS.Joker {
         end
     end
 }
-
--- See localization/en-us.lua to create joker text

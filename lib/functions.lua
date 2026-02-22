@@ -79,7 +79,7 @@ MINTY.threeSuit_in_pool = function(fallback)
     if G.GAME.starting_params.start_with_3s then return true end
 
     local threelock = G.GAME.starting_params.minty_three_lock or MINTY.config.three_lock.current_option
-    
+
     if threelock == 3 then
         return false
     elseif threelock == 1 then
@@ -114,7 +114,9 @@ function Card:is_3(bypass_debuff)
             count = count + 3
         end]]
 
-        if (SMODS.Mods["Gemstone"] or {}).can_load then
+        local gems = SMODS.find_mod("Gemstone")[1]
+
+        if gems and gems.can_load then
             if self.ability.gemslot_catseye then
                 count = count + 2
             end
@@ -126,11 +128,56 @@ function Card:is_3(bypass_debuff)
             count = count * 2
         end]]
 
-        if (SMODS.Mods["aikoyorisshenanigans"] or {}).can_load then
-            if self.get_letter_with_pretend and self:get_letter_with_pretend() == "3" then count = count + 1 end
+        local aikoshen = SMODS.find_mod("aikoyorisshenanigans")[1]
+
+        if aikoshen and aikoshen.can_load then
+            if self.get_letter_with_pretend and self:get_letter_with_pretend() == "3" then count = count + 1 end --Completely useless bc math deck ignores 98% of mechanics, but funny
         end
 
         if count == 0 then return false else return count end
+end
+
+function Card:is_kity()
+    local minty_kity = self.config.center.pools and self.config.center.pools.kity
+    local yahicat = self.config.center.pools and self.config.center.pools.Cat
+    local valkitty
+    if next(SMODS.find_mod("vallkarri")) then
+        valkitty = self:is_kitty()
+    end
+    return minty_kity or valkitty or yahicat
+end
+
+MINTY.kity_pool = function(legend, source)
+	local stake_index = G.GAME.stake or 1
+	local stake_key = SMODS.stake_from_index(stake_index)
+    local stake_check = (G.P_STAKES[stake_key].stake_level >= G.P_STAKES.stake_gold.stake_level) and not G.GAME.soul_or_wand_used
+	local cat_basket, gold_cats, ungold_cats = {}, {}, {}
+
+	for k,v in pairs(G.P_CENTERS) do
+		local is_cat = false
+		local rarity_check = (legend and v.rarity == 4) or ((legend == "ignore" or not legend) and v.rarity ~= 4)
+		local pool_check = (not v.in_pool) or (type(v.in_pool) == "boolean" and v.in_pool) or (type(v.in_pool) == "function" and v:in_pool({ source = source }))
+		if v.pools then
+			is_cat = v.pools.kity or v.pools.Kitties or v.pools.Cat
+		end
+        local valid = is_cat and rarity_check and pool_check
+		if valid then
+            cat_basket[#cat_basket+1] = k
+            local sticker_key = get_joker_win_sticker(v)
+            if sticker_key and not sticker_key:find("stake_") then
+                sticker_key = "stake_"..sticker_key
+            end
+            if sticker_key and G.P_STAKES[sticker_key].stake_level >= G.P_STAKES.stake_gold.stake_level then
+                gold_cats[#gold_cats+1] = k
+            else
+                ungold_cats[#ungold_cats+1] = k
+            end
+        end
+	end
+
+    if #cat_basket == 0 then cat_basket[#cat_basket+1] = "j_lucky_cat" end
+
+	return (legend and stake_check and (#gold_cats > 0) and (#ungold_cats > 0) and ungold_cats) or cat_basket
 end
 
 MINTY.getSpecKey = (SPECF and SPECF.getSpecKey) or function(HandName)
@@ -197,42 +244,42 @@ MINTY.sleeveunlockcheck = function(this, debug)
         end
     end
   local count = 1
-  local result = "stake_gold"
   for _, sleeve in ipairs(sleeves) do
     if G.P_CENTERS[sleeve] and G.P_CENTERS[sleeve].unlocked == true then
       count = count + 1
     end
   end
 
-  if debug then
-    MINTY.say(tprint(sleeves))
-  end
+  local stakes = {
+    "stake_minty_scarlet",
+    "stake_minty_irrigo",
+    "stake_minty_void",
+    "stake_minty_sky",
+    "stake_minty_mint",
+    "stake_minty_tungsten",
+    "stake_minty_catcat",
+  }
 
-  if count > G.P_STAKES.stake_gold.count then
-    count, result = G.P_STAKES.stake_gold.count, "stake_gold"
-  else
-    for key, stake in pairs(G.P_STAKES) do
-      if stake.count == count then
-        result = key
-      end
-    end
-  end
+  local result = stakes[count] or "stake_minty_catcat"
+  local index = G.P_STAKES[result].order
 
-  G.PROFILES[G.SETTINGS.profile].mintysleeves.key, G.PROFILES[G.SETTINGS.profile].mintysleeves.result = result, count
+  G.PROFILES[G.SETTINGS.profile].mintysleeves.key, G.PROFILES[G.SETTINGS.profile].mintysleeves.result = result, index
   if G.PROFILES[G.SETTINGS.profile].mintysleeves[this] then --put it in the settings?
     result = G.PROFILES[G.SETTINGS.profile].mintysleeves[this]
   end
 
   G:save_settings()
-  return result, count
+  return result, index
 end
 
 MINTY.rocklist = function ()
     MINTY.rocks = MINTY.rocks or {}
+    MINTY.rockbag = {}
     local outside_rocks = {
         m_ortalab_ore = true,
         m_akyrs_brick_card = true,
         m_mf_gemstone = true,
+        m_artb_marble = true,
         m_stone = true,
         --Minty rock list patch target
 
@@ -241,13 +288,43 @@ MINTY.rocklist = function ()
     for k,v in pairs(G.P_CENTERS) do
         if (v.minty_rock) or outside_rocks[k] then
             MINTY.rocks[v.key] = true
+            table.insert(MINTY.rockbag, v.key)
         end
     end
 end
 
+---Converts a map of enhancements into an info-queue tip
+---@param table table A map (list of `key = true`) of the relevant enhancements
+---@param name string The name of the enhancement list
+---@return table
+function MINTY.enhancement_list(table, name)
+  local key = 'minty_'..name..'_enhancements'
+    local text = {}
+    local text_parsed = {}
+
+    for k,_ in pairs(table) do
+        if G.P_CENTERS[k] then
+            text[#text+1] = localize{type = 'name_text', set = 'Enhanced', key = k}
+        end
+    end
+
+    for _, v in ipairs(text) do
+      text_parsed[#text_parsed + 1] = loc_parse_string(v)
+    end
+
+    G.localization.descriptions.Other[key] = G.localization.descriptions.Other[key] or {}
+    G.localization.descriptions.Other[key].text = text
+    G.localization.descriptions.Other[key].text_parsed = text_parsed
+
+  return {
+    set = 'Other',
+    key = key,
+  }
+end
+
 ---Do the tarot flip thing to all of G.hand.highlighted
 ---@param card Card
----@param args table `rank`, `suit`, `enh`, `edi` = keys of the appropriate target modifications. alternately `random_ranks`, `random_suits`, `random_enhs`, `random_edis` are tables of same keys to pick one at random, in which case you need `seed` to seed the seed. Note: To clear an edition, pass the string "base", "none", "false", or "remove" as the edition key.
+---@param args table|{rank:string?, suit:string?, enh:string?, edi:string?, random_ranks:table?, random_suits:table?, random_enhs:table?, random_edis:table?, seed:string?, sound:string?} Keys of the appropriate target modifications. `random_` tables are lists of same keys to pick one at random, in which case you need `seed` to seed the seed. Note: To clear an edition, pass the string "base", "none", "false", or "remove" as the edition key.
 MINTY.tarotflip = function (card, args)
     if not args then
         MINTY.say("hey you forgor to say anything when trying to change these cards", "ERROR")
@@ -301,7 +378,7 @@ MINTY.tarotflip = function (card, args)
             func = function()
                 if ranks then rank = pseudorandom_element(ranks, pseudoseed(seed)) end
                 if suits then suit = pseudorandom_element(suits, pseudoseed(seed)) end
-                if enhs then enh = pseudorandom_element(enhs, pseudoseed(seed)) end
+                if enhs then enh = SMODS.poll_enhancement({options = enhs, key = seed, guaranteed = true}) end
                 if rank or suit then
                     assert(SMODS.change_base(G.hand.highlighted[i], suit, rank))
                 end
@@ -333,7 +410,7 @@ MINTY.tarotflip = function (card, args)
             trigger = 'after',
             delay = 0.1,
             func = function()
-                if edis then edi = pseudorandom_element(edis, pseudoseed(seed)) end
+                if edis then edi = SMODS.poll_edition({options = enhs, key = seed, guaranteed = true}) end
                 if edi then
                     if edi == "base" or edi == "none" or edi == "false" or edi == "remove" then edi = nil end
                     G.hand.highlighted[i]:set_edition(edi)
@@ -439,6 +516,87 @@ function MINTY.find_rank(rank)
     return false
 end
 
+---Checks if you own an enhancement
+---@param enh string Key of the enhancement
+---@param quantum? boolean Include quantum enhancements (default false)
+---@param count? boolean Return the number of found enhancements instead of a boolean
+function MINTY.find_enhancement(enh, quantum, count)
+    if not G.playing_cards then return count and 0 or true end
+    local num = 0
+    for k, v in ipairs(G.playing_cards) do
+        if (v.config.center.key == enh) or quantum and SMODS.has_enhancement(v, enh) then
+            num = num + 1
+            if not count then return true end
+        end
+    end
+    return count and num or num > 0
+end
+
+---Counts how many things in a given mod have been discovered
+---@param mod? string ID of the mod to check for; Minty's by default
+---@param set? string Type of thing to check for; Jokers by default
+---@return integer
+MINTY.discover_count = function(set, mod, debug)
+    mod = (mod or "MintysSillyMod")
+    if mod:lower() == "vanilla" then mod = "vanilla" end
+    set = set or "Joker"
+    local found = 0
+
+    if debug then
+        MINTY.say("Counting discovered items of set "..set.." from mod with id "..mod)
+    end
+
+    for k, v in pairs(G.P_CENTERS) do
+        if v.discovered then
+            if ((mod == "all") or (mod == "vanilla" and not v.mod) or (v.mod and v.mod.id == mod))
+            and ((v.set == set) or (set == "all")) then
+                if debug then
+                    MINTY.say("Discovered center found with key "..k)
+                end
+                found = found + 1
+            end
+        end
+    end
+
+    if set:lower() == "blind" then
+        for k, v in pairs(G.P_BLINDS) do
+            if v.discovered then
+                if ((mod == "all") or (mod == "vanilla" and not v.mod) or (v.mod and v.mod.id == mod)) then
+                    if debug then
+                        MINTY.say("Discovered blind found with key "..k)
+                    end
+                    found = found + 1
+                end
+            end
+        end
+    end
+
+    if set:lower() == "tag" then
+        for k, v in pairs(G.P_TAGS) do
+            if v.discovered then
+                if ((mod == "all") or (mod == "vanilla" and not v.mod) or (v.mod and v.mod.id == mod)) then
+                    if debug then
+                        MINTY.say("Discovered tag found with key "..k)
+                    end
+                    found = found + 1
+                end
+            end
+        end
+    end
+
+    return found
+end
+
+---Faster than typing out all this crap :v 
+---Remember to return `true` to resolve the event!
+---@param func function The function to queue
+---@param args? table Other arguments
+MINTY.event = function(func, args)
+    args = args or {}
+    args.func = args.func or func
+    G.E_MANAGER:add_event(Event(args))
+end
+
 
 --Talisman compatibility compatibility
 to_big = to_big or function(x)
@@ -449,6 +607,25 @@ to_number = to_number or function(x)
     return x
 end
 
+function MINTY.select_card_from_deck(args)
+    if not G.playing_cards then return nil end
+    args = args or {}
+
+    local valid_cards = {}
+
+    for k, v in ipairs(G.playing_cards) do
+        local valid = true
+        valid = valid and not (args.must_be_ranked and SMODS.has_no_rank(v))
+        valid = valid and not (args.must_be_suited and SMODS.has_no_suit(v))
+        valid = valid and not (args.exclude_suit and v:is_suit(args.exclude_suit))
+        if valid then
+            valid_cards[#valid_cards+1] = v
+        end
+    end
+    if valid_cards[1] then
+        return pseudorandom_element(valid_cards, pseudoseed((args.seed or "minty_select_random_card")))
+    end
+end
 
 ---Shuffles which suit is made equivalent to 3s by Treat-o-vision; pulls a random card with a non-3 suit from the deck and uses that.
 function MINTY.reset_treat_card()
@@ -473,6 +650,9 @@ function SMODS.current_mod.reset_game_globals(init)
     if init or not G.GAME.starting_params.minty_three_lock then
         G.GAME.starting_params.minty_three_lock = MINTY.config.three_lock.current_option
     end
+    if init then
+        G.GAME.minty_no_dumb_shit = MINTY.config.no_dumbass_shit
+    end
 
     G.GAME.minty_hyperfix = G.GAME.minty_hyperfix or { active = true, value = 0 }
     if G.GAME.minty_hyperfix.active and not init then
@@ -485,11 +665,46 @@ end
 SMODS.current_mod.set_debuff = function (card)
   if
     card.seal == "minty_cement"
-    or (card.ability and card.ability.name == "Marble Card")
+    or SMODS.has_enhancement(card, "m_minty_marble")
+    or (card.ability or {}).dekaja == G.GAME.round
   then
      return "prevent_debuff"
   end
 end
+
+
+SMODS.current_mod.calculate = function (self, context)
+    if context.using_consumeable then
+        local legmap = {
+            c_soul = true,
+            c_minty_wand = true
+        }
+
+        local key = context.consumeable.config and context.consumeable.config.center and context.consumeable.config.center.key or "nope"
+
+        if legmap[key] then
+            G.GAME.soul_or_wand_used = true
+        end
+    end
+
+    if context.setting_blind and G.GAME.minty_total_piracy_punishment then
+        local final_chips = to_big(G.GAME.blind.chips * (1.03 ^ G.GAME.minty_total_piracy_punishment))
+        G.GAME.blind.chips = final_chips
+        G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+    end
+
+    if G.GAME.real_banned_keys and not G.pack_cards then --Failsafe for mod boosters
+        G.GAME.banned_keys = G.GAME.real_banned_keys
+        G.GAME.real_banned_keys = nil
+    end
+
+    if (G.GAME.modifiers.minty_taxation and G.GAME.modifiers.minty_taxation ~= 0) and context.initial_scoring_step then
+        return {
+            mult = G.GAME.dollars * -G.GAME.modifiers.minty_taxation
+        }
+    end
+end
+
 
 MINTY.enhancecheck = function()
     MINTY.say("Building Inkbleed table...")
@@ -509,6 +724,73 @@ MINTY.enhancecheck = function()
                 end
             end
         end
+    end
+end
+
+---Checks whether one stake is above another
+---@param stake number|string Index or key of stake to evaluate
+---@param target number|string Index or key of stake we're checking against
+---@return boolean
+MINTY.at_least_stake = function (stake, target)
+    if not (stake and target) then return false end
+    local stake_index, target_index, stake_key, target_key
+    if type(stake) == "string" then
+        stake_key = stake
+        stake_index = SMODS.Stakes[stake].order
+    end
+    if type(stake) == "number" then
+        stake_key = G.P_CENTER_POOLS.Stake[stake].key
+        stake_index = stake
+    end
+    if type(target) == "string" then
+        target_key = target
+        target_index = SMODS.Stakes[target].order
+    end
+    if type(target) == "number" then
+        target_key = G.P_CENTER_POOLS.Stake[target].key
+        target_index = target
+    end
+
+    if stake_key == target_key then return true end
+
+    local function get_all_applied_stakes(key, ret)
+        ret = ret or {}
+        for _,v in ipairs(SMODS.Stakes[key].applied_stakes) do
+            ret[v] = true
+            get_all_applied_stakes(v, ret)
+        end
+        return ret
+    end
+
+    local stakes = get_all_applied_stakes(stake_key)
+    return stakes[target_key] == true--, stakes
+end
+
+MINTY.get_all_top_stakes = function()
+    local stakes = {}
+    for k,v in pairs(SMODS.Stakes) do
+        if k ~= "stake_minty_barber" then
+            if stakes[k] == nil then stakes[k] = true end
+            for _,vv in ipairs(v.applied_stakes) do
+                stakes[vv] = false
+            end
+        end
+    end
+    local ret = {}
+    for k,v in pairs(stakes) do
+        if v == true then
+            ret[#ret+1] = k
+        end
+    end
+
+    return ret
+end
+
+MINTY.gradient_check = function ()
+    if not dp then return end
+    loc_colour()
+    for k, v in pairs(G.ARGS.LOC_COLOURS) do
+        if v[1] and string.find(k, "minty") then dp.handleLog(v, "INFO", k) end
     end
 end
 

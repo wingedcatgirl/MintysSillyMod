@@ -1,10 +1,11 @@
-local finity = (SMODS.Mods["finity"] or {}).can_load
+local finity = SMODS.find_mod("finity")[1]
 local crossover = MINTY.config.include_crossover
 local rarity = finity and "finity_showdown" or 4
 
 SMODS.Joker {
     key = "finity_calico",
     name = "Calico on the Counter",
+    pronouns = "she_her",
     atlas = 'legends',
     pos = {
         x = 1,

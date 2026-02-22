@@ -34,6 +34,16 @@ SMODS.Enhancement({
     no_suit = true,
     always_scores = true,
     shatters = true,
+    valk_hand_buff = {
+        title = "SHINY",
+        colour = HEX("CA7CA7"),
+        scoring_func = function (n)
+            --MINTY.say("N == "..tostring(n))
+            return {
+                echips = 1+(n*0.1),
+            }
+        end
+    },
     calculate = function (self, card, context)
         if context.forcetrigger then
             return {

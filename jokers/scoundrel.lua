@@ -1,6 +1,7 @@
 SMODS.Joker {
     key = "scoundrel",
     name = "The Scoundrel",
+    pronouns = "they_it_she_he", --Slightly more precise canon Scoundrel fact! https://www.tumblr.com/thegreatyin/794778395713142784/hey-tell-me-about-your-flpcs-please
     atlas = 'scoundrel',
     pos = {
         x = 0,

@@ -3,12 +3,44 @@ SMODS.Back({
     key = "diamonds",
     pos = { x = 1, y = 1 },
     atlas = "backs",
-    unlocked = true,
+    unlocked = false,
+    unlock_req = {
+      "j_greedy_joker",
+      "j_rough_gem",
+      "c_star",
+    },
+    locked_loc_vars = function (self, info_queue, card)
+      local vars = {
+        colours = {
+
+        }
+      }
+      for i,v in ipairs(self.unlock_req) do
+          vars.colours[i] = G.P_CENTERS[v].discovered and G.C.PURPLE or G.C.FILTER
+      end
+      return {
+        vars = vars
+      }
+    end,
+    check_for_unlock = function (self, args)
+      local result = false
+      if args and args.type == "discover_amount" then
+        result = true
+        for i,v in ipairs(self.unlock_req) do
+            result = result and G.P_CENTERS[v].discovered
+        end
+        if result then
+          --unlock_card(self)
+          return true
+        end
+      end
+      return result
+    end,
     config = {},
 
     apply = function()
-        local sleeveexist = (SMODS.Mods["CardSleeves"] or {}).can_load
-        local fusionexist = (SMODS.Mods["FusionJokers"] or {}).can_load
+        local sleeveexist = not not next(SMODS.find_mod("CardSleeves"))
+        local fusionexist = not not next(SMODS.find_mod("FusionJokers"))
         local diamondsleeve = ((G.GAME.selected_sleeve or "sleeve_casl_none") == "sleeve_minty_diamondsleeve")
         if not (sleeveexist and fusionexist and diamondsleeve) then
             G.E_MANAGER:add_event(Event({
@@ -18,6 +50,7 @@ SMODS.Back({
                       area = G.jokers,
                       key = 'j_greedy_joker',
                       stickers = {'eternal'},
+                      force_stickers = true
                     })
                     card:add_to_deck()
                     G.jokers:emplace(card)
@@ -40,7 +73,7 @@ SMODS.Back({
     end,
 })
 
-if (SMODS.Mods["CardSleeves"] or {}).can_load then
+if not not next(SMODS.find_mod("CardSleeves")) then
     CardSleeves.Sleeve({
         key = "diamondsleeve",
         name = "Sleeve of the Diamond",
@@ -52,9 +85,10 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
           if not (G and G.GAME) then return end
           if self.get_current_deck_key() ~= "b_minty_diamonds" then return end
           local skey, scount = MINTY.sleeveunlockcheck()
-          if args and args.type == 'win_custom' and G.GAME.stake == scount then
+          if args and args.type == 'win_custom' and MINTY.at_least_stake(G.GAME.stake, skey) then
               G.PROFILES[G.SETTINGS.profile].mintysleeves[self.key] = skey
-              unlock_card(self)
+              --unlock_card(self)
+              return true
           end
         end,
         locked_loc_vars = function (self, info_queue, card)
@@ -79,7 +113,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
             if self.get_current_deck_key() ~= "b_minty_diamonds" then
                 key = self.key
             else
-                if (SMODS.Mods["FusionJokers"] or {}).can_load then
+                if not not next(SMODS.find_mod("FusionJokers")) then
                     key = self.key.."_fusionalt"
                 else
                     key = self.key.."_alt"
@@ -97,6 +131,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                           area = G.jokers,
                           key = 'j_greedy_joker',
                           stickers = {'eternal'},
+                          force_stickers = true
                         })
                         card:add_to_deck()
                         G.jokers:emplace(card)
@@ -110,7 +145,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                       return true
                     end
                   }))
-            elseif (SMODS.Mods["FusionJokers"] or {}).can_load then
+            elseif not not next(SMODS.find_mod("FusionJokers")) then
             G.E_MANAGER:add_event(Event({
                 func = function()
                     local card = SMODS.create_card({
@@ -118,6 +153,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                       area = G.jokers,
                       key = 'j_fuse_diamond_bard',
                       stickers = {'eternal'},
+                      force_stickers = true
                     })
                     card:add_to_deck()
                     G.jokers:emplace(card)
@@ -132,6 +168,7 @@ if (SMODS.Mods["CardSleeves"] or {}).can_load then
                           area = G.jokers,
                           key = 'j_rough_gem',
                           stickers = {'eternal'},
+                          force_stickers = true
                         })
                         card:add_to_deck()
                         G.jokers:emplace(card)

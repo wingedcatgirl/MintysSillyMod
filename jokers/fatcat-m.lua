@@ -1,6 +1,7 @@
 SMODS.Joker {
     key = "fatcat-m",
     name = "Fat Cat",
+    pronouns = "she_her",
     atlas = 'jokerdoodles',
     pos = {
         x = 6,

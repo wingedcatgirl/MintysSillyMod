@@ -1,8 +1,9 @@
-local talisman = (SMODS.Mods.Talisman or {}).can_load
+local talisman = not not next(SMODS.find_mod("Talisman"))
 
 SMODS.Joker {
     key = "minty",
     name = "Minty",
+    pronouns = "it_she",
     atlas = 'legends',
     pos = {
         x = 3,

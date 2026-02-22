@@ -1,6 +1,7 @@
 SMODS.Joker {
     key = "stormy",
     name = "Stormy",
+    pronouns = "she_her",
     atlas = 'legends',
     pos = {
         x = 1,
@@ -42,15 +43,8 @@ SMODS.Joker {
             local storm = card.ability.extra.stormcount
             MINTY.say("Not yet tested but should be retriggering "..tostring(storm).." times", "DEBUG")
             return {
-                message = localize {
-                    type = 'variable',
-                    key = 'a_xmult',
-                    vars = { card.ability.extra.xmult }
-                },
-                colour = G.C.RED,
-                Xmult_mod = card.ability.extra.xmult,
+                xmult = card.ability.extra.xmult,
                 repetitions = storm,
-                card = card,
             }
         end
 
@@ -65,22 +59,18 @@ SMODS.Joker {
             card.ability.extra.stormcount = 0
             return {
                 message = localize("k_minty_storm"),
-                repetitions = storm,
-                card = card,
+                repetitions = 1,
+                extra = {
+                    repetitions = storm-1,
+                    remove_default_message = true
+                }
             }
         end
 
         if context.joker_main and context.scoring_hand then
             --sendDebugMessage('[Minty] Stormy Xmult')
             return {
-                message = localize {
-                    type = 'variable',
-                    key = 'a_xmult',
-                    vars = { card.ability.extra.xmult }
-                },
-                colour = G.C.RED,
-                Xmult_mod = card.ability.extra.xmult,
-                card = card
+                xmult = card.ability.extra.xmult,
             }
         end
 
