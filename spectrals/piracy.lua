@@ -21,7 +21,7 @@ SMODS.Consumable {
 	end,
 	cost = 4,
 	atlas = "spectrals",
-	pos = { x = 3, y = 2 }, --TODO art
+	pos = { x = 2, y = 0 },
     can_use = function (self, card)
 		local count = 0
 

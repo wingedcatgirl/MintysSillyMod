@@ -21,7 +21,14 @@ SMODS.Consumable {
 	soul_set = 'minty_treat',
 	soul_rate = 0.002,
 	atlas = "spectrals",
-	pos = { x = 3, y = 2 }, --TODO art
+	pos = {
+        x = 3,
+        y = 0
+    },
+    soul_pos = {
+        x = 4,
+        y = 0
+    },
     in_pool = function (self, args)
         return G.GAME.ever_successfully_goaded and not G.GAME.minty_delicacy_consumed
     end,

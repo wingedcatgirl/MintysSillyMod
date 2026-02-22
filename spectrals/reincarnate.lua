@@ -32,7 +32,7 @@ SMODS.Consumable {
 	end,
 	cost = 4,
 	atlas = "spectrals",
-	pos = { x = 3, y = 2 }, --TODO art
+	pos = { x = 1, y = 0 }, --TODO art
 	can_use = function (self, card)
 		local count = 0
 		for _, v in ipairs(G.jokers.highlighted) do
