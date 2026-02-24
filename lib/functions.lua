@@ -155,12 +155,14 @@ MINTY.kity_pool = function(legend, source)
 
 	for k,v in pairs(G.P_CENTERS) do
 		local is_cat = false
-		local rarity_check = (legend and v.rarity == 4) or ((legend == "ignore" or not legend) and v.rarity ~= 4)
-		local pool_check = (not v.in_pool) or (type(v.in_pool) == "boolean" and v.in_pool) or (type(v.in_pool) == "function" and v:in_pool({ source = source }))
 		if v.pools then
 			is_cat = v.pools.kity or v.pools.Kitties or v.pools.Cat
 		end
-        local valid = is_cat and rarity_check and pool_check
+        if not is_cat then goto nope end
+		local rarity_check = (legend and v.rarity == 4) or ((legend == "ignore" or not legend) and v.rarity ~= 4)
+		local pool_check = SMODS.add_to_pool(v, {source = source})
+        local dupe_check = not (next(SMODS.find_card(v.key)) and not SMODS.showman(v.key))
+        local valid = is_cat and rarity_check and pool_check and dupe_check
 		if valid then
             cat_basket[#cat_basket+1] = k
             local sticker_key = get_joker_win_sticker(v)
@@ -173,6 +175,7 @@ MINTY.kity_pool = function(legend, source)
                 ungold_cats[#ungold_cats+1] = k
             end
         end
+        ::nope::
 	end
 
     if #cat_basket == 0 then cat_basket[#cat_basket+1] = "j_lucky_cat" end
