@@ -12,6 +12,7 @@ position = 'after'
 match_indent = true
 payload = '''
 local showdown_ante = (math.floor((G.GAME.round_resets.ante * (G.GAME.showdown_rate or 1))/G.GAME.win_ante) ~= math.floor(((G.GAME.round_resets.ante-1) * (G.GAME.showdown_rate or 1))/G.GAME.win_ante) and G.GAME.round_resets.ante >= 2)
+local ante = math.max(G.GAME.round_resets.ante, 1)
 '''
 
 [[patches]]
@@ -26,9 +27,9 @@ elseif v.boss.showdown and (G.GAME.round_resets.ante)%G.GAME.win_ante == 0 and G
 position = 'at'
 match_indent = true
 payload = '''
-elseif not v.boss.showdown and not showdown_ante and not (v.boss.min and v.boss.min > G.GAME.round_resets.ante) and not (v.boss.max and v.boss.max < G.GAME.round_resets.ante) then
+elseif not v.boss.showdown and not showdown_ante and not (v.boss.min and v.boss.min > ante) and not (v.boss.max and v.boss.max < ante) then
     eligible_bosses[k] = res and true or nil
-elseif v.boss.showdown and showdown_ante and not (v.boss.min and v.boss.min > G.GAME.round_resets.ante) and not (v.boss.max and v.boss.max < G.GAME.round_resets.ante) then
+elseif v.boss.showdown and showdown_ante and not (v.boss.min and v.boss.min > ante) and not (v.boss.max and v.boss.max < ante) then
     eligible_bosses[k] = res and true or nil
 '''
 
