@@ -797,7 +797,8 @@ return {
 					"gain a repetition and",
 					"increase target by #5#",
 					" ",
-					"{C:inactive,s:0.8}Of COURSE I'm in here, it's MY mod!{}"
+					"{C:inactive,s:0.8}Of COURSE I'm in here, it's...{}",
+					"{C:inactive,s:0.8}... er... never mind that, actually."
 				},
 			},
 			["j_minty_garfielf"] = {
