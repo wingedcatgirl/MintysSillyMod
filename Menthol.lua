@@ -444,5 +444,34 @@ MINTY.lastmoment = function ()
         end
     end
 
+    -- Reassociate fallback for custom ranks for mods that load after this one
+    MINTY.build_face_rank()
+    MINTY.build_number_rank()
+
+    SMODS.Ranks["minty_face"].next = MINTY.face_rank_all_faces
+    SMODS.Ranks["minty_face"].suit_map = MINTY.face_rank_suit_map
+    SMODS.Ranks["minty_number"].next = MINTY.number_rank_all_numbers
+    SMODS.Ranks["minty_number"].suit_map = MINTY.number_rank_suitmap
+
+    for p_card, data in pairs(G.P_CARDS) do
+        if string.find(p_card, "_minty_F") then
+            data.lc_atlas = SMODS.Ranks["minty_face"].lc_atlas
+            data.hc_atlas = SMODS.Ranks["minty_face"].hc_atlas
+            data.pos = {
+                x = SMODS.Ranks["minty_face"].pos.x,
+                y = MINTY.face_rank_suitmap[data.suit]
+            }
+        end
+        if string.find(p_card, "_minty_N") then
+            data.lc_atlas = SMODS.Ranks["minty_number"].lc_atlas
+            data.hc_atlas = SMODS.Ranks["minty_number"].hc_atlas
+            data.pos = {
+                x = SMODS.Ranks["minty_number"].pos.x,
+                y = MINTY.number_rank_suitmap[data.suit]
+            }
+        end
+    end
+
+
 end
 ----
