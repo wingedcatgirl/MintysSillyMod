@@ -27,45 +27,48 @@ SMODS.Joker {
     config = {
         extra = {
             powmult = 1.3,
+            xmult = 3,
             scored = 0,
             target = 3,
             reps = 0,
             moving = 3,
-            upgraded = false
+            upgraded = false,
         }
     },
     loc_vars = function(self, info_queue, card)
-        if MINTY.in_collection(card) and not talisman then
-            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Talisman" } }
-        end
         local key = self.key
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"
         end
         local plural = ""
         if card.ability.extra.reps > 0 then plural = "s" end
+        local op = (talisman and "^" or "X")
+        local opcol = talisman and G.C.DARK_EDITION or G.C.XMULT
         return {
             key = key,
             vars = {
-                card.ability.extra.powmult,
+                talisman and card.ability.extra.powmult or card.ability.extra.xmult,
                 card.ability.extra.scored,
                 card.ability.extra.target,
                 card.ability.extra.reps + 1,
                 card.ability.extra.moving,
-                plural
+                plural,
+                op,
+                colours = {
+                    opcol
+                }
             }
         }
     end,
     in_pool = function(self, args)
-        return talisman and MINTY.threeSuit_in_pool()
+        return MINTY.threeSuit_in_pool()
     end,
     calculate = function(self, card, context)
-        if not talisman then return end
-
         if context.forcetrigger then
             MINTY.say("Not yet tested but should be retriggering "..tostring(card.ability.extra.reps).." times", "DEBUG")
             return {
-                emult = card.ability.extra.powmult,
+                emult = talisman and card.ability.extra.powmult or nil,
+                xmult = (not talisman) and card.ability.extra.xmult or nil,
                 repetitions = card.ability.extra.reps,
                 card = card
             }
@@ -91,15 +94,22 @@ SMODS.Joker {
                 card.ability.extra.upgraded = false --Probably-bad hack to prevent erroneous "Again!" on upgrade
                 return
             end
+            local addlreps = card.ability.extra.reps - 1
+            addlreps = (addlreps > 0) and addlreps or nil
             return {
-                repetitions = card.ability.extra.reps,
+                repetitions = 1,
                 card = card,
+                extra = addlreps and {
+                    repetitions = addlreps,
+                    remove_default_message = true
+                }
             }
         end
 
         if context.joker_main and context.scoring_hand then
             return {
-                emult = card.ability.extra.powmult,
+                emult = talisman and card.ability.extra.powmult or nil,
+                xmult = (not talisman) and card.ability.extra.xmult or nil,
                 card = card
             }
         end

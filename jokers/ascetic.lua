@@ -36,7 +36,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.in_collection(card) and not (ortalab or MINTY.config.dev_mode or MINTY.config.include_crossover) then
-            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Ortalab" } }
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object_requirement", specific_vars = { "Mod", "Ortalab" } }
         end
         if MINTY.config.flavor_text then
             key = self.key.."_flavor"

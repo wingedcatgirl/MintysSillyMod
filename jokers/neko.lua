@@ -41,7 +41,7 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         if MINTY.in_collection(card) and not (toga or MINTY.config.dev_mode or MINTY.config.include_crossover) then
-            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "TOGA's Stuff" } }
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object_requirement", specific_vars = { "Mod", "TOGA's Stuff" } }
         end
         local key = self.key
         if MINTY.config.flavor_text then

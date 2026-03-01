@@ -1,7 +1,8 @@
 local nomotion = G and G.SETTINGS and G.SETTINGS.reduced_motion or false
+local dev = string.find(SMODS.current_mod.version, "~")
 
 return {
-    ["dev_mode"] = false,
+    ["dev_mode"] = dev,
     ["flavor_text"] = true,
     ["stone_rename"] = true,
     ["include_crossover"] = false,

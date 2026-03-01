@@ -120,9 +120,6 @@ function Card:is_3(bypass_debuff)
             if self.ability.gemslot_catseye then
                 count = count + 2
             end
-            if self.ability.gemslot_sapphire then --Remove this if Gemstones hooks sapphires into SMODS.has_any_suit
-                count = count + 1
-            end
         end
         --[[if (is feline edition) then
             count = count * 2
@@ -150,7 +147,7 @@ end
 MINTY.kity_pool = function(legend, source)
 	local stake_index = G.GAME.stake or 1
 	local stake_key = SMODS.stake_from_index(stake_index)
-    local stake_check = (G.P_STAKES[stake_key].stake_level >= G.P_STAKES.stake_gold.stake_level) and not G.GAME.soul_or_wand_used
+    local stake_check = MINTY.at_least_stake(G.GAME.stake, "stake_gold") or MINTY.at_least_stake(G.GAME.stake, "stake_minty_catcat")
 	local cat_basket, gold_cats, ungold_cats = {}, {}, {}
 
 	for k,v in pairs(G.P_CENTERS) do
@@ -165,14 +162,34 @@ MINTY.kity_pool = function(legend, source)
         local valid = is_cat and rarity_check and pool_check and dupe_check
 		if valid then
             cat_basket[#cat_basket+1] = k
-            local sticker_key = get_joker_win_sticker(v)
-            if sticker_key and not sticker_key:find("stake_") then
-                sticker_key = "stake_"..sticker_key
-            end
-            if sticker_key and G.P_STAKES[sticker_key].stake_level >= G.P_STAKES.stake_gold.stake_level then
-                gold_cats[#gold_cats+1] = k
-            else
-                ungold_cats[#ungold_cats+1] = k
+            if stake_check then
+                local function getwinsbykey()
+                    return G.PROFILES[G.SETTINGS.profile].joker_usage[v.key].wins_by_key
+                end
+                local wbk = pcall(getwinsbykey) or {}
+                local sticker_needed
+                if sticker_key then
+                    local gold_needed, catcat_needed, current_needed = true, true, true
+                    for kk,vv in pairs(wbk) do
+                        if gold_needed and MINTY.at_least_stake(kk, "stake_gold") then
+                            gold_needed = false
+                        end
+                        if catcat_needed and MINTY.at_least_stake(kk, "stake_minty_catcat") then
+                            catcat_needed = false
+                        end
+                        if current_needed and MINTY.at_least_stake(kk, G.GAME.stake) then
+                            current_needed = false
+                            break
+                        end
+                    end
+                    sticker_needed = current_needed and (gold_needed or catcat_needed)
+                end
+
+                if not sticker_needed then
+                    gold_cats[#gold_cats+1] = k
+                else
+                    ungold_cats[#ungold_cats+1] = k
+                end
             end
         end
         ::nope::

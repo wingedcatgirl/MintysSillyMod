@@ -339,7 +339,8 @@ SMODS.current_mod.menu_cards = function ()
                     "m_minty_emphatic",
                     "m_minty_dynamite",
                     "m_minty_static"
-                }
+                },
+                key = tostring(os.time())
             }
             local card
             for i,v in ipairs(G.title_top.cards) do

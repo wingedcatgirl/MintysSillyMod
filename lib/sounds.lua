@@ -38,15 +38,17 @@ SMODS.Sound{
     path = "DRIVING IN MY CAR.ogg"
 }
 
-do --Buttload of meme sounds grabbed from https://thirtydollar.website/
+do --Buttload of meme sounds grabbed from https://thirtydollar.website/ and also video games
     local path = SMODS.current_mod.path.."assets/sounds/thirty dollar memes"
     local info = NFS.getDirectoryItemsInfo(path)
     MINTY.memecount = #info
     for i,v in ipairs(info) do
-        sendTraceMessage("Registering meme sound number "..i..": "..v.name)
+        local filename = v.name
+        sendTraceMessage("Registering meme sound number "..i..": "..filename)
+        assert(string.find(filename, ".wav") or string.find(filename, ".ogg"), "Menthol: "..filename.." isn't a valid sound file! (Must be .wav or .ogg)")
         SMODS.Sound{
             key = "memenoise"..i,
-            path = "thirty dollar memes/"..v.name
+            path = "thirty dollar memes/"..filename
         }
     end
 end

@@ -3,7 +3,7 @@
 	"name": "Menthol",
 	"display_name": "Menthol",
 	"author": ["wingedcatgirl"],
-	"description": "A silly little mod that adds some silly little content ideas",
+	"description": "My silly little mod that adds some silly little content ideas",
 	"prefix": "minty",
 	"main_file": "Menthol.lua",
 	"priority": 37,

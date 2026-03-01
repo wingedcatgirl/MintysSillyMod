@@ -50,9 +50,9 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if not SMODS.optional_features.quantum_enhancements then
-            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Feature", "Quantum Enhancements" } }
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object_requirement", specific_vars = { "Feature", "Quantum Enhancements" } }
         elseif not next(MINTY.inkbleedtable) then
-            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Enhancements", "to have some name overlap" } }
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object_requirement", specific_vars = { "Enhancements", "to have some name overlap" } }
         end
         --TODO: Infoqueue a list of enhancements with name overlap?
         if MINTY.config.flavor_text then

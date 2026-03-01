@@ -35,6 +35,9 @@ SMODS.Joker {
         if card.ability.extra.countdown <= 0 then
             key = key.."_active"
         end
+        if MINTY.in_collection(card) and ((G.STAGE == G.STAGES.RUN and G.GAME.minty_no_dumb_shit) or (G.STAGE == G.STAGES.MAIN_MENU and MINTY.config.no_dumbass_shit)) then
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object_config", specific_vars = { localize("option_minty_nodumbshit"), } }
+        end
         local boost = card.ability.extra.talisman and "^"..card.ability.extra.emult or "X"..card.ability.extra.xmult
         local boostcol = card.ability.extra.talisman and G.C.DARK_EDITION or G.C.XMULT
         local s = card.ability.extra.countdown ~= 1 and "s" or ""

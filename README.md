@@ -1,7 +1,7 @@
 ## Menthol - A Silly Little Minty-flavored Mod
 ### (This is the main branch; you may want to look at [the `next` branch](https://github.com/wingedcatgirl/MintysSillyMod/tree/next) for in-progress updates.)
 
-A silly little mod that adds some silly little jokers and decks and things. It's minty because it's not vanilla. (It's not vanilla because I think calling a mod a word which in this context means "not modded" is silly.)
+My silly little mod that adds some silly little jokers and decks and things. It's minty because it's not vanilla. (It's not vanilla because I think calling a mod a word which in this context means "not modded" is silly. ... Silly in the non-fun way. You know what I mean.)
 
 [Mod main page on Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Minty%27s_Silly_Little_Mod) (Beware of SPOILERS! If you even care about discovering things on your own, that is 😛)
 
@@ -43,11 +43,12 @@ Planned features:
 ## Config Options
 <!-- - Balance level: Doesn't do anything yet but take a wild guess what the plan is. Yes we're jumping on this train. Blame [AikoShen](https://github.com/Aikoyori/Balatro-Aikoyoris-Shenanigans) for doing it second. -->
 - Flavor text: Default true. Enables funky MtG-style quotes at the bottom of Jokers, and also some other cards.
-- Include crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things. Automatically on if Dev Mode is enabled.
+- Include crossover content: Default false. Includes cross-mod content which doesn't actually rely on the other mod's code to function. Not really the intended experience (it'll bias the Joker pool toward 3s a lot), but you might prefer maximum access to things.
 - Rename Stone to Slate: Default true. This is really just for me; I'm persnickety, "stone" isn't a well-defined Thing, but slate is a real rock that [resembles your video game standard grey ahh chunk of generic](https://duckduckgo.com/?t=lm&q=slate+rock&ia=images&iax=images). Turn this off if you're persnickety in an incompatible way where seeing it have a different name than vanilla would bug you.
+- Ticking cards: Certain cards tick. Click this button to turn that off if it annoys you. Inherits default value from your reduced motion option. Er, the opposite of it, I guess (reduced motion = no ticking cards)
 - 3 lock: Whether the 3 suit and related content can appear in a run; "Unlocked" means it's available from the start, "Locked" means it requires using The Cat tarot or playing a Spectrum hand[^1], "Sealed" means it never appears unless a deck specifically enables it. Default "Locked".
-- Disable bad jokes: Some of these Jokers are just me being kind of mad, and they don't make much game sense as a result. Click this when the joke gets old.
-- Dev Mode: Default false. Enables unfinished content if there is any (requires restart) (there usually isn't any anyway). 
+- Disable bad jokes: Some items are just me being kind of salty, and they don't make much long-term game sense as a result. Click this when the joke gets old and you don't want to see it anymore. Default false.
+- Dev Mode: Reveals some stuff that isn't 100%. Maybe you can fiddle with it and see how to fix whatever it was disabled for. Also forces crossover content on. Default false on release versions, true on dev commits.
    - Suppress trace messages: Default false; stops `TRACE`-level console messages even if Dev Mode is on.
 
 ## Recommended additional mods:
@@ -95,7 +96,7 @@ Technically you can do whatever you want here, but here's the mods I like for th
 - Face rank: If your modded suit includes Face art, give it `minty_facerank = true` to stop it from using the fallback art. Uh... I don't know how to properly implement cross-mod suit-rank combo art. I'll ask Kirbio UnStable, maybe. (Where by "ask" I mean "look in his published code".)
 - Legendary Kitys: Give your kittycats `pools = {["kity"] = true}` to enable them to be summoned by The Wand and The Bitz and to grant chips with Cat Cafe.
 - Gym Buddy boosts: Give your enhancements a `config.extra.gymboost` of `"chips"`, `"xchips"`, `"mult"`, `"xmult"`, `"cash"`, `"hchips"`, `"hxchips"`, `"hmult"`, `"hxmult"`, `"hcash"` or `"none"` to have them grant the corresponding boost when scored with cards not of that enhancement. (If you don't, one will be chosen randomly each time. Which maybe you prefer!) 
-- The Silliest, Littlest Deck: Add `pools = {["MintysSillyMod"] = true}` to have your cross-mod content appear with increased frequency when this deck is in play.
+- The Silliest, Littlest Deck: Add `pools = {["Menthol"] = true}` to have your cross-mod content appear with increased frequency when this deck is in play.
 - Rocks: Add `minty_rock = true` to your enhancement definition to have it count as a rock. If this fails for priority reasons (which I don't _think_ should be possible, but you never know) there's a Lovely patch target in `lib/functions.lua`.
 
 ## Contributing

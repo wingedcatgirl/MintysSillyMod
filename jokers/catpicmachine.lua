@@ -37,7 +37,7 @@ SMODS.Joker {
     },
     loc_vars = function(self, info_queue, card)
         if not finity or crossover then
-            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object", specific_vars = { "Mod", "Cryptid" } }
+            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object_requirement", specific_vars = { "Mod", "Cryptid" } }
         end
         local key = self.key
         local gameset = cry and Cryptid.gameset(self) or "mainline"

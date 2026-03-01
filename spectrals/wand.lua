@@ -28,6 +28,10 @@ SMODS.Consumable {
 			return false
 		end
 	end,
+	in_pool = function (self, args)
+		local kitypool = MINTY.kity_pool(true, "minty_wand")
+		return kitypool and kitypool[1] and kitypool[1] ~= "j_lucky_cat"
+	end,
 	use = function(self, card, area, copier)
 		local key = pseudorandom_element(MINTY.kity_pool(true, "minty_wand"), "minty_wand")
 		G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()

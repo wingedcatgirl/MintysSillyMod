@@ -779,7 +779,7 @@ return {
 				},
 				["name"] = "Minty",
 				["text"] = {
-					"{X:dark_edition,C:white}^#1#{} Mult, {C:attention}#4#{} time#6#",
+					"{B:1,C:white}#7##1#{} Mult, {C:attention}#4#{} time#6#",
 					"For every {C:attention}#3#{}{C:inactive}(#2#){} {C:minty_3s}3s{} scored,",
 					"gain a repetition and",
 					"increase target by #5#",
@@ -792,7 +792,7 @@ return {
 				},
 				["name"] = "Minty",
 				["text"] = {
-					"{X:dark_edition,C:white}^#1#{} Mult, {C:attention}#4#{} time#6#",
+					"{B:1,C:white}#7##1#{} Mult, {C:attention}#4#{} time#6#",
 					"For every {C:attention}#3#{}{C:inactive}(#2#){} {C:minty_3s}3s{} scored,",
 					"gain a repetition and",
 					"increase target by #5#",
@@ -3068,7 +3068,24 @@ return {
 				["name"] = "Object Disabled",
 				["text"] = {
 					"Requires {C:attention}#1#{}:",
+					"{C:mult}#2#{}",
+					"{C:inactive,s:0.8}(This label is supposed to be deprecated; file a bug report!)"
+				}
+			},
+			["minty_disabled_object_requirement"] = {
+				["label"] = "Object Disabled",
+				["name"] = "Object Disabled",
+				["text"] = {
+					"Requires {C:attention}#1#{}:",
 					"{C:mult}#2#{}"
+				}
+			},
+			minty_disabled_object_config = {
+				label = "Card Disabled",
+				name = "Card Disabled",
+				text = {
+					"Disabled per {C:attention}config{}:",
+					"{C:chips}#1#{}"
 				}
 			},
 			["minty_dev_warning"] = {
