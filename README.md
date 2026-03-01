@@ -3,7 +3,7 @@
 
 My silly little mod that adds some silly little jokers and decks and things. It's minty because it's not vanilla. (It's not vanilla because I think calling a mod a word which in this context means "not modded" is silly. ... Silly in the non-fun way. You know what I mean.)
 
-[Mod main page on Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Minty%27s_Silly_Little_Mod) (Beware of SPOILERS! If you even care about discovering things on your own, that is 😛)
+[Mod main page on Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Menthol) (Beware of SPOILERS! If you even care about discovering things on your own, that is 😛)
 
 Current features:
 - Cats
