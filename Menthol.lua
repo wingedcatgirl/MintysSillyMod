@@ -259,7 +259,7 @@ local files = {
         { name = "apaw"},
         { name = "atail"},
         { name = "thenip" },
-        { name = "thetree" },
+        --{ name = "thetree" }, Disabled til we play Ortalab again
         { name = "calico" },
         { name = "thenipdx" },
     },
@@ -326,6 +326,40 @@ for folder, list in pairs(files) do
         end
         ::nvm::
     end
+end
+
+SMODS.current_mod.menu_cards = function ()
+    return {
+        func = function ()
+            local enh = SMODS.poll_enhancement{
+                guaranteed = true,
+                options = {
+                    "m_minty_spline",
+                    "m_minty_pistol",
+                    "m_minty_emphatic",
+                    "m_minty_dynamite",
+                    "m_minty_static"
+                }
+            }
+            local card
+            for i,v in ipairs(G.title_top.cards) do
+                if v.is_suit and v:is_suit("Spades") then --Probably the vanilla ace of spades
+                    card = v
+                    card:set_ability(enh)
+                    assert(SMODS.change_base(card, "minty_3s", "3"))
+                    if SMODS.find_mod("Gemstone") then
+                        Gemstones.set_gemslot(card, "gemslot_catseye")
+                    end
+                    card.click = function(self)
+                        if self.is_3 and self:is_3() then --Only as long as it still counts as a 3
+                            G.FUNCS["openModUI_Menthol"]()
+                        end
+                    end
+                    break
+                end
+            end
+        end
+    }
 end
 
 MINTY.lastmoment = function ()

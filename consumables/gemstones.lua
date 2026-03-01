@@ -20,7 +20,7 @@ Gemstones.GemstoneConsumable{
     pos = { x = 0, y = 0 },
     soul_pos = { x = 0, y = 1 },
     cost = 3,
-    discovered = true,
+    discovered = false,
     config = {
         max_highlighted = 1,
         sticker_id = "gemslot_catseye"
