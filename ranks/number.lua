@@ -1,34 +1,39 @@
-local suitmap = { --Uncomment these as the art gets arted
-    Hearts = 1,
-    Clubs = 2,
-    Diamonds = 3,
-    Spades = 4,
-    minty_3s = 5,
-    --bunc_halberds = 6,
-    --bunc_fleurons = 7,
-    --paperback_Crowns = 8,
-    --paperback_Stars = 9,
-    --six_moons = 10,
-    --six_stars = 11,
-    --Fallback = 0
-}
+function MINTY.build_number_rank()
+    local suitmap = { --Uncomment these as the art gets arted
+        Hearts = 1,
+        Clubs = 2,
+        Diamonds = 3,
+        Spades = 4,
+        minty_3s = 5,
+        --bunc_halberds = 6,
+        --bunc_fleurons = 7,
+        --paperback_Crowns = 8,
+        --paperback_Stars = 9,
+        --six_moons = 10,
+        --six_stars = 11,
+        --Fallback = 0
+    }
 
-if SMODS.Suits then
-    for k,v in pairs(SMODS.Suits) do
-        if not suitmap[k] and not v.minty_numberrank then
-            suitmap[k] = 0
+    if SMODS.Suits then
+        for k,v in pairs(SMODS.Suits) do
+            if not suitmap[k] and not v.minty_numberrank then
+                suitmap[k] = 0
+            end
         end
     end
-end
 
-local all_numbers = { }
+    local all_numbers = { }
 
-if SMODS.Ranks then
-    for k,v in pairs(SMODS.Ranks) do
-        if not v.face and k ~= "Ace" then
-            table.insert(all_numbers, k)
+    if SMODS.Ranks then
+        for k,v in pairs(SMODS.Ranks) do
+            if not v.face and k ~= "Ace" then
+                table.insert(all_numbers, k)
+            end
         end
     end
+
+    MINTY.number_rank_all_numbers = all_numbers
+    MINTY.number_rank_suitmap = suitmap
 end
 
 SMODS.Rank{
@@ -40,7 +45,7 @@ SMODS.Rank{
     lc_atlas = "numberrank",
     hc_atlas = "numberrank",
     shorthand = "N",
-    next = all_numbers,
+    next = MINTY.number_rank_all_numbers,
     strength_effect = { random = true },
     in_pool = function (self, args)
         if args and args.initial_deck then
@@ -51,7 +56,7 @@ SMODS.Rank{
         end
         return MINTY.find_rank("minty_number")
     end,
-    suit_map = suitmap,
+    suit_map = MINTY.number_rank_suitmap,
     loc_vars = function (self, info_queue, card)
         local suit = card.base.suit
         local key = "minty_placeholder"
