@@ -348,7 +348,7 @@ SMODS.current_mod.menu_cards = function ()
                     card = v
                     card:set_ability(enh)
                     assert(SMODS.change_base(card, "minty_3s", "3"))
-                    if SMODS.find_mod("Gemstone") then
+                    if next(SMODS.find_mod("Gemstone")) then
                         Gemstones.set_gemslot(card, "gemslot_catseye")
                     end
                     card.click = function(self)
