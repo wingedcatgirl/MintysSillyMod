@@ -23,6 +23,18 @@ function Card:is_face(from_boss)
 	return isfaceref(self, from_boss)
 end
 
+local setbaseref = Card.set_base
+function Card:set_base(card, initial, manual_sprites)
+    if self.playing_card and self.base then
+        local new_rank = card and card.value and SMODS.Ranks[card.value] and SMODS.Ranks[card.value].id
+        if card and ((card.suit and self.base.suit ~= card.suit) or (self.base.id and self.base.id == new_rank)) then
+            SMODS.calculate_context{attempted_suit_change = true, card = self}
+        end
+    end
+
+    setbaseref(self, card, initial, manual_sprites)
+end
+
 ---Slapdash patch for #CA7CA7 stake name; replaces "<hash>" with "#"
 local oldparser = loc_parse_string
 loc_parse_string = function (line)

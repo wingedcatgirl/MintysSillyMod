@@ -16,5 +16,10 @@ SMODS.Edition{
     weight = 0,
     in_pool = function (self, args)
         return false
+    end,
+    calculate = function (self, card, context)
+        if context.attempted_suit_change and context.card == card then
+            card:set_edition()
+        end
     end
 }
