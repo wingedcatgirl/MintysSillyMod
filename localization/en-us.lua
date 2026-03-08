@@ -1558,7 +1558,7 @@ return {
 					"When any {C:green}chance{} succeeds,",
 					"gains {X:black,C:white}#2#X{} the",
 					"{C:green}numerator{} as {X:mult,C:white}xMult{}",
-					"{C:inactive}(Currently {C:mult}+#1#{C:inactive})",
+					"{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive})",
 				},
 			},
 			["j_minty_optimist_flavor"] = {
