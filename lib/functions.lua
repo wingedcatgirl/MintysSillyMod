@@ -672,6 +672,7 @@ function SMODS.current_mod.reset_game_globals(init)
     end
     if init then
         G.GAME.minty_no_dumb_shit = MINTY.config.no_dumbass_shit
+        G.GAME.minty_crossover = MINTY.config.include_crossover
     end
 
     G.GAME.minty_hyperfix = G.GAME.minty_hyperfix or { active = true, value = 0 }

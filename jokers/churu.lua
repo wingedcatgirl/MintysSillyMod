@@ -40,7 +40,7 @@ SMODS.Joker {
         ["Paperback"] = true, --Increase freqency when playing with Paper Deck
     },
     loc_vars = function(self, info_queue, card)
-        if MINTY.in_collection(card) and not (pb or MINTY.config.dev_mode or MINTY.config.include_crossover) then
+        if MINTY.in_collection(card) and not (pb or MINTY.config.dev_mode or G.GAME.minty_crossover) then
             info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object_requirement", specific_vars = { "Mod", "Paperback" } }
         end
         local key = self.key
@@ -59,7 +59,7 @@ SMODS.Joker {
     end,
 
     in_pool = function(self, args)
-        if not (pb or MINTY.config.dev_mode or MINTY.config.include_crossover) then return false end
+        if not (pb or MINTY.config.dev_mode or G.GAME.minty_crossover) then return false end
         if pb and G.GAME.pool_flags.churu_treat_eaten then --The normal gimmick only works if other sticks can spawn, so if they can't...
             return false
         end
@@ -182,13 +182,13 @@ SMODS.Joker {
         ["Paperback"] = true, --Increase freqency when playing with Paper Deck. if sticks can spawn which i don't think pb ever actually turns on lol
     },
     in_pool = function (self, args)
-        if not (pb or MINTY.config.dev_mode or MINTY.config.include_crossover) then return false end
+        if not (pb or MINTY.config.dev_mode or G.GAME.minty_crossover) then return false end
         if not G.GAME.pool_flags.churu_treat_eaten then return false end
         return G.GAME.pool_flags.sticks_can_spawn
     end,
 
     loc_vars = function(self, info_queue, card)
-        if MINTY.in_collection(card) and not (pb or MINTY.config.dev_mode or MINTY.config.include_crossover) then
+        if MINTY.in_collection(card) and not (pb or MINTY.config.dev_mode or G.GAME.minty_crossover) then
             info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object_requirement", specific_vars = { "Mod", "Paperback" } }
         end
         local key = self.key

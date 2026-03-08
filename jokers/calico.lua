@@ -1,6 +1,6 @@
 local finity = SMODS.find_mod("finity")[1]
 local function crossover()
-    return MINTY.config.include_crossover
+    return G.GAME.minty_crossover
 end
 local rarity = finity and "finity_showdown" or 4
 

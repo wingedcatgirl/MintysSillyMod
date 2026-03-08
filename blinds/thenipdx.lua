@@ -10,7 +10,7 @@ SMODS.Blind {
     pos = { x=0, y=3 },
     discovered = false,
     in_pool = function (self)
-        if not (mf or MINTY.config.dev_mode or MINTY.config.include_crossover) then return false end
+        if not (mf or MINTY.config.dev_mode or G.GAME.minty_crossover) then return false end
         if G.GAME.round_resets.ante < 9 then return false end
         return true
     end,

@@ -23,7 +23,7 @@ SMODS.Blind {
         return true
     end,
     in_pool = function(self)
-        if not (ortalab or MINTY.config.dev_mode or MINTY.config.include_crossover) then return false end
+        if not (ortalab or MINTY.config.dev_mode or G.GAME.minty_crossover) then return false end
         if G.GAME.round_resets.ante < 3 then return false end
         for _, card in pairs(G.playing_cards or {}) do
             if card:is_3() then return true end

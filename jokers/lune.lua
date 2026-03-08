@@ -32,7 +32,7 @@ SMODS.Joker {
     },
     
     locked_loc_vars = function (self, info_queue, card)
-        if not (ortalab or MINTY.config.dev_mode or MINTY.config.include_crossover) then
+        if not (ortalab or MINTY.config.dev_mode or G.GAME.minty_crossover) then
             return {
                 key = "minty_joker_unavailable",
                 vars = {
@@ -48,7 +48,7 @@ SMODS.Joker {
     end,
     --]]
     loc_vars = function(self, info_queue, card)
-        if MINTY.in_collection(card) and not (ortalab or MINTY.config.dev_mode or MINTY.config.include_crossover) then
+        if MINTY.in_collection(card) and not (ortalab or MINTY.config.dev_mode or G.GAME.minty_crossover) then
             info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object_requirement", specific_vars = { "Mod", "Ortalab" } }
         end
         local key = self.key
@@ -63,7 +63,7 @@ SMODS.Joker {
         }
     end,
     in_pool = function (self, args)
-        return (ortalab or MINTY.config.dev_mode or MINTY.config.include_crossover)
+        return (ortalab or MINTY.config.dev_mode or G.GAME.minty_crossover)
     end,
     calculate = function(self, card, context)
         if context.mod_probability and not context.blueprint then
