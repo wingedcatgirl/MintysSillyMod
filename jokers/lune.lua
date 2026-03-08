@@ -63,7 +63,7 @@ SMODS.Joker {
         }
     end,
     in_pool = function (self, args)
-        return (ortalab or MINTY.config.dev_mode or G.GAME.minty_crossover)
+        return ((not not ortalab) or MINTY.config.dev_mode or G.GAME.minty_crossover)
     end,
     calculate = function(self, card, context)
         if context.mod_probability and not context.blueprint then
