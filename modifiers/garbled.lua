@@ -1,6 +1,7 @@
 local mf = SMODS.find_mod("MoreFluff")[1]
 
 local slowdown = 0
+local this_card
 local string = "+"
 local characters = {
     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", 
@@ -41,6 +42,7 @@ SMODS.Enhancement({
         end
     },
     update = function (self, card, dt)
+        if this_card ~= card.unique_val then return end
         slowdown = slowdown + 1
         if slowdown > math.random(5, 9) then
             slowdown = 0
@@ -60,6 +62,7 @@ SMODS.Enhancement({
         end
     end,
     loc_vars = function(self, info_queue, card)
+        this_card = card.unique_val
         local main_start = {
             { n = G.UIT.T, config = { ref_table = text, ref_value = "text", colour = G.C.RED, scale = 0.32 } },
         }
