@@ -1,5 +1,16 @@
 local mf = SMODS.find_mod("MoreFluff")[1]
 
+local slowdown = 0
+local string = "+"
+local characters = {
+    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", 
+    "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
+    "?", "!", "<", ">", "&", "%", "$", "@", "*", "/", "{", "}"
+}
+local text = {
+    text = string
+}
+
 SMODS.Enhancement({
     key = "garbled",
     name = "Garbled Card",
@@ -29,10 +40,32 @@ SMODS.Enhancement({
             }
         end
     },
+    update = function (self, card, dt)
+        slowdown = slowdown + 1
+        if slowdown > math.random(5, 9) then
+            slowdown = 0
+            string = "+"
+            for i=1,math.random(5,11) do
+                local char = characters[math.random(#characters)]
+                if math.random(3) == 3 then
+                    local mult = {"m", "u", "l", "t"}
+                    char = mult[math.random(4)]
+                end
+                if math.random(2) == 2 then
+                    char = char:upper()
+                end
+                string = string..char
+            end
+            text.text = string
+        end
+    end,
     loc_vars = function(self, info_queue, card)
+        local main_start = {
+            { n = G.UIT.T, config = { ref_table = text, ref_value = "text", colour = G.C.RED, scale = 0.32 } },
+        }
+
         return {
-            vars = {
-            },
+            main_start = main_start
         }
     end,
     get_weight = function (self)

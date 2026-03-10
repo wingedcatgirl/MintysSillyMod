@@ -2474,7 +2474,6 @@ return {
 				["name"] = "Garbled Card",
 				["label"] = "Garbled Card",
 				["text"] = {
-					"{C:mult}+???{} Mult"
 				}
 			},
 			["m_minty_microcline"] = {
