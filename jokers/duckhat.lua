@@ -90,17 +90,18 @@ SMODS.Joker {
         end
 
         if (context.end_of_round and context.cardarea == G.jokers) then
-            local target = pseudorandom_element(G.jokers.cards, "minty_duckhat")
-            local tries = 0
-            local extra
-            while target == card and tries < 100 and #G.jokers.cards > 1 do
-                tries = tries + 1
+            local target, extra
+            local cards = {}
+            for i,v in ipairs(G.jokers.cards) do
+                if v ~= card then cards[#cards+1] = v end
+            end
+            if #cards > 1 then
                 target = pseudorandom_element(G.jokers.cards, "minty_duckhat")
             end
 
             card.ability.extra_value = (card.ability.extra_value or 0) + card.ability.extra.valboost
             card:set_cost()
-            if target ~= card then
+            if target and target ~= card then
                 target.ability.extra_value = (target.ability.extra_value or 0) + card.ability.extra.valboost
                 target:set_cost()
                 extra = {
@@ -109,7 +110,7 @@ SMODS.Joker {
                     message_card = target
                 }
             end
-            
+
             return {
                 message = localize('k_val_up'),
                 colour = G.C.MONEY,
