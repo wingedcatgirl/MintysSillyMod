@@ -78,6 +78,13 @@ SMODS.ConsumableType{
     secondary_colour = HEX("ca7ca7")
 }
 
+SMODS.ConsumableType{
+    key = "minty_cobalt",
+    default = "c_minty_backup_plan",
+    primary_colour = G.C.CHIPS,
+    secondary_colour = G.C.SECONDARY_SET.Spectral
+}
+
 local files = {
     lib = {
         { name = "atlases" },
@@ -157,6 +164,7 @@ local files = {
         { name = "doctor" },
         { name = "hyperfix" },
         { name = "jacobsladder" },
+        { name = "prism" },
         --Fusion Jokers
         { name = "threecats", mods = { {id = "FusionJokers"} } },
         { name = "parkour", mods = { {id = "FusionJokers"} } },
@@ -277,6 +285,9 @@ local files = {
         { name = "backalley" },
         { name = "cosmoport" },
         { name = "taxfraud" },
+    },
+    etc = {
+        { name = "backupplan" }
     }
 }
 

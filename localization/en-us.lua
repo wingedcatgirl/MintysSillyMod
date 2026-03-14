@@ -26,6 +26,7 @@ return {
 			["k_minty_confiscated"] = "Confiscated!",
 			["k_minty_crystal"] = "Crystal!",
 			k_minty_ratio = "L + ratio!",
+			k_minty_bouyant = "Buoyant!",
 
 			--Option text
 			option_minty_flavor = "Flavor text",
@@ -41,6 +42,8 @@ return {
 			["k_minty_treat"] = "Treat",
 			["b_minty_treat_cards"] = "Treat Cards",
 			["k_minty_treat_packs"] = "Treat Pack",
+			["k_minty_cobalt"] = "Cobalt",
+			["b_minty_cobalt_cards"] = "Cobalt Cards",
 			["k_minty_everycard_packs"] = "Pack of Every Card",
 			["k_minty_mod_packs"] = "Mod Pack",
 
@@ -1644,10 +1647,40 @@ return {
 					"{C:inactive,s:0.8}Girls will literally eat it"
 				},
 			},
+			j_minty_prism = {
+				name = "//cat.exe -prism",
+				text = {
+					{
+						"When setting blind,",
+						"create a {C:attention}Backup Plan{}",
+						"if you don't have one"
+					},
+					{
+						"{X:mult,C:white}X#1#{} Mult per",
+						"suit in hand: {X:mult,C:white}X#2#{}"
+					}
+				}
+			},
+			j_minty_prism_flavor = {
+				name = "//cat.exe -prism",
+				text = {
+					{
+						"When setting blind,",
+						"create a {C:attention}Backup Plan{}",
+						"if you don't have one"
+					},
+					{
+						"{X:mult,C:white}X#1#{} Mult per",
+						"suit in hand: {X:mult,C:white}X#2#{}",
+						" ",
+						"{C:inactive,s:0.8}The power of friendship!"
+					}
+				}
+			},
 			--HEY FUTURE MINTY, PUT NEW JOKERS ⬆️HERE⬆️ :P 
-			["j_minty_template"] = {
-				["name"] = "Joker Template",
-				["text"] = {
+			j_minty_template = {
+				name = "Joker Template",
+				text = {
 					"Does something",
 				},
 			},
@@ -2277,6 +2310,16 @@ return {
 					"{C:inactive,s:0.8}cronch cronch cronch{}"
 				}
 			},
+		},
+		minty_cobalt = {
+			c_minty_backup_plan = {
+				name = "Backup Plan",
+				text = {
+					"Draw 1 card of",
+					"each suit from",
+					"your deck"
+				}
+			}
 		},
 		["Sleeve"] = {
 			["sleeve_minty_treatsleeve"] = {
@@ -2923,6 +2966,14 @@ return {
 					"this delicious treat in an",
 					"unseeded run to",
 					"learn what it tastes like",
+				}
+			},
+			undiscovered_minty_cobalt = {
+				name = "Undiscovered Cobalt Card",
+				text = {
+                    "Find this card in",
+                    "an unseeded run to",
+                    "learn what it does",
 				}
 			},
 			["minty_counterfeit"] = {
