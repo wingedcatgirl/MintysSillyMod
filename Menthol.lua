@@ -163,6 +163,7 @@ local files = {
         { name = "pessimist" },
         { name = "doctor" },
         { name = "hyperfix" },
+        { name = "lazarus" },
         { name = "jacobsladder" },
         { name = "prism" },
         --Fusion Jokers

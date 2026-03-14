@@ -1677,6 +1677,31 @@ return {
 					}
 				}
 			},
+			j_minty_lazarus = {
+				name = "Lazarus Machine",
+				text = {
+					"{C:attention}Drain{} energy from up to #1#",
+					"scored playing cards each hand",
+					"{C:inactive}(Cards with {C:attention}editions{C:inactive} are worth extra)",
+					"Upon siphoning {C:mult}#3#{C:inactive}(#2#){} total",
+					"energy, {C:red}self-destruct{}",
+					"and create {C:dark_edition}The Soul{}"
+				}
+			},
+			j_minty_lazarus_flavor = {
+				name = "Lazarus Machine",
+				text = {
+					"{C:attention}Drain{} energy from up to #1#",
+					"scored playing cards each hand",
+					"{C:inactive}(Cards with {C:attention}editions{C:inactive} are worth extra)",
+					"Upon siphoning {C:mult}#3#{C:inactive}(#2#){} total",
+					"energy, {C:red}self-destruct{}",
+					"and create {C:dark_edition}The Soul{}",
+					" ",
+					"{C:inactive,s:0.8}All ghosts have unfinished business.",
+					"{C:inactive,s:0.8}That's why they don't cross over."
+				}
+			},
 			--HEY FUTURE MINTY, PUT NEW JOKERS ⬆️HERE⬆️ :P 
 			j_minty_template = {
 				name = "Joker Template",
