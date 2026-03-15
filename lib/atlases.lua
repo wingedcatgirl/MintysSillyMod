@@ -1,10 +1,3 @@
-SMODS.Atlas {
-    key = 'jokers',
-    path = "jokers.png",
-    px = 71,
-    py = 95
-}
-
 local kitties = {
     "black",
     "calico",
@@ -23,6 +16,13 @@ SMODS.Atlas({
     px = 34,
     py = 34
 })
+
+SMODS.Atlas {
+    key = 'jokers',
+    path = "jokers.png",
+    px = 71,
+    py = 95
+}
 
 SMODS.Atlas {
     key = 'jokerdoodles',
