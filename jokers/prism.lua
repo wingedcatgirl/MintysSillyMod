@@ -48,9 +48,12 @@ SMODS.Joker {
             for k,v in pairs(SMODS.Suits) do --This can break in cases of suit patches or similar. Too bad!
                 for ii,vv in ipairs(cards) do
                     if vv:is_suit(k) then
-                        suits = suits + 1 break
+                        suits = suits + 1
+                        table.remove(cards, ii)
+                        break
                     end
                 end
+                if not next(cards) then break end
             end
             estimate = 1+((suits + wilds) * card.ability.extra.xmult)
         end
@@ -88,9 +91,12 @@ SMODS.Joker {
             for k,v in pairs(SMODS.Suits) do --This can break in cases of suit patches or similar. Too bad!
                 for ii,vv in ipairs(cards) do
                     if vv:is_suit(k) then
-                        suits = suits + 1 break
+                        suits = suits + 1
+                        table.remove(cards, ii)
+                        break
                     end
                 end
+                if not next(cards) then break end
             end
             if suits + wilds > 1 then
                 return {
