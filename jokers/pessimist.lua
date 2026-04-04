@@ -35,12 +35,20 @@ SMODS.Joker {
             vars = {
                 card.ability.extra.chips,
                 card.ability.extra.factor,
+                colours = {
+                    G.C.UI.TEXT_INACTIVE
+                }
             }
         }
     end,
     calculate = function(self, card, context)
         if context.pseudorandom_result and not context.result then
-            card.ability.extra.chips = card.ability.extra.chips + (context.denominator * card.ability.extra.factor)
+            local num = context.denominator
+            if num > 7.5 then
+                num = math.sqrt(num) + math.log(num, 2) + 0.5 + 3.708993234 --C to bring f(7.5) to 15 and keep the function continuous
+            end
+            num = math.floor(num) --... okay it's not continuous *now* but it was!!
+            card.ability.extra.chips = card.ability.extra.chips + (num * card.ability.extra.factor)
             return {
                 message = localize("k_upgrade_ex")
             }

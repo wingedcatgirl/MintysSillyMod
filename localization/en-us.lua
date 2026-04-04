@@ -1582,6 +1582,8 @@ return {
 					"gains {X:black,C:white}#2#X{} the",
 					"{C:green}denominator{} as {C:chips}+Chips{}",
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive})",
+					"{C:inactive,s:0.8}({B:1,C:white,s:0.8}Falls off rapidly{C:inactive,s:0.8} once",
+					"{C:inactive,s:0.8}denominator exceeds 7.5)",
 				},
 			},
 			["j_minty_pessimist_flavor"] = {
@@ -1591,6 +1593,8 @@ return {
 					"gains {X:black,C:white}#2#X{} the",
 					"{C:green}denominator{} as {C:chips}+Chips{}",
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive})",
+					"{C:inactive,s:0.8}({B:1,C:white,s:0.8}Falls off rapidly{C:inactive,s:0.8} once",
+					"{C:inactive,s:0.8}denominator exceeds 7.5)",
 					" ",
 					"{C:inactive,s:0.8}You can't count on luck...{}",
 				},
