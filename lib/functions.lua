@@ -665,7 +665,9 @@ end
 
 function SMODS.current_mod.reset_game_globals(init)
     G.GAME.languageEgg = G.GAME.languageEgg or {}
-    G.GAME.languageEgg[G.SETTINGS.language] = true
+    local lang = G.SETTINGS.language
+    if lang == "suitnames_en" then lang = "en-us" end
+    G.GAME.languageEgg[lang] = true
 
     if init or not G.GAME.starting_params.minty_three_lock then
         G.GAME.starting_params.minty_three_lock = MINTY.config.three_lock.current_option
