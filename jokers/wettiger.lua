@@ -47,7 +47,7 @@ SMODS.Joker {
             }
         end
 
-        if context.individual and not context.blueprint and context.cardarea == G.play and card_is_splashed(context.other_card) then
+        if (context.individual and not context.blueprint and context.cardarea == G.play and card_is_splashed(context.other_card)) or (context.end_of_round and context.main_eval) then
             SMODS.scale_card(card,{
                 ref_table = card.ability.extra,
                 ref_value = "mult",
