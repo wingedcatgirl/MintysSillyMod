@@ -701,7 +701,7 @@ return {
 					"Find this Joker from",
 					"the {C:spectral}Soul{} or {C:spectral}Wand{} cards",
 				},
-				["name"] = "Lucky",
+				["name"] = "Lune",
 				["text"] = {
 					"Divides all {C:attention}listed",
 					"{C:green,E:1,S:1.1}probabilities{} by {C:mult}#1#{}",
