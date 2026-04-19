@@ -27,6 +27,9 @@ SMODS.Joker {
             perish_count = 2
         }
     },
+    attributes = {
+        "spread_this_like_wildfire", "xmult", "scaling"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

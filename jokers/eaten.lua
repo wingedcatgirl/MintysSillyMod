@@ -19,6 +19,9 @@ SMODS.Joker {
     blueprint_compat = true,
     demicoloncompat = false,
     config = {extra = {mult = 7, chips = 17, odds = 7}},
+    attributes = {
+        "rank", "seven", "mult", "chips", "chance", "destroy_card"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

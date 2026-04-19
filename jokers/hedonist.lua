@@ -24,6 +24,9 @@ SMODS.Joker {
             again = 0
         }
     },
+    attributes = {
+        "mult", "suit", "rank", "minty_3s"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

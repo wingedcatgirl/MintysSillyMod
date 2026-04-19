@@ -27,6 +27,9 @@ SMODS.Joker {
             cost = 5
         },
     },
+    attributes = {
+        "kity", "generation", "joker", "joker"
+    },
     loc_vars = function(self, info_queue, card)
         if not (card.edition and card.edition.negative) then
             info_queue[#info_queue+1] = G.P_CENTERS.e_negative

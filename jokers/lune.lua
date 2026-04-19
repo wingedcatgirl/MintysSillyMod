@@ -30,6 +30,9 @@ SMODS.Joker {
             drop = 33
         }
     },
+    attributes = {
+        "kity", "mod_chance", "passive"
+    },
     
     locked_loc_vars = function (self, info_queue, card)
         if not (ortalab or MINTY.config.dev_mode or G.GAME.minty_crossover) then

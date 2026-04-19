@@ -28,6 +28,9 @@ SMODS.Joker {
             stormcount = 0,
         }
     },
+    attributes = {
+        "xmult", "kity", "retrigger", "minty_3s", "suit", "rank"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

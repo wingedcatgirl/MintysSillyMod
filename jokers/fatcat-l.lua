@@ -24,6 +24,9 @@ SMODS.Joker {
             xmultgain = .5,
         }
     },
+    attributes = {
+        "kity", "destroy_cards", "xmult", "scaling"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

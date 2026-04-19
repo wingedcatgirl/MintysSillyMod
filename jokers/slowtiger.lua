@@ -23,6 +23,9 @@ SMODS.Joker {
         ["kity"] = true
     },
     config = { extra = {mult = 1, multgain = 1} },
+    attributes = {
+        "mult", "scaling"
+    },
     set_ability = function(self, card, initial, delay_sprites)
         card.ability.extra.mult = G.GAME.round or 1
     end,

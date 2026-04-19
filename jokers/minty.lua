@@ -35,6 +35,9 @@ SMODS.Joker {
             upgraded = false,
         }
     },
+    attributes = {
+        "kity", talisman and "emult" or "xmult", "minty_3s", "rank", "suit", "scaling"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

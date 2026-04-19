@@ -21,6 +21,9 @@ SMODS.Joker {
             s_mult = 3
         }
     },
+    attributes = {
+        "suit", "mult"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         local namekey = "minty_flexweirdo_full_name"

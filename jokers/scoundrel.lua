@@ -21,6 +21,9 @@ SMODS.Joker {
             luckycards = {}
         }
     },
+    attributes = {
+        "enhancements", "retrigger", "scaling"
+    },
     credit = { --Only displays if you have 3xCredits or CreditLib active, but nothing bad happens if you don't
         art = "thegreatyin", --Source: https://thegreatyin.tumblr.com/post/780313971308773376/was-thinking-about-this-concept-again-had-to; used with permission
         code = "wingedcatgirl",

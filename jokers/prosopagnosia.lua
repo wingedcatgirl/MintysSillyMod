@@ -29,6 +29,9 @@ SMODS.Joker {
         }
     end,
     config = {extra = {xmult = 3}},
+    attributes = {
+        "xmult", "passive", "face", "modify_card", "minty_facerank"
+    },
     calculate = function(self, card, context)
         if context.forcetrigger then
             return {

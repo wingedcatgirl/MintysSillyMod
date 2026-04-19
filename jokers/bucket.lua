@@ -19,6 +19,9 @@ SMODS.Joker {
     blueprint_compat = true,
     demicoloncompat = false,
     config = {},
+    attributes = {
+        "minty_rocks", "enhancements", "modify_card"
+    },
 	loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

@@ -32,6 +32,9 @@ SMODS.Joker {
             targetcard = {}
         }
     },
+    attributes = {
+        "copying", "kity"
+    },
     loc_vars = function(self, info_queue, card)
         if MINTY.in_collection(card) and cryptid then
             if not MINTY.config.dev_mode then

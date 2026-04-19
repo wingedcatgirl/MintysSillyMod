@@ -47,6 +47,9 @@ SMODS.Joker {
         extra = {
         }
     },
+    attributes = {
+        "enhancements", "meta"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if not SMODS.optional_features.quantum_enhancements then

@@ -22,6 +22,9 @@ SMODS.Joker {
         seal = {extra = {chips = 50}},
         stone = {extra = {chips = 50}}
     },
+    attributes = {
+        "minty_rocks", "enhancements", "seals", "modify_card"
+    },
 	loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

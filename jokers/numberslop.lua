@@ -20,6 +20,9 @@ SMODS.Joker {
             mult = 5
         }
     },
+    attributes = {
+        "mult", "stupid"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.in_collection(card) and ((G.STAGE == G.STAGES.RUN and G.GAME.minty_no_dumb_shit) or (G.STAGE == G.STAGES.MAIN_MENU and MINTY.config.no_dumbass_shit)) then

@@ -29,6 +29,9 @@ SMODS.Joker {
             found = false
         }
     },
+    attributes = {
+        "kity", "destroy_card", "xmult", "scaling", "rank", "suit"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         local ranks = {}

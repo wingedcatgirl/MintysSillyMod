@@ -27,6 +27,9 @@ SMODS.Joker {
             odds2 = 2,
         }
     },
+    attributes = {
+        "chance"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         local luck1, odds1 = SMODS.get_probability_vars(card, card.ability.extra.luck1, card.ability.extra.odds1, "minty_fate_desc_good", false, true)

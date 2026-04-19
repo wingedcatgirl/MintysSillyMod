@@ -23,6 +23,9 @@ SMODS.Joker {
             mult = 5
         }
     },
+    attributes = {
+        "mult", "scaling", "meta"
+    },
     check_for_unlock = function (self, args)
         if args.type == 'win_custom' and G.SETTINGS.language ~= "en-us" and G.SETTINGS.language ~= "suitnames_en" then
             unlock_card(self)

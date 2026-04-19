@@ -86,8 +86,9 @@ SMODS.ConsumableType{
 }
 
 local files = {
-    lib = {
+    { name = "lib", contents = {
         { name = "atlases" },
+        { name = "attributes" },
         { name = "gradience" },
         { name = "functions" },
         { name = "hooks" },
@@ -97,15 +98,15 @@ local files = {
         { name = "rarity" },
         { name = "quips" },
         { name = "bluehairand", mods = { { id = "cardpronouns" } } },
-    },
-    suits = {
+    } },
+    { name = "suits", contents = {
         { name = "3suit" }
-    },
-    ranks = {
+    } },
+    { name = "ranks", contents = {
         { name = "face" },
         { name = "number" },
-    },
-    jokers = {
+    } },
+    { name = "jokers", contents = {
         --Tweaks to existing Jokers 
         { name = "vanillatweaks" },
         --Common Jokers
@@ -185,8 +186,8 @@ local files = {
         { name = "minty" },
         { name = "garfielf" },
         --{ name = "lune" }
-    },
-    tarots = {
+    } },
+    { name = "tarots", contents = {
         { name = "abacus", },
         { name = "battery" },
         { name = "bitz" },
@@ -198,8 +199,8 @@ local files = {
         { name = "gleam" },
         { name = "geologist" },
         { name = "magnet" },
-    },
-    spectrals = {
+    } },
+    { name = "spectrals", contents = {
         { name = "sixyears" },
         { name = "dekaja" },
         { name = "delicacy" },
@@ -207,33 +208,33 @@ local files = {
         { name = "reincarnate" },
         { name = "wand" },
         --{ name = "testcard" },
-    },
-    treats = {
+    } },
+    { name = "treats", contents = {
         { name = "choccy" },
         { name = "mint ice cream" },
         { name = "blueberry pie" },
         { name = "funnel cake" },
-    },
-    boosters = {
+    } },
+    { name = "boosters", contents = {
         { name = "modpacks" },
         { name = "packofeverycard" },
         { name = "treat" },
-    },
-    consumables = {
+    } },
+    { name = "consumables", contents = {
         { name = "colors", mods = { { id = "MoreFluff", cfg = "Colour Cards" } } },
         { name = "rotarots", mods = { { id = "MoreFluff", cfg = "45 Degree Rotated Tarot Cards" } } },
         { name = "gemstones", mods = { { id = "Gemstone" } } },
         { name = "drafts", mods = { { id = "draft", version = "0.6.0" } } },
-    },
-    tags = {
+    } },
+    { name = "tags", contents = {
         { name = "goading" },
         { name = "menu" },
-    },
-    vouchers = {
+    } },
+    { name = "vouchers", contents = {
         { name = "topplepaws" },
         { name = "treasure" },
-    },
-    modifiers = {
+    } },
+    { name = "modifiers", contents = {
         { name = "marble" }, --Enhancements
         { name = "microcline" },
         { name = "crystal" },
@@ -249,8 +250,8 @@ local files = {
         { name = "counterfeit" }, --Stickers
         { name = "hooked" },
         { name = "pirated" },
-    },
-    backs = {
+    } },
+    { name = "backs", contents = {
         { name = "treat" },
         --{ name = "club" },    --
         --{ name = "diamond" }, --
@@ -261,8 +262,8 @@ local files = {
         { name = "suitfocus" },
         { name = "drippy" },
         { name = "silly" },
-    },
-    blinds = {
+    } },
+    { name = "blinds", contents = {
         { name = "aclaw"},
         { name = "atooth"},
         { name = "apaw"},
@@ -271,70 +272,70 @@ local files = {
         --{ name = "thetree" }, Disabled til we play Ortalab again
         { name = "calico" },
         { name = "thenipdx" },
-    },
-    hands = {
+    } },
+    { name = "hands", contents = {
         { name = "handful" },
-    },
-    planets = {
+    } },
+    { name = "planets", contents = {
         { name = "handfuls" },
-    },
-    stakes = {
+    } },
+    { name = "stakes", contents = {
         { name = "stakes" },
-    },
-    challenge = {
+    } },
+    { name = "challenge", contents = {
         { name = "raidnight" },
         { name = "backalley" },
         { name = "cosmoport" },
         { name = "taxfraud" },
-    },
-    etc = {
+    } },
+    { name = "etc", contents = {
         { name = "backupplan" }
-    }
+    } },
 }
 
-for folder, list in pairs(files) do
-    for _, data in ipairs(list) do
+for _, folder in ipairs(files) do
+    for _, data in ipairs(folder.contents) do
         if data.dummy then goto nvm end
         local load = true
         local name = data.name
         local mods = data.mods
         local incompat = data.incompat
         if mods then
-            sendTraceMessage("Checking required mods for "..folder..'/'..name..".lua", "Menthol")
+            sendTraceMessage("Checking required mods for "..folder.name..'/'..name..".lua", "Menthol")
             for _, mod in ipairs(mods) do
                 load = load and (SMODS.Mods[mod.id] or {}).can_load
                 if mod.cfg then
-                    sendTraceMessage("Checking config "..mod.cfg.." for "..folder..'/'..name..".lua", "Menthol")
+                    sendTraceMessage("Checking config "..mod.cfg.." for "..folder.name..'/'..name..".lua", "Menthol")
                     load = load and SMODS.Mods[mod.id].config[mod.cfg]
                 end
                 if mod.version then load = load and ((SMODS.Mods[mod.id] or {}).version >= mod.version) end
             end
         end
         if load and incompat then
-            sendTraceMessage("Checking conflicting mods for "..folder..'/'..name..".lua", "Menthol")
+            sendTraceMessage("Checking conflicting mods for "..folder.name..'/'..name..".lua", "Menthol")
             for _, mod in ipairs(incompat) do
                 load = load and not (SMODS.Mods[mod.id] or {}).can_load
             end
         end
         if load and data.dev then
-            sendTraceMessage("Checking dev mode option for "..folder..'/'..name..".lua", "Menthol")
+            sendTraceMessage("Checking dev mode option for "..folder.name..'/'..name..".lua", "Menthol")
             load = load and MINTY.config.dev_mode
         end
         if load then
-            sendTraceMessage("Loading file: "..folder..'/'..name..'.lua', "Menthol")
-            local loaded,errormessage = pcall(SMODS.load_file(folder..'/'..name..'.lua'))
+            sendTraceMessage("Loading file: "..folder.name..'/'..name..'.lua', "Menthol")
+            local loaded,errormessage = pcall(SMODS.load_file(folder.name..'/'..name..'.lua'))
             if not loaded then
                 local disable = not MINTY.config.dev_mode and "\nThe mod will be automatically disabled on restart." or ""
                 if not MINTY.config.dev_mode then
                     NFS.write(SMODS.current_mod.path .. '.lovelyignore', '')
                 end
                 sendErrorMessage(errormessage, "Menthol")
-                error("Menthol: File '"..folder.."/"..name..".lua' failed to load!\n   "..errormessage.."\nPlease make sure there's nothing fucky with your file structure."..disable)
+                error("Menthol: File '"..folder.name.."/"..name..".lua' failed to load!\n   "..errormessage.."\nPlease make sure there's nothing fucky with your file structure."..disable)
             end
 
 
         else
-            sendTraceMessage("Skipping file: "..folder..'/'..name..'.lua', "Menthol")
+            sendTraceMessage("Skipping file: "..folder.name..'/'..name..'.lua', "Menthol")
         end
         ::nvm::
     end

@@ -20,6 +20,9 @@ SMODS.Joker {
             again = 0
         }
     },
+    attributes = {
+        "rank", "suit", "mult", "minty_3s", "chance", "food"
+    },
     rarity = 1,
     atlas = 'jokerdoodles',
     pos = {
@@ -162,6 +165,9 @@ SMODS.Joker {
             xMult = 1,
             xMult_if_stick = 2
         }
+    },
+    attributes = {
+        "xmult"
     },
     rarity = 1,
     atlas = 'jokerdoodles',

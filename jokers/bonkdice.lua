@@ -30,6 +30,9 @@ SMODS.Joker {
             soulx = 0
         }
     },
+    attributes = {
+        "mult", "scaling", "chance"
+    },
     load = function (self, card, card_table, other_card)
         MINTY.event(function ()
             if not card.ability and card.ability.immutable then return false end

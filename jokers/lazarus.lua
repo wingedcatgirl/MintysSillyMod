@@ -34,6 +34,9 @@ SMODS.Joker {
             amount = 2,
         }
     },
+    attributes = {
+        "editions", "modify_card", "generation"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

@@ -23,23 +23,26 @@ SMODS.Joker {
     pools = {
         ["Paperback"] = true, --Increase freqency when playing with Paper Deck
     },
-    config = {extra = {
+    config = { extra = {
         xmult = 1.05,
         xmultgain = 0.05,
         xmultbase = 1.05,
         again = 0
-      }},
+    } },
+    attributes = {
+        "xmult", "scaling", "reset", "rank", "suit", "minty_3s"
+    },
     loc_vars = function(self, info_queue, card)
         if MINTY.in_collection(card) and not (paperback or MINTY.config.dev_mode or G.GAME.minty_crossover) then
-            info_queue[#info_queue+1] = { set = "Other", key = "minty_disabled_object_requirement", specific_vars = { "Mod", "Paperback" } }
+            info_queue[#info_queue + 1] = { set = "Other", key = "minty_disabled_object_requirement", specific_vars = { "Mod", "Paperback" } }
         end
         local key = self.key
         if MINTY.config.flavor_text then
-            key = self.key.."_flavor"
+            key = self.key .. "_flavor"
         end
         return {
             key = key,
-            vars = {card.ability.extra.xmult, card.ability.extra.xmultgain, card.ability.extra.xmultbase}
+            vars = { card.ability.extra.xmult, card.ability.extra.xmultgain, card.ability.extra.xmultbase }
         }
     end,
     in_pool = function(self, args)
@@ -64,18 +67,18 @@ SMODS.Joker {
                 -- Upgrade the xMult
                 local xmult = card.ability.extra.xmult
                 card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultgain
-                
+
                 --Prepare to retrigger if card is a 3 multiple times
                 local count = context.other_card:is_3()
                 card.ability.extra.again = count - 1
-    
+
                 return {
                     xmult = xmult,
                     card = card
                 }
             end
         end
-        
+
         --Retrigger self if played card was a 3 multiple times
         if context.retrigger_joker_check and card.ability.extra.again ~= 0 and context.other_card == card then
             local again = card.ability.extra.again
@@ -86,7 +89,7 @@ SMODS.Joker {
                 repetitions = again,
             }
         end
-    
+
         -- Quietly reset the xMult for the card at the end of played hand
         if context.after and not context.blueprint then
             card.ability.extra.xmult = card.ability.extra.xmultbase

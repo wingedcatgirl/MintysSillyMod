@@ -25,6 +25,9 @@ SMODS.Joker {
             chipgain = 20,
         }
     },
+    attributes = {
+        "scaling", "chips", "spectral", "reset"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

@@ -26,6 +26,9 @@ SMODS.Joker {
             req = 1000
         }
     },
+    attributes = {
+        "xmult", "chance"
+    },
     set_ability = function (self, card, initial, delay_sprites)
         card.ability.extra.xmult = pseudorandom("minty_youtube_value", card.ability.extra.min, card.ability.extra.max)
     end,

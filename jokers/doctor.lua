@@ -30,6 +30,9 @@ SMODS.Joker {
             talisman = talisman
         }
     },
+    attributes = {
+        talisman and "emult" or "xmult", "chance", "stupid", "reset"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if card.ability.extra.countdown <= 0 then

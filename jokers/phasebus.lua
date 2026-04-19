@@ -19,6 +19,9 @@ SMODS.Joker {
     blueprint_compat = false,
     demicoloncompat = true,
     config = { extra = {status = 'Active'} },
+    attributes = {
+        "generation", "spectral", "face"
+    },
     loc_vars = function(self, info_queue, card)
         local active = card.ability.extra.status == "Active" and localize("k_active_ex") or localize("k_minty_inactive")
         local key = self.key
@@ -33,14 +36,17 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.forcetrigger then
             if card.ability.extra.status == 'Active' then
+                G.GAME.consumeable_buffer = (G.GAME.consumeable_buffer or 0) + 1
                 G.E_MANAGER:add_event(Event({
                     trigger = 'before',
                     delay = 0.0,
                     func = (function()
-                            local card = create_card('Spectral',G.consumeables, nil, nil, nil, nil, nil, 'sea')
-                            card:add_to_deck()
-                            G.consumeables:emplace(card)
-                            G.GAME.consumeable_buffer = 0
+                        SMODS.add_card{
+                            set = "Spectral",
+                            key_append = "minty_phase_bus",
+                            area = G.consumeables
+                        }
+                        G.GAME.consumeable_buffer = G.GAME.consumeable_buffer - 1
                         return true
                     end)}))
                 return {
@@ -85,15 +91,17 @@ SMODS.Joker {
         if context.end_of_round and not context.blueprint and not context.repetition and not context.individual then
             if card.ability.extra.status == 'Active' then
                 if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                    G.GAME.consumeable_buffer = (G.GAME.consumeable_buffer or 0) + 1
                     G.E_MANAGER:add_event(Event({
                         trigger = 'before',
                         delay = 0.0,
                         func = (function()
-                                local card = create_card('Spectral',G.consumeables, nil, nil, nil, nil, nil, 'sea')
-                                card:add_to_deck()
-                                G.consumeables:emplace(card)
-                                G.GAME.consumeable_buffer = 0
+                            SMODS.add_card{
+                                set = "Spectral",
+                                key_append = "minty_phase_bus",
+                                area = G.consumeables
+                            }
+                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer - 1
                             return true
                         end)}))
                     return {

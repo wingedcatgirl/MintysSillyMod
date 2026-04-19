@@ -135,6 +135,8 @@ function Card:is_3(bypass_debuff)
 end
 
 function Card:is_kity()
+    if self.has_attribute then return self:has_attribute("kity") end
+
     local minty_kity = self.config.center.pools and self.config.center.pools.kity
     local yahicat = self.config.center.pools and self.config.center.pools.Cat
     local valkitty

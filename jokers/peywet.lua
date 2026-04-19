@@ -28,6 +28,9 @@ SMODS.Joker {
             life = 3
         }
     },
+    attributes = {
+        "food", "mod_chance"
+    },
     loc_vars = function(self, info_queue, card)
         if not G.PROFILES[G.SETTINGS.profile].career_stats["minty_peywet"] then G.PROFILES[G.SETTINGS.profile].career_stats["minty_peywet"] = 0 end
         local comprehension = G.PROFILES[G.SETTINGS.profile].career_stats["minty_peywet"]

@@ -23,6 +23,9 @@ SMODS.Joker {
             xmult = 0.25
         }
     },
+    attributes = {
+        "xmult", "generation", "suit", "kity", "space", "cobalt"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

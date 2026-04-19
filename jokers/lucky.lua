@@ -28,6 +28,9 @@ SMODS.Joker {
             boost = 33
         }
     },
+    attributes = {
+        "kity", "mod_chance", "passive"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

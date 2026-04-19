@@ -41,6 +41,9 @@ SMODS.Joker {
             debuffed_xmult = 2,
         }
     },
+    attributes = {
+        "chance", "mult", "xmult", "passive", "modify_card" --Or make a new debuff/flip attribute?
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         local luck, odds = SMODS.get_probability_vars(card, card.ability.extra.base_luck, card.ability.extra.base_odds, "minty_finity_calico_desc", false)

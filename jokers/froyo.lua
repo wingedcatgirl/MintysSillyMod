@@ -25,6 +25,9 @@ SMODS.Joker {
             chip_mod = 5
         }
     },
+    attributes = {
+        "chips", "food", "scaling"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

@@ -28,6 +28,9 @@ SMODS.Joker {
             inc = 1
         }
     },
+    attributes = {
+        "enhancements", "modify_card", "unscored", "full_deck", "chips"
+    },
     in_pool = function (self, args)
         return MINTY.find_enhancement("m_minty_crystal", true)
     end,

@@ -23,6 +23,9 @@ SMODS.Joker {
     blueprint_compat = true,
     demicoloncompat = true,
     config = {extra = {Xmult = 4}},
+    attributes = {
+        "xmult" --Poker hand size?
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

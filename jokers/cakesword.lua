@@ -28,6 +28,9 @@ SMODS.Joker {
             fallpct = 5,
         }
     },
+    attributes = {
+        "food", "xblindsize", "scaling"
+    },
     loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = {
             set = "Other",

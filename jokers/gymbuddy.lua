@@ -32,6 +32,9 @@ SMODS.Joker {
             hcash = 0.30,
         }
     },
+    attributes = {
+        "chips", "xchips", "mult", "xmult", "economy", "enhancements", "modify_card", "perma_bonus"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.config.flavor_text then

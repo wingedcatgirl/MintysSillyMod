@@ -25,6 +25,9 @@ SMODS.Joker {
             reps = 1
         }
     },
+    attributes = {
+        "retrigger", "rank"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         local rank = localize(card.ability.extra.rank, "ranks")

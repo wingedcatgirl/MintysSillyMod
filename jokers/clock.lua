@@ -31,6 +31,9 @@ SMODS.Joker {
             dollars = 30
         }
     },
+    attributes = {
+        "mult", "chips", "economy", "meta"
+    },
     loc_vars = function(self, info_queue, card)
         local hour, minute, second = get_time_numbers()
         local key = self.key

@@ -33,6 +33,9 @@ SMODS.Joker {
             again = 0
         }
     },
+    attributes = {
+        "chips", "suit", "rank", "minty_3s"
+    },
     loc_vars = function(self, info_queue, card)
         local key = self.key
         if MINTY.in_collection(card) and not (ortalab or MINTY.config.dev_mode or G.GAME.minty_crossover) then

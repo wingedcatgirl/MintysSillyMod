@@ -28,6 +28,9 @@ SMODS.Joker {
             chipgain_gain = 5,
         }
     },
+    attributes = {
+        "chips", "scaling", "hand_type", "passive"
+    },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = { set = 'Joker', key = 'j_shortcut', config = {} }
         local key = self.key
